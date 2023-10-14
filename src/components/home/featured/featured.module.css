@@ -1,12 +1,111 @@
 .featured_container {
+  display: flex;
+  width: 90rem;
+  padding: 5rem 8.125rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.625rem;
+  background: var(--Transparent, rgba(255, 255, 255, 0));
 }
 .featured_container .featured_content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  align-self: stretch;
 }
 .featured_content .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
 }
 .header .head {
+  width: 52.0625rem;
+  color: var(--black-800, #212121);
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+  font-family: Futura;
+  font-size: 2.625rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.0375rem;
 }
 .header .subhead {
+  width: 43.5rem;
+  color: #121212;
+  text-align: center;
+  font-feature-settings: "clig" off, "liga" off;
+
+  /* Text/20px/Regular */
+  font-family: Inter;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 2rem; /* 160% */
 }
 .featured_content .row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  align-self: stretch;
+}
+@media only screen and (max-width: 500px) {
+  .featured_container {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.625rem;
+    background: var(--Transparent, rgba(255, 255, 255, 0));
+  }
+  .featured_container .featured_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    align-self: stretch;
+  }
+  .featured_content .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .header .head {
+    width: 100%;
+    color: var(--black-800, #212121);
+    text-align: center;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: Futura;
+    font-size: 1.375rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: -0.0375rem;
+  }
+  .header .subhead {
+    width: 100%;
+    color: #121212;
+    text-align: center;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: Inter;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 2rem; /* 200% */
+  }
+  .featured_content .row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    align-self: stretch;
+  }
 }

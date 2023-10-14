@@ -1,4 +1,5 @@
 .deals_container {
+  width: 90rem;
   display: flex;
   padding: 5rem 8.125rem;
   flex-direction: column;
@@ -126,4 +127,9 @@
   width: 4.54256rem;
   height: 5.625rem;
   flex-shrink: 0;
+}
+@media only screen and (max-width: 500px) {
+  .deals_container {
+    display: none;
+  }
 }

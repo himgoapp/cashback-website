@@ -1,0 +1,7 @@
+.offer_cards_container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}

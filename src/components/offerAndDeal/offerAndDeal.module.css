@@ -1,0 +1,18 @@
+.offer_and_deals_wrapper {
+  width: 90rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4rem;
+  position: relative;
+}
+@media only screen and (max-width: 500px) {
+  .offer_and_deals_wrapper {
+    width: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+    position: relative;
+  }
+}

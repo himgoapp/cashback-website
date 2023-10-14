@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./banner.module.css";
 import bannerimg from "../../../assets/bannerimg.png";
 import layer1 from "../../../assets/Layer_1.png";
+import { Link } from "react-router-dom";
 const Banner = () => {
   return (
     <div className={styles.banner_container}>
@@ -19,7 +20,12 @@ const Banner = () => {
         </div>
         <div className={styles.btn_container}>
           <div className={styles.text}>
-            {/* Button Text Content */}Get started
+            <Link
+              to="/offer_and_deals"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              Get started
+            </Link>
           </div>
         </div>
       </div>

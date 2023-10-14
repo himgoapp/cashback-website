@@ -10,7 +10,14 @@ const Getstarted = () => {
         <div className={styles.image_container}>
           <div className={styles.image}>
             {/* Image Content */}{" "}
-            <img src={getstarted} style={{ width: "100%" }} alt="" />{" "}
+            <img
+              src={getstarted}
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+              alt=""
+            />{" "}
           </div>
         </div>
         {/* How To Container */}
