@@ -106,6 +106,12 @@
   height: 1.07144rem;
   flex-shrink: 0;
 }
+@media only screen and (max-width: 1440px) {
+  .footer_container {
+    width: 100%;
+    padding: 5.75rem 5rem 3.375rem 5rem;
+  }
+}
 @media only screen and (max-width: 500px) {
   .footer_container {
     display: flex;
