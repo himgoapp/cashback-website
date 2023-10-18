@@ -26,10 +26,12 @@
   width: 36.5625rem;
   /* height: 46rem;
    */
+  height: 100%;
   flex-shrink: 0;
 }
 .image img {
   border-bottom-left-radius: 1.36388rem;
+  border-top-left-radius: 1.36388rem;
 }
 .getstarted_content .howto_container {
   display: inline-flex;

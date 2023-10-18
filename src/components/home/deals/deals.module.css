@@ -1,10 +1,11 @@
 .deals_container {
   width: 90rem;
   display: flex;
-  padding: 5rem 8.125rem;
+  padding: 1rem 8.125rem 5rem 8.125rem;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.625rem;
+  border-bottom: 0.0625rem solid #eaeaea;
 }
 .deals_container .content {
   display: flex;

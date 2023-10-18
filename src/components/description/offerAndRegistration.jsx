@@ -160,7 +160,7 @@ const OfferAndRegistration = () => {
                 {/* Type Content */}
                 <div className={styles.type_content}>
                   {/* Type */}
-                  <div className={styles.type}>
+                  <div className={styles.type + " " + styles.focused}>
                     {/* Type Content */}
                     <span>{/* Type Span Content */}After Registration</span>
                   </div>
