@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import styles from "./card.module.css"; // Replace with your actual CSS module path
 import offerimg from "../../../assets/offercard.png";
 import Navbtn from "../../common/button/navbtn/navbtn";
-const OfferCard = () => {
+const OfferCard = ({ fillBtn }) => {
+  console.log(fillBtn);
   const [mobile, setIsMobile] = useState(true);
   useEffect(() => {
     const width = window.innerWidth;
@@ -101,28 +102,32 @@ const OfferCard = () => {
               </div>
             </div>
           </div>
+
           <div style={{ width: "100%" }}>
-            {/* <Navbtn
-              text="Sign Up"
-              bg="#3968EB"
-              color="white"
-              showIcon={false}
-              font={{ fontSize: "1.375rem" }}
-              style={{ width: "19.5rem", height: "4rem" }}
-            /> */}
-            <Navbtn
-              text="Sign up"
-              bg="transparent"
-              color="black"
-              showIcon={false}
-              font={{ fontSize: "1.375rem" }}
-              style={{
-                width: mobile ? "100%" : "19.5rem",
-                height: "4rem",
-                borderRadius: "5.8125rem",
-                border: "1px solid #3968EB",
-              }}
-            />
+            {fillBtn ? (
+              <Navbtn
+                text="Sign up"
+                bg="transparent"
+                color="#3968EB"
+                showIcon={false}
+                font={{ fontSize: "1.375rem" }}
+                style={{
+                  width: mobile ? "100%" : "19.5rem",
+                  height: "4rem",
+                  borderRadius: "5.8125rem",
+                  border: "1px solid #3968EB",
+                }}
+              />
+            ) : (
+              <Navbtn
+                text="Sign Up"
+                bg="#3968EB"
+                color="white"
+                showIcon={false}
+                font={{ fontSize: "1.375rem" }}
+                style={{ width: "19.5rem", height: "4rem" }}
+              />
+            )}
           </div>
         </div>
       </div>

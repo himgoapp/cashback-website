@@ -8,7 +8,7 @@ const OfferHeader = () => {
       <SectionHeader
         head="Offers & Deals"
         subhead="Discover the Ultimate Poker Experience: Top-rated rooms, unbeatable offers, and more!"
-        // subHeadStyle={{ width: "35rem" }}
+        offerHead={true}
       />
       <div className={styles.email_input_container}>
         {/* Input Content */}

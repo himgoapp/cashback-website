@@ -84,3 +84,14 @@
     align-self: stretch;
   }
 }
+.offer_subhead {
+  width: 29.5rem;
+}
+@media only screen and (max-width: 500px) {
+  .head_and_subhead .subhead {
+    font-size: 1.125rem;
+  }
+  .offer_subhead {
+    width: 100%;
+  }
+}

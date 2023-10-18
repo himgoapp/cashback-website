@@ -1,6 +1,12 @@
 import React from "react";
 import styles from "./sectionHeader.module.css";
-const SectionHeader = ({ head, subhead, headStyle, subHeadStyle }) => {
+const SectionHeader = ({
+  head,
+  subhead,
+  headStyle,
+  subHeadStyle,
+  offerHead,
+}) => {
   return (
     <div className={styles.header}>
       <div className={styles.header_content}>
@@ -8,7 +14,10 @@ const SectionHeader = ({ head, subhead, headStyle, subHeadStyle }) => {
           <div className={styles.head} style={{ ...headStyle }}>
             {head}
           </div>
-          <div className={styles.subhead} style={{ ...subHeadStyle }}>
+          <div
+            className={styles.subhead + " " + styles.offer_subhead}
+            style={{ ...subHeadStyle }}
+          >
             {subhead}
           </div>
         </div>
