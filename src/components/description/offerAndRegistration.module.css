@@ -454,6 +454,7 @@
   align-items: center;
   gap: 0.5rem;
   flex: 1 0 0;
+  border-bottom: 2px solid #3968eb;
 }
 .type_content .type span {
   color: #3968eb;
@@ -1022,6 +1023,7 @@
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+
     flex: 1 0 0;
   }
   .type_content .type span {
