@@ -74,7 +74,7 @@ const offersAndDealsPageMenu = (
       </Link>
     </div>
     <div className={styles.faq}>
-      <span style={{ color: "#3968EB" }}>Offers & deals</span>{" "}
+      <span style={{ color: "#3968EB" }}>Offers & deals</span>
     </div>
   </div>
 );

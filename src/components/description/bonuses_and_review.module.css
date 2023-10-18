@@ -1,0 +1,281 @@
+.bonuses_and_review_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+}
+.bonuses_and_review_wrapper .horizontal_tabs {
+  display: flex;
+  width: 73.6875rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  border-bottom: 1px solid var(--gray-200, #eaecf0);
+}
+.horizontal_tabs .tabs {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+.tabs .tab_button_base {
+  display: flex;
+  padding: 0.5rem 0.75rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: #101828;
+}
+.tab_button_base .head {
+  /* Text lg/Semibold */
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.75rem; /* 155.556% */
+}
+.tab_button_base .subhead {
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem; /* 142.857% */
+}
+.tabs .focused {
+  color: #3968eb;
+  border-bottom: 2px solid #3968eb;
+}
+
+/*  */
+.bonuses_and_review_wrapper .bonus_and_review_container {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.875rem;
+}
+.bonus_and_review_container .content_container {
+  display: flex;
+  width: 15.8125rem;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+  background: #f5f8ff;
+}
+.content_container .heading {
+  display: flex;
+  width: 5.0625rem;
+  height: 1.3125rem;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--gray-900, #101828);
+
+  /* Text lg/Medium */
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.75rem; /* 155.556% */
+}
+.content_container .divider {
+  height: 0.0625rem;
+  align-self: stretch;
+  background: #c5d4fc;
+}
+.content_container .content_list_ul {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  align-self: stretch;
+}
+.content_list_ul .list {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.list svg {
+  width: 0.3125rem;
+  height: 0.3125rem;
+}
+.list .text {
+  color: #475467;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem; /* 142.857% */
+}
+
+/*  */
+.bonus_and_review_container .bonus_and_review_description {
+  display: flex;
+  width: 34.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  align-self: stretch;
+}
+.bonus_and_review_container .head {
+  width: 30.75rem;
+  color: var(--gray-900, #101828);
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 2rem; /* 133.333% */
+}
+.bonus_and_review_container .description_text {
+  align-self: stretch;
+  color: #475467;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; /* 142.857% */
+}
+/*  */
+.bonus_and_review_container .freerolls_container {
+  display: flex;
+  width: 19.625rem;
+  padding: 1.5rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  border-radius: 0.5rem;
+  border: 1px solid #d0d5dd;
+}
+.freerolls_container .head {
+  display: flex;
+  width: 7.4375rem;
+  height: 1.3125rem;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--gray-900, #101828);
+
+  /* Text lg/Medium */
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.75rem; /* 155.556% */
+}
+.freerolls_container .divider {
+  height: 0.0625rem;
+  align-self: stretch;
+  background: #eaeaea;
+}
+.freerolls_container .freeroll_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+  align-self: stretch;
+}
+.freeroll_content .freeroll_amount {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  align-self: stretch;
+}
+.freeroll_amount .icon {
+  width: 1.5rem;
+  height: 1.84144rem;
+}
+.freeroll_amount .amount_and_find {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.amount_and_find .amount {
+  display: flex;
+  width: 11.125rem;
+  height: 1.3125rem;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--gray-900, #101828);
+
+  /* Text sm/Medium */
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem; /* 142.857% */
+}
+.amount_and_find .find {
+  color: #3968eb;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.25rem; /* 142.857% */
+}
+.freeroll_content .countdown {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  align-self: stretch;
+}
+.countdown .date_container {
+  /* combining date_type */
+  width: 3.5625rem;
+  height: 3.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: centerww;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  border: 1px dashed #3968eb;
+  background: rgba(255, 255, 255, 0);
+}
+.date_container .time {
+  color: #475467;
+  text-align: center;
+  font-family: Inter;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 0.98106rem; /* 65.404% */
+}
+.date_container .time span {
+  display: block;
+  color: #475467;
+  font-family: Inter;
+  font-size: 0.63069rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1rem;
+}
+/*  */
+.freeroll_content .freeroll_info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  align-self: stretch;
+}
+.freeroll_info .info_container {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.info_container .icon {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+.info_container .text {
+  color: #475467;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem; /* 142.857% */
+}
+.info_container .text span {
+  color: #0d9488;
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem;
+}

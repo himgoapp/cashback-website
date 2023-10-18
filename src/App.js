@@ -34,6 +34,7 @@ import HomePage from "./pages/homepage";
 
 import { createContext, useState } from "react";
 import OfferAndDealsContainer from "./pages/offerAndDealsPage";
+import DescriptionPage from "./pages/descriptionPage";
 
 export const UserContext = createContext();
 function App() {
@@ -47,6 +48,7 @@ function App() {
               path="/offer_and_deals"
               element={<OfferAndDealsContainer />}
             />
+            <Route path="/description" element={<DescriptionPage />} />
             {/* <Route path="brands" element={<BrandsPage />} />
             <Route path="item/:id" element={<ItemDetail />} />
             <Route path="products/:name" element={<AllProductsPage />} /> */}

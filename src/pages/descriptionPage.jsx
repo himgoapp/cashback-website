@@ -1,20 +1,25 @@
 import React from "react";
+import MainContainer from "../layout/mainContainer";
 import Navbar from "../components/common/navbar/navbar";
-import OfferAndDeal from "../components/offerAndDeal/offerAndDeal";
-import FAQ from "../components/home/FAQ/faq";
-import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
 import Footer from "../components/common/footer/footer";
 import offerbg from "../assets/offerbannerbg.png";
-import MainContainer from "../layout/mainContainer";
-const OfferAndDealsContainer = () => {
+import DescriptionContentWrapper from "../components/description/descriptionContentWrapper";
+import OfferAndRegistration from "../components/description/offerAndRegistration";
+import BonusesAndReview from "../components/description/bonuses_and_review";
+
+const DescriptionPage = () => {
   return (
     <>
       {/* <MainContainer> */}
       <Navbar page="offer" />
       <div style={{ position: "relative", marginTop: "4rem" }}>
         <MainContainer>
-          <OfferAndDeal />
-        </MainContainer>{" "}
+          {/* DescriptionContentWrapper */}
+          <DescriptionContentWrapper>
+            <OfferAndRegistration />
+            <BonusesAndReview />
+          </DescriptionContentWrapper>
+        </MainContainer>
         {/* banner background image */}
         <div
           className=""
@@ -37,22 +42,19 @@ const OfferAndDealsContainer = () => {
           />
         </div>{" "}
       </div>
-      <MainContainer styles={{ padding: "0", paddingTop: "4rem" }}>
-        <FAQ />
-      </MainContainer>
-      <MainContainer>
-        <JoinRakeback />
-      </MainContainer>
 
       <div
-        style={{ width: "100%", backgroundColor: "#3968eb" }}
+        style={{
+          width: "100%",
+          backgroundColor: "#3968eb",
+          marginTop: "10rem",
+        }}
         className="flex_center"
       >
-        <Footer />{" "}
+        <Footer />
       </div>
-      {/* </MainContainer> */}
     </>
   );
 };
 
-export default OfferAndDealsContainer;
+export default DescriptionPage;
