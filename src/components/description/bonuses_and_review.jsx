@@ -28,11 +28,19 @@ const BonusesAndReview = () => {
           <div className={styles.heading}>Content</div>
           <div className={styles.divider}></div>
           <div className={styles.content_list_ul}>
-            {generateArray(7).map((g) => {
+            {[
+              "Deposit bonus up to $2000",
+              "$25 Instant Bonus ",
+              "Rakeback up to 35% ",
+              "Weekly reload bonus",
+              "$50,000 rake race ",
+              "Rake structure ",
+              "Maximum 45% rake back ",
+            ].map((content) => {
               return (
                 <div className={styles.list}>
                   {bulletPoint}
-                  <div className={styles.text}>Deposit bonus up to $2000</div>
+                  <div className={styles.text}>{content}</div>
                 </div>
               );
             })}
@@ -73,12 +81,17 @@ const BonusesAndReview = () => {
               </div>
               <div className={styles.countdown}>
                 {/* Countdown */}
-                {generateArray(4).map((m) => {
+                {[
+                  { time: 25, type: "DAYS" },
+                  { time: 21, type: "HOURS" },
+                  { time: 32, type: "MINS" },
+                  { time: 23, type: "SECS" },
+                ].map((date) => {
                   return (
                     <div className={styles.date_container}>
                       <div className={styles.time}>
-                        25
-                        <span>DAYS</span>
+                        {date.time}
+                        <span>{date.type}</span>
                       </div>
                     </div>
                   );
@@ -87,7 +100,10 @@ const BonusesAndReview = () => {
             </div>
 
             {/* Freeroll Info */}
-            <div className={styles.freeroll_info}>
+            <div
+              className={styles.freeroll_info}
+              style={{ display: "flex", flexDirection: "column", gap: ".6rem" }}
+            >
               {/* Info Container */}
               <div className={styles.info_container}>
                 <div className={styles.icon}>{prizeIcon}</div>

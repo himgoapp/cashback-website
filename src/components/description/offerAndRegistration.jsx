@@ -1,8 +1,9 @@
 import React from "react";
 import styles from "./offerAndRegistration.module.css"; // Replace with your actual CSS module path
 import offercard from "../../assets/offercard.png";
-import { generateArray } from "../../utils/generateArray";
+import proIcon from "../../assets/proIcon.png";
 import bonusgift from "../../assets/bonusgift.png";
+import walletIcon from "../../assets/walletIcon.png";
 import Navbtn from "../common/button/navbtn/navbtn";
 const OfferAndRegistration = () => {
   return (
@@ -57,52 +58,69 @@ const OfferAndRegistration = () => {
                     </div>
                   </div>
                   <div className={styles.verified_container}>
-                    {generateArray(5).map((a) => {
-                      return (
-                        <>
-                          {/* Verified Content */}
-                          <div className={styles.verified_content}>
-                            {/* Text */}
-                            <div className={styles.text}>Trackers</div>
+                    {["Trackers", "HUD", "Mining", "Layouts", "VPN"].map(
+                      (verify, index) => {
+                        return (
+                          <>
+                            {/* Verified Content */}
+                            <div
+                              className={styles.verified_content}
+                              style={
+                                index < 3
+                                  ? { borderRight: "1px solid #EAEAEA" }
+                                  : {}
+                              }
+                            >
+                              {/* Text */}
+                              <div className={styles.text}>{verify}</div>
 
-                            {/* Icon */}
-                            <div className={styles.icon}>{verifiedIcon}</div>
-                          </div>
+                              {/* Icon */}
+                              <div className={styles.icon}>{verifiedIcon}</div>
+                            </div>
 
-                          {/* Divider */}
-                          {/* <div className={styles.divider}>
+                            {/* Divider */}
+                            {/* <div className={styles.divider}>
                           </div> */}
-                        </>
-                      );
-                    })}{" "}
+                          </>
+                        );
+                      }
+                    )}{" "}
                   </div>
                 </div>
               </div>
             </div>
           </div>
           <div className={styles.bonus_container}>
-            {generateArray(3).map((a) => {
+            {[
+              [bonusgift, "First deposit bonus", "200% up to $2000"],
+              [walletIcon, "Rake Refund", "Up to 45%"],
+              [
+                proIcon,
+                "For all our players",
+                "Maximum 35% rakeback",
+                "for anyrake amount",
+              ],
+            ].map((bonus) => {
               return (
                 <div className={styles.bonus_wrapper}>
                   <div className={styles.bonus_content}>
                     {/* Icon */}
                     <div className={styles.icon}>
-                      <img src={bonusgift} alt="" />
+                      <img src={bonus[0]} alt="" />
                     </div>
 
                     {/* Bonus Text */}
                     <div className={styles.bonus_text}>
                       {/* Type */}
-                      <div className={styles.type}>First deposit bonus</div>
-
-                      {/* Percent */}
-                      <div className={styles.percent}>200% up to $2000</div>
-
-                      {/* Max */}
-                      {/* <div className={styles.max}>
-                        For all our players Maximum 35% rakeback for anyrake
-                        amount
-                      </div> */}
+                      <div className={styles.type}>{bonus[1]}</div>
+                      {bonus.length === 4 ? (
+                        <>
+                          <div className={styles.max}>Maximum 35% rakeback</div>
+                          <div className={styles.type}>{bonus[3]}</div>
+                        </>
+                      ) : (
+                        <div className={styles.percent}> {bonus[2]} </div>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -233,6 +251,7 @@ const OfferAndRegistration = () => {
 };
 
 export default OfferAndRegistration;
+
 const helpIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
