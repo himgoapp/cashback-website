@@ -38,6 +38,7 @@ import DescriptionPage from "./pages/descriptionPage";
 import DashboardHome from "./components/dashboard/home/home";
 import PokerID from "./components/dashboard/pokerID/pokerID";
 import VerifyAccount from "./components/dashboard/veryfyAccount/verifyAccount";
+import KYC from "./components/dashboard/KYC/kyc";
 
 export const UserContext = createContext();
 function App() {
@@ -58,6 +59,7 @@ function App() {
               path="/dashboard/verify-account"
               element={<VerifyAccount />}
             />
+            <Route path="/dashboard/kyc" element={<KYC />} />
             {/* <Route path="brands" element={<BrandsPage />} />
             <Route path="item/:id" element={<ItemDetail />} />
             <Route path="products/:name" element={<AllProductsPage />} /> */}

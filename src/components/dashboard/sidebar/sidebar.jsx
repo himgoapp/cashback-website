@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./sidebar.module.css";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -13,21 +14,33 @@ const Sidebar = () => {
           </div>
           <div className={styles.Navigation}>
             {[
-              { icon: barIcon, text: "Home" },
-              { icon: barIcon, text: "Poker IDs" },
-              { icon: verifyIcon, text: "Verify Account" },
-              { icon: barIcon, text: "KYC" },
-              { icon: barIcon, text: "My Transactions" },
+              { icon: barIcon, text: "Home", link: "/dashboard/home" },
+              { icon: barIcon, text: "Poker IDs", link: "/dashboard/pokerID" },
+              {
+                icon: verifyIcon,
+                text: "Verify Account",
+                link: "/dashboard/verify-account",
+              },
+              { icon: barIcon, text: "KYC", link: "/dashboard/kyc" },
+              {
+                icon: barIcon,
+                text: "My Transactions",
+                link: "/dashboard/my-transaction",
+              },
             ].map((nav) => {
               return (
-                <div className={styles.NavItemBase}>
+                <Link
+                  to={nav.link}
+                  style={{ textDecoration: "none", width: "100%" }}
+                  className={styles.NavItemBase}
+                >
                   <div className={styles.ItemContent}>
                     <div className={styles.BarChart01}>
                       <div className={styles.Icon}>{nav.icon}</div>
                     </div>
                     <div className={styles.Text}>{nav.text}</div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
