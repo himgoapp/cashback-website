@@ -1,0 +1,242 @@
+/* Define CSS classes */
+.SidebarNavigation {
+  width: 17.5rem;
+  height: 100vh;
+  background: #3968eb;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.Content {
+  width: 100%;
+  flex: 1 1 0;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: inline-flex;
+}
+
+.Nav {
+  align-self: stretch;
+  height: 22rem; /* 352px / 16px */
+  padding-top: 2rem; /* 32px / 16px */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem; /* 24px / 16px */
+  display: flex;
+}
+
+.Header {
+  align-self: stretch;
+  height: 2.5rem; /* 40px / 16px */
+  padding-left: 1.5rem; /* 24px / 16px */
+  padding-right: 1.25rem; /* 20px / 16px */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.LogoContainer {
+  width: 8.11rem; /* 129.78px / 16px */
+  height: 2.5rem; /* 40px / 16px */
+  position: relative;
+}
+
+.Logo {
+  width: 8.11rem; /* 129.78px / 16px */
+  height: 2.5rem; /* 40px / 16px */
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+
+.Navigation {
+  width: 100%;
+  align-self: stretch;
+  height: 16rem; /* 256px / 16px */
+  padding-left: 1rem; /* 16px / 16px */
+  padding-right: 1rem; /* 16px / 16px */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.25rem; /* 4px / 16px */
+  display: flex;
+}
+
+.NavItemBase {
+  align-self: stretch;
+  height: 3rem; /* 48px / 16px */
+  padding-left: 1rem; /* 16px / 16px */
+  padding-right: 1rem; /* 16px / 16px */
+  padding-top: 0.5rem; /* 8px / 16px */
+  padding-bottom: 0.5rem; /* 8px / 16px */
+  background: #4072ff;
+  border-radius: 2rem; /* 32px / 16px */
+  overflow: hidden;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.5rem; /* 8px / 16px */
+  display: inline-flex;
+}
+
+.ItemContent {
+  flex: 1 1 0;
+  height: 1.5rem; /* 24px / 16px */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem; /* 12px / 16px */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.BarChart01 {
+  width: 1.5rem; /* 24px / 16px */
+  height: 1.5rem; /* 24px / 16px */
+  position: relative;
+}
+
+.Text {
+  color: white;
+  font-size: 1rem; /* 16px / 16px */
+  font-family: "Inter";
+  font-weight: 600;
+  line-height: 1.5rem; /* 24px / 16px */
+  word-wrap: break-word;
+}
+
+/*  */
+/* styles.css */
+.Footer {
+  align-self: stretch;
+  height: 6rem; /* 96px / 16px */
+  padding-bottom: 2rem; /* 32px / 16px */
+  padding-left: 1rem; /* 16px / 16px */
+  padding-right: 1rem; /* 16px / 16px */
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem; /* 24px / 16px */
+  display: flex;
+}
+
+.Account {
+  align-self: stretch;
+  padding-top: 1.5rem; /* 24px / 16px */
+  padding-left: 0.5rem; /* 8px / 16px */
+  padding-right: 2rem; /* 32px / 16px */
+  border-top: 0.0625rem solid #4072ff; /* 1px / 16px */
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 2.9375rem; /* 47px / 16px */
+  display: inline-flex;
+}
+
+.AvatarLabelGroup {
+  flex: 1 1 0;
+  height: 2.5rem; /* 40px / 16px */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem; /* 12px / 16px */
+  display: flex;
+}
+
+.Avatar {
+  width: 2.5rem; /* 40px / 16px */
+  height: 2.5rem; /* 40px / 16px */
+  border-radius: 12.5rem; /* 200px / 16px */
+}
+
+.TextAndSupportingText {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: inline-flex;
+}
+
+.Text {
+  color: white;
+  font-size: 0.875rem; /* 14px / 16px */
+  font-family: "Inter";
+  font-weight: 600;
+  line-height: 1.25rem; /* 20px / 16px */
+  word-wrap: break-word;
+}
+
+.SupportingText {
+  color: #f5f5f5;
+  font-size: 0.875rem; /* 14px / 16px */
+  font-family: "Inter";
+  font-weight: 400;
+  line-height: 1.25rem; /* 20px / 16px */
+  word-wrap: break-word;
+}
+
+.Button {
+  padding: 0.5rem; /* 8px / 16px */
+  border-radius: 0.5rem; /* 8px / 16px */
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem; /* 8px / 16px */
+  display: flex;
+}
+
+.Placeholder {
+  width: 1.25rem; /* 20px / 16px */
+  height: 1.25rem; /* 20px / 16px */
+  position: relative;
+}
+
+.FooterIcon {
+  width: 1.042rem; /* 16.67px / 16px */
+  height: 1.042rem; /* 16.67px / 16px */
+  left: 0.104rem; /* 1.67px / 16px */
+  top: 0.104rem; /* 1.67px / 16px */
+  position: absolute;
+  border: 0.104rem solid #475467; /* 1.67px / 16px */
+}
+
+/* .sidebar_container {
+}
+.sidebar_container .sidebar_content {
+}
+.sidebar_content .sidebar_nav {
+}
+.sidebar_content .sidebar_footer {
+}
+.sidebar_nav .header {
+}
+.header .logo_container {
+}
+.logo_container .logo {
+}
+.sidebar_nav .navigation {
+}
+.navigation .nav_item {
+}
+.nav_item .item_content {
+}
+.item_content .icon {
+}
+.item_content .text {
+}
+
+.sidebar_footer .account {
+}
+.account .avatar_group {
+}
+.avatar_group .avatar {
+}
+.avatar_group .texts {
+}
+.texts .head {
+}
+.texts .subhead {
+}
+.account .btn {
+} */

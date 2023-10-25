@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./navbtn.module.css";
-const Navbtn = ({ text, bg, color, showIcon, font, style }) => {
+const Navbtn = ({ text, bg, color, showIcon, iconColor, font, style }) => {
   return (
     <div
       className={styles.navbtn_container}
@@ -14,29 +14,29 @@ const Navbtn = ({ text, bg, color, showIcon, font, style }) => {
         <div className={styles.icon}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
             fill="none"
           >
             <path
-              d="M5.00002 12H19"
-              stroke="white"
-              stroke-width="1.5"
+              d="M4.16602 10.0002H15.8327"
+              stroke={iconColor || "white"}
+              stroke-width="1.25"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
             <path
-              d="M15 16L19 12"
-              stroke="white"
-              stroke-width="1.5"
+              d="M12.5 13.3333L15.8333 10"
+              stroke={iconColor || "white"}
+              stroke-width="1.25"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
             <path
-              d="M15 7.99997L19 12"
-              stroke="white"
-              stroke-width="1.5"
+              d="M12.5 6.6665L15.8333 9.99984"
+              stroke={iconColor || "white"}
+              stroke-width="1.25"
               stroke-linecap="round"
               stroke-linejoin="round"
             />
