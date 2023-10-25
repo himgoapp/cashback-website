@@ -1,0 +1,152 @@
+.PokerCard {
+  /* width: 100%; */
+  /* height: 100%; */
+  background: white;
+  box-shadow: 0.0625rem 0.125rem 0.25rem
+    rgba(0.625rem, 0.9375rem, 1.5625rem, 0.06);
+  border: 0.0625rem #eaecf0 solid;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: inline-flex;
+  /*  */
+  display: flex;
+  height: 9.5625rem;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  border-radius: 0.75rem;
+  border: 1px solid #eaecf0;
+  background: var(--base-white, #fff);
+
+  /* Shadow/sm */
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
+    0px 1px 3px 0px rgba(16, 24, 40, 0.1);
+}
+
+.CardContent {
+  align-self: stretch;
+  height: 6rem;
+  padding: 1.5rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem;
+  display: flex;
+}
+
+.HeaderAndId {
+  align-self: stretch;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.125rem;
+  display: inline-flex;
+}
+
+.HeaderAndIdContent {
+  flex: 1 1 0;
+  height: 3rem;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0.75rem;
+  display: flex;
+}
+
+.Image152 {
+  width: 2.875rem;
+  height: 3rem;
+}
+
+.HeaderId {
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  display: inline-flex;
+}
+
+.Head {
+  align-self: stretch;
+  color: #101828;
+  font-size: 1rem;
+  font-family: "Inter";
+  font-weight: 600;
+  line-height: 1.5rem;
+  word-wrap: break-word;
+}
+
+.Id {
+  align-self: stretch;
+  color: #344054;
+  font-size: 0.875rem;
+  font-family: "Inter";
+  font-weight: 400;
+  line-height: 1.25rem;
+  word-wrap: break-word;
+}
+
+.CardFooter {
+  align-self: stretch;
+  height: 3.5625rem;
+  padding-bottom: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  display: flex;
+}
+
+.Divider {
+  align-self: stretch;
+  height: 0.0625rem;
+  background: #eaecf0;
+}
+
+.FooterContent {
+  align-self: stretch;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: inline-flex;
+}
+
+.PokerStatus {
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.625rem;
+  display: flex;
+}
+
+.Badge {
+  padding-left: 0.625rem;
+  padding-right: 0.625rem;
+  padding-top: 0.125rem;
+  padding-bottom: 0.125rem;
+  mix-blend-mode: multiply;
+  background: #fef3f2;
+  border-radius: 1rem;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.Text {
+  text-align: center;
+  color: #b42318;
+  font-size: 0.875rem;
+  font-family: "Inter";
+  font-weight: 500;
+  line-height: 1.25rem;
+  word-wrap: break-word;
+}
+
+.PokerDate {
+  color: #475467;
+  font-size: 1rem;
+  font-family: "Inter";
+  font-weight: 400;
+  line-height: 1.5rem;
+  word-wrap: break-word;
+  white-space: nowrap;
+}

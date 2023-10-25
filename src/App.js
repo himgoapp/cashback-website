@@ -36,6 +36,7 @@ import { createContext, useState } from "react";
 import OfferAndDealsContainer from "./pages/offerAndDealsPage";
 import DescriptionPage from "./pages/descriptionPage";
 import DashboardHome from "./components/dashboard/home/home";
+import PokerID from "./components/dashboard/pokerID/pokerID";
 
 export const UserContext = createContext();
 function App() {
@@ -51,6 +52,7 @@ function App() {
             />
             <Route path="/description" element={<DescriptionPage />} />
             <Route path="/dashboard/home" element={<DashboardHome />} />
+            <Route path="/dashboard/pokerID" element={<PokerID />} />
             {/* <Route path="brands" element={<BrandsPage />} />
             <Route path="item/:id" element={<ItemDetail />} />
             <Route path="products/:name" element={<AllProductsPage />} /> */}

@@ -34,11 +34,7 @@ const DashboardHomeHeader = () => {
                 <div className={styles.HeaderBtnText}>₹0.00</div>
               </div>
               <div className={styles.HeaderNavBtn2}>
-                <div className={styles.HeaderBtn2Icon}>
-                  <div className={styles.Icon}>
-                    <img src={bellIcon} alt="" />
-                  </div>
-                </div>
+                <img src={bellIcon} alt="" />
               </div>
             </div>
           </div>

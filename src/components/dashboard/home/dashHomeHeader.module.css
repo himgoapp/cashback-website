@@ -66,7 +66,7 @@
 }
 
 .HeaderNavBtn {
-  padding: 0.625rem; /* 10px / 16px */
+  /*  padding: 0.625rem;10px / 16px */
   background: white;
   border-radius: 4rem; /* 64px / 16px */
   overflow: hidden;
@@ -96,21 +96,11 @@
   word-wrap: break-word;
 }
 
-.HeaderNavBtn2 {
-  padding: 0.625rem; /* 10px / 16px */
-  background: white;
-  border-radius: 4rem; /* 64px / 16px */
-  overflow: hidden;
-  border: 0.0625rem solid #d0d5dd; /* 1px / 16px */
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 0.5rem; /* 8px / 16px */
-  display: flex;
-}
-
 .HeaderNavBtn2 img {
   width: 1.25rem; /* 20px / 16px */
   height: 1.25rem; /* 20px / 16px */
+  width: 2rem;
+  height: 2rem;
   position: relative;
 }
 
