@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./withdraw.module.css";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import withdraw from "../../../assets/withdraw.png";
-import wallet from "../../../assets/wallet.png";
+// import wallet from "../../../assets/wallet.png";
 const Withdraw = () => {
   return (
     <div className={styles.HomeWithdraw}>

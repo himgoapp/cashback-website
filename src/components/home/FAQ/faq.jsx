@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./faq.module.css";
-import faqbg from "../../../assets/faqbg.png";
+// import faqbg from "../../../assets/faqbg.png";
 const FAQ = () => {
   const QandA = [
     {

@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./bonuses_and_review.module.css";
-import { generateArray } from "../../utils/generateArray";
+// import { generateArray } from "../../utils/generateArray";
 const BonusesAndReview = () => {
   return (
     <div className={styles.bonuses_and_review_wrapper}>

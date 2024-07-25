@@ -8,7 +8,8 @@ const OfferCard = ({ fillBtn }) => {
   useEffect(() => {
     const width = window.innerWidth;
     setIsMobile(width <= 500);
-    console.log(width, mobile);
+    // console.log(width, mobile);
+    // eslint-disable-next-line
   }, []);
   return (
     <div className={styles.card_item_container}>

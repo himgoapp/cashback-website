@@ -32,7 +32,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/homepage";
 
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import OfferAndDealsContainer from "./pages/offerAndDealsPage";
 import DescriptionPage from "./pages/descriptionPage";
 import DashboardHome from "./components/dashboard/home/home";
