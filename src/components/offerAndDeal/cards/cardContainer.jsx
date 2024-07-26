@@ -2,7 +2,7 @@ import React, {useState, useEffect} from "react";
 import styles from "./cardContainer.module.css";
 import OfferCard from "./card";
 import { Link } from "react-router-dom";
-import { generateArray } from "../../../utils/generateArray";
+// import { generateArray } from "../../../utils/generateArray";
 import { getProducts } from "../../../servicefile/productservice";
 
 const OfferCardContainer = () => {
