@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styles from "./card.module.css"; // Replace with your actual CSS module path
-import offerimg from "../../../assets/offercard.png";
+// import offerimg from "../../../assets/offercard.png";
+import pokerbaazi from "../../../assets/PokerBaazi.jpg";
+import mpl from "../../../assets/MPL.jpg";
+import junglePk from "../../../assets/jungleePoker.jpg";
 import Navbtn from "../../common/button/navbtn/navbtn";
-const OfferCard = ({ fillBtn }) => {
-  console.log(fillBtn);
+
+const OfferCard = ({ fillBtn , product }) => {
+  
   const [mobile, setIsMobile] = useState(true);
   useEffect(() => {
     const width = window.innerWidth;
@@ -19,7 +23,7 @@ const OfferCard = ({ fillBtn }) => {
         <div className={styles.item_content}>
           {/* Image */}
           <div className={styles.image}>
-            {/* Image Content */} <img src={offerimg} alt="" />{" "}
+            {/* Image Content */} <img src={product.name === "Poker Baazi" ? pokerbaazi :  product.name === "Junglee Poker" ? junglePk : mpl } alt="" />{" "}
           </div>
 
           {/* Welcome Container */}
@@ -49,7 +53,7 @@ const OfferCard = ({ fillBtn }) => {
 
               {/* Text */}
               <div className={styles.text}>
-                {/* Text Content */}Welcome bonus up to <span>$600</span>{" "}
+                {/* Text Content */}Welcome bonus up to <span>Rs. 20000</span>{" "}
               </div>
             </div>
           </div>
@@ -62,7 +66,7 @@ const OfferCard = ({ fillBtn }) => {
               <div className={styles.available_content}>
                 {/* Heading */}
                 <div className={styles.heading}>
-                  {/* Heading Content */}CGPoker
+                  {product.name}
                 </div>
 
                 {/* Tag 1 */}
@@ -83,6 +87,9 @@ const OfferCard = ({ fillBtn }) => {
                 <div className={styles.text}>
                   {/* Text Content */}Available for players from your country
                 </div>
+                <div className={styles.text}>
+                  {product.smallDescription}
+                </div>
               </div>
             </div>
 
@@ -98,7 +105,7 @@ const OfferCard = ({ fillBtn }) => {
 
                 {/* Text */}
                 <div className={styles.text}>
-                  {/* Text Content */}4.6 <span> /5.0</span>{" "}
+                  {/* Text Content */}{product.rating}<span> /5.0</span>{" "}
                 </div>
               </div>
             </div>
