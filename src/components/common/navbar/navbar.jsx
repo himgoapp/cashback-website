@@ -1,9 +1,17 @@
-import React from "react";
+import React, {useState } from "react";
 import styles from "./navbar.module.css";
-import Navbtn from "../button/navbtn/navbtn";
+// import Navbtn from "../button/navbtn/navbtn";
 import { Link } from "react-router-dom";
 import Logo from "../logo/logo";
+import Form from 'react-bootstrap/Form';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
 const Navbar = ({ page }) => {
+ const [loginTab, setLoginTab] = useState(false);
+  const [signUpTab, setSignUpTab] = useState(false);
+
+  console.log(loginTab , signUpTab ,"13 values ")
+
   return (
     <div className={styles.navbar_container}>
       <Logo />
@@ -13,7 +21,9 @@ const Navbar = ({ page }) => {
         <div className={styles.btn_link_container}>
           <div className={styles.signup_btn}>
             {/* Sign Up Button Content */}
-            <Navbtn
+
+            <Button variant="dark" onClick ={()=>{setSignUpTab(true)}} >Dark</Button>
+            {/* <Button
               text="Sign up"
               bg="transparent"
               color="black"
@@ -21,11 +31,13 @@ const Navbar = ({ page }) => {
                 borderRadius: "2.4375rem",
                 border: "2px solid var(--black-800, #212121)",
               }}
-            />
+              onclick ={() => setSignUpTab(true)}
+            /> */}
           </div>
           <div className={styles.login_btn}>
             {" "}
-            <Navbtn text="Log in" bg="#3968EB" color="white" showIcon={false} />
+            <Button variant="primary" onClick ={()=>{setLoginTab(true)}} >Log in</Button>
+            {/* <Navbtn text="Log in" bg="#3968EB" color="white" showIcon={false} onClick ={()=>{setLoginTab(true);}}/> */}
           </div>
         </div>
       </div>
@@ -49,6 +61,74 @@ const Navbar = ({ page }) => {
           </svg>
         </div>
       </div>
+
+       <Modal show={loginTab} onHide={() => setLoginTab(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Phone No.</Form.Label>
+              <Form.Control
+                type="phone"
+                placeholder="9999998888"
+                autoFocus
+              />
+            </Form.Group>
+             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Otp</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="123456"
+                autoFocus
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={()=> setLoginTab(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={()=> setLoginTab(false)}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+        <Modal show={signUpTab} onHide={() => setSignUpTab(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Modal heading</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Phone No.</Form.Label>
+              <Form.Control
+                type="phone"
+                placeholder="9999998888"
+                autoFocus
+              />
+            </Form.Group>
+             <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+              <Form.Label>Otp</Form.Label>
+              <Form.Control
+                type="number"
+                placeholder="123456"
+                autoFocus
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={()=> setSignUpTab(false)}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={()=> setSignUpTab(false)}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
