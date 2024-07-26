@@ -1,6 +1,6 @@
 import React, {useState } from "react";
 import styles from "./navbar.module.css";
-// import Navbtn from "../button/navbtn/navbtn";
+import Navbtn from "../button/navbtn/navbtn";
 import { Link } from "react-router-dom";
 import Logo from "../logo/logo";
 import Form from 'react-bootstrap/Form';
@@ -19,11 +19,11 @@ const Navbar = ({ page }) => {
         {page === "home" && homePageMenu}
         {page === "offer" && offersAndDealsPageMenu}
         <div className={styles.btn_link_container}>
-          <div className={styles.signup_btn}>
+          <div className={styles.signup_btn}  onClick ={() => setSignUpTab(true)}>
             {/* Sign Up Button Content */}
 
-            <Button variant="dark" onClick ={()=>{setSignUpTab(true)}} >Dark</Button>
-            {/* <Button
+            {/* <Button variant="dark" onClick ={()=>{setSignUpTab(true)}} >Dark</Button> */}
+            <Navbtn
               text="Sign up"
               bg="transparent"
               color="black"
@@ -31,13 +31,13 @@ const Navbar = ({ page }) => {
                 borderRadius: "2.4375rem",
                 border: "2px solid var(--black-800, #212121)",
               }}
-              onclick ={() => setSignUpTab(true)}
-            /> */}
+             
+            />
           </div>
-          <div className={styles.login_btn}>
+          <div className={styles.login_btn} onClick ={()=>{setLoginTab(true);}}>
             {" "}
-            <Button variant="primary" onClick ={()=>{setLoginTab(true)}} >Log in</Button>
-            {/* <Navbtn text="Log in" bg="#3968EB" color="white" showIcon={false} onClick ={()=>{setLoginTab(true);}}/> */}
+            {/* <Button variant="primary" onClick ={()=>{setLoginTab(true)}} >Log in</Button> */}
+            <Navbtn text="Log in" bg="#3968EB" color="white" showIcon={false} />
           </div>
         </div>
       </div>
