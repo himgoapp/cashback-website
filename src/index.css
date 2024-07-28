@@ -11,3 +11,70 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.ModalSignIN .modal-footer {
+  border: none;
+}
+
+.ModalSignIN .modal-content {
+  padding: 50px;
+  border: none;
+  box-shadow: 0px 0px 70px 0px #e2e2e2;
+}
+
+.ModalSignIN .modal-footer button {
+  margin: 0;
+  width: 100%;
+  height: 50px;
+}
+
+.ModalSignIN .modal-content .modal-header {
+  border: none;
+}
+
+.ModalSignIN .modal-content .modal-body .Form-Group {
+  position: relative;
+}
+
+.ModalSignIN .modal-content .modal-body .Form-Group label.form-label {
+  position: absolute;
+  top: -17px;
+  left: 10px;
+  background: #fff;
+  margin: 0;
+  padding: 5px 10px;
+}
+
+.ModalSignIN .modal-content .modal-body .Form-Group input {
+  padding: 20px 15px 15px;
+}
+
+.ModalSignIN .modal-content .modal-body .Form-Group input:focus {
+  box-shadow: none;
+}
+
+.ModalSignIN .modal-dialog.modal-lg {
+  margin-top: 70px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.fade.modal-backdrop {
+  opacity: 1 !important;
+  background: #ffffff9e !important;
+}

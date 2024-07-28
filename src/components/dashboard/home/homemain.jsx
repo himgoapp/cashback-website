@@ -30,7 +30,12 @@ const HomeMain = () => {
           }}
         >
           {generateArray(3).map((c, index) => {
-            return <OfferCard fillBtn={(index + 1) % 2 === 0 ? false : true} />;
+            return (
+              <OfferCard
+                fillBtn={(index + 1) % 2 === 0 ? false : true}
+                key={index}
+              />
+            );
           })}
         </div>
       </div>

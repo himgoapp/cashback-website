@@ -35,8 +35,8 @@ const PokerCardsContainer = () => {
           ["Successful", "#027A48"],
           ["Aborted", "#B42318"],
           ["Pending", "#B54708"],
-        ].map((status) => (
-          <PokerCard status={status[0]} color={status[1]} />
+        ].map((status, index) => (
+          <PokerCard status={status[0]} color={status[1]} key={index} />
         ))}
       </div>
     </div>

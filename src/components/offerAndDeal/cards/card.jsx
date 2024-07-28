@@ -6,13 +6,11 @@ import mpl from "../../../assets/MPL.jpg";
 import junglePk from "../../../assets/jungleePoker.jpg";
 import Navbtn from "../../common/button/navbtn/navbtn";
 
-const OfferCard = ({ fillBtn , product }) => {
-  
+const OfferCard = ({ fillBtn, product }) => {
   const [mobile, setIsMobile] = useState(true);
   useEffect(() => {
     const width = window.innerWidth;
     setIsMobile(width <= 500);
-    // console.log(width, mobile);
     // eslint-disable-next-line
   }, []);
   return (
@@ -23,7 +21,17 @@ const OfferCard = ({ fillBtn , product }) => {
         <div className={styles.item_content}>
           {/* Image */}
           <div className={styles.image}>
-            {/* Image Content */} <img src={product.name === "Poker Baazi" ? pokerbaazi :  product.name === "Junglee Poker" ? junglePk : mpl } alt="" />{" "}
+            {/* Image Content */}{" "}
+            <img
+              src={
+                product && product.name && product.name === "Poker Baazi"
+                  ? pokerbaazi
+                  : product && product.name && product.name === "Junglee Poker"
+                  ? junglePk
+                  : mpl
+              }
+              alt=""
+            />{" "}
           </div>
 
           {/* Welcome Container */}
@@ -65,9 +73,7 @@ const OfferCard = ({ fillBtn , product }) => {
               {/* Available Content */}
               <div className={styles.available_content}>
                 {/* Heading */}
-                <div className={styles.heading}>
-                  {product.name}
-                </div>
+                <div className={styles.heading}>{product && product.name}</div>
 
                 {/* Tag 1 */}
                 <div className={styles.tag1}>{/* Tag 1 Content */}T&C</div>
@@ -88,7 +94,7 @@ const OfferCard = ({ fillBtn , product }) => {
                   {/* Text Content */}Available for players from your country
                 </div>
                 <div className={styles.text}>
-                  {product.smallDescription}
+                  {product && product.smallDescription}
                 </div>
               </div>
             </div>
@@ -105,7 +111,9 @@ const OfferCard = ({ fillBtn , product }) => {
 
                 {/* Text */}
                 <div className={styles.text}>
-                  {/* Text Content */}{product.rating}<span> /5.0</span>{" "}
+                  {/* Text Content */}
+                  {product && product.rating}
+                  <span> /5.0</span>{" "}
                 </div>
               </div>
             </div>
@@ -152,7 +160,7 @@ const availabiltyicon = (
     viewBox="0 0 26 26"
     fill="none"
   >
-    <g clip-path="url(#clip0_5_20022)">
+    <g clipPath="url(#clip0_5_20022)">
       <path d="M-14 -7H40V6.33333H-14V-7Z" fill="#FF9933" />
       <path d="M-14 6.3335H40V19.6668H-14V6.3335Z" fill="white" />
       <path d="M-14 19.6665H40V32.9998H-14V19.6665Z" fill="#128807" />
@@ -401,9 +409,9 @@ const blankstar = (
     <path
       d="M11.2827 3.45307C11.5131 2.98613 11.6284 2.75266 11.7848 2.67807C11.9209 2.61317 12.0791 2.61317 12.2152 2.67807C12.3717 2.75266 12.4869 2.98613 12.7174 3.45307L14.9041 7.88304C14.9721 8.02089 15.0061 8.08982 15.0558 8.14333C15.0999 8.19071 15.1527 8.22911 15.2113 8.25638C15.2776 8.28718 15.3536 8.2983 15.5057 8.32053L20.397 9.03546C20.9121 9.11075 21.1696 9.14839 21.2888 9.27419C21.3925 9.38365 21.4412 9.53405 21.4215 9.68353C21.3988 9.85533 21.2124 10.0369 20.8395 10.4001L17.3014 13.8462C17.1912 13.9536 17.136 14.0073 17.1004 14.0712C17.0689 14.1278 17.0487 14.19 17.0409 14.2543C17.0321 14.3269 17.0451 14.4027 17.0711 14.5545L17.906 19.4219C17.994 19.9352 18.038 20.1919 17.9553 20.3443C17.8833 20.4768 17.7554 20.5697 17.6071 20.5972C17.4366 20.6288 17.2061 20.5076 16.7451 20.2652L12.3724 17.9656C12.2361 17.8939 12.168 17.8581 12.0962 17.844C12.0327 17.8316 11.9673 17.8316 11.9038 17.844C11.832 17.8581 11.7639 17.8939 11.6277 17.9656L7.25492 20.2652C6.79392 20.5076 6.56341 20.6288 6.39297 20.5972C6.24468 20.5697 6.11672 20.4768 6.04474 20.3443C5.962 20.1919 6.00603 19.9352 6.09407 19.4219L6.92889 14.5545C6.95491 14.4027 6.96793 14.3269 6.95912 14.2543C6.95132 14.19 6.93111 14.1278 6.89961 14.0712C6.86402 14.0073 6.80888 13.9536 6.69859 13.8462L3.16056 10.4001C2.78766 10.0369 2.60121 9.85533 2.57853 9.68353C2.55879 9.53405 2.60755 9.38365 2.71125 9.27419C2.83044 9.14839 3.08797 9.11075 3.60304 9.03546L8.49431 8.32053C8.64642 8.2983 8.72248 8.28718 8.78872 8.25638C8.84736 8.22911 8.90016 8.19071 8.94419 8.14333C8.99391 8.08982 9.02793 8.02089 9.09597 7.88304L11.2827 3.45307Z"
       stroke="#CCCFD2"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
