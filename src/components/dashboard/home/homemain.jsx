@@ -4,7 +4,7 @@ import HomeQuickStart from "./quickStart";
 import Withdraw from "./withdraw";
 import OfferCard from "../../offerAndDeal/cards/card";
 import { generateArray } from "../../../utils/generateArray";
-// import OfferCardContainer from "../../offerAndDeal/cards/cardContainer";
+
 const HomeMain = () => {
   return (
     <div>

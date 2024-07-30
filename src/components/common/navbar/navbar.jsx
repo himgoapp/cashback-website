@@ -85,7 +85,7 @@ const Navbar = ({ page }) => {
         });
         localStorage.setItem("token", data.token);
         localStorage.setItem("userInfo", JSON.stringify(data.user));
-        navigate("/dashboard/home");
+        navigate("/dashboard");
       } else {
         toast.error(`${data.message}`, {
           autoClose: 8000,

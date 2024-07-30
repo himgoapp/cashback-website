@@ -18,7 +18,7 @@ const Sidebar = () => {
           </div>
           <div className={styles.Navigation}>
             {[
-              { icon: barIcon, text: "Home", link: "/dashboard/home" },
+              { icon: barIcon, text: "Home", link: "/dashboard" },
               { icon: barIcon, text: "Poker IDs", link: "/dashboard/pokerID" },
               {
                 icon: verifyIcon,
@@ -29,7 +29,7 @@ const Sidebar = () => {
               {
                 icon: barIcon,
                 text: "My Transactions",
-                link: "/dashboard/my-transaction",
+                link: "/dashboard/mytransactions",
               },
             ].map((nav) => {
               return (
