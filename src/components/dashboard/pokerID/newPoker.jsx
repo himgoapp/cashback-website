@@ -1,10 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./newPoker.module.css"; // Import your CSS module
-import Navbtn from "../../common/button/navbtn/navbtn";
+// import Navbtn from "../../common/button/navbtn/navbtn";
+import {
+  getProductsSimple,
+  submitAccountId,
+} from "../../../servicefile/productservice";
+import { ToastContainer, toast } from "react-toastify";
+import { Button } from "react-bootstrap";
 
 const NewPoker = () => {
+  const [allProductIds, setAllProductIds] = useState([]);
+  const [productId, setProductId] = useState("");
+  const [referenceId, setReferenceId] = useState("");
+  const [referralCode, setReferralCode] = useState("");
+
+  const getProductsInfo = async () => {
+    const res = await getProductsSimple();
+    let mappedValue = res.map((item) => {
+      return { value: item._id, label: item.name };
+    });
+    setAllProductIds(mappedValue);
+  };
+
+  const onSubmitFxn = async () => {
+    if (productId && referenceId) {
+      let data = await submitAccountId(productId, referenceId, referralCode);
+      if (data && data.message) {
+        toast.success(`${data.message}`, {
+          autoClose: 5000,
+        });
+      } else {
+        toast.error(`${data.message}`, {
+          autoClose: 5000,
+        });
+      }
+      setProductId("");
+      setReferenceId("");
+      setReferralCode("");
+    } else {
+      toast.warn("Poker Site and Account id is a required field!");
+    }
+  };
+
+  useEffect(() => {
+    getProductsInfo();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className={styles.NewPokerContainer}>
+      <ToastContainer />
       <div className={styles.NewPokerContent}>
         <div className={styles.NewPokerHead}>Add New Poker ID</div>
         <div className={styles.NewPokerCreate}>
@@ -12,52 +57,48 @@ const NewPoker = () => {
             {/* <div className={styles.SelectContent}>
               <div className={styles.SelectWrapper}></div>
             </div> */}
-            <input
-              type="text"
+            <select
+              value={productId}
+              onChange={(e) => setProductId(e.target.value)}
               className={styles.SelectContent + " " + styles.SelectWrapper}
-              placeholder="Select Game"
-            />
-
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              className={styles.SelectIcon}
+              placeholder="Select Poker Site"
             >
-              <path
-                d="M5 7.5L10 12.5L15 7.5"
-                stroke="#667085"
-                strokeWidth="1.66667"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+              {" "}
+              {allProductIds &&
+                allProductIds.length > 0 &&
+                allProductIds.map((item, index) => {
+                  return <option value={item.value}>{item.label}</option>;
+                })}
+            </select>
           </div>
           <div className={styles.NewPokerAccId}>
-            {/* <div className={styles.InputWithLabel}>
-              <div className={styles.Input}>
-                <div className={styles.Content}>
-                  <div className={styles.Text}>Enter Account id*</div>
-                </div>
-              </div>
-            </div> */}
             <input
+              value={referenceId}
+              onChange={(e) => setReferenceId(e.target.value)}
               type="text"
               className={styles.SelectContent + " " + styles.SelectWrapper}
               placeholder="Enter Account id*"
             />
           </div>
-          {/* <div className={styles.SubmitBtn}></div> */}{" "}
-          <Navbtn
-            text="Submit"
-            bg="#3968EB"
-            color="white"
-            showIcon={false}
-            style={{ width: "12.5rem" }}
+        </div>
+        <div className={styles.NewPokerAccId}>
+          <input
+            value={referralCode}
+            onChange={(e) => setReferralCode(e.target.value)}
+            type="text"
+            className={styles.SelectContent + " " + styles.SelectWrapper}
+            placeholder="Enter Refer code*"
           />
         </div>
+        {/* <div className={styles.SubmitBtn}></div> */}{" "}
+        <Button
+          variant="primary"
+          onClick={() => {
+            onSubmitFxn();
+          }}
+        >
+          Submit
+        </Button>
       </div>
     </div>
   );

@@ -375,7 +375,7 @@ const homePageMenu = (
 const offersAndDealsPageMenu = (
   <div className={styles.menu_container}>
     <div className={styles.aboutus}>
-      <Link to="/" style={{ textDecoration: "none" }}>
+      <Link to="/dashboard" style={{ textDecoration: "none" }}>
         <span>Home</span>
       </Link>
     </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./dashHomeHeader.module.css";
 import bellIcon from "../../../assets/header_nav_btn2.png";
-const DashboardHomeHeader = () => {
+const DashboardHomeHeader = ({ data }) => {
   return (
     <div className={styles.HomeHeader}>
       <div className={styles.HeaderContainer}>
@@ -31,7 +31,9 @@ const DashboardHomeHeader = () => {
                     </svg>
                   </div>
                 </div>
-                <div className={styles.HeaderBtnText}>₹0.00</div>
+                <div className={styles.HeaderBtnText}>
+                  ₹{data && data.wallet_balance ? data.wallet_balance : "0.00"}
+                </div>
               </div>
               <div className={styles.HeaderNavBtn2}>
                 <img src={bellIcon} alt="" />

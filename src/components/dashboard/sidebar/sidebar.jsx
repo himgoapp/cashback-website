@@ -59,9 +59,7 @@ const Sidebar = () => {
               />
               <div className={styles.TextAndSupportingText}>
                 <div className={styles.Text}>{data.userName}</div>
-                <div className={styles.SupportingText}>
-                  olivia@untitledui.com
-                </div>
+                <div className={styles.SupportingText}>{data.email}</div>
               </div>
             </div>
             <div className={styles.Button}>

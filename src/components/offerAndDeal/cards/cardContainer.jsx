@@ -7,11 +7,12 @@ import { getProducts } from "../../../servicefile/productservice";
 
 const OfferCardContainer = () => {
   const [products, setProducts] = useState([]);
+  const token = localStorage.getItem("token") ? true : false;
 
   const getdata = async () => {
     let data = await getProducts();
     if (data && data.length > 0) {
-      let result = [...data, ...data];
+      let result = [...data];
       setProducts(result);
     }
   };
@@ -28,7 +29,7 @@ const OfferCardContainer = () => {
         products.map((item, index) => {
           return (
             <Link
-              to="/description"
+              to={token ? "/description" : "/"}
               style={{ textDecoration: "none" }}
               key={index}
             >

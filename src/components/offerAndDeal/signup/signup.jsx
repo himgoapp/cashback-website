@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./signup.module.css";
 import Navbtn from "../../common/button/navbtn/navbtn";
+import { Link } from "react-router-dom";
 const OfferSignup = () => {
   return (
     <div className={styles.signup_container}>
@@ -17,12 +18,14 @@ const OfferSignup = () => {
           {/* Button */}
           <div className={styles.btn}>
             {/* Button Content */}{" "}
-            <Navbtn
-              text="Sign Up With Email"
-              bg="#3968EB"
-              color="white"
-              showIcon={false}
-            />{" "}
+            <Link to="/" style={{ color: "white", textDecoration: "none" }}>
+              <Navbtn
+                text="Sign Up"
+                bg="#3968EB"
+                color="white"
+                showIcon={false}
+              />
+            </Link>{" "}
           </div>
 
           {/* Text */}
