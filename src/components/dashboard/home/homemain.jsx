@@ -5,12 +5,12 @@ import Withdraw from "./withdraw";
 // import OfferCard from "../../offerAndDeal/cards/card";
 // import { generateArray } from "../../../utils/generateArray";
 
-const HomeMain = () => {
+const HomeMain = ({ data }) => {
   return (
     <div>
-      <DashboardHomeHeader />
+      <DashboardHomeHeader data={data.userWallet} />
       <HomeQuickStart />
-      <Withdraw />
+      <Withdraw data={data.userWallet} />
       <div
         style={{ paddingLeft: "2rem", paddingRight: "2rem", width: "72.5rem" }}
       >

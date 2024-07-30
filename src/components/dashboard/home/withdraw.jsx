@@ -3,7 +3,7 @@ import styles from "./withdraw.module.css";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import withdraw from "../../../assets/withdraw.png";
 // import wallet from "../../../assets/wallet.png";
-const Withdraw = () => {
+const Withdraw = ({ data }) => {
   return (
     <div className={styles.HomeWithdraw}>
       <div className={styles.WithdrawContent}>
@@ -33,22 +33,29 @@ const Withdraw = () => {
                   <div className={styles.BalanceText}>
                     <div className={styles.BalanceHead}>Your Balance</div>
                     <div className={styles.BalanceSubhead}>
-                      <div className={styles.Number}>₹0.00</div>
+                      <div className={styles.Number}>
+                        ₹
+                        {data && data.wallet_balance
+                          ? data.wallet_balance
+                          : "0.00"}
+                      </div>
                     </div>
                   </div>
-                  <Navbtn
-                    text="Withdraw"
-                    bg="transparent"
-                    color="#3968EB"
-                    showIcon={false}
-                    style={{
-                      borderRadius: "2.4375rem",
-                      border: "2px solid #3968EB",
-                      display: "flex",
-                      justifyContent: "center",
-                      width: "100%",
-                    }}
-                  />
+                  <div onClick={() => {}}>
+                    <Navbtn
+                      text="Withdraw"
+                      bg="transparent"
+                      color="#3968EB"
+                      showIcon={false}
+                      style={{
+                        borderRadius: "2.4375rem",
+                        border: "2px solid #3968EB",
+                        display: "flex",
+                        justifyContent: "center",
+                        width: "100%",
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
@@ -80,9 +87,14 @@ const Withdraw = () => {
                   </svg>
                 </div>
                 <div className={styles.BalanceText}>
-                  <div className={styles.BalanceHead}>Total Winnings</div>
+                  <div className={styles.BalanceHead}>
+                    Total Rake Back Earning
+                  </div>
                   <div className={styles.BalanceSubhead}>
-                    <div className={styles.Number}>₹280</div>
+                    <div className={styles.Number}>
+                      ₹{" "}
+                      {data && data.total_earning ? data.total_earning : "0.00"}
+                    </div>
                   </div>
                 </div>
               </div>
