@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./pokerCard.module.css"; // Import your CSS module
 import pokerCardimg from "../../../../assets/pokercard.png";
-const PokerCard = ({ status, color }) => {
+const PokerCard = ({ status, color, item }) => {
   return (
     <div className={styles.PokerCard}>
       <div className={styles.CardContent}>
@@ -13,8 +13,12 @@ const PokerCard = ({ status, color }) => {
               alt="Poker Logo"
             />
             <div className={styles.HeaderId}>
-              <div className={styles.Head}>Redstar</div>
-              <div className={styles.Id}>Account ID: 6677</div>
+              <div className={styles.Head}>
+                {item && item.productId ? item.productId.name : ""}
+              </div>
+              <div className={styles.Id}>
+                Account ID: {item && item.referenceId ? item.referenceId : ""}
+              </div>
             </div>
           </div>
         </div>
@@ -29,7 +33,9 @@ const PokerCard = ({ status, color }) => {
               </div>
             </div>
           </div>
-          <div className={styles.PokerDate}>5th Nov | 12:02 PM</div>
+          <div className={styles.PokerDate}>
+            {item && item.createdAt ? item.createdAt : ""}
+          </div>
         </div>
       </div>
     </div>
