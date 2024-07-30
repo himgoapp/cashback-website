@@ -39,6 +39,8 @@ import DashboardHome from "./components/dashboard/home/home";
 import PokerID from "./components/dashboard/pokerID/pokerID";
 import VerifyAccount from "./components/dashboard/veryfyAccount/verifyAccount";
 import KYC from "./components/dashboard/KYC/kyc";
+import Trsnsactions from "./components/dashboard/transactions/transactions";
+import ProtectedRoute from "./helperFxns/protectedRoute";
 
 export const UserContext = createContext();
 function App() {
@@ -52,14 +54,69 @@ function App() {
               path="/offer_and_deals"
               element={<OfferAndDealsContainer />}
             />
-            <Route path="/description" element={<DescriptionPage />} />
-            <Route path="/dashboard/home" element={<DashboardHome />} />
+
+            <Route
+              path="/description"
+              element={
+                <ProtectedRoute>
+                  <DescriptionPage />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <DashboardHome />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard/pokerID"
+              element={
+                <ProtectedRoute>
+                  <PokerID />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard/verify-account"
+              element={
+                <ProtectedRoute>
+                  <VerifyAccount />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard/kyc"
+              element={
+                <ProtectedRoute>
+                  <KYC />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard/mytransactions"
+              element={
+                <ProtectedRoute>
+                  <Trsnsactions />
+                </ProtectedRoute>
+              }
+            />
+
+            {/* <Route path="/description" element={<DescriptionPage />} />
+            <Route path="/dashboard" element={<DashboardHome />} />
             <Route path="/dashboard/pokerID" element={<PokerID />} />
             <Route
               path="/dashboard/verify-account"
               element={<VerifyAccount />}
             />
-            <Route path="/dashboard/kyc" element={<KYC />} />
+            <Route path="/dashboard/kyc" element={<KYC />} /> */}
             {/* <Route path="brands" element={<BrandsPage />} />
             <Route path="item/:id" element={<ItemDetail />} />
             <Route path="products/:name" element={<AllProductsPage />} /> */}

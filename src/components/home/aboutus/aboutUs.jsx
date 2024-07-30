@@ -45,7 +45,7 @@ const AboutUs = () => {
                       cy="16"
                       r="14"
                       stroke="#3968EB"
-                      stroke-width="4"
+                      strokeWidth="4"
                     />
                     <circle cx="16" cy="16" r="3" fill="#3968EB" />
                   </svg>
@@ -72,7 +72,7 @@ const AboutUs = () => {
                       cy="16"
                       r="14"
                       stroke="#3968EB"
-                      stroke-width="4"
+                      strokeWidth="4"
                     />
                     <circle cx="16" cy="16" r="3" fill="#3968EB" />
                   </svg>
@@ -102,23 +102,23 @@ const AboutUs = () => {
                   <path
                     d="M5 12H19"
                     stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M15 16L19 12"
                     stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                   <path
                     d="M15 8L19 12"
                     stroke="white"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>{" "}
               </div>

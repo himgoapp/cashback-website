@@ -50,9 +50,9 @@ const Deals = () => {
         {/* Deals Card Container */}
         <div className={styles.deals_card_container}>
           {/* Deals Card */}
-          {cardInfo.map((deal) => {
+          {cardInfo.map((deal, index) => {
             return (
-              <div className={styles.deals_card}>
+              <div className={styles.deals_card} key={index}>
                 {/* Card Content */}
                 <div className={styles.card_content}>
                   {/* Text Container */}

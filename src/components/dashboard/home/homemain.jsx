@@ -4,7 +4,7 @@ import HomeQuickStart from "./quickStart";
 import Withdraw from "./withdraw";
 import OfferCard from "../../offerAndDeal/cards/card";
 import { generateArray } from "../../../utils/generateArray";
-// import OfferCardContainer from "../../offerAndDeal/cards/cardContainer";
+
 const HomeMain = () => {
   return (
     <div>
@@ -30,7 +30,12 @@ const HomeMain = () => {
           }}
         >
           {generateArray(3).map((c, index) => {
-            return <OfferCard fillBtn={(index + 1) % 2 === 0 ? false : true} />;
+            return (
+              <OfferCard
+                fillBtn={(index + 1) % 2 === 0 ? false : true}
+                key={index}
+              />
+            );
           })}
         </div>
       </div>
