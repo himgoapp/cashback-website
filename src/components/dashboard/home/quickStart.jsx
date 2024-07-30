@@ -3,6 +3,7 @@ import styles from "./quickStart.module.css";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import checkicon from "../../../assets/checkIcon.png";
 import verifiedIcon from "../../../assets/verified.png";
+import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
 
 const HomeQuickStart = () => {
@@ -20,14 +21,15 @@ const HomeQuickStart = () => {
             <div className={styles.Header}>
               <div className={styles.Head}>Quick Start Guide</div>
               <div className={styles.Button}>
-                <button
-                  className={styles.Text}
+                <Button
+                  variant="primary"
                   onClick={() => {
                     hideGuideFxn();
                   }}
                 >
                   Skip Guide
-                </button>
+                </Button>
+
                 <div className={styles.ArrowLeft}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

@@ -2,10 +2,23 @@ import React from "react";
 import styles from "./withdraw.module.css";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import withdraw from "../../../assets/withdraw.png";
+import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
 // import wallet from "../../../assets/wallet.png";
 const Withdraw = ({ data }) => {
+  const navigate = useNavigate();
+
+  const withdrawHit = () => {
+    if (data.wallet_balance < 1000) {
+      toast.error(" Sorry! your Wallet balance is lower than withdraw limit!");
+    } else {
+      navigate("/dashboard/mytransactions");
+    }
+  };
+
   return (
     <div className={styles.HomeWithdraw}>
+      <ToastContainer />
       <div className={styles.WithdrawContent}>
         <div className={styles.WithdrawContentWrapper}>
           <div className={styles.BalanceAndWinnings}>
@@ -41,7 +54,11 @@ const Withdraw = ({ data }) => {
                       </div>
                     </div>
                   </div>
-                  <div onClick={() => {}}>
+                  <div
+                    onClick={() => {
+                      withdrawHit();
+                    }}
+                  >
                     <Navbtn
                       text="Withdraw"
                       bg="transparent"

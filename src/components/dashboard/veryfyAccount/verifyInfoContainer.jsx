@@ -1,10 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./verifyInfoContainer.module.css";
-import Navbtn from "../../common/button/navbtn/navbtn";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
+import Form from "react-bootstrap/Form";
+import { ToastContainer, toast } from "react-toastify";
+import { loginVerify, loginOtp } from "../../../servicefile/authservice";
+import Logo from "../../common/logo/logo";
 
-function VerifyInfoContainer() {
+// import Navbtn from "../../common/button/navbtn/navbtn";
+
+function VerifyInfoContainer({ data }) {
+  const [verifyModal, setVerifyModal] = useState(false);
+  const [otp, setOtp] = useState("");
+
+  const handleClose = () => {
+    setVerifyModal(false);
+    setOtp("");
+  };
+
+  const sendEmailOtp = async (email) => {
+    if (email && email.length === 10) {
+      let data = await loginOtp(email);
+      if (
+        data &&
+        data.message === "Otp Sent!" &&
+        data.data &&
+        data.data.type === "success"
+      ) {
+        toast.success("Otp sent! Please check and fill and submit Otp.");
+        setVerifyModal(true);
+      } else {
+        toast.error("No such user exist!");
+      }
+    } else {
+      toast.warn("Please fill your 10 digit phone number carefully!");
+    }
+  };
+
+  const verifyOtp = async () => {
+    if (otp && otp.length === 6) {
+      let data = await loginVerify(otp);
+      if (data && data.message === "Otp verified!" && data.user) {
+        toast.success(`Email Verified!}`, {
+          autoClose: 5000,
+        });
+        localStorage.setItem("userInfo", JSON.stringify(data.user));
+        toast.error(`${data.message}`, {
+          autoClose: 8000,
+        });
+      }
+    } else {
+      toast.warn("Pease fill your otp carefully!");
+    }
+  };
+
   return (
     <div className={styles.VerifyInfoContainer}>
+      <ToastContainer />
       {/* email verification */}
       <div className={styles.VerifyInfoContent}>
         <div className={styles.InfoHeader}>
@@ -16,24 +68,23 @@ function VerifyInfoContainer() {
         <div className={styles.InfoBody}>
           <div className={styles.UserInfo}>
             <div className={styles.InfoName}>
-              <div className={styles.InfoNameText}>muckyourkings@gmail.com</div>
+              <div className={styles.InfoNameText}>
+                {data && data.email ? data.email : ""}
+              </div>
             </div>
-            <div className={styles.IsVerified}>Your email is verified</div>
+            <div className={styles.IsVerified}>
+              Your email is{" "}
+              {data && data.emailVerifystatus ? "verified" : "not verified"}
+            </div>
           </div>
-          <Navbtn
-            text="Verify E-mail ID"
-            bg="transparent"
-            color="#3968EB"
-            showIcon={true}
-            iconColor="#3968EB"
-            style={{
-              borderRadius: "2.4375rem",
-              border: "2px solid #3968EB",
-              display: "flex",
-              justifyContent: "center",
-              // width: "100%",
+          <Button
+            variant="dark"
+            onClick={() => {
+              sendEmailOtp(data.email);
             }}
-          />
+          >
+            Verify Email
+          </Button>{" "}
         </div>
       </div>
       {/* phone verification */}
@@ -48,7 +99,9 @@ function VerifyInfoContainer() {
         <div className={styles.InfoBody}>
           <div className={styles.UserInfo}>
             <div className={styles.InfoName}>
-              <div className={styles.InfoNameText}>+91 7172892823</div>
+              <div className={styles.InfoNameText}>
+                +{data && data.phoneNumber ? data.phoneNumber : ""}
+              </div>
             </div>
             <div className={styles.IsVerified}>
               Your Phone number is verified
@@ -59,6 +112,39 @@ function VerifyInfoContainer() {
           </div>
         </div>
       </div>
+      <Modal
+        className="ModalSignIN  "
+        size="md"
+        show={verifyModal}
+        onHide={() => handleClose()}
+      >
+        <Modal.Header className="d-flex justify-content-center mb-5">
+          <Modal.Title>
+            <Logo></Logo>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group
+              className="mb-3 Form-Group"
+              controlId="exampleForm.ControlInput1"
+            >
+              <Form.Label>Otp</Form.Label>
+              <Form.Control
+                type="string"
+                placeholder="Please put your 6 digit otp!"
+                onChange={(e) => setOtp(e.target.value)}
+                autoFocus
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={() => verifyOtp()}>
+            Verify Email
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
