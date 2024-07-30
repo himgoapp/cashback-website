@@ -8,6 +8,7 @@ import Navbtn from "../../common/button/navbtn/navbtn";
 
 const OfferCard = ({ fillBtn, product }) => {
   const [mobile, setIsMobile] = useState(true);
+  const token = localStorage.getItem("token") ? true : false;
   useEffect(() => {
     const width = window.innerWidth;
     setIsMobile(width <= 500);
@@ -122,7 +123,7 @@ const OfferCard = ({ fillBtn, product }) => {
           <div style={{ width: "100%" }}>
             {fillBtn ? (
               <Navbtn
-                text="Sign up"
+                text={token ? "Join" : "Sign Up"}
                 bg="transparent"
                 color="#3968EB"
                 showIcon={false}
@@ -136,7 +137,7 @@ const OfferCard = ({ fillBtn, product }) => {
               />
             ) : (
               <Navbtn
-                text="Sign Up"
+                text={token ? "Join" : "Sign Up"}
                 bg="#3968EB"
                 color="white"
                 showIcon={false}

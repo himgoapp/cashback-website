@@ -3,18 +3,21 @@ import { Navigate, useLocation } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
 const ProtectedRoute = ({ children }) => {
-  let validate = false;
-  const token = localStorage.getItem("token");
-  const decoded = jwtDecode(token);
+  const token = localStorage.getItem("token")
+    ? localStorage.getItem("token")
+    : false;
 
-  const decodedToken = jwtDecode(token);
-  const currentTime = Date.now() / 1000;
-  validate = decodedToken.exp > currentTime;
-  console.log(decoded);
+  const validateToken = (currenttOken) => {
+    let validate = false;
+    const decodedToken = jwtDecode(currenttOken);
+    const currentTime = Date.now() / 1000;
+    validate = decodedToken.exp > currentTime ? true : false;
+    return validate;
+  };
 
   let location = useLocation();
 
-  if (!validate) {
+  if (!token || !validateToken(token)) {
     localStorage.clear();
     return <Navigate to="/" state={{ from: location }} replace />;
   } else {

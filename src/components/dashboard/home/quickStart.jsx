@@ -1,100 +1,123 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./quickStart.module.css";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import checkicon from "../../../assets/checkIcon.png";
 import verifiedIcon from "../../../assets/verified.png";
+import { Link } from "react-router-dom";
 
 const HomeQuickStart = () => {
+  const [hideGuide, setHideGuide] = useState(false);
+
+  const hideGuideFxn = () => {
+    setHideGuide(!hideGuide);
+  };
+
   return (
-    <div className={styles.HomeQuickStart}>
-      <div className={styles.QuickStartContent}>
-        <div className={styles.Header}>
-          <div className={styles.Head}>Quick Start Guide</div>
-          <div className={styles.Button}>
-            <div className={styles.Text}>Skip Guide</div>
-            <div className={styles.ArrowLeft}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-              >
-                <path
-                  d="M4.16732 10.0001H15.834M15.834 10.0001L10.0007 15.8334M15.834 10.0001L10.0007 4.16675"
-                  stroke="#3968EB"
-                  strokeWidth="1.66667"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-        {/* guide one : link poker */}
-        <div className={styles.Guid}>
-          <div className={styles.GuidContent}>
-            <div className={styles.Icons}>
-              <div className={styles.Checkicon}>
-                <img src={checkicon} alt="" />
-              </div>
-              <div className={styles.Approvalicon}>{approvedIcon}</div>
-            </div>
-            <div className={styles.GuidTextContentainer}>
-              <div className={styles.TextContent}>
-                <div className={styles.Head}>Link your Poker ID</div>
-                <div className={styles.Subhead}>
-                  Complete your KYC and get your profile complete
-                </div>
-              </div>
-              <div className={styles.Butn}>
-                {" "}
-                <Navbtn
-                  text="Learn More"
-                  bg="#3968EB"
-                  color="white"
-                  showIcon={true}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* guide two : complete KYC */}
-        <div className={styles.Guid}>
-          <div className={styles.GuidContent}>
-            <div className={styles.Icons}>
-              <div className={styles.Checkicon}>
-                <img src={verifiedIcon} alt="" />
-              </div>
-            </div>
-            <div className={styles.GuidTextContentainer}>
-              <div className={styles.TextContent}>
-                <div className={styles.Head}>Complete KYC</div>
-                <div className={styles.Subhead}>
-                  Complete your KYC and get your profile complete
-                </div>
-              </div>
-              <div className={styles.Butn}>
-                <Navbtn
-                  text="Go to KYC Verification"
-                  bg="transparent"
-                  color="#3968EB"
-                  showIcon={true}
-                  iconColor="#3968EBw"
-                  style={{
-                    borderRadius: "2.4375rem",
-                    border: "2px solid #3968EB",
-                    display: "flex",
-                    justifyContent: "center",
-                    // width: "100%",
+    <>
+      {!hideGuide && (
+        <div className={styles.HomeQuickStart}>
+          <div className={styles.QuickStartContent}>
+            <div className={styles.Header}>
+              <div className={styles.Head}>Quick Start Guide</div>
+              <div className={styles.Button}>
+                <button
+                  className={styles.Text}
+                  onClick={() => {
+                    hideGuideFxn();
                   }}
-                />
+                >
+                  Skip Guide
+                </button>
+                <div className={styles.ArrowLeft}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M4.16732 10.0001H15.834M15.834 10.0001L10.0007 15.8334M15.834 10.0001L10.0007 4.16675"
+                      stroke="#3968EB"
+                      strokeWidth="1.66667"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            {/* guide one : link poker */}
+            <div className={styles.Guid}>
+              <div className={styles.GuidContent}>
+                <div className={styles.Icons}>
+                  <div className={styles.Checkicon}>
+                    <img src={checkicon} alt="" />
+                  </div>
+                  <div className={styles.Approvalicon}>{approvedIcon}</div>
+                </div>
+                <div className={styles.GuidTextContentainer}>
+                  <div className={styles.TextContent}>
+                    <div className={styles.Head}>Link your Poker ID</div>
+                    {/* <div className={styles.Subhead}>
+                  Complete your KYC and get your profile complete
+                </div> */}
+                  </div>
+                  <div className={styles.Butn}>
+                    {" "}
+                    <Link
+                      to="/offer_and_deals"
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
+                      <Navbtn
+                        text="Learn More"
+                        bg="#3968EB"
+                        color="white"
+                        showIcon={true}
+                      />
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* guide two : complete KYC */}
+            <div className={styles.Guid}>
+              <div className={styles.GuidContent}>
+                <div className={styles.Icons}>
+                  <div className={styles.Checkicon}>
+                    <img src={verifiedIcon} alt="" />
+                  </div>
+                </div>
+                <div className={styles.GuidTextContentainer}>
+                  <div className={styles.TextContent}>
+                    <div className={styles.Head}>Complete KYC</div>
+                    <div className={styles.Subhead}>
+                      Complete your KYC and get your profile complete
+                    </div>
+                  </div>
+                  <div className={styles.Butn}>
+                    <Navbtn
+                      text="Go to KYC Verification"
+                      bg="transparent"
+                      color="#3968EB"
+                      showIcon={true}
+                      iconColor="#3968EBw"
+                      style={{
+                        borderRadius: "2.4375rem",
+                        border: "2px solid #3968EB",
+                        display: "flex",
+                        justifyContent: "center",
+                        // width: "100%",
+                      }}
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 

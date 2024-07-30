@@ -2,8 +2,8 @@ import React from "react";
 import DashboardHomeHeader from "./dashHomeHeader";
 import HomeQuickStart from "./quickStart";
 import Withdraw from "./withdraw";
-import OfferCard from "../../offerAndDeal/cards/card";
-import { generateArray } from "../../../utils/generateArray";
+// import OfferCard from "../../offerAndDeal/cards/card";
+// import { generateArray } from "../../../utils/generateArray";
 
 const HomeMain = () => {
   return (
@@ -28,16 +28,7 @@ const HomeMain = () => {
             boxShadow:
               " 0px 1px 2px 0px rgba(16, 24, 40, 0.06), 0px 1px 3px 0px rgba(16, 24, 40, 0.10)",
           }}
-        >
-          {generateArray(3).map((c, index) => {
-            return (
-              <OfferCard
-                fillBtn={(index + 1) % 2 === 0 ? false : true}
-                key={index}
-              />
-            );
-          })}
-        </div>
+        ></div>
       </div>
     </div>
   );

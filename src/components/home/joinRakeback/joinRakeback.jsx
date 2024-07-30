@@ -2,7 +2,9 @@ import React from "react";
 import SectionHeader from "../../common/section_header/sectionHeader";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import styles from "./joinRakeback.module.css";
+import { Link } from "react-router-dom";
 const JoinRakeback = () => {
+  const token = localStorage.getItem("token") ? true : false;
   return (
     <div className={styles.join_rakeback_container_wrapper}>
       <div className={styles.join_rakeback_container}>
@@ -12,12 +14,16 @@ const JoinRakeback = () => {
               head="Join the RakeBack community?"
               subhead="Join thousands of global poker players with Poker-Cash and turn every hand into a win!"
             />
-            <Navbtn
-              text="Sign up now!"
-              bg="#3968EB"
-              color="white"
-              showIcon={true}
-            />
+            {!token && (
+              <Link to="/" style={{ textDecoration: "none" }}>
+                <Navbtn
+                  text="Sign up now!"
+                  bg="#3968EB"
+                  color="white"
+                  showIcon={true}
+                />
+              </Link>
+            )}
           </div>
           <div className={styles.icon1}>
             <svg
