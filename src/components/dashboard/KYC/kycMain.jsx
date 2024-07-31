@@ -6,7 +6,6 @@ const KycMain = () => {
   return (
     <div>
       <DashboardHomeHeader />
-      {/* <VerifyInfoContainer /> */}
       <KycProgress />
     </div>
   );
