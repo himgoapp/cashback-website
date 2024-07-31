@@ -3,7 +3,7 @@ import { DataTable } from "primereact/datatable";
 // import { Button } from "primereact/button";
 import { Column } from "primereact/column";
 import { alltransactions } from "../../../servicefile/transactionservice";
-import Modal from "react-bootstrap/Modal";
+// import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 
 export default function TransactionTable() {
