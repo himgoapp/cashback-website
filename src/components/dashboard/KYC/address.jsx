@@ -1,0 +1,155 @@
+import Navbtn from "../../common/button/navbtn/navbtn";
+import styles from "./address.module.css";
+const SelectField = ({ label, placeholder }) => {
+  return (
+    <div className={styles.SelectInput}>
+      <div className={styles.SelectInputContent}>
+        <div className={styles.InputLabel}>{label}</div>
+        <div className={styles.InputWrapper}>
+          <div className={styles.SelectTextWrapper}>
+            <div className={styles.SelectText}>
+              <div className={styles.Text}>{placeholder}</div>
+            </div>
+          </div>
+          <div className={styles.DropdownIcon}>
+            <div className={styles.Icon}>{dropdownIcon}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const TextField = ({ label, placeholder }) => {
+  return (
+    <div className={styles.TextInput}>
+      <div className={styles.TextInputWithLabel}>
+        <div className={styles.TextLabel}>{label}</div>
+        <input
+          type="text"
+          className={styles.TextFieldInput}
+          placeholder={placeholder}
+        />
+      </div>
+    </div>
+  );
+};
+function AddressDetail() {
+  return (
+    <>
+      <div className={styles.AddressDetailsContainer}>
+        <div className={styles.Text}>Address Details</div>
+        <div className={styles.AddressDetailsForm}>
+          <div className={styles.AddressDetailsContent}>
+            <div className={styles.InputRow}>
+              <TextField label="First name" placeholder="Olivia" />
+              <TextField label="Last name" placeholder="Rhye" />
+            </div>
+            <div className={styles.InputRow}>
+              <SelectField
+                label="Address Proof Document Type"
+                placeholder="Address Proof"
+              />
+              <TextField
+                label="Address Proof Document Number"
+                placeholder="GSVD73YB3B"
+              />
+            </div>
+            <div className={styles.InputRow}>
+              <SelectField label="State" placeholder="Bihar" />
+            </div>
+            <div className={styles.UploadArea}>
+              <div className={styles.UploadLabel}>
+                Upload Address Proof Document*
+              </div>
+              <div className={styles.FileUpload}>
+                <div className={styles.FileUploadBase}>
+                  <div className={styles.FileUploadContent}>
+                    <div className={styles.Icon}>{uploadSVG}</div>
+                    <div className={styles.UploadTextContainer}>
+                      <div className={styles.Action}>
+                        <Navbtn
+                          text="Click to upload"
+                          bg="transparent"
+                          color="#3968EB"
+                          style={{
+                            padding: 0,
+                          }}
+                        />
+                        <div className={styles.Navbtn}>
+                          <div className={styles.Text}></div>
+                        </div>
+                        <div className={styles.ActionText}>
+                          or drag and drop
+                        </div>
+                      </div>
+                      <div className={styles.ActionSubtext}>
+                        PNG or PDF (Max Size 2MB)
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className={styles.FormFooter}>
+            <div className={styles.Divider}></div>
+            <div className={styles.Content}>
+              <div className={styles.Actions}>
+                <Navbtn
+                  text="Save changes"
+                  bg="#3968EB"
+                  color="white"
+                  showIcon={false}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default AddressDetail;
+const dropdownIcon = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+  >
+    <path
+      d="M5 7.5L10 12.5L15 7.5"
+      stroke="#667085"
+      stroke-width="1.66667"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+const uploadSVG = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 20 20"
+    fill="none"
+  >
+    <g clip-path="url(#clip0_113_5324)">
+      <path
+        d="M9.99935 6.66663V9.99996M9.99935 13.3333H10.0077M18.3327 9.99996C18.3327 14.6023 14.6017 18.3333 9.99935 18.3333C5.39698 18.3333 1.66602 14.6023 1.66602 9.99996C1.66602 5.39759 5.39698 1.66663 9.99935 1.66663C14.6017 1.66663 18.3327 5.39759 18.3327 9.99996Z"
+        stroke="#475467"
+        stroke-width="1.66667"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_113_5324">
+        <rect width="20" height="20" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);

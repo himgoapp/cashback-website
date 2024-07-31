@@ -1,13 +1,14 @@
 import React from "react";
 import Sidebar from "../sidebar/sidebar";
-import KycMain from "./kycMain";
-const KYC = () => {
+import MyTransactionMain from "./myTransactionMain";
+
+const MyTransaction = () => {
   return (
     <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
-      <Sidebar active={3} />
-      <KycMain />
+      <Sidebar active={4} />
+      <MyTransactionMain />
     </div>
   );
 };
 
-export default KYC;
+export default MyTransaction;
