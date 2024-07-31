@@ -98,20 +98,25 @@ const HomeQuickStart = () => {
                     </div>
                   </div>
                   <div className={styles.Butn}>
-                    <Navbtn
-                      text="Go to KYC Verification"
-                      bg="transparent"
-                      color="#3968EB"
-                      showIcon={true}
-                      iconColor="#3968EBw"
-                      style={{
-                        borderRadius: "2.4375rem",
-                        border: "2px solid #3968EB",
-                        display: "flex",
-                        justifyContent: "center",
-                        // width: "100%",
-                      }}
-                    />
+                    <Link
+                      to="/dashboard/kyc"
+                      style={{ color: "white", textDecoration: "none" }}
+                    >
+                      <Navbtn
+                        text="Go to KYC Verification"
+                        bg="transparent"
+                        color="#3968EB"
+                        showIcon={true}
+                        iconColor="#3968EBw"
+                        style={{
+                          borderRadius: "2.4375rem",
+                          border: "2px solid #3968EB",
+                          display: "flex",
+                          justifyContent: "center",
+                          // width: "100%",
+                        }}
+                      />
+                    </Link>
                   </div>
                 </div>
               </div>

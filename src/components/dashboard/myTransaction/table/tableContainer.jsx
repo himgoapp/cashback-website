@@ -1,9 +1,26 @@
 // TableContent.js
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./tableContainer.module.css";
 import { generateArray } from "../../../../utils/generateArray";
+import { alltransactions } from "../../../../servicefile/transactionservice";
+import moment from "moment";
 
 const TableContainer = () => {
+  const [products, setProducts] = useState([]);
+
+  const getTransactions = async () => {
+    const userInfo = localStorage.getItem("userInfo")
+      ? JSON.parse(localStorage.getItem("userInfo"))
+      : {};
+    const res = await alltransactions(userInfo._id);
+    setProducts(res.transactionsInfo);
+  };
+
+  useEffect(() => {
+    getTransactions();
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div className={styles.TransactionTableContainer}>
       <div className={styles.TransactionTable}>
@@ -13,109 +30,132 @@ const TableContainer = () => {
             <div className={styles.IdHeader}>
               <div className={styles.Text}>Transaction ID</div>
             </div>
-            {generateArray(7).map((a) => {
-              return (
-                <div className={styles.IdCell}>
-                  <div className={styles.Text}>HBSH732IUH23H</div>
-                </div>
-              );
-            })}
+            {products &&
+              products.length > 0 &&
+              products.map((a, index) => {
+                return (
+                  <div className={styles.IdCell} key={index}>
+                    <div className={styles.Text}>{a.transaction_hash}</div>
+                  </div>
+                );
+              })}
           </div>
           {/*  */}
           <div className={styles.DateColumn}>
             <div className={styles.DateHeader}>
               <div className={styles.Text}>Date</div>
             </div>
-            {generateArray(7).map((a) => {
-              return (
-                <div className={styles.DateCell}>
-                  <div className={styles.Text}>22 Jan 2022</div>
-                </div>
-              );
-            })}
+            {products &&
+              products.length > 0 &&
+              products.map((a, index) => {
+                return (
+                  <div className={styles.DateCell} key={index}>
+                    <div className={styles.Text}>
+                      {moment(a.createdAt).format("DD MMM YYYY")}
+                    </div>
+                  </div>
+                );
+              })}
           </div>
           {/*  */}
           <div className={styles.TimeColumn}>
             <div className={styles.TimeHeader}>
               <div className={styles.Text}>Time</div>
             </div>
-            {generateArray(7).map((a) => {
-              return (
-                <div className={styles.TimeCell}>
-                  <div className={styles.Text}>12:00 PM</div>
-                </div>
-              );
-            })}
+            {products &&
+              products.length > 0 &&
+              products.map((a, index) => {
+                return (
+                  <div className={styles.TimeCell} key={index}>
+                    <div className={styles.Text}>
+                      {moment(a.createdAt).format("LT")}
+                    </div>
+                  </div>
+                );
+              })}
           </div>
           {/*  */}
           <div className={styles.BalanceColumn}>
             <div className={styles.BalanceHeader}>
               <div className={styles.Text}>Closing Balance</div>
             </div>
-            {generateArray(7).map((a) => {
-              return (
-                <div className={styles.BalanceCell}>
-                  <div className={styles.Text}>₹18.99</div>
-                </div>
-              );
-            })}
+            {products &&
+              products.length > 0 &&
+              products.map((a, index) => {
+                return (
+                  <div className={styles.BalanceCell} key={index}>
+                    <div className={styles.Text}>₹{a.actualAmount}</div>
+                  </div>
+                );
+              })}
+          </div>
+          {/*  */}
+          <div className={styles.AmountColumn}>
+            <div className={styles.AmountHeader}>
+              <div className={styles.Text}>Commissions</div>
+            </div>
+            {products &&
+              products.length > 0 &&
+              products.map((a, index) => {
+                return (
+                  <div className={styles.AmountCell} key={index}>
+                    <div className={styles.Text}>- ₹{a.rackbackcut}</div>
+                  </div>
+                );
+              })}
           </div>
           {/*  */}
           <div className={styles.AmountColumn}>
             <div className={styles.AmountHeader}>
               <div className={styles.Text}>Amount</div>
             </div>
-            {generateArray(7).map((a) => {
-              return (
-                <div className={styles.AmountCell}>
-                  <div className={styles.Text}>- ₹18.99</div>
-                </div>
-              );
-            })}
+            {products &&
+              products.length > 0 &&
+              products.map((a, index) => {
+                return (
+                  <div className={styles.AmountCell} key={index}>
+                    <div className={styles.Text}>- ₹{a.actualAmount}</div>
+                  </div>
+                );
+              })}
           </div>
           {/*  */}
           <div className={styles.StatusColumn}>
             <div className={styles.StatusHeader}>
               <div className={styles.Text}>Status</div>
             </div>
-            {[
-              "Success",
-              "Pending",
-              "Success",
-              "Success",
-              "Pending",
-              "Success",
-              "Pending",
-            ].map((a) => {
-              return (
-                <div className={styles.StatusCell}>
-                  <div
-                    className={styles.Badge}
-                    style={
-                      a.includes("Success")
-                        ? { backgroundColor: "#ecfdf3" }
-                        : {}
-                    }
-                  >
+            {products &&
+              products.length > 0 &&
+              products.map((a, index) => {
+                return (
+                  <div className={styles.StatusCell} key={index}>
                     <div
-                      className={styles.Text}
+                      className={styles.Badge}
                       style={
-                        a.includes("Success")
-                          ? { color: "#027A48" }
-                          : { color: "#B54708" }
+                        a.status === "Success"
+                          ? { backgroundColor: "#ecfdf3" }
+                          : {}
                       }
                     >
-                      {a}
+                      <div
+                        className={styles.Text}
+                        style={
+                          a.status === "Success"
+                            ? { color: "#027A48" }
+                            : { color: "#B54708" }
+                        }
+                      >
+                        {a.status}
+                      </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              })}
           </div>
           {/*  */}
           <div className={styles.DownloadColumn}>
             <div className={styles.DownloadHeader}></div>
-            {generateArray(7).map((a) => {
+            {/* {generateArray(7).map((a) => {
               return (
                 <div className={styles.DownloadCell}>
                   <div className={styles.Button}>
@@ -137,12 +177,14 @@ const TableContainer = () => {
                   </div>
                 </div>
               );
-            })}
+            })} */}
           </div>
         </div>{" "}
         <div className={styles.TablePagination}>
           <div className={styles.Button}> Previous </div>{" "}
-          <div className={styles.Text}>Page 1 of 10</div>
+          <div className={styles.Text}>
+            Page {products.length} of {products.length}
+          </div>
           <div className={styles.Button}> Next </div>
         </div>
       </div>

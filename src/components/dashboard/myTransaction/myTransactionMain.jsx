@@ -1,15 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DashboardHomeHeader from "../home/dashHomeHeader";
 import styles from "./myTransactionMain.module.css";
 import TableContainer from "./table/tableContainer";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardMain from "../../../layout/dashboardMain";
 import statusStyle from "../KYC/kycStatus.module.css";
+import { userInfoFxn } from "../../../servicefile/dashboardservice";
 const MyTransactionMain = () => {
+  const [data, setData] = useState({});
+  const getAllUserInfo = async () => {
+    const userInfo = localStorage.getItem("userInfo")
+      ? JSON.parse(localStorage.getItem("userInfo"))
+      : {};
+    console.log(userInfo, "value");
+    const res = await userInfoFxn(userInfo._id);
+    setData(res.userInfo);
+    sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
+  };
+
+  useEffect(() => {
+    let sessionInfo = sessionStorage.getItem("allInfo")
+      ? JSON.parse(sessionStorage.getItem("allInfo"))
+      : {};
+    if (sessionInfo.user && sessionInfo.userWallet && sessionInfo.userKyc) {
+      setData(sessionInfo);
+    } else {
+      getAllUserInfo();
+    }
+    // eslint-disable-next-line
+  }, []);
+
   return (
     <div style={{ width: "100%" }}>
       <DashboardMainTopBottom>
-        <DashboardHomeHeader title="My Transaction" />
+        <DashboardHomeHeader title="My Transaction" data={data.userWallet} />
         <DashboardMain>
           <div className={styles.TabContent}>
             <div className={styles.TabFilters}>
@@ -21,12 +45,12 @@ const MyTransactionMain = () => {
                   Withdrawals
                 </div>
               </div>
-              <div className={styles.TabButton}>
+              {/* <div className={styles.TabButton}>
                 <div className={styles.TabText}>Commissions</div>
               </div>
               <div className={styles.TabButton}>
                 <div className={styles.TabText}>TDS</div>
-              </div>
+              </div> */}
             </div>
           </div>
           {/*  5% TDS will be applicable to all the users */}

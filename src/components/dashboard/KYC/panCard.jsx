@@ -1,13 +1,19 @@
+import React, { useState, useEffect } from "react";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { TextField } from "./address";
 import styles from "./address.module.css";
-function PanCard() {
+import { addPanCard } from "../../../servicefile/kycservice";
+
+function PanCard({ userKyc, setLevel }) {
+  const [edit, setEdit] = useState(false);
+  const [panCardNo, setPanCardNo] = useState("");
+
   return (
     <>
       <div className={styles.AddressDetailsContainer}>
         <div className={styles.Text}>
           PAN Card
-          <div className={styles.edit}>
+          <div className={styles.edit} onClick={() => setEdit(true)}>
             {editIcon}
             <span style={{ color: "#3968EB" }}>Edit</span>
           </div>
@@ -15,13 +21,18 @@ function PanCard() {
         <div className={styles.AddressDetailsForm}>
           <div className={styles.AddressDetailsContent}>
             <div className={styles.InputRow}>
-              <TextField label="PAN Card Number" placeholder="GSVD73YB3B" />
+              <TextField
+                label="PAN Card Number"
+                placeholder="GSVD73YB3B"
+                onChange={(e) => setPanCardNo(e.target.value)}
+                value={panCardNo}
+              />
             </div>
           </div>
           <div className={styles.FormFooter}>
             <div className={styles.Divider}></div>
             <div className={styles.Content}>
-              <div className={styles.Actions}>
+              <div className={styles.Actions} onClick={() => {}}>
                 <Navbtn
                   text="Save changes"
                   bg="#3968EB"
