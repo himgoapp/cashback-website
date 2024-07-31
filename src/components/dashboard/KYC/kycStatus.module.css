@@ -1,0 +1,109 @@
+.KycStatusContainer {
+  display: flex;
+  /* padding: 0rem 2rem; */
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.625rem;
+  align-self: stretch;
+}
+.StatusContent {
+  display: flex;
+  padding: 0.9375rem 2.5rem 0.9375rem 0.9375rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0.5rem;
+  align-self: stretch;
+  border-radius: 0.5rem;
+}
+.successBorder {
+  border-top: 1px solid var(--Success, #11c15b);
+  border-right: 1px solid var(--Success, #11c15b);
+  border-bottom: 1px solid var(--Success, #11c15b);
+  border-left: 5px solid var(--Success, #11c15b);
+}
+.failedBorder {
+  border-top: 1px solid #ff5252;
+  border-right: 1px solid #ff5252;
+  border-bottom: 1px solid #ff5252;
+  border-left: 5px solid #ff5252;
+}
+.StatusHead {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.StatusIcon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.HeadText {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.HeadLabel {
+  color: #344054;
+
+  /* Text sm/Semibold */
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25rem; /* 142.857% */
+}
+.HeadBadge {
+  display: flex;
+  padding: 0.125rem 0.625rem;
+  align-items: center;
+  border-radius: 1rem;
+  background: var(--success-50, #ecfdf3);
+  mix-blend-mode: multiply;
+}
+.HeadBadge .Text {
+  text-align: center;
+
+  /* Text sm/Medium */
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.25rem; /* 142.857% */
+}
+.successBadgeText {
+  color: var(--success-700, #027a48);
+}
+.failedBadgeText {
+  color: var(--success-700, #b42318);
+}
+.StatusMessage {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.625rem;
+  align-self: stretch;
+}
+.MessageText {
+  color: var(--text-secondary, #475467);
+  /* Text xs/Regular */
+  font-family: Poppins;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.125rem; /* 150% */
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.retry {
+  padding-left: 0.6rem;
+  color: #3968eb;
+
+  /* Text sm/Semibold */
+  font-family: Inter;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.25rem; /* 142.857% */
+}

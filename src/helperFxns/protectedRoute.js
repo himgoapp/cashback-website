@@ -19,6 +19,7 @@ const ProtectedRoute = ({ children }) => {
 
   if (!token || !validateToken(token)) {
     localStorage.clear();
+    sessionStorage.clear();
     return <Navigate to="/" state={{ from: location }} replace />;
   } else {
     return children;

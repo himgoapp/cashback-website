@@ -14,7 +14,6 @@ const DashboardHome = () => {
     const res = await userInfoFxn(userInfo._id);
     setData(res.userInfo);
     sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
-    toast.success(`Welcome ${userInfo.userName}! `);
   };
 
   useEffect(() => {

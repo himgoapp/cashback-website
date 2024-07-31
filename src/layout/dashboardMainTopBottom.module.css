@@ -1,0 +1,28 @@
+.dashboardMainTopBottom {
+  padding: 2rem 0rem 3rem 0rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+}
+.opacity {
+  display: none;
+}
+@media only screen and (max-width: 500px) {
+  .dashboardMainTopBottom {
+    width: 100%;
+  }
+  .opacity {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    background: rgba(52, 64, 84, 0.6);
+
+    /* Background blur/md */
+    backdrop-filter: blur(8px);
+    z-index: 2;
+  }
+}

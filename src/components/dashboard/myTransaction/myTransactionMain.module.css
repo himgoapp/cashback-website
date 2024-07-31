@@ -1,0 +1,41 @@
+/* TabContent */
+.TabContent {
+  width: 72.5rem;
+  align-self: stretch;
+  /* height: 2rem; */
+  border-bottom: 0.0625rem #eaecf0 solid;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+  display: flex;
+  /* width: 100%; */
+  /* margin-left: 2rem;
+  margin-bottom: 2rem; */
+}
+
+/* TabFilters */
+.TabFilters {
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  display: inline-flex;
+}
+
+/* TabButton */
+.TabButton {
+  padding-top: 0.0625rem;
+  padding-bottom: 0.6875rem;
+  padding-left: 0.25rem;
+  padding-right: 0.25rem;
+  /* border-bottom: 0.125rem #3968eb solid; */
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  display: flex;
+}
+@media only screen and (max-width: 500px) {
+  .TabContent {
+    width: 100%;
+  }
+}
