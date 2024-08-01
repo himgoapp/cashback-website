@@ -7,9 +7,19 @@ import { generateArray } from "../../../utils/generateArray";
 import DashboardMain from "../../../layout/dashboardMain";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import WelcomePopup from "../popup/welcome";
+import { getProducts } from "../../../servicefile/productservice";
 
 const HomeMain = ({ data }) => {
   const [infoPop, setInfoPop] = useState(false);
+  const [products, setProducts] = useState([]);
+
+  const getdata = async () => {
+    let data = await getProducts();
+    if (data && data.length > 0) {
+      let result = [...data];
+      setProducts(result);
+    }
+  };
   useEffect(() => {
     let info = sessionStorage.getItem("allInfo")
       ? JSON.parse(sessionStorage.getItem("allInfo"))
@@ -17,6 +27,7 @@ const HomeMain = ({ data }) => {
     if (info && info.user && !info.user.userName) {
       setInfoPop(true);
     }
+    getdata();
   }, [infoPop]);
   return (
     <DashboardMainTopBottom>
@@ -31,6 +42,14 @@ const HomeMain = ({ data }) => {
           />
         )}
       </DashboardMain>
+      {/* {products.map((item, index) => {
+        return (
+          <OfferCard
+            fillBtn={(index + 1) % 2 === 0 ? false : true}
+            product={item}
+          />
+        );
+      })} */}
     </DashboardMainTopBottom>
   );
 };

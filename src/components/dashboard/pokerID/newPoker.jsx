@@ -48,7 +48,6 @@ const NewPoker = ({ setGetInfos }) => {
   }, []);
   return (
     <div className={styles.NewPokerContainer}>
-      <ToastContainer />
       <div className={styles.NewPokerContent}>
         <div className={styles.NewPokerHead}>Add New Poker ID</div>
         <div className={styles.NewPokerCreate}>
@@ -101,6 +100,7 @@ const NewPoker = ({ setGetInfos }) => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };

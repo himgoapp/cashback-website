@@ -3,9 +3,6 @@ import styles from "./navbar.module.css";
 import Navbtn from "../button/navbtn/navbtn";
 import { Link } from "react-router-dom";
 import Logo from "../logo/logo";
-import Form from "react-bootstrap/Form";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from "react-toastify";
 import {
   loginOtp,
@@ -205,71 +202,6 @@ const Navbar = ({ page }) => {
             </svg>
           </div>
         </div>
-        {/* <ToastContainer /> */}
-        {/* <Modal
-          className="ModalSignIN  "
-          size="lg"
-          show={loginTab}
-          onHide={() => handleClose()}
-        >
-          <Modal.Header className="d-flex justify-content-center mb-5">
-            <Modal.Title>
-              <Logo></Logo>
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <Form>
-              <Form.Group
-                className="mb-5 Form-Group"
-                controlId="exampleForm.ControlInput1"
-              >
-                <Form.Label>Phone No.</Form.Label>
-                <Form.Control
-                  type="string"
-                  placeholder="Please put your 10 digit mobile number!"
-                  disabled={loginButtonType === 2}
-                  onChange={(e) => setPhoneNUmber(e.target.value)}
-                  autoFocus
-                />
-              </Form.Group>
-              {loginButtonType === 2 && (
-                <Form.Group
-                  className="mb-3 Form-Group"
-                  controlId="exampleForm.ControlInput1"
-                >
-                  <Form.Label>Otp</Form.Label>
-                  <Form.Control
-                    type="string"
-                    placeholder="Please put your 6 digit otp!"
-                    onChange={(e) => setOtp(e.target.value)}
-                    autoFocus
-                  />
-                </Form.Group>
-              )}
-            </Form>
-          </Modal.Body>
-          <Modal.Footer>
-            {loginButtonType === 1 ? (
-              <Button variant="primary" onClick={() => sendOtp()}>
-                Send Otp
-              </Button>
-            ) : (
-              <>
-                <Button variant="primary" onClick={() => verifyOtp()}>
-                  Verify Otp
-                </Button>
-                <Button
-                  variant="info"
-                  style={{ marginTop: "10px" }}
-                  onClick={() => sendOtp()}
-                >
-                  Resend Otp
-                </Button>
-              </>
-            )}
-          </Modal.Footer>
-        </Modal>
-         */}
       </div>
       {loginTab && (
         <div className={signstyles.PopupWithOpacity}>

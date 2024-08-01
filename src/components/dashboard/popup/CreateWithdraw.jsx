@@ -32,7 +32,6 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 
   return (
     <div className={styles.PopupWithOpacity}>
-      <ToastContainer />
       <div className={styles.PopupSigninWrapper} style={{ width: "34.675rem" }}>
         <div
           className={styles.PopupSigininContainer}
@@ -118,6 +117,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
         className={styles.opacityDiv}
         onClick={() => setShowWithdraw(false)}
       />
+      <ToastContainer />
     </div>
   );
 };

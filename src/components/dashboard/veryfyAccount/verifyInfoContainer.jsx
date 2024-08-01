@@ -56,7 +56,6 @@ function VerifyInfoContainer({ data }) {
 
   return (
     <div className={styles.VerifyInfoContainer}>
-      <ToastContainer />
       {/* email verification */}
       <div className={styles.VerifyInfoContent}>
         <div className={styles.InfoHeader}>
@@ -145,6 +144,7 @@ function VerifyInfoContainer({ data }) {
           </Button>
         </Modal.Footer>
       </Modal>
+      <ToastContainer />
     </div>
   );
 }

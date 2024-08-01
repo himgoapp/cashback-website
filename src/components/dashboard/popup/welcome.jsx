@@ -48,7 +48,6 @@ const WelcomePopup = ({ setInfoPop, phoneNumber }) => {
 
   return (
     <div className={styles.PopupWithOpacity}>
-      <ToastContainer />
       <div className={styles.PopupSigninWrapper} style={{ width: "34.675rem" }}>
         <div
           className={styles.PopupSigininContainer}
@@ -136,6 +135,7 @@ const WelcomePopup = ({ setInfoPop, phoneNumber }) => {
       </div>
       {/* popup opacity background */}
       <div className={styles.opacityDiv} onClick={() => setInfoPop(false)} />
+      <ToastContainer />
     </div>
   );
 };

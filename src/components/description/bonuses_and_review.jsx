@@ -2,6 +2,10 @@ import React from "react";
 import styles from "./bonuses_and_review.module.css";
 import { generateArray } from "../../utils/generateArray";
 const BonusesAndReview = () => {
+  let currentItem = localStorage.getItem("currentProductValue")
+    ? JSON.parse(localStorage.getItem("currentProductValue"))
+    : {};
+
   return (
     <div className={styles.bonuses_and_review_wrapper}>
       {/* Horizontal Tabs */}

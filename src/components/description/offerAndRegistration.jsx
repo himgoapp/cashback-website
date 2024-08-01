@@ -1,11 +1,19 @@
 import React from "react";
 import styles from "./offerAndRegistration.module.css"; // Replace with your actual CSS module path
-import offercard from "../../assets/offercard.png";
+// import offercard from "../../assets/offercard.png";
 import proIcon from "../../assets/proIcon.png";
 import bonusgift from "../../assets/bonusgift.png";
 import walletIcon from "../../assets/walletIcon.png";
+// import Navbtn from "../common/button/navbtn/navbtn";
+import mpl from "../../assets/MPL.jpg";
+import junglePk from "../../assets/jungleePoker.svg";
+import pokerbaazi from "../../assets/PokerBaazi.svg";
 import Navbtn from "../common/button/navbtn/navbtn";
+
 const OfferAndRegistration = () => {
+  let currentItem = localStorage.getItem("currentProductValue")
+    ? JSON.parse(localStorage.getItem("currentProductValue"))
+    : {};
   return (
     <div className={styles.offer_and_registration_wrapper}>
       <div className={styles.offer_and_registration_container}>
@@ -13,19 +21,36 @@ const OfferAndRegistration = () => {
           <div className={styles.offer_card_container}>
             <div className={styles.offer_card_content}>
               <div className={styles.image}>
-                <img src={offercard} alt="Offer" />
+                <img
+                  src={
+                    currentItem &&
+                    currentItem.name &&
+                    currentItem.name === "Poker Baazi"
+                      ? pokerbaazi
+                      : currentItem &&
+                        currentItem.name &&
+                        currentItem.name === "Junglee Poker"
+                      ? junglePk
+                      : mpl
+                  }
+                  alt="Offer"
+                />
               </div>
               <div className={styles.offer_details_content}>
                 <div className={styles.available_content_wrap}>
                   <div className={styles.available_content}>
-                    <div className={styles.heading}>CGPoker</div>
+                    <div className={styles.heading}>
+                      {currentItem && currentItem.name
+                        ? currentItem.name
+                        : "CGPoker"}
+                    </div>
                     <div className={styles.tag1}>T&C</div>
                     <div className={styles.tag2}>A</div>
                   </div>
                   <div className={styles.text}>
-                    Poker room CGPoker - a reliable poker room on the iPoker
-                    network, with rakeback up to 35%, rake race and reload
-                    bonuses for our players.
+                    {currentItem && currentItem.name
+                      ? currentItem.smallDescription
+                      : "Poker room CGPoker - a reliable poker room on the iPoker network, with rakeback up to 35%, rake race and reload bonuses for our players."}
                   </div>
                 </div>
                 <div className={styles.divider}></div>
@@ -35,7 +60,10 @@ const OfferAndRegistration = () => {
                       {filstar} {filstar} {filstar} {blankstar} {blankstar}
                     </div>
                     <div className={styles.text}>
-                      4.6 <span> /5.0</span>
+                      {currentItem && currentItem.name
+                        ? currentItem.rating
+                        : 4.6}{" "}
+                      <span> /5.0</span>
                     </div>
                   </div>
                   <div className={styles.comment_container}>
