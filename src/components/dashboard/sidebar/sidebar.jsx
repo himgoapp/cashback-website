@@ -68,11 +68,13 @@ const Sidebar = ({ active }) => {
                 alt="Avatar"
               />
               <div className={styles.TextAndSupportingText}>
-                {data && data.user.userName
+                {data && data.user && data.user.userName
                   ? data.user.userName
                   : "Not filled!"}
                 <div className={styles.SupportingText}>
-                  {data && data.user.email ? data.user.email : "Not filled!"}
+                  {data && data.user && data.user.email
+                    ? data.user.email
+                    : "Not filled!"}
                 </div>
               </div>
             </div>
