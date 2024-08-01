@@ -13,6 +13,7 @@ const DashboardHome = () => {
     console.log(userInfo, "value");
     const res = await userInfoFxn(userInfo._id);
     setData(res.userInfo);
+    localStorage.setItem("transactionInfo", "false");
     sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
   };
 
@@ -20,7 +21,14 @@ const DashboardHome = () => {
     let sessionInfo = sessionStorage.getItem("allInfo")
       ? JSON.parse(sessionStorage.getItem("allInfo"))
       : {};
-    if (sessionInfo.user && sessionInfo.userWallet && sessionInfo.userKyc) {
+
+    let transactionInfo = localStorage.getItem("transactionInfo");
+    if (
+      sessionInfo.user &&
+      sessionInfo.userWallet &&
+      sessionInfo.userKyc &&
+      transactionInfo === "false"
+    ) {
       setData(sessionInfo);
     } else {
       getAllUserInfo();

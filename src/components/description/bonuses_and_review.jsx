@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./bonuses_and_review.module.css";
-// import { generateArray } from "../../utils/generateArray";
+import { generateArray } from "../../utils/generateArray";
 const BonusesAndReview = () => {
   return (
     <div className={styles.bonuses_and_review_wrapper}>
@@ -36,9 +36,9 @@ const BonusesAndReview = () => {
               "$50,000 rake race ",
               "Rake structure ",
               "Maximum 45% rake back ",
-            ].map((content, index) => {
+            ].map((content) => {
               return (
-                <div className={styles.list} key={index}>
+                <div className={styles.list}>
                   {bulletPoint}
                   <div className={styles.text}>{content}</div>
                 </div>
@@ -86,9 +86,9 @@ const BonusesAndReview = () => {
                   { time: 21, type: "HOURS" },
                   { time: 32, type: "MINS" },
                   { time: 23, type: "SECS" },
-                ].map((date, index) => {
+                ].map((date) => {
                   return (
-                    <div className={styles.date_container} key={index}>
+                    <div className={styles.date_container}>
                       <div className={styles.time}>
                         {date.time}
                         <span>{date.type}</span>
@@ -136,13 +136,13 @@ const noteIcon = (
     viewBox="0 0 18 18"
     fill="none"
   >
-    <g clipPath="url(#clip0_24_3826)">
+    <g clip-path="url(#clip0_24_3826)">
       <path
         d="M9 12V9M9 6H9.0075M16.5 9C16.5 13.1421 13.1421 16.5 9 16.5C4.85786 16.5 1.5 13.1421 1.5 9C1.5 4.85786 4.85786 1.5 9 1.5C13.1421 1.5 16.5 4.85786 16.5 9Z"
         stroke="#475467"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </g>
     <defs>
@@ -163,9 +163,9 @@ const passwordIcon = (
     <path
       d="M9 9H9.00375M12.75 9H12.7538M5.25 9H5.25375M3.9 5.25H14.1C14.9401 5.25 15.3601 5.25 15.681 5.41349C15.9632 5.5573 16.1927 5.78677 16.3365 6.06901C16.5 6.38988 16.5 6.80992 16.5 7.65V10.35C16.5 11.1901 16.5 11.6101 16.3365 11.931C16.1927 12.2132 15.9632 12.4427 15.681 12.5865C15.3601 12.75 14.9401 12.75 14.1 12.75H3.9C3.05992 12.75 2.63988 12.75 2.31901 12.5865C2.03677 12.4427 1.8073 12.2132 1.66349 11.931C1.5 11.6101 1.5 11.1901 1.5 10.35V7.65C1.5 6.80992 1.5 6.38988 1.66349 6.06901C1.8073 5.78677 2.03677 5.5573 2.31901 5.41349C2.63988 5.25 3.05992 5.25 3.9 5.25ZM9.1875 9C9.1875 9.10355 9.10355 9.1875 9 9.1875C8.89645 9.1875 8.8125 9.10355 8.8125 9C8.8125 8.89645 8.89645 8.8125 9 8.8125C9.10355 8.8125 9.1875 8.89645 9.1875 9ZM12.9375 9C12.9375 9.10355 12.8536 9.1875 12.75 9.1875C12.6464 9.1875 12.5625 9.10355 12.5625 9C12.5625 8.89645 12.6464 8.8125 12.75 8.8125C12.8536 8.8125 12.9375 8.89645 12.9375 9ZM5.4375 9C5.4375 9.10355 5.35355 9.1875 5.25 9.1875C5.14645 9.1875 5.0625 9.10355 5.0625 9C5.0625 8.89645 5.14645 8.8125 5.25 8.8125C5.35355 8.8125 5.4375 8.89645 5.4375 9Z"
       stroke="#475467"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
     />
   </svg>
 );
@@ -177,13 +177,13 @@ const prizeIcon = (
     viewBox="0 0 18 18"
     fill="none"
   >
-    <g clipPath="url(#clip0_24_3820)">
+    <g clip-path="url(#clip0_24_3820)">
       <path
         d="M9 11.25C6.51472 11.25 4.5 9.23528 4.5 6.75V2.58333C4.5 2.27295 4.5 2.11775 4.54523 1.99348C4.62105 1.78516 4.78516 1.62105 4.99348 1.54523C5.11775 1.5 5.27295 1.5 5.58333 1.5H12.4167C12.7271 1.5 12.8822 1.5 13.0065 1.54523C13.2148 1.62105 13.3789 1.78516 13.4548 1.99348C13.5 2.11775 13.5 2.27295 13.5 2.58333V6.75C13.5 9.23528 11.4853 11.25 9 11.25ZM9 11.25V13.5M13.5 3H15.375C15.7245 3 15.8992 3 16.037 3.05709C16.2208 3.13321 16.3668 3.27922 16.4429 3.46299C16.5 3.60082 16.5 3.77554 16.5 4.125V4.5C16.5 5.19748 16.5 5.54622 16.4233 5.83234C16.2153 6.6088 15.6088 7.21528 14.8323 7.42333C14.5462 7.5 14.1975 7.5 13.5 7.5M4.5 3H2.625C2.27554 3 2.10082 3 1.96299 3.05709C1.77922 3.13321 1.63321 3.27922 1.55709 3.46299C1.5 3.60082 1.5 3.77554 1.5 4.125V4.5C1.5 5.19748 1.5 5.54622 1.57667 5.83234C1.78472 6.6088 2.3912 7.21528 3.16766 7.42333C3.45378 7.5 3.80252 7.5 4.5 7.5M5.58333 16.5H12.4167C12.6008 16.5 12.75 16.3508 12.75 16.1667C12.75 14.6939 11.5561 13.5 10.0833 13.5H7.91667C6.44391 13.5 5.25 14.6939 5.25 16.1667C5.25 16.3508 5.39924 16.5 5.58333 16.5Z"
         stroke="#475467"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        stroke-width="1.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
       />
     </g>
     <defs>
@@ -284,7 +284,7 @@ const coinIcon = (
     <path
       d="M16.334 1.46533C19.4007 1.97502 25.415 5.41119 23.6969 15.0741C22.2655 21.1883 16.763 32.6861 6.21033 29.7511C5.54561 29.5982 3.87426 28.9016 2.52783 27.3046"
       stroke="#3968EB"
-      strokeWidth="0.212371"
+      stroke-width="0.212371"
     />
   </svg>
 );

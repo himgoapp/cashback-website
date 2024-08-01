@@ -7,6 +7,7 @@ import { userInfoFxn } from "../../../servicefile/dashboardservice";
 
 const PokerIDMain = () => {
   const [data, setData] = useState({});
+  const [getInfos, setGetInfos] = useState(false);
   const getAllUserInfo = async () => {
     const userInfo = localStorage.getItem("userInfo")
       ? JSON.parse(localStorage.getItem("userInfo"))
@@ -14,6 +15,7 @@ const PokerIDMain = () => {
     console.log(userInfo, "value");
     const res = await userInfoFxn(userInfo._id);
     setData(res.userInfo);
+    localStorage.setItem("transactionInfo", "false");
     sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
   };
 
@@ -21,18 +23,26 @@ const PokerIDMain = () => {
     let sessionInfo = sessionStorage.getItem("allInfo")
       ? JSON.parse(sessionStorage.getItem("allInfo"))
       : {};
-    if (sessionInfo.user && sessionInfo.userWallet && sessionInfo.userKyc) {
+
+    let transactionInfo = localStorage.getItem("transactionInfo");
+    if (
+      sessionInfo.user &&
+      sessionInfo.userWallet &&
+      sessionInfo.userKyc &&
+      transactionInfo === "false"
+    ) {
       setData(sessionInfo);
     } else {
       getAllUserInfo();
     }
     // eslint-disable-next-line
   }, []);
+
   return (
     <div>
       <DashboardHomeHeader data={data.userWallet} />
-      <NewPoker />
-      <PokerCardsContainer />
+      <NewPoker setGetInfos={setGetInfos} />
+      <PokerCardsContainer getInfos={getInfos} setGetInfos={setGetInfos} />
     </div>
   );
 };

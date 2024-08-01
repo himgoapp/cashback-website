@@ -3,7 +3,7 @@ import styles from "./PokerCardsContainer.module.css"; // Make sure to import yo
 import PokerCard from "./pokerCard";
 import { userAccountIdsInfo } from "../../../../servicefile/pokeridservice";
 
-const PokerCardsContainer = () => {
+const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
   const [activeTab, setActiveTab] = useState(1);
   const [AllIDs, setAllIds] = useState([]);
   const [tabSelected, setTabSelected] = useState([]);
@@ -16,12 +16,20 @@ const PokerCardsContainer = () => {
     const res = await userAccountIdsInfo(userInfo._id);
     setAllIds(res);
     setTabSelected(res);
+    setGetInfos(false);
   };
 
   useEffect(() => {
     getTagIdInfo();
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (getInfos === true) {
+      getTagIdInfo();
+    }
+    // eslint-disable-next-line
+  }, [getInfos]);
 
   const setTab = (val) => {
     if (val === 1) {

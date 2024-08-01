@@ -2,7 +2,7 @@ import React from "react";
 import DashboardHomeHeader from "./dashHomeHeader";
 import HomeQuickStart from "./quickStart";
 import Withdraw from "./withdraw";
-// import OfferCard from "../../offerAndDeal/cards/card";
+import OfferCard from "../../offerAndDeal/cards/card";
 // import { generateArray } from "../../../utils/generateArray";
 
 const HomeMain = ({ data }) => {
@@ -10,7 +10,7 @@ const HomeMain = ({ data }) => {
     <div>
       <DashboardHomeHeader data={data.userWallet} />
       <HomeQuickStart />
-      <Withdraw data={data.userWallet} />
+      <Withdraw data={data.userWallet} userKyc={data.userKyc} />
       <div
         style={{ paddingLeft: "2rem", paddingRight: "2rem", width: "72.5rem" }}
       >

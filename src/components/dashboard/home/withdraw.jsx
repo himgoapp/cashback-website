@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./withdraw.module.css";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import withdraw from "../../../assets/withdraw.png";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
+import KycPopup from "../popup/kycpop";
+import WithdrawPopUp from "../popup/CreateWithdraw";
+
 // import wallet from "../../../assets/wallet.png";
-const Withdraw = ({ data }) => {
+const Withdraw = ({ data, userKyc }) => {
   const navigate = useNavigate();
+  const [kycPop, setKycPop] = useState(false);
+  const [showWithdraw, setShowWithdraw] = useState(false);
 
   const withdrawHit = () => {
-    if (data.wallet_balance < 1000) {
-      toast.error(" Sorry! your Wallet balance is lower than withdraw limit!");
+    if (userKyc && userKyc.status === true && userKyc.level === "4") {
+      if (data.wallet_balance < 1000) {
+        toast.error(
+          " Sorry! your Wallet balance is lower than withdraw limit!"
+        );
+      } else {
+        setShowWithdraw(true);
+      }
     } else {
-      navigate("/dashboard/mytransactions");
+      setKycPop(true);
     }
   };
 
@@ -124,6 +135,13 @@ const Withdraw = ({ data }) => {
         >
           <img src={withdraw} alt="" />
         </div>
+        {showWithdraw && (
+          <WithdrawPopUp
+            setShowWithdraw={setShowWithdraw}
+            maxAmount={data.wallet_balance}
+          />
+        )}
+        {kycPop && <KycPopup setKycPop={setKycPop} />}
       </div>
     </div>
   );

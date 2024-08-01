@@ -8,7 +8,7 @@ import {
 import { ToastContainer, toast } from "react-toastify";
 import { Button } from "react-bootstrap";
 
-const NewPoker = () => {
+const NewPoker = ({ setGetInfos }) => {
   const [allProductIds, setAllProductIds] = useState([]);
   const [productId, setProductId] = useState("");
   const [referenceId, setReferenceId] = useState("");
@@ -34,6 +34,7 @@ const NewPoker = () => {
           autoClose: 5000,
         });
       }
+      setGetInfos(true);
       setProductId("");
       setReferenceId("");
       setReferralCode("");
@@ -64,6 +65,9 @@ const NewPoker = () => {
               placeholder="Select Poker Site"
             >
               {" "}
+              <option value="" disabled={true}>
+                Please select!
+              </option>
               {allProductIds &&
                 allProductIds.length > 0 &&
                 allProductIds.map((item, index) => {

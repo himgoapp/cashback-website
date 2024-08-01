@@ -1,32 +1,3 @@
-// import logo from "./logo.svg";
-// import "./App.css";
-// import Navbar from "./components/common/navbar/navbar";
-// import Banner from "./components/home/banner/banner";
-// import AboutUs from "./components/home/aboutus/aboutUs";
-// import Deals from "./components/home/deals/deals";
-// import Getstarted from "./components/home/getStarted/getstarted.jsx";
-// import Featured from "./components/home/featured/featured";
-// import FAQ from "./components/home/FAQ/faq";
-// import JoinRakeback from "./components/home/joinRakeback/joinRakeback";
-// import Footer from "./components/common/footer/footer";
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Navbar />
-//       <Banner />
-//       <AboutUs />
-//       <Deals />
-//       <Getstarted />
-//       <Featured />
-//       <FAQ />
-//       <JoinRakeback />
-//       <Footer />
-//     </div>
-//   );
-// }
-
-// export default App;
 import "./App.css";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
