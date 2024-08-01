@@ -84,3 +84,36 @@ export const submitAccountId = async (productId, referenceId, referralCode) => {
     }
   }
 };
+
+export const createTransaction = async (amount) => {
+  let user = localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : "";
+
+  let body = {
+    user_id: user._id,
+    amount,
+  };
+
+  let headers = {
+    "Content-Type": "application/json",
+  };
+
+  try {
+    let data = await axios
+      .post(
+        `${baseUrlconfig.baseUrl}/transactions/create`,
+        { ...body },
+        { ...headers }
+      )
+      .then((res) => res.data);
+    return data;
+  } catch (error) {
+    console.log(error.response);
+    if (error.response) {
+      return error.response.data.errors;
+    } else {
+      return { message: "Something Went Wrong!" };
+    }
+  }
+};

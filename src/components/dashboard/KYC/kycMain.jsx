@@ -26,7 +26,14 @@ const KycMain = () => {
     let sessionInfo = sessionStorage.getItem("allInfo")
       ? JSON.parse(sessionStorage.getItem("allInfo"))
       : {};
-    if (sessionInfo.user && sessionInfo.userWallet && sessionInfo.userKyc) {
+
+    let transactionInfo = localStorage.getItem("transactionInfo");
+    if (
+      sessionInfo.user &&
+      sessionInfo.userWallet &&
+      sessionInfo.userKyc &&
+      transactionInfo === "false"
+    ) {
       setData(sessionInfo);
     } else {
       getAllUserInfo();
