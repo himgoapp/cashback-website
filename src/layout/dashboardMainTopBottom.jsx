@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import style from "./dashboardMainTopBottom.module.css";
 import { UserContext } from "../App";
-import WalletContainer from "../components/dashboard/popup/wallet";
+// import WalletContainer from "../components/dashboard/popup/wallet";
 import Notifications from "../components/dashboard/popup/notification";
 const DashboardMainTopBottom = (props) => {
   const {
@@ -21,7 +21,7 @@ const DashboardMainTopBottom = (props) => {
         style={showSidebar ? { display: "block" } : { display: "none" }}
       ></div>
       {/* wallet withdraw */}
-      {showWalletWithdraw && <WalletContainer />}
+      {/* {showWalletWithdraw && <WalletContainer />} */}
       {showNotifications && <Notifications />}
     </div>
   );

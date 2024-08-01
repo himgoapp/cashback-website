@@ -10,6 +10,7 @@
   border: 2px solid var(--black-800, #212121);
   cursor: pointer;
 }
+
 .navbtn_container .text {
   color: var(--black-800, #212121);
   text-align: center;
@@ -18,10 +19,17 @@
   font-size: 1rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 1.25rem; /* 125% */
+  line-height: 1.25rem;
+  /* 125% */
 }
+
 .navbtn_container .icon {
   width: 1.625rem;
   height: 0.6875rem;
-  transform: translateY(-50%);
+  transform: translateY(-30%);
+}
+
+.icon svg {
+  /* width: 100%;
+  height: 100%; */
 }

@@ -85,7 +85,7 @@ const NewPoker = ({ setGetInfos }) => {
             />
           </div>
         </div>
-        <div className={styles.NewPokerAccId}>
+        {/* <div className={styles.NewPokerAccId}>
           <input
             value={referralCode}
             onChange={(e) => setReferralCode(e.target.value)}
@@ -93,7 +93,7 @@ const NewPoker = ({ setGetInfos }) => {
             className={styles.SelectContent + " " + styles.SelectWrapper}
             placeholder="Enter Refer code*"
           />
-        </div>
+        </div> */}
         {/* <div className={styles.SubmitBtn}></div> */}{" "}
         <Button
           variant="primary"

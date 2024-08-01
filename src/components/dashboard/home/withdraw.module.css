@@ -3,12 +3,13 @@
   /*  width: 100%; 100% width */
   /*   height: 100%;100% height */
   width: 72.5rem;
-  padding-left: 2rem; /* 32px / 16px */
-  padding-right: 2rem; /* 32px / 16px */
+  /*  padding-left: 2rem;  32px / 16px */
+  /*  padding-right: 2rem; 32px / 16px */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1.5rem; /* 24px / 16px */
+  gap: 1.5rem;
+  /* 24px / 16px */
   display: inline-flex;
 }
 
@@ -16,7 +17,8 @@
   align-self: stretch;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1.5rem; /* 24px / 16px */
+  gap: 1.5rem;
+  /* 24px / 16px */
   display: inline-flex;
 }
 
@@ -26,7 +28,19 @@
   align-self: stretch;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1.5rem; /* 24px / 16px */
+  gap: 1.5rem;
+  /* 24px / 16px */
+  display: flex;
+}
+
+.WithdrawImageWrapper {
+  /* width: 33.5rem; */
+  width: 100%;
+  align-self: stretch;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 1.5rem;
+  /* 24px / 16px */
   display: flex;
 }
 
@@ -35,18 +49,23 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1.5rem; /* 24px / 16px */
+  gap: 1.5rem;
+  /* 24px / 16px */
   display: inline-flex;
 }
 
 .Balance {
   align-self: stretch;
-  height: 15.75rem; /* 252px / 16px */
+  height: 15.75rem;
+  /* 252px / 16px */
   background: white;
-  box-shadow: 0 0.0625rem 0.125rem rgba(16, 24, 40, 0.06); /* 0px 1px 2px rgba(16, 24, 40, 0.06) / 16px */
-  border-radius: 0.75rem; /* 12px / 16px */
+  box-shadow: 0 0.0625rem 0.125rem rgba(16, 24, 40, 0.06);
+  /* 0px 1px 2px rgba(16, 24, 40, 0.06) / 16px */
+  border-radius: 0.75rem;
+  /* 12px / 16px */
   overflow: hidden;
-  border: 0.0625rem solid #eaecf0; /* 1px / 16px */
+  border: 0.0625rem solid #eaecf0;
+  /* 1px / 16px */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -56,21 +75,25 @@
 .BalanceContent {
   align-self: stretch;
   flex: 1 1 0;
-  padding: 1.5rem; /* 24px / 16px */
+  padding: 1.5rem;
+  /* 24px / 16px */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1.5rem; /* 24px / 16px */
+  gap: 1.5rem;
+  /* 24px / 16px */
   display: flex;
 }
 
 .BalanceContentWrapper {
   align-self: stretch;
-  height: 8.875rem; /* 142px / 16px */
+  height: 8.875rem;
+  /* 142px / 16px */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 1.5rem; /* 24px / 16px */
+  gap: 1.5rem;
+  /* 24px / 16px */
   display: flex;
 }
 
@@ -93,21 +116,25 @@
 
 .BalanceText {
   /* align-self: stretch; */
-  height: 4.25rem; /* 68px / 16px */
+  height: 4.25rem;
+  /* 68px / 16px */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 0.625rem; /* 10px / 16px */
+  gap: 0.625rem;
+  /* 10px / 16px */
   display: flex;
 }
 
 .BalanceHead {
   align-self: stretch;
   color: #475467;
-  font-size: 0.875rem; /* 14px / 16px */
+  font-size: 0.875rem;
+  /* 14px / 16px */
   font-family: "Inter";
   font-weight: 500;
-  line-height: 1.25rem; /* 20px / 16px */
+  line-height: 1.25rem;
+  /* 20px / 16px */
   word-wrap: break-word;
 }
 
@@ -115,28 +142,35 @@
   align-self: stretch;
   justify-content: flex-start;
   align-items: flex-end;
-  gap: 1rem; /* 16px / 16px */
+  gap: 1rem;
+  /* 16px / 16px */
   display: inline-flex;
 }
 
 .Number {
   flex: 1 1 0;
   color: #101828;
-  font-size: 1.875rem; /* 30px / 16px */
+  font-size: 1.875rem;
+  /* 30px / 16px */
   font-family: "Inter";
   font-weight: 600;
-  line-height: 2.375rem; /* 38px / 16px */
+  line-height: 2.375rem;
+  /* 38px / 16px */
   word-wrap: break-word;
 }
 
 .Card {
   align-self: stretch;
-  height: 7.125rem; /* 114px / 16px */
+  height: 7.125rem;
+  /* 114px / 16px */
   background: white;
-  box-shadow: 0px 0.0625rem 0.125rem rgba(16, 24, 40, 0.06); /* 0px 1px 2px rgba(16, 24, 40, 0.06) / 16px */
-  border-radius: 0.75rem; /* 12px / 16px */
+  box-shadow: 0px 0.0625rem 0.125rem rgba(16, 24, 40, 0.06);
+  /* 0px 1px 2px rgba(16, 24, 40, 0.06) / 16px */
+  border-radius: 0.75rem;
+  /* 12px / 16px */
   overflow: hidden;
-  border: 0.0625rem solid #eaecf0; /* 1px / 16px */
+  border: 0.0625rem solid #eaecf0;
+  /* 1px / 16px */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -146,3 +180,17 @@
 /* Add your styling for the Card component here */
 
 /* Additional CSS can be added as needed */
+/* mobile ////////////////////// */
+@media only screen and (max-width: 500px) {
+  .HomeWithdraw {
+    width: 100%;
+  }
+
+  .WithdrawContent {
+    flex-direction: column;
+  }
+
+  .WithdrawImageWrapper img {
+    width: 100%;
+  }
+}

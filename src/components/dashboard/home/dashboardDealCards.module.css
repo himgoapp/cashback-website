@@ -8,7 +8,6 @@
   flex-direction: column;
   gap: 1.25rem;
 }
-
 .cardsContent {
   /* padding */
   display: flex;
@@ -17,7 +16,6 @@
   flex-direction: row;
   /* flex-wrap: wrap; (commented out) */
 }
-
 .deal_head {
   display: flex;
   align-items: center;
@@ -30,18 +28,15 @@
   font-size: 1.125rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 1.75rem;
-  /* 155.556% */
+  line-height: 1.75rem; /* 155.556% */
   padding: 1.5rem;
 }
-
 @media only screen and (max-width: 500px) {
   .DashboardDealCardsContainer {
     width: 100%;
   }
-
-  .deal_head {}
-
+  .deal_head {
+  }
   .cardsContent {
     flex-direction: column;
     display: flex;

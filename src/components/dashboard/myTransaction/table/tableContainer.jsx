@@ -89,7 +89,7 @@ const TableContainer = () => {
               })}
           </div>
           {/*  */}
-          <div className={styles.AmountColumn}>
+          {/* <div className={styles.AmountColumn}>
             <div className={styles.AmountHeader}>
               <div className={styles.Text}>Commissions</div>
             </div>
@@ -102,7 +102,7 @@ const TableContainer = () => {
                   </div>
                 );
               })}
-          </div>
+          </div> */}
           {/*  */}
           <div className={styles.AmountColumn}>
             <div className={styles.AmountHeader}>

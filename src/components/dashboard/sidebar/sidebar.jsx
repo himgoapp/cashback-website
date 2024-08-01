@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { UserContext } from "../../../App";
 
 const Sidebar = ({ active }) => {
-  const { mobile } = useContext(UserContext);
+  const { showSidebar, setShowSidebar, mobile } = useContext(UserContext);
   let data = sessionStorage.getItem("allInfo")
     ? JSON.parse(sessionStorage.getItem("allInfo"))
     : {};
@@ -13,7 +13,7 @@ const Sidebar = ({ active }) => {
     <div
       className={styles.SidebarNavigation}
       // style={!mobile ? { display: "inline-flex" } : { display: "none" }}
-      style={{ display: "inline-flex" }}
+      style={showSidebar ? { display: "inline-flex" } : { display: "none" }}
     >
       <div className={styles.Content}>
         <div className={styles.Nav}>
@@ -25,7 +25,7 @@ const Sidebar = ({ active }) => {
           <div className={styles.Navigation}>
             {[
               { icon: barIcon, text: "Home", link: "/dashboard" },
-              { icon: barIcon, text: "Poker IDs", link: "/dashboard/pokerID" },
+              { icon: barIcon, text: "Poker IDs", link: "/dashboard/pokerid" },
               {
                 icon: verifyIcon,
                 text: "Verify Account",
@@ -85,12 +85,12 @@ const Sidebar = ({ active }) => {
             </div>
           </div>
         </div>
-        {/* <div
+        <div
           className={styles.CloseSidebar}
           onClick={() => setShowSidebar(false)}
         >
           {closeIcon}
-        </div> */}
+        </div>
       </div>
     </div>
   );

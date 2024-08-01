@@ -3,7 +3,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/homepage";
 
-import { createContext } from "react";
+import { createContext, useEffect, useState } from "react";
 import OfferAndDealsContainer from "./pages/offerAndDealsPage";
 import DescriptionPage from "./pages/descriptionPage";
 import DashboardHome from "./components/dashboard/home/home";
@@ -15,9 +15,37 @@ import ProtectedRoute from "./helperFxns/protectedRoute";
 
 export const UserContext = createContext();
 function App() {
+  const [showSidebar, setShowSidebar] = useState(true);
+  const [showSigninPopup, setShowSigninPopup] = useState(true);
+  const [showWelcomePopup, setShowWelcomePopup] = useState(true);
+  const [showCheckEmailPopup, setShowCheckEmailPopup] = useState(true);
+  const [showWalletWithdraw, setShowWalletWithdraw] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [mobile, setMobile] = useState(true);
+
+  useEffect(() => {
+    setMobile(window.innerWidth <= 500);
+    // setShowSidebar(false);
+  }, []);
   return (
     <>
-      <UserContext.Provider value={{}}>
+      <UserContext.Provider
+        value={{
+          showSidebar,
+          setShowSidebar,
+          showSigninPopup,
+          setShowSigninPopup,
+          mobile,
+          showWelcomePopup,
+          setShowWelcomePopup,
+          showCheckEmailPopup,
+          setShowCheckEmailPopup,
+          showWalletWithdraw,
+          setShowWalletWithdraw,
+          showNotifications,
+          setShowNotifications,
+        }}
+      >
         <Router>
           <Routes>
             <Route path="/" element={<HomePage />} />
@@ -45,7 +73,7 @@ function App() {
             />
 
             <Route
-              path="/dashboard/pokerID"
+              path="/dashboard/pokerid"
               element={
                 <ProtectedRoute>
                   <PokerID />
