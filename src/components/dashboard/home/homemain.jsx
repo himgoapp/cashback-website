@@ -6,6 +6,7 @@ import OfferCard from "../../offerAndDeal/cards/card";
 import { generateArray } from "../../../utils/generateArray";
 import DashboardMain from "../../../layout/dashboardMain";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
+import DashboardDealCards from "./dashboardDealCards";
 import WelcomePopup from "../popup/welcome";
 import { getProducts } from "../../../servicefile/productservice";
 
@@ -42,14 +43,7 @@ const HomeMain = ({ data }) => {
           />
         )}
       </DashboardMain>
-      {/* {products.map((item, index) => {
-        return (
-          <OfferCard
-            fillBtn={(index + 1) % 2 === 0 ? false : true}
-            product={item}
-          />
-        );
-      })} */}
+      <DashboardDealCards products={products} />
     </DashboardMainTopBottom>
   );
 };

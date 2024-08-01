@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./pokerCard.module.css"; // Import your CSS module
 import pokerCardimg from "../../../../assets/pokercard.png";
+import moment from "moment";
+
 const PokerCard = ({ status, color, item }) => {
   return (
     <div className={styles.PokerCard}>
@@ -34,7 +36,11 @@ const PokerCard = ({ status, color, item }) => {
             </div>
           </div>
           <div className={styles.PokerDate}>
-            {item && item.createdAt ? item.createdAt : ""}
+            {item && item.createdAt
+              ? `${moment(item.createdAt).format("DD MMM YYYY")} || ${moment(
+                  item.createdAt
+                ).format("LT")} `
+              : ""}
           </div>
         </div>
       </div>
