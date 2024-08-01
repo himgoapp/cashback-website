@@ -1,12 +1,51 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "../../description/popup/signin.module.css";
 import TextInput from "../../common/textInput/textInput";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
-const WelcomePopup = () => {
-  const { setShowWelcomePopup, mobile } = useContext(UserContext);
+import { signUpFxn } from "../../../servicefile/authservice";
+import { ToastContainer, toast } from "react-toastify";
+
+const WelcomePopup = ({ setInfoPop, phoneNumber }) => {
+  const { mobile } = useContext(UserContext);
+  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleClose = () => {
+    setUserName("");
+    setEmail("");
+  };
+
+  const sigUPFxn = async () => {
+    try {
+      if (email && userName) {
+        let data = await signUpFxn(phoneNumber, email, userName);
+        if (data && data.message === "Account Created Successfully!") {
+          toast.success(`Sign up successfull! Please login`, {
+            autoClose: 8000,
+          });
+          handleClose();
+          window.location.reload();
+        } else {
+          toast.error(`${data.message}`, {
+            autoClose: 5000,
+          });
+        }
+      } else {
+        toast.warn(`Email or name are required field!`, {
+          autoClose: 5000,
+        });
+      }
+    } catch (error) {
+      toast.error(`Email or name already taken!`, {
+        autoClose: 5000,
+      });
+    }
+  };
+
   return (
     <div className={styles.PopupWithOpacity}>
+      <ToastContainer />
       <div className={styles.PopupSigninWrapper} style={{ width: "34.675rem" }}>
         <div
           className={styles.PopupSigininContainer}
@@ -48,16 +87,26 @@ const WelcomePopup = () => {
               style={{ width: "100%" }}
             >
               <div className={styles.input_label}>What’s your name</div>
-              <TextInput placeholder="Enter Name"></TextInput>
+              <TextInput
+                placeholder="Enter Name"
+                setValue={setUserName}
+              ></TextInput>
             </div>
             <div
               className={styles.popup_signin_action}
               style={{ width: "100%" }}
             >
               <div className={styles.input_label}>Email</div>
-              <TextInput placeholder="Enter your email"></TextInput>
+              <TextInput
+                placeholder="Enter your email"
+                setValue={setEmail}
+              ></TextInput>
             </div>
-            <div className={styles.btn_action} style={{ width: "100%" }}>
+            <div
+              className={styles.btn_action}
+              style={{ width: "100%" }}
+              onClick={() => sigUPFxn()}
+            >
               <Navbtn
                 text="Continue"
                 bg="#3968EB"
@@ -76,17 +125,14 @@ const WelcomePopup = () => {
               top: "1.5rem",
               right: "1.5rem",
             }}
-            onClick={() => setShowWelcomePopup(false)}
+            onClick={() => setInfoPop(false)}
           >
             {closeIcon}
           </div>
         )}
       </div>
       {/* popup opacity background */}
-      <div
-        className={styles.opacityDiv}
-        onClick={() => setShowWelcomePopup(false)}
-      />
+      <div className={styles.opacityDiv} onClick={() => setInfoPop(false)} />
     </div>
   );
 };

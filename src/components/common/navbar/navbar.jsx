@@ -140,8 +140,8 @@ const Navbar = ({ page }) => {
         {page === "home" && homePageMenu}
         {page === "offer" && offersAndDealsPageMenu}
         <div className={styles.btn_link_container}>
-          <div className={styles.signup_btn}>
-            {/* Sign Up Button Content */}
+          {/* <div className={styles.signup_btn}>
+            
 
             <Button
               variant="dark"
@@ -151,7 +151,7 @@ const Navbar = ({ page }) => {
             >
               SIGN UP
             </Button>
-          </div>
+          </div> */}
 
           {/* Login Button Content */}
           <div className={styles.login_btn}>

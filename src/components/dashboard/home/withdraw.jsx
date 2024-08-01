@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import styles from "./withdraw.module.css";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import withdraw from "../../../assets/withdraw.png";
-import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import KycPopup from "../popup/kycpop";
 import WithdrawPopUp from "../popup/CreateWithdraw";
 
 // import wallet from "../../../assets/wallet.png";
 const Withdraw = ({ data, userKyc }) => {
-  const navigate = useNavigate();
   const [kycPop, setKycPop] = useState(false);
   const [showWithdraw, setShowWithdraw] = useState(false);
 

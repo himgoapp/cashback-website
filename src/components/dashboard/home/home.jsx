@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../sidebar/sidebar";
 import HomeMain from "./homemain";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 
 const DashboardHome = () => {
   const [data, setData] = useState({});
