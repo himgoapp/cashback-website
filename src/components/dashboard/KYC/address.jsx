@@ -123,8 +123,8 @@ const dropdownIcon = (
     <path
       d="M5 7.5L10 12.5L15 7.5"
       stroke="#667085"
-      stroke-width="1.66667"
-      stroke-linecap="round"
+      strokeWidth="1.66667"
+      strokeLinecap="round"
       stroke-linejoin="round"
     />
   </svg>
@@ -137,12 +137,12 @@ const uploadSVG = (
     viewBox="0 0 20 20"
     fill="none"
   >
-    <g clip-path="url(#clip0_113_5324)">
+    <g clipPath="url(#clip0_113_5324)">
       <path
         d="M9.99935 6.66663V9.99996M9.99935 13.3333H10.0077M18.3327 9.99996C18.3327 14.6023 14.6017 18.3333 9.99935 18.3333C5.39698 18.3333 1.66602 14.6023 1.66602 9.99996C1.66602 5.39759 5.39698 1.66663 9.99935 1.66663C14.6017 1.66663 18.3327 5.39759 18.3327 9.99996Z"
         stroke="#475467"
-        stroke-width="1.66667"
-        stroke-linecap="round"
+        strokeWidth="1.66667"
+        strokeLinecap="round"
         stroke-linejoin="round"
       />
     </g>

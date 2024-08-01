@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../sidebar/sidebar";
 import HomeMain from "./homemain";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
-import { ToastContainer } from "react-toastify";
 
 const DashboardHome = () => {
   const [data, setData] = useState({});
@@ -45,7 +44,6 @@ const DashboardHome = () => {
         position: "relative",
       }}
     >
-      <ToastContainer />
       <Sidebar active={0} />
       <HomeMain data={data} />
     </div>

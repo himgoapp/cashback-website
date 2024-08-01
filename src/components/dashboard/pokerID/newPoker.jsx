@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import styles from "./newPoker.module.css"; // Import your CSS module
-// import Navbtn from "../../common/button/navbtn/navbtn";
 import {
   getProductsSimple,
   submitAccountId,
 } from "../../../servicefile/productservice";
+import styles from "./newPoker.module.css"; // Import your CSS module
+import Navbtn from "../../common/button/navbtn/navbtn";
 import { ToastContainer, toast } from "react-toastify";
-import { Button } from "react-bootstrap";
 
 const NewPoker = ({ setGetInfos }) => {
   const [allProductIds, setAllProductIds] = useState([]);
@@ -47,62 +46,60 @@ const NewPoker = ({ setGetInfos }) => {
     getProductsInfo();
     // eslint-disable-next-line
   }, []);
-
   return (
     <div className={styles.NewPokerContainer}>
       <ToastContainer />
       <div className={styles.NewPokerContent}>
         <div className={styles.NewPokerHead}>Add New Poker ID</div>
         <div className={styles.NewPokerCreate}>
-          <div className={styles.NewPokerSelect}>
-            {/* <div className={styles.SelectContent}>
+          <div className={styles.NewPokerCreate}>
+            <div className={styles.NewPokerSelect}>
+              {/* <div className={styles.SelectContent}>
               <div className={styles.SelectWrapper}></div>
             </div> */}
-            <select
-              value={productId}
-              onChange={(e) => setProductId(e.target.value)}
-              className={styles.SelectContent + " " + styles.SelectWrapper}
-              placeholder="Select Poker Site"
-            >
-              {" "}
-              <option value="" disabled={true}>
-                Please select!
-              </option>
-              {allProductIds &&
-                allProductIds.length > 0 &&
-                allProductIds.map((item, index) => {
-                  return <option value={item.value}>{item.label}</option>;
-                })}
-            </select>
+              <select
+                value={productId}
+                onChange={(e) => setProductId(e.target.value)}
+                className={styles.SelectContent + " " + styles.SelectWrapper}
+                placeholder="Select Poker Site"
+              >
+                {" "}
+                <option value="" disabled={true}>
+                  Please select!
+                </option>
+                {allProductIds &&
+                  allProductIds.length > 0 &&
+                  allProductIds.map((item, index) => {
+                    return <option value={item.value}>{item.label}</option>;
+                  })}
+              </select>
+            </div>
+            <div className={styles.NewPokerAccId}>
+              <input
+                value={referenceId}
+                onChange={(e) => setReferenceId(e.target.value)}
+                type="text"
+                className={styles.SelectContent + " " + styles.SelectWrapper}
+                placeholder="Enter Account id*"
+              />
+            </div>
           </div>
-          <div className={styles.NewPokerAccId}>
-            <input
-              value={referenceId}
-              onChange={(e) => setReferenceId(e.target.value)}
-              type="text"
-              className={styles.SelectContent + " " + styles.SelectWrapper}
-              placeholder="Enter Account id*"
+          {/* <div className={styles.SubmitBtn}></div> */}{" "}
+          <div
+            className={styles.submitbtn_container}
+            onClick={() => {
+              onSubmitFxn();
+            }}
+          >
+            <Navbtn
+              text="Submit"
+              bg="#3968EB"
+              color="white"
+              showIcon={false}
+              style={{ width: "12.5rem", width: "100%" }}
             />
           </div>
         </div>
-        {/* <div className={styles.NewPokerAccId}>
-          <input
-            value={referralCode}
-            onChange={(e) => setReferralCode(e.target.value)}
-            type="text"
-            className={styles.SelectContent + " " + styles.SelectWrapper}
-            placeholder="Enter Refer code*"
-          />
-        </div> */}
-        {/* <div className={styles.SubmitBtn}></div> */}{" "}
-        <Button
-          variant="primary"
-          onClick={() => {
-            onSubmitFxn();
-          }}
-        >
-          Submit
-        </Button>
       </div>
     </div>
   );

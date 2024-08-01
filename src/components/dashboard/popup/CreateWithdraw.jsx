@@ -134,8 +134,8 @@ const closeIcon = (
     <path
       d="M18 6L6 18M6 6L18 18"
       stroke="black"
-      stroke-width="2"
-      stroke-linecap="round"
+      strokeWidth="2"
+      strokeLinecap="round"
       stroke-linejoin="round"
     />
   </svg>
