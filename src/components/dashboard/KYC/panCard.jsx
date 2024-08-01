@@ -3,10 +3,19 @@ import Navbtn from "../../common/button/navbtn/navbtn";
 import { TextField } from "./address";
 import styles from "./address.module.css";
 import { addPanCard } from "../../../servicefile/kycservice";
+import { ToastContainer, toast } from "react-toastify";
 
 function PanCard({ userKyc, setLevel }) {
   const [edit, setEdit] = useState(false);
   const [panCardNo, setPanCardNo] = useState("");
+
+  const panCardAdd = async () => {
+    const res = await addPanCard(panCardNo);
+    if (res && res.message === "PanCard Added!") {
+      localStorage.setItem("transactionInfo", "true");
+      toast.success(`${res.message}`);
+    }
+  };
 
   return (
     <>
@@ -32,7 +41,12 @@ function PanCard({ userKyc, setLevel }) {
           <div className={styles.FormFooter}>
             <div className={styles.Divider}></div>
             <div className={styles.Content}>
-              <div className={styles.Actions} onClick={() => {}}>
+              <div
+                className={styles.Actions}
+                onClick={() => {
+                  panCardAdd();
+                }}
+              >
                 <Navbtn
                   text="Save changes"
                   bg="#3968EB"

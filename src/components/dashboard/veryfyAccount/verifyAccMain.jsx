@@ -14,6 +14,7 @@ const VerifyAccMain = () => {
     console.log(userInfo, "value");
     const res = await userInfoFxn(userInfo._id);
     setData(res.userInfo);
+    localStorage.setItem("transactionInfo", "false");
     sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
   };
 

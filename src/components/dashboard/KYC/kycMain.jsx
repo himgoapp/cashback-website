@@ -12,6 +12,7 @@ import { userInfoFxn } from "../../../servicefile/dashboardservice";
 
 const KycMain = () => {
   const [data, setData] = useState({});
+  const [setReload, setStepReload] = useState(false);
   const getAllUserInfo = async () => {
     const userInfo = localStorage.getItem("userInfo")
       ? JSON.parse(localStorage.getItem("userInfo"))
@@ -19,6 +20,7 @@ const KycMain = () => {
     console.log(userInfo, "value");
     const res = await userInfoFxn(userInfo._id);
     setData(res.userInfo);
+    localStorage.setItem("transactionInfo", "false");
     sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
   };
 
@@ -40,6 +42,13 @@ const KycMain = () => {
     }
     // eslint-disable-next-line
   }, []);
+
+  useEffect(() => {
+    if (setReload && setReload === true) {
+      getAllUserInfo();
+    }
+    // eslint-disable-next-line
+  }, [setReload]);
 
   return (
     <DashboardMainTopBottom styles={{ width: "100%" }}>
@@ -68,9 +77,9 @@ const KycMain = () => {
           colorBg="#FEF3F2"
           borderColor="#FF5252"
         /> */}
-        {data.userKyc.level === "1" ? (
-          <PanCard />
-        ) : data.userKyc.level === "2" ? (
+        {data && data.userKyc && data.userKyc.level === "1" ? (
+          <PanCard setStepReload={setStepReload} userKyc={data.userKyc} />
+        ) : data && data.userKyc && data.userKyc.level === "2" ? (
           <AddressDetail />
         ) : (
           <BankAccDetails />
