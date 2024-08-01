@@ -19,11 +19,13 @@
   align-items: center;
   gap: 4rem;
 }
+
 .menu_container .aboutus {
   display: flex;
   align-items: center;
   gap: 0.125rem;
 }
+
 .aboutus span {
   color: var(--black-800, #212121);
   text-align: center;
@@ -31,13 +33,16 @@
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.25rem; /* 125% */
+  line-height: 1.25rem;
+  /* 125% */
 }
+
 .menu_container .faq {
   display: flex;
   align-items: center;
   gap: 0.125rem;
 }
+
 .faq span {
   color: var(--black-800, #212121);
   text-align: center;
@@ -45,17 +50,19 @@
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
-  line-height: 1.25rem; /* 125% */
+  line-height: 1.25rem;
+  /* 125% */
 }
+
 .navbar_link_container .btn_link_container {
   display: flex;
   align-items: center;
   gap: 0.75rem;
 }
-.btn_link_container .signup_btn {
-}
-.btn_link_container .login_btn {
-}
+
+.btn_link_container .signup_btn {}
+
+.btn_link_container .login_btn {}
 
 /* for mobile menu  */
 .navbar_container .burger_menu {
@@ -69,10 +76,12 @@
   display: none;
   cursor: pointer;
 }
+
 .burger_menu .icon {
   width: 1.5rem;
   height: 1.5rem;
 }
+
 @media only screen and (max-width: 500px) {
   .navbar_container {
     display: flex;
@@ -86,6 +95,7 @@
   .navbar_container .navbar_link_container {
     display: none;
   }
+
   .navbar_container .burger_menu {
     display: flex;
   }

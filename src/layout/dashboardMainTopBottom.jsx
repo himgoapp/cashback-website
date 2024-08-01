@@ -1,16 +1,16 @@
 import React, { useContext } from "react";
 import style from "./dashboardMainTopBottom.module.css";
 import { UserContext } from "../App";
-import WalletContainer from "../components/dashboard/popup/wallet";
+// import WalletContainer from "../components/dashboard/popup/wallet";
 import Notifications from "../components/dashboard/popup/notification";
 const DashboardMainTopBottom = (props) => {
   const {
     showSidebar,
-    // setShowSidebar,
+    setShowSidebar,
     showWalletWithdraw,
-    // setShowWalletWithdraw,
+    setShowWalletWithdraw,
     showNotifications,
-    // setShowNotifications,
+    setShowNotifications,
   } = useContext(UserContext);
 
   return (
@@ -21,8 +21,8 @@ const DashboardMainTopBottom = (props) => {
         style={showSidebar ? { display: "block" } : { display: "none" }}
       ></div>
       {/* wallet withdraw */}
-      {showWalletWithdraw && <WalletContainer />}
-      {showNotifications && <Notifications />}
+      {/* {showWalletWithdraw && <WalletContainer />}
+      {showNotifications && <Notifications />} */}
     </div>
   );
 };

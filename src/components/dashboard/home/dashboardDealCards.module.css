@@ -1,0 +1,49 @@
+.DashboardDealCardsContainer {
+  width: 72.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid #eaecf0;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
+    0px 1px 3px 0px rgba(16, 24, 40, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.cardsContent {
+  /* padding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  /* flex-wrap: wrap; (commented out) */
+}
+.deal_head {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  align-self: stretch;
+  color: var(--text-primary, #101828);
+
+  /* Text lg/Semibold */
+  font-family: Inter;
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.75rem; /* 155.556% */
+  padding: 1.5rem;
+}
+@media only screen and (max-width: 500px) {
+  .DashboardDealCardsContainer {
+    width: 100%;
+  }
+  .deal_head {
+  }
+  .cardsContent {
+    flex-direction: column;
+    display: flex;
+    padding: 0rem 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+    align-self: stretch;
+  }
+}

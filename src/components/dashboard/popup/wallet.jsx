@@ -39,8 +39,8 @@ const backArrow = (
     <path
       d="M15 18L9 12L15 6"
       stroke="#667085"
-      stroke-width="2"
-      stroke-linecap="round"
+      strokeWidth="2"
+      strokeLinecap="round"
       stroke-linejoin="round"
     />
   </svg>

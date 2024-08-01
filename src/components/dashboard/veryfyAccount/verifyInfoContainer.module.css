@@ -2,10 +2,11 @@
 
 /* VerifyInfoContainer */
 .VerifyInfoContainer {
-  width: 100%;
-  height: 100%;
-  padding-left: 2rem;
-  padding-right: 2rem;
+  width: 72.5rem;
+  /* width: 100%; */
+  /* height: 100%; */
+  /* padding-left: 2rem;
+  padding-right: 2rem; */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -16,10 +17,11 @@
 /* VerifyInfoContent */
 .VerifyInfoContent {
   align-self: stretch;
-  height: 9.375rem; /* 150px */
+  /* height: 9.375rem;  */
+  height: auto;
   background: white;
-  border-radius: 0.75rem; /* 12px */
-  border: 0.125rem #3968eb solid;
+  border-radius: 0.75rem;
+  /* border: 0.125rem #3968eb solid; */
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -32,17 +34,24 @@
 /* InfoHeader */
 .InfoHeader {
   align-self: stretch;
-  padding-top: 1rem; /* 16px */
-  padding-bottom: 1rem; /* 16px */
-  padding-left: 1rem; /* 16px */
-  padding-right: 1.25rem; /* 20px */
+  padding-top: 1rem;
+  /* 16px */
+  padding-bottom: 1rem;
+  /* 16px */
+  padding-left: 1rem;
+  /* 16px */
+  padding-right: 1.25rem;
+  /* 20px */
   background: #f2f6ff;
-  border-top-left-radius: 0.5rem; /* 8px */
-  border-top-right-radius: 0.5rem; /* 8px */
+  border-top-left-radius: 0.5rem;
+  /* 8px */
+  border-top-right-radius: 0.5rem;
+  /* 8px */
   border: 0.125rem #3968eb solid;
   justify-content: flex-start;
   align-items: center;
-  gap: 0.25rem; /* 4px */
+  gap: 0.25rem;
+  /* 4px */
   display: inline-flex;
   border: 2px solid #3968eb;
 }
@@ -50,20 +59,25 @@
 /* InfoHeaderContent */
 .InfoHeaderContent {
   flex: 1 1 0;
-  height: 2rem; /* 32px */
+  height: 2rem;
+  /* 32px */
   justify-content: flex-start;
   align-items: center;
-  gap: 1rem; /* 16px */
+  gap: 1rem;
+  /* 16px */
   display: flex;
 }
 
 /* Icon */
 .Icon {
-  width: 2rem; /* 32px */
-  height: 2rem; /* 32px */
+  width: 2rem;
+  /* 32px */
+  height: 2rem;
+  /* 32px */
   position: relative;
   background: #d1e9ff;
-  border-radius: 1rem; /* 16px */
+  border-radius: 1rem;
+  /* 16px */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,20 +87,25 @@
 .HeaderText {
   flex: 1 1 0;
   color: #3968eb;
-  font-size: 1rem; /* 16px */
+  font-size: 1rem;
+  /* 16px */
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  line-height: 1.5rem; /* 24px */
+  line-height: 1.5rem;
+  /* 24px */
   word-wrap: break-word;
 }
 
 /* Checkbox */
 .Checkbox {
-  width: 1rem; /* 16px */
-  height: 1rem; /* 16px */
+  width: 1rem;
+  /* 16px */
+  height: 1rem;
+  /* 16px */
   position: relative;
   background: #11c15b;
-  border-radius: 0.5rem; /* 8px */
+  border-radius: 0.5rem;
+  /* 8px */
   border: 0.0625rem #11c15b solid;
   display: flex;
   justify-content: center;
@@ -96,11 +115,19 @@
 /* InfoBody */
 .InfoBody {
   align-self: stretch;
-  padding: 1rem; /* 16px */
+  padding: 1rem;
+  /* 16px */
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 0.25rem; /* 4px */
+  gap: 0.25rem;
+  /* 4px */
   display: inline-flex;
+  border-bottom-left-radius: 0.5rem;
+  /* 8px */
+  border-bottom-right-radius: 0.5rem;
+  /* 8px */
+  border: 0.125rem #3968eb solid;
+  border-top: white;
 }
 
 /* UserInfo */
@@ -109,7 +136,8 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  gap: 0.25rem; /* 4px */
+  gap: 0.25rem;
+  /* 4px */
   display: inline-flex;
 }
 
@@ -118,17 +146,20 @@
   align-self: stretch;
   justify-content: flex-start;
   align-items: center;
-  gap: 1.625rem; /* 10px */
+  gap: 1.625rem;
+  /* 10px */
   display: inline-flex;
 }
 
 /* InfoNameText */
 .InfoNameText {
   color: #344054;
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.25rem;
+  /* 20px */
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  line-height: 1.875rem; /* 30px */
+  line-height: 1.875rem;
+  /* 30px */
   word-wrap: break-word;
 }
 
@@ -136,22 +167,29 @@
 .IsVerified {
   align-self: stretch;
   color: #475467;
-  font-size: 0.875rem; /* 14px */
+  font-size: 0.875rem;
+  /* 14px */
   font-family: "Inter", sans-serif;
   font-weight: 400;
-  line-height: 1.25rem; /* 20px */
+  line-height: 1.25rem;
+  /* 20px */
   word-wrap: break-word;
 }
 
 /* InfoBadge */
 .InfoBadge {
-  padding-left: 0.5rem; /* 8px */
-  padding-right: 0.5rem; /* 8px */
-  padding-top: 0.125rem; /* 2px */
-  padding-bottom: 0.125rem; /* 2px */
+  padding-left: 0.5rem;
+  /* 8px */
+  padding-right: 0.5rem;
+  /* 8px */
+  padding-top: 0.125rem;
+  /* 2px */
+  padding-bottom: 0.125rem;
+  /* 2px */
   mix-blend-mode: multiply;
   background: #ecfdf3;
-  border-radius: 1rem; /* 16px */
+  border-radius: 1rem;
+  /* 16px */
   justify-content: flex-start;
   align-items: center;
   display: inline-flex;
@@ -161,9 +199,22 @@
 .BadgeText {
   text-align: center;
   color: #027a48;
-  font-size: 0.75rem; /* 12px */
+  font-size: 0.75rem;
+  /* 12px */
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  line-height: 1.125rem; /* 18px */
+  line-height: 1.125rem;
+  /* 18px */
   word-wrap: break-word;
+}
+
+@media only screen and (max-width: 500px) {
+  .VerifyInfoContainer {
+    width: 100%;
+  }
+
+  .InfoBody {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
 }

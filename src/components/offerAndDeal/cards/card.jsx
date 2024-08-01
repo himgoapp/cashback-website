@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styles from "./card.module.css"; // Replace with your actual CSS module path
-// import offerimg from "../../../assets/offercard.png";
+import { useNavigate } from "react-router-dom";
 import pokerbaazi from "../../../assets/PokerBaazi.svg";
 import mpl from "../../../assets/MPL.jpg";
 import junglePk from "../../../assets/jungleePoker.svg";
 import Navbtn from "../../common/button/navbtn/navbtn";
 
 const OfferCard = ({ fillBtn, product }) => {
+  const navigate = useNavigate();
   const [mobile, setIsMobile] = useState(true);
   const token = localStorage.getItem("token") ? true : false;
   useEffect(() => {
@@ -14,6 +15,17 @@ const OfferCard = ({ fillBtn, product }) => {
     setIsMobile(width <= 500);
     // eslint-disable-next-line
   }, []);
+
+  const onJoinClick = (currentItem) => {
+    if (token) {
+      localStorage.setItem("currentProductValue", JSON.stringify(product));
+      localStorage.setItem("currentProduct", currentItem);
+      navigate("/description");
+    } else {
+      navigate("/");
+    }
+  };
+
   return (
     <div className={styles.card_item_container}>
       {/* Card Item Content */}
@@ -122,28 +134,40 @@ const OfferCard = ({ fillBtn, product }) => {
 
           <div style={{ width: "100%" }}>
             {fillBtn ? (
-              <Navbtn
-                text={token ? "Join" : "Sign Up"}
-                bg="transparent"
-                color="#3968EB"
-                showIcon={false}
-                font={{ fontSize: "1.375rem" }}
-                style={{
-                  width: mobile ? "100%" : "19.5rem",
-                  height: "4rem",
-                  borderRadius: "5.8125rem",
-                  border: "1px solid #3968EB",
+              <div
+                onClick={() => {
+                  onJoinClick(product._id);
                 }}
-              />
+              >
+                <Navbtn
+                  text={token ? "Join" : "Sign Up"}
+                  bg="transparent"
+                  color="#3968EB"
+                  showIcon={false}
+                  font={{ fontSize: "1.375rem" }}
+                  style={{
+                    width: mobile ? "100%" : "19.5rem",
+                    height: "4rem",
+                    borderRadius: "5.8125rem",
+                    border: "1px solid #3968EB",
+                  }}
+                />
+              </div>
             ) : (
-              <Navbtn
-                text={token ? "Join" : "Sign Up"}
-                bg="#3968EB"
-                color="white"
-                showIcon={false}
-                font={{ fontSize: "1.375rem" }}
-                style={{ width: "19.5rem", height: "4rem" }}
-              />
+              <div
+                onClick={() => {
+                  onJoinClick(product._id);
+                }}
+              >
+                <Navbtn
+                  text={token ? "Join" : "Sign Up"}
+                  bg="#3968EB"
+                  color="white"
+                  showIcon={false}
+                  font={{ fontSize: "1.375rem" }}
+                  style={{ width: "19.5rem", height: "4rem" }}
+                />
+              </div>
             )}
           </div>
         </div>

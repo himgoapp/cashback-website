@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Sidebar from "../sidebar/sidebar";
 import HomeMain from "./homemain";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
-import { ToastContainer } from "react-toastify";
 
 const DashboardHome = () => {
   const [data, setData] = useState({});
@@ -37,9 +36,15 @@ const DashboardHome = () => {
   }, []);
 
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
-      <ToastContainer />
-      <Sidebar />
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        width: "100%",
+        position: "relative",
+      }}
+    >
+      <Sidebar active={0} />
       <HomeMain data={data} />
     </div>
   );

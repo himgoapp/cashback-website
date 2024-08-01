@@ -5,13 +5,16 @@
   gap: 2rem;
   position: relative;
 }
+
 .opacity {
   display: none;
 }
+
 @media only screen and (max-width: 500px) {
   .dashboardMainTopBottom {
     width: 100%;
   }
+
   .opacity {
     display: block;
     position: absolute;
