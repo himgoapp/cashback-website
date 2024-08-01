@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./card.module.css"; // Replace with your actual CSS module path
 // import offerimg from "../../../assets/offercard.png";
-import pokerbaazi from "../../../assets/PokerBaazi.jpg";
+import pokerbaazi from "../../../assets/PokerBaazi.svg";
 import mpl from "../../../assets/MPL.jpg";
-import junglePk from "../../../assets/jungleePoker.jpg";
+import junglePk from "../../../assets/jungleePoker.svg";
 import Navbtn from "../../common/button/navbtn/navbtn";
 
 const OfferCard = ({ fillBtn, product }) => {

@@ -99,7 +99,7 @@ export const phoneVerify = async (phoneNumber, loginOtp) => {
 
 export const signUpFxn = async (phoneNumber, email, userName) => {
   let body = {
-    phoneNumber: `91${phoneNumber}`,
+    phoneNumber: phoneNumber,
     email,
     userName,
     role: "user",

@@ -4,7 +4,7 @@ import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
 
 const WalletContainer = () => {
-  const { showWalletWithdraw, setShowWalletWithdraw } = useContext(UserContext);
+  const { setShowWalletWithdraw } = useContext(UserContext);
   return (
     <div className={styles.WalletContainer}>
       <div

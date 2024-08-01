@@ -1,16 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import DashboardHomeHeader from "./dashHomeHeader";
+
 import HomeQuickStart from "./quickStart";
 import Withdraw from "./withdraw";
-import OfferCard from "../../offerAndDeal/cards/card";
+// import OfferCard from "../../offerAndDeal/cards/card";
+import WelcomePopup from "../popup/welcome";
 // import { generateArray } from "../../../utils/generateArray";
 
 const HomeMain = ({ data }) => {
+  const [infoPop, setInfoPop] = useState(false);
+  useEffect(() => {
+    if (data && data.user && !data.user.userName) {
+      setInfoPop(true);
+    }
+  }, [infoPop]);
+
   return (
     <div>
       <DashboardHomeHeader data={data.userWallet} />
       <HomeQuickStart />
       <Withdraw data={data.userWallet} userKyc={data.userKyc} />
+      {infoPop && (
+        <WelcomePopup
+          setInfoPop={setInfoPop}
+          phoneNumber={data.user.phoneNumber}
+        />
+      )}
       <div
         style={{ paddingLeft: "2rem", paddingRight: "2rem", width: "72.5rem" }}
       >

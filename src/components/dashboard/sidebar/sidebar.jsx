@@ -58,8 +58,12 @@ const Sidebar = () => {
                 alt="Avatar"
               />
               <div className={styles.TextAndSupportingText}>
-                <div className={styles.Text}>{data.userName}</div>
-                <div className={styles.SupportingText}>{data.email}</div>
+                <div className={styles.Text}>
+                  {data && data.userName ? data.userName : "Not filled!"}
+                </div>
+                <div className={styles.SupportingText}>
+                  {data && data.email ? data.email : "Not filled!"}
+                </div>
               </div>
             </div>
             <div className={styles.Button}>

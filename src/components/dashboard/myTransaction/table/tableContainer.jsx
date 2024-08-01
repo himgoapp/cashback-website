@@ -1,7 +1,6 @@
 // TableContent.js
 import React, { useState, useEffect } from "react";
 import styles from "./tableContainer.module.css";
-import { generateArray } from "../../../../utils/generateArray";
 import { alltransactions } from "../../../../servicefile/transactionservice";
 import moment from "moment";
 
