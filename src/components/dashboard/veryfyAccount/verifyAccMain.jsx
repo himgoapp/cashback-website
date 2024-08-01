@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import DashboardHomeHeader from "../home/dashHomeHeader";
 import VerifyInfoContainer from "./verifyInfoContainer";
+import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
+import DashboardMain from "../../../layout/dashboardMain";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
-// import { ToastContainer, toast } from "react-toastify";
-
 const VerifyAccMain = () => {
   const [data, setData] = useState({});
   const getAllUserInfo = async () => {
@@ -36,11 +35,15 @@ const VerifyAccMain = () => {
     }
     // eslint-disable-next-line
   }, []);
-
   return (
-    <div>
-      <DashboardHomeHeader data={data.userWallet} />
-      <VerifyInfoContainer data={data.user} />
+    <div style={{ width: "100%" }}>
+      <DashboardMainTopBottom>
+        <DashboardHomeHeader title="Verify Account" data={data.userWallet} />
+        <DashboardMain>
+          {" "}
+          <VerifyInfoContainer data={data.user} />
+        </DashboardMain>
+      </DashboardMainTopBottom>{" "}
     </div>
   );
 };

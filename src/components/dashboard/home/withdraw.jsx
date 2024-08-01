@@ -6,7 +6,6 @@ import { ToastContainer, toast } from "react-toastify";
 import KycPopup from "../popup/kycpop";
 import WithdrawPopUp from "../popup/CreateWithdraw";
 
-// import wallet from "../../../assets/wallet.png";
 const Withdraw = ({ data, userKyc }) => {
   const [kycPop, setKycPop] = useState(false);
   const [showWithdraw, setShowWithdraw] = useState(false);

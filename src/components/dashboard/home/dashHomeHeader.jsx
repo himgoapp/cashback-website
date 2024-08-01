@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styles from "./dashHomeHeader.module.css";
 import bellIcon from "../../../assets/header_nav_btn2.png";
 import { UserContext } from "../../../App";
-const DashboardHomeHeader = ({ title }) => {
+const DashboardHomeHeader = ({ title, data }) => {
   const {
     showSidebar,
     setShowSidebar,
@@ -37,7 +37,9 @@ const DashboardHomeHeader = ({ title }) => {
                 <div className={styles.HeaderBtnIcon}>
                   <div className={styles.Icon}>{walletIcon}</div>
                 </div>
-                <div className={styles.HeaderBtnText}>₹0.00</div>
+                <div className={styles.HeaderBtnText}>
+                  ₹{data && data.wallet_balance ? data.wallet_balance : "0.00"}
+                </div>
               </div>
 
               <div

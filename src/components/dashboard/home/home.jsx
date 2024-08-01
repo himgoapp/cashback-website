@@ -37,9 +37,16 @@ const DashboardHome = () => {
   }, []);
 
   return (
-    <div style={{ display: "flex", flexDirection: "row" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        width: "100%",
+        position: "relative",
+      }}
+    >
       <ToastContainer />
-      <Sidebar />
+      <Sidebar active={0} />
       <HomeMain data={data} />
     </div>
   );

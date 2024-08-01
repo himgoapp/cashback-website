@@ -42,7 +42,7 @@ const PokerIDMain = () => {
 
   return (
     <DashboardMainTopBottom>
-      <DashboardHomeHeader data={data.userWallet} />
+      <DashboardHomeHeader data={data.userWallet} title="Poker ID" />
       <DashboardMain>
         <NewPoker setGetInfos={setGetInfos} />
         <PokerCardsContainer getInfos={getInfos} setGetInfos={setGetInfos} />

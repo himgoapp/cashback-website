@@ -12,7 +12,6 @@ const Sidebar = ({ active }) => {
   return (
     <div
       className={styles.SidebarNavigation}
-      // style={!mobile ? { display: "inline-flex" } : { display: "none" }}
       style={showSidebar ? { display: "inline-flex" } : { display: "none" }}
     >
       <div className={styles.Content}>
