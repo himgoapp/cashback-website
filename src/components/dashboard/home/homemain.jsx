@@ -10,7 +10,10 @@ import WelcomePopup from "../popup/welcome";
 const HomeMain = ({ data }) => {
   const [infoPop, setInfoPop] = useState(false);
   useEffect(() => {
-    if (data && data.user && !data.user.userName) {
+    let info = sessionStorage.getItem("allInfo")
+      ? JSON.parse(sessionStorage.getItem("allInfo"))
+      : {};
+    if (info && info.user && !info.user.userName) {
       setInfoPop(true);
     }
   }, [infoPop]);

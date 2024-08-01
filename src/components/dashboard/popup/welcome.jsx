@@ -5,8 +5,10 @@ import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
 import { signUpFxn } from "../../../servicefile/authservice";
 import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const WelcomePopup = ({ setInfoPop, phoneNumber }) => {
+  const navigate = useNavigate();
   const { mobile } = useContext(UserContext);
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -24,8 +26,9 @@ const WelcomePopup = ({ setInfoPop, phoneNumber }) => {
           toast.success(`Sign up successfull! Please login`, {
             autoClose: 8000,
           });
+          localStorage.setItem("transactionInfo", "true");
           handleClose();
-          window.location.reload();
+          navigate("/dashboard/kyc");
         } else {
           toast.error(`${data.message}`, {
             autoClose: 5000,
