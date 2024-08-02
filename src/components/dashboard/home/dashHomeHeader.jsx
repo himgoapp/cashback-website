@@ -2,6 +2,9 @@ import React, { useContext } from "react";
 import styles from "./dashHomeHeader.module.css";
 import bellIcon from "../../../assets/header_nav_btn2.png";
 import { UserContext } from "../../../App";
+import Navbtn from "../../common/button/navbtn/navbtn";
+import { useNavigate } from "react-router-dom";
+
 const DashboardHomeHeader = ({ title, data }) => {
   const {
     showSidebar,
@@ -11,6 +14,13 @@ const DashboardHomeHeader = ({ title, data }) => {
     showNotifications,
     setShowNotifications,
   } = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const onLogout = () => {
+    localStorage.clear();
+    sessionStorage.clear();
+    navigate("/dashboard");
+  };
 
   return (
     <div className={styles.HomeHeader}>
@@ -47,6 +57,17 @@ const DashboardHomeHeader = ({ title, data }) => {
                 onClick={() => setShowNotifications(!showNotifications)}
               >
                 <img src={bellIcon} alt="" />
+              </div>
+              <div className={styles.HeaderNavBtn2} onClick={() => onLogout()}>
+                <Navbtn
+                  text="Logout"
+                  bg="transparent"
+                  color="black"
+                  style={{
+                    borderRadius: "2.4375rem",
+                    border: "2px solid var(--black-800, #212121)",
+                  }}
+                />
               </div>
             </div>
           </div>
