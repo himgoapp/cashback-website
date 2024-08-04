@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "./dashboardDealCards.module.css";
 import OfferCard from "../../offerAndDeal/cards/card";
-import { generateArray } from "../../../utils/generateArray";
 const DashboardDealCards = ({ products }) => {
   return (
     <div className={styles.DashboardDealCardsContainer}>
@@ -14,6 +13,7 @@ const DashboardDealCards = ({ products }) => {
               <OfferCard
                 fillBtn={(index + 1) % 2 === 0 ? false : true}
                 product={item}
+                key={index}
               />
             );
           })}

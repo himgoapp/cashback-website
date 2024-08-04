@@ -68,11 +68,11 @@ const HomeQuickStart = () => {
                   <div className={styles.Butn}>
                     {" "}
                     <Link
-                      to="/offer_and_deals"
+                      to="/dashboard/pokerid"
                       style={{ color: "white", textDecoration: "none" }}
                     >
                       <Navbtn
-                        text="Learn More"
+                        text="Link Poker Id"
                         bg="#3968EB"
                         color="white"
                         showIcon={true}

@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import DashboardHomeHeader from "./dashHomeHeader";
 import HomeQuickStart from "./quickStart";
 import Withdraw from "./withdraw";
-import OfferCard from "../../offerAndDeal/cards/card";
-import { generateArray } from "../../../utils/generateArray";
 import DashboardMain from "../../../layout/dashboardMain";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardDealCards from "./dashboardDealCards";
-import WelcomePopup from "../popup/welcome";
 import { getProducts } from "../../../servicefile/productservice";
 
 const HomeMain = ({ data }) => {
@@ -36,12 +33,6 @@ const HomeMain = ({ data }) => {
       <DashboardMain>
         <HomeQuickStart />
         <Withdraw data={data.userWallet} userKyc={data.userKyc} />
-        {infoPop && (
-          <WelcomePopup
-            setInfoPop={setInfoPop}
-            phoneNumber={data.user.phoneNumber}
-          />
-        )}
       </DashboardMain>
       <DashboardDealCards products={products} />
     </DashboardMainTopBottom>

@@ -21,11 +21,12 @@ function App() {
   const [showCheckEmailPopup, setShowCheckEmailPopup] = useState(true);
   const [showWalletWithdraw, setShowWalletWithdraw] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [userData, setUserData] = useState({});
+  const [loginTab, setLoginTab] = useState(false);
   const [mobile, setMobile] = useState(true);
 
   useEffect(() => {
     setMobile(window.innerWidth <= 500);
-    // setShowSidebar(false);
   }, []);
   return (
     <>
@@ -44,6 +45,10 @@ function App() {
           setShowWalletWithdraw,
           showNotifications,
           setShowNotifications,
+          userData,
+          setUserData,
+          loginTab,
+          setLoginTab,
         }}
       >
         <Router>

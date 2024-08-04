@@ -1,11 +1,67 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./signin.module.css";
 import TextInput from "../../common/textInput/textInput";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import signimg from "../../../assets/signin_image_container.png";
+import { ToastContainer, toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+
+import { loginOtp, loginVerify } from "../../../servicefile/authservice";
 import { UserContext } from "../../../App";
 const PopupSignin = () => {
-  const { setShowSigninPopup } = useContext(UserContext);
+  const { loginTab, setLoginTab, setUserData, setShowWelcomePopup } =
+    useContext(UserContext);
+  const navigate = useNavigate();
+  const [showOtpPart, setShowOtpPart] = useState(false);
+  const [phoneNumber, setPhoneNUmber] = useState("");
+  const [otp, setOtp] = useState("");
+
+  const sendOtp = async () => {
+    if (phoneNumber && phoneNumber.length === 10) {
+      let data = await loginOtp(phoneNumber);
+
+      if (
+        data &&
+        data.message === "Otp Sent!" &&
+        data.data &&
+        data.data.type === "success"
+      ) {
+        setShowOtpPart(true);
+        toast.success("Otp sent! Please check and fill and submit Otp.");
+      } else {
+        toast.error("No such user exist!");
+      }
+    } else {
+      toast.warn("Please fill your 10 digit phone number carefully!");
+    }
+  };
+
+  const verifyOtp = async () => {
+    if (otp && otp.length === 6) {
+      let data = await loginVerify(phoneNumber, otp);
+      if (data && data.message === "Otp verified!" && data.user) {
+        toast.success(`${data.message} Welcome ${data.user.username}`, {
+          autoClose: 8000,
+        });
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("userInfo", JSON.stringify(data.user));
+
+        setUserData(data.user);
+        if (data.user && data.user.email) {
+          navigate("/dashboard");
+        } else {
+          setShowWelcomePopup(true);
+          navigate("/dashboard/verify-account");
+        }
+      } else {
+        toast.error(`${data.message}`, {
+          autoClose: 8000,
+        });
+      }
+    } else {
+      toast.warn("please fill your otp carefully!");
+    }
+  };
   return (
     <div className={styles.PopupWithOpacity}>
       <div className={styles.PopupSigninWrapper}>
@@ -14,37 +70,52 @@ const PopupSignin = () => {
             <div className={styles.PopupSigninText}>
               <div className={styles.Head}>Sign In</div>
               <div className={styles.Subhead}>
-                Please enter your phone number to sign up.
+                Please enter your phone number to Sign In!
               </div>
             </div>
             <div
               className={styles.popup_signin_action}
               style={{ width: "100%" }}
             >
-              <TextInput placeholder="+91  9717898581">{helpIcon}</TextInput>
-            </div>
-            <div className={styles.btn_action} style={{ width: "100%" }}>
-              <Navbtn
-                text="Get OTP"
-                bg="#3968EB"
-                color="white"
-                showIcon={false}
-              />
+              <TextInput
+                placeholder="Please put your 10 digit mobile number!"
+                setValue={setPhoneNUmber}
+              >
+                {helpIcon}
+              </TextInput>
             </div>
             <div
-              className={styles.popup_signin_action}
+              className={styles.btn_action}
               style={{ width: "100%" }}
+              onClick={() => sendOtp()}
             >
-              <TextInput placeholder="OTP" />
-            </div>
-            <div className={styles.btn_action} style={{ width: "100%" }}>
               <Navbtn
-                text="SUBMIT"
+                text={showOtpPart ? "Resend OTP" : "Get OTP"}
                 bg="#3968EB"
                 color="white"
                 showIcon={false}
               />
             </div>
+            <>
+              <div
+                className={styles.popup_signin_action}
+                style={{ width: "100%" }}
+              >
+                <TextInput placeholder="OTP" setValue={setOtp} />
+              </div>
+              <div
+                className={styles.btn_action}
+                style={{ width: "100%" }}
+                onClick={() => verifyOtp()}
+              >
+                <Navbtn
+                  text="SUBMIT"
+                  bg="#3968EB"
+                  color="white"
+                  showIcon={false}
+                />
+              </div>
+            </>
           </div>
         </div>
         <div
@@ -68,16 +139,14 @@ const PopupSignin = () => {
               top: "1.5rem",
               right: "1.5rem",
             }}
-            onClick={() => setShowSigninPopup(false)}
+            onClick={() => setLoginTab(false)}
           >
             {closeIcon}
           </div>
         </div>
       </div>
-      <div
-        className={styles.opacityDiv}
-        onClick={() => setShowSigninPopup(false)}
-      />
+      <div className={styles.opacityDiv} onClick={() => setLoginTab(false)} />
+      <ToastContainer />
     </div>
   );
 };

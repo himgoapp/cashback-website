@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 const DashboardHomeHeader = ({ title, data }) => {
   const {
-    showSidebar,
+    // showSidebar,
     setShowSidebar,
     showWalletWithdraw,
     setShowWalletWithdraw,

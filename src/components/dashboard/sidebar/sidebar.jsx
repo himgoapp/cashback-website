@@ -1,13 +1,23 @@
-import React, { useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "./sidebar.module.css";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../../App";
 
 const Sidebar = ({ active }) => {
-  const { showSidebar, setShowSidebar, mobile } = useContext(UserContext);
-  let data = sessionStorage.getItem("allInfo")
-    ? JSON.parse(sessionStorage.getItem("allInfo"))
-    : {};
+  const { showSidebar, setShowSidebar, mobile, userData, setUserData } =
+    useContext(UserContext);
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    let currentValue =
+      userData && userData.phoneNumber
+        ? userData
+        : localStorage.getItem("userInfo")
+        ? JSON.parse(localStorage.getItem("userInfo"))
+        : {};
+    setData(currentValue);
+  }, [userData]);
+
   // console.log({ showSidebar });
   return (
     <div
@@ -69,13 +79,9 @@ const Sidebar = ({ active }) => {
                 alt="Avatar"
               />
               <div className={styles.TextAndSupportingText}>
-                {data && data.user && data.user.userName
-                  ? data.user.userName
-                  : "Not filled!"}
+                {data && data.userName ? data.userName : "Not filled!"}
                 <div className={styles.SupportingText}>
-                  {data && data.user && data.user.email
-                    ? data.user.email
-                    : "Not filled!"}
+                  {data && data.email ? data.email : "Not filled!"}
                 </div>
               </div>
             </div>

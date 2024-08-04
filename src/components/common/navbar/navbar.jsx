@@ -3,294 +3,82 @@ import styles from "./navbar.module.css";
 import Navbtn from "../button/navbtn/navbtn";
 import { Link } from "react-router-dom";
 import Logo from "../logo/logo";
-import { ToastContainer, toast } from "react-toastify";
-import {
-  loginOtp,
-  loginVerify,
-  verifySendOtpPhone,
-  phoneVerify,
-  signUpFxn,
-} from "../../../servicefile/authservice";
-import { useNavigate } from "react-router-dom";
-import signimg from "../../../assets/signin_image_container.png";
-// import { UserContext } from "../../../App";
-import signstyles from "./signin.module.css";
-import TextInput from "../../common/textInput/textInput";
+// import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../../App";
+import PopupSignin from "../../description/popup/signin";
 const Navbar = ({ page }) => {
-  const navigate = useNavigate();
-  // const { setShowSigninPopup } = useContext(UserContext);
+  // const navigate = useNavigate();
+  const { loginTab, setLoginTab } = useContext(UserContext);
   const token = localStorage.getItem("token")
     ? localStorage.getItem("token")
     : "";
-  const [loginTab, setLoginTab] = useState(false);
-  const [signUpTab, setSignUpTab] = useState(false);
-  const [loginButtonType, setloginButtonType] = useState(1);
-  const [signUpStep, setSignUpStep] = useState(1);
-  const [phoneNumber, setPhoneNUmber] = useState("");
-  const [email, setEmail] = useState("");
-  const [userName, setUserName] = useState("");
-  const [otp, setOtp] = useState("");
-
-  const handleClose = () => {
-    setSignUpTab(false);
-    setLoginTab(false);
-    setSignUpStep(false);
-    setloginButtonType(1);
-    setPhoneNUmber("");
-    setOtp("");
-  };
-
-  const sendOtp = async () => {
-    if (phoneNumber && phoneNumber.length === 10) {
-      let data = await loginOtp(phoneNumber);
-
-      if (
-        data &&
-        data.message === "Otp Sent!" &&
-        data.data &&
-        data.data.type === "success"
-      ) {
-        toast.success("Otp sent! Please check and fill and submit Otp.");
-        setloginButtonType(2);
-      } else {
-        toast.error("No such user exist!");
-      }
-    } else {
-      toast.warn("Please fill your 10 digit phone number carefully!");
-    }
-  };
-
-  const verifyPhone = async () => {
-    if (phoneNumber && phoneNumber.length === 10) {
-      let data = await verifySendOtpPhone(phoneNumber);
-
-      if (
-        data &&
-        data.message === "Otp Sent!" &&
-        data.data &&
-        data.data.type === "success"
-      ) {
-        toast.success("Otp sent! Please check and fill and submit Otp.");
-        setloginButtonType(2);
-      } else {
-        toast.error("No such user exist!");
-      }
-    } else {
-      toast.warn("Please fill your 10 digit phone number carefully!");
-    }
-  };
-
-  const verifyOtp = async () => {
-    if (otp && otp.length === 6) {
-      let data = await loginVerify(phoneNumber, otp);
-      if (data && data.message === "Otp verified!" && data.user) {
-        toast.success(`${data.message} Welcome ${data.user.username}`, {
-          autoClose: 8000,
-        });
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("userInfo", JSON.stringify(data.user));
-        navigate("/dashboard");
-      } else {
-        toast.error(`${data.message}`, {
-          autoClose: 8000,
-        });
-      }
-    } else {
-      toast.warn("please fill your otp carefully!");
-    }
-  };
-
-  const verifyPhoneOtp = async () => {
-    if (otp && otp.length === 6) {
-      let data = await phoneVerify(phoneNumber, otp);
-      if (data && data.message === "Otp verified!") {
-        toast.success(`Phone N0. Verified!`, {
-          autoClose: 8000,
-        });
-        setSignUpStep(2);
-      } else {
-        toast.error(`${data.message}`, {
-          autoClose: 8000,
-        });
-      }
-    } else {
-      toast.warn("Please fill your otp carefully!");
-    }
-  };
-
-  const signUP = async () => {
-    if (otp && otp.length === 6) {
-      let data = await signUpFxn(phoneNumber, email, userName);
-      if (data && data.message === "Account Created Successfully!") {
-        toast.success(`Sign up successfull! Please login`, {
-          autoClose: 8000,
-        });
-        handleClose();
-      } else {
-        toast.error(`${data.message}`, {
-          autoClose: 5000,
-        });
-      }
-    } else {
-      toast.warn("Email Already registered!");
-    }
-  };
 
   return (
-    <>
-      <ToastContainer />
-      <div className={styles.navbar_container}>
-        <Logo />
-        <div className={styles.navbar_link_container}>
-          {page === "home" && homePageMenu}
-          {page === "offer" && offersAndDealsPageMenu}
-          {token && token.length > 0 ? (
-            dashboardMenu
-          ) : (
-            <div className={styles.btn_link_container}>
-              <div
-                className={styles.signup_btn}
-                onClick={() => {
-                  setLoginTab(true);
-                }}
-              >
-                {/* Sign Up Button Content */}
-                <Navbtn
-                  text="Sign up"
-                  bg="transparent"
-                  color="black"
-                  style={{
-                    borderRadius: "2.4375rem",
-                    border: "2px solid var(--black-800, #212121)",
-                  }}
-                />
-              </div>
-              <div
-                className={styles.login_btn}
-                onClick={() => {
-                  setLoginTab(true);
-                }}
-              >
-                {" "}
-                <Navbtn
-                  text="Log in"
-                  bg="#3968EB"
-                  color="white"
-                  showIcon={false}
-                />
-              </div>
-            </div>
-          )}
-        </div>
-        {/* for mobile screen */}
-        <div className={styles.burger_menu}>
-          <div className={styles.icon}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
+    <div className={styles.navbar_container}>
+      <Logo />
+      <div className={styles.navbar_link_container}>
+        {page === "home" && homePageMenu}
+        {page === "offer" && offersAndDealsPageMenu}
+        {token && token.length > 0 ? (
+          dashboardMenu
+        ) : (
+          <div className={styles.btn_link_container}>
+            <div
+              className={styles.signup_btn}
+              onClick={() => {
+                setLoginTab(true);
+              }}
             >
-              <path
-                d="M3 12H21M3 6H21M3 18H21"
-                stroke="#667085"
-                strokeWidth="2"
-                strokeLinecap="round"
-                stroke-linejoin="round"
+              {/* Sign Up Button Content */}
+              <Navbtn
+                text="Sign up"
+                bg="transparent"
+                color="black"
+                style={{
+                  borderRadius: "2.4375rem",
+                  border: "2px solid var(--black-800, #212121)",
+                }}
               />
-            </svg>
-          </div>
-        </div>
-      </div>
-      {loginTab && (
-        <div className={signstyles.PopupWithOpacity}>
-          <div className={signstyles.PopupSigninWrapper}>
-            <div className={signstyles.PopupSigininContainer}>
-              <div className={signstyles.PopupSigninContent}>
-                <div className={signstyles.PopupSigninText}>
-                  <div className={signstyles.Head}>Sign In</div>
-                  <div className={signstyles.Subhead}>
-                    Please enter your phone number to Sign In!
-                  </div>
-                </div>
-                <div
-                  className={signstyles.popup_signin_action}
-                  style={{ width: "100%" }}
-                >
-                  <TextInput
-                    placeholder="Please put your 10 digit mobile number!"
-                    setValue={setPhoneNUmber}
-                  >
-                    {helpIcon}
-                  </TextInput>
-                </div>
-                <div
-                  className={signstyles.btn_action}
-                  style={{ width: "100%" }}
-                  onClick={() => sendOtp()}
-                >
-                  <Navbtn
-                    text="Get OTP"
-                    bg="#3968EB"
-                    color="white"
-                    showIcon={false}
-                  />
-                </div>
-                <div
-                  className={signstyles.popup_signin_action}
-                  style={{ width: "100%" }}
-                >
-                  <TextInput placeholder="OTP" setValue={setOtp} />
-                </div>
-                <div
-                  className={signstyles.btn_action}
-                  style={{ width: "100%" }}
-                  onClick={() => verifyOtp()}
-                >
-                  <Navbtn
-                    text="SUBMIT"
-                    bg="#3968EB"
-                    color="white"
-                    showIcon={false}
-                  />
-                </div>
-              </div>
             </div>
             <div
-              className={signstyles.PopupImageContainer}
-              style={{ position: "relative" }}
+              className={styles.login_btn}
+              onClick={() => {
+                setLoginTab(true);
+              }}
             >
-              <img src={signimg} alt="" />
-              <div
-                style={{
-                  position: "absolute",
-                  top: "1.5rem",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                }}
-              >
-                {rakelogo}
-              </div>
-              <div
-                style={{
-                  position: "absolute",
-                  top: "1.5rem",
-                  right: "1.5rem",
-                }}
-                onClick={() => setLoginTab(false)}
-              >
-                {closeIcon}
-              </div>
+              {" "}
+              <Navbtn
+                text="Log in"
+                bg="#3968EB"
+                color="white"
+                showIcon={false}
+              />
             </div>
           </div>
-          <div
-            className={signstyles.opacityDiv}
-            onClick={() => setLoginTab(false)}
-          />
+        )}
+      </div>
+      {/* for mobile screen */}
+      <div className={styles.burger_menu}>
+        <div className={styles.icon}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M3 12H21M3 6H21M3 18H21"
+              stroke="#667085"
+              strokeWidth="2"
+              strokeLinecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
-      )}
-    </>
+      </div>
+      {loginTab && <PopupSignin />}
+    </div>
   );
 };
 

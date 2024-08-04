@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useContext } from "react";
 import styles from "../../description/popup/signin.module.css";
 import TextInput from "../../common/textInput/textInput";
 import Navbtn from "../../common/button/navbtn/navbtn";
@@ -7,13 +7,14 @@ import { signUpFxn } from "../../../servicefile/authservice";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
-const WelcomePopup = ({ setInfoPop, phoneNumber }) => {
+const WelcomePopup = () => {
   const navigate = useNavigate();
-  const { mobile } = useContext(UserContext);
+  const { setShowWelcomePopup, mobile, setUserData } = useContext(UserContext);
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
 
   const handleClose = () => {
+    setShowWelcomePopup(false);
     setUserName("");
     setEmail("");
   };
@@ -21,14 +22,18 @@ const WelcomePopup = ({ setInfoPop, phoneNumber }) => {
   const sigUPFxn = async () => {
     try {
       if (email && userName) {
-        let data = await signUpFxn(phoneNumber, email, userName);
-        if (data && data.message === "Account Created Successfully!") {
-          toast.success(`Sign up successfull! Please login`, {
+        let userInfo = localStorage.getItem("userInfo")
+          ? JSON.parse(localStorage.getItem("userInfo"))
+          : {};
+        let data = await signUpFxn(userInfo.phoneNumber, email, userName);
+        if (data && data.user && data.message) {
+          toast.success(`${data.message}`, {
             autoClose: 8000,
           });
           localStorage.setItem("transactionInfo", "true");
+          setUserData(data.user);
           handleClose();
-          navigate("/dashboard/kyc");
+          navigate("/dashboard/verify-account");
         } else {
           toast.error(`${data.message}`, {
             autoClose: 5000,
@@ -127,14 +132,15 @@ const WelcomePopup = ({ setInfoPop, phoneNumber }) => {
               top: "1.5rem",
               right: "1.5rem",
             }}
-            onClick={() => setInfoPop(false)}
+            onClick={() => {}}
           >
             {closeIcon}
           </div>
         )}
       </div>
       {/* popup opacity background */}
-      <div className={styles.opacityDiv} onClick={() => setInfoPop(false)} />
+      <div className={styles.opacityDiv} onClick={() => {}} />
+
       <ToastContainer />
     </div>
   );

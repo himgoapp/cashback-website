@@ -9,10 +9,12 @@ import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardMain from "../../../layout/dashboardMain";
 import KycStatusPage from "./kycStatusPage";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
+// import { Steps } from "primereact/steps";
 
 const KycMain = () => {
   const [data, setData] = useState({});
   const [setReload, setStepReload] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(1);
   const getAllUserInfo = async () => {
     const userInfo = localStorage.getItem("userInfo")
       ? JSON.parse(localStorage.getItem("userInfo"))
@@ -22,6 +24,7 @@ const KycMain = () => {
     setData(res.userInfo);
     localStorage.setItem("transactionInfo", "false");
     sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
+    setStepReload(false);
   };
 
   useEffect(() => {
@@ -50,11 +53,32 @@ const KycMain = () => {
     // eslint-disable-next-line
   }, [setReload]);
 
+  const items = [
+    {
+      icon: "pi pi-user",
+      label: "Pan Card",
+    },
+    {
+      icon: "pi pi-calendar",
+      label: "Address Proof",
+    },
+    {
+      icon: "pi pi-check",
+      label: "Bank Details",
+    },
+  ];
+
   return (
     <DashboardMainTopBottom styles={{ width: "100%" }}>
       <DashboardHomeHeader title="KYC" data={data.userWallet} />
       <DashboardMain>
-        <KycProgress />
+        {/* <Steps
+          model={items}
+          activeIndex={activeIndex}
+          readOnly={false}
+          className="m-2 pt-4"
+        /> */}
+        {/* <KycProgress /> */}
         {/* <KycStatus
           status="Pending"
           message="Your KYC verification is currently in progress; thank you for your patience."
