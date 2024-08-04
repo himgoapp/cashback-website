@@ -45,7 +45,7 @@ const PopupSignin = () => {
         });
         localStorage.setItem("token", data.token);
         localStorage.setItem("userInfo", JSON.stringify(data.user));
-
+        setLoginTab(false);
         setUserData(data.user);
         if (data.user && data.user.email) {
           navigate("/dashboard");
