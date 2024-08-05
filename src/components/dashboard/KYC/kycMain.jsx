@@ -9,107 +9,104 @@ import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardMain from "../../../layout/dashboardMain";
 import KycStatusPage from "./kycStatusPage";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
-// import { Steps } from "primereact/steps";
+import { Steps } from "primereact/steps";
 
 const KycMain = () => {
-  const [data, setData] = useState({});
-  const [setReload, setStepReload] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(1);
-  const getAllUserInfo = async () => {
-    const userInfo = localStorage.getItem("userInfo")
-      ? JSON.parse(localStorage.getItem("userInfo"))
-      : {};
-    console.log(userInfo, "value");
-    const res = await userInfoFxn(userInfo._id);
-    setData(res.userInfo);
-    localStorage.setItem("transactionInfo", "false");
-    sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
-    setStepReload(false);
-  };
+	const [data, setData] = useState({});
+	const [setReload, setStepReload] = useState(false);
 
-  useEffect(() => {
-    let sessionInfo = sessionStorage.getItem("allInfo")
-      ? JSON.parse(sessionStorage.getItem("allInfo"))
-      : {};
+	const getAllUserInfo = async () => {
+		const userInfo = localStorage.getItem("userInfo")
+			? JSON.parse(localStorage.getItem("userInfo"))
+			: {};
+		console.log(userInfo, "value");
+		const res = await userInfoFxn(userInfo._id);
+		setData(res);
+		localStorage.setItem("transactionInfo", "false");
+		sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
+		setStepReload(false);
+	};
 
-    let transactionInfo = localStorage.getItem("transactionInfo");
-    if (
-      sessionInfo.user &&
-      sessionInfo.userWallet &&
-      sessionInfo.userKyc &&
-      transactionInfo === "false"
-    ) {
-      setData(sessionInfo);
-    } else {
-      getAllUserInfo();
-    }
-    // eslint-disable-next-line
-  }, []);
+	useEffect(() => {
+		let sessionInfo = sessionStorage.getItem("allInfo")
+			? JSON.parse(sessionStorage.getItem("allInfo"))
+			: {};
 
-  useEffect(() => {
-    if (setReload && setReload === true) {
-      getAllUserInfo();
-    }
-    // eslint-disable-next-line
-  }, [setReload]);
+		let transactionInfo = localStorage.getItem("transactionInfo");
+		if (
+			sessionInfo.user &&
+			sessionInfo.userWallet &&
+			sessionInfo.userKyc &&
+			transactionInfo === "false"
+		) {
+			setData(sessionInfo);
+		} else {
+			getAllUserInfo();
+		}
+		// eslint-disable-next-line
+	}, []);
 
-  const items = [
-    {
-      icon: "pi pi-user",
-      label: "Pan Card",
-    },
-    {
-      icon: "pi pi-calendar",
-      label: "Address Proof",
-    },
-    {
-      icon: "pi pi-check",
-      label: "Bank Details",
-    },
-  ];
+	useEffect(() => {
+		if (setReload && setReload === true) {
+			getAllUserInfo();
+		}
+		// eslint-disable-next-line
+	}, [setReload]);
 
-  return (
-    <DashboardMainTopBottom styles={{ width: "100%" }}>
-      <DashboardHomeHeader title="KYC" data={data.userWallet} />
-      <DashboardMain>
-        {/* <Steps
-          model={items}
-          activeIndex={activeIndex}
-          readOnly={false}
-          className="m-2 pt-4"
-        /> */}
-        {/* <KycProgress /> */}
-        {/* <KycStatus
-          status="Pending"
-          message="Your KYC verification is currently in progress; thank you for your patience."
-          color="#B54708"
-          colorBg="#FFFAEB"
-          borderColor="#F79009"
-        />
-        <KycStatus
-          status="Successful"
-          message="Your KYC verification has been successfully completed; you now have full access to all features."
-          color="#027A48"
-          colorBg="#ECFDF3"
-          borderColor="#11C15B"
-          retry={true}
-        />
-        <KycStatus
-          status="Failed"
-          message="Your KYC verification was unsuccessful; please retry or contact customer support for further assistance"
-          color="#B42318"
-          colorBg="#FEF3F2"
-          borderColor="#FF5252"
-        /> */}
-        {data && data.userKyc && data.userKyc.level === "1" ? (
-          <PanCard setStepReload={setStepReload} userKyc={data.userKyc} />
-        ) : data && data.userKyc && data.userKyc.level === "2" ? (
-          <AddressDetail />
-        ) : (
-          <BankAccDetails />
-        )}
+	const items = [
+		{
+			icon: "pi pi-user",
+			label: "Pan Card",
+		},
+		{
+			icon: "pi pi-calendar",
+			label: "Address Proof",
+		},
+		{
+			icon: "pi pi-check",
+			label: "Bank Details",
+		},
+	];
 
-        {/* <KycStatusPage
+	return (
+		<DashboardMainTopBottom styles={{ width: "100%" }}>
+			<DashboardHomeHeader title='KYC' data={data.userWallet} />
+			<DashboardMain>
+				<KycProgress
+					activeIndex={data?.userKyc?.level ? parseInt(data.userKyc.level) : 1}
+				/>
+				{/* <KycStatus
+					status='Pending'
+					message='Your KYC verification is currently in progress; thank you for your patience.'
+					color='#B54708'
+					colorBg='#FFFAEB'
+					borderColor='#F79009'
+				/>
+				<KycStatus
+					status='Successful'
+					message='Your KYC verification has been successfully completed; you now have full access to all features.'
+					color='#027A48'
+					colorBg='#ECFDF3'
+					borderColor='#11C15B'
+					retry={true}
+				/>
+				<KycStatus
+					status='Failed'
+					message='Your KYC verification was unsuccessful; please retry or contact customer support for further assistance'
+					color='#B42318'
+					colorBg='#FEF3F2'
+					borderColor='#FF5252'
+				/> */}
+
+				{data && data.userKyc && data.userKyc.level === "1" ? (
+					<PanCard setStepReload={setStepReload} userKyc={data.userKyc} />
+				) : data && data.userKyc && data.userKyc.level === "2" ? (
+					<AddressDetail />
+				) : (
+					<BankAccDetails />
+				)}
+
+				{/* <KycStatusPage
           isSuccess={true}
           label="Your KYC verification was Successful"
           btnText="Go to Home"
@@ -119,9 +116,9 @@ const KycMain = () => {
           label="Your KYC verification was unsuccessful"
           btnText="Retry KYC Form"
         /> */}
-      </DashboardMain>
-    </DashboardMainTopBottom>
-  );
+			</DashboardMain>
+		</DashboardMainTopBottom>
+	);
 };
 
 export default KycMain;
