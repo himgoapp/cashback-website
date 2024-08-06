@@ -1,102 +1,147 @@
 .navbar_container {
-  display: flex;
-  /* width: 90rem; */
-  width: 100%;
-  padding: 1.5rem 5rem;
-  justify-content: space-between;
-  align-items: center;
+	display: flex;
+	/* width: 90rem; */
+	width: 100%;
+	padding: 1.5rem 5rem;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .navbar_container .navbar_link_container {
-  display: flex;
-  align-items: center;
-  gap: 5.625rem;
+	display: flex;
+	align-items: center;
+	gap: 5.625rem;
 }
 
 .navbar_link_container .menu_container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 4rem;
 }
 
 .menu_container .aboutus {
-  display: flex;
-  align-items: center;
-  gap: 0.125rem;
+	display: flex;
+	align-items: center;
+	gap: 0.125rem;
 }
 
 .aboutus span {
-  color: var(--black-800, #212121);
-  text-align: center;
-  font-family: Futura Md BT;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25rem;
-  /* 125% */
+	color: var(--black-800, #212121);
+	text-align: center;
+	font-family: Futura Md BT;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.25rem;
+	/* 125% */
 }
 
 .menu_container .faq {
-  display: flex;
-  align-items: center;
-  gap: 0.125rem;
+	display: flex;
+	align-items: center;
+	gap: 0.125rem;
 }
 
 .faq span {
-  color: var(--black-800, #212121);
-  text-align: center;
-  font-family: Futura Md BT;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.25rem;
-  /* 125% */
+	color: var(--black-800, #212121);
+	text-align: center;
+	font-family: Futura Md BT;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.25rem;
+	/* 125% */
 }
 
 .navbar_link_container .btn_link_container {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
 }
 
-.btn_link_container .signup_btn {}
+.btn_link_container .signup_btn {
+}
 
-.btn_link_container .login_btn {}
+.btn_link_container .login_btn {
+}
 
 /* for mobile menu  */
 .navbar_container .burger_menu {
-  display: flex;
-  padding: 0.5rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 0.5rem;
-  background: var(--base-white, #fff);
-  display: none;
-  cursor: pointer;
+	display: flex;
+	padding: 0.5rem;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	border-radius: 0.5rem;
+	background: var(--base-white, #fff);
+	display: none;
+	cursor: pointer;
+	border: 0;
 }
 
 .burger_menu .icon {
-  width: 1.5rem;
-  height: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
 }
 
 @media only screen and (max-width: 500px) {
-  .navbar_container {
-    display: flex;
-    /* width: 90rem; */
-    width: 100%;
-    padding: 0.75rem 1rem 0.75rem 1.5rem;
-    justify-content: space-between;
-    align-items: center;
-  }
+	.navbar_container {
+		display: flex;
+		/* width: 90rem; */
+		width: 100%;
+		padding: 0.75rem 1rem 0.75rem 1.5rem;
+		justify-content: space-between;
+		align-items: center;
+	}
 
-  .navbar_container .navbar_link_container {
-    display: none;
-  }
+	.navbar_container .navbar_link_container {
+		display: none;
+	}
 
-  .navbar_container .burger_menu {
-    display: flex;
-  }
+	.navbar_container .burger_menu {
+		display: flex;
+	}
+}
+
+.link_mobile_container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: white;
+	display: flex;
+	flex-direction: column;
+	/* align-items: center; */
+	/* justify-content: center; */
+	gap: 1rem;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: 0px 0px 10px 0px #e2e2e2;
+	z-index: 1000;
+}
+
+.link_mobile_container .menu_container {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	margin-bottom: 1rem;
+}
+
+.link_mobile_container .btn_link_container {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.link_mobile_header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-bottom: 1rem;
+}
+.link_mobile_header button {
+	background: none;
+	border: none;
+	cursor: pointer;
 }
