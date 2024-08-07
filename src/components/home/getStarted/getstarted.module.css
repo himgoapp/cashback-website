@@ -17,26 +17,33 @@
 .getstarted_content .image_container {
 	width: 37.375rem;
 	/* height: 49.625rem;  */
-
 	flex-shrink: 0;
-}
-.image_container .image {
-	width: 36.5625rem;
-	/* height: 46rem;
-   */
-	height: 100%;
-	flex-shrink: 0;
-}
-.image img {
+	background-color: #d8eeff;
 	border-bottom-left-radius: 1.36388rem;
 	border-top-left-radius: 1.36388rem;
+	position: relative;
 }
+.image_container_bg {
+	position: absolute;
+	top: 0;
+	right: 24px;
+}
+
+.image_container .image {
+	height: 100%;
+	flex-shrink: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
 .getstarted_content .howto_container {
 	display: inline-flex;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 3rem;
-	padding: 4rem 3rem 0 3rem;
+	padding: 4rem 3rem;
 }
 .howto_container .howto_q {
 	display: flex;
@@ -136,6 +143,20 @@
 	font-weight: 400;
 	line-height: 1.4775rem; /* 168.857% */
 }
+.step_container .header {
+	align-self: stretch;
+	color: #3e3e59;
+	font-feature-settings: "clig" off, "liga" off;
+	font-family: Inter;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.4775rem; /* 168.857% */
+}
+.step_container .header span {
+	color: #3968eb;
+}
+
 @media only screen and (max-width: 500px) {
 	.getstarted_container {
 		display: flex;
@@ -152,7 +173,7 @@
 	}
 	.getstarted_content .image_container {
 		width: 100%;
-		/* height: 49.625rem; */
+		height: 20rem;
 		flex-shrink: 0;
 	}
 	.image_container .image {
@@ -268,5 +289,10 @@
 		font-style: normal;
 		font-weight: 400;
 		line-height: 1.4775rem; /* 168.857% */
+	}
+
+	.image_container .image img {
+		width: 240px;
+		height: auto;
 	}
 }

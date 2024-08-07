@@ -75,3 +75,23 @@ input:disabled {
 .light-text {
 	color: #667085;
 }
+
+.swiper {
+	height: 100%;
+}
+.swiper-pagination {
+	margin-bottom: 1.2rem;
+}
+
+.swiper-pagination .swiper-pagination-bullet {
+	width: 16px;
+	height: 10px;
+	border-radius: 26px;
+	background-color: black;
+	opacity: 1;
+}
+
+.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+	background-color: #3968eb;
+	width: 26px;
+}

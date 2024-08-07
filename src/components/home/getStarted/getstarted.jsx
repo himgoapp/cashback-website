@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./getstarted.module.css";
-import getstarted from "../../../assets/getstarted.png";
+import getStartedBg from "../../../assets/getStartedBg.png";
+import GetStartedCarousel from "./getStartedCarousel";
+
 const Getstarted = () => {
 	return (
 		<div className={`${styles.getstarted_container} container`}>
@@ -8,17 +10,12 @@ const Getstarted = () => {
 			<div className={styles.getstarted_content}>
 				{/* Image */}{" "}
 				<div className={styles.image_container}>
-					<div className={styles.image}>
-						{/* Image Content */}{" "}
-						<img
-							src={getstarted}
-							style={{
-								width: "100%",
-								height: "100%",
-							}}
-							alt=''
-						/>{" "}
-					</div>
+					<GetStartedCarousel />
+					<img
+						src={getStartedBg}
+						alt=''
+						className={styles.image_container_bg}
+					/>
 				</div>
 				{/* How To Container */}
 				<div className={styles.howto_container}>
@@ -41,7 +38,7 @@ const Getstarted = () => {
 								<div className={styles.icon_minus}>
 									{/* Icon Minus Content */}
 								</div>
-								<div className={styles.text}>
+								<div className={styles.header}>
 									{/* Text Content */} <span>Step 1:</span> Sign Up
 								</div>
 								<div className={styles.divider}>
@@ -63,8 +60,8 @@ const Getstarted = () => {
 								<div className={styles.icon_minus}>
 									{/* Icon Minus Content */}
 								</div>
-								<div className={styles.text}>
-									{/* Text Content */} <span>Step 1:</span> Sign Up
+								<div className={styles.header}>
+									{/* Text Content */} <span>Step 2:</span> Link your Account
 								</div>
 								<div className={styles.divider}>
 									{/* Divider Content */} <span></span>
@@ -74,8 +71,8 @@ const Getstarted = () => {
 							{/* Add more items as needed */}
 							{/* Text */}
 							<div className={styles.text}>
-								{/* Text Content */}Sign up with your details. We don't need
-								your poker face; just be yourself.
+								{/* Text Content */}Securely link your poker accounts. We take
+								security seriously, just like your high-stakes poker game.
 							</div>
 						</div>
 						{/* Step Container */}
@@ -85,8 +82,9 @@ const Getstarted = () => {
 								<div className={styles.icon_minus}>
 									{/* Icon Minus Content */}
 								</div>
-								<div className={styles.text}>
-									{/* Text Content */} <span>Step 1:</span> Sign Up
+								<div className={styles.header}>
+									{/* Text Content */} <span>Step 3:</span> Get
+									Rewards/Cashbacks
 								</div>
 								<div className={styles.divider}>
 									{/* Divider Content */} <span></span>
@@ -96,8 +94,9 @@ const Getstarted = () => {
 							{/* Add more items as needed */}
 							{/* Text */}
 							<div className={styles.text}>
-								{/* Text Content */}Sign up with your details. We don't need
-								your poker face; just be yourself.
+								{/* Text Content */}Watch the magic happen as we display your
+								combined cashback rewards and offer you fantastic deals. It's
+								that easy!
 							</div>
 						</div>
 					</div>
