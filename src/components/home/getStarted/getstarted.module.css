@@ -290,6 +290,11 @@
 		font-weight: 400;
 		line-height: 1.4775rem; /* 168.857% */
 	}
+	.getstarted_content .image_container {
+		border-radius: 0;
+		border-top-left-radius: 1.36388rem;
+		border-top-right-radius: 1.36388rem;
+	}
 
 	.image_container .image img {
 		width: 240px;
