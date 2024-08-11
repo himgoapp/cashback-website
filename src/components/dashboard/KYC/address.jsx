@@ -1,5 +1,9 @@
-import Navbtn from "../../common/button/navbtn/navbtn";
+import React, { useState, useContext, useEffect, useRef } from "react";
+import Navbtn from "../../common/button/navbtn/navBtnTwo";
 import styles from "./address.module.css";
+import { addAddressProof } from "../../../servicefile/kycservice";
+import { ToastContainer, toast } from "react-toastify";
+
 const SelectField = ({ label, placeholder }) => {
   return (
     <div className={styles.SelectInput}>
@@ -20,21 +24,74 @@ const SelectField = ({ label, placeholder }) => {
   );
 };
 
-export const TextField = ({ label, placeholder }) => {
+export const TextField = ({
+  label,
+  placeholder,
+  currentValue,
+  setValue,
+  type,
+}) => {
   return (
     <div className={styles.TextInput}>
       <div className={styles.TextInputWithLabel}>
         <div className={styles.TextLabel}>{label}</div>
         <input
-          type="text"
+          type={type ? type : "text"}
           className={styles.TextFieldInput}
           placeholder={placeholder}
+          value={currentValue}
+          onChange={(e) => setValue(e.target.value)}
         />
       </div>
     </div>
   );
 };
-function AddressDetail() {
+function AddressDetail({ setStepReload }) {
+  const imageRef = useRef(null);
+  const [file, handleFile] = useState("");
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [addressProofType, setAddressProofType] = useState("");
+  const [documentNumber, setDocumentNumber] = useState("");
+  const [proofState, setProofState] = useState("");
+
+  const handleClick = (event) => {
+    imageRef.current.click();
+  };
+
+  const handleChange = (event) => {
+    const fileUploaded = event.target.files[0];
+    handleFile(fileUploaded);
+  };
+
+  const addAddressData = async () => {
+    if (
+      !file ||
+      !firstName ||
+      !lastName ||
+      !addressProofType ||
+      !documentNumber ||
+      !proofState
+    ) {
+      toast.error(`All fields are required for saving address information!`);
+    } else {
+      const res = await addAddressProof(
+        file,
+        firstName,
+        lastName,
+        addressProofType,
+        documentNumber,
+        proofState
+      );
+      if (res && res.message === "success") {
+        localStorage.setItem("transactionInfo", "true");
+        toast.success(`Address information saved!`);
+        setStepReload(true);
+      }
+    }
+  };
+
   return (
     <>
       <div className={styles.AddressDetailsContainer}>
@@ -42,21 +99,40 @@ function AddressDetail() {
         <div className={styles.AddressDetailsForm}>
           <div className={styles.AddressDetailsContent}>
             <div className={styles.InputRow}>
-              <TextField label="First name" placeholder="Olivia" />
-              <TextField label="Last name" placeholder="Rhye" />
+              <TextField
+                label="First name"
+                placeholder="Olivia"
+                currentValue={firstName}
+                setValue={setFirstName}
+              />
+              <TextField
+                label="Last name"
+                placeholder="Rhye"
+                currentValue={lastName}
+                setValue={setLastName}
+              />
             </div>
             <div className={styles.InputRow}>
-              <SelectField
+              <TextField
                 label="Address Proof Document Type"
                 placeholder="Address Proof"
+                currentValue={addressProofType}
+                setValue={setAddressProofType}
               />
               <TextField
                 label="Address Proof Document Number"
                 placeholder="GSVD73YB3B"
+                currentValue={documentNumber}
+                setValue={setDocumentNumber}
               />
             </div>
             <div className={styles.InputRow}>
-              <SelectField label="State" placeholder="Bihar" />
+              <TextField
+                label="State"
+                placeholder="Bihar"
+                currentValue={proofState}
+                setValue={setProofState}
+              />
             </div>
             <div className={styles.UploadArea}>
               <div className={styles.UploadLabel}>
@@ -68,6 +144,15 @@ function AddressDetail() {
                     <div className={styles.Icon}>{uploadSVG}</div>
                     <div className={styles.UploadTextContainer}>
                       <div className={styles.Action}>
+                        <input
+                          type="file"
+                          name="image"
+                          id="image"
+                          ref={imageRef}
+                          style={{ display: "none" }}
+                          accept=".jpg, .jpeg"
+                          onChange={handleChange}
+                        />
                         <Navbtn
                           text="Click to upload"
                           bg="transparent"
@@ -75,16 +160,21 @@ function AddressDetail() {
                           style={{
                             padding: 0,
                           }}
+                          onClickNav={() => {
+                            handleClick();
+                          }}
                         />
                         <div className={styles.Navbtn}>
                           <div className={styles.Text}></div>
                         </div>
-                        <div className={styles.ActionText}>
-                          or drag and drop
-                        </div>
+                        {file && file.name && (
+                          <div className={styles.ActionText}>
+                            Selected File : {file.name}
+                          </div>
+                        )}
                       </div>
                       <div className={styles.ActionSubtext}>
-                        PNG or PDF (Max Size 2MB)
+                        JPG or JPEG (Max Size 2MB)
                       </div>
                     </div>
                   </div>
@@ -101,11 +191,15 @@ function AddressDetail() {
                   bg="#3968EB"
                   color="white"
                   showIcon={false}
+                  onClickNav={() => {
+                    addAddressData();
+                  }}
                 />
               </div>
             </div>
           </div>
         </div>
+        <ToastContainer />
       </div>
     </>
   );

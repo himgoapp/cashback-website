@@ -50,6 +50,80 @@ export const addPanCard = async (panCardNo) => {
   }
 };
 
+export const addAddressProof = async (
+  file,
+  firstName,
+  lastName,
+  addressProofType,
+  documentNumber,
+  proofState
+) => {
+  let user = localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : "";
+  const formData = new FormData();
+  formData.append("image", file);
+  formData.append("id", user._id);
+  formData.append("firstName", firstName);
+  formData.append("lastName", lastName);
+  formData.append("addressProofType", addressProofType);
+  formData.append("documentNumber", documentNumber);
+  formData.append("proofState", proofState);
+
+  let body = formData;
+
+  let headers = { "Content-Type": "multipart/form-data" };
+
+  try {
+    let data = await axios
+      .post(`${baseUrlconfig.baseUrl}/auth/imageupload`, body, { ...headers })
+      .then((res) => res.data);
+    return data;
+  } catch (error) {
+    console.log(error.response);
+    if (error.response) {
+      return error.response.data.errors;
+    } else {
+      return { message: "Something Went Wrong!" };
+    }
+  }
+};
+
+export const addBankDetails = async (account_number, bank_name, ifsc_code) => {
+  let user = localStorage.getItem("userInfo")
+    ? JSON.parse(localStorage.getItem("userInfo"))
+    : "";
+
+  let body = {
+    user_id: user._id,
+    account_number,
+    bank_name,
+    ifsc_code,
+  };
+
+  let headers = {
+    "Content-Type": "application/json",
+  };
+
+  try {
+    let data = await axios
+      .post(
+        `${baseUrlconfig.baseUrl}/banks/create`,
+        { ...body },
+        { ...headers }
+      )
+      .then((res) => res.data);
+    return data;
+  } catch (error) {
+    console.log(error.response);
+    if (error.response) {
+      return error.response.data.errors;
+    } else {
+      return { message: "Something Went Wrong!" };
+    }
+  }
+};
+
 export const submitAccountId = async (productId, referenceId, referralCode) => {
   let user = localStorage.getItem("userInfo")
     ? JSON.parse(localStorage.getItem("userInfo"))
