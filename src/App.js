@@ -17,7 +17,7 @@ export const UserContext = createContext();
 function App() {
   const [showSidebar, setShowSidebar] = useState(true);
   const [showSigninPopup, setShowSigninPopup] = useState(true);
-  const [showWelcomePopup, setShowWelcomePopup] = useState(true);
+  const [showWelcomePopup, setShowWelcomePopup] = useState(false);
   const [showCheckEmailPopup, setShowCheckEmailPopup] = useState(true);
   const [showWalletWithdraw, setShowWalletWithdraw] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);

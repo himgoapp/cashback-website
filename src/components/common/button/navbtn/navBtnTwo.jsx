@@ -1,10 +1,20 @@
 import React from "react";
 import styles from "./navbtn.module.css";
-const Navbtn = ({ text, bg, color, showIcon, iconColor, font, style }) => {
+const Navbtn = ({
+  text,
+  bg,
+  color,
+  showIcon,
+  iconColor,
+  font,
+  style,
+  onClickNav,
+}) => {
   return (
     <div
       className={styles.navbtn_container}
       style={{ backgroundColor: bg, border: "none", ...style }}
+      onClick={() => onClickNav()}
     >
       <div className={styles.text} style={{ color: color, ...font }}>
         {text}
