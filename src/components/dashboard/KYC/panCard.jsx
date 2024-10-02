@@ -38,8 +38,8 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
               <TextField
                 label="PAN Card Number"
                 placeholder="GSVD73YB3B"
-                onChange={(e) => setPanCardNo(e.target.value)}
-                value={panCardNo}
+                currentValue={panCardNo}
+                setValue={setPanCardNo}
               />
             </div>
           </div>
