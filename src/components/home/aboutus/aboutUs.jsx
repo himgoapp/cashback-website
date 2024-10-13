@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./aboutUs.module.css";
 import aboutusimg from "../../../assets/aboutus.png";
+
 const AboutUs = () => {
 	return (
-		<div className={`${styles.about__container} container`}>
+		<div id='about-us' className={`${styles.about__container} container_max`}>
 			{/* Content Section */}
 			<div className={styles.content}>
 				{/* Tag */}
@@ -130,7 +131,7 @@ const AboutUs = () => {
 			{/* Image Section */}
 			<div className={styles.image}>
 				{/* Image Content */}{" "}
-				<img src={aboutusimg} style={{ width: "100%" }} alt='' />{" "}
+				<img src={aboutusimg} width={500} height={420} alt='' />{" "}
 			</div>
 		</div>
 	);

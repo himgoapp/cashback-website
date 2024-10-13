@@ -5,8 +5,13 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	min-width: 320px;
 }
 
+img {
+	max-width: 100%;
+	height: auto;
+}
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
@@ -78,8 +83,12 @@ input:disabled {
 
 .swiper {
 	height: 100%;
+	width: 100%;
 }
-.swiper-pagination {
+.swiper-slide {
+	height: 100%;
+}
+.get_started_swiper .swiper-pagination {
 	margin-bottom: 1.2rem;
 }
 
@@ -94,4 +103,23 @@ input:disabled {
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
 	background-color: #3968eb;
 	width: 26px;
+}
+.custom-swiper-pagination {
+	margin-inline: auto;
+	width: fit-content !important;
+	margin-top: 1rem;
+}
+
+.custom-swiper-pagination .swiper-pagination-bullet {
+	border: 1px solid #667285;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background-color: transparent;
+}
+
+.custom-swiper-pagination
+	.swiper-pagination-bullet.swiper-pagination-bullet-active {
+	background: #3968eb;
+	border: none;
 }

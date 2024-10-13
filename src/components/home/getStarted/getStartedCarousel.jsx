@@ -15,11 +15,11 @@ const GetStartedCarousel = () => {
 			modules={[Pagination, Autoplay]}
 			spaceBetween={20}
 			slidesPerView={1}
-			className='h-full'
 			pagination={{ clickable: true }}
 			autoplay={{
 				delay: 5000,
 			}}
+			className={`get_started_swiper ${styles.swiper}`}
 		>
 			<SwiperSlide className='pb-4'>
 				<div className={styles.image}>

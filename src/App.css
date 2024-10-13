@@ -7,15 +7,24 @@
 @import url("https://fonts.cdnfonts.com/css/poppins");
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 .flex_center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .body-no-scroll {
-  overflow: hidden;
+	overflow: hidden;
+}
+
+.container_max {
+	width: 100%;
+	max-width: 1280px;
+	margin: 0 auto;
+	padding-inline: 1rem;
 }

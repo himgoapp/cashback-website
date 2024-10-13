@@ -5,6 +5,13 @@ import gift from "../../../assets/gift.png";
 import mike from "../../../assets/mike.png";
 import chat from "../../../assets/chat.png";
 import live from "../../../assets/live.png";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/pagination";
+
 const Deals = () => {
 	const cardInfo = [
 		{
@@ -33,7 +40,7 @@ const Deals = () => {
 		},
 	];
 	return (
-		<div className={`${styles.deals_container} container`}>
+		<div className={`${styles.deals_container} container_max`}>
 			{/* Content Section */}
 			<div className={styles.content}>
 				{/* Head Container */}
@@ -50,67 +57,95 @@ const Deals = () => {
 				{/* Deals Card Container */}
 				<div className={styles.deals_card_container}>
 					{/* Deals Card */}
-					{cardInfo.map((deal, index) => {
-						return (
-							<div className={styles.deals_card} key={index}>
-								{/* Card Content */}
-								<div className={styles.card_content}>
-									{/* Text Container */}
-									<div className={styles.text_container}>
-										{/* Card Text Content */}
-										<div className={styles.card_text_content}>
-											{/* Title Container */}
-											<div className={styles.title_container}>
-												<div className={styles.title}>{deal.title}</div>
-												{/* Title Content */}
-											</div>
-											{/* Description Container */}
-											<div className={styles.description_container}>
-												<div className={styles.description}>
-													{deal.description}
+					<Swiper
+						modules={[Pagination, Autoplay]}
+						spaceBetween={20}
+						slidesPerView={1}
+						className={styles.swiper}
+						pagination={{ clickable: true, el: ".custom-swiper-pagination" }}
+						autoplay={{
+							delay: 5000,
+						}}
+						breakpoints={{
+							0: {
+								slidesPerView: 1,
+							},
+							600: {
+								slidesPerView: 2,
+							},
+							800: {
+								slidesPerView: 3,
+							},
+							1000: {
+								slidesPerView: 4,
+							},
+						}}
+					>
+						{cardInfo.map((deal, index) => {
+							return (
+								<SwiperSlide key={index}>
+									<div className={styles.deals_card}>
+										{/* Card Content */}
+										<div className={styles.card_content}>
+											{/* Text Container */}
+											<div className={styles.text_container}>
+												{/* Card Text Content */}
+												<div className={styles.card_text_content}>
+													{/* Title Container */}
+													<div className={styles.title_container}>
+														<div className={styles.title}>{deal.title}</div>
+														{/* Title Content */}
+													</div>
+													{/* Description Container */}
+													<div className={styles.description_container}>
+														<div className={styles.description}>
+															{deal.description}
+														</div>
+														{/* Description Content */}
+													</div>
 												</div>
-												{/* Description Content */}
+											</div>
+
+											{/* Learn More Container */}
+											<div className={styles.learn_more_container}>
+												{/* Text Content */}
+												<div className={styles.text}>
+													Learn More
+													{/* Icon Content */}
+												</div>
+												{/* <div className={styles.icon}> */}
+												{/* Icon */}
+												<svg
+													xmlns='http://www.w3.org/2000/svg'
+													width='26'
+													height='12'
+													viewBox='0 0 26 12'
+													fill='none'
+												>
+													<path
+														d='M24 7.5C25.1046 7.5 26 8.39543 26 9.5C26 10.6046 25.1046 11.5 24 11.5L2 11.5C0.895429 11.5 -1.35705e-07 10.6046 -8.74228e-08 9.5C-3.91405e-08 8.39543 0.895432 7.5 2 7.5L24 7.5Z'
+														fill='#5C6077'
+													/>
+													<path
+														d='M25.0711 7.74253C25.8522 8.52357 25.8522 9.7899 25.0711 10.571C24.2901 11.352 23.0238 11.352 22.2427 10.571L16.4143 4.74253C15.6332 3.96148 15.6332 2.69515 16.4143 1.9141C17.1953 1.13305 18.4617 1.13305 19.2427 1.9141L25.0711 7.74253Z'
+														fill='#5C6077'
+													/>
+												</svg>
+												{/* </div> */}
 											</div>
 										</div>
-									</div>
 
-									{/* Learn More Container */}
-									<div className={styles.learn_more_container}>
-										{/* Text Content */}
-										<div className={styles.text}>
-											Learn More
-											{/* Icon Content */}
+										{/* Image */}
+										<div className={styles.image}>
+											{/* Image Content */}{" "}
+											<img src={deal.img} width={72} height={64} alt='' />{" "}
 										</div>
-										{/* <div className={styles.icon}> */}
-										{/* Icon */}
-										<svg
-											xmlns='http://www.w3.org/2000/svg'
-											width='26'
-											height='12'
-											viewBox='0 0 26 12'
-											fill='none'
-										>
-											<path
-												d='M24 7.5C25.1046 7.5 26 8.39543 26 9.5C26 10.6046 25.1046 11.5 24 11.5L2 11.5C0.895429 11.5 -1.35705e-07 10.6046 -8.74228e-08 9.5C-3.91405e-08 8.39543 0.895432 7.5 2 7.5L24 7.5Z'
-												fill='#5C6077'
-											/>
-											<path
-												d='M25.0711 7.74253C25.8522 8.52357 25.8522 9.7899 25.0711 10.571C24.2901 11.352 23.0238 11.352 22.2427 10.571L16.4143 4.74253C15.6332 3.96148 15.6332 2.69515 16.4143 1.9141C17.1953 1.13305 18.4617 1.13305 19.2427 1.9141L25.0711 7.74253Z'
-												fill='#5C6077'
-											/>
-										</svg>
-										{/* </div> */}
 									</div>
-								</div>
-
-								{/* Image */}
-								<div className={styles.image}>
-									{/* Image Content */}{" "}
-									<img src={deal.img} style={{ width: "100%" }} alt='' />{" "}
-								</div>
-							</div>
-						);
-					})}
+								</SwiperSlide>
+							);
+						})}
+					</Swiper>
+					<div className='custom-swiper-pagination'></div>
 
 					{/* Add more Deals Cards as needed */}
 				</div>

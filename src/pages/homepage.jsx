@@ -9,34 +9,34 @@ import FAQ from "../components/home/FAQ/faq";
 import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
 import Footer from "../components/common/footer/footer";
 import MainContainer from "../layout/mainContainer";
+
 const Homepage = () => {
-  return (
-    <>
-      <MainContainer>
-        <Navbar page="home" />
-        <Banner />
-        <AboutUs />
-        <Deals />
-        <Getstarted />
-        <Featured />{" "}
-      </MainContainer>
-      <MainContainer styles={{ padding: 0 }}>
-        {" "}
-        <FAQ />
-      </MainContainer>
+	return (
+		<>
+			<MainContainer>
+				<Navbar page='home' />
+				<Banner />
+				<AboutUs />
+				<Deals />
+				<Getstarted />
+				<Featured />
+			</MainContainer>
+			<MainContainer styles={{ padding: 0 }}>
+				<FAQ />
+			</MainContainer>
 
-      <MainContainer>
-        <JoinRakeback />
-      </MainContainer>
+			<MainContainer>
+				<JoinRakeback />
+			</MainContainer>
 
-      <div
-        style={{ width: "100%", backgroundColor: "#3968eb" }}
-        className="flex_center"
-      >
-        <Footer />
-      </div>
-    </>
-  );
+			<div
+				style={{ width: "100%", backgroundColor: "#3968eb" }}
+				className='flex_center'
+			>
+				<Footer />
+			</div>
+		</>
+	);
 };
 
 export default Homepage;

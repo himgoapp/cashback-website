@@ -57,7 +57,8 @@
 /*  */
 .faq_content .faq_item_container {
 	display: flex;
-	width: 48rem;
+	width: 100%;
+	max-width: 48rem;
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 2rem;
@@ -119,48 +120,14 @@
   left: 0;
   bottom: 0;
 } */
-@media only screen and (max-width: 500px) {
-	.faq_container {
-		width: 100%;
-		/* height: 53rem; */
-		background: linear-gradient(
-			180deg,
-			rgba(216, 238, 255, 0) 0%,
-			#d8eeff 100%
-		);
-		display: flex;
-		justify-content: center;
-	}
-
+@media only screen and (max-width: 780px) {
 	.faq_container .faq_content {
-		display: inline-flex;
-		flex-direction: column;
-		align-items: center;
 		gap: 1.5rem;
 		padding-bottom: 5rem;
 		padding-left: 1rem;
 		padding-right: 1rem;
 	}
-	.faq_content .faq_header {
-		display: flex;
-		padding: 0rem 2rem;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 2rem;
-	}
-	.faq_header .header_content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 3rem;
-		align-self: stretch;
-	}
-	.header_content .head_and_subhead {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 1.25rem;
-	}
+
 	.head_and_subhead .head {
 		font-size: 1.375rem;
 	}
@@ -168,62 +135,12 @@
 		font-size: 1rem;
 	}
 	/*  */
-	.faq_content .faq_item_container {
-		display: flex;
-		width: 100%;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 2rem;
-	}
-	.faq_item_container .faq_item {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		align-self: stretch;
-	}
-	.faq_item .item_content {
-		display: flex;
-		align-items: flex-start;
-		gap: 1.5rem;
-		align-self: stretch;
-	}
-	.item_content .q_and_ans {
-		display: flex;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 0.5rem;
-		flex: 1 0 0;
-	}
-	.q_and_ans .question {
-		color: #232334;
 
-		/* Text lg/Medium */
-		font-family: Inter;
+	.q_and_ans .question {
 		font-size: 1rem;
-		font-style: normal;
-		font-weight: 500;
-		line-height: 1.75rem; /* 155.556% */
 	}
 	.q_and_ans .ans {
-		color: #3e3e59;
-
-		/* Text md/Regular */
-		font-family: Inter;
 		font-size: 0.875rem;
-		font-style: normal;
-		font-weight: 400;
 		line-height: 1.5rem; /* 150% */
-	}
-	/*  */
-	.item_content .faq_icon {
-		display: flex;
-		padding-top: 2px;
-		flex-direction: column;
-		align-items: flex-start;
-	}
-
-	.faq_icon .minus_icon {
-		width: 1.5rem;
-		height: 1.5rem;
 	}
 }

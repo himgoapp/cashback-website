@@ -1,40 +1,41 @@
 import React from "react";
 import styles from "./faq.module.css";
 // import faqbg from "../../../assets/faqbg.png";
+
+const QandA = [
+	{
+		question: "What is Poker-Cash, and how does it work?",
+		answer:
+			"Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.",
+	},
+	{
+		question: "Is Poker-Cash secure?",
+		answer: "",
+	},
+	{
+		question: "What poker apps are compatible with Poker-Cash?",
+		answer: "",
+	},
+	{
+		question:
+			"Are the exclusive deals and discounts tailored to my poker preferences?",
+		answer: "",
+	},
+	{
+		question: "How can I get in touch with Poker-Cash support?",
+		answer: "",
+	},
+	{
+		question: "What sets Poker-Cash apart from other poker tracking platforms?",
+		answer: "",
+	},
+];
+
 const FAQ = () => {
-	const QandA = [
-		{
-			question: "What is Poker-Cash, and how does it work?",
-			answer:
-				"Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.",
-		},
-		{
-			question: "Is Poker-Cash secure?",
-			answer: "",
-		},
-		{
-			question: "What poker apps are compatible with Poker-Cash?",
-			answer: "",
-		},
-		{
-			question:
-				"Are the exclusive deals and discounts tailored to my poker preferences?",
-			answer: "",
-		},
-		{
-			question: "How can I get in touch with Poker-Cash support?",
-			answer: "",
-		},
-		{
-			question:
-				"What sets Poker-Cash apart from other poker tracking platforms?",
-			answer: "",
-		},
-	];
 	return (
-		<div className={`${styles.faq_container}`}>
+		<div id='faq' className={`${styles.faq_container}`}>
 			{/* FAQ Content */}
-			<div className={`${styles.faq_content} container`}>
+			<div className={`${styles.faq_content} container_max`}>
 				{/* FAQ Header */}
 				<div className={styles.faq_header}>
 					{/* Header Content */}

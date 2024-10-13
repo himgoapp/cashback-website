@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./featured.module.css";
 import FeaturedCard from "./featured_card";
+
 const Featured = () => {
 	return (
-		<div className={`${styles.featured_container} container`}>
+		<div className={`${styles.featured_container} container_max`}>
 			{/* Featured Content */}
 			<div className={styles.featured_content}>
 				{/* Header */}
