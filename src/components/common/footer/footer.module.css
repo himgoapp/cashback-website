@@ -118,7 +118,7 @@
 	flex-shrink: 0;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 768px) {
 	.menu_container .menu_content {
 		gap: 2rem;
 		align-items: flex-start;

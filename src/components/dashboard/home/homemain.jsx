@@ -33,8 +33,8 @@ const HomeMain = ({ data }) => {
 			<DashboardMain>
 				<HomeQuickStart data={data} />
 				<Withdraw data={data.userWallet} userKyc={data.userKyc} />
+				<DashboardDealCards products={products} />
 			</DashboardMain>
-			<DashboardDealCards products={products} />
 		</DashboardMainTopBottom>
 	);
 };

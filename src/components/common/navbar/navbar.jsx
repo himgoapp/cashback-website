@@ -18,115 +18,117 @@ const Navbar = ({ page }) => {
 	const [showMenu, setShowMenu] = useState(false);
 
 	return (
-		<div className='container_max'>
-			<div className={styles.navbar_container}>
-				<Logo />
-				<div className={styles.navbar_link_container}>
-					{page === "home" && homePageMenu}
-					{page === "offer" && offersAndDealsPageMenu}
-					{token && token.length > 0 ? (
-						dashboardMenu
-					) : (
-						<div className={styles.btn_link_container}>
-							<Navbtn
-								text='Sign up'
-								bg='transparent'
-								color='black'
-								style={{
-									borderRadius: "2.4375rem",
-									border: "2px solid var(--black-800, #212121)",
-								}}
-								onClick={() => {
-									setLoginTab(true);
-								}}
-							/>
-							<Navbtn
-								text='Log in'
-								bg='#3968EB'
-								color='white'
-								showIcon={false}
-								onClick={() => {
-									setLoginTab(true);
-								}}
-							/>
+		<>
+			<div className='container_max'>
+				<div className={styles.navbar_container}>
+					<Logo />
+					<div className={styles.navbar_link_container}>
+						{page === "home" && homePageMenu}
+						{page === "offer" && offersAndDealsPageMenu}
+						{token && token.length > 0 ? (
+							dashboardMenu
+						) : (
+							<div className={styles.btn_link_container}>
+								<Navbtn
+									text='Sign up'
+									bg='transparent'
+									color='black'
+									style={{
+										borderRadius: "2.4375rem",
+										border: "2px solid var(--black-800, #212121)",
+									}}
+									onClick={() => {
+										setLoginTab(true);
+									}}
+								/>
+								<Navbtn
+									text='Log in'
+									bg='#3968EB'
+									color='white'
+									showIcon={false}
+									onClick={() => {
+										setLoginTab(true);
+									}}
+								/>
+							</div>
+						)}
+					</div>
+					{/* for mobile screen */}
+
+					<button
+						className={styles.burger_menu}
+						onClick={() => {
+							setShowMenu(!showMenu);
+						}}
+					>
+						<div className={styles.icon}>
+							<svg
+								xmlns='http://www.w3.org/2000/svg'
+								width='24'
+								height='24'
+								viewBox='0 0 24 24'
+								fill='none'
+							>
+								<path
+									d='M3 12H21M3 6H21M3 18H21'
+									stroke='#667085'
+									strokeWidth='2'
+									strokeLinecap='round'
+									stroke-linejoin='round'
+								/>
+							</svg>
+						</div>
+					</button>
+					{showMenu && (
+						<div className={styles.link_mobile_container}>
+							<div className={styles.link_mobile_header}>
+								<Logo />
+								<button
+									aria-label='Close menu'
+									onClick={() => setShowMenu(false)}
+								>
+									<CrossIcon />
+								</button>
+							</div>
+							<div>
+								{page === "home" && homePageMenu}
+								{page === "offer" && offersAndDealsPageMenu}
+								{token && token.length > 0 ? (
+									dashboardMenu
+								) : (
+									<div className={styles.btn_link_container}>
+										<Navbtn
+											text='Sign up'
+											bg='transparent'
+											color='black'
+											style={{
+												borderRadius: "2.4375rem",
+												border: "2px solid var(--black-800, #212121)",
+											}}
+											onClick={() => {
+												setLoginTab(true);
+												setShowMenu(false);
+											}}
+										/>
+										<Navbtn
+											text='Log in'
+											bg='#3968EB'
+											color='white'
+											showIcon={false}
+											onClick={() => {
+												setLoginTab(true);
+												setShowMenu(false);
+											}}
+										/>
+									</div>
+								)}
+							</div>
 						</div>
 					)}
 				</div>
-				{/* for mobile screen */}
-
-				<button
-					className={styles.burger_menu}
-					onClick={() => {
-						setShowMenu(!showMenu);
-					}}
-				>
-					<div className={styles.icon}>
-						<svg
-							xmlns='http://www.w3.org/2000/svg'
-							width='24'
-							height='24'
-							viewBox='0 0 24 24'
-							fill='none'
-						>
-							<path
-								d='M3 12H21M3 6H21M3 18H21'
-								stroke='#667085'
-								strokeWidth='2'
-								strokeLinecap='round'
-								stroke-linejoin='round'
-							/>
-						</svg>
-					</div>
-				</button>
-				{showMenu && (
-					<div className={styles.link_mobile_container}>
-						<div className={styles.link_mobile_header}>
-							<Logo />
-							<button
-								aria-label='Close menu'
-								onClick={() => setShowMenu(false)}
-							>
-								<CrossIcon />
-							</button>
-						</div>
-						<div>
-							{page === "home" && homePageMenu}
-							{page === "offer" && offersAndDealsPageMenu}
-							{token && token.length > 0 ? (
-								dashboardMenu
-							) : (
-								<div className={styles.btn_link_container}>
-									<Navbtn
-										text='Sign up'
-										bg='transparent'
-										color='black'
-										style={{
-											borderRadius: "2.4375rem",
-											border: "2px solid var(--black-800, #212121)",
-										}}
-										onClick={() => {
-											setLoginTab(true);
-											setShowMenu(false);
-										}}
-									/>
-									<Navbtn
-										text='Log in'
-										bg='#3968EB'
-										color='white'
-										showIcon={false}
-										onClick={() => {
-											setLoginTab(true);
-											setShowMenu(false);
-										}}
-									/>
-								</div>
-							)}
-						</div>
-					</div>
-				)}
-				{loginTab && <PopupSignin />}
 			</div>
-		</div>
+			{loginTab && <PopupSignin />}
+		</>
 	);
 };
 

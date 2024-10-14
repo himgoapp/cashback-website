@@ -105,7 +105,7 @@
 	cursor: pointer;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 768px) {
 	.navbar_container {
 		padding-block: 0.75rem;
 	}

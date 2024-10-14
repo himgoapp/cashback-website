@@ -11,7 +11,6 @@
 
 .QuickStartContent {
 	align-self: stretch;
-	/* height: 19.25rem;  */
 	height: auto;
 	padding: 1.5rem;
 	/* 24px / 16px */
@@ -88,34 +87,32 @@
 .Guid {
 	align-self: stretch;
 	height: auto;
-	/* 96px / 16px */
 	padding: 1.25rem;
-	/* 20px / 16px */
 	background: white;
-	box-shadow: 0 0.0625rem 0.125rem
-		rgba(16, 24, 40, 0 /* ... (previous CSS) ... */ 06);
-	/* 0px 1px 2px rgba(16, 24, 40, 0.06) / 16px */
+	box-shadow: 0 0.0625rem 0.125rem rgba(16, 24, 40, 0.06);
 	border-radius: 0.75rem;
-	/* 12px / 16px */
 	border: 0.0625rem solid #eaecf0;
-	/* 1px / 16px */
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: flex-start;
 	gap: 0.375rem;
-	/* 6px / 16px */
 	display: flex;
 }
 
 .GuidContent {
 	align-self: stretch;
-	justify-content: flex-start;
+	justify-content: space-between;
 	align-items: flex-start;
 	gap: 1rem;
 	/* 16px / 16px */
 	display: inline-flex;
 }
 
+.Icons_container {
+	display: flex;
+	gap: 1rem;
+	align-items: center;
+}
 .Icons {
 	justify-content: flex-start;
 	align-items: center;
@@ -156,17 +153,6 @@
 	display: flex;
 }
 
-.GuidTextContentainer {
-	flex: 1 1 0;
-	height: 3.5rem;
-	/* 56px / 16px */
-	justify-content: flex-start;
-	align-items: center;
-	gap: 0.75rem;
-	/* 12px / 16px */
-	display: flex;
-}
-
 .TextContent {
 	flex: 1 1 0;
 	flex-direction: column;
@@ -200,16 +186,8 @@
 	word-wrap: break-word;
 }
 
-.Butn {
-	justify-content: flex-start;
-	align-items: flex-start;
-	gap: 1.25rem;
-	/* 20px / 16px */
-	display: flex;
-}
-
 /* ////////////////////////////////////////////// */
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1024px) {
 	.HomeQuickStart {
 		width: 100%;
 	}
@@ -236,7 +214,11 @@
 		width: 100%;
 	}
 
-	.Head {
-		width: 100%;
+	.Icons_container {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	.Guid {
+		padding: 0.75rem;
 	}
 }

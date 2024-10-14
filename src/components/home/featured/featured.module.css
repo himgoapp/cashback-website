@@ -48,7 +48,7 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
 }
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 768px) {
 	.featured_container .featured_content {
 		gap: 1.5rem;
 	}

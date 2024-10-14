@@ -51,76 +51,69 @@ const HomeQuickStart = ({ data }) => {
 						{/* guide one : link poker */}
 						<div className={styles.Guid}>
 							<div className={styles.GuidContent}>
-								<div className={styles.Icons}>
-									<div className={styles.Checkicon}>
-										<img src={checkicon} alt='' />
+								<div className={styles.Icons_container}>
+									<div className={styles.Icons}>
+										<div className={styles.Checkicon}>
+											<img src={checkicon} alt='' />
+										</div>
+										<div className={styles.Approvalicon}>{approvedIcon}</div>
 									</div>
-									<div className={styles.Approvalicon}>{approvedIcon}</div>
-								</div>
-								<div className={styles.GuidTextContentainer}>
 									<div className={styles.TextContent}>
 										<div className={styles.Head}>Link your Poker ID</div>
-										{/* <div className={styles.Subhead}>
-                  Complete your KYC and get your profile complete
-                </div> */}
-									</div>
-									<div className={styles.Butn}>
-										{" "}
-										<Link
-											to='/dashboard/pokerid'
-											style={{ color: "white", textDecoration: "none" }}
-										>
-											<Navbtn
-												text='Link Poker Id'
-												bg='#3968EB'
-												color='white'
-												showIcon={true}
-											/>
-										</Link>
 									</div>
 								</div>
+								<Link
+									to='/dashboard/pokerid'
+									style={{ color: "white", textDecoration: "none" }}
+								>
+									<Navbtn
+										text='Link Poker Id'
+										bg='#3968EB'
+										color='white'
+										showIcon={true}
+										divOrButton='div'
+									/>
+								</Link>
 							</div>
 						</div>
 						{/* guide two : complete KYC */}
 						<div className={styles.Guid}>
 							<div className={styles.GuidContent}>
-								<div className={styles.Icons}>
-									<CheckIcon
-										done={data?.userKyc?.statusValue === "Completed"}
-									/>
-									<div className={styles.Checkicon}>
-										<img src={verifiedIcon} alt='' />
+								<div className={styles.Icons_container}>
+									<div className={styles.Icons}>
+										<CheckIcon
+											done={data?.userKyc?.statusValue === "Completed"}
+										/>
+										<div className={styles.Checkicon}>
+											<img src={verifiedIcon} alt='' />
+										</div>
 									</div>
-								</div>
-								<div className={styles.GuidTextContentainer}>
 									<div className={styles.TextContent}>
 										<div className={styles.Head}>Complete KYC</div>
 										<div className={styles.Subhead}>
 											Complete your KYC and get your profile complete
 										</div>
 									</div>
-									<div className={styles.Butn}>
-										<Link
-											to='/dashboard/kyc'
-											style={{ color: "white", textDecoration: "none" }}
-										>
-											<Navbtn
-												text='Go to KYC Verification'
-												bg='transparent'
-												color='#3968EB'
-												showIcon={true}
-												iconColor='#3968EB'
-												style={{
-													borderRadius: "2.4375rem",
-													border: "2px solid #3968EB",
-													display: "flex",
-													justifyContent: "center",
-													// width: "100%",
-												}}
-											/>
-										</Link>
-									</div>
 								</div>
+								<Link
+									to='/dashboard/kyc'
+									style={{ color: "white", textDecoration: "none" }}
+								>
+									<Navbtn
+										text='Go to KYC Verification'
+										bg='transparent'
+										color='#3968EB'
+										showIcon={true}
+										iconColor='#3968EB'
+										style={{
+											borderRadius: "2.4375rem",
+											border: "2px solid #3968EB",
+											display: "flex",
+											justifyContent: "center",
+											// width: "100%",
+										}}
+									/>
+								</Link>
 							</div>
 						</div>
 					</div>

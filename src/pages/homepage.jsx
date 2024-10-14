@@ -20,12 +20,7 @@ const Homepage = () => {
 				<Deals />
 				<Getstarted />
 				<Featured />
-			</MainContainer>
-			<MainContainer styles={{ padding: 0 }}>
 				<FAQ />
-			</MainContainer>
-
-			<MainContainer>
 				<JoinRakeback />
 			</MainContainer>
 

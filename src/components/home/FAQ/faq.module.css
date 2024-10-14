@@ -68,6 +68,7 @@
 	flex-direction: column;
 	align-items: center;
 	align-self: stretch;
+	cursor: pointer;
 }
 .faq_item .item_content {
 	display: flex;
@@ -120,7 +121,7 @@
   left: 0;
   bottom: 0;
 } */
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 768px) {
 	.faq_container .faq_content {
 		gap: 1.5rem;
 		padding-bottom: 5rem;

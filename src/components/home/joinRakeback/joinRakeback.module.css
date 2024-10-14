@@ -64,7 +64,7 @@
 	height: 9.375rem;
 	flex-shrink: 0;
 }
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 768px) {
 	.join_rakeback_container_wrapper {
 		padding-top: 3rem;
 		padding-bottom: 3rem;

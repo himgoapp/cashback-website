@@ -3,19 +3,20 @@ import styles from "./offerAndDeal.module.css";
 import OfferHeader from "./header/header";
 import OfferCardContainer from "./cards/cardContainer";
 import OfferSignup from "./signup/signup";
+
 const OfferAndDeal = () => {
-  const token = localStorage.getItem("token") ? true : false;
-  return (
-    <div className={styles.offer_and_deals_wrapper}>
-      <OfferHeader />
-      <OfferCardContainer />
-      {!token && (
-        <div style={{ position: "absolute", left: 0, bottom: 0 }}>
-          <OfferSignup />
-        </div>
-      )}
-    </div>
-  );
+	const token = localStorage.getItem("token") ? true : false;
+	return (
+		<div className={`${styles.offer_and_deals_wrapper} container_max`}>
+			<OfferHeader />
+			<OfferCardContainer />
+			{!token && (
+				<div style={{ position: "absolute", left: 0, bottom: 0 }}>
+					<OfferSignup />
+				</div>
+			)}
+		</div>
+	);
 };
 
 export default OfferAndDeal;

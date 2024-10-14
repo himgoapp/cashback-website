@@ -1,8 +1,3 @@
-.mainContainer {
-	padding: 2rem;
-	padding-top: 0;
-	max-width: 1300px;
-}
 .DashboardDealCardsContainer {
 	border-radius: 0.75rem;
 	border: 1px solid #eaecf0;
@@ -11,17 +6,17 @@
 	display: flex;
 	flex-direction: column;
 	gap: 1.25rem;
+	padding: 1.5rem;
+	width: 100%;
 }
 .cardsContent {
-	/* padding */
-	padding-inline: 2rem;
-	padding-bottom: 2rem;
 	width: 100%;
 	display: flex;
 	align-items: center;
 	flex-direction: row;
 	gap: 1rem;
-	/* flex-wrap: wrap; (commented out) */
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 }
 .deal_head {
 	display: flex;
@@ -30,27 +25,15 @@
 	align-self: stretch;
 	color: var(--text-primary, #101828);
 
-	/* Text lg/Semibold */
-	font-family: Inter;
 	font-size: 1.125rem;
-	font-style: normal;
 	font-weight: 600;
 	line-height: 1.75rem; /* 155.556% */
-	padding: 1.5rem;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 1024px) {
 	.DashboardDealCardsContainer {
-		width: 100%;
-	}
-	.deal_head {
+		padding: 1.5rem 1rem;
 	}
 	.cardsContent {
-		flex-direction: column;
-		display: flex;
-		padding: 0rem 1rem;
-		flex-direction: column;
-		align-items: flex-start;
-		gap: 1.5rem;
-		align-self: stretch;
+		grid-template-columns: 1fr;
 	}
 }

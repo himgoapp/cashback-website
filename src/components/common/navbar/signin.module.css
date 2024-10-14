@@ -1,97 +1,97 @@
 .PopupWithOpacity {
-  position: absolute;
-  width: 100%;
-  height: 100vh;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2;
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 2;
 }
 .opacityDiv {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 3;
-  opacity: 0.36;
-  background: #000;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 3;
+	opacity: 0.36;
+	background: #000;
 }
 
 .PopupSigninWrapper {
-  position: relative;
-  display: flex;
-  width: 49rem;
-  align-items: flex-start;
-  z-index: 4;
+	position: relative;
+	display: flex;
+	width: 49rem;
+	align-items: flex-start;
+	z-index: 4;
 }
 
 .PopupSigininContainer {
-  display: flex;
-  /* height: 30rem; */
-  padding: 3rem 2.5rem;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.25rem;
-  flex: 1 0 0;
-  border-radius: 0.75rem 0 0 0.75rem;
-  background: #fff;
+	display: flex;
+	/* height: 30rem; */
+	padding: 3rem 2.5rem;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.25rem;
+	flex: 1 0 0;
+	border-radius: 0.75rem 0 0 0.75rem;
+	background: #fff;
 }
 .PopupSigninContent {
-  display: flex;
-  width: 20.125rem;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
+	display: flex;
+	width: 20.125rem;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
 }
 .PopupSigninText {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.625rem;
-  align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.625rem;
+	align-self: stretch;
 }
 .Head {
-  color: var(--gray-900, var(--text-primary, #101828));
-  font-family: Futura Md BT;
-  font-size: 1.875rem;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 2.375rem; /* 126.667% */
+	color: var(--gray-900, var(--text-primary, #101828));
+	font-family: Futura Md BT;
+	font-size: 1.875rem;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 2.375rem; /* 126.667% */
 }
 .Subhead {
-  color: var(--gray-600, var(--text-secondary, #475467));
+	color: var(--gray-600, var(--text-secondary, #475467));
 
-  /* Text md/Regular */
-  font-family: Inter;
-  font-size: 1rem;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.5rem; /* 150% */
+	/* Text md/Regular */
+	font-family: Inter;
+	font-size: 1rem;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 1.5rem; /* 150% */
 }
 .popup_signin_action {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  align-self: stretch;
-  border-radius: 0.75rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+	align-self: stretch;
+	border-radius: 0.75rem;
 }
 .input_label {
-  color: var(--gray-700, #344054);
-  font-family: Inter;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 1.25rem;
-  margin-bottom: -1rem; /* margin */
-  width: 100%;
-  text-align: start;
+	color: var(--gray-700, #344054);
+	font-family: Inter;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.25rem;
+	margin-bottom: -1rem; /* margin */
+	width: 100%;
+	text-align: start;
 }
 .popup_signin_action .text_input {
 }
@@ -100,42 +100,42 @@
 
 .PopupImageContainer {
 }
-@media only screen and (max-width: 500px) {
-  .PopupWithOpacity {
-    position: absolute;
-    width: 100%;
-    /* height: 40vh; */
-    bottom: 0;
-    left: 0;
-    align-items: flex-end;
-    justify-content: flex-end;
-  }
-  .opacityDiv {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    bottom: 0;
-    left: 0;
-  }
-  .PopupSigninWrapper {
-    width: 100%;
-  }
-  .PopupSigininContainer {
-    height: 100%;
-    border-top-right-radius: 0.75rem;
-    border-bottom-left-radius: 0;
-    padding: 1.5rem 1.125rem;
-  }
-  .PopupSigninContent {
-    width: 100%;
-  }
-  .PopupImageContainer {
-    display: none;
-  }
-  .Head {
-    font-size: 1.75rem;
-  }
-  .Subhead {
-    font-size: 1rem;
-  }
+@media only screen and (max-width: 768px) {
+	.PopupWithOpacity {
+		position: absolute;
+		width: 100%;
+		/* height: 40vh; */
+		bottom: 0;
+		left: 0;
+		align-items: flex-end;
+		justify-content: flex-end;
+	}
+	.opacityDiv {
+		position: absolute;
+		width: 100vw;
+		height: 100vh;
+		bottom: 0;
+		left: 0;
+	}
+	.PopupSigninWrapper {
+		width: 100%;
+	}
+	.PopupSigininContainer {
+		height: 100%;
+		border-top-right-radius: 0.75rem;
+		border-bottom-left-radius: 0;
+		padding: 1.5rem 1.125rem;
+	}
+	.PopupSigninContent {
+		width: 100%;
+	}
+	.PopupImageContainer {
+		display: none;
+	}
+	.Head {
+		font-size: 1.75rem;
+	}
+	.Subhead {
+		font-size: 1rem;
+	}
 }

@@ -160,7 +160,7 @@
 	font-weight: 400;
 	line-height: 1.25rem; /* 142.857% */
 }
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 768px) {
 	.blog_post_card {
 		padding: 1.25rem 1rem 1.25rem 1rem;
 	}

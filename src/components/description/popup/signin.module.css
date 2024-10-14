@@ -1,13 +1,15 @@
 .PopupWithOpacity {
-	position: absolute;
+	position: fixed;
 	width: 100%;
 	height: 100vh;
 	top: 0;
 	left: 0;
+	right: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	z-index: 2;
+	min-width: 320px;
 }
 .opacityDiv {
 	position: absolute;
@@ -15,6 +17,7 @@
 	height: 100%;
 	top: 0;
 	left: 0;
+	right: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -26,7 +29,8 @@
 .PopupSigninWrapper {
 	position: relative;
 	display: flex;
-	width: 49rem;
+	width: 100%;
+	max-width: 49rem;
 	align-items: flex-start;
 	z-index: 4;
 }
@@ -42,7 +46,6 @@
 
 .PopupSigininContainer {
 	display: flex;
-	/* height: 30rem; */
 	height: 100%;
 	padding: 3rem 2.5rem;
 	flex-direction: column;
@@ -104,42 +107,25 @@
 	width: 100%;
 	text-align: start;
 }
-.popup_signin_action .text_input {
-}
-.popup_signin_action .btn_action {
-}
 
 .PopupImageContainer img {
 	width: 100%;
 }
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 768px) {
 	.PopupWithOpacity {
-		position: absolute;
-		width: 100%;
-		/* height: 40vh; */
 		bottom: 0;
-		left: 0;
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
 	.opacityDiv {
-		position: absolute;
 		width: 100vw;
 		height: 100vh;
 		bottom: 0;
-		left: 0;
-	}
-	.PopupSigninWrapper {
-		width: 100%;
 	}
 	.PopupSigininContainer {
-		height: 100%;
 		border-top-right-radius: 0.75rem;
 		border-bottom-left-radius: 0;
 		padding: 1.5rem 1.125rem;
-	}
-	.PopupSigninContent {
-		width: 100%;
 	}
 	.PopupImageContainer {
 		display: none;
@@ -149,5 +135,8 @@
 	}
 	.Subhead {
 		font-size: 1rem;
+	}
+	.PopupSigninWrapperTwo {
+		grid-template-columns: 1fr;
 	}
 }

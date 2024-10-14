@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./faq.module.css";
 // import faqbg from "../../../assets/faqbg.png";
 
@@ -32,6 +32,8 @@ const QandA = [
 ];
 
 const FAQ = () => {
+	const [open, setOpen] = useState(0);
+
 	return (
 		<div id='faq' className={`${styles.faq_container}`}>
 			{/* FAQ Content */}
@@ -54,62 +56,21 @@ const FAQ = () => {
 
 				{/* FAQ Item Container */}
 				<div className={styles.faq_item_container}>
-					{/* FAQ Item */}
-					<div className={styles.faq_item}>
-						{/* Item Content */}
-						<div className={styles.item_content}>
-							{/* Question and Answer */}
-							<div className={styles.q_and_ans}>
-								<div className={styles.question}>
-									{/* Question Content */}What is Poker-Cash, and how does it
-									work?
-								</div>
-								<div className={styles.ans}>
-									{/* Answer Content */}Yes, you can try us for free for 30
-									days. If you want, we’ll provide you with a free, personalized
-									30-minute onboarding call to get you up and running as soon as
-									possible.
-								</div>
-							</div>
-
-							{/* FAQ Icon */}
-							<div className={styles.faq_icon}>
-								{/* Minus Icon */}
-								<div className={styles.minus_icon}>
-									{/* Minus Icon Content */}
-									<svg
-										xmlns='http://www.w3.org/2000/svg'
-										width='24'
-										height='24'
-										viewBox='0 0 24 24'
-										fill='none'
-									>
-										<path
-											d='M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z'
-											stroke='#232334'
-											strokeWidth='2'
-											strokeLinecap='round'
-											strokeLinejoin='round'
-										/>
-									</svg>
-								</div>
-							</div>
-						</div>
-					</div>
 					{QandA.map((qa, index) => {
 						return (
-							<div className={styles.faq_item} key={index}>
+							<div
+								className={styles.faq_item}
+								key={index}
+								onClick={() => setOpen(index)}
+							>
 								{/* Item Content */}
 								<div className={styles.item_content}>
 									{/* Question and Answer */}
 									<div className={styles.q_and_ans}>
 										<div className={styles.question}>{qa.question}</div>
-										{/* <div className={styles.ans}>
-                Yes, you can try us for free for 30
-                  days. If you want, we’ll provide you with a free, personalized
-                  30-minute onboarding call to get you up and running as soon as
-                  possible.
-                </div> */}
+										{open === index ? (
+											<div className={styles.ans}>{qa.answer}</div>
+										) : null}
 									</div>
 
 									{/* FAQ Icon */}
@@ -117,29 +78,13 @@ const FAQ = () => {
 										{/* Minus Icon */}
 										<div className={styles.minus_icon}>
 											{/* Minus Icon Content */}
-											<svg
-												xmlns='http://www.w3.org/2000/svg'
-												width='24'
-												height='24'
-												viewBox='0 0 24 24'
-												fill='none'
-											>
-												<path
-													d='M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z'
-													stroke='#232334'
-													strokeWidth='2'
-													strokeLinecap='round'
-													strokeLinejoin='round'
-												/>
-											</svg>
+											{open === index ? <HideIcon /> : <ShowIcon />}
 										</div>
 									</div>
 								</div>
 							</div>
 						);
 					})}
-
-					{/* Add more FAQ Items as needed */}
 				</div>
 			</div>
 			{/* <div className="bg1">
@@ -148,5 +93,41 @@ const FAQ = () => {
 		</div>
 	);
 };
+
+const ShowIcon = () => (
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		width='24'
+		height='24'
+		viewBox='0 0 24 24'
+		fill='none'
+	>
+		<path
+			d='M12 8V16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z'
+			stroke='#232334'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
+		/>
+	</svg>
+);
+
+const HideIcon = () => (
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		width='24'
+		height='24'
+		viewBox='0 0 24 24'
+		fill='none'
+	>
+		<path
+			d='M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z'
+			stroke='#232334'
+			strokeWidth='2'
+			strokeLinecap='round'
+			strokeLinejoin='round'
+		/>
+	</svg>
+);
 
 export default FAQ;

@@ -116,7 +116,7 @@
 	flex-shrink: 0;
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 768px) {
 	.title_container .title {
 		max-width: none;
 	}

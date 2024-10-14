@@ -1,33 +1,29 @@
 /* TableContent.module.css */
 
 .TransactionTableContainer {
-  width: 72.5rem;
-  display: flex;
-  /* padding: 0rem 2rem; */
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.625rem;
-  align-self: stretch;
-  /* margin-bottom: 3rem; */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 0.625rem;
+	align-self: stretch;
 }
 .TransactionTable {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  align-self: stretch;
-  border-radius: 0.75rem;
-  border: 1px solid var(--gray-200, #eaecf0);
-  background: var(--base-white, #fff);
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	align-self: stretch;
+	border-radius: 0.75rem;
+	border: 1px solid var(--gray-200, #eaecf0);
+	background: var(--base-white, #fff);
 
-  /* Shadow/sm */
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
-    0px 1px 3px 0px rgba(16, 24, 40, 0.1);
+	box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06),
+		0px 1px 3px 0px rgba(16, 24, 40, 0.1);
 }
 .TableContent {
-  width: 100%;
-  height: 100%;
-  background: white;
-  display: inline-flex;
+	width: 100%;
+	height: 100%;
+	background: white;
+	display: inline-flex;
 }
 
 .IdColumn,
@@ -37,9 +33,8 @@
 .AmountColumn,
 .StatusColumn,
 .DownloadColumn {
-  flex: 1 1 0;
-  flex-direction: column;
-  display: inline-flex;
+	flex-direction: column;
+	display: inline-flex;
 }
 
 .IdHeader,
@@ -49,16 +44,14 @@
 .AmountHeader,
 .StatusHeader,
 .DownloadHeader {
-  align-self: stretch;
-  height: 2.75rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-  background: #f9fafb;
-  border-bottom: 0.0625rem #eaecf0 solid;
-  display: inline-flex;
-  justify-content: center;
+	align-self: stretch;
+	height: 2.75rem;
+	padding: 0.75rem 1.5rem;
+
+	background: #f9fafb;
+	border-bottom: 0.0625rem #eaecf0 solid;
+	display: flex;
+	justify-content: center;
 }
 
 .IdHeader,
@@ -68,12 +61,12 @@
 .AmountHeader,
 .StatusHeader,
 .DownloadHeader .Text {
-  color: #475467;
-  font-size: 1rem;
-  font-family: "Inter";
-  font-weight: 500;
-  line-height: 1.5rem;
-  word-wrap: nowrap;
+	color: #475467;
+	font-size: 1rem;
+	font-family: "Inter";
+	font-weight: 500;
+	line-height: 1.5rem;
+	word-wrap: nowrap;
 }
 
 .IdCell,
@@ -83,15 +76,15 @@
 .AmountCell,
 .StatusCell,
 .DownloadCell {
-  align-self: stretch;
-  height: 4.5rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 0.0625rem #eaecf0 solid;
-  display: inline-flex;
-  justify-content: center;
+	align-self: stretch;
+	height: 4.5rem;
+	padding-left: 1.5rem;
+	padding-right: 1.5rem;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 0.0625rem #eaecf0 solid;
+	display: flex;
+	justify-content: center;
 }
 
 /* .IdCell */
@@ -102,116 +95,123 @@
 .AmountCell,
 .StatusCell,
 .DownloadCell .Text {
-  color: #475467;
-  font-size: 1.125rem;
-  font-family: "Inter";
-  font-weight: 400;
-  line-height: 1.5625rem;
-  word-wrap: break-word;
+	color: #475467;
+	font-size: 1.125rem;
+	font-family: "Inter";
+	font-weight: 400;
+	line-height: 1.5625rem;
+	word-wrap: break-word;
 }
 .Text {
-  text-wrap: nowrap;
+	text-wrap: nowrap;
 }
 .StatusCell .Badge {
-  display: flex;
-  padding: 0.125rem 0.5rem;
-  align-items: center;
-  border-radius: 1rem;
-  /* background: var(--success-50, #ecfdf3); */
-  mix-blend-mode: multiply;
+	display: flex;
+	padding: 0.125rem 0.5rem;
+	align-items: center;
+	border-radius: 1rem;
+	mix-blend-mode: multiply;
 }
 .DownloadColumn .DownloadCell .Button {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
 }
 
 .DownloadColumn .DownloadCell .Button .Icon {
-  width: 1.5625rem;
-  height: 1.5625rem;
-  left: 0.15625rem;
-  top: 0.15625rem;
-  position: absolute;
-  border: 0.104166667rem #475467 solid;
+	width: 1.5625rem;
+	height: 1.5625rem;
+	left: 0.15625rem;
+	top: 0.15625rem;
+	position: absolute;
+	border: 0.104166667rem #475467 solid;
 }
 .TablePagination {
-  display: flex;
-  padding: 0.75rem 1.5rem 1rem 1.5rem;
-  justify-content: space-between;
-  align-items: center;
-  align-self: stretch;
-  border-top: 1px solid var(--gray-200, #eaecf0);
+	display: flex;
+	padding: 0.75rem 1.5rem 1rem 1.5rem;
+	justify-content: space-between;
+	align-items: center;
+	align-self: stretch;
+	border-top: 1px solid var(--gray-200, #eaecf0);
 }
 .TablePagination .Button {
-  display: flex;
-  padding: 0.5rem 0.875rem;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--gray-300, #d0d5dd);
-  background: var(--base-white, #fff);
+	display: flex;
+	padding: 0.5rem 0.875rem;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5rem;
+	border-radius: 0.5rem;
+	border: 1px solid var(--gray-300, #d0d5dd);
+	background: var(--base-white, #fff);
 
-  /* Shadow/xs */
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+	box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 }
 .tablePagination .Text {
-  color: var(--gray-700, #344054);
+	color: var(--gray-700, #344054);
 
-  /* Text sm/Semibold */
-  font-family: Inter;
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 1.25rem; /* 142.857% */
+	/* Text sm/Semibold */
+	font-family: Inter;
+	font-size: 0.875rem;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 1.25rem; /* 142.857% */
 }
 
-@media only screen and (max-width: 500px) {
-  .TransactionTableContainer {
-    width: 100%;
-  }
-  .DateColumn,
-  .TimeColumn,
-  .BalanceColumn,
-  .DownloadColumn {
-    display: none;
-  }
-  .IdHeader,
-  .DateHeader,
-  .TimeHeader,
-  .BalanceHeader,
-  .AmountHeader,
-  .StatusHeader,
-  .DownloadHeader,
-  .IdCell,
-  .DateCell,
-  .TimeCell,
-  .BalanceCell,
-  .AmountCell,
-  .StatusCell,
-  .DownloadCell .Text {
-    color: #475467;
-    font-size: 0.875rem;
-    font-family: "Inter";
-    font-weight: 400;
-    line-height: 1.5625rem;
-    word-wrap: break-word;
-  }
-  .IdHeader,
-  .DateHeader,
-  .TimeHeader,
-  .BalanceHeader,
-  .AmountHeader,
-  .StatusHeader,
-  .DownloadHeader,
-  .IdCell,
-  .DateCell,
-  .TimeCell,
-  .BalanceCell,
-  .AmountCell,
-  .StatusCell,
-  .DownloadCell {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+@media only screen and (max-width: 768px) {
+	.TransactionTableContainer {
+		width: 100%;
+	}
+	.DateColumn,
+	.TimeColumn,
+	.BalanceColumn,
+	.DownloadColumn {
+		display: none;
+	}
+	.IdHeader,
+	.DateHeader,
+	.TimeHeader,
+	.BalanceHeader,
+	.AmountHeader,
+	.StatusHeader,
+	.DownloadHeader,
+	.IdCell,
+	.DateCell,
+	.TimeCell,
+	.BalanceCell,
+	.AmountCell,
+	.StatusCell,
+	.DownloadCell .Text {
+		color: #475467;
+		font-size: 0.875rem;
+		font-family: "Inter";
+		font-weight: 400;
+		line-height: 1.5625rem;
+		word-wrap: break-word;
+	}
+	.IdHeader,
+	.DateHeader,
+	.TimeHeader,
+	.BalanceHeader,
+	.AmountHeader,
+	.StatusHeader,
+	.DownloadHeader,
+	.IdCell,
+	.DateCell,
+	.TimeCell,
+	.BalanceCell,
+	.AmountCell,
+	.StatusCell,
+	.DownloadCell {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+	.IdColumn,
+	.DateColumn,
+	.TimeColumn,
+	.BalanceColumn,
+	.AmountColumn,
+	.StatusColumn,
+	.DownloadColumn {
+		width: 100%;
+	}
 }
