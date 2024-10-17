@@ -136,39 +136,35 @@ const OfferCard = ({ fillBtn, product }) => {
 
 					<div style={{ width: "100%" }}>
 						{fillBtn ? (
-							<div
+							<Navbtn
+								text={token ? "Join" : "Sign Up"}
+								bg='transparent'
+								color='#3968EB'
+								showIcon={false}
+								font={{ fontSize: "1rem" }}
+								style={{
+									width: "100%",
+									borderRadius: "5.8125rem",
+									border: "1px solid #3968EB",
+								}}
 								onClick={() => {
 									onJoinClick(product._id);
 								}}
-							>
-								<Navbtn
-									text={token ? "Join" : "Sign Up"}
-									bg='transparent'
-									color='#3968EB'
-									showIcon={false}
-									font={{ fontSize: "1rem" }}
-									style={{
-										width: "100%",
-										borderRadius: "5.8125rem",
-										border: "1px solid #3968EB",
-									}}
-								/>
-							</div>
+								disabled={token}
+							/>
 						) : (
-							<div
+							<Navbtn
+								text={token ? "Join" : "Sign Up"}
+								bg='#3968EB'
+								color='white'
+								showIcon={false}
+								font={{ fontSize: "1rem" }}
+								style={{ width: "100%" }}
 								onClick={() => {
 									onJoinClick(product._id);
 								}}
-							>
-								<Navbtn
-									text={token ? "Join" : "Sign Up"}
-									bg='#3968EB'
-									color='white'
-									showIcon={false}
-									font={{ fontSize: "1rem" }}
-									style={{ width: "100%" }}
-								/>
-							</div>
+								disabled={token}
+							/>
 						)}
 					</div>
 				</div>

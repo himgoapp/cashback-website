@@ -7,14 +7,12 @@ import OfferSignup from "./signup/signup";
 const OfferAndDeal = () => {
 	const token = localStorage.getItem("token") ? true : false;
 	return (
-		<div className={`${styles.offer_and_deals_wrapper} container_max`}>
-			<OfferHeader />
-			<OfferCardContainer />
-			{!token && (
-				<div style={{ position: "absolute", left: 0, bottom: 0 }}>
-					<OfferSignup />
-				</div>
-			)}
+		<div className={`${styles.offer_and_deals_wrapper_main}`}>
+			<div className={`${styles.offer_and_deals_wrapper} container_max`}>
+				<OfferHeader />
+				<OfferCardContainer />
+			</div>
+			{!token && <OfferSignup />}
 		</div>
 	);
 };

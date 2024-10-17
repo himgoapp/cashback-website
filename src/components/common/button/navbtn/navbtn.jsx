@@ -12,13 +12,14 @@ const Navbtn = ({
 	loading = false,
 	onClick = () => {},
 	divOrButton = "button",
+	disabled = false,
 }) => {
 	return divOrButton === "button" ? (
 		<button
 			className={styles.navbtn_container}
 			style={{ backgroundColor: bg, border: "none", ...style }}
 			onClick={() => onClick()}
-			disabled={loading}
+			disabled={loading || disabled}
 		>
 			<div className={styles.text} style={{ color: color, ...font }}>
 				{text}
