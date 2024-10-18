@@ -5,8 +5,10 @@ import { Link } from "react-router-dom";
 // import { generateArray } from "../../../utils/generateArray";
 import { getProducts } from "../../../servicefile/productservice";
 
-const OfferCardContainer = () => {
+const OfferCardContainer = ({ searchTerm }) => {
 	const [products, setProducts] = useState([]);
+	const [filteredProducts, setFilteredProducts] = useState([]);
+
 	const token = localStorage.getItem("token") ? true : false;
 
 	const getdata = async () => {
@@ -14,8 +16,24 @@ const OfferCardContainer = () => {
 		if (data && data.length > 0) {
 			let result = [...data];
 			setProducts(result);
+			setFilteredProducts(result);
 		}
 	};
+
+	useEffect(() => {
+		if (searchTerm && searchTerm.length > 3) {
+			let filteredData = products.filter((item) => {
+				return item.name.toLowerCase().includes(searchTerm.toLowerCase());
+			});
+			if (filteredData.length === 0) {
+				setFilteredProducts(products);
+			} else {
+				setFilteredProducts(filteredData);
+			}
+		} else {
+			setFilteredProducts(products);
+		}
+	}, [searchTerm]);
 
 	useEffect(() => {
 		getdata();
@@ -24,9 +42,9 @@ const OfferCardContainer = () => {
 
 	return (
 		<div className={styles.offer_cards_container}>
-			{products &&
-				products.length > 0 &&
-				products.map((item, index) => {
+			{filteredProducts &&
+				filteredProducts.length > 0 &&
+				filteredProducts.map((item, index) => {
 					return (
 						<Link
 							to={token ? "/description" : "/"}

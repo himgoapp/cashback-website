@@ -1,16 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./offerAndDeal.module.css";
 import OfferHeader from "./header/header";
 import OfferCardContainer from "./cards/cardContainer";
 import OfferSignup from "./signup/signup";
 
 const OfferAndDeal = () => {
+	const [searchTerm, setSearchTerm] = useState("");
 	const token = localStorage.getItem("token") ? true : false;
+
 	return (
 		<div className={`${styles.offer_and_deals_wrapper_main}`}>
 			<div className={`${styles.offer_and_deals_wrapper} container_max`}>
-				<OfferHeader />
-				<OfferCardContainer />
+				<OfferHeader
+					setSearchTerm={(searchTerm) => setSearchTerm(searchTerm)}
+					searchTerm={searchTerm}
+				/>
+
+				<OfferCardContainer searchTerm={searchTerm} />
 			</div>
 			{!token && <OfferSignup />}
 		</div>

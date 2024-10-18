@@ -91,4 +91,7 @@
 	.searchbtn {
 		width: 100%;
 	}
+	.searchbtn button {
+		width: 100%;
+	}
 }

@@ -44,7 +44,8 @@
 	line-height: 2.25rem;
 	/* 163.636% */
 	letter-spacing: -0.0275rem;
-	align-self: stretch;
+	/* align-self: stretch; */
+	text-align: center;
 }
 
 @media only screen and (max-width: 768px) {

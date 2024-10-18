@@ -46,6 +46,9 @@
 	font-weight: 600;
 	line-height: 1.25rem;
 	word-wrap: break-word;
+	background-color: transparent;
+	border: none;
+	padding: 0;
 }
 
 /* CardsContent */
