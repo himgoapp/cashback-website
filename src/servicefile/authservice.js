@@ -21,6 +21,12 @@ export const loginOtp = async (phoneNumber, isEmail = false) => {
 
 		return data;
 	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
 		return { message: "Something Went Wrong!" };
 	}
 };
@@ -49,6 +55,7 @@ export const loginVerify = async (phoneNumber, loginOtp) => {
 	}
 };
 
+// INFO: Not used yet
 export const verifySendOtpPhone = async (phoneNumber) => {
 	let body = {
 		phoneNumber: `91${phoneNumber}`,
@@ -73,6 +80,7 @@ export const verifySendOtpPhone = async (phoneNumber) => {
 	}
 };
 
+// INFO: Not used yet
 export const phoneVerify = async (phoneNumber, loginOtp) => {
 	let body = {
 		phoneNumber: `91${phoneNumber}`,
@@ -121,5 +129,35 @@ export const signUpFxn = async (phoneNumber, email, userName) => {
 		} else {
 			return { message: "Something Went Wrong!" };
 		}
+	}
+};
+
+export const sendEmailOtpAPI = async (email) => {
+	let body = {
+		email: email,
+	};
+
+	let headers = {
+		"Content-Type": "application/json",
+	};
+
+	try {
+		let data = await axios
+			.post(
+				`${baseUrlconfig.baseUrl}/auth/sendemailotp`,
+				{ ...body },
+				{ ...headers }
+			)
+			.then((res) => res.data);
+
+		return data;
+	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
+		return { message: "Something Went Wrong!" };
 	}
 };

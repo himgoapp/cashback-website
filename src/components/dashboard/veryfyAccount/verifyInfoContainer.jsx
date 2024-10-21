@@ -32,7 +32,7 @@ function VerifyInfoContainer({ data }) {
 				toast.success("Otp sent! Please check and fill and submit Otp.");
 				setVerifyModal(true);
 			} else {
-				toast.error("No such user exist!");
+				toast.error(data.message);
 			}
 		} else {
 			toast.warn("Please enter a valid email address!");
