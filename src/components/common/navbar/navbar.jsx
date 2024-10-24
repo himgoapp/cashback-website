@@ -10,10 +10,7 @@ import { CrossIcon } from "../../../assets/vectors";
 
 const Navbar = ({ page }) => {
 	// const navigate = useNavigate();
-	const { loginTab, setLoginTab } = useContext(UserContext);
-	const token = localStorage.getItem("token")
-		? localStorage.getItem("token")
-		: "";
+	const { loginTab, setLoginTab, userData } = useContext(UserContext);
 
 	const [showMenu, setShowMenu] = useState(false);
 
@@ -25,7 +22,7 @@ const Navbar = ({ page }) => {
 					<div className={styles.navbar_link_container}>
 						{page === "home" && homePageMenu}
 						{page === "offer" && offersAndDealsPageMenu}
-						{token && token.length > 0 ? (
+						{userData ? (
 							dashboardMenu
 						) : (
 							<div className={styles.btn_link_container}>
@@ -93,7 +90,7 @@ const Navbar = ({ page }) => {
 							<div>
 								{page === "home" && homePageMenu}
 								{page === "offer" && offersAndDealsPageMenu}
-								{token && token.length > 0 ? (
+								{userData ? (
 									dashboardMenu
 								) : (
 									<div className={styles.btn_link_container}>

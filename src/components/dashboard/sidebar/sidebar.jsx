@@ -13,12 +13,7 @@ const Sidebar = ({ active }) => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		let currentValue =
-			userData && userData.phoneNumber
-				? userData
-				: localStorage.getItem("userInfo")
-				? JSON.parse(localStorage.getItem("userInfo"))
-				: {};
+		let currentValue = userData && userData.phoneNumber ? userData : {};
 		setData(currentValue);
 	}, [userData]);
 

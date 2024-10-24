@@ -1,23 +1,15 @@
 import { baseUrlconfig } from "../config";
-import axios from "axios";
+import { API } from "../utils/api";
 
 export const loginOtp = async (phoneNumber, isEmail = false) => {
 	let body = {
 		phoneNumber: isEmail ? phoneNumber : `91${phoneNumber}`,
 	};
 
-	let headers = {
-		"Content-Type": "application/json",
-	};
-
 	try {
-		let data = await axios
-			.post(
-				`${baseUrlconfig.baseUrl}/auth/loginVerify`,
-				{ ...body },
-				{ ...headers }
-			)
-			.then((res) => res.data);
+		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/loginVerify`, {
+			...body,
+		}).then((res) => res.data);
 
 		return data;
 	} catch (error) {
@@ -37,18 +29,11 @@ export const loginVerify = async (phoneNumber, loginOtp) => {
 		Otp: loginOtp,
 	};
 
-	let headers = {
-		"Content-Type": "application/json",
-	};
-
 	try {
-		let data = await axios
-			.post(
-				`${baseUrlconfig.baseUrl}/auth/verifyLoginOtp`,
-				{ ...body },
-				{ ...headers }
-			)
-			.then((res) => res.data);
+		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/verifyLoginOtp`, {
+			...body,
+		}).then((res) => res.data);
+
 		return data;
 	} catch (error) {
 		return { message: "Something Went Wrong!" };
@@ -61,18 +46,10 @@ export const verifySendOtpPhone = async (phoneNumber) => {
 		phoneNumber: `91${phoneNumber}`,
 	};
 
-	let headers = {
-		"Content-Type": "application/json",
-	};
-
 	try {
-		let data = await axios
-			.post(
-				`${baseUrlconfig.baseUrl}/auth/sendOtp`,
-				{ ...body },
-				{ ...headers }
-			)
-			.then((res) => res.data);
+		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/sendOtp`, {
+			...body,
+		}).then((res) => res.data);
 
 		return data;
 	} catch (error) {
@@ -87,18 +64,11 @@ export const phoneVerify = async (phoneNumber, loginOtp) => {
 		Otp: loginOtp,
 	};
 
-	let headers = {
-		"Content-Type": "application/json",
-	};
-
 	try {
-		let data = await axios
-			.post(
-				`${baseUrlconfig.baseUrl}/auth/verifyOtp`,
-				{ ...body },
-				{ ...headers }
-			)
-			.then((res) => res.data);
+		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/verifyOtp`, {
+			...body,
+		}).then((res) => res.data);
+
 		return data;
 	} catch (error) {
 		return { message: "Something Went Wrong!" };
@@ -113,14 +83,11 @@ export const signUpFxn = async (phoneNumber, email, userName) => {
 		role: "user",
 	};
 
-	let headers = {
-		"Content-Type": "application/json",
-	};
-
 	try {
-		let data = await axios
-			.post(`${baseUrlconfig.baseUrl}/auth/signup`, { ...body }, { ...headers })
-			.then((res) => res.data);
+		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/signup`, {
+			...body,
+		}).then((res) => res.data);
+
 		return data;
 	} catch (error) {
 		console.log(error.response);
@@ -132,25 +99,39 @@ export const signUpFxn = async (phoneNumber, email, userName) => {
 	}
 };
 
+// INFO: Not used yet
 export const sendEmailOtpAPI = async (email) => {
 	let body = {
 		email: email,
 	};
 
-	let headers = {
-		"Content-Type": "application/json",
-	};
-
 	try {
-		let data = await axios
-			.post(
-				`${baseUrlconfig.baseUrl}/auth/sendemailotp`,
-				{ ...body },
-				{ ...headers }
-			)
-			.then((res) => res.data);
+		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/sendemailotp`, {
+			...body,
+		}).then((res) => res.data);
 
 		return data;
+	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
+		return { message: "Something Went Wrong!" };
+	}
+};
+
+export const getUserInfo = async () => {
+	try {
+		let data = await API.get(`${baseUrlconfig.baseUrl}/users/getuserinfo`).then(
+			(res) => res.data
+		);
+
+		return {
+			success: true,
+			...data,
+		};
 	} catch (error) {
 		const { response } = error;
 		if (response) {

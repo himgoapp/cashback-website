@@ -3,6 +3,7 @@ import style from "./dashboardMainTopBottom.module.css";
 import { UserContext } from "../App";
 // import WalletContainer from "../components/dashboard/popup/wallet";
 import Notifications from "../components/dashboard/popup/notification";
+
 const DashboardMainTopBottom = (props) => {
 	const {
 		showSidebar,

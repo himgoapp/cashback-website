@@ -3,6 +3,7 @@ import Navbtn from "../../common/button/navbtn/navBtnTwo";
 import styles from "./address.module.css";
 import { addAddressProof } from "../../../servicefile/kycservice";
 import { ToastContainer, toast } from "react-toastify";
+import { UserContext } from "../../../App";
 
 const SelectField = ({ label, placeholder }) => {
 	return (
@@ -30,6 +31,7 @@ export const TextField = ({
 	currentValue,
 	setValue,
 	type,
+	...props
 }) => {
 	return (
 		<div className={styles.TextInput}>
@@ -41,12 +43,14 @@ export const TextField = ({
 					placeholder={placeholder}
 					value={currentValue}
 					onChange={(e) => setValue(e.target.value)}
+					{...props}
 				/>
 			</div>
 		</div>
 	);
 };
 function AddressDetail({ setStepReload }) {
+	const { userData } = useContext(UserContext);
 	const imageRef = useRef(null);
 	const [file, handleFile] = useState("");
 
@@ -66,6 +70,8 @@ function AddressDetail({ setStepReload }) {
 	};
 
 	const addAddressData = async () => {
+		if (!userData || !userData._id) return;
+
 		if (
 			!file ||
 			!firstName ||
@@ -77,6 +83,7 @@ function AddressDetail({ setStepReload }) {
 			toast.error(`All fields are required for saving address information!`);
 		} else {
 			const res = await addAddressProof(
+				userData._id,
 				file,
 				firstName,
 				lastName,
@@ -132,6 +139,13 @@ function AddressDetail({ setStepReload }) {
 								placeholder='Bihar'
 								currentValue={proofState}
 								setValue={setProofState}
+								onInput={(e) => {
+									// allow only alphabets
+									let regex = /^[a-zA-Z\s]*$/;
+									if (!regex.test(e.target.value)) {
+										e.target.value = e.target.value.slice(0, -1);
+									}
+								}}
 							/>
 						</div>
 						<div className={styles.UploadArea}>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
 	getProductsSimple,
 	submitAccountId,
@@ -7,6 +7,7 @@ import styles from "./newPoker.module.css"; // Import your CSS module
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { ToastContainer, toast } from "react-toastify";
 import pokerIdIcon from "../../../assets/pokerIdIcon.png";
+import { UserContext } from "../../../App";
 
 const staticAccountData = [
 	{
@@ -45,6 +46,7 @@ const NewPoker = ({ setGetInfos }) => {
 	const [showPokerMenu, setShowPokerMenu] = useState(false);
 	const [showAccountMenu, setShowAccountMenu] = useState(false);
 	const [loading, setLoading] = useState(false);
+	const { userData } = useContext(UserContext);
 
 	const getProductsInfo = async () => {
 		const res = await getProductsSimple();
@@ -57,7 +59,12 @@ const NewPoker = ({ setGetInfos }) => {
 	const onSubmitFxn = async () => {
 		if (productId && referenceId) {
 			setLoading(true);
-			let data = await submitAccountId(productId, referenceId, referralCode);
+			let data = await submitAccountId(
+				userData._id,
+				productId,
+				referenceId,
+				referralCode
+			);
 			if (data && data.message) {
 				toast.success(`${data.message}`, {
 					autoClose: 5000,

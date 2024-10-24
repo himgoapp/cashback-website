@@ -53,10 +53,14 @@ const Footer = () => {
 							{" "}
 							<div className={styles.icon}>{discord}</div>
 						</div>
-						<div className={styles.link_icon}>
+						<a
+							className={styles.link_icon}
+							href='https://x.com/rakebackcom'
+							target='_blank'
+						>
 							{" "}
 							<div className={styles.icon}>{twitter}</div>
-						</div>
+						</a>
 						<div className={styles.link_icon}>
 							{" "}
 							<div className={styles.icon}>{ig}</div>
@@ -65,10 +69,14 @@ const Footer = () => {
 							{" "}
 							<div className={styles.icon}>{telegram}</div>
 						</div>
-						<div className={styles.link_icon}>
+						<a
+							href='https://www.facebook.com/RakebackCom'
+							className={styles.link_icon}
+							target='_blank'
+						>
 							{" "}
 							<div className={styles.icon}>{facebook}</div>
-						</div>
+						</a>
 					</div>
 				</div>
 			</div>

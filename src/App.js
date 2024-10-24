@@ -14,6 +14,7 @@ import Trsnsactions from "./components/dashboard/myTransaction/myTransaction";
 import ProtectedRoute from "./helperFxns/protectedRoute";
 
 export const UserContext = createContext();
+
 function App() {
 	const [showSidebar, setShowSidebar] = useState(true);
 	const [showSigninPopup, setShowSigninPopup] = useState(true);
@@ -21,7 +22,9 @@ function App() {
 	const [showCheckEmailPopup, setShowCheckEmailPopup] = useState(true);
 	const [showWalletWithdraw, setShowWalletWithdraw] = useState(false);
 	const [showNotifications, setShowNotifications] = useState(false);
-	const [userData, setUserData] = useState({});
+	const [userData, setUserData] = useState(null);
+	const [transactionInfo, setTransactionInfo] = useState(null);
+
 	const [loginTab, setLoginTab] = useState(false);
 	const [mobile, setMobile] = useState(true);
 
@@ -50,14 +53,27 @@ function App() {
 					setUserData,
 					loginTab,
 					setLoginTab,
+					transactionInfo,
+					setTransactionInfo,
 				}}
 			>
 				<Router>
 					<Routes>
-						<Route path='/' element={<HomePage />} />
+						<Route
+							path='/'
+							element={
+								<ProtectedRoute>
+									<HomePage />
+								</ProtectedRoute>
+							}
+						/>
 						<Route
 							path='/offer_and_deals'
-							element={<OfferAndDealsContainer />}
+							element={
+								<ProtectedRoute>
+									<OfferAndDealsContainer />
+								</ProtectedRoute>
+							}
 						/>
 
 						<Route

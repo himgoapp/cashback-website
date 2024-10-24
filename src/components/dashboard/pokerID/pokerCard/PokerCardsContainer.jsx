@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./PokerCardsContainer.module.css"; // Make sure to import your CSS file
 import PokerCard from "./pokerCard";
 import { userAccountIdsInfo } from "../../../../servicefile/pokeridservice";
+import { UserContext } from "../../../../App";
 
 const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
 	const [activeTab, setActiveTab] = useState(1);
 	const [AllIDs, setAllIds] = useState([]);
 	const [tabSelected, setTabSelected] = useState([]);
+	const { userData } = useContext(UserContext);
 
 	const getTagIdInfo = async () => {
-		const userInfo = localStorage.getItem("userInfo")
-			? JSON.parse(localStorage.getItem("userInfo"))
-			: {};
-		console.log(userInfo, "value");
-		const res = await userAccountIdsInfo(userInfo._id);
+		if (!userData || !userData._id) return;
+
+		const res = await userAccountIdsInfo(userData._id);
 		setAllIds(res);
 		setTabSelected(res);
 		setGetInfos(false);

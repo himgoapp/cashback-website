@@ -12,11 +12,7 @@ const VerifyAccMain = () => {
 	const [data, setData] = useState({});
 
 	const getAllUserInfo = async () => {
-		const userInfo = localStorage.getItem("userInfo")
-			? JSON.parse(localStorage.getItem("userInfo"))
-			: {};
-
-		const res = await userInfoFxn(userInfo._id);
+		const res = await userInfoFxn(userData._id);
 
 		setData(res.userInfo);
 		setUserData(res.userInfo);
@@ -37,12 +33,7 @@ const VerifyAccMain = () => {
 			sessionInfo.userKyc &&
 			transactionInfo === "false"
 		) {
-			let currentValue =
-				userData && userData.phoneNumber
-					? userData
-					: localStorage.getItem("userInfo")
-					? JSON.parse(localStorage.getItem("userInfo"))
-					: {};
+			let currentValue = userData && userData.phoneNumber ? userData : {};
 
 			setData(currentValue);
 		} else {
@@ -52,12 +43,7 @@ const VerifyAccMain = () => {
 	}, []);
 
 	useEffect(() => {
-		let currentValue =
-			userData && userData.phoneNumber
-				? userData
-				: localStorage.getItem("userInfo")
-				? JSON.parse(localStorage.getItem("userInfo"))
-				: {};
+		let currentValue = userData && userData.phoneNumber ? userData : {};
 
 		setData(currentValue);
 	}, [userData]);

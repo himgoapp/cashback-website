@@ -10,7 +10,7 @@ import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
 
 function VerifyInfoContainer({ data }) {
-	// const { userData, setUserData } = useContext(UserContext);
+	const { userData, setUserData } = useContext(UserContext);
 	const [verifyModal, setVerifyModal] = useState(false);
 	const [otp, setOtp] = useState("");
 
@@ -46,7 +46,7 @@ function VerifyInfoContainer({ data }) {
 				toast.success(`Email Verified!}`, {
 					autoClose: 5000,
 				});
-				localStorage.setItem("userInfo", JSON.stringify(data.user));
+				setUserData(data.user);
 				toast.error(`${data.message}`, {
 					autoClose: 8000,
 				});

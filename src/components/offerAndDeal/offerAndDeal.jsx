@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "./offerAndDeal.module.css";
 import OfferHeader from "./header/header";
 import OfferCardContainer from "./cards/cardContainer";
 import OfferSignup from "./signup/signup";
+import { UserContext } from "../../App";
 
 const OfferAndDeal = () => {
 	const [searchTerm, setSearchTerm] = useState("");
-	const token = localStorage.getItem("token") ? true : false;
+	const { userData } = useContext(UserContext);
 
 	return (
 		<div className={`${styles.offer_and_deals_wrapper_main}`}>
@@ -18,7 +19,7 @@ const OfferAndDeal = () => {
 
 				<OfferCardContainer searchTerm={searchTerm} />
 			</div>
-			{!token && <OfferSignup />}
+			{!userData && <OfferSignup />}
 		</div>
 	);
 };

@@ -9,8 +9,13 @@ import { useNavigate } from "react-router-dom";
 
 const WelcomePopup = () => {
 	const navigate = useNavigate();
-	const { showWelcomePopup, setShowWelcomePopup, mobile, setUserData } =
-		useContext(UserContext);
+	const {
+		showWelcomePopup,
+		setShowWelcomePopup,
+		mobile,
+		setUserData,
+		userData,
+	} = useContext(UserContext);
 	const [userName, setUserName] = useState("");
 	const [email, setEmail] = useState("");
 
@@ -23,10 +28,9 @@ const WelcomePopup = () => {
 	const sigUPFxn = async () => {
 		try {
 			if (email && userName) {
-				let userInfo = localStorage.getItem("userInfo")
-					? JSON.parse(localStorage.getItem("userInfo"))
-					: {};
-				let data = await signUpFxn(userInfo.phoneNumber, email, userName);
+				if (!userData || !userData._id) return;
+
+				let data = await signUpFxn(userData.phoneNumber, email, userName);
 				if (data && data.user && data.message) {
 					toast.success(`${data.message}`, {
 						autoClose: 8000,

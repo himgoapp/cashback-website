@@ -1,95 +1,95 @@
 // TableContent.js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./tableContainer.module.css";
 import { alltransactions } from "../../../../servicefile/transactionservice";
 import moment from "moment";
+import { UserContext } from "../../../../App";
 
 const TableContainer = () => {
-  const [products, setProducts] = useState([]);
+	const { userData } = useContext(UserContext);
+	const [products, setProducts] = useState([]);
 
-  const getTransactions = async () => {
-    const userInfo = localStorage.getItem("userInfo")
-      ? JSON.parse(localStorage.getItem("userInfo"))
-      : {};
-    const res = await alltransactions(userInfo._id);
-    setProducts(res.transactionsInfo);
-  };
+	const getTransactions = async () => {
+		if (!userData || !userData._id) return;
+		const res = await alltransactions(userData._id);
+		setProducts(res.transactionsInfo);
+	};
 
-  useEffect(() => {
-    getTransactions();
-    // eslint-disable-next-line
-  }, []);
+	useEffect(() => {
+		getTransactions();
+		// eslint-disable-next-line
+	}, []);
 
-  return (
-    <div className={styles.TransactionTableContainer}>
-      <div className={styles.TransactionTable}>
-        <div className={styles.TableContent}>
-          {/*  */}
-          <div className={styles.IdColumn}>
-            <div className={styles.IdHeader}>
-              <div className={styles.Text}>Transaction ID</div>
-            </div>
-            {products &&
-              products.length > 0 &&
-              products.map((a, index) => {
-                return (
-                  <div className={styles.IdCell} key={index}>
-                    <div className={styles.Text}>{a.transaction_hash}</div>
-                  </div>
-                );
-              })}
-          </div>
-          {/*  */}
-          <div className={styles.DateColumn}>
-            <div className={styles.DateHeader}>
-              <div className={styles.Text}>Date</div>
-            </div>
-            {products &&
-              products.length > 0 &&
-              products.map((a, index) => {
-                return (
-                  <div className={styles.DateCell} key={index}>
-                    <div className={styles.Text}>
-                      {moment(a.createdAt).format("DD MMM YYYY")}
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
-          {/*  */}
-          <div className={styles.TimeColumn}>
-            <div className={styles.TimeHeader}>
-              <div className={styles.Text}>Time</div>
-            </div>
-            {products &&
-              products.length > 0 &&
-              products.map((a, index) => {
-                return (
-                  <div className={styles.TimeCell} key={index}>
-                    <div className={styles.Text}>
-                      {moment(a.createdAt).format("LT")}
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
-          {/*  */}
-          <div className={styles.BalanceColumn}>
-            <div className={styles.BalanceHeader}>
-              <div className={styles.Text}>Closing Balance</div>
-            </div>
-            {products &&
-              products.length > 0 &&
-              products.map((a, index) => {
-                return (
-                  <div className={styles.BalanceCell} key={index}>
-                    <div className={styles.Text}>₹{a.actualAmount}</div>
-                  </div>
-                );
-              })}
-          </div>
-          {/*  */}
-          {/* <div className={styles.AmountColumn}>
+	return (
+		<div className={styles.TransactionTableContainer}>
+			<div className={styles.TransactionTable}>
+				<div className={styles.TableContent}>
+					{/*  */}
+					<div className={styles.IdColumn}>
+						<div className={styles.IdHeader}>
+							<div className={styles.Text}>Transaction ID</div>
+						</div>
+						{products &&
+							products.length > 0 &&
+							products.map((a, index) => {
+								return (
+									<div className={styles.IdCell} key={index}>
+										<div className={styles.Text}>{a.transaction_hash}</div>
+									</div>
+								);
+							})}
+					</div>
+					{/*  */}
+					<div className={styles.DateColumn}>
+						<div className={styles.DateHeader}>
+							<div className={styles.Text}>Date</div>
+						</div>
+						{products &&
+							products.length > 0 &&
+							products.map((a, index) => {
+								return (
+									<div className={styles.DateCell} key={index}>
+										<div className={styles.Text}>
+											{moment(a.createdAt).format("DD MMM YYYY")}
+										</div>
+									</div>
+								);
+							})}
+					</div>
+					{/*  */}
+					<div className={styles.TimeColumn}>
+						<div className={styles.TimeHeader}>
+							<div className={styles.Text}>Time</div>
+						</div>
+						{products &&
+							products.length > 0 &&
+							products.map((a, index) => {
+								return (
+									<div className={styles.TimeCell} key={index}>
+										<div className={styles.Text}>
+											{moment(a.createdAt).format("LT")}
+										</div>
+									</div>
+								);
+							})}
+					</div>
+					{/*  */}
+					<div className={styles.BalanceColumn}>
+						<div className={styles.BalanceHeader}>
+							<div className={styles.Text}>Closing Balance</div>
+						</div>
+						{products &&
+							products.length > 0 &&
+							products.map((a, index) => {
+								return (
+									<div className={styles.BalanceCell} key={index}>
+										<div className={styles.Text}>₹{a.actualAmount}</div>
+									</div>
+								);
+							})}
+					</div>
+					{/*  */}
+					{/* <div className={styles.AmountColumn}>
             <div className={styles.AmountHeader}>
               <div className={styles.Text}>Commissions</div>
             </div>
@@ -103,58 +103,58 @@ const TableContainer = () => {
                 );
               })}
           </div> */}
-          {/*  */}
-          <div className={styles.AmountColumn}>
-            <div className={styles.AmountHeader}>
-              <div className={styles.Text}>Amount</div>
-            </div>
-            {products &&
-              products.length > 0 &&
-              products.map((a, index) => {
-                return (
-                  <div className={styles.AmountCell} key={index}>
-                    <div className={styles.Text}>- ₹{a.actualAmount}</div>
-                  </div>
-                );
-              })}
-          </div>
-          {/*  */}
-          <div className={styles.StatusColumn}>
-            <div className={styles.StatusHeader}>
-              <div className={styles.Text}>Status</div>
-            </div>
-            {products &&
-              products.length > 0 &&
-              products.map((a, index) => {
-                return (
-                  <div className={styles.StatusCell} key={index}>
-                    <div
-                      className={styles.Badge}
-                      style={
-                        a.status === "Success"
-                          ? { backgroundColor: "#ecfdf3" }
-                          : {}
-                      }
-                    >
-                      <div
-                        className={styles.Text}
-                        style={
-                          a.status === "Success"
-                            ? { color: "#027A48" }
-                            : { color: "#B54708" }
-                        }
-                      >
-                        {a.status}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-          </div>
-          {/*  */}
-          <div className={styles.DownloadColumn}>
-            <div className={styles.DownloadHeader}></div>
-            {/* {generateArray(7).map((a) => {
+					{/*  */}
+					<div className={styles.AmountColumn}>
+						<div className={styles.AmountHeader}>
+							<div className={styles.Text}>Amount</div>
+						</div>
+						{products &&
+							products.length > 0 &&
+							products.map((a, index) => {
+								return (
+									<div className={styles.AmountCell} key={index}>
+										<div className={styles.Text}>- ₹{a.actualAmount}</div>
+									</div>
+								);
+							})}
+					</div>
+					{/*  */}
+					<div className={styles.StatusColumn}>
+						<div className={styles.StatusHeader}>
+							<div className={styles.Text}>Status</div>
+						</div>
+						{products &&
+							products.length > 0 &&
+							products.map((a, index) => {
+								return (
+									<div className={styles.StatusCell} key={index}>
+										<div
+											className={styles.Badge}
+											style={
+												a.status === "Success"
+													? { backgroundColor: "#ecfdf3" }
+													: {}
+											}
+										>
+											<div
+												className={styles.Text}
+												style={
+													a.status === "Success"
+														? { color: "#027A48" }
+														: { color: "#B54708" }
+												}
+											>
+												{a.status}
+											</div>
+										</div>
+									</div>
+								);
+							})}
+					</div>
+					{/*  */}
+					<div className={styles.DownloadColumn}>
+						<div className={styles.DownloadHeader}></div>
+						{/* {generateArray(7).map((a) => {
               return (
                 <div className={styles.DownloadCell}>
                   <div className={styles.Button}>
@@ -177,18 +177,18 @@ const TableContainer = () => {
                 </div>
               );
             })} */}
-          </div>
-        </div>{" "}
-        <div className={styles.TablePagination}>
-          <div className={styles.Button}> Previous </div>{" "}
-          <div className={styles.Text}>
-            Page {products.length} of {products.length}
-          </div>
-          <div className={styles.Button}> Next </div>
-        </div>
-      </div>
-    </div>
-  );
+					</div>
+				</div>{" "}
+				<div className={styles.TablePagination}>
+					<div className={styles.Button}> Previous </div>{" "}
+					<div className={styles.Text}>
+						Page {products.length} of {products.length}
+					</div>
+					<div className={styles.Button}> Next </div>
+				</div>
+			</div>
+		</div>
+	);
 };
 
 export default TableContainer;

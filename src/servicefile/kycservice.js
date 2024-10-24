@@ -1,45 +1,33 @@
 import { baseUrlconfig } from "../config";
-import axios from "axios";
+import { API } from "../utils/api";
 
 // INFO: Not used yet
 export const getKYCDetails = async () => {
-	let data = await axios
-		.get(`${baseUrlconfig.baseUrl}/products/products`)
-		.then((res) => res.data);
+	let data = await API.get(`${baseUrlconfig.baseUrl}/products/products`).then(
+		(res) => res.data
+	);
 
 	return data.products;
 };
 
 export const getProductsSimple = async () => {
-	let data = await axios
-		.get(`${baseUrlconfig.baseUrl}/products/productsimple`)
-		.then((res) => res.data);
+	let data = await API.get(
+		`${baseUrlconfig.baseUrl}/products/productsimple`
+	).then((res) => res.data);
 
 	return data.products;
 };
 
-export const addPanCard = async (panCardNo) => {
-	let user = localStorage.getItem("userInfo")
-		? JSON.parse(localStorage.getItem("userInfo"))
-		: "";
-
+export const addPanCard = async (user_id, panCardNo) => {
 	let body = {
-		user_id: user._id,
+		user_id,
 		panCardNo,
 	};
 
-	let headers = {
-		"Content-Type": "application/json",
-	};
-
 	try {
-		let data = await axios
-			.post(
-				`${baseUrlconfig.baseUrl}/users/panadd`,
-				{ ...body },
-				{ ...headers }
-			)
-			.then((res) => res.data);
+		let data = await API.post(`${baseUrlconfig.baseUrl}/users/panadd`, {
+			...body,
+		}).then((res) => res.data);
 		return data;
 	} catch (error) {
 		console.log(error.response);
@@ -52,6 +40,7 @@ export const addPanCard = async (panCardNo) => {
 };
 
 export const addAddressProof = async (
+	user_id,
 	file,
 	firstName,
 	lastName,
@@ -59,12 +48,9 @@ export const addAddressProof = async (
 	documentNumber,
 	proofState
 ) => {
-	let user = localStorage.getItem("userInfo")
-		? JSON.parse(localStorage.getItem("userInfo"))
-		: "";
 	const formData = new FormData();
 	formData.append("image", file);
-	formData.append("id", user._id);
+	formData.append("id", user_id);
 	formData.append("firstName", firstName);
 	formData.append("lastName", lastName);
 	formData.append("addressProofType", addressProofType);
@@ -73,12 +59,11 @@ export const addAddressProof = async (
 
 	let body = formData;
 
-	let headers = { "Content-Type": "multipart/form-data" };
-
 	try {
-		let data = await axios
-			.post(`${baseUrlconfig.baseUrl}/auth/imageupload`, body, { ...headers })
-			.then((res) => res.data);
+		let data = await API.post(
+			`${baseUrlconfig.baseUrl}/auth/imageupload`,
+			body
+		).then((res) => res.data);
 		return data;
 	} catch (error) {
 		console.log(error.response);
@@ -90,30 +75,23 @@ export const addAddressProof = async (
 	}
 };
 
-export const addBankDetails = async (account_number, bank_name, ifsc_code) => {
-	let user = localStorage.getItem("userInfo")
-		? JSON.parse(localStorage.getItem("userInfo"))
-		: "";
-
+export const addBankDetails = async (
+	user_id,
+	account_number,
+	bank_name,
+	ifsc_code
+) => {
 	let body = {
-		user_id: user._id,
+		user_id,
 		account_number,
 		bank_name,
 		ifsc_code,
 	};
 
-	let headers = {
-		"Content-Type": "application/json",
-	};
-
 	try {
-		let data = await axios
-			.post(
-				`${baseUrlconfig.baseUrl}/banks/create`,
-				{ ...body },
-				{ ...headers }
-			)
-			.then((res) => res.data);
+		let data = await API.post(`${baseUrlconfig.baseUrl}/banks/create`, {
+			...body,
+		}).then((res) => res.data);
 		return data;
 	} catch (error) {
 		console.log(error.response);
@@ -125,30 +103,23 @@ export const addBankDetails = async (account_number, bank_name, ifsc_code) => {
 	}
 };
 
-export const submitAccountId = async (productId, referenceId, referralCode) => {
-	let user = localStorage.getItem("userInfo")
-		? JSON.parse(localStorage.getItem("userInfo"))
-		: "";
-
+export const submitAccountId = async (
+	user_id,
+	productId,
+	referenceId,
+	referralCode
+) => {
 	let body = {
-		user_id: user._id,
+		user_id,
 		productId,
 		referenceId,
 		referralCode,
 	};
 
-	let headers = {
-		"Content-Type": "application/json",
-	};
-
 	try {
-		let data = await axios
-			.post(
-				`${baseUrlconfig.baseUrl}/useraccountid/create`,
-				{ ...body },
-				{ ...headers }
-			)
-			.then((res) => res.data);
+		let data = await API.post(`${baseUrlconfig.baseUrl}/useraccountid/create`, {
+			...body,
+		}).then((res) => res.data);
 		return data;
 	} catch (error) {
 		console.log(error.response);
@@ -160,28 +131,16 @@ export const submitAccountId = async (productId, referenceId, referralCode) => {
 	}
 };
 
-export const createTransaction = async (amount) => {
-	let user = localStorage.getItem("userInfo")
-		? JSON.parse(localStorage.getItem("userInfo"))
-		: "";
-
+export const createTransaction = async (user_id, amount) => {
 	let body = {
-		user_id: user._id,
+		user_id,
 		amount,
 	};
 
-	let headers = {
-		"Content-Type": "application/json",
-	};
-
 	try {
-		let data = await axios
-			.post(
-				`${baseUrlconfig.baseUrl}/transactions/create`,
-				{ ...body },
-				{ ...headers }
-			)
-			.then((res) => res.data);
+		let data = await API.post(`${baseUrlconfig.baseUrl}/transactions/create`, {
+			...body,
+		}).then((res) => res.data);
 		return data;
 	} catch (error) {
 		console.log(error.response);

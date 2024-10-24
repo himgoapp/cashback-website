@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { loginOtp, loginVerify } from "../../../servicefile/authservice";
 import { UserContext } from "../../../App";
 const PopupSignin = () => {
-	const { setLoginTab, setUserData, setShowWelcomePopup } =
+	const { setLoginTab, setUserData, setShowWelcomePopup, userData } =
 		useContext(UserContext);
 	const navigate = useNavigate();
 	const [showOtpPart, setShowOtpPart] = useState(false);
@@ -48,7 +48,7 @@ const PopupSignin = () => {
 					autoClose: 8000,
 				});
 				localStorage.setItem("token", data.token);
-				localStorage.setItem("userInfo", JSON.stringify(data.user));
+				setUserData(data.user);
 				setLoginTab(false);
 				setUserData(data.user);
 				if (data.user && data.user.email) {

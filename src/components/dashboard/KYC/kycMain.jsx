@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import DashboardHomeHeader from "../home/dashHomeHeader";
 import KycProgress from "./kycProgress";
 import PanCard from "./panCard";
@@ -10,16 +10,16 @@ import DashboardMain from "../../../layout/dashboardMain";
 import KycStatusPage from "./kycStatusPage";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { Steps } from "primereact/steps";
+import { UserContext } from "../../../App";
 
 const KycMain = () => {
 	const [data, setData] = useState({});
 	const [setReload, setStepReload] = useState(false);
+	const { userData } = useContext(UserContext);
 
 	const getAllUserInfo = async () => {
-		const userInfo = localStorage.getItem("userInfo")
-			? JSON.parse(localStorage.getItem("userInfo"))
-			: {};
-		const res = await userInfoFxn(userInfo._id);
+		if (!userData || !userData._id) return;
+		const res = await userInfoFxn(userData._id);
 		setData(res.userInfo);
 		localStorage.setItem("transactionInfo", "false");
 		sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
@@ -126,14 +126,19 @@ const KycMain = () => {
 							isSuccess={true}
 							label='Your KYC verification was Successful'
 							btnText='Go to Home'
+							setData={() => {}}
 						/>
 					)}
+
 				{data?.userKyc?.level === "4" &&
 					data?.userKyc?.statusValue === "Failed" && (
 						<KycStatusPage
 							isSuccess={false}
 							label='Your KYC verification was unsuccessful'
 							btnText='Retry KYC Form'
+							setData={() => {
+								setData({ ...data, userKyc: { ...data.userKyc, level: "1" } });
+							}}
 						/>
 					)}
 			</DashboardMain>
