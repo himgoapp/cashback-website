@@ -7,8 +7,8 @@ import { UserContext } from "../../../App";
 import PopupSignin from "../../description/popup/signin";
 
 const JoinRakeback = () => {
-	const token = localStorage.getItem("token") ? true : false;
-	const { loginTab, setLoginTab } = useContext(UserContext);
+	const { loginTab, setLoginTab, userData } = useContext(UserContext);
+
 	return (
 		<>
 			<div
@@ -21,7 +21,7 @@ const JoinRakeback = () => {
 								head='Join the RakeBack community?'
 								subhead='Join thousands of global poker players with Poker-Cash and turn every hand into a win!'
 							/>
-							{!token && (
+							{!userData && (
 								<Link to='/' style={{ textDecoration: "none" }}>
 									<Navbtn
 										text='Sign up now!'

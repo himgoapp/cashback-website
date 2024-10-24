@@ -10,7 +10,10 @@ export const userInfoFxn = async (id) => {
 		let data = await API.post(`/users/userinfo`, {
 			...body,
 		}).then((res) => res.data);
-		return data;
+		return {
+			success: true,
+			...data,
+		};
 	} catch (error) {
 		const { response } = error;
 		if (response) {

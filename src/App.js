@@ -24,6 +24,8 @@ function App() {
 	const [showNotifications, setShowNotifications] = useState(false);
 	const [userData, setUserData] = useState(null);
 	const [transactionInfo, setTransactionInfo] = useState(null);
+	const [walletData, setWalletData] = useState(null);
+	const [userKyc, setUserKyc] = useState(null);
 
 	const [loginTab, setLoginTab] = useState(false);
 	const [mobile, setMobile] = useState(true);
@@ -55,6 +57,10 @@ function App() {
 					setLoginTab,
 					transactionInfo,
 					setTransactionInfo,
+					walletData,
+					setWalletData,
+					userKyc,
+					setUserKyc,
 				}}
 			>
 				<Router>

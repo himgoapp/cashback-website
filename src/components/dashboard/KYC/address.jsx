@@ -50,7 +50,7 @@ export const TextField = ({
 	);
 };
 function AddressDetail({ setStepReload }) {
-	const { userData } = useContext(UserContext);
+	const { userData, userKyc } = useContext(UserContext);
 	const imageRef = useRef(null);
 	const [file, handleFile] = useState("");
 
@@ -98,6 +98,17 @@ function AddressDetail({ setStepReload }) {
 			}
 		}
 	};
+
+	useEffect(() => {
+		if (userKyc) {
+			if (userKyc.firstName) setFirstName(userKyc.firstName);
+			if (userKyc.lastName) setLastName(userKyc.lastName);
+			if (userKyc.addressProofType)
+				setAddressProofType(userKyc.addressProofType);
+			if (userKyc.documentNumber) setDocumentNumber(userKyc.documentNumber);
+			if (userKyc.proofState) setProofState(userKyc.proofState);
+		}
+	}, []);
 
 	return (
 		<>

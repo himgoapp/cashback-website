@@ -13,7 +13,7 @@ import Logo from "../../common/logo/logo";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
 
-function VerifyInfoContainer({ data }) {
+function VerifyInfoContainer() {
 	const { userData, setUserData } = useContext(UserContext);
 	const [verifyModal, setVerifyModal] = useState(false);
 	const [otp, setOtp] = useState("");
@@ -74,12 +74,14 @@ function VerifyInfoContainer({ data }) {
 					<div className={styles.UserInfo}>
 						<div className={styles.InfoName}>
 							<div className={styles.InfoNameText}>
-								{data && data.email ? data.email : ""}
+								{userData && userData.email ? userData.email : ""}
 							</div>
 						</div>
 						<div className={styles.IsVerified}>
 							Your email is{" "}
-							{data && data.emailVerifystatus ? "verified" : "not verified"}
+							{userData && userData.emailVerifystatus
+								? "verified"
+								: "not verified"}
 						</div>
 					</div>
 
@@ -97,7 +99,7 @@ function VerifyInfoContainer({ data }) {
 							// width: "100%",
 						}}
 						onClick={() => {
-							sendEmailOtp(data.email);
+							sendEmailOtp(userData.email);
 						}}
 					/>
 				</div>
@@ -115,7 +117,7 @@ function VerifyInfoContainer({ data }) {
 					<div className={styles.UserInfo}>
 						<div className={styles.InfoName}>
 							<div className={styles.InfoNameText}>
-								+{data && data.phoneNumber ? data.phoneNumber : ""}
+								+{userData && userData.phoneNumber ? userData.phoneNumber : ""}
 							</div>
 						</div>
 						<div className={styles.IsVerified}>

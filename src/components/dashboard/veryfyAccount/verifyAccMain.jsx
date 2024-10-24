@@ -8,54 +8,17 @@ import WelcomePopup from "../popup/welcome";
 import { UserContext } from "../../../App";
 
 const VerifyAccMain = () => {
-	const { showWelcomePopup, userData, setUserData } = useContext(UserContext);
-	const [data, setData] = useState({});
-
-	const getAllUserInfo = async () => {
-		const res = await userInfoFxn(userData._id);
-
-		setData(res.userInfo);
-		setUserData(res.userInfo);
-
-		localStorage.setItem("transactionInfo", "false");
-		sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
-	};
-
-	useEffect(() => {
-		let sessionInfo = sessionStorage.getItem("allInfo")
-			? JSON.parse(sessionStorage.getItem("allInfo"))
-			: {};
-		let transactionInfo = localStorage.getItem("transactionInfo");
-
-		if (
-			sessionInfo.user &&
-			sessionInfo.userWallet &&
-			sessionInfo.userKyc &&
-			transactionInfo === "false"
-		) {
-			let currentValue = userData && userData.phoneNumber ? userData : {};
-
-			setData(currentValue);
-		} else {
-			getAllUserInfo();
-		}
-		// eslint-disable-next-line
-	}, []);
-
-	useEffect(() => {
-		let currentValue = userData && userData.phoneNumber ? userData : {};
-
-		setData(currentValue);
-	}, [userData]);
+	const { showWelcomePopup, userData, setUserData, walletData } =
+		useContext(UserContext);
 
 	return (
 		<div style={{ width: "100%" }}>
 			<DashboardMainTopBottom>
-				<DashboardHomeHeader title='Verify Account' data={data.userWallet} />
+				<DashboardHomeHeader title='Verify Account' data={walletData} />
 				<DashboardMain>
 					{" "}
 					{showWelcomePopup && <WelcomePopup />}
-					<VerifyInfoContainer data={data} />
+					<VerifyInfoContainer />
 				</DashboardMain>
 			</DashboardMainTopBottom>{" "}
 		</div>

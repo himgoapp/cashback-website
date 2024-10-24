@@ -147,7 +147,7 @@ export const getUserInfo = async () => {
 
 		return {
 			success: true,
-			// ...res.data,
+			...res.data,
 		};
 	} catch (error) {
 		const { response } = error;

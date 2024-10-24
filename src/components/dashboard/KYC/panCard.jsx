@@ -26,6 +26,12 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 		}
 	};
 
+	useEffect(() => {
+		if (userKyc.panCardNo) {
+			setPanCardNo(userKyc.panCardNo);
+		}
+	}, []);
+
 	return (
 		<>
 			<div className={styles.AddressDetailsContainer}>

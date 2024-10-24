@@ -9,41 +9,12 @@ import { UserContext } from "../../../App";
 // import { ToastContainer, toast } from "react-toastify";
 
 const PokerIDMain = () => {
-	const [data, setData] = useState({});
 	const [getInfos, setGetInfos] = useState(false);
-	const { userData } = useContext(UserContext);
-
-	const getAllUserInfo = async () => {
-		if (!userData || !userData._id) return;
-
-		const res = await userInfoFxn(userData._id);
-		setData(res.userInfo);
-		localStorage.setItem("transactionInfo", "false");
-		sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
-	};
-
-	useEffect(() => {
-		let sessionInfo = sessionStorage.getItem("allInfo")
-			? JSON.parse(sessionStorage.getItem("allInfo"))
-			: {};
-
-		let transactionInfo = localStorage.getItem("transactionInfo");
-		if (
-			sessionInfo.user &&
-			sessionInfo.userWallet &&
-			sessionInfo.userKyc &&
-			transactionInfo === "false"
-		) {
-			setData(sessionInfo);
-		} else {
-			getAllUserInfo();
-		}
-		// eslint-disable-next-line
-	}, []);
+	const { walletData } = useContext(UserContext);
 
 	return (
 		<DashboardMainTopBottom>
-			<DashboardHomeHeader data={data.userWallet} title='Poker ID' />
+			<DashboardHomeHeader data={walletData} title='Poker ID' />
 			<DashboardMain>
 				<NewPoker setGetInfos={setGetInfos} />
 				<PokerCardsContainer getInfos={getInfos} setGetInfos={setGetInfos} />

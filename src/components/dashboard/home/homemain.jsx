@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import DashboardHomeHeader from "./dashHomeHeader";
 import HomeQuickStart from "./quickStart";
 import Withdraw from "./withdraw";
@@ -6,9 +6,10 @@ import DashboardMain from "../../../layout/dashboardMain";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardDealCards from "./dashboardDealCards";
 import { getProducts } from "../../../servicefile/productservice";
+import { UserContext } from "../../../App";
 
 const HomeMain = ({ data }) => {
-	const [infoPop, setInfoPop] = useState(false);
+	const { userData, walletData, userKyc } = useContext(UserContext);
 	const [products, setProducts] = useState([]);
 
 	const getdata = async () => {
@@ -19,20 +20,16 @@ const HomeMain = ({ data }) => {
 		}
 	};
 	useEffect(() => {
-		let info = sessionStorage.getItem("allInfo")
-			? JSON.parse(sessionStorage.getItem("allInfo"))
-			: {};
-		if (info && info.user && !info.user.userName) {
-			setInfoPop(true);
-		}
+		if (!userData || !userData._id) return;
 		getdata();
-	}, [infoPop]);
+	}, []);
+
 	return (
 		<DashboardMainTopBottom>
-			<DashboardHomeHeader title='Dashboard' data={data.userWallet} />
+			<DashboardHomeHeader title='Dashboard' data={walletData} />
 			<DashboardMain>
 				<HomeQuickStart data={data} />
-				<Withdraw data={data.userWallet} userKyc={data.userKyc} />
+				<Withdraw data={walletData} userKyc={userKyc} />
 				<DashboardDealCards products={products} />
 			</DashboardMain>
 		</DashboardMainTopBottom>

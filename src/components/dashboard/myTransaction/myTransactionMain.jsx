@@ -9,41 +9,14 @@ import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
 
 const MyTransactionMain = () => {
-	const [data, setData] = useState({});
-	const { userData } = useContext(UserContext);
+	const { userData, walletData, userKyc } = useContext(UserContext);
 
-	const getAllUserInfo = async () => {
-		if (!userData || !userData._id) return;
-
-		const res = await userInfoFxn(userData._id);
-		setData(res.userInfo);
-		localStorage.setItem("transactionInfo", "false");
-		sessionStorage.setItem("allInfo", JSON.stringify(res.userInfo));
-	};
-
-	useEffect(() => {
-		let sessionInfo = sessionStorage.getItem("allInfo")
-			? JSON.parse(sessionStorage.getItem("allInfo"))
-			: {};
-
-		let transactionInfo = localStorage.getItem("transactionInfo");
-		if (
-			sessionInfo.user &&
-			sessionInfo.userWallet &&
-			sessionInfo.userKyc &&
-			transactionInfo === "false"
-		) {
-			setData(sessionInfo);
-		} else {
-			getAllUserInfo();
-		}
-		// eslint-disable-next-line
-	}, []);
+	if (!userData || !walletData || !userKyc) return null;
 
 	return (
 		<div style={{ width: "100%" }}>
 			<DashboardMainTopBottom>
-				<DashboardHomeHeader title='My Transaction' data={data.userWallet} />
+				<DashboardHomeHeader title='My Transaction' data={walletData} />
 				<DashboardMain>
 					<div className={styles.TabContent}>
 						<div className={styles.TabFilters}>
@@ -74,6 +47,7 @@ const MyTransactionMain = () => {
 };
 
 export default MyTransactionMain;
+
 const KycTDCstatus = () => {
 	return (
 		<div className={statusStyle.KycStatusContainer}>
@@ -98,6 +72,7 @@ const KycTDCstatus = () => {
 		</div>
 	);
 };
+
 const percentIcon = (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'

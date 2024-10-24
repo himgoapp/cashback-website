@@ -19,7 +19,6 @@ const Sidebar = ({ active }) => {
 
 	const onLogout = () => {
 		localStorage.clear();
-		sessionStorage.clear();
 		navigate("/dashboard");
 	};
 

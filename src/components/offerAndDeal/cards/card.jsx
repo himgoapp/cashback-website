@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import styles from "./card.module.css"; // Replace with your actual CSS module path
 import { useNavigate } from "react-router-dom";
 import pokerbaazi from "../../../assets/PokerBaazi.svg";
 import mpl from "../../../assets/MPL.jpg";
 import junglePk from "../../../assets/jungleePoker.svg";
 import Navbtn from "../../common/button/navbtn/navbtn";
+import { UserContext } from "../../../App";
 
 const OfferCard = ({ fillBtn, product }) => {
 	const navigate = useNavigate();
+	const { userData } = useContext(UserContext);
 	const [mobile, setIsMobile] = useState(true);
-	const token = localStorage.getItem("token") ? true : false;
+
 	useEffect(() => {
 		const width = window.innerWidth;
 		setIsMobile(width <= 500);
@@ -17,12 +19,12 @@ const OfferCard = ({ fillBtn, product }) => {
 	}, []);
 
 	const onJoinClick = (currentItem) => {
-		if (token) {
+		if (!userData) {
+			navigate("/");
+		} else {
 			localStorage.setItem("currentProductValue", JSON.stringify(product));
 			localStorage.setItem("currentProduct", currentItem);
 			navigate("/description");
-		} else {
-			navigate("/");
 		}
 	};
 
@@ -137,7 +139,7 @@ const OfferCard = ({ fillBtn, product }) => {
 					<div style={{ width: "100%" }}>
 						{fillBtn ? (
 							<Navbtn
-								text={token ? "Join" : "Sign Up"}
+								text={userData ? "Join" : "Sign Up"}
 								bg='transparent'
 								color='#3968EB'
 								showIcon={false}
@@ -150,11 +152,11 @@ const OfferCard = ({ fillBtn, product }) => {
 								onClick={() => {
 									onJoinClick(product._id);
 								}}
-								disabled={token}
+								disabled={userData ? false : true}
 							/>
 						) : (
 							<Navbtn
-								text={token ? "Join" : "Sign Up"}
+								text={userData ? "Join" : "Sign Up"}
 								bg='#3968EB'
 								color='white'
 								showIcon={false}
@@ -163,7 +165,7 @@ const OfferCard = ({ fillBtn, product }) => {
 								onClick={() => {
 									onJoinClick(product._id);
 								}}
-								disabled={token}
+								disabled={userData ? false : true}
 							/>
 						)}
 					</div>

@@ -10,7 +10,7 @@ const ProtectedRoute = ({ children }) => {
 		? localStorage.getItem("token")
 		: false;
 	const [loading, setLoading] = useState(false);
-	const { setUserData } = useContext(UserContext);
+	const { setUserData, setWalletData, setUserKyc } = useContext(UserContext);
 
 	const validateToken = (currenttOken) => {
 		let validate = false;
@@ -28,11 +28,12 @@ const ProtectedRoute = ({ children }) => {
 
 		if (res.success) {
 			setUserData(res.userInfo.user);
+			setWalletData(res.userInfo.userWallet);
+			setUserKyc(res.userInfo.userKyc);
 			setLoading(false);
 		} else {
 			localStorage.clear();
-			sessionStorage.clear();
-			navigate("/");
+			navigate("/", { replace: true });
 		}
 		setLoading(false);
 	};
@@ -42,10 +43,10 @@ const ProtectedRoute = ({ children }) => {
 	useEffect(() => {
 		if (!token) {
 			localStorage.clear();
-			sessionStorage.clear();
-			navigate("/");
+			navigate("/", { replace: true });
+		} else {
+			validateUserInfo();
 		}
-		validateUserInfo();
 	}, [navigate, location.pathname]);
 
 	if (loading) return <div>Loading...</div>;

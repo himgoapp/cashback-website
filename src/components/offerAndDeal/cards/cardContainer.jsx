@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./cardContainer.module.css";
 import OfferCard from "./card";
 import { Link } from "react-router-dom";
 // import { generateArray } from "../../../utils/generateArray";
 import { getProducts } from "../../../servicefile/productservice";
+import { UserContext } from "../../../App";
 
 const OfferCardContainer = ({ searchTerm }) => {
 	const [products, setProducts] = useState([]);
 	const [filteredProducts, setFilteredProducts] = useState([]);
-
-	const token = localStorage.getItem("token") ? true : false;
+	const { userData } = useContext(UserContext);
 
 	const getdata = async () => {
 		let data = await getProducts();
@@ -47,7 +47,7 @@ const OfferCardContainer = ({ searchTerm }) => {
 				filteredProducts.map((item, index) => {
 					return (
 						<Link
-							to={token ? "/description" : "/"}
+							to={userData ? "/description" : "/"}
 							style={{ textDecoration: "none" }}
 							key={index}
 						>
