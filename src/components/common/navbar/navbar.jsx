@@ -18,7 +18,9 @@ const Navbar = ({ page }) => {
 		<>
 			<div className='container_max'>
 				<div className={styles.navbar_container}>
-					<Logo />
+					<a href='/'>
+						<Logo />
+					</a>
 					<div className={styles.navbar_link_container}>
 						{page === "home" && homePageMenu}
 						{page === "offer" && offersAndDealsPageMenu}

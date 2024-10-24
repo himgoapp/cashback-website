@@ -11,9 +11,9 @@ const Footer = () => {
 					{/* Menu Content */}
 					<div className={styles.menu_content}>
 						{/* Logo */}
-						<div className={styles.logo}>
+						<a href='/' className={styles.logo}>
 							<LogoLight />
-						</div>
+						</a>
 
 						{/* Menu Items */}
 						<div className={styles.menu_items}>
