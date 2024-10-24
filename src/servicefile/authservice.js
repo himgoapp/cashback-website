@@ -7,7 +7,7 @@ export const loginOtp = async (phoneNumber, isEmail = false) => {
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/loginVerify`, {
+		let data = await API.post(`/auth/loginVerify`, {
 			...body,
 		}).then((res) => res.data);
 
@@ -30,12 +30,18 @@ export const loginVerify = async (phoneNumber, loginOtp) => {
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/verifyLoginOtp`, {
+		let data = await API.post(`/auth/verifyLoginOtp`, {
 			...body,
 		}).then((res) => res.data);
 
 		return data;
 	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
 		return { message: "Something Went Wrong!" };
 	}
 };
@@ -47,12 +53,18 @@ export const verifySendOtpPhone = async (phoneNumber) => {
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/sendOtp`, {
+		let data = await API.post(`/auth/sendOtp`, {
 			...body,
 		}).then((res) => res.data);
 
 		return data;
 	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
 		return { message: "Something Went Wrong!" };
 	}
 };
@@ -65,12 +77,18 @@ export const phoneVerify = async (phoneNumber, loginOtp) => {
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/verifyOtp`, {
+		let data = await API.post(`/auth/verifyOtp`, {
 			...body,
 		}).then((res) => res.data);
 
 		return data;
 	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
 		return { message: "Something Went Wrong!" };
 	}
 };
@@ -84,18 +102,19 @@ export const signUpFxn = async (phoneNumber, email, userName) => {
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/signup`, {
+		let data = await API.post(`/auth/signup`, {
 			...body,
 		}).then((res) => res.data);
 
 		return data;
 	} catch (error) {
-		console.log(error.response);
-		if (error.response) {
-			return error.response.data.errors;
-		} else {
-			return { message: "Something Went Wrong!" };
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
 		}
+		return { message: "Something Went Wrong!" };
 	}
 };
 
@@ -106,7 +125,7 @@ export const sendEmailOtpAPI = async (email) => {
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/auth/sendemailotp`, {
+		let data = await API.post(`/auth/sendemailotp`, {
 			...body,
 		}).then((res) => res.data);
 
@@ -124,13 +143,11 @@ export const sendEmailOtpAPI = async (email) => {
 
 export const getUserInfo = async () => {
 	try {
-		let data = await API.get(`${baseUrlconfig.baseUrl}/users/getuserinfo`).then(
-			(res) => res.data
-		);
+		let res = await API.get(`/users/getuserinfo`);
 
 		return {
 			success: true,
-			...data,
+			// ...res.data,
 		};
 	} catch (error) {
 		const { response } = error;

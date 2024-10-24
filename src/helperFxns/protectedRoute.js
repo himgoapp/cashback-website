@@ -25,6 +25,7 @@ const ProtectedRoute = ({ children }) => {
 	const validateUserInfo = async () => {
 		setLoading(true);
 		const res = await getUserInfo();
+
 		if (res.success) {
 			setUserData(res.userInfo.user);
 			setLoading(false);
@@ -45,7 +46,7 @@ const ProtectedRoute = ({ children }) => {
 			navigate("/");
 		}
 		validateUserInfo();
-	}, []);
+	}, [navigate, location.pathname]);
 
 	if (loading) return <div>Loading...</div>;
 

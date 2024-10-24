@@ -4,7 +4,11 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import { ToastContainer, toast } from "react-toastify";
-import { loginVerify, loginOtp } from "../../../servicefile/authservice";
+import {
+	loginVerify,
+	loginOtp,
+	sendEmailOtpAPI,
+} from "../../../servicefile/authservice";
 import Logo from "../../common/logo/logo";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
@@ -22,7 +26,7 @@ function VerifyInfoContainer({ data }) {
 	const sendEmailOtp = async (email) => {
 		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 		if (email && emailRegex.test(email)) {
-			let data = await loginOtp(email, true);
+			let data = await sendEmailOtpAPI(email);
 			if (
 				data &&
 				data.message === "Otp Sent!" &&

@@ -2,19 +2,34 @@ import { baseUrlconfig } from "../config";
 import { API } from "../utils/api";
 
 export const getProducts = async () => {
-	let data = await API.get(`${baseUrlconfig.baseUrl}/products/products`).then(
-		(res) => res.data
-	);
-
-	return data.products;
+	try {
+		let data = await API.get(`/products/products`).then((res) => res.data);
+		return data.products;
+	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
+		return { message: "Something Went Wrong!" };
+	}
 };
 
 export const getProductsSimple = async () => {
-	let data = await API.get(
-		`${baseUrlconfig.baseUrl}/products/productsimple`
-	).then((res) => res.data);
+	try {
+		let data = await API.get(`/products/productsimple`).then((res) => res.data);
 
-	return data.products;
+		return data.products;
+	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
+		return { message: "Something Went Wrong!" };
+	}
 };
 
 export const submitAccountId = async (
@@ -31,16 +46,17 @@ export const submitAccountId = async (
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/useraccountid/create`, {
+		let data = await API.post(`/useraccountid/create`, {
 			...body,
 		}).then((res) => res.data);
 		return data;
 	} catch (error) {
-		console.log(error.response);
-		if (error.response) {
-			return error.response.data.errors;
-		} else {
-			return { message: "Something Went Wrong!" };
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
 		}
+		return { message: "Something Went Wrong!" };
 	}
 };

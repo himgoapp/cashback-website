@@ -7,16 +7,17 @@ export const userInfoFxn = async (id) => {
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/users/userinfo`, {
+		let data = await API.post(`/users/userinfo`, {
 			...body,
 		}).then((res) => res.data);
 		return data;
 	} catch (error) {
-		console.log(error.response);
-		if (error.response) {
-			return error.response.data.errors;
-		} else {
-			return { message: "Something Went Wrong!" };
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
 		}
+		return { message: "Something Went Wrong!" };
 	}
 };

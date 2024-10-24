@@ -3,19 +3,34 @@ import { API } from "../utils/api";
 
 // INFO: Not used yet
 export const getKYCDetails = async () => {
-	let data = await API.get(`${baseUrlconfig.baseUrl}/products/products`).then(
-		(res) => res.data
-	);
+	try {
+		let data = await API.get(`/products/products`).then((res) => res.data);
 
-	return data.products;
+		return data.products;
+	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
+		return { message: "Something Went Wrong!" };
+	}
 };
 
 export const getProductsSimple = async () => {
-	let data = await API.get(
-		`${baseUrlconfig.baseUrl}/products/productsimple`
-	).then((res) => res.data);
-
-	return data.products;
+	try {
+		let data = await API.get(`/products/productsimple`).then((res) => res.data);
+		return data.products;
+	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
+		return { message: "Something Went Wrong!" };
+	}
 };
 
 export const addPanCard = async (user_id, panCardNo) => {
@@ -25,17 +40,18 @@ export const addPanCard = async (user_id, panCardNo) => {
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/users/panadd`, {
+		let data = await API.post(`/users/panadd`, {
 			...body,
 		}).then((res) => res.data);
 		return data;
 	} catch (error) {
-		console.log(error.response);
-		if (error.response) {
-			return error.response.data.errors;
-		} else {
-			return { message: "Something Went Wrong!" };
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
 		}
+		return { message: "Something Went Wrong!" };
 	}
 };
 
@@ -60,18 +76,18 @@ export const addAddressProof = async (
 	let body = formData;
 
 	try {
-		let data = await API.post(
-			`${baseUrlconfig.baseUrl}/auth/imageupload`,
-			body
-		).then((res) => res.data);
+		let data = await API.post(`/auth/imageupload`, body).then(
+			(res) => res.data
+		);
 		return data;
 	} catch (error) {
-		console.log(error.response);
-		if (error.response) {
-			return error.response.data.errors;
-		} else {
-			return { message: "Something Went Wrong!" };
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
 		}
+		return { message: "Something Went Wrong!" };
 	}
 };
 
@@ -89,17 +105,18 @@ export const addBankDetails = async (
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/banks/create`, {
+		let data = await API.post(`/banks/create`, {
 			...body,
 		}).then((res) => res.data);
 		return data;
 	} catch (error) {
-		console.log(error.response);
-		if (error.response) {
-			return error.response.data.errors;
-		} else {
-			return { message: "Something Went Wrong!" };
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
 		}
+		return { message: "Something Went Wrong!" };
 	}
 };
 
@@ -117,17 +134,18 @@ export const submitAccountId = async (
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/useraccountid/create`, {
+		let data = await API.post(`/useraccountid/create`, {
 			...body,
 		}).then((res) => res.data);
 		return data;
 	} catch (error) {
-		console.log(error.response);
-		if (error.response) {
-			return error.response.data.errors;
-		} else {
-			return { message: "Something Went Wrong!" };
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
 		}
+		return { message: "Something Went Wrong!" };
 	}
 };
 
@@ -138,16 +156,17 @@ export const createTransaction = async (user_id, amount) => {
 	};
 
 	try {
-		let data = await API.post(`${baseUrlconfig.baseUrl}/transactions/create`, {
+		let data = await API.post(`/transactions/create`, {
 			...body,
 		}).then((res) => res.data);
 		return data;
 	} catch (error) {
-		console.log(error.response);
-		if (error.response) {
-			return error.response.data.errors;
-		} else {
-			return { message: "Something Went Wrong!" };
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
 		}
+		return { message: "Something Went Wrong!" };
 	}
 };

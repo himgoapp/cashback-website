@@ -23,7 +23,6 @@ const Sidebar = ({ active }) => {
 		navigate("/dashboard");
 	};
 
-	// console.log({ showSidebar });
 	return (
 		<div
 			className={styles.SidebarNavigation}
