@@ -3,6 +3,7 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 import { getUserInfo } from "../servicefile/authservice";
 import { UserContext } from "../App";
+import Loading from "../components/common/Loading/Loading";
 
 const ProtectedRoute = ({ children }) => {
 	const navigate = useNavigate();
@@ -49,7 +50,12 @@ const ProtectedRoute = ({ children }) => {
 		}
 	}, [navigate, location.pathname]);
 
-	if (loading) return <div>Loading...</div>;
+	if (loading)
+		return (
+			<div className='loader_container loader_full_screen'>
+				<Loading />
+			</div>
+		);
 
 	return children;
 };
