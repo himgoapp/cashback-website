@@ -9,7 +9,7 @@ const DealCard = ({ title, description, img, lastIndex }) => {
 			className={`${styles.deals_card} ${lastIndex ? styles.last_card : ""}`}
 		>
 			<Reveal>
-				<div>
+				<div className={styles.deals_card_inner}>
 					<img
 						src={img}
 						width={72}
