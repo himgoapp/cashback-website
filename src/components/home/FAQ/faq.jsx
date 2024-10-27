@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./faq.module.css";
-// import faqbg from "../../../assets/faqbg.png";
+import Reveal from "../../common/reveal/Reveal";
 
 const QandA = [
 	{
@@ -36,25 +36,16 @@ const FAQ = () => {
 
 	return (
 		<div id='faq' className={`${styles.faq_container}`}>
-			{/* FAQ Content */}
 			<div className={`${styles.faq_content} container_max`}>
-				{/* FAQ Header */}
-				<div className={styles.faq_header}>
-					{/* Header Content */}
-					<div className={styles.header_content}>
-						{/* Head and Subhead */}
-						<div className={styles.head_and_subhead}>
-							<div className={styles.head}>
-								{/* Head Content */}Frequently asked questions
-							</div>
-							<div className={styles.subhead}>
-								{/* Subhead Content */}Lorem ipsum dolor sit amet consectetur.{" "}
-							</div>
+				<Reveal>
+					<div className={styles.faq_header}>
+						<div className={styles.head}>Frequently asked questions</div>
+						<div className={styles.subhead}>
+							Lorem ipsum dolor sit amet consectetur.{" "}
 						</div>
 					</div>
-				</div>
+				</Reveal>
 
-				{/* FAQ Item Container */}
 				<div className={styles.faq_item_container}>
 					{QandA.map((qa, index) => {
 						return (
@@ -63,33 +54,27 @@ const FAQ = () => {
 								key={index}
 								onClick={() => setOpen(index)}
 							>
-								{/* Item Content */}
-								<div className={styles.item_content}>
-									{/* Question and Answer */}
-									<div className={styles.q_and_ans}>
-										<div className={styles.question}>{qa.question}</div>
-										{open === index ? (
-											<div className={styles.ans}>{qa.answer}</div>
-										) : null}
-									</div>
+								<Reveal>
+									<div className={styles.item_content}>
+										<div className={styles.q_and_ans}>
+											<div className={styles.question}>{qa.question}</div>
+											{open === index ? (
+												<div className={styles.ans}>{qa.answer}</div>
+											) : null}
+										</div>
 
-									{/* FAQ Icon */}
-									<div className={styles.faq_icon}>
-										{/* Minus Icon */}
-										<div className={styles.minus_icon}>
-											{/* Minus Icon Content */}
-											{open === index ? <HideIcon /> : <ShowIcon />}
+										<div className={styles.faq_icon}>
+											<div className={styles.minus_icon}>
+												{open === index ? <HideIcon /> : <ShowIcon />}
+											</div>
 										</div>
 									</div>
-								</div>
+								</Reveal>
 							</div>
 						);
 					})}
 				</div>
 			</div>
-			{/* <div className="bg1">
-        <img src={faqbg} alt="" />
-      </div> */}
 		</div>
 	);
 };

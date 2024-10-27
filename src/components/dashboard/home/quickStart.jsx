@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styles from "./quickStart.module.css";
-import Navbtn from "../../common/button/navbtn/navbtn";
+import Navbtn, { ShowIcon } from "../../common/button/navbtn/navbtn";
 import checkicon from "../../../assets/checkIcon.png";
 import verifiedIcon from "../../../assets/verified.png";
 import Button from "react-bootstrap/Button";
@@ -25,26 +25,10 @@ const HomeQuickStart = ({ data }) => {
 									onClick={() => {
 										hideGuideFxn();
 									}}
-									className={styles.Text}
+									className={`primary_link ${styles.Text}`}
 								>
 									Skip Guide
-									<div className={styles.ArrowLeft}>
-										<svg
-											xmlns='http://www.w3.org/2000/svg'
-											width='20'
-											height='20'
-											viewBox='0 0 20 20'
-											fill='none'
-										>
-											<path
-												d='M4.16732 10.0001H15.834M15.834 10.0001L10.0007 15.8334M15.834 10.0001L10.0007 4.16675'
-												stroke='#3968EB'
-												strokeWidth='1.66667'
-												strokeLinecap='round'
-												strokeLinejoin='round'
-											/>
-										</svg>
-									</div>
+									<ShowIcon iconColor={"#3968EB"} />
 								</button>
 							</div>
 						</div>
@@ -65,14 +49,10 @@ const HomeQuickStart = ({ data }) => {
 								<Link
 									to='/dashboard/pokerid'
 									style={{ color: "white", textDecoration: "none" }}
+									className='primary_button small'
 								>
-									<Navbtn
-										text='Link Poker Id'
-										bg='#3968EB'
-										color='white'
-										showIcon={true}
-										divOrButton='div'
-									/>
+									Link Poker Id
+									<ShowIcon />
 								</Link>
 							</div>
 						</div>
@@ -97,22 +77,10 @@ const HomeQuickStart = ({ data }) => {
 								</div>
 								<Link
 									to='/dashboard/kyc'
-									style={{ color: "white", textDecoration: "none" }}
+									className='outlined_primary_button small'
 								>
-									<Navbtn
-										text='Go to KYC Verification'
-										bg='transparent'
-										color='#3968EB'
-										showIcon={true}
-										iconColor='#3968EB'
-										style={{
-											borderRadius: "2.4375rem",
-											border: "2px solid #3968EB",
-											display: "flex",
-											justifyContent: "center",
-											// width: "100%",
-										}}
-									/>
+									Go to KYC Verification
+									<ShowIcon iconColor='#3968EB' />
 								</Link>
 							</div>
 						</div>

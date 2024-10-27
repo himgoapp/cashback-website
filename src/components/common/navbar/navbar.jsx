@@ -7,6 +7,7 @@ import Logo from "../logo/logo";
 import { UserContext } from "../../../App";
 import PopupSignin from "../../description/popup/signin";
 import { CrossIcon } from "../../../assets/vectors";
+import Reveal from "../reveal/Reveal";
 
 const Navbar = ({ page }) => {
 	// const navigate = useNavigate();
@@ -15,7 +16,7 @@ const Navbar = ({ page }) => {
 	const [showMenu, setShowMenu] = useState(false);
 
 	return (
-		<>
+		<Reveal>
 			<div className='container_max'>
 				<div className={styles.navbar_container}>
 					<a href='/'>
@@ -30,20 +31,16 @@ const Navbar = ({ page }) => {
 							<div className={styles.btn_link_container}>
 								<Navbtn
 									text='Sign up'
-									bg='transparent'
-									color='black'
-									style={{
-										borderRadius: "2.4375rem",
-										border: "2px solid var(--black-800, #212121)",
-									}}
+									variant={"outlined"}
+									size={"small"}
 									onClick={() => {
 										setLoginTab(true);
 									}}
 								/>
 								<Navbtn
 									text='Log in'
-									bg='#3968EB'
-									color='white'
+									variant={"primary"}
+									size={"small"}
 									showIcon={false}
 									onClick={() => {
 										setLoginTab(true);
@@ -98,12 +95,8 @@ const Navbar = ({ page }) => {
 									<div className={styles.btn_link_container}>
 										<Navbtn
 											text='Sign up'
-											bg='transparent'
-											color='black'
-											style={{
-												borderRadius: "2.4375rem",
-												border: "2px solid var(--black-800, #212121)",
-											}}
+											variant={"outlined"}
+											size={"small"}
 											onClick={() => {
 												setLoginTab(true);
 												setShowMenu(false);
@@ -111,8 +104,8 @@ const Navbar = ({ page }) => {
 										/>
 										<Navbtn
 											text='Log in'
-											bg='#3968EB'
-											color='white'
+											variant={"primary"}
+											size={"small"}
 											showIcon={false}
 											onClick={() => {
 												setLoginTab(true);
@@ -127,7 +120,7 @@ const Navbar = ({ page }) => {
 				</div>
 			</div>
 			{loginTab && <PopupSignin />}
-		</>
+		</Reveal>
 	);
 };
 
@@ -135,36 +128,31 @@ export default Navbar;
 
 const homePageMenu = (
 	<div className={styles.menu_container}>
-		<a href='/#about-us' className={styles.aboutus}>
-			<span>About Us</span>{" "}
+		<a href='/#about-us' className={"secondary_link"}>
+			About Us
 		</a>
-		<a href='/#faq' className={styles.faq}>
-			<span>FAQs</span>{" "}
+		<a href='/#faq' className={"secondary_link"}>
+			FAQs
 		</a>
 	</div>
 );
 
 const dashboardMenu = (
 	<div className={styles.menu_container}>
-		<div className={styles.aboutus}>
-			<Link to='/dashboard' style={{ textDecoration: "none" }}>
-				<span>Dashboard</span>{" "}
-			</Link>
-		</div>
+		<Link to='/dashboard' className='secondary_link'>
+			Dashboard
+		</Link>
 	</div>
 );
 
 const offersAndDealsPageMenu = (
 	<div className={styles.menu_container}>
-		<div className={styles.aboutus}>
-			<Link to='/' style={{ textDecoration: "none" }}>
-				<span>Home</span>
-			</Link>
-		</div>
-		<div className={styles.faq}>
-			<Link to='/offer_and_deals' style={{ textDecoration: "none" }}>
-				<span style={{ color: "#3968EB" }}>Offers & deals</span>
-			</Link>
-		</div>
+		<Link to='/' className='secondary_link'>
+			Home
+		</Link>
+
+		<Link to='/offer_and_deals' className='secondary_link'>
+			Offers & deals
+		</Link>
 	</div>
 );

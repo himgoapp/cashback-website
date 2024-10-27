@@ -180,8 +180,8 @@ function AddressDetail({ setStepReload }) {
 												/>
 												<Navbtn
 													text='Click to upload'
-													bg='transparent'
-													color='#3968EB'
+													variant={"outlined_primary"}
+													size={"small"}
 													style={{
 														padding: 0,
 													}}
@@ -213,8 +213,8 @@ function AddressDetail({ setStepReload }) {
 							<div className={styles.Actions}>
 								<Navbtn
 									text='Save changes'
-									bg='#3968EB'
-									color='white'
+									variant={"primary"}
+									size={"small"}
 									showIcon={false}
 									onClickNav={() => {
 										addAddressData();

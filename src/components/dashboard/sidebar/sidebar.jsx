@@ -29,12 +29,8 @@ const Sidebar = ({ active }) => {
 		>
 			<div className={styles.Content}>
 				<div className={styles.Nav}>
-					<Link to='/'>
-						<div className={styles.Header}>
-							<div className={styles.LogoContainer}>
-								<div className={styles.Logo}>{logo}</div>
-							</div>
-						</div>
+					<Link to='/' className={styles.LogoContainer}>
+						{logo}
 					</Link>
 					<div className={styles.Navigation}>
 						{[
@@ -59,12 +55,9 @@ const Sidebar = ({ active }) => {
 							return (
 								<Link
 									to={nav.link}
-									style={{
-										textDecoration: "none",
-										width: "100%",
-										background: active === index && "#4072ff",
-									}}
-									className={styles.NavItemBase}
+									className={`${styles.NavItemBase} ${
+										active === index && styles.active
+									}`}
 								>
 									<div className={styles.ItemContent}>
 										<div className={styles.BarChart01}>

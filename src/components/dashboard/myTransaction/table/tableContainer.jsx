@@ -5,14 +5,23 @@ import { alltransactions } from "../../../../servicefile/transactionservice";
 import moment from "moment";
 import { UserContext } from "../../../../App";
 
+const dummyTransactionData = [
+	{
+		transaction_hash: "0x1234567890",
+		createdAt: "2021-09-01T12:00:00.000Z",
+		actualAmount: 1000,
+		rackbackcut: 100,
+		status: "Success",
+	},
+];
 const TableContainer = () => {
 	const { userData } = useContext(UserContext);
-	const [products, setProducts] = useState([]);
+	const [products, setProducts] = useState(dummyTransactionData);
 
 	const getTransactions = async () => {
 		if (!userData || !userData._id) return;
 		const res = await alltransactions(userData._id);
-		setProducts(res.transactionsInfo);
+		// setProducts(res.transactionsInfo);
 	};
 
 	useEffect(() => {

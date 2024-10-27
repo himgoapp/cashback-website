@@ -238,10 +238,9 @@ const NewPoker = ({ setGetInfos }) => {
 					> */}
 					<Navbtn
 						text='Submit'
-						bg='#3968EB'
-						color='white'
+						variant={"primary"}
+						size={"small"}
 						showIcon={false}
-						// style={{ width: "100%" }}
 						onClick={() => {
 							onSubmitFxn();
 						}}

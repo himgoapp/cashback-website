@@ -49,14 +49,8 @@
 	width: 8.11rem;
 	height: 2.5rem;
 	position: relative;
-}
-
-.Logo {
-	width: 8.11rem;
-	height: 2.5rem;
-	left: 0;
-	top: 0;
-	position: absolute;
+	padding-left: 1.5rem;
+	padding-right: 1.25rem;
 }
 
 .Navigation {
@@ -79,6 +73,11 @@
 	gap: 0.5rem;
 	padding: 1rem;
 	border-radius: 2rem;
+	width: 100%;
+}
+.NavItemBase.active,
+.NavItemBase:hover {
+	background: #4072ff;
 }
 
 .ItemContent {

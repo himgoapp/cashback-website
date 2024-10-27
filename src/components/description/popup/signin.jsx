@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 import { loginOtp, loginVerify } from "../../../servicefile/authservice";
 import { UserContext } from "../../../App";
+
 const PopupSignin = () => {
 	const { setLoginTab, setUserData, setShowWelcomePopup, userData } =
 		useContext(UserContext);
@@ -44,9 +45,7 @@ const PopupSignin = () => {
 			setLoading(true);
 			let data = await loginVerify(phoneNumber, otp);
 			if (data && data.message === "Otp verified!" && data.user) {
-				toast.success(`${data.message} Welcome ${data.user.username}`, {
-					autoClose: 8000,
-				});
+				toast.success(`${data.message} Welcome ${data.user.username}`);
 				localStorage.setItem("token", data.token);
 				setUserData(data.user);
 				setLoginTab(false);
@@ -58,9 +57,7 @@ const PopupSignin = () => {
 					navigate("/dashboard/verify-account");
 				}
 			} else {
-				toast.error(`${data.message}`, {
-					autoClose: 8000,
-				});
+				toast.error(`${data.message}`);
 			}
 			setLoading(false);
 		} else {
@@ -93,19 +90,17 @@ const PopupSignin = () => {
 								{helpIcon}
 							</TextInput>
 						</div>
-						<div
-							className={styles.btn_action}
-							style={{ width: "100%" }}
-							onClick={() => sendOtp()}
-						>
+						<div style={{ width: "100%" }}>
 							<Navbtn
 								text={showOtpPart ? "Resend OTP" : "Get OTP"}
-								bg='#3968EB'
-								color='white'
+								variant={"primary"}
+								size={"small"}
 								showIcon={false}
 								loading={loading}
+								onClick={() => sendOtp()}
 							/>
 						</div>
+
 						{showOtpPart && (
 							<>
 								<div
@@ -114,17 +109,14 @@ const PopupSignin = () => {
 								>
 									<TextInput placeholder='OTP' setValue={setOtp} />
 								</div>
-								<div
-									className={styles.btn_action}
-									style={{ width: "100%" }}
-									onClick={() => verifyOtp()}
-								>
+								<div style={{ width: "100%" }}>
 									<Navbtn
 										text='SUBMIT'
-										bg='#3968EB'
-										color='white'
+										variant={"primary"}
+										size={"small"}
 										showIcon={false}
 										loading={loading}
+										onClick={() => verifyOtp()}
 									/>
 								</div>
 							</>
@@ -168,6 +160,7 @@ const PopupSignin = () => {
 };
 
 export default PopupSignin;
+
 const helpIcon = (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'

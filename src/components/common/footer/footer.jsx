@@ -6,51 +6,35 @@ const Footer = () => {
 	return (
 		<div className={styles.footer_container}>
 			<div className='container_max'>
-				{/* Menu Container */}
 				<div className={styles.menu_container}>
-					{/* Menu Content */}
 					<div className={styles.menu_content}>
-						{/* Logo */}
 						<a href='/' className={styles.logo}>
 							<LogoLight />
 						</a>
 
-						{/* Menu Items */}
 						<div className={styles.menu_items}>
-							{/* Item 1 */}
 							<a href='/#about-us' className={styles.item}>
-								{/* Item Content */}About us
+								About us
 							</a>
 
-							{/* Item 2 */}
 							<a href='/#faq' className={styles.item}>
-								{/* Item Content */}FAQs
+								FAQs
 							</a>
-
-							{/* Add more items as needed */}
 						</div>
 					</div>
-					{/* Footer Divider */}
-					<div className={styles.footer_divider}>
-						{/* Divider Content */}{" "}
-						<div className={styles.divider}>{/* Divider Content */}</div>
-					</div>
+
+					<div className={styles.footer_divider}></div>
 				</div>
 
-				{/* Social Container */}
 				<div className={styles.social_container}>
-					{/* Copyright */}
 					<div className={styles.copyright}>
 						<div className={styles.text}>
 							© {new Date().getFullYear()} Rakeback. All rights reserved.
 						</div>
 					</div>
 
-					{/* Social Links */}
 					<div className={styles.social_links}>
-						{/* Link Icon 1 */}
 						<div className={styles.link_icon}>
-							{" "}
 							<div className={styles.icon}>{discord}</div>
 						</div>
 						<a
@@ -58,15 +42,12 @@ const Footer = () => {
 							href='https://x.com/rakebackcom'
 							target='_blank'
 						>
-							{" "}
 							<div className={styles.icon}>{twitter}</div>
 						</a>
 						<div className={styles.link_icon}>
-							{" "}
 							<div className={styles.icon}>{ig}</div>
 						</div>
 						<div className={styles.link_icon}>
-							{" "}
 							<div className={styles.icon}>{telegram}</div>
 						</div>
 						<a
@@ -74,7 +55,6 @@ const Footer = () => {
 							className={styles.link_icon}
 							target='_blank'
 						>
-							{" "}
 							<div className={styles.icon}>{facebook}</div>
 						</a>
 					</div>
@@ -85,6 +65,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
 const discord = (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'

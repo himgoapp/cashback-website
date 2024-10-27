@@ -13,22 +13,22 @@ const Navbtn = ({
 	onClick = () => {},
 	divOrButton = "button",
 	disabled = false,
+	variant,
+	size,
 }) => {
 	return divOrButton === "button" ? (
 		<button
-			className={styles.navbtn_container}
-			style={{ backgroundColor: bg, border: "none", ...style }}
+			className={`${variant}_button ${size} ${styles.navbtn_container}`}
+			style={{ backgroundColor: bg, ...style }}
 			onClick={() => onClick()}
 			disabled={loading || disabled}
 		>
-			<div className={styles.text} style={{ color: color, ...font }}>
-				{text}
-			</div>
-			{/* Icon */}
+			{text}
+
 			{showIcon && (
-				// <div className={styles.icon}>
-				<ShowIcon iconColor={iconColor} />
-				// </div>
+				<div className={"vector_icon"}>
+					<ShowIcon iconColor={iconColor} />
+				</div>
 			)}
 		</button>
 	) : (
@@ -51,7 +51,7 @@ const Navbtn = ({
 	);
 };
 
-const ShowIcon = ({ iconColor }) => (
+export const ShowIcon = ({ iconColor }) => (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
 		width='20'

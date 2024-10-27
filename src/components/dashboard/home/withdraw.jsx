@@ -60,16 +60,9 @@ const Withdraw = ({ data, userKyc }) => {
 							>
 								<Navbtn
 									text='Withdraw'
-									bg='transparent'
-									color='#3968EB'
+									variant={"outlined_primary"}
+									size={"small"}
 									showIcon={false}
-									style={{
-										borderRadius: "2.4375rem",
-										border: "2px solid #3968EB",
-										display: "flex",
-										justifyContent: "center",
-										width: "100%",
-									}}
 								/>
 							</div>
 						</div>

@@ -45,7 +45,7 @@
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 3rem;
-	padding: 4rem 3rem;
+	padding: 2.5rem;
 }
 .howto_container .howto_q {
 	display: flex;

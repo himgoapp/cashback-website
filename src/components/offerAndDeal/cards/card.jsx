@@ -140,14 +140,11 @@ const OfferCard = ({ fillBtn, product }) => {
 						{fillBtn ? (
 							<Navbtn
 								text={userData ? "Join" : "Sign Up"}
-								bg='transparent'
-								color='#3968EB'
+								variant={"outlined_primary"}
+								size={"small"}
 								showIcon={false}
-								font={{ fontSize: "1rem" }}
 								style={{
 									width: "100%",
-									borderRadius: "5.8125rem",
-									border: "1px solid #3968EB",
 								}}
 								onClick={() => {
 									onJoinClick(product._id);
@@ -157,10 +154,9 @@ const OfferCard = ({ fillBtn, product }) => {
 						) : (
 							<Navbtn
 								text={userData ? "Join" : "Sign Up"}
-								bg='#3968EB'
-								color='white'
+								variant={"primary"}
+								size={"small"}
 								showIcon={false}
-								font={{ fontSize: "1rem" }}
 								style={{ width: "100%" }}
 								onClick={() => {
 									onJoinClick(product._id);

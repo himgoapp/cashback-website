@@ -15,8 +15,8 @@ function KycStatusPage({ isSuccess, label, btnText, setData }) {
 				</div>
 				<Navbtn
 					text={btnText}
-					bg='#3968EB'
-					color='white'
+					variant={"primary"}
+					size={"small"}
 					showIcon={true}
 					onClick={setData}
 				/>

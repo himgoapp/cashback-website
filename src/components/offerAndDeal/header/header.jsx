@@ -23,7 +23,12 @@ const OfferHeader = ({ setSearchTerm, searchTerm }) => {
 					/>
 				</div>
 				<div className={styles.searchbtn}>
-					<Navbtn text='Search' bg='#3968EB' color='white' showIcon={false} />
+					<Navbtn
+						text='Search'
+						variant={"primary"}
+						size={"small"}
+						showIcon={false}
+					/>
 				</div>
 			</div>
 		</div>

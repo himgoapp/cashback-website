@@ -91,8 +91,8 @@ function BankAccDetails({ setStepReload }) {
 							>
 								<Navbtn
 									text='Save changes'
-									bg='#3968EB'
-									color='white'
+									variant={"primary"}
+									size={"small"}
 									showIcon={false}
 								/>
 							</div>

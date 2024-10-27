@@ -1,28 +1,9 @@
-.navbtn_container {
-	display: flex;
-	padding: 0.8125rem 1.5rem;
-	justify-content: center;
-	align-items: center;
-	gap: 0.25rem;
-	border-radius: 2.4375rem;
-	border: 2px solid var(--black-800, #212121);
-	cursor: pointer;
-}
 .navbtn_container:disabled {
 	opacity: 0.5;
 	cursor: not-allowed;
 }
 
 .navbtn_container .text {
-	color: var(--black-800, #212121);
-	text-align: center;
-	font-feature-settings: "clig" off, "liga" off;
-	font-family: Futura Md BT;
-	font-size: 1rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: 1.25rem;
-	/* 125% */
 }
 
 .navbtn_container .icon {

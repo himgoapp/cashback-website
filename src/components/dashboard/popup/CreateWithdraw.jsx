@@ -92,8 +92,8 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 						>
 							<Navbtn
 								text='Continue'
-								bg='#3968EB'
-								color='white'
+								variant={"primary"}
+								size={"small"}
 								showIcon={false}
 							/>
 						</div>
