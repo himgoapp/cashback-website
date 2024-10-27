@@ -19,7 +19,7 @@ const Sidebar = ({ active }) => {
 
 	const onLogout = () => {
 		localStorage.clear();
-		navigate("/dashboard");
+		window.location.reload();
 	};
 
 	return (

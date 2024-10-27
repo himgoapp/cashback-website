@@ -50,7 +50,7 @@
 	max-width: 48rem;
 	flex-direction: column;
 	align-items: flex-start;
-	gap: 2rem;
+	gap: 0.5rem;
 }
 .faq_item_container .faq_item {
 	display: flex;
@@ -58,6 +58,12 @@
 	align-items: center;
 	align-self: stretch;
 	cursor: pointer;
+	padding: 1rem;
+	border-radius: 12px;
+}
+.faq_item:hover,
+.faq_item.open {
+	background-color: white;
 }
 .faq_item .item_content {
 	display: flex;

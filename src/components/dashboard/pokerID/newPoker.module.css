@@ -44,6 +44,7 @@
 	align-items: flex-start;
 	position: relative;
 	width: 100%;
+	height: 100%;
 }
 .NewPokerSelect,
 .NewPokerAccId {

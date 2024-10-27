@@ -102,10 +102,6 @@ const NewPoker = ({ setGetInfos }) => {
 				<div className={styles.NewPokerCreate}>
 					<div className={styles.NewPokerCreate}>
 						<div className={styles.NewPokerSelect}>
-							{/* <div className={styles.SelectContent}>
-              <div className={styles.SelectWrapper}></div>
-            </div> */}
-
 							{/* INFO: This will work as a custom select menu */}
 							<div className={styles.SelectContent}>
 								{productId ? (
@@ -155,47 +151,36 @@ const NewPoker = ({ setGetInfos }) => {
 									</button>
 								)}
 								{showPokerMenu && (
-									<div className={styles.SelectMenu}>
-										{allProductIds &&
-											allProductIds.length > 0 &&
-											allProductIds.map((item, index) => {
-												return (
-													<button
-														onClick={() => {
-															onPokerIdChange(item);
-														}}
-														className={
-															item.value === productId ? styles.active : ""
-														}
-														key={index}
-													>
-														<img src={pokerIdIcon} alt='' />
-														{item.label}
-													</button>
-												);
-											})}
-									</div>
+									<>
+										<div className={styles.SelectMenu}>
+											{allProductIds &&
+												allProductIds.length > 0 &&
+												allProductIds.map((item, index) => {
+													return (
+														<button
+															onClick={() => {
+																onPokerIdChange(item);
+															}}
+															className={
+																item.value === productId ? styles.active : ""
+															}
+															key={index}
+														>
+															<img src={pokerIdIcon} alt='' />
+															{item.label}
+														</button>
+													);
+												})}
+										</div>
+										<div
+											className='fixed_overlay'
+											onClick={() => setShowPokerMenu(false)}
+										></div>
+									</>
 								)}
 							</div>
-							{/* <select
-                value={productId}
-                onChange={(e) => setProductId(e.target.value)}
-                className={styles.SelectContent + " " + styles.SelectWrapper}
-                placeholder="Select Poker Site"
-              >
-                {" "}
-                <option value="" disabled={true}>
-                  Please select!
-                </option>
-                {allProductIds &&
-                  allProductIds.length > 0 &&
-                  allProductIds.map((item, index) => {
-                    return <option value={item.value}>{item.label}</option>;
-                  })}
-              </select> */}
 						</div>
 
-						{/* INFO: This will work as a custom autocomplete feature */}
 						<div className={styles.SelectContent}>
 							<div className={styles.NewPokerAccId}>
 								<input
@@ -208,34 +193,34 @@ const NewPoker = ({ setGetInfos }) => {
 								/>
 							</div>
 							{showAccountMenu && (
-								<div className={styles.SelectMenu}>
-									{staticAccountData &&
-										staticAccountData.length > 0 &&
-										staticAccountData.map((item, index) => {
-											return (
-												<button
-													onClick={() => {
-														setReferenceId(item.username);
-														setShowAccountMenu(false);
-													}}
-												>
-													<UserIcon />
-													{item.name}
-													<span className='light-text'>@{item.username}</span>
-												</button>
-											);
-										})}
-								</div>
+								<>
+									<div className={styles.SelectMenu}>
+										{staticAccountData &&
+											staticAccountData.length > 0 &&
+											staticAccountData.map((item, index) => {
+												return (
+													<button
+														onClick={() => {
+															setReferenceId(item.username);
+															setShowAccountMenu(false);
+														}}
+													>
+														<UserIcon />
+														{item.name}
+														<span className='light-text'>@{item.username}</span>
+													</button>
+												);
+											})}
+									</div>
+									<div
+										className='fixed_overlay'
+										onClick={() => setShowAccountMenu(false)}
+									></div>
+								</>
 							)}
 						</div>
 					</div>
-					{/* <div className={styles.SubmitBtn}></div> */}{" "}
-					{/* <div
-						className={styles.submitbtn_container}
-						onClick={() => {
-							onSubmitFxn();
-						}}
-					> */}
+
 					<Navbtn
 						text='Submit'
 						variant={"primary"}
@@ -246,7 +231,6 @@ const NewPoker = ({ setGetInfos }) => {
 						}}
 						loading={loading}
 					/>
-					{/* </div> */}
 				</div>
 			</div>
 			<ToastContainer />

@@ -6,11 +6,25 @@
 @import url("https://fonts.cdnfonts.com/css/be-vietnam");
 @import url("https://fonts.cdnfonts.com/css/poppins");
 
-* {
+*,
+*::after,
+*::before {
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 	font-family: "Inter", sans-serif;
+}
+
+a {
+	text-decoration: none;
+}
+p {
+	margin: 0;
+}
+
+button,
+a {
+	cursor: pointer;
 }
 
 .flex_center {

@@ -32,7 +32,7 @@ const Banner = () => {
 						to='/offer_and_deals'
 						className={`primary_button ${styles.btn_container}`}
 					>
-						<div className={styles.text}>Get started</div>
+						Get started
 					</Link>
 				</Reveal>
 			</div>

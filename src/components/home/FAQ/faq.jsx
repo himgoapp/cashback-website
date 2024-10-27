@@ -50,7 +50,9 @@ const FAQ = () => {
 					{QandA.map((qa, index) => {
 						return (
 							<div
-								className={styles.faq_item}
+								className={`${styles.faq_item} ${
+									open === index ? styles.open : ""
+								}`}
 								key={index}
 								onClick={() => setOpen(index)}
 							>

@@ -36,9 +36,8 @@ const MyTransactionMain = () => {
               </div> */}
 						</div>
 					</div>
-					{/*  5% TDS will be applicable to all the users */}
+
 					<KycTDCstatus />
-					{/*  */}
 					<TableContainer />
 				</DashboardMain>
 			</DashboardMainTopBottom>

@@ -8,9 +8,7 @@ body {
 	min-width: 320px;
 	overflow-x: hidden;
 }
-a {
-	text-decoration: none;
-}
+
 img {
 	max-width: 100%;
 	height: auto;
@@ -166,11 +164,6 @@ button {
 	background-color: white;
 	color: #3968eb;
 }
-.primary_button.small,
-.outlined_button.small {
-	font-size: 1rem;
-	padding: 0.75rem 1.5rem;
-}
 
 .primary_button:hover {
 	background-color: #d8eeff;
@@ -198,6 +191,13 @@ button {
 	box-shadow: 0px 4px 4px 0px #00000021;
 }
 
+.primary_button.small,
+.outlined_button.small,
+.outlined_primary_button.small {
+	font-size: 1rem;
+	padding: 0.75rem 1.5rem;
+}
+
 .primary_link,
 .secondary_link {
 	text-align: center;
@@ -220,4 +220,15 @@ button {
 }
 .secondary_link:hover {
 	color: #3968eb;
+}
+
+.fixed_overlay {
+	position: fixed;
+	inset: 0;
+}
+
+.vector_icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
