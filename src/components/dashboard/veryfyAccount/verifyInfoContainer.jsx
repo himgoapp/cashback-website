@@ -3,7 +3,7 @@ import styles from "./verifyInfoContainer.module.css";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import {
 	loginVerify,
 	loginOtp,
@@ -47,13 +47,9 @@ function VerifyInfoContainer() {
 		if (otp && otp.length === 6) {
 			let data = await loginVerify(otp);
 			if (data && data.message === "Otp verified!" && data.user) {
-				toast.success(`Email Verified!}`, {
-					autoClose: 5000,
-				});
+				toast.success(`Email Verified!}`);
 				setUserData(data.user);
-				toast.error(`${data.message}`, {
-					autoClose: 8000,
-				});
+				toast.error(`${data.message}`);
 			}
 		} else {
 			toast.warn("Pease fill your otp carefully!");
@@ -155,7 +151,6 @@ function VerifyInfoContainer() {
 					</Button>
 				</Modal.Footer>
 			</Modal>
-			<ToastContainer />
 		</div>
 	);
 }

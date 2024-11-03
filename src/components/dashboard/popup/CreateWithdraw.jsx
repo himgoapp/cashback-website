@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { createTransaction } from "../../../servicefile/kycservice";
 import Form from "react-bootstrap/Form";
 
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 	const navigate = useNavigate();
@@ -119,7 +119,6 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 				className={styles.opacityDiv}
 				onClick={() => setShowWithdraw(false)}
 			/>
-			<ToastContainer />
 		</div>
 	);
 };

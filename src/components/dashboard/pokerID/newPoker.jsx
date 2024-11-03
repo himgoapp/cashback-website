@@ -5,7 +5,7 @@ import {
 } from "../../../servicefile/productservice";
 import styles from "./newPoker.module.css"; // Import your CSS module
 import Navbtn from "../../common/button/navbtn/navbtn";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import pokerIdIcon from "../../../assets/pokerIdIcon.png";
 import { UserContext } from "../../../App";
 
@@ -66,13 +66,9 @@ const NewPoker = ({ setGetInfos }) => {
 				referralCode
 			);
 			if (data && data.message) {
-				toast.success(`${data.message}`, {
-					autoClose: 5000,
-				});
+				toast.success(`${data.message}`);
 			} else {
-				toast.error(`${data.message}`, {
-					autoClose: 5000,
-				});
+				toast.error(`${data.message}`);
 			}
 			setGetInfos(true);
 			setProductId("");
@@ -233,7 +229,6 @@ const NewPoker = ({ setGetInfos }) => {
 					/>
 				</div>
 			</div>
-			<ToastContainer />
 		</div>
 	);
 };

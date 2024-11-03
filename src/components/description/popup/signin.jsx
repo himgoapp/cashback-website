@@ -3,7 +3,7 @@ import styles from "./signin.module.css";
 import TextInput from "../../common/textInput/textInput";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import signimg from "../../../assets/signin_image_container.png";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 import { loginOtp, loginVerify } from "../../../servicefile/authservice";
@@ -45,7 +45,7 @@ const PopupSignin = () => {
 			setLoading(true);
 			let data = await loginVerify(phoneNumber, otp);
 			if (data && data.message === "Otp verified!" && data.user) {
-				toast.success(`${data.message} Welcome ${data.user.username}`);
+				toast.success(`${data.message} Welcome ${data.user.userName}`);
 				localStorage.setItem("token", data.token);
 				setUserData(data.user);
 				setLoginTab(false);
@@ -154,7 +154,6 @@ const PopupSignin = () => {
 				</div>
 			</div>
 			<div className={styles.opacityDiv} onClick={() => setLoginTab(false)} />
-			<ToastContainer />
 		</div>
 	);
 };

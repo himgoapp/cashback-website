@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import styles from "./withdraw.module.css";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import withdraw from "../../../assets/withdraw.png";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import KycPopup from "../popup/kycpop";
 import WithdrawPopUp from "../popup/CreateWithdraw";
 
@@ -116,7 +116,6 @@ const Withdraw = ({ data, userKyc }) => {
 				)}
 				{kycPop && <KycPopup setKycPop={setKycPop} />}
 			</div>
-			<ToastContainer />
 		</>
 	);
 };

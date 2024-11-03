@@ -3,7 +3,7 @@ import Navbtn from "../../common/button/navbtn/navbtn";
 import styles from "./address.module.css";
 import { TextField } from "./address";
 import { addBankDetails } from "../../../servicefile/kycservice";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { UserContext } from "../../../App";
 
 function BankAccDetails({ setStepReload }) {
@@ -99,7 +99,6 @@ function BankAccDetails({ setStepReload }) {
 						</div>
 					</div>
 				</div>
-				<ToastContainer />
 			</div>
 		</>
 	);

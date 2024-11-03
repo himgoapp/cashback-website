@@ -12,6 +12,8 @@ import VerifyAccount from "./components/dashboard/veryfyAccount/verifyAccount";
 import KYC from "./components/dashboard/KYC/kyc";
 import Trsnsactions from "./components/dashboard/myTransaction/myTransaction";
 import ProtectedRoute from "./helperFxns/protectedRoute";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export const UserContext = createContext();
 
@@ -30,12 +32,14 @@ function App() {
 	const [loginTab, setLoginTab] = useState(false);
 	const [mobile, setMobile] = useState(true);
 
+	console.log("userData", userData);
 	useEffect(() => {
 		setMobile(window.innerWidth <= 500);
 	}, []);
 
 	return (
 		<>
+			<ToastContainer />
 			<UserContext.Provider
 				value={{
 					showSidebar,

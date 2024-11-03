@@ -3,7 +3,7 @@ import Navbtn from "../../common/button/navbtn/navbtn";
 import { TextField } from "./address";
 import styles from "./address.module.css";
 import { addPanCard } from "../../../servicefile/kycservice";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { UserContext } from "../../../App";
 
 function PanCard({ userKyc, setLevel, setStepReload }) {

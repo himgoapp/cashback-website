@@ -4,7 +4,7 @@ import TextInput from "../../common/textInput/textInput";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
 import { signUpFxn } from "../../../servicefile/authservice";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 const WelcomePopup = () => {
@@ -32,27 +32,19 @@ const WelcomePopup = () => {
 
 				let data = await signUpFxn(userData.phoneNumber, email, userName);
 				if (data && data.user && data.message) {
-					toast.success(`${data.message}`, {
-						autoClose: 8000,
-					});
+					toast.success(`${data.message}`);
 					localStorage.setItem("transactionInfo", "true");
 					setUserData(data.user);
 					handleClose();
 					navigate("/dashboard/verify-account");
 				} else {
-					toast.error(`${data.message}`, {
-						autoClose: 5000,
-					});
+					toast.error(`${data.message}`);
 				}
 			} else {
-				toast.warn(`Email or name are required field!`, {
-					autoClose: 5000,
-				});
+				toast.warn(`Email or name are required field!`);
 			}
 		} catch (error) {
-			toast.error(`Email or name already taken!`, {
-				autoClose: 5000,
-			});
+			toast.error(`Email or name already taken!`);
 		}
 	};
 
@@ -154,8 +146,6 @@ const WelcomePopup = () => {
 					handleClose();
 				}}
 			/>
-
-			<ToastContainer />
 		</div>
 	);
 };

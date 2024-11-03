@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import Navbtn from "../../common/button/navbtn/navBtnTwo";
 import styles from "./address.module.css";
 import { addAddressProof } from "../../../servicefile/kycservice";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import { UserContext } from "../../../App";
 
 const SelectField = ({ label, placeholder }) => {
@@ -224,7 +224,6 @@ function AddressDetail({ setStepReload }) {
 						</div>
 					</div>
 				</div>
-				<ToastContainer />
 			</div>
 		</>
 	);
