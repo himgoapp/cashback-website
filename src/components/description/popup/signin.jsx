@@ -86,8 +86,12 @@ const PopupSignin = () => {
 								value={phoneNumber}
 								setValue={setPhoneNUmber}
 								disabled={showOtpPart}
+								fxnCheck ={true}
+								handleFxn = {() =>sendOtp()}
+								type= "text"
 							>
 								{helpIcon}
+								
 							</TextInput>
 						</div>
 						<div style={{ width: "100%" }}>
@@ -107,7 +111,10 @@ const PopupSignin = () => {
 									className={styles.popup_signin_action}
 									style={{ width: "100%" }}
 								>
-									<TextInput placeholder='OTP' setValue={setOtp} />
+									<TextInput placeholder='OTP' setValue={setOtp}
+									handleFxn = {() =>verifyOtp()}
+									fxnCheck ={true}
+								/>
 								</div>
 								<div style={{ width: "100%" }}>
 									<Navbtn

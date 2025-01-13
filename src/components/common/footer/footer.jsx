@@ -17,7 +17,8 @@ const Footer = () => {
 								About us
 							</a>
 
-							<a href='/#faq' className={styles.item}>
+							<a href='/#faq'
+							 className={styles.item}>
 								FAQs
 							</a>
 						</div>

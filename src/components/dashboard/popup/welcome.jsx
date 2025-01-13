@@ -25,6 +25,10 @@ const WelcomePopup = () => {
 		setEmail("");
 	};
 
+	const closeBtnFxn = () =>{
+		toast.info("Please fill the below information")
+	}
+
 	const sigUPFxn = async () => {
 		try {
 			if (email && userName) {
@@ -132,7 +136,7 @@ const WelcomePopup = () => {
 							right: "1.5rem",
 						}}
 						onClick={() => {
-							handleClose();
+							closeBtnFxn();
 						}}
 					>
 						{closeIcon}
@@ -143,7 +147,7 @@ const WelcomePopup = () => {
 			<div
 				className={styles.opacityDiv}
 				onClick={() => {
-					handleClose();
+					closeBtnFxn();
 				}}
 			/>
 		</div>
