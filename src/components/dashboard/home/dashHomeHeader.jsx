@@ -4,6 +4,8 @@ import bellIcon from "../../../assets/header_nav_btn2.png";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { useNavigate } from "react-router-dom";
+import { LogoutIcon } from "../../../assets/vectors";
+import { color } from "framer-motion";
 
 const DashboardHomeHeader = ({ title, data }) => {
 	const {
@@ -15,7 +17,10 @@ const DashboardHomeHeader = ({ title, data }) => {
 		setShowNotifications,
 	} = useContext(UserContext);
 	const navigate = useNavigate();
-
+	const onLogout = () => {
+		localStorage.clear();
+		window.location.reload();
+	};
 	return (
 		<div className={styles.HomeHeader}>
 			<div className={styles.HeaderContainer}>
@@ -44,6 +49,7 @@ const DashboardHomeHeader = ({ title, data }) => {
 								<div className={styles.HeaderBtnText}>
 									₹{data && data.wallet_balance ? data.wallet_balance : "0.00"}
 								</div>
+							
 							</div>
 
 							<div
@@ -52,6 +58,20 @@ const DashboardHomeHeader = ({ title, data }) => {
 							>
 								<img src={bellIcon} alt='' />
 							</div>
+							<div>
+								{/* <button className={styles.Button} onClick={() => onLogout()}>
+							<LogoutIcon />
+							
+						</button> */}
+						<Navbtn
+									text='Log out'
+									variant={"outlined"}
+									size={"small"}
+									onClick={() => {
+										onLogout();
+									}}
+								/>
+						</div>
 						</div>
 					</div>
 					<div className={styles.HeaderDivider}></div>

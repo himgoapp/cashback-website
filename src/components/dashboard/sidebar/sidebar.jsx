@@ -3,7 +3,7 @@ import styles from "./sidebar.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
-import { LogoutIcon } from "../../../assets/vectors";
+// import { LogoutIcon } from "../../../assets/vectors";
 
 const Sidebar = ({ active }) => {
 	const { showSidebar, setShowSidebar, mobile, userData, setUserData } =
@@ -17,10 +17,10 @@ const Sidebar = ({ active }) => {
 		setData(currentValue);
 	}, [userData]);
 
-	const onLogout = () => {
-		localStorage.clear();
-		window.location.reload();
-	};
+	// const onLogout = () => {
+	// 	localStorage.clear();
+	// 	window.location.reload();
+	// };
 
 	return (
 		<div
@@ -94,9 +94,9 @@ const Sidebar = ({ active }) => {
 								{data && data.email ? data.email : "Not filled!"}
 							</div>
 						</div>
-						<button className={styles.Button} onClick={() => onLogout()}>
+						{/* <button className={styles.Button} onClick={() => onLogout()}>
 							<LogoutIcon />
-						</button>
+						</button> */}
 					</div>
 				</div>
 				<div
