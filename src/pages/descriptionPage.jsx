@@ -8,6 +8,10 @@ import OfferAndRegistration from "../components/description/offerAndRegistration
 import BonusesAndReview from "../components/description/bonuses_and_review";
 // import PopupSignin from "../components/description/popup/signin";
 import { UserContext } from "../App";
+import ContentDeposit from "../components/description/ContentDeposit";
+import CaskBackStep from "../components/description/CashBackStep"
+import CashBackTimeMachine from "../components/description/CashBackTimeMachine"
+import RakeBackStructure from "../components/description/RakeBackStructure"
 
 const DescriptionPage = () => {
 	const { showSigninPopup } = useContext(UserContext);
@@ -22,6 +26,10 @@ const DescriptionPage = () => {
 					<DescriptionContentWrapper>
 						<OfferAndRegistration />
 						<BonusesAndReview />
+						<ContentDeposit />
+						<CaskBackStep/>
+						<CashBackTimeMachine/>
+						<RakeBackStructure/>
 					</DescriptionContentWrapper>
 				</MainContainer>
 				{/* banner background image */}

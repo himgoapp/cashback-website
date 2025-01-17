@@ -1,131 +1,244 @@
-import React from "react";
+import React , {useState} from "react";
 import styles from "./bonuses_and_review.module.css";
 import { generateArray } from "../../utils/generateArray";
+import BonusList from "./BonusList";
+// import ContentData from "./ContentData";
 const BonusesAndReview = () => {
+	const[content_1,setContent1]=useState(0)
+
 	let currentItem = localStorage.getItem("currentProductValue")
 		? JSON.parse(localStorage.getItem("currentProductValue"))
 		: {};
 
 	return (
-		<div className={styles.bonuses_and_review_wrapper}>
-			{/* Horizontal Tabs */}
-			<div className={styles.horizontal_tabs}>
-				{/* Tabs */}
-				<div className={styles.tabs}>
-					{/* Tab Button Base */}
-					<div className={styles.tab_button_base + " " + styles.focused}>
-						<div className={styles.head}>POKER ROOM BONUSES</div>
-						<div className={styles.subhead}>Cashback and Promotions</div>
-					</div>
-					<div className={styles.tab_button_base}>
-						<div className={styles.head}>RED STAR REVIEW</div>
-						<div className={styles.subhead}>Pros and Cons of the room</div>
-					</div>
-				</div>
-			</div>
-			{/*  */}
+<div className={styles.bonuses_and_review_wrapper}>
+  {/* Horizontal Tabs */}
+  <div className={styles.horizontal_tabs}>
+    {/* Tabs */}
+    <div className={styles.tabs}>
+      {/* Tab Button Base */}
+      <div
+        className={styles.tab_button_base}
+        onClick={() => {
+          setContent1(0);
+        }}
+      >
+        <div className={styles.description_text_line}>
+          POKER ROOM BONUSES Cashback and Promotions
+        </div>
+      </div>
 
-			{/* pocker Room and red Star Container */}
-			<div className={styles.bonus_and_review_container}>
-				{/* content */}
-				<div className={styles.content_container}>
-					<div className={styles.heading}>Content</div>
-					<div className={styles.divider}></div>
-					<div className={styles.content_list_ul}>
-						{[
-							"Deposit bonus up to $2000",
-							"$25 Instant Bonus ",
-							"Rakeback up to 35% ",
-							"Weekly reload bonus",
-							"$50,000 rake race ",
-							"Rake structure ",
-							"Maximum 45% rake back ",
-						].map((content) => {
-							return (
-								<div className={styles.list}>
-									{bulletPoint}
-									<div className={styles.text}>{content}</div>
-								</div>
-							);
-						})}
-					</div>
-				</div>
-				{/* description */}
-				<div className={styles.bonus_and_review_description}>
-					<div className={styles.head}>
-						Bonuses, cashback and promotions RedStar
-					</div>
-					<div className={styles.description_text}>
-						In this section you will find a detailed description of all bonuses
-						and promotions from the poker room, which may be of interest to all
-						players and allow them to receive additional rewards from playing at
-						Redstar Poker. All listed bonuses and promotions are provided by the
-						poker room and may have additional conditions for their receipt, for
-						example, require activation. The first deposit bonus is available to
-						all new players who have registered an account in the poker room and
-						made a deposit in accordance with the terms of the promotion. The
-						first deposit bonus is available to all new players who have
-						registered an account in the poker room and made a deposit in
-						accordance with the terms of the promotion.
-					</div>
-				</div>
+      <div
+        className={styles.tab_button_base}
+        onClick={() => setContent1(1)}
+      >
+        <div className={styles.description_text_line}>
+          Bonuses from PekarStas Rakeback and bonuses
+        </div>
+      </div>
 
-				{/* free roll  */}
-				<div className={styles.freerolls_container}>
-					<div className={styles.head}>Our Freerolls</div>
-					<div className={styles.divider}></div>
-					<div className={styles.freeroll_content}>
-						<div className={styles.freeroll_amount}>
-							<div className={styles.icon}>{coinIcon}</div>
-							<div className={styles.amount_and_find}>
-								<div className={styles.amount}>Coins $200 Freeroll</div>
-								<div className={styles.find}>How to find?</div>
-							</div>
-						</div>
-						<div className={styles.countdown}>
-							{/* Countdown */}
-							{[
-								{ time: 25, type: "DAYS" },
-								{ time: 21, type: "HOURS" },
-								{ time: 32, type: "MINS" },
-								{ time: 23, type: "SECS" },
-							].map((date) => {
-								return (
-									<div className={styles.date_container}>
-										<div className={styles.time}>
-											{date.time}
-											<span>{date.type}</span>
-										</div>
-									</div>
-								);
-							})}
-						</div>
-					</div>
+      <div
+        className={styles.tab_button_base}
+        onClick={() => setContent1(2)}
+      >
+        <div className={styles.description_text_line} >
+          How to download Pokerdom Instructions on how to start playing
+        </div>
+      </div>
 
-					{/* Freeroll Info */}
-					<div
-						className={styles.freeroll_info}
-						style={{ display: "flex", flexDirection: "column", gap: ".6rem" }}
-					>
-						{/* Info Container */}
-						<div className={styles.info_container}>
-							<div className={styles.icon}>{prizeIcon}</div>
-							<div className={styles.text}>
-								Prize: <span>$100</span>
-							</div>
-						</div>
-						<div className={styles.info_container}>
-							<div className={styles.icon}>{passwordIcon}</div>
-							<div className={styles.text}>Password: Not needed</div>
-						</div>
-						<div className={styles.info_container}>
-							<div className={styles.icon}>{noteIcon}</div>
-							<div className={styles.text}>Access only for our players</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
+      <div
+        className={styles.tab_button_base}
+        onClick={() => setContent1(3)}
+      >
+        <div className={styles.description_text_line}>
+          Pokerdom Review Pros and cons of the room
+        </div>
+      </div>
+
+      <div
+        className={styles.tab_button_base}
+        onClick={() => setContent1(4)}
+      >
+        <div className={styles.description_text_line}>
+          Player Reviews (69) Rating: 4.9 out of 5 from PekarStas
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Poker Room and Red Star Container */}
+  <div className={styles.bonus_and_review_container}>
+  {/* Content */}
+  {content_1 === 0 && (
+    <div className={styles.content_container}>
+      <div className={styles.heading}>Content</div>
+      <div className={styles.divider}></div>
+      <div className={styles.content_list_ul}>
+        {[
+         	<a href='/description/#content-deposit' className={styles.content_link}>
+		Deposit bonus up to ₽50,000
+		 </a>, 
+		 <a href='/description/#content-deposit' className={styles.content_link}>
+		Exclusive ₽1,000 instant bonus for our players
+		  </a>, 
+        ,
+		<a href='/description/#cashback-step' className={styles.content_link}>
+		Cashback "100 steps to a million"
+				  </a>, 
+		<a href='/description/#caskback-time-machine' className={styles.content_link}>
+	Cashback "Time Machine"
+				  </a>,
+				  <a href='/description/#rack-structure' className={styles.content_link}>
+			Rack structure
+								</a>,
+        ].map((content) => (
+          <div className={styles.list}>
+            {bulletPoint}
+            <div className={styles.text}>{content}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {/* Two-Column Layout */}
+  <div className={styles.two_column_layout}>
+    {/* Left Column */}
+    <div className={styles.left_column}>
+      <div className={styles.bonus_and_review_description}>
+        {content_1 === 0 ? (
+          <>
+            <div className={styles.description_text} >
+              <h2>
+                Bonuses, cashback, and promotions RedStar
+              </h2>
+            </div>
+            <p className={styles.description_text_line_para}>
+			In this section you will find a detailed description of all bonuses and promotions from the poker room, which may be of interest to all players and allow you to receive additional rewards from playing at Pokerdom.
+			<br></br>
+<br></br>
+All listed bonuses and promotions are provided by the poker room and may have additional conditions for receiving them, for example, requiring activation.
+<br></br>
+<br></br>
+Click on the item of interest in the table of contents to learn more.
+
+
+            </p>
+          </>
+        ) : content_1 === 1 ? (
+          <div className={styles.description_text}>
+            <h2>
+              Advantages of the game from PekarStas
+            </h2>
+            <p className={styles.description_text_line_para}>
+			Below we have collected all the bonuses and benefits of registering and playing in the poker room that players receive from us.
+			<br></br><br></br>
+The so-called "Plugs" include access to closed sections of the site containing exclusive training materials in Russian, as well as PSP points, which can now be spent not only on poker software and training, but also on real goods from marketplaces, and of course access to private freerolls for our players.
+            </p>
+          </div>
+        ) : content_1 === 2 ? (
+          <div className={styles.description_text}>
+            <h2>
+              How to download Pokerdom to your computer
+            </h2>
+            <p className={styles.description_text_line_para}>
+			Pokerdom room offers everyone to play in the room via a PC client, which is absolutely not inferior to the software of other modern poker rooms. Moreover, there is both a version for Windows and a separate client for MacOS.
+			<br></br><br></br>
+All you need to do is download Pokerdom from the official website, register an account if you don't have one yet, and you can start playing for real money. The client is available entirely in Russian.
+
+
+            </p>
+          </div>
+        ) : content_1 === 3 ? (
+          <div className={styles.description_text}>
+            <h2>
+              Detailed review of Pokerdom
+            </h2>
+            <p className={styles.description_text_line_para}>
+			Poker room Pokerdom is the largest and most famous Russian room. It has been operating since 2014 and has won numerous supporters, both among amateur players and regulars.
+			<br></br><br></br>
+There is a rather weak field of opponents here, since amateurs prefer to play without the support of third-party software, and the room provides them with such an opportunity strictly adhering to the concept of "green poker".
+<br></br><br></br>
+In addition, they are attracted by the opportunity to bet on sports and play in the casino, all on one platform. The room will be relevant for both players from Russia and residents of other CIS countries. 
+
+            </p>
+          </div>
+        ) : (
+          <div className={styles.description_text}>
+            <h2>
+              Reviews of Pokerdom poker room
+            </h2>
+            <p className={styles.description_text_line_para}>
+			Most players planning to register in a poker room, in addition to a detailed description of the room, would like to see reviews and opinions about the game in the room from other poker players.
+			<br></br><br></br>
+On this page you can read real reviews of players about the Pokerdom poker room, their impressions of the software, the playing field or the problems they encountered. In addition, you can also share your detailed opinion if you have already managed to get acquainted with the game on Pokerdom. Current reviews about the game on Pokerdom in 2025 will be useful to many beginners and players who are just planning to register in this room.
+<br></br><br></br>
+You can rate the poker room from 1 to 5 stars, and also write a text review, both a short one in the style of: "good poker room", and a detailed description of all the nuances and specifics of the game at Pokerdom. Try to be as honest and objective as possible, because a well-founded opinion will be much more valuable for other players reading your review.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+
+    {/* Right Column */}
+    <div className={styles.right_column}>
+      {/* Freerolls Section */}
+      <div className={styles.freerolls_container}>
+        <div >Our Freerolls</div>
+        <div className={styles.divider}></div>
+        <div className={styles.freeroll_content}>
+          <div className={styles.freeroll_amount}>
+            <div className={styles.icon}>{coinIcon}</div>
+            <div className={styles.amount_and_find}>
+              <div className={styles.amount}>Coins $200 Freeroll</div>
+              <div className={styles.find}>How to find?</div>
+            </div>
+          </div>
+          <div className={styles.countdown}>
+            {[{ time: 25, type: "DAYS" }, { time: 21, type: "HOURS" }, { time: 32, type: "MINS" }, { time: 23, type: "SECS" }].map(
+              (date) => (
+                <div className={styles.date_container}>
+                  <div className={styles.time}>
+                    {date.time}
+                    <span>{date.type}</span>
+                  </div>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+
+        {/* Freeroll Info */}
+        <div
+          className={styles.freeroll_info}
+          style={{ display: "flex", flexDirection: "column", gap: ".6rem" }}
+        >
+          <div className={styles.info_container}>
+            <div className={styles.icon}>{prizeIcon}</div>
+            <div className={styles.text}>
+              Prize: <span>$100</span>
+            </div>
+          </div>
+          <div className={styles.info_container}>
+            <div className={styles.icon}>{passwordIcon}</div>
+            <div className={styles.text}>Password: Not needed</div>
+          </div>
+          <div className={styles.info_container}>
+            <div className={styles.icon}>{noteIcon}</div>
+            <div className={styles.text}>Access only for our players</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+		// <div className={styles.bonuses_and_review_wrapper}>
+		// <BonusList/>
+		// </div>
 	);
 };
 

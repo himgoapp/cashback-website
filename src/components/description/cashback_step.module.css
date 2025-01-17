@@ -1,0 +1,110 @@
+/* Container Heading */
+.container_heading {
+  display: flex;
+  justify-content: center; /* Center the content */
+  margin: 0;
+  width: 80%;
+}
+
+.loyality__para, .loyality__table_heading {
+  color: #475467;
+  font-family: Inter, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  width: 80%; /* Adjust width for larger screens */
+  padding-top: 12px;
+}
+
+/* Table Container */
+.table_container {
+  width: 80%; /* Full width for responsiveness */
+  border-collapse: collapse;
+  margin: 10px 0;
+}
+
+/* Show only horizontal row lines */
+.table_container tr {
+  border-bottom: 1px solid #ddd; /* Horizontal border between rows */
+}
+
+.table_container tr td, .table_container tr th {
+  padding: 15px;
+  border: none; /* Remove borders around individual cells */
+  text-align: center;
+  color: #475467;
+}
+
+.table_head {
+  padding: 6px;
+  background: #6cad84!important;
+  color: white !important;
+}
+
+/* Optional: Add some styles for specific table data points */
+.table_data_points {
+  font-weight: bold;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For medium screens (Tablets, up to 1200px) */
+@media screen and (max-width: 1200px) {
+  .container_heading {
+    justify-content: flex-start; /* Align to the left on medium screens */
+    margin: 0 20px; /* Adjust margins for better alignment */
+  }
+  .loyality__para, .loyality__table_heading {
+    width: 80%; /* Adjust width on medium screens */
+  }
+  .table_container {
+    width: 90%; /* Reduce table width on medium screens */
+  }
+  .table_head, .table_data, .table_data_points {
+    padding: 12px; /* Adjust padding for better fit */
+  }
+}
+
+/* For smaller screens (Tablets and smaller, up to 768px) */
+@media screen and (max-width: 768px) {
+  .container_heading {
+    flex-direction: column; /* Stack heading vertically */
+    justify-content: flex-start; /* Align heading to the top */
+    margin: 0 10px; /* Adjust margin */
+  }
+
+  .loyality__para, .loyality__table_heading {
+    width: 100%; /* Full width on smaller screens */
+    font-size: 1rem; /* Adjust font size */
+  }
+
+  .table_container {
+    width: 100%; /* Full width for small screens */
+    margin: 10px 0;
+  }
+
+  .table_head, .table_data, .table_data_points {
+    padding: 10px; /* Reduce padding for smaller screens */
+    font-size: 0.875rem; /* Smaller font size */
+  }
+}
+
+/* For mobile screens (up to 480px) */
+@media screen and (max-width: 480px) {
+  .container_heading {
+    margin: 0 5px; /* Adjust margin for mobile screens */
+  }
+
+  .loyality__para, .loyality__table_heading {
+    width: 100%; /* Full width for mobile screens */
+    font-size: 0.875rem; /* Smaller font size */
+  }
+
+  .table_container {
+    width: 100%; /* Full width on mobile screens */
+  }
+
+  .table_head, .table_data, .table_data_points {
+    padding: 8px; /* Further reduce padding for mobile screens */
+    font-size: 0.75rem; /* Even smaller font size for mobile */
+  }
+}
