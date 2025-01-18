@@ -47,7 +47,7 @@
 
 /*  */
 .bonuses_and_review_wrapper .bonus_and_review_container {
-	display: grid;
+	display: flex;
 	grid-template-columns: 0.5fr 1fr 0.5fr;
 	gap: 1.875rem;
 }
@@ -58,6 +58,7 @@
 	align-items: flex-start;
 	gap: 0.75rem;
 	border-radius: 0.5rem;
+	width: 40%;
 	background: #f5f8ff;
 }
 .content_container .heading {
@@ -84,11 +85,13 @@
 	align-items: flex-start;
 	gap: 1.25rem;
 	align-self: stretch;
+
 }
 .content_list_ul .list {
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
+
 }
 .list svg {
 	width: 0.3125rem;
@@ -102,16 +105,18 @@
 	font-weight: 500;
 	line-height: 1.25rem; /* 142.857% */
 }
-
+.content_link{
+	color: #475467;
+}
 /*  */
-.bonus_and_review_container .bonus_and_review_description {
+/* .bonus_and_review_container .bonus_and_review_description {
 	display: flex;
 
 	flex-direction: column;
 	align-items: flex-start;
 	gap: 0.75rem;
 	align-self: stretch;
-}
+} */
 .bonus_and_review_container .head {
 	color: var(--gray-900, #101828);
 	font-family: Inter;
@@ -128,6 +133,7 @@
 	font-style: normal;
 	font-weight: 400;
 	line-height: 1.25rem; /* 142.857% */
+	
 }
 /*  */
 .bonus_and_review_container .freerolls_container {
@@ -295,3 +301,132 @@
 		flex-direction: column;
 	}
 }
+.description_text_line{
+	margin:15px 0px 15px 0px;
+	color: #101828;
+	font-weight: 600;
+	font-style: normal;
+	font-size: 1rem;
+line-height: 1.25rem;
+text-align: center;
+line-height: 1.5;
+}
+.description_text_line_para{
+	color: #475467;
+	font-family: Inter;
+	font-size: 1.125rem;
+	font-weight: 400;
+	padding: 8px 0px 0px 0px;
+
+}
+.two_column_layout {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.left_column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.right_column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+/* Parent container for the two columns */
+.bonus_and_review_container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* Two-Column Layout */
+.two_column_layout {
+  display: flex;
+  gap: 2rem; /* Space between columns */
+  width: 100%;
+  justify-content: space-between; /* Ensure columns are spaced evenly */
+}
+
+/* Left Column */
+.left_column {
+  flex: 1; /* Equal width with the right column */
+  padding: 1rem;
+  box-sizing: border-box;
+  background: #f9f9f9; /* Optional background color */
+}
+
+/* Right Column */
+.right_column {
+  flex: 1; 
+  /* Equal width with the left column */
+  padding: 1rem;
+  box-sizing: border-box;
+  background: #f5f8ff;  
+  /* Optional background color */
+}
+
+/* Freerolls Section */
+.freerolls_container {
+  padding: 1rem;
+  background-color: #e7f3ff;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+/* Tab Container */
+.horizontal_tabs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+/* Tab Buttons - Make the container scrollable horizontally */
+.tabs {
+  display: flex;
+  flex-wrap: nowrap; /* Prevent wrapping */
+  overflow-x: auto;  /* Make the container scrollable horizontally */
+  width: 100%;
+  padding-bottom: 10px; /* Optional: Padding to avoid scrollbar touching the tabs */
+  scrollbar-width: thin; /* For Firefox - makes the scrollbar thinner */
+  -ms-overflow-style: none; /* For Internet Explorer */
+}
+
+/* Hide default scrollbar in Webkit browsers (Chrome, Safari) */
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+/* Tab Button Base */
+.tab_button_base {
+  cursor: pointer;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #f1f1f1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: center;
+  transition: background-color 0.3s, transform 0.3s;
+  white-space: nowrap; /* Prevent text from breaking into multiple lines */
+}
+
+/* Hover Effect */
+.tab_button_base:hover {
+  background-color: #f8f8f8;
+  transform: scale(1.05);
+}
+
+/* Active Tab Styling */
+.tab_button_base.active {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+  border: 1px solid #4CAF50;
+}
+
+

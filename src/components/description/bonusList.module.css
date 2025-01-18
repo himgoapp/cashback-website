@@ -1,0 +1,58 @@
+.bonusList_title{
+	color: var(--gray-900, #101828);
+}
+.bonusList_para{
+	color: #475467;
+margin: 8px 0px 8px 0px;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: 150%;
+align-self: stretch;
+}
+.content_container .heading {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: var(--gray-900, #101828);
+
+	/* Text lg/Medium */
+	font-family: Inter;
+	font-size: 1.125rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.75rem; /* 155.556% */
+}
+.content_container .divider {
+	height: 0.0625rem;
+	align-self: stretch;
+	background: #c5d4fc;
+}
+.content_container .content_list_ul {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.25rem;
+	align-self: stretch;
+}
+.bonuses_and_review_wrapper .content_container {
+	width: 100%;
+}
+.content_container .heading {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	color: var(--gray-900, #101828);
+
+	/* Text lg/Medium */
+	font-family: Inter;
+	font-size: 1.125rem;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 1.75rem; /* 155.556% */
+}
+.freerolls_container .divider {
+	height: 0.0625rem;
+	align-self: stretch;
+	background: #eaeaea;
+}

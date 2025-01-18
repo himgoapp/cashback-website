@@ -1,0 +1,137 @@
+/* Content Deposit */
+.content_deposit {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px 0px 0px;
+  width: 80%;
+}
+
+.column {
+  width: 45%;  /* Adjust for spacing */
+  margin: 0 2%; /* Adjust column spacing */
+}
+
+.content_deposit_para {
+  color: #475467;
+  font-family: Inter, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  width: 80%;
+  padding-top: 8px;
+}
+
+.content_deposit_heading {
+  color: #101828;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 1.25rem;
+  display: flex;
+}
+.content_deposit_main_heading{
+  color: #101828;
+  font-style: normal;
+  display: flex;
+width: 80%;
+}
+.receipt {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0px 0px 0px;
+  width: 80%;
+  color: #101828;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.25rem;
+}
+
+.receipt_list {
+  color: #475467;
+  font-family: Inter, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  width: 90%;
+}
+
+.choose_loyality_program {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: 15px 0px 0px 0px;
+}
+
+.choose_loyality_program_desc {
+  width: 80%;
+  margin: 12px 0px 0px 0px;
+  font-family: Inter, sans-serif;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: #475467;
+}
+
+.choose_loyality_program_para {
+  padding: 8px 0px 0px 0px;
+}
+
+/* Media Queries for Responsiveness */
+
+/* For medium screens (Tablets, up to 1200px) */
+@media screen and (max-width: 1200px) {
+  .content_deposit, .receipt {
+      width: 90%; /* Adjust container width */
+      padding: 15px 0; /* Adjust padding */
+  }
+  .column {
+      width: 48%; /* Reduce column width slightly */
+  }
+  .content_deposit_heading, .receipt {
+      font-size: 1.125rem; /* Slightly smaller font size */
+  }
+  .choose_loyality_program, .choose_loyality_program_desc {
+      width: 80%; /* Adjust width for medium screens */
+  }
+}
+
+/* For smaller screens (Tablets, up to 768px) */
+@media screen and (max-width: 768px) {
+  .content_deposit, .receipt {
+      flex-direction: column; /* Stack content vertically */
+      width: 100%; /* Full width */
+  }
+  .column {
+      width: 100%; /* Full width for columns */
+      margin: 10px 0; /* Adjust margin for stacked layout */
+  }
+  .content_deposit_heading, .receipt {
+      font-size: 1.125rem; /* Adjust font size */
+  }
+  .choose_loyality_program, .choose_loyality_program_desc {
+      width: 90%; /* Adjust for smaller screens */
+  }
+  .content_deposit_para {
+      font-size: 1rem; /* Adjust font size for better readability */
+  }
+}
+
+/* For mobile screens (up to 480px) */
+@media screen and (max-width: 480px) {
+  .content_deposit, .receipt {
+      width: 100%; /* Full width */
+      padding: 10px 0; /* Adjust padding */
+  }
+  .column {
+      width: 100%; /* Full width for columns */
+      margin: 8px 0; /* Adjust margin for mobile */
+  }
+  .content_deposit_heading, .receipt {
+      font-size: 1rem; /* Smaller font size */
+  }
+  .choose_loyality_program, .choose_loyality_program_desc {
+      width: 100%; /* Full width on mobile */
+  }
+  .choose_loyality_program_desc {
+      font-size: 1rem; /* Smaller font size */
+  }
+  .content_deposit_para {
+      font-size: 0.875rem; /* Smaller font size for better fit */
+  }
+}

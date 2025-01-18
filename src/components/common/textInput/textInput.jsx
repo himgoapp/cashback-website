@@ -7,6 +7,9 @@ const TextInput = ({
 	setValue,
 	disabled,
 	value,
+	fxnCheck,
+	handleFxn,type,
+	
 }) => {
 	return (
 		<div
@@ -14,13 +17,19 @@ const TextInput = ({
 			style={{ position: "relative", width: width }}
 		>
 			<input
-				type='text'
+				type={type ? type : "text"}
 				placeholder={placeholder}
 				className={styles.text_input_container}
 				onChange={(e) => setValue(e.target.value)}
 				style={{ width: "100%" }}
 				disabled={disabled ? disabled : false}
 				value={value}
+				onKeyDown={(e) => {
+					if (e.key === "Enter" &&  !!fxnCheck) 
+						handleFxn();
+					}}
+					
+				
 			/>
 
 			{children}

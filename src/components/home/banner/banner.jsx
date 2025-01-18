@@ -4,6 +4,8 @@ import bannerimg from "../../../assets/bannerimg.png";
 import layer1 from "../../../assets/Layer_1.png";
 import { Link } from "react-router-dom";
 import Reveal from "../../common/reveal/Reveal";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const animationVariants = {
 	hidden: { opacity: 0, scale: 0.8 },
@@ -15,6 +17,23 @@ const animationVariants = {
 };
 
 const Banner = () => {
+	const navigate = useNavigate();
+ const validatetokenAndRedirect =() =>{
+	const token = localStorage.getItem("token")
+	? localStorage.getItem("token")
+	: false;
+
+	if (!token) {
+		toast.error(
+			" Please login/signup to get started with RakeBackk!"
+		);
+	} else {
+		navigate("/offer_and_deals")
+	}
+
+
+ }
+
 	return (
 		<div className={`container_max ${styles.banner_container}`}>
 			<div className={styles.header_container}>
@@ -28,12 +47,13 @@ const Banner = () => {
 							cash.
 						</div>
 					</div>
-					<Link
+					<button className={`primary_button ${styles.btn_container}`} onClick ={() => validatetokenAndRedirect()} > Get started</button>
+					{/* <Link
 						to='/offer_and_deals'
 						className={`primary_button ${styles.btn_container}`}
 					>
 						Get started
-					</Link>
+					</Link> */}
 				</Reveal>
 			</div>
 
