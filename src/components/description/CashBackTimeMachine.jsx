@@ -26,9 +26,15 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 
 	return (
 		<div id="caskback-time-machine"  >
-		
+			<div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
 	<div className={styles.container_heading}>
+
 	<h1 >Loyalty program "Time Machine" on Pokerdom - rakeback up to 70%</h1></div>
+	<div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
     <div className={styles.loyality__para}>
     <p >From November 1, 2023, the Pokerdom room changed the terms of its loyalty program "Time Machine". The main thing that has changed:
 
@@ -72,8 +78,13 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 <div className={styles.loyality__para}>
     <span className={styles.example}>Example:</span><span >  in November, a player generated 100,000 rubles in rake. On December 1, he will receive  a direct rakeback of 20,000 rubles  (equal to 20%) to his account , and this player's rakeback in November  (regardless of the final amount)  will be increased by 8%. Then, during December, this same player generated 80,000 rubles in rake. On December 1, he will receive  a direct rakeback of 16,000 rubles  (equal to 20%)  to his account and  an additional rakeback of 6,400 rubles  (equal to 8%) </span>
 </div>
-<div >
-<h2 className={styles.container_heading2}>Loyalty program "Time Machine" on Pokerdom - rakeback up to 70%</h2></div>
+<div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
+	
+<h1 className={styles.container_heading2}>Pokerdom Jackpot – How to Win It</h1><div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
 <div >
 	<p className={styles.loyality__para}>
 	The possibility of winning the jackpot can be considered as one of the additional bonuses. 
@@ -91,8 +102,8 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 	Let's now talk about each of them in more detail to understand how they work and what needs to be done to win them. 
 	</p>
 </div>
-<div>
-	<h2 className={styles.container_heading2}>
+<div className={styles.container_heading_list}>
+	<h2 >
 	Bad beat jackpot on Pokerdom – what is it
 
 	</h2>
@@ -106,7 +117,7 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 	</p>
 </div>
 <div>
-	<h2 className={styles.container_heading2}>
+	<h2 >
 	Jackpot in Windfall tournaments
 
 	</h2>

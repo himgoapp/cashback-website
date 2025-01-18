@@ -37,10 +37,14 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 	];
 
 	return (
-		<div id="caskback-time-machine"  >
-		
+		<div id="rack-structure"  >
+		<div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
 	<div className={styles.container_heading}>
-	<h1 >Rake to Pokerdom</h1></div>
+	<h1 >Rake to Pokerdom</h1></div><div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
     <div >
     <p className={styles.loyality__para} >
     Pokerdom takes $0.01 ruble rake for every 0.20 rubles in the pot, which actually means 5% rake. Depending on the limit and the number of players at the table, the rake cap will vary, which is detailed in the table below.
@@ -76,8 +80,14 @@ In Chinese poker, the rake is taken once, after a full round of hands has been d
 </table>
 </div>
 <div>
+<div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
 <div className={styles.container_heading2}>
-<h1 >Rake to Pokerdom</h1></div>
+<h1 >Rake on Pokerdom</h1></div>
+<div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
 </div>
 <div>
     <p className={styles.loyality__para}>
@@ -99,11 +109,17 @@ In Chinese poker, the rake is taken once, after a full round of hands has been d
      For real grinders who are ready to play a lot and regularly, it is more profitable to choose "Time Machine", while for small volumes of playing it is better to give preference to the "100 steps to a million" program. 
       </p>
 </div>
+<div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
 <div className={styles.container_heading2}>
     <h1>
     Conditions for receiving bonuses on Pokerdom
     </h1>
 </div>
+<div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
 <div>
     <p  className={styles.loyality__para}>
     Some promotions are available to players only once, while some offers can be repeated – such as jackpots, reload bonuses, and so on. 

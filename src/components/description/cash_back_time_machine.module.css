@@ -63,6 +63,42 @@
     justify-content: center;
     width: 80%;
 }
+.container_heading_list{
+    padding-top: 16px;
+    display: flex;
+    /* justify-content: center; */
+    width: 80%;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 10px 0px 0px 0px;
+    width: 80%;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 2px; /* Line thickness */
+    background: linear-gradient(to right, rgba(57, 104, 235, 0) 0%, #3968eb 50%, rgba(57, 104, 235, 0) 100%);
+}
+
+.divider::before {
+    margin-right: 10px;
+}
+
+.divider::after {
+    margin-left: 10px;
+}
+
+.diamond {
+    width: 12px;
+    height: 12px;
+    background-color: #3968eb; /* Green color for the diamond */
+    transform: rotate(45deg); /* Rotate the square to look like a diamond */
+}
 
 /* Media Queries for Mobile Responsiveness */
 @media screen and (max-width: 1200px) {

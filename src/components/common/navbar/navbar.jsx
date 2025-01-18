@@ -134,6 +134,9 @@ const homePageMenu = (
 		<a href='/#faq' className={"secondary_link"}>
 			FAQs
 		</a>
+		<Link to='/offer_and_deals' className='secondary_link'>
+			Offers & deals
+		</Link>
 	</div>
 );
 

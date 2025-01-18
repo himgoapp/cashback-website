@@ -67,7 +67,11 @@ width: 80%;
   font-weight: 400;
   color: #475467;
 }
-
+.content_deposit_line{
+  height: 0.0625rem;
+	align-self: stretch;
+	background: #c5d4fc;
+}
 .choose_loyality_program_para {
   padding: 8px 0px 0px 0px;
 }
@@ -90,7 +94,37 @@ width: 80%;
       width: 80%; /* Adjust width for medium screens */
   }
 }
+.divider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px 0px 0px 0px;
+  width: 80%;
+}
 
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 2px; /* Line thickness */
+  background: linear-gradient(to right, rgba(57, 104, 235, 0) 0%, #3968eb 50%, rgba(57, 104, 235, 0) 100%);
+}
+
+.divider::before {
+  margin-right: 10px;
+}
+
+.divider::after {
+  margin-left: 10px;
+}
+
+.diamond {
+  width: 12px;
+  height: 12px;
+  background-color: #3968eb; /* Green color for the diamond */
+  transform: rotate(45deg); /* Rotate the square to look like a diamond */
+}
 /* For smaller screens (Tablets, up to 768px) */
 @media screen and (max-width: 768px) {
   .content_deposit, .receipt {
