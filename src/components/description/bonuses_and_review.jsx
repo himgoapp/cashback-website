@@ -23,8 +23,10 @@ const BonusesAndReview = () => {
           setContent1(0);
         }}
       >
-        <div className={styles.description_text_line}>
-          POKER ROOM BONUSES Cashback and Promotions
+        <div>
+		<font  className={styles.description_text_line}>Poker room promotions</font>
+		<br></br>
+		<font className={styles.description_text_line_1}>Bonuses and promotions Pokerdom</font>
         </div>
       </div>
 
@@ -32,8 +34,10 @@ const BonusesAndReview = () => {
         className={styles.tab_button_base}
         onClick={() => setContent1(1)}
       >
-        <div className={styles.description_text_line}>
-          Bonuses from PekarStas Rakeback and bonuses
+        <div>
+          <font className={styles.description_text_line}>Bonuses from PekarStas</font>
+		  <br></br>
+		  <font className={styles.description_text_line_1}> Rakeback and bonuses</font>
         </div>
       </div>
 
@@ -41,8 +45,11 @@ const BonusesAndReview = () => {
         className={styles.tab_button_base}
         onClick={() => setContent1(2)}
       >
-        <div className={styles.description_text_line} >
-          How to download Pokerdom Instructions on how to start playing
+        <div >
+			<font className={styles.description_text_line} >
+			How to download Pokerdom
+			</font>
+         <br></br> <font className={styles.description_text_line_1}>Instructions on how to start playing</font>
         </div>
       </div>
 
@@ -50,8 +57,15 @@ const BonusesAndReview = () => {
         className={styles.tab_button_base}
         onClick={() => setContent1(3)}
       >
-        <div className={styles.description_text_line}>
-          Pokerdom Review Pros and cons of the room
+        <div>
+         <font className={styles.description_text_line}>
+		 Pokerdom Review
+		 </font>
+
+		  <br></br>
+		  <font className={styles.description_text_line_1}>
+		  Pros and cons of the room
+		  </font>
         </div>
       </div>
 
@@ -59,8 +73,14 @@ const BonusesAndReview = () => {
         className={styles.tab_button_base}
         onClick={() => setContent1(4)}
       >
-        <div className={styles.description_text_line}>
-          Player Reviews (69) Rating: 4.9 out of 5 from PekarStas
+        <div >
+			<font className={styles.description_text_line}>
+			Player Reviews (69)
+			</font>
+			<br></br>
+         <font className={styles.description_text_line_1}>
+		 Rating: 4.9 out of 5 from PekarStas
+		 </font>
         </div>
       </div>
     </div>
@@ -108,10 +128,10 @@ const BonusesAndReview = () => {
       <div className={styles.bonus_and_review_description}>
         {content_1 === 0 ? (
           <>
-            <div className={styles.description_text} >
-              <h2>
+            <div >
+              <font className={styles.description_text} >
                 Bonuses, cashback, and promotions RedStar
-              </h2>
+              </font>
             </div>
             <p className={styles.description_text_line_para}>
 			In this section you will find a detailed description of all bonuses and promotions from the poker room, which may be of interest to all players and allow you to receive additional rewards from playing at Pokerdom.
@@ -126,10 +146,10 @@ Click on the item of interest in the table of contents to learn more.
             </p>
           </>
         ) : content_1 === 1 ? (
-          <div className={styles.description_text}>
-            <h2>
+          <div >
+            <font className={styles.description_text}>
               Advantages of the game from PekarStas
-            </h2>
+            </font>
             <p className={styles.description_text_line_para}>
 			Below we have collected all the bonuses and benefits of registering and playing in the poker room that players receive from us.
 			<br></br><br></br>
@@ -137,10 +157,10 @@ The so-called "Plugs" include access to closed sections of the site containing e
             </p>
           </div>
         ) : content_1 === 2 ? (
-          <div className={styles.description_text}>
-            <h2>
+          <div >
+            <font className={styles.description_text}>
               How to download Pokerdom to your computer
-            </h2>
+            </font>
             <p className={styles.description_text_line_para}>
 			Pokerdom room offers everyone to play in the room via a PC client, which is absolutely not inferior to the software of other modern poker rooms. Moreover, there is both a version for Windows and a separate client for MacOS.
 			<br></br><br></br>
@@ -150,10 +170,10 @@ All you need to do is download Pokerdom from the official website, register an a
             </p>
           </div>
         ) : content_1 === 3 ? (
-          <div className={styles.description_text}>
-            <h2>
+          <div >
+            <font className={styles.description_text}>
               Detailed review of Pokerdom
-            </h2>
+            </font>
             <p className={styles.description_text_line_para}>
 			Poker room Pokerdom is the largest and most famous Russian room. It has been operating since 2014 and has won numerous supporters, both among amateur players and regulars.
 			<br></br><br></br>
@@ -164,10 +184,10 @@ In addition, they are attracted by the opportunity to bet on sports and play in 
             </p>
           </div>
         ) : (
-          <div className={styles.description_text}>
-            <h2>
+          <div >
+            <font className={styles.description_text}>
               Reviews of Pokerdom poker room
-            </h2>
+            </font>
             <p className={styles.description_text_line_para}>
 			Most players planning to register in a poker room, in addition to a detailed description of the room, would like to see reviews and opinions about the game in the room from other poker players.
 			<br></br><br></br>

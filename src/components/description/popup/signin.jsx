@@ -70,13 +70,13 @@ const PopupSignin = () => {
 			<div className={styles.PopupSigninWrapperTwo}>
 				<div className={styles.PopupSigininContainer}>
 					<div className={styles.PopupSigninContent}>
+					{showOtpPart === false ?	<>
 						<div className={styles.PopupSigninText}>
-							<div className={styles.Head}>Sign In</div>
+							<div className={styles.Head}>Welcome</div>
 							<div className={styles.Subhead}>
-								Please enter your phone number to Sign In!
+								Please enter your phone number to Login!
 							</div>
 						</div>
-
 						<div
 							className={styles.popup_signin_action}
 							style={{ width: "100%" }}
@@ -94,6 +94,7 @@ const PopupSignin = () => {
 								
 							</TextInput>
 						</div>
+						
 						<div style={{ width: "100%" }}>
 							<Navbtn
 								text={showOtpPart ? "Resend OTP" : "Get OTP"}
@@ -102,19 +103,41 @@ const PopupSignin = () => {
 								showIcon={false}
 								loading={loading}
 								onClick={() => sendOtp()}
+								autofocus="autofocus"
 							/>
 						</div>
+						</>
 
-						{showOtpPart && (
+						:(
 							<>
+							<div className={styles.PopupSigninText}>
+							<div className={styles.Head}>Verify Otp</div>
+							<div className={styles.Subhead}>
+							Enter otp we have sent to your mobile.
+							</div>
+						    </div>
 								<div
 									className={styles.popup_signin_action}
 									style={{ width: "100%" }}
 								>
-									<TextInput placeholder='OTP' setValue={setOtp}
+									{/* <TextInput placeholder='OTP' setValue={setOtp}
 									handleFxn = {() =>verifyOtp()}
 									fxnCheck ={true}
-								/>
+								/> */}
+								<input 
+										value={otp}
+										onChange={(e) => setOtp(e.target.value)}
+										autocomplete="one-time-code"
+										inputmode="numeric"
+										maxlength="6"
+										pattern="\d{6}"
+										autofocus="autofocus"
+										onKeyDown={(e) => {
+											if (e.key === "Enter") 
+												verifyOtp();
+											}}			
+                            
+/>
 								</div>
 								<div style={{ width: "100%" }}>
 									<Navbtn

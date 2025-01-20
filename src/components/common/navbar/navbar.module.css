@@ -1,99 +1,112 @@
+/* Navbar Container */
 .navbar_container {
-	width: 100%;
-	padding-block: 1.5rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    padding-block: 1.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed; /* Makes the navbar sticky */
+    top: 0; /* Ensures the navbar sticks to the top of the viewport */
+    z-index: 1000; /* Keeps the navbar above other content */
+    background-color: white; /* Ensures the background color is visible when scrolling */
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.1); /* Optional shadow for visibility */
 }
 
+/* Navbar Links Container */
 .navbar_container .navbar_link_container {
-	display: flex;
-	align-items: center;
-	gap: 5.625rem;
+    display: flex;
+    align-items: center;
+    gap: 5.625rem;
 }
 
+/* Menu Container */
 .navbar_link_container .menu_container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
 }
 
+/* Button Link Container */
 .navbar_link_container .btn_link_container {
-	display: flex;
-	align-items: center;
-	gap: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-/* for mobile menu  */
+/* Burger Menu for Mobile */
 .navbar_container .burger_menu {
-	display: flex;
-	padding: 0.5rem;
-	justify-content: center;
-	align-items: center;
-	gap: 0.5rem;
-	border-radius: 0.5rem;
-	background: var(--base-white, #fff);
-	display: none;
-	cursor: pointer;
-	border: 0;
+    display: flex;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    background: var(--base-white, #fff);
+    display: none;
+    cursor: pointer;
+    border: 0;
 }
 
 .burger_menu .icon {
-	width: 1.5rem;
-	height: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
+/* Mobile Links Container */
 .link_mobile_container {
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	background-color: white;
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	padding: 1rem;
-	border-radius: 0.5rem;
-	box-shadow: 0px 0px 10px 0px #e2e2e2;
-	z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 0px #e2e2e2;
+    z-index: 1000;
 }
 
 .link_mobile_container .menu_container {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .link_mobile_container .btn_link_container {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
+/* Mobile Header */
 .link_mobile_header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
 }
+
 .link_mobile_header button {
-	background: none;
-	border: none;
-	cursor: pointer;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
+/* Responsive Design */
 @media only screen and (max-width: 768px) {
-	.navbar_container {
-		padding-block: 0.75rem;
-	}
+    .navbar_container {
+        padding-block: 0.75rem;
+    }
 
-	.navbar_container .navbar_link_container {
-		display: none;
-	}
+    .navbar_container .navbar_link_container {
+        display: none;
+    }
 
-	.navbar_container .burger_menu {
-		display: flex;
-	}
+    .navbar_container .burger_menu {
+        display: flex;
+    }
 }

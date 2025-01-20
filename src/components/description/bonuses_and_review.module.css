@@ -65,7 +65,10 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	color: var(--gray-900, #101828);
+	color: var(--gray-900, #28282c);
+	font-size: 20px;
+	font-family: "ProximaNova-Semibold", sans-serif !important;
+
 
 	/* Text lg/Medium */
 	font-family: Inter;
@@ -127,12 +130,11 @@
 }
 .bonus_and_review_container .description_text {
 	align-self: stretch;
-	color: #475467;
-	font-family: Inter;
-	font-size: 0.875rem;
-	font-style: normal;
+	color:#28282c;
+	font-family: "ProximaNovaA-Medium",sans-serif;
+	font-size: 30px;
 	font-weight: 400;
-	line-height: 1.25rem; /* 142.857% */
+	line-height: 36px; /* 142.857% */
 	
 }
 /*  */
@@ -303,18 +305,23 @@
 }
 .description_text_line{
 	margin:15px 0px 15px 0px;
-	color: #101828;
+	color: #28282c;
 	font-weight: 600;
 	font-style: normal;
+	font-family: "ProximaNova-Bold",sans-serif;
 	font-size: 1rem;
 line-height: 1.25rem;
 text-align: center;
 line-height: 1.5;
 }
+.description_text_line_1{
+	color: #475467;
+	font-size: 14px;
+}
 .description_text_line_para{
 	color: #475467;
-	font-family: Inter;
-	font-size: 1.125rem;
+	font-family: "ProximaNova-Regular",sans-serif;
+	font-size:16px;
 	font-weight: 400;
 	padding: 8px 0px 0px 0px;
 

@@ -41,8 +41,8 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 		<div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
-	<div className={styles.container_heading}>
-	<h1 >Rake to Pokerdom</h1></div><div class={styles.divider}>
+	<div >
+	<font className={styles.container_heading}>Rake to Pokerdom</font></div><div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
     <div >
@@ -83,8 +83,8 @@ In Chinese poker, the rake is taken once, after a full round of hands has been d
 <div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
-<div className={styles.container_heading2}>
-<h1 >Rake on Pokerdom</h1></div>
+<div>
+<font  className={styles.container_heading2}>Rake on Pokerdom</font></div>
 <div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
@@ -112,10 +112,10 @@ In Chinese poker, the rake is taken once, after a full round of hands has been d
 <div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
-<div className={styles.container_heading2}>
-    <h1>
+<div>
+    <font  className={styles.container_heading2}>
     Conditions for receiving bonuses on Pokerdom
-    </h1>
+    </font>
 </div>
 <div class={styles.divider}>
     <div class={styles.diamond}></div>

@@ -14,24 +14,36 @@
 .content_deposit_para {
   color: #475467;
   font-family: Inter, sans-serif;
-  font-size: 1.125rem;
+  font-size: 16px;
   font-weight: 400;
   width: 80%;
   padding-top: 8px;
 }
 
 .content_deposit_heading {
-  color: #101828;
-  font-weight: 600;
   font-style: normal;
-  font-size: 1.25rem;
   display: flex;
+  font-size: 20px;
+  font-weight: 400 !important;
+color:#28282c;
+font-family: "ProximaNova-Semibold", sans-serif !important;
+}
+.content_deposit_heading_2{
+  font-style: normal;
+  display: flex;
+  font-size: 20px;
+  font-weight: 400 !important;
+color:#28282c;
+font-family: "ProximaNova-Semibold", sans-serif !important;
 }
 .content_deposit_main_heading{
-  color: #101828;
-  font-style: normal;
+   font-style: normal;
   display: flex;
 width: 80%;
+font-size: 30px;
+font-weight: 400;
+color:#28282c;
+font-family: "ProximaNova-Medium", sans-serif;
 }
 .receipt {
   display: flex;
@@ -39,15 +51,15 @@ width: 80%;
   padding: 20px 0px 0px 0px;
   width: 80%;
   color: #101828;
-  font-weight: 400;
+  font-weight: bold;
   font-style: normal;
-  font-size: 1.25rem;
+  font-size: 24px;
 }
 
 .receipt_list {
   color: #475467;
   font-family: Inter, sans-serif;
-  font-size: 1.125rem;
+  font-size: 16px;
   font-weight: 400;
   width: 90%;
 }
@@ -56,6 +68,10 @@ width: 80%;
   display: flex;
   justify-content: center;
   width: 80%;
+  font-size: 30px;
+  font-weight: 400;
+  color:#28282c;
+  font-family: "ProximaNova-Medium", sans-serif;
   margin: 15px 0px 0px 0px;
 }
 
@@ -63,7 +79,7 @@ width: 80%;
   width: 80%;
   margin: 12px 0px 0px 0px;
   font-family: Inter, sans-serif;
-  font-size: 1.125rem;
+  font-size: 16px;
   font-weight: 400;
   color: #475467;
 }
@@ -99,7 +115,7 @@ width: 80%;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin: 10px 0px 0px 0px;
+  margin: 42px 0px 30px 0px;
   width: 80%;
 }
 

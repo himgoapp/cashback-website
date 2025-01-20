@@ -1,7 +1,7 @@
 .about__container {
 	display: flex;
 	flex-wrap: wrap;
-	padding-block: 4.5rem;
+	padding-block: 7rem;
 	justify-content: space-between;
 	align-items: center;
 	border-bottom: 0.0625rem solid #eaeaea;

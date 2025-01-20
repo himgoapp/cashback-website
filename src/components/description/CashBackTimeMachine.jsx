@@ -29,9 +29,9 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 			<div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
-	<div className={styles.container_heading}>
+	<div >
 
-	<h1 >Loyalty program "Time Machine" on Pokerdom - rakeback up to 70%</h1></div>
+	<font className={styles.container_heading} >Loyalty program "Time Machine" on Pokerdom - rakeback up to 70%</font></div>
 	<div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
@@ -76,13 +76,13 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 </table>
 </div>
 <div className={styles.loyality__para}>
-    <span className={styles.example}>Example:</span><span >  in November, a player generated 100,000 rubles in rake. On December 1, he will receive  a direct rakeback of 20,000 rubles  (equal to 20%) to his account , and this player's rakeback in November  (regardless of the final amount)  will be increased by 8%. Then, during December, this same player generated 80,000 rubles in rake. On December 1, he will receive  a direct rakeback of 16,000 rubles  (equal to 20%)  to his account and  an additional rakeback of 6,400 rubles  (equal to 8%) </span>
+    <span className={styles.example}>Example:</span><span > in November, a player generated 100,000 rubles in rake. On December 1, he will receive  a direct rakeback of 20,000 rubles  (equal to 20%) to his account , and this player's rakeback in November  (regardless of the final amount)  will be increased by 8%. Then, during December, this same player generated 80,000 rubles in rake. On December 1, he will receive  a direct rakeback of 16,000 rubles  (equal to 20%)  to his account and  an additional rakeback of 6,400 rubles  (equal to 8%) </span>
 </div>
 <div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
 	
-<h1 className={styles.container_heading2}>Pokerdom Jackpot – How to Win It</h1><div class={styles.divider}>
+<font className={styles.container_heading2}>Pokerdom Jackpot – How to Win It</font><div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
 <div >
@@ -103,27 +103,27 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 	</p>
 </div>
 <div className={styles.container_heading_list}>
-	<h2 >
+	<font className={styles.list_heading} >
 	Bad beat jackpot on Pokerdom – what is it
 
-	</h2>
+	</font>
 </div>
 <div>
-	<p className={styles.loyality__para}>
+	<p className={styles.loyality__para_list}>
 	At cash tables, which are marked with a special sign – Jackpot, you can win a cash prize when you lose any of the hands with a strong combination. For Texas Hold'em, this is a combination of at least a quad of eights. For Omaha, this is a quad of aces and higher combinations.
 	</p>
-	<p className={styles.loyality__para}>
+	<p className={styles.loyality__para_list}>
 	The Bad Beat Jackpot amount is divided between the winner (20%) and the loser (30%) in the hand, as well as all players who were at other Jackpot tables at the time of the draw - they are entitled to 10%.
 	</p>
 </div>
-<div>
-	<h2 >
+<div className={styles.container_heading_list_2}>
+	<font className={styles.list_heading2}>
 	Jackpot in Windfall tournaments
 
-	</h2>
+	</font>
 </div>
 <div>
-	<p className={styles.loyality__para}>
+	<p className={styles.loyality__para_list}>
 	In this format of small tournaments, the prize pool is formed randomly. Moreover, the jackpot can be won with a probability of 2 in 100,000.
 	</p>
 

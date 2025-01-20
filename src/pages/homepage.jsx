@@ -13,8 +13,9 @@ import MainContainer from "../layout/mainContainer";
 const Homepage = () => {
 	return (
 		<>
+		<Navbar page='home' />
 			<MainContainer>
-				<Navbar page='home' />
+				
 				<Banner />
 				<AboutUs />
 				<Deals />

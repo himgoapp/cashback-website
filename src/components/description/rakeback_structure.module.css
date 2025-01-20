@@ -5,6 +5,11 @@
     text-align: center;
     margin: 0;
     width: 80%;
+    font-size: 30px;
+    font-weight: 400;
+    color:#28282c;
+    font-family: "ProximaNova-Medium", sans-serif;
+
 }
 
 .container_heading2{
@@ -14,12 +19,16 @@
     margin: 0;
     width: 80%;
     padding-top: 15px;
+    font-size: 30px;
+    font-weight: 400;
+    color:#28282c;
+    font-family: "ProximaNova-Medium", sans-serif;
 }
 
 .loyality__para, .loyality__table_heading {
     color: #475467;
     font-family: Inter, sans-serif;
-    font-size: 1.125rem;
+    font-size: 16px;
     font-weight: 400;
     width: 80%;
     padding-top: 16px;
@@ -42,25 +51,21 @@
     background: #6cad84!important;
     color: white;
     text-align: center;
+    font-size: 16px;
 }
 
 .table_data, .table_data_points {
     text-align: center;
     color: #475467;
     padding: 15px;
+    font-size: 16px;
 }
 
-
-
-.example {
-    color: #e74c3c;
-    font-weight: bold;
-}
 .divider {
     display: flex;
     align-items: center;
     text-align: center;
-    margin: 10px 0px 0px 0px;
+    margin: 42px 0px 30px 0px;
     width: 80%;
 }
 
