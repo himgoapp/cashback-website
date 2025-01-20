@@ -155,9 +155,9 @@ button {
 	color: var(--White, #fff);
 }
 .outlined_button {
-	border: 2px solid #212121;
-	background-color: white;
-	color: #121212;
+	/* border: 2px solid #212121; */
+	background-color: #3968eb;
+	color: white;
 }
 .outlined_primary_button {
 	border: 2px solid #3968eb;

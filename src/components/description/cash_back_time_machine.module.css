@@ -5,17 +5,40 @@
     text-align: center;
     margin: 0;
     width: 80%;
+    font-size: 30px;
+    font-weight: 400;
+  color:#28282c;
+  font-family: "ProximaNova-Medium", sans-serif;
 }
 
 .loyality__para, .loyality__table_heading {
     color: #475467;
     font-family: Inter, sans-serif;
-    font-size: 1.125rem;
+    font-size: 16px;
     font-weight: 400;
     width: 80%;
     padding-top: 12px;
 }
-
+.loyality__para_list{
+    color: #475467;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    width: 80%;
+    padding-top: 8px;
+}
+.list_heading{
+    font-size: 24px;
+    font-weight: 400 !important;
+color:#28282c;
+font-family: "ProximaNova-Semibold", sans-serif !important;
+}
+.list_heading2{
+    font-size: 24px;
+    font-weight: 400 !important;
+color:#28282c;
+font-family: "ProximaNova-Semibold", sans-serif !important;
+}
 /* Table Styles */
 .table_container {
     width: 80%; /* Full width for responsiveness */
@@ -38,11 +61,13 @@
     text-align: center;
     color: #475467;
     padding: 15px;
+    font-size: 16px;
 }
 
 .table_data_points {
     text-align: center;
     color: #475467;
+    font-size: 16px;
 
 }
 
@@ -62,6 +87,52 @@
     display: flex;
     justify-content: center;
     width: 80%;
+    font-size: 30px;
+    font-weight: 400;
+    color:#28282c;
+    font-family: "ProximaNova-Medium", sans-serif;
+}
+.container_heading_list{
+    padding-top: 16px;
+    display: flex;
+    /* justify-content: center; */
+    width: 80%;
+}
+.container_heading_list_2{
+    padding-top: 16px;
+    display: flex;
+    /* justify-content: center; */
+    width: 80%;
+}
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 42px 0px 30px 0px;
+    width: 80%;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 2px; /* Line thickness */
+    background: linear-gradient(to right, rgba(57, 104, 235, 0) 0%, #3968eb 50%, rgba(57, 104, 235, 0) 100%);
+}
+
+.divider::before {
+    margin-right: 10px;
+}
+
+.divider::after {
+    margin-left: 10px;
+}
+
+.diamond {
+    width: 12px;
+    height: 12px;
+    background-color: #3968eb; /* Green color for the diamond */
+    transform: rotate(45deg); /* Rotate the square to look like a diamond */
 }
 
 /* Media Queries for Mobile Responsiveness */

@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import styles from "./offerAndRegistration.module.css"; // Replace with your actual CSS module path
 // import offercard from "../../assets/offercard.png";
 import proIcon from "../../assets/proIcon.png";
@@ -11,6 +11,8 @@ import pokerbaazi from "../../assets/PokerBaazi.svg";
 import Navbtn from "../common/button/navbtn/navbtn";
 
 const OfferAndRegistration = () => {
+		const[register,setRegister]=useState(0)
+	
 	let currentItem = localStorage.getItem("currentProductValue")
 		? JSON.parse(localStorage.getItem("currentProductValue"))
 		: {};
@@ -204,18 +206,32 @@ const OfferAndRegistration = () => {
 								{/* Type Content */}
 								<div className={styles.type_content}>
 									{/* Type */}
-									<div className={styles.type + " " + styles.focused}>
+									<div className="secondary_link">
 										{/* Type Content */}
-										<span>{/* Type Span Content */}After Registration</span>
+										<a         onClick={() => {
+          setRegister(0);
+        }}>After Registration</a>
+	
+	
 									</div>
-									<div className={styles.type}>
+								<div className="secondary_link"    >
+									<a      onClick={() => {
+          setRegister(1);
+        }}>
 										{/* Type Content */}
 										Old Account
-									</div>
+									</a></div>
 								</div>
 
 								{/* Type Description */}
-								<div className={styles.type_desc}>
+							
+							</div>
+
+							
+<div>
+	{register === 0 ? (
+<>
+		<div className={styles.type_desc}>
 									{/* Type Title */}
 									<div className={styles.type_title}>
 										{/* Icon */}
@@ -237,8 +253,6 @@ const OfferAndRegistration = () => {
 										the account has been successfully linked to us.
 									</div>
 								</div>
-							</div>
-
 							{/* Verify Container */}
 							<div className={styles.verify_container}>
 								{/* Add your verify content here */}
@@ -254,20 +268,38 @@ const OfferAndRegistration = () => {
 								</div>
 								<Navbtn
 									text='Verify Account'
-									bg='transparent'
-									color='black'
-									showIcon={false}
-									font={{ fontSize: "1rem", color: "#3968EB" }}
-									style={{
-										width: "100%",
-										borderRadius: "2.4375rem",
-										background: "#E1EAFE",
+									// bg='transparent'
+									// color='black'
+									// showIcon={false}
+									// font={{ fontSize: "1rem", color: "#3968EB" }}
+									// style={{
+									// 	width: "100%",
+									// 	borderRadius: "2.4375rem",
+									// 	background: "#E1EAFE",
 
-										/* shadow/sm */
-										boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+									// 	/* shadow/sm */
+									// 	boxShadow: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
+									variant={"primary"}
+									size={"small"}
+									showIcon={false}
+									style={{ width: "100%"
 									}}
 								/>
 							</div>
+							</>):<>
+				
+<h4>
+							Linking an old account
+							</h4>					
+					
+							<div className={styles.para_description}>		
+						You can't link an old account to Pokerdom poker room. We recommend other rooms.
+					
+					</div>
+						</>	}
+							</div>
+
+
 						</div>
 					</div>
 				</div>

@@ -27,9 +27,14 @@ const CaskBackStep = () => {
 
 	return (
 		<div id="cashback-step"  >
-		
-	<div className={styles.container_heading}>
-	<h1 >Loyalty program "100 steps to a million"</h1></div>
+			<div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
+	<div >
+	<font className={styles.container_heading} >Loyalty program "100 steps to a million"</font></div>
+	<div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
 	<div className={styles.loyality__para}>{LoyalityProgram.map((list, index) => (
 									<div key={index}>
 										<div className={styles.text}>{list.text}</div>

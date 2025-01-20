@@ -8,8 +8,9 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 2;
+	z-index: 1050; /* Increased z-index to be higher than the navbar */
 	min-width: 320px;
+	
 }
 .opacityDiv {
 	position: absolute;
@@ -21,7 +22,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	z-index: 3;
+	z-index: 1040; /* Ensure this is below the modal content */
 	opacity: 0.36;
 	background: #000;
 }
@@ -32,7 +33,7 @@
 	width: 100%;
 	max-width: 49rem;
 	align-items: flex-start;
-	z-index: 4;
+	z-index: 1051; /* Ensure this is above the overlay */
 }
 
 .PopupSigninWrapperTwo {
@@ -41,7 +42,7 @@
 	grid-template-columns: repeat(2, 1fr);
 	width: 54rem;
 	align-items: flex-start;
-	z-index: 4;
+	z-index: 1051; /* Ensure this is above the overlay */
 }
 
 .PopupSigininContainer {
@@ -63,6 +64,7 @@
 	align-items: center;
 	gap: 1.5rem;
 }
+
 .PopupSigninText {
 	display: flex;
 	flex-direction: column;
@@ -70,6 +72,7 @@
 	gap: 0.625rem;
 	align-self: stretch;
 }
+
 .Head {
 	color: var(--gray-900, var(--text-primary, #101828));
 	font-family: Futura Md BT;
@@ -78,16 +81,18 @@
 	font-weight: 700;
 	line-height: 2.375rem; /* 126.667% */
 }
+
 .Subhead {
 	color: var(--gray-600, var(--text-secondary, #475467));
 
 	/* Text md/Regular */
 	font-family: Inter;
-	font-size: 1rem;
+	font-size: 16px;
 	font-style: normal;
 	font-weight: 400;
 	line-height: 1.5rem; /* 150% */
 }
+
 .popup_signin_action {
 	display: flex;
 	flex-direction: column;
@@ -96,6 +101,7 @@
 	align-self: stretch;
 	border-radius: 0.75rem;
 }
+
 .input_label {
 	color: var(--gray-700, #344054);
 	font-family: Inter;
@@ -111,32 +117,79 @@
 .PopupImageContainer img {
 	width: 100%;
 }
+
 @media only screen and (max-width: 768px) {
 	.PopupWithOpacity {
 		bottom: 0;
 		align-items: flex-end;
 		justify-content: flex-end;
 	}
+
 	.opacityDiv {
 		width: 100vw;
 		height: 100vh;
 		bottom: 0;
 	}
+
 	.PopupSigininContainer {
 		border-top-right-radius: 0.75rem;
 		border-bottom-left-radius: 0;
 		padding: 1.5rem 1.125rem;
 	}
+
 	.PopupImageContainer {
 		display: none;
 	}
+
 	.Head {
 		font-size: 1.75rem;
 	}
+
 	.Subhead {
 		font-size: 1rem;
 	}
+
 	.PopupSigninWrapperTwo {
 		grid-template-columns: 1fr;
 	}
 }
+:where([autocomplete=one-time-code]) {
+	--otp-digits: 6;
+	--otp-ls: 2ch;
+	--otp-gap: 1.25;
+  
+	/* private consts */
+	--_otp-bgsz: calc(var(--otp-ls) + 1ch);
+	--_otp-digit: 0;
+  
+	all: unset;
+	background: 
+	linear-gradient(90deg, 
+	  var(--otp-bg, #BBB) calc(var(--otp-gap) * var(--otp-ls)),
+	  transparent 0),
+	  linear-gradient(90deg, 
+	  var(--otp-bg, #BBB) calc(var(--otp-gap) * var(--otp-ls)),
+	  transparent 0
+	);
+	background-position: calc(var(--_otp-digit) * var(--_otp-bgsz)) 0, 0 0;
+	background-repeat: no-repeat, repeat-x;
+	background-size: var(--_otp-bgsz) 100%;
+	caret-color: var(--otp-cc, #222);
+	caret-shape: block;
+	clip-path: inset(0% calc(var(--otp-ls) / 2) 0% 0%);
+	font-family: ui-monospace, monospace;
+	font-size: var(--otp-fz, 1.7em);
+	inline-size: calc(var(--otp-digits) * var(--_otp-bgsz));
+	letter-spacing: var(--otp-ls);
+	padding-block: var(--otp-pb, 1ch);
+	padding-inline-start: calc(((var(--otp-ls) - 1ch) / 2) * var(--otp-gap));
+  }
+  
+  /* For this demo */
+  label span {
+	display: block;
+	font-family: ui-sans-serif, system-ui, sans-serif;
+	font-weight: 500;
+	margin-block-end: 1ch;
+  }
+

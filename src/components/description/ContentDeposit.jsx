@@ -13,9 +13,16 @@ const ContentDeposit = () => {
   }  ]
 	return (
 		<div id="content-deposit">
+         
 	<div>
-		<h1 className={styles.content_deposit_main_heading}>100% Bonus for new players up to ₽50,000 + Instant ₽1,000 tournament money to your account
-        </h1>
+    <div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
+		<font className={styles.content_deposit_main_heading}>100% Bonus for new players up to ₽50,000 + Instant ₽1,000 tournament money to your account
+        </font>
+        <div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
        <div className={styles.content_deposit_para}>{DepositBonus.map((list, index) => (
 									<div key={index} className={styles.content_deposit_para}>
 										<div className={styles.text}>{list.text}</div>
@@ -25,7 +32,7 @@ const ContentDeposit = () => {
         </div>
         	<div className={styles.content_deposit}>
                 <div>
- <h2 className={styles.content_deposit_heading}>Instant bonus ₽1,000 from us</h2>
+ <font className={styles.content_deposit_heading}>Instant bonus ₽1,000 from us</font>
  <div >{InstantBonus.map((list, index) => (
 									<div key={index} className={styles.content_deposit_para}>
 										<div className={styles.text}>{list.text}</div>
@@ -33,7 +40,7 @@ const ContentDeposit = () => {
 								))}</div>
                                
  </div>
-<div><h2 className={styles.content_deposit_heading}>Wagering bonus 100% up to ₽50,000 from the room</h2>
+<div><font className={styles.content_deposit_heading}>Wagering bonus 100% up to ₽50,000 from the room</font>
 <div className={styles.content_deposit_para}>
 {WageringBonus.map((list, index) => (
 									<div key={index} className={styles.content_deposit_para}>
@@ -43,7 +50,7 @@ const ContentDeposit = () => {
     </div></div>
             </div>
           <div className={styles.receipt}>  <div>
-                                    <h3>Instructions for receipt:</h3>
+                                    <font className={styles.content_deposit_heading_2}>Instructions for receipt:</font>
                                    <ol  className={styles.receipt_list}>
                                     <li >Register using the button above with the code when registering  PEKARSTAS</li>
                                     <li>Make  your first deposit  in the amount of ₽ 1,000;</li>
@@ -51,18 +58,25 @@ const ContentDeposit = () => {
                                     <li>You will need to enter the received code in the cashier of the game client:  Poker lobby - cashier - promo code.</li>
                                     </ol>
                                 </div>
-                                <div>
-                                    <h3>Instructions for receipt:</h3>
+                                <div >
+                                    <font className={styles.content_deposit_heading_2} >Instructions for receipt:</font>
                                     <ol className={styles.receipt_list}>
                                         <li>Register using the button above with the code when registering  PEKARSTAS</li>
   <li>Make  your first deposit  from ₽ 1,000 to ₽ 50,000;</li>
   <li>The bonus will be activated automatically immediately after the deposit and you can start wagering it.</li>
                                     </ol>
                                 </div></div>
-                                <div className={styles.choose_loyality_program}>
-                                    <h1>Which loyalty program to choose at Pokerdom
-                                    </h1>
+                                <div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
+                                <div >
+                                    
+                                    <font className={styles.choose_loyality_program}>Which loyalty program to choose at Pokerdom
+                                    </font>
                                 </div>
+                                <div class={styles.divider}>
+    <div class={styles.diamond}></div>
+  </div>
                                 <div className={styles.choose_loyality_program_desc}>
                                     <p>By default, all Pokerdom players will be automatically connected to the loyalty program "100 steps to a million" . But if you generate a large amount of rake, then it will be more profitable for you to switch to the loyalty program "Time Machine". To do this, you need to:</p>
                                 <ol className={styles.choose_loyality_program_desc}><li>Login to Pokerdom client</li>

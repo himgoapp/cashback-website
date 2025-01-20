@@ -17,7 +17,7 @@ const Navbar = ({ page }) => {
 
 	return (
 		<Reveal>
-			<div className='container_max'>
+			<div className={styles.container_max}>
 				<div className={styles.navbar_container}>
 					<a href='/'>
 						<Logo />
@@ -29,17 +29,17 @@ const Navbar = ({ page }) => {
 							dashboardMenu
 						) : (
 							<div className={styles.btn_link_container}>
-								<Navbtn
+								{/* <Navbtn
 									text='Sign up'
 									variant={"outlined"}
 									size={"small"}
 									onClick={() => {
 										setLoginTab(true);
 									}}
-								/>
+								/> */}
 								<Navbtn
-									text='Log in'
-									variant={"primary"}
+									text='SignUp/Login'
+									variant={"outlined"}
 									size={"small"}
 									showIcon={false}
 									onClick={() => {
@@ -93,7 +93,7 @@ const Navbar = ({ page }) => {
 									dashboardMenu
 								) : (
 									<div className={styles.btn_link_container}>
-										<Navbtn
+										{/* <Navbtn
 											text='Sign up'
 											variant={"outlined"}
 											size={"small"}
@@ -101,10 +101,10 @@ const Navbar = ({ page }) => {
 												setLoginTab(true);
 												setShowMenu(false);
 											}}
-										/>
+										/> */}
 										<Navbtn
-											text='Log in'
-											variant={"primary"}
+											text='SignUp/Login'
+											variant={"outlined"}
 											size={"small"}
 											showIcon={false}
 											onClick={() => {
@@ -128,6 +128,12 @@ export default Navbar;
 
 const homePageMenu = (
 	<div className={styles.menu_container}>
+	
+		<Link to='/offer_and_deals' className='secondary_link'>
+		Deals
+		</Link>
+		<a href="/#" className={"secondary_link"}>Latest/News</a>
+		<a href="/#" className={"secondary_link"}>Promotions</a>
 		<a href='/#about-us' className={"secondary_link"}>
 			About Us
 		</a>
@@ -152,7 +158,9 @@ const offersAndDealsPageMenu = (
 		</Link>
 
 		<Link to='/offer_and_deals' className='secondary_link'>
-			Offers & deals
+			Deals
 		</Link>
+		<a href="/#" className={"secondary_link"}>Latest/News</a>
+		<a href="/#" className={"secondary_link"}>Promotions</a>
 	</div>
 );
