@@ -544,6 +544,22 @@
 	font-size: 0.875rem;
 	padding-top: 12px;
 }
+.secondary_link_nav {
+	padding: 10px;
+	cursor: pointer;
+
+  }
+  .nav_button{
+	font-size:16px;
+	font-family: "ProximaNova-Bold", sans-serif;
+    font-weight: 400;
+	/* text-transform: uppercase; */
+  }
+  .active {
+	font-weight: bold;
+	color: #3968eb; /* Change to your preferred color */
+	border-bottom: 2px solid #3968eb; /* Adds a visual indicator */
+  }
 @media only screen and (max-width: 1024px) {
 	/* .offer_and_registration_wrapper .offer_and_registration_container {
 		display: flex;

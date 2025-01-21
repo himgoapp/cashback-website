@@ -205,23 +205,23 @@ const OfferAndRegistration = () => {
 							<div className={styles.type_container}>
 								{/* Type Content */}
 								<div className={styles.type_content}>
-									{/* Type */}
-									<div className="secondary_link">
-										{/* Type Content */}
-										<a         onClick={() => {
-          setRegister(0);
-        }}>After Registration</a>
-	
-	
-									</div>
-								<div className="secondary_link"    >
-									<a      onClick={() => {
-          setRegister(1);
-        }}>
-										{/* Type Content */}
-										Old Account
-									</a></div>
-								</div>
+      {/* Type */}
+      <div
+        className={`secondary_link_nav ${register === 0 ? styles.active : ""}`}
+        onClick={() => setRegister(0)}
+      >
+        <a className={styles.nav_button}>After Registration</a>
+      </div>
+      
+      <div
+        className={`secondary_link_nav ${register === 1 ? styles.active : ""}`}
+        onClick={() => setRegister(1)}
+      >
+        <a className={styles.nav_button}>Old Account</a>
+      </div>
+
+      {/* Type Description */}
+    </div>
 
 								{/* Type Description */}
 							

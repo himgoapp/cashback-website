@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "./signin.module.css";
 import TextInput from "../../common/textInput/textInput";
 import Navbtn from "../../common/button/navbtn/navbtn";
@@ -17,6 +17,15 @@ const PopupSignin = () => {
 	const [phoneNumber, setPhoneNUmber] = useState("");
 	const [otp, setOtp] = useState("");
 	const [loading, setLoading] = useState(false);
+	const [alert, setAlert] = useState(false);
+
+	useEffect(() => {
+		if (alert === true) {
+			setTimeout(() => {
+				setAlert(false)
+			}, 7000);
+		}
+	}, [alert]);
 
 	const sendOtp = async () => {
 		if (phoneNumber && phoneNumber.length === 10) {
@@ -30,9 +39,9 @@ const PopupSignin = () => {
 				data.data.type === "success"
 			) {
 				setShowOtpPart(true);
-				toast.success("Otp sent! Please check and fill and submit Otp.");
+				// toast.success("Otp sent! Please check and fill and submit Otp.");
 			} else {
-				toast.error("No such user exist!");
+				// toast.error("No such user exist!");
 			}
 			setLoading(false);
 		} else {
@@ -64,6 +73,7 @@ const PopupSignin = () => {
 			toast.warn("please fill your otp carefully!");
 		}
 	};
+
 
 	return (
 		<div className={styles.PopupWithOpacity}>
@@ -115,7 +125,10 @@ const PopupSignin = () => {
 							<div className={styles.Subhead}>
 							Enter otp we have sent to your mobile.
 							</div>
+							{alert && <a className={styles.alert_message}>Otp sent again please check!</a>}
 						    </div>
+						
+							
 								<div
 									className={styles.popup_signin_action}
 									style={{ width: "100%" }}
@@ -138,6 +151,15 @@ const PopupSignin = () => {
 											}}			
                             
 />
+<div>
+							<a className={styles.otp_resend}>Didn't get the otp? </a> 
+							<a className={styles.otp_resend_1}
+							onClick={() => {
+								setAlert(true);
+								sendOtp();}}
+							>Resend it.</a>
+							
+							</div>
 								</div>
 								<div style={{ width: "100%" }}>
 									<Navbtn

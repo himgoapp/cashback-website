@@ -63,14 +63,14 @@ const DashboardHomeHeader = ({ title, data }) => {
 							<LogoutIcon />
 							
 						</button> */}
-						<Navbtn
+						{/* <Navbtn
 									text='Log out'
 									variant={"outlined"}
 									size={"small"}
 									onClick={() => {
 										onLogout();
 									}}
-								/>
+								/> */}
 						</div>
 						</div>
 					</div>

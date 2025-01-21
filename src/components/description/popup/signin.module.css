@@ -92,11 +92,19 @@
 	font-weight: 400;
 	line-height: 1.5rem; /* 150% */
 }
-
+.otp_resend{
+	color: var(--gray-600, var(--text-secondary, #475467));
+}
+.otp_resend_1{
+	color: blue;
+}
+.alert_message{
+	color:red
+}
 .popup_signin_action {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	align-items: left;
 	gap: 1.5rem;
 	align-self: stretch;
 	border-radius: 0.75rem;
@@ -165,10 +173,10 @@
 	all: unset;
 	background: 
 	linear-gradient(90deg, 
-	  var(--otp-bg, #BBB) calc(var(--otp-gap) * var(--otp-ls)),
+	  var(--otp-bg, #d8eeff) calc(var(--otp-gap) * var(--otp-ls)),
 	  transparent 0),
 	  linear-gradient(90deg, 
-	  var(--otp-bg, #BBB) calc(var(--otp-gap) * var(--otp-ls)),
+	  var(--otp-bg, #d8eeff) calc(var(--otp-gap) * var(--otp-ls)),
 	  transparent 0
 	);
 	background-position: calc(var(--_otp-digit) * var(--_otp-bgsz)) 0, 0 0;
@@ -186,10 +194,3 @@
   }
   
   /* For this demo */
-  label span {
-	display: block;
-	font-family: ui-sans-serif, system-ui, sans-serif;
-	font-weight: 500;
-	margin-block-end: 1ch;
-  }
-
