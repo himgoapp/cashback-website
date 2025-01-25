@@ -21,7 +21,7 @@ const Sidebar = ({ active }) => {
 		localStorage.clear();
 		window.location.reload();
 	};
-	
+
 	return (
 		<div
 			className={styles.SidebarNavigation}
@@ -77,7 +77,7 @@ const Sidebar = ({ active }) => {
 							onClick={() => {
 								imageRef.current.click();
 							}}
-						> 
+						>
 							<CameraIcon />
 							<input
 								type='file'
@@ -94,32 +94,10 @@ const Sidebar = ({ active }) => {
 								{data && data.email ? data.email : "Not filled!"}
 							</div>
 						</div>
-						<div >
-    {/* <button className={styles.Button} onClick={() => onLogout()}>
-      Log Out
-	  <a  className={styles.LogoutButtonContainer} > 	<LogoutIcon/> </a>
-    </button> */}
-<button className={styles.Button} onClick={onLogout}>
-  <span className={styles.ButtonText}>Log Out</span>
-  <span className={styles.LogoutIconContainer}>
-    <LogoutIcon />
-  </span>
-</button>
-  </div>
-							{/* <Navbtn
-															text='Log out'
-															variant={"outlined"}
-															size={"small"}
-															onClick={() => {
-																onLogout();
-															}}
-														/> */}
-						
+						<button className={styles.Button} onClick={() => onLogout()}>
+							Log out<LogoutIcon />
+						</button>
 					</div>
-				
-				</div>
-				<div>
-					
 				</div>
 				<div
 					className={styles.CloseSidebar}

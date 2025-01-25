@@ -5,9 +5,9 @@
 }
 .getstarted_content {
 	width: 100%;
-	display: grid;
+	display: flex;
 	grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
-	border-radius: 1.36388rem;
+	/* border-radius: 1.36388rem; */
 	background-color: #d8eeff;
 
 

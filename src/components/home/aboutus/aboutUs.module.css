@@ -1,13 +1,14 @@
 .about__container {
 	display: flex;
 	flex-wrap: wrap;
-	padding-block: 7rem;
+	width: 100%;
+	padding-block: 4.5rem;
 	justify-content: space-between;
 	align-items: center;
 	border-bottom: 0.0625rem solid #eaeaea;
 	gap: 2rem;
 	background-color: #d8eeff;
-	border-radius: 1.36388rem;
+	/* border-radius: 1.36388rem; */
 }
 .about__container .content {
 	display: flex;

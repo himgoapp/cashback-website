@@ -211,7 +211,7 @@ function AddressDetail({ setStepReload }) {
 						<div className={styles.Divider}></div>
 						<div className={styles.Content}>
 							<div className={styles.Actions}>
-								<Navbtn
+								{/* <Navbtn
 									text='Save changes'
 									variant={"primary"}
 									size={"small"}
@@ -219,7 +219,13 @@ function AddressDetail({ setStepReload }) {
 									onClickNav={() => {
 										addAddressData();
 									}}
-								/>
+								/> */}
+									<button className={`primary_button ${styles.btn_container}`} 
+									
+									// onClickNav={() => {addAddressData()}}
+									>
+							Save changes
+						</button>
 							</div>
 						</div>
 					</div>

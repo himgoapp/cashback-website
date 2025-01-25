@@ -9,7 +9,7 @@ import FAQ from "../components/home/FAQ/faq";
 import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
 import Footer from "../components/common/footer/footer";
 import MainContainer from "../layout/mainContainer";
-
+import ScrollToTopButton from "./ScrollToTopButton "
 const Homepage = () => {
 	return (
 		<>
@@ -23,6 +23,7 @@ const Homepage = () => {
 				<Featured />
 				<FAQ />
 				<JoinRakeback />
+				<ScrollToTopButton />
 			</MainContainer>
 
 			<div

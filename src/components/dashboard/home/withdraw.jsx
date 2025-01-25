@@ -27,47 +27,9 @@ const Withdraw = ({ data, userKyc }) => {
 	return (
 		<>
 			<div className={styles.WithdrawContent}>
+				
 				<div className={styles.BalanceAndWinnings}>
-					<div className={styles.Balance}>
-						<div className={styles.BalanceContent}>
-							<div className={styles.Icon}>
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									width='26'
-									height='26'
-									viewBox='0 0 26 26'
-									fill='none'
-								>
-									<path
-										d='M17.1667 8.83358V5.18843C17.1667 4.32204 17.1667 3.88884 16.9842 3.62262C16.8247 3.39002 16.5778 3.23202 16.2997 3.18471C15.9815 3.13056 15.5882 3.31209 14.8016 3.67517L5.56147 7.93982C4.8599 8.26363 4.50912 8.42553 4.25219 8.67662C4.02506 8.8986 3.85168 9.16957 3.74532 9.46882C3.625 9.80732 3.625 10.1937 3.625 10.9664V16.1252M17.6875 15.6044H17.6979M3.625 12.1669L3.625 19.0419C3.625 20.2087 3.625 20.7921 3.85207 21.2377C4.05181 21.6297 4.37052 21.9484 4.76252 22.1482C5.20817 22.3752 5.79156 22.3752 6.95833 22.3752H19.0417C20.2084 22.3752 20.7918 22.3752 21.2375 22.1482C21.6295 21.9484 21.9482 21.6297 22.1479 21.2377C22.375 20.7921 22.375 20.2087 22.375 19.0419V12.1669C22.375 11.0001 22.375 10.4168 22.1479 9.9711C21.9482 9.5791 21.6295 9.26039 21.2375 9.06065C20.7918 8.83358 20.2084 8.83358 19.0417 8.83358L6.95833 8.83358C5.79156 8.83358 5.20817 8.83358 4.76252 9.06065C4.37052 9.26039 4.05181 9.5791 3.85207 9.9711C3.625 10.4168 3.625 11.0001 3.625 12.1669ZM18.2083 15.6044C18.2083 15.8921 17.9751 16.1252 17.6875 16.1252C17.3999 16.1252 17.1667 15.8921 17.1667 15.6044C17.1667 15.3168 17.3999 15.0836 17.6875 15.0836C17.9751 15.0836 18.2083 15.3168 18.2083 15.6044Z'
-										stroke='#175CD3'
-										strokeWidth='2.08333'
-										strokeLinecap='round'
-										strokeLinejoin='round'
-									/>
-								</svg>
-							</div>
-							<div className={styles.BalanceText}>
-								<div className={styles.BalanceHead}>Your Balance</div>
-								<div className={styles.Number}>
-									₹{data && data.wallet_balance ? data.wallet_balance : "0.00"}
-								</div>
-							</div>
-							<div
-								onClick={() => {
-									withdrawHit();
-								}}
-							>
-								<Navbtn
-									text='Withdraw'
-									variant={"outlined_primary"}
-									size={"small"}
-									showIcon={false}
-								/>
-							</div>
-						</div>
-					</div>
-					<div className={styles.Card}>
+				<div className={styles.Card}>
 						<div
 							className={styles.BalanceContent}
 							style={{
@@ -104,10 +66,90 @@ const Withdraw = ({ data, userKyc }) => {
 							</div>
 						</div>
 					</div>
+					<div className={styles.Balance}>
+						<div className={styles.BalanceContent}>
+							<div className={styles.Icon}>
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									width='26'
+									height='26'
+									viewBox='0 0 26 26'
+									fill='none'
+								>
+									<path
+										d='M17.1667 8.83358V5.18843C17.1667 4.32204 17.1667 3.88884 16.9842 3.62262C16.8247 3.39002 16.5778 3.23202 16.2997 3.18471C15.9815 3.13056 15.5882 3.31209 14.8016 3.67517L5.56147 7.93982C4.8599 8.26363 4.50912 8.42553 4.25219 8.67662C4.02506 8.8986 3.85168 9.16957 3.74532 9.46882C3.625 9.80732 3.625 10.1937 3.625 10.9664V16.1252M17.6875 15.6044H17.6979M3.625 12.1669L3.625 19.0419C3.625 20.2087 3.625 20.7921 3.85207 21.2377C4.05181 21.6297 4.37052 21.9484 4.76252 22.1482C5.20817 22.3752 5.79156 22.3752 6.95833 22.3752H19.0417C20.2084 22.3752 20.7918 22.3752 21.2375 22.1482C21.6295 21.9484 21.9482 21.6297 22.1479 21.2377C22.375 20.7921 22.375 20.2087 22.375 19.0419V12.1669C22.375 11.0001 22.375 10.4168 22.1479 9.9711C21.9482 9.5791 21.6295 9.26039 21.2375 9.06065C20.7918 8.83358 20.2084 8.83358 19.0417 8.83358L6.95833 8.83358C5.79156 8.83358 5.20817 8.83358 4.76252 9.06065C4.37052 9.26039 4.05181 9.5791 3.85207 9.9711C3.625 10.4168 3.625 11.0001 3.625 12.1669ZM18.2083 15.6044C18.2083 15.8921 17.9751 16.1252 17.6875 16.1252C17.3999 16.1252 17.1667 15.8921 17.1667 15.6044C17.1667 15.3168 17.3999 15.0836 17.6875 15.0836C17.9751 15.0836 18.2083 15.3168 18.2083 15.6044Z'
+										stroke='#175CD3'
+										strokeWidth='2.08333'
+										strokeLinecap='round'
+										strokeLinejoin='round'
+									/>
+								</svg>
+							</div>
+							<div className={styles.BalanceText_card}>
+								<div className={styles.BalanceHead}>Your Balance</div>
+								<div className={styles.Number}>
+									₹{data && data.wallet_balance ? data.wallet_balance : "0.00"}
+								</div>
+							</div>
+							<div
+								onClick={() => {
+									withdrawHit();
+								}}
+							>
+								<Navbtn
+									text='Withdraw'
+									variant={"outlined_primary"}
+									size={"small"}
+									showIcon={false}
+								/>
+							</div>
+						</div>
+						
+					</div>
+					<div className={styles.Income}>
+						<div className={styles.BalanceContent}>
+							<div className={styles.Icon}>
+								<svg
+									xmlns='http://www.w3.org/2000/svg'
+									width='26'
+									height='26'
+									viewBox='0 0 26 26'
+									fill='none'
+								>
+									<path
+										d='M17.1667 8.83358V5.18843C17.1667 4.32204 17.1667 3.88884 16.9842 3.62262C16.8247 3.39002 16.5778 3.23202 16.2997 3.18471C15.9815 3.13056 15.5882 3.31209 14.8016 3.67517L5.56147 7.93982C4.8599 8.26363 4.50912 8.42553 4.25219 8.67662C4.02506 8.8986 3.85168 9.16957 3.74532 9.46882C3.625 9.80732 3.625 10.1937 3.625 10.9664V16.1252M17.6875 15.6044H17.6979M3.625 12.1669L3.625 19.0419C3.625 20.2087 3.625 20.7921 3.85207 21.2377C4.05181 21.6297 4.37052 21.9484 4.76252 22.1482C5.20817 22.3752 5.79156 22.3752 6.95833 22.3752H19.0417C20.2084 22.3752 20.7918 22.3752 21.2375 22.1482C21.6295 21.9484 21.9482 21.6297 22.1479 21.2377C22.375 20.7921 22.375 20.2087 22.375 19.0419V12.1669C22.375 11.0001 22.375 10.4168 22.1479 9.9711C21.9482 9.5791 21.6295 9.26039 21.2375 9.06065C20.7918 8.83358 20.2084 8.83358 19.0417 8.83358L6.95833 8.83358C5.79156 8.83358 5.20817 8.83358 4.76252 9.06065C4.37052 9.26039 4.05181 9.5791 3.85207 9.9711C3.625 10.4168 3.625 11.0001 3.625 12.1669ZM18.2083 15.6044C18.2083 15.8921 17.9751 16.1252 17.6875 16.1252C17.3999 16.1252 17.1667 15.8921 17.1667 15.6044C17.1667 15.3168 17.3999 15.0836 17.6875 15.0836C17.9751 15.0836 18.2083 15.3168 18.2083 15.6044Z'
+										stroke='#175CD3'
+										strokeWidth='2.08333'
+										strokeLinecap='round'
+										strokeLinejoin='round'
+									/>
+								</svg>
+							</div>
+							<div className={styles.BalanceText_card}>
+								<div className={styles.Income_head}>Total Income</div>
+								<div className={styles.Income_number}>
+									₹{data && data.wallet_balance ? data.wallet_balance : "0.00"}
+								</div>
+							</div>
+							{/* <div
+								onClick={() => {
+									withdrawHit();
+								}}
+							>
+								<Navbtn
+									text='Withdraw'
+									variant={"outlined_primary"}
+									size={"small"}
+									showIcon={false}
+								/>
+							</div> */}
+						</div>
+						
+					</div>
 				</div>
-				<div className={styles.WithdrawImageWrapper} style={{ width: "100%" }}>
+				{/* <div className={styles.WithdrawImageWrapper} style={{ width: "100%" }}>
 					<img src={withdraw} alt='' />
-				</div>
+				</div> */}
 				{showWithdraw && (
 					<WithdrawPopUp
 						setShowWithdraw={setShowWithdraw}

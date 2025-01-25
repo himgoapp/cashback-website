@@ -3,7 +3,7 @@
 	display: flex;
 	justify-content: center;
 	width: 100%;
-padding-block: 7rem;
+/* padding-block: 7rem; */
 }
 
 .faq_container .faq_content {

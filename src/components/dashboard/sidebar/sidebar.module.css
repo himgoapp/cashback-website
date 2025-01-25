@@ -156,6 +156,7 @@
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
+	font-weight: 600;
 	transition: background-color 0.3s, transform 0.3s;
   }
   
@@ -187,7 +188,12 @@
 	font-size: 20px; /* Adjust the size of the icon if necessary */
   }
   
-  
+.TextAndSupportingText{
+	font-size: 1rem;
+	font-weight: bold;
+	color: white;
+    font-family: "ProximaNovaA-Medium", sans-serif;
+}
 
 .Placeholder {
 	width: 1.25rem;

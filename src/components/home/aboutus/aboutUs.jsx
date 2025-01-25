@@ -19,7 +19,7 @@ const animationTransition = {
 
 const AboutUs = () => {
 	return (
-		<div id='about-us' className={`${styles.about__container} container_max`}>
+		<div id='about-us' className={`${styles.about__container} `}>
 			<div className={styles.content}>
 				<Reveal
 					variants={{

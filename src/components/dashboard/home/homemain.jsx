@@ -1,39 +1,49 @@
 import React, { useState, useEffect, useContext } from "react";
 import DashboardHomeHeader from "./dashHomeHeader";
-import HomeQuickStart from "./quickStart";
+// import HomeQuickStart from "./quickStart";
 import Withdraw from "./withdraw";
 import DashboardMain from "../../../layout/dashboardMain";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardDealCards from "./dashboardDealCards";
-import { getProducts } from "../../../servicefile/productservice";
+import { getDashboardInfo } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
+import RakebackChart from "./RakebackChart";
+import RackbackTableAndTransaction from "./RackbackTableAndTransaction";
 
 const HomeMain = ({ data }) => {
-	const { userData, walletData, userKyc } = useContext(UserContext);
-	const [products, setProducts] = useState([]);
+  const { userData, userKyc } = useContext(UserContext);
+  const [dashboardInfo, setDashboardInfo] = useState({});
 
-	const getdata = async () => {
-		let data = await getProducts();
-		if (data && data.length > 0) {
-			let result = [...data];
-			setProducts(result);
-		}
-	};
-	useEffect(() => {
-		if (!userData || !userData._id) return;
-		getdata();
-	}, []);
+  const getdata = async () => {
+    let data = await getDashboardInfo(userData._id);
+    if (data && data.userInfo) {
+      let result = data.userInfo;
+      setDashboardInfo(result);
+    }
+  };
+  useEffect(() => {
+    if (userData && userData._id) {
+      getdata();
+    }
+  }, []);
 
-	return (
-		<DashboardMainTopBottom>
-			<DashboardHomeHeader title='Dashboard' data={walletData} />
-			<DashboardMain>
-				<HomeQuickStart data={data} />
-				<Withdraw data={walletData} userKyc={userKyc} />
-				<DashboardDealCards products={products} />
-			</DashboardMain>
-		</DashboardMainTopBottom>
-	);
+  return (
+    <DashboardMainTopBottom>
+      <DashboardHomeHeader title="Dashboard" />
+      <DashboardMain>
+        {/* <HomeQuickStart data={data} /> */}
+        {/* <Withdraw data={walletData} userKyc={userKyc} /> */}
+        {/* <DashboardDealCards products={products} /> */}
+        {/* <BarChart/> */}
+        {dashboardInfo && dashboardInfo.user && (
+          <RakebackChart dashboardInfo={dashboardInfo} userKyc={userKyc} />
+        )}
+        {dashboardInfo && dashboardInfo.user && (
+          <RackbackTableAndTransaction dashboardInfo={dashboardInfo} />
+        )}
+      </DashboardMain>
+    </DashboardMainTopBottom>
+  );
 };
 
 export default HomeMain;

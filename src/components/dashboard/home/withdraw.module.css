@@ -7,6 +7,8 @@
 	align-self: stretch;
 	align-items: flex-start;
 	gap: 1.5rem;
+	/* height:14rem; */
+	
 }
 .WithdrawContent {
 	justify-content: flex-start;
@@ -19,24 +21,47 @@
 	max-height: 400px;
 }
 .BalanceAndWinnings {
-	flex-direction: column;
-	justify-content: flex-start;
+	flex-direction: row;
+justify-content: space-around;
+	
 }
-.Balance,
+.Income {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: flex-start;
+	align-items: flex-start; */
+	align-self: stretch;
+	background: rgb(30, 136, 229);
+	;
+	box-shadow: 0 0.0625rem 0.125rem rgba(16, 24, 40, 0.06);
+	border-radius: 0.75rem;
+	border: 0.0625rem solid #eaecf0;
+}
+.Balance {
+	display: flex;
+	flex-direction: column;
+	/* justify-content: flex-start;
+	align-items: flex-start; */
+	align-self: stretch;
+	background: purple;
+	box-shadow: 0 0.0625rem 0.125rem rgba(16, 24, 40, 0.06);
+	border-radius: 0.75rem;
+	border: 0.0625rem solid #eaecf0;
+}
 .Card {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
+	/* justify-content: flex-start;
+	align-items: flex-start; */
 	align-self: stretch;
-	background: white;
+	background: black;
 	box-shadow: 0 0.0625rem 0.125rem rgba(16, 24, 40, 0.06);
 	border-radius: 0.75rem;
 	border: 0.0625rem solid #eaecf0;
 }
 
 .BalanceContent {
-	padding: 1.5rem;
+	padding: 1.25rem;
 	flex-direction: column;
 }
 
@@ -47,7 +72,7 @@
 	padding: 0.78125rem;
 	justify-content: center;
 	align-items: center;
-	background-color: #d1e9ff;
+	background-color: white;
 	border-radius: 50%;
 }
 
@@ -59,27 +84,43 @@
 
 .BalanceText {
 	display: flex;
-	flex-direction: column;
-	gap: 0.625rem;
+	/* flex-direction: column; */
+	gap: 2.625rem;
 }
-
+.BalanceText_card{
+	display: flex;
+	gap: 4.625rem;
+}
 .BalanceHead {
 	align-self: stretch;
-	color: #475467;
+	color: white;
 	font-size: 0.875rem;
-	font-weight: 500;
+	font-weight: 600;
 	line-height: 1.25rem;
 	word-wrap: break-word;
 }
-
+.Income_head{
+	align-self: stretch;
+	color: white;
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 1.25rem;
+	word-wrap: break-word;
+}
 .Number {
-	color: #101828;
+	color: white;
 	font-size: 1.875rem;
 	font-weight: 600;
 	line-height: 2.375rem;
 	word-wrap: break-word;
 }
-
+.Income_number{
+	color: white;
+	font-size: 1.875rem;
+	font-weight: 600;
+	line-height: 2.375rem;
+	word-wrap: break-word;
+}
 @media only screen and (max-width: 1024px) {
 	.HomeWithdraw {
 		width: 100%;

@@ -39,7 +39,7 @@ const DashboardHomeHeader = ({ title, data }) => {
 						</div>
 						{/*  */}
 						<div className={styles.HeaderActions}>
-							<div
+							{/* <div
 								className={styles.HeaderNavBtn}
 								onClick={() => setShowWalletWithdraw(!showWalletWithdraw)}
 							>
@@ -50,7 +50,7 @@ const DashboardHomeHeader = ({ title, data }) => {
 									₹{data && data.wallet_balance ? data.wallet_balance : "0.00"}
 								</div>
 							
-							</div>
+							</div> */}
 
 							<div
 								className={styles.HeaderNavBtn2}

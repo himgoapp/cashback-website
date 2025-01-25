@@ -1,0 +1,46 @@
+.Button {
+	display: flex; 
+	align-items: center;
+	justify-content: center; 
+	gap: 8px; 
+	background-color: white;
+	color: #28282c; 
+	font-size: 18px;
+	padding: 10px 20px;
+    font-weight: 600;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .Button:hover {
+	background-color: #212121;
+	transform: scale(1.05);
+	color: white;
+  }
+  
+  .Button:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.6); /* Fixed invalid color format */
+  }
+  
+  .Button:active {
+	transform: scale(0.98);
+	background-color: #212121;
+	color: white;
+  }
+ 
+  .filter_heading{
+	font-size: 16px;
+	font-family: "ProximaNova-Semibold", sans-serif !important;
+	font-weight: 600;
+    color: #28282c;
+  }
+  .filters{
+display: flex;
+justify-content: space-between;
+color: #28282c;
+font-size: 14px;
+font-family: Arial, sans-serif;
+  }

@@ -24,7 +24,7 @@ const steps = [
 const Getstarted = () => {
 	return (
 		<Reveal>
-			<div className={`${styles.getstarted_container} container_max`}>
+			<div className={`${styles.getstarted_container} `}>
 				<div className={styles.getstarted_content}>
 					<div className={styles.image_container}>
 						<GetStartedCarousel />
