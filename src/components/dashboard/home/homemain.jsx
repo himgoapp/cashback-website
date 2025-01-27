@@ -36,10 +36,13 @@ const HomeMain = ({ data }) => {
         {/* <DashboardDealCards products={products} /> */}
         {/* <BarChart/> */}
         {dashboardInfo && dashboardInfo.user && (
-          <RakebackChart dashboardInfo={dashboardInfo} userKyc={userKyc} />
+          <RakebackChart dashboardInfo={dashboardInfo} 
+          userKyc={userKyc}
+           />
         )}
-        {dashboardInfo && dashboardInfo.user && (
-          <RackbackTableAndTransaction dashboardInfo={dashboardInfo} />
+        {dashboardInfo && dashboardInfo.user && dashboardInfo.transactionsInfo && dashboardInfo.transactionsInfo.length > 0 && (
+          <RackbackTableAndTransaction transactionsInfo ={ dashboardInfo.transactionsInfo} 
+          userAccountsInfo = {dashboardInfo.userAccountIdInfo} />
         )}
       </DashboardMain>
     </DashboardMainTopBottom>

@@ -26,7 +26,54 @@
 	opacity: 0.36;
 	background: #000;
 }
-
+/* Wrapper for form group */
+.formGroup {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	margin-bottom: 20px;
+  }
+  
+  /* Label styles */
+  .putAmountLabel {
+	font-size: 16px;
+    font-weight: 600;
+	color: #444;
+	margin-bottom: 8px;
+	transition: color 0.3s ease;
+  }
+  
+  /* Input field styling */
+  .amountInput {
+	width: 100%;
+	padding: 15px;
+	font-size: 18px;
+	color: #333;
+	border-radius: 10px;
+	border: 2px solid #ddd;
+	outline: none;
+	transition: all 0.3s ease;
+	background-color: #f9f9f9;
+  }
+  
+  /* Hover and focus effects */
+  .amountInput:hover, .amountInput:focus {
+	border-color: #007BFF;
+	box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+  }
+  
+  /* Placeholder styling */
+  .amountInput::placeholder {
+	color: #aaa;
+	opacity: 1;
+  }
+  
+  /* Animation effect for input focus */
+  .amountInput:focus::placeholder {
+	opacity: 0.7;
+  }
+  
 .PopupSigninWrapper {
 	position: relative;
 	display: flex;
@@ -89,7 +136,7 @@
 	font-family: Inter;
 	font-size: 16px;
 	font-style: normal;
-	font-weight: 400;
+	font-weight: 600;
 	line-height: 1.5rem; /* 150% */
 }
 .otp_resend{

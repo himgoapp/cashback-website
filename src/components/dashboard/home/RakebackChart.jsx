@@ -276,11 +276,14 @@ const RakebackChart = ({dashboardInfo, userKyc}) => {
               </svg>
               <h3 style={{ fontSize: "18px", margin: 0, color: "#fff", marginLeft: "10px" }}>Wallet Balance</h3>
             </div>
-            <div style={{ fontSize: "24px", fontWeight: "bold", color: "#fff", display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>₹{userWallet.wallet_balance ? userWallet.wallet_balance : 0.00}</div>
+            <div style={{ fontSize: "24px", fontWeight: "bold", color: "#fff", display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}
+            >
+              ₹{userWallet.wallet_balance ? userWallet.wallet_balance : 0.00}
+            </div>
 
             {/* Number of Transactions */}
             <div style={{ display: "flex", justifyContent: "space-around", marginTop: "auto", marginBottom: "10px" }}>
-              <div style={{ color: "#fff", display: "flex", flexDirection: "column", alignItems: "center", fontSize: "16px" }}>
+              {/* <div style={{ color: "#fff", display: "flex", flexDirection: "column", alignItems: "center", fontSize: "16px" }}>
                 <div style={{ padding: '10px', marginBottom: '5px', borderRadius: '5px', backgroundColor: 'white',color:'black',fontWeight:'bold' }}>
                   <span>{depositCount}</span>
                 </div>
@@ -294,7 +297,7 @@ const RakebackChart = ({dashboardInfo, userKyc}) => {
                 </div>
                 <span>Withdraw</span>
                 {renderArrow('Withdraw')}
-              </div>
+              </div> */}
             </div>
             <button className={styles.Button} onClick={() => withdrawHit()}>Withdraw</button>
           </div>

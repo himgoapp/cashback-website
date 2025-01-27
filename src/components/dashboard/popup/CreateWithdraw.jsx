@@ -71,17 +71,29 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 							className={styles.popup_signin_action}
 							style={{ width: "100%" }}
 						>
-							<Form.Group>
-								<Form.Label>Put Amount!</Form.Label>
+							{/* <Form.Group>
+								<Form.Label className={styles.put_amount}>Put Amount!</Form.Label>
 								<Form.Control
 									type='number'
 									placeholder='Please put your the amount!'
 									onChange={(e) => {
 										setAmount(e.target.value);
 									}}
+									
 									autoFocus
 								/>
-							</Form.Group>
+							</Form.Group> */}
+							<Form.Group className={styles.formGroup}>
+  <Form.Label className={styles.putAmountLabel}>Put Amount :</Form.Label>
+  <Form.Control
+    type="number"
+    placeholder="Please enter the amount!"
+    onChange={(e) => setAmount(e.target.value)}
+    autoFocus
+    className={styles.amountInput}
+  />
+</Form.Group>
+
 						</div>
 						<div
 							className={styles.btn_action}

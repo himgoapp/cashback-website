@@ -2,9 +2,16 @@ import React, { useState, useEffect } from 'react';
 import styles from './rackback_table_and_transaction.module.css';
 import pokercard from '../../../assets/pokercard.png';
 
-const RakebackTable = ({ labels, transactions  }) => { 
+const RakebackTable = ({ labels, transactions,userAccountsInfo,transactionsInfo  }) => { 
   const [rakebackData, setRakebackData] = useState([]);
+  const [allTransactions, setAllTransactions] = useState([]);
 
+  useEffect(() => {
+    // if(transactionsInfo && transactionsInfo.length > 0){
+      setAllTransactions(transactionsInfo)
+    // }
+    }, [transactionsInfo])
+console.log(transactionsInfo,userAccountsInfo,"7--")
   const getStatusLabel = (status) => {
     switch (status) {
       case 'Successful':
@@ -17,6 +24,7 @@ const RakebackTable = ({ labels, transactions  }) => {
         return status;
     }
   };
+
 
   const getStatusClass = (status) => {
     switch (status) {
@@ -46,7 +54,7 @@ const RakebackTable = ({ labels, transactions  }) => {
   if (!labels || labels.length === 0) {
     return <div></div>;
   }
-
+console.log(allTransactions,"56--")
   return (
     <div className={styles.rakeback_container}>
       <div className={styles.table_container}>
@@ -87,11 +95,13 @@ const RakebackTable = ({ labels, transactions  }) => {
         </table>
       </div>
 
-      <div className={styles.transactions_container}>
+      <div key={allTransactions} className={styles.transactions_container}>
         <font className={styles.transaction_heading}>Latest Transactions</font>
         <ul>
-          {transactions.map((transaction, index) => {
+          {allTransactions && allTransactions.length > 0 && allTransactions.map((transaction, index) => {
+                console.log(transaction,"101--")
             const { arrow, color } = getTransactionArrowAndStyle(transaction.status);
+        
             return (
               <li key={index}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -114,16 +124,16 @@ const RakebackTable = ({ labels, transactions  }) => {
                         color: color, 
                       }}
                     >
-                      {transaction.status}
+                      {transaction.typeOfTransaction}
                     </span>
                 
                   </span>
                   <span>
-                    <a className={styles.amount}>₹{transaction.amount}</a>
+                    <a className={styles.amount}>₹{transaction.actualAmount}</a>
                   </span>
                 </div>
                 <div className={styles.date}>
-                  {transaction.date}
+                  {transaction.createdAt}
                 </div>
               </li>
             );

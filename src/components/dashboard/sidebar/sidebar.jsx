@@ -72,7 +72,7 @@ const Sidebar = ({ active }) => {
 				</div>
 				<div className={styles.Footer}>
 					<div className={styles.AvatarLabelGroup}>
-						<div
+						{/* <div
 							className={styles.ImageUploadContainer}
 							onClick={() => {
 								imageRef.current.click();
@@ -87,7 +87,7 @@ const Sidebar = ({ active }) => {
 								style={{ display: "none" }}
 								accept='.jpg, .jpeg, .png, .svg'
 							/>
-						</div>
+						</div> */}
 						<div className={styles.TextAndSupportingText}>
 							{data && data.userName ? data.userName : "Not filled!"}
 							<div className={styles.SupportingText}>
