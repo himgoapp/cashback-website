@@ -132,14 +132,15 @@ const homePageMenu = (
 		<Link to='/offer_and_deals' className='secondary_link'>
 		Deals
 		</Link>
-		<a href="/#" className={"secondary_link"}>Latest/News</a>
+		<a href="/latest-news" className={"secondary_link"}>Latest/News</a>
 		<a href="/#" className={"secondary_link"}>Promotions</a>
 		<a href='/#about-us' className={"secondary_link"}>
 			About Us
 		</a>
-		<a href='/#faq' className={"secondary_link"}>
+		<a href='/faq_container' className={"secondary_link"}>
 			FAQs
 		</a>
+		
 	</div>
 );
 
@@ -160,7 +161,6 @@ const offersAndDealsPageMenu = (
 		<Link to='/offer_and_deals' className='secondary_link'>
 			Deals
 		</Link>
-		<a href="/#" className={"secondary_link"}>Latest/News</a>
 		<a href="/#" className={"secondary_link"}>Promotions</a>
 	</div>
 );

@@ -39,7 +39,8 @@
   .putAmountLabel {
 	font-size: 16px;
     font-weight: 600;
-	color: #444;
+	color: var(--gray-600, var(--text-secondary, #475467));
+
 	margin-bottom: 8px;
 	transition: color 0.3s ease;
   }
@@ -130,6 +131,16 @@
 }
 
 .Subhead {
+	color: var(--gray-600, var(--text-secondary, #475467));
+
+	/* Text md/Regular */
+	font-family: Inter;
+	font-size: 16px;
+	font-style: normal;
+	/* font-weight: 600; */
+	line-height: 1.5rem; /* 150% */
+}
+.Subhead1{
 	color: var(--gray-600, var(--text-secondary, #475467));
 
 	/* Text md/Regular */

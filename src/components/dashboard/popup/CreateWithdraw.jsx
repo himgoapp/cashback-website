@@ -62,7 +62,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 						{/* logo end */}
 						<div className={styles.PopupSigninText}>
 							<div className={styles.Head}>Withdraw</div>
-							<div className={styles.Subhead}>
+							<div className={styles.Subhead1}>
 								Balance : ₹{maxAmount ? maxAmount : "0.00"}
 							</div>
 						</div>

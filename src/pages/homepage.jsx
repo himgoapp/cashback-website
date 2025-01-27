@@ -14,8 +14,7 @@ const Homepage = () => {
 	return (
 		<>
 		<Navbar page='home' />
-			<MainContainer>
-				
+			<MainContainer>	
 				<Banner />
 				<AboutUs />
 				<Deals />
