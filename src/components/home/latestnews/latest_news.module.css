@@ -1,10 +1,222 @@
-.header_container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+:root {
+    --primary-color: #ff6f61; /* Vibrant coral */
+    --secondary-color: #37474f; /* Deep gray */
+    --accent-color: #00bcd4; /* Bright cyan */
+    --background-color: #fefefe; /* Clean white */
+    --card-bg: #ffffff; /* Neutral card background */
+    --text-color: #212121; /* Dark gray */
+    --text-muted: #757575; /* Lighter gray */
+    --border-radius: 12px; /* Rounded corners */
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.1);
+    --shadow-heavy: 0 8px 20px rgba(0, 0, 0, 0.2);
+    --transition: 0.3s ease-in-out;
+  }
+  
+  .latest_news {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0 20px; /* Add horizontal padding for equal space on both sides */
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  
+  .header_container {
     color: var(--black-800, #212121);
-	font-size:3rem;
+    text-align: center;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: futura;
+    font-size: 3rem;
+    font-style: normal;
     font-weight: 700;
-    text-transform:uppercase;
-    margin-top: 3rem;
-}
+    margin: 2rem 0 2rem 0;
+    letter-spacing: -0.0625rem;
+  }
+  
+  .title {
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .categories ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    justify-content: center;
+    padding: 0;
+    margin: 40px 0;
+  }
+  
+  .categories li {
+    padding: 12px 25px;
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-weight: 600;
+    color: #fff;
+    transition: var(--transition);
+    box-shadow: var(--shadow-light);
+  }
+  
+  .categories li:hover {
+    background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+    box-shadow: var(--shadow-heavy);
+  }
+  
+  /* News and Ads Section Layout */
+  .news_section {
+    display: flex; /* Flexbox to arrange elements horizontally */
+    justify-content: space-between; /* Ensure space between the news and ads */
+    gap: 20px; /* Space between news grid and ads */
+    flex-wrap: nowrap; /* Prevent wrapping in larger screens */
+  }
+  
+  .news_grid {
+    flex: 0 0 70%; /* Takes up 70% of the width */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Equal column width */
+    gap: 25px;
+  }
+  
+  .ads_container {
+    flex: 0 0 30%; /* Takes up 30% of the width */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Advertisement Cards */
+  .ad_card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    padding: 15px;
+    text-align: center;
+    transition: var(--transition);
+    cursor: pointer; /* Ensure ad cards are clickable */
+  }
+  
+  .card_link {
+    display: block; /* Make the entire ad card clickable */
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+  }
+  
+  .ad_image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+  }
+  
+  .ad_card p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    color: var(--text-color);
+    transition: var(--transition);
+  }
+  
+  /* .ad_card:hover p {
+    color: #fff; 
+  }
+   */
+  .ad_card:hover {
+    background-color: var(--card-bg); /* Keep background the same */
+    color: inherit; /* No change in color for the card itself */
+  }
+  
+  /* News Cards */
+  .news_card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-light);
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: pointer; /* Ensure the card looks clickable */
+  
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Ensures all cards take equal height within their grid */
+  }
+  
+  .card_link {
+    display: block; /* Ensure the entire card is clickable */
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Inherit text color */
+  }
+  
+  .news_image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    filter: grayscale(20%);
+  }
+  
+  .news_title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin: 20px;
+    transition: var(--transition);
+  }
+  
+  .news_title:hover {
+    color: var(--primary-color); /* Change title color on hover */
+  }
+  
+  .news_description {
+    font-size: 1rem;
+    color: var(--text-muted);
+    margin: 0 20px 20px;
+    line-height: 1.8;
+    flex-grow: 1; /* This will allow the description to fill space and push the footer down */
+  }
+  
+  .news_card:hover {
+    background-color: var(--card-bg); /* Keep background the same */
+    color: inherit; /* No change in color for the card itself */
+  }
+  
+  .news_card:hover .news_title {
+    color: var(--primary-color); /* Change title color on hover */
+  }
+  
+  /* Responsiveness */
+  @media (max-width: 768px) {
+    .header_container {
+      font-size: 2.5rem;
+    }
+  
+    .title {
+      font-size: 2rem;
+    }
+  
+    .news_grid {
+      grid-template-columns: 1fr; /* Stack news cards in a single column on small screens */
+    }
+  
+    .ads_container {
+      flex: 1 1 100%;
+      margin-top: 20px;
+    }
+  
+    .news_section {
+      flex-direction: column; /* Stack news and ads vertically on small screens */
+    }
+  }
+  

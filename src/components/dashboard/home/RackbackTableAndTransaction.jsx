@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import styles from './rackback_table_and_transaction.module.css';
 import pokercard from '../../../assets/pokercard.png';
-
-const RakebackTable = ({ labels, transactions,userAccountsInfo,transactionsInfo  }) => { 
+import pokerbaazi from '../../../assets/pokerbaazi.png';
+import jungleepokerlogo from '../../../assets/jungleepokerlogo.png';
+import deposit from '../../../assets/deposit.png'
+import withdrawal from '../../../assets/withdrawal.png'
+const RakebackTable = ({ labels, dashboardInfo  }) => { 
   const [rakebackData, setRakebackData] = useState([]);
   const [allTransactions, setAllTransactions] = useState([]);
 
-  useEffect(() => {
-    // if(transactionsInfo && transactionsInfo.length > 0){
-      setAllTransactions(transactionsInfo)
-    // }
-    }, [transactionsInfo])
-console.log(transactionsInfo,userAccountsInfo,"7--")
+  // useEffect(() => {
+  //   if(dashboardInfo && dashboardInfo.transactionsInfo && dashboardInfo.transactionsInfo.length > 0){
+  //     console.log(dashboardInfo,"7--")
+  //     setAllTransactions([...dashboardInfo.transactionsInfo])
+  //   }
+  //   }, [dashboardInfo])
+
   const getStatusLabel = (status) => {
     switch (status) {
       case 'Successful':
@@ -28,7 +32,7 @@ console.log(transactionsInfo,userAccountsInfo,"7--")
 
   const getStatusClass = (status) => {
     switch (status) {
-      case 'Successful':
+      case 'Approved':
         return 'status-successful';
       case 'Pending':
         return 'status-pending';
@@ -40,21 +44,84 @@ console.log(transactionsInfo,userAccountsInfo,"7--")
   };
 
   // Helper function to get the transaction status arrow and color
-  const getTransactionArrowAndStyle = (status) => {
-    if (status === 'Deposit') {
-      return { arrow: '↑', color: 'green' };
-    } else if (status === 'Withdraw') {
-      return { arrow: '↓', color: 'red' }; 
-    } else if (status === 'Pending') {
-      return { arrow: '→', color: 'orange' }; 
+  const getTransactionArrowAndStyle = (type) => {
+    if (type === 'Deposit') {
+      return <img
+      src={deposit}
+      alt="Status Icon"
+      style={{
+        width: '22px',
+        height: '22px',
+        borderRadius: '50%',
+        marginRight: '10px',
+      }}
+    />;
     }
-    return { arrow: '', color: 'black' };
+    else {
+      return <img
+      src={withdrawal}
+      alt="Status Icon"
+      style={{
+        width: '22px',
+        height: '22px',
+        borderRadius: '50%',
+        marginRight: '10px',
+      }}
+    />;
+     }
   };
-
-  if (!labels || labels.length === 0) {
-    return <div></div>;
+const getTableIconStyle = (type)=>{
+   if (type === 'Junglee Poker') {
+    return <img
+    src={jungleepokerlogo}
+    alt="Status Icon"
+    style={{
+      width: '22px',
+      height: '22px',
+      borderRadius: '50%',
+      marginRight: '10px',
+    }}
+  />;
   }
-console.log(allTransactions,"56--")
+  else if (type === 'Poker Baazi') {
+    return <img
+    src={pokerbaazi}
+    alt="Status Icon"
+    style={{
+      width: '22px',
+      height: '22px',
+      borderRadius: '50%',
+      marginRight: '10px',
+    }}
+  />;
+  }
+  else if (type === 'MPL') {
+    return <img
+    src={pokercard}
+    alt="Status Icon"
+    style={{
+      width: '22px',
+      height: '22px',
+      borderRadius: '50%',
+      marginRight: '10px',
+    }}
+  />;
+  }
+  else {
+    return <img
+    src={pokercard}
+    alt="Status Icon"
+    style={{
+      width: '22px',
+      height: '22px',
+      borderRadius: '50%',
+      marginRight: '10px',
+    }}
+  />;
+  }
+}
+ 
+// console.log(allTransactions,"56--")
   return (
     <div className={styles.rakeback_container}>
       <div className={styles.table_container}>
@@ -69,38 +136,32 @@ console.log(allTransactions,"56--")
             </tr>
           </thead>
           <tbody>
-            {labels.map((label, index) => (
+            {dashboardInfo && dashboardInfo.userAccountIdInfo && dashboardInfo.userAccountIdInfo.length > 0 && dashboardInfo.userAccountIdInfo.map((label, index) =>
+            {const arrow = getTableIconStyle(label.productId.name);
+
+            return (
+              
               <tr key={index}>
                 <td>
-                  <img
-                    src={pokercard}
-                    alt="Status Icon"
-                    style={{
-                      width: '22px',
-                      height: '22px',
-                      borderRadius: '50%',
-                      marginRight: '10px',
-                    }}
-                  />
-                  {label.name}
+                {arrow}{label.productId.name}
                 </td>
-                <td>{label.id}</td>
-                <td>{label.date}</td>
+                <td>{label.referenceId}</td>
+                <td>{new Date(label.createdAt).toLocaleDateString('en-GB')}</td>
                 <td className={styles[getStatusClass(label.status)]}>
                   {getStatusLabel(label.status)}
                 </td>
               </tr>
-            ))}
+            )})}
           </tbody>
         </table>
       </div>
 
-      <div key={allTransactions} className={styles.transactions_container}>
+      <div  className={styles.transactions_container}>
         <font className={styles.transaction_heading}>Latest Transactions</font>
         <ul>
-          {allTransactions && allTransactions.length > 0 && allTransactions.map((transaction, index) => {
-                console.log(transaction,"101--")
-            const { arrow, color } = getTransactionArrowAndStyle(transaction.status);
+          {dashboardInfo && dashboardInfo.transactionsInfo && dashboardInfo.transactionsInfo.length > 0 && dashboardInfo.transactionsInfo.map((transaction, index) => {
+                // console.log(transaction,"101--")
+            const arrow = getTransactionArrowAndStyle(transaction.typeOfTransaction);
         
             return (
               <li key={index}>
@@ -110,7 +171,6 @@ console.log(allTransactions,"56--")
                       style={{
                         fontSize: '14px',
                         marginLeft: '5px',
-                        color: color,
                         fontWeight:'bold'
                       }}
                     >
@@ -121,19 +181,22 @@ console.log(allTransactions,"56--")
                         marginLeft: '5px',
                         fontSize: '14px',
                         fontWeight: 'bold',
-                        color: color, 
                       }}
                     >
                       {transaction.typeOfTransaction}
                     </span>
-                
                   </span>
                   <span>
                     <a className={styles.amount}>₹{transaction.actualAmount}</a>
                   </span>
                 </div>
                 <div className={styles.date}>
-                  {transaction.createdAt}
+                  <a className={styles[getStatusClass(transaction.status)]}>
+                  {getStatusLabel(transaction.status)}
+            
+                  </a>
+                  <a>
+                  {new Date(transaction.createdAt).toLocaleDateString('en-GB')}</a>
                 </div>
               </li>
             );

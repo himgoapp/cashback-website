@@ -1,10 +1,152 @@
+/* Global styles */
+.faq_container {
+    background-color: #f9f9f9; /* Soft light gray background */
+    padding: 3rem 2rem;
+    font-family: 'Roboto', sans-serif;
+    position: relative;
+    background: linear-gradient(145deg, #e0e7ff, #f0f4ff); /* Light gradient from soft blue to off-white */
+    /* border-radius: 12px; */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* max-width: 1200px; */
+     /* Restrict max-width to avoid over-expansion */
+    margin: 0 auto; /* Center the container */
+}
+
+/* Header container */
 .header_container {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-    color: var(--black-800, #212121);
-	font-size:3rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    text-transform:uppercase;
-    margin-top: 3rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+    letter-spacing: 4px;
+    background-color: #3968eb;
+}
+
+/* Upper Question List - Grid Layout */
+.question_list {
+    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+    gap: 2rem;
+    align-items: start;
+}
+
+/* Individual Question Item */
+.question_item {
+    cursor: pointer;
+    padding: 0.8rem 1.2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+    max-width: 400px; /* Limit the width of questions */
+    margin: 0 auto; /* Center the question items */
+    display: flex;
+    align-items: center; /* Vertically align question number and question text */
+    justify-content: flex-start; /* Align number and text to the left */
+}
+
+.question_item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(145deg, #3968eb, #5e8be6); /* Soft blue gradient on hover */
+    color: white; /* Text and question number color */
+}
+
+/* When question item is hovered, change the number color to white */
+.question_item:hover .question_number {
+    color: white;
+}
+
+/* Question Number Styling */
+.question_number {
+    font-size: 1.5rem; /* Larger font for numbers */
+    font-weight: bold;
+    margin-right: 1rem; /* Add space between number and question text */
+    color: #3968eb; /* Blue color for the question number */
+}
+
+/* Question Text Styling */
+.question {
+    font-size: 1.2rem; /* Smaller font size */
+    font-weight: 600;
+    color: inherit;
+    flex-grow: 1;
+}
+
+/* FAQ Section - Answers below each question */
+.faq_section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; /* Reduced gap between answers */
+}
+
+/* Individual Answer Item */
+.faq_item {
+    background-color: #ffffff; /* Clean white background for answers */
+    padding: 1rem 1.5rem; /* Reduced padding */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: all 0.3s ease;
+    max-width: 100%; /* Make sure it uses available width */
+    margin: 0 auto; /* Center the answer items */
+}
+
+.faq_item:hover {
+    transform: scale(1.02); /* Slight zoom effect */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Bigger shadow on hover */
+    background-color: #f0f7ff; /* Light blue background on hover for interactivity */
+}
+
+/* Highlighted Answer - When clicked or selected */
+.highlight {
+    border: 3px solid #3968eb; /* Blue border for highlighted answer */
+    background-color: rgba(57, 104, 235, 0.1); /* Light blue background to highlight */
+    transform: scale(1.03); /* Slight scaling to emphasize the highlight */
+    transition: all 0.3s ease;
+}
+
+/* Answer Text Styling */
+.answer {
+    font-size: 0.95rem; /* Reduced font-size */
+    color: #555; /* Softer gray color for text */
+    line-height: 1.5; /* Slightly reduced line height */
+    font-weight: 400; /* Regular weight for text */
+    margin-top: 1rem; /* Reduced space above the answer text */
+    text-align: justify; /* Justify text for a neat block layout */
+    padding-right: 1rem; /* Add padding to the right to ensure no text clings to the edge */
+    max-width: 95%; /* Allow text to use most of the available space */
+}
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .faq_item {
+        padding: 1.2rem 1.5rem; /* Reduce padding for medium screens */
+    }
+
+    .answer {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .faq_item {
+        padding: 1rem 1.2rem; /* Further reduce padding for small screens */
+    }
+
+    .answer {
+        font-size: 0.95rem; /* Adjust font size for small screens */
+    }
+
+    /* Adjust question list to be in 2 columns for small screens */
+    .question_list {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }

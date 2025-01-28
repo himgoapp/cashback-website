@@ -303,7 +303,7 @@ const RakebackChart = ({dashboardInfo, userKyc}) => {
           </div>
         </div>
       </div>
-      <RakebackTable labels={labels} transactions={transactions}/>
+      <RakebackTable labels={labels} dashboardInfo={dashboardInfo}/>
     </>
   );
 };

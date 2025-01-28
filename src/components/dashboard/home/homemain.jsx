@@ -40,10 +40,9 @@ const HomeMain = ({ data }) => {
           userKyc={userKyc}
            />
         )}
-        {dashboardInfo && dashboardInfo.user && dashboardInfo.transactionsInfo && dashboardInfo.transactionsInfo.length > 0 && (
-          <RackbackTableAndTransaction transactionsInfo ={ dashboardInfo.transactionsInfo} 
-          userAccountsInfo = {dashboardInfo.userAccountIdInfo} />
-        )}
+    
+          {/* <RackbackTableAndTransaction dashboardInfo = {dashboardInfo} /> */}
+     
       </DashboardMain>
     </DashboardMainTopBottom>
   );

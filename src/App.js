@@ -13,6 +13,7 @@ import KYC from "./components/dashboard/KYC/kyc";
 import Trsnsactions from "./components/dashboard/myTransaction/myTransaction";
 import ProtectedRoute from "./helperFxns/protectedRoute";
 import LatestNews from "./components/home/latestnews/LatestNews"
+import NewsArticle from "./components/home/latestnews/NewsArticle"
 import FaqContainer from "./components/home/FAQ/FaqContainer"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -148,6 +149,13 @@ function App() {
 						<LatestNews/>
 						</ProtectedRoute>}
 						/>
+						{/* <Route
+							Route path="/article/:id"
+							element={
+								<ProtectedRoute>
+						<NewsArticle/>
+						</ProtectedRoute>}
+						/> */}
 						<Route
 							path='/faq_container'
 							element={

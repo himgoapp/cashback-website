@@ -90,9 +90,9 @@ const Sidebar = ({ active }) => {
 						</div> */}
 						<div className={styles.TextAndSupportingText}>
 							{data && data.userName ? data.userName : "Not filled!"}
-							<div className={styles.SupportingText}>
+							{/* <div className={styles.SupportingText}>
 								{data && data.email ? data.email : "Not filled!"}
-							</div>
+							</div> */}
 						</div>
 						<button className={styles.Button} onClick={() => onLogout()}>
 							Log out<LogoutIcon />

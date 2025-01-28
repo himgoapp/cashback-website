@@ -1,0 +1,118 @@
+/* Updated styles for header */
+.header_container {
+    color: var(--black-800, #212121);
+    text-align: center;
+    font-feature-settings: "clig" off, "liga" off;
+    font-family: futura;
+    font-size: 2rem;
+    font-style: normal;
+    font-weight: 700;
+    margin: 2rem 0 2rem 0;
+    letter-spacing: -0.0625rem;
+  }
+  
+  /* Style for article content section */
+  .article_news {
+    font-family: "Poppins", sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0 20px; /* Add horizontal padding for equal space on both sides */
+    line-height: 1.6;
+    overflow-x: hidden;
+    flex: 4; /* Make the article section take up most of the space */
+    width: 80%; /* Explicitly set width to 80% */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  /* Overall page container for Flexbox layout */
+  .page_container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  /* Container to hold all three sections in a row */
+  .row_container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  /* Table of contents section - Fixed to the left */
+  .table_container {
+    position: fixed; /* Fix the table to the left */
+    top: 20px; /* Start 20px from the top of the viewport */
+    left: 20px; /* Keep it 20px from the left of the viewport */
+    width: 20%; /* Adjust the width to 20% of the viewport */
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: var(--light-gray, #f4f4f4);
+    overflow-y: auto; /* Allow vertical scrolling inside the table if content overflows */
+    z-index: 10; /* Ensure it stays above other content */
+  }
+  
+  /* Table header */
+  .table_header {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  /* List items in the table of contents */
+  .table_list {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    color: inherit;
+    padding-left: 10px;
+    position: relative;
+  }
+  
+  /* Highlight active link and left-side indicator */
+  .table_list.active {
+    color: #3968eb; /* Highlight color when active */
+    font-weight: bold; /* Optionally make the active link bold */
+  }
+  
+  .table_list.active::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 20px;
+    background-color: #3968eb; /* Active color indicator */
+  }
+  
+  /* Advertisements section */
+  .ads_container {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-left: 20px;
+    background-color: var(--light-gray, #f4f4f4);
+  }
+  
+  /* Footer section alignment */
+  .flex_center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  /* Footer adjustments */
+  footer {
+    margin-top: 10rem;
+  }
+  
