@@ -1,152 +1,235 @@
-/* Global styles */
-.faq_container {
-    background-color: #f9f9f9; /* Soft light gray background */
-    padding: 3rem 2rem;
-    font-family: 'Roboto', sans-serif;
-    position: relative;
-    background: linear-gradient(145deg, #e0e7ff, #f0f4ff); /* Light gradient from soft blue to off-white */
-    /* border-radius: 12px; */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* max-width: 1200px; */
-     /* Restrict max-width to avoid over-expansion */
-    margin: 0 auto; /* Center the container */
-}
-
-/* Header container */
-.header_container {
-    font-size: 2.8rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 3rem;
-    color: white;
-    letter-spacing: 4px;
-    background-color: #3968eb;
-}
-
-/* Upper Question List - Grid Layout */
-.question_list {
-    margin-bottom: 2rem;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
-    gap: 2rem;
-    align-items: start;
-}
-
-/* Individual Question Item */
-.question_item {
-    cursor: pointer;
-    padding: 0.8rem 1.2rem;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
-    transition: all 0.3s ease-in-out;
+.faq_container .faq_content {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 70rem;
     width: 100%;
-    max-width: 400px; /* Limit the width of questions */
-    margin: 0 auto; /* Center the question items */
+    padding: 2rem;
+}
+.faq_container {
+    width: 70%;
+}
+.main_container{
     display: flex;
-    align-items: center; /* Vertically align question number and question text */
-    justify-content: flex-start; /* Align number and text to the left */
+    justify-content: center;
+    background: linear-gradient(145deg, #e0e7ff, #f0f4ff);
 }
-
-.question_item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(145deg, #3968eb, #5e8be6); /* Soft blue gradient on hover */
-    color: white; /* Text and question number color */
-}
-
-/* When question item is hovered, change the number color to white */
-.question_item:hover .question_number {
-    color: white;
-}
-
-/* Question Number Styling */
-.question_number {
-    font-size: 1.5rem; /* Larger font for numbers */
-    font-weight: bold;
-    margin-right: 1rem; /* Add space between number and question text */
-    color: #3968eb; /* Blue color for the question number */
-}
-
-/* Question Text Styling */
-.question {
-    font-size: 1.2rem; /* Smaller font size */
-    font-weight: 600;
-    color: inherit;
-    flex-grow: 1;
-}
-
-/* FAQ Section - Answers below each question */
-.faq_section {
+.faq_header {
     display: flex;
     flex-direction: column;
-    gap: 1rem; /* Reduced gap between answers */
+    align-items: center;
+    gap: 1.25rem;
+    text-align: center;
+    margin: 3rem 0;
 }
 
-/* Individual Answer Item */
-.faq_item {
-    background-color: #ffffff; /* Clean white background for answers */
-    padding: 1rem 1.5rem; /* Reduced padding */
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+.faq_header .head {
+    color: #2c3e50;
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02rem;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+.faq_header .subhead {
+    color: #7f8c8d;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.8rem;
+    letter-spacing: -0.02rem;
+    margin: 0;
+}
+
+.faq_content .faq_item_container {
+    display: flex;
+    width: 100%;
+    max-width: 40rem; /* Decreased max-width */
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.faq_item_container .faq_item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+    cursor: pointer;
+    padding: 1.3rem;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    max-width: 100%; /* Make sure it uses available width */
-    margin: 0 auto; /* Center the answer items */
+    margin-bottom: 12px;
 }
 
-.faq_item:hover {
-    transform: scale(1.02); /* Slight zoom effect */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15); /* Bigger shadow on hover */
-    background-color: #f0f7ff; /* Light blue background on hover for interactivity */
+.faq_item .item_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    align-self: stretch;
 }
 
-/* Highlighted Answer - When clicked or selected */
-.highlight {
-    border: 3px solid #3968eb; /* Blue border for highlighted answer */
-    background-color: rgba(57, 104, 235, 0.1); /* Light blue background to highlight */
-    transform: scale(1.03); /* Slight scaling to emphasize the highlight */
-    transition: all 0.3s ease;
+.faq_item_container .faq_item:hover {
+    background-color: white; /* Light grey background on hover */
+    transform: translateY(-5px); /* Slightly lift the tab */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow for hover effect */
 }
 
-/* Answer Text Styling */
-.answer {
-    font-size: 0.95rem; /* Reduced font-size */
-    color: #555; /* Softer gray color for text */
-    line-height: 1.5; /* Slightly reduced line height */
-    font-weight: 400; /* Regular weight for text */
-    margin-top: 1rem; /* Reduced space above the answer text */
-    text-align: justify; /* Justify text for a neat block layout */
-    padding-right: 1rem; /* Add padding to the right to ensure no text clings to the edge */
-    max-width: 95%; /* Allow text to use most of the available space */
+.q_and_ans .question {
+    color: #2c3e50;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1.7rem;
 }
 
-/* Smooth Scroll Behavior */
-html {
-    scroll-behavior: smooth;
+.q_and_ans .ans {
+    color: #2c3e50;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6rem;
 }
 
-/* Responsive Styles */
-@media (max-width: 1024px) {
-    .faq_item {
-        padding: 1.2rem 1.5rem; /* Reduce padding for medium screens */
+.item_content .faq_icon {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px; /* Circle width */
+    height: 30px; /* Circle height */
+    border-radius: 50%; /* Make it a circle */
+    background-color: #fff; /* White background */
+    border: 2px solid transparent; /* Transparent border by default */
+    cursor: pointer; /* Makes the icon clickable */
+    transition: all 0.3s ease; /* Smooth transition for hover and click */
+}
+
+.icon:hover {
+    background-color: #f0f0f0; /* Light grey background on hover */
+}
+
+.icon.plus {
+    background-color: #28a745; /* Green background */
+    border-color: #28a745; /* Green border */
+}
+
+.icon.minus {
+    background-color: #e74c3c; /* Red background */
+    border-color: #e74c3c; /* Red border */
+}
+
+.icon i {
+    font-size: 1.5rem; /* Increase icon size */
+}
+
+/* Mobile responsiveness */
+@media only screen and (max-width: 1024px) {
+    .faq_container .faq_content {
+        gap: 1.5rem;
+        padding: 1.5rem;
     }
 
-    .answer {
-        font-size: 1rem; /* Adjust font size for smaller screens */
+    .faq_header .head {
+        font-size: 2.5rem; /* Adjusted for medium screens */
+    }
+
+    .faq_header .subhead {
+        font-size: 1.125rem;
+    }
+
+    .q_and_ans .question {
+        font-size: 1.125rem;
+    }
+
+    .q_and_ans .ans {
+        font-size: 1rem;
+        line-height: 1.5rem;
     }
 }
 
-@media (max-width: 768px) {
-    .faq_item {
-        padding: 1rem 1.2rem; /* Further reduce padding for small screens */
+/* Mobile screens (max-width 768px) */
+@media only screen and (max-width: 768px) {
+    .faq_container .faq_content {
+        gap: 1.5rem;
+        padding: 1rem;
     }
 
-    .answer {
-        font-size: 0.95rem; /* Adjust font size for small screens */
+    .faq_header .head {
+        font-size: 2rem;
     }
 
-    /* Adjust question list to be in 2 columns for small screens */
-    .question_list {
-        grid-template-columns: repeat(2, 1fr);
+    .faq_header .subhead {
+        font-size: 1.125rem;
+    }
+
+    .faq_item_container {
+        max-width: 100%; /* Full width on smaller screens */
+    }
+
+    .faq_item .item_content {
+        flex-direction: column;
+        align-items: stretch; /* Stack icons and text on smaller screens */
+        justify-content: flex-start; /* Align items vertically */
+    }
+
+    .q_and_ans .question {
+        font-size: 1.125rem;
+    }
+
+    .q_and_ans .ans {
+        font-size: 0.875rem;
+        line-height: 1.4rem;
+    }
+
+    .icon {
+        width: 25px; /* Smaller icon for mobile */
+        height: 25px; /* Smaller icon for mobile */
+    }
+
+    .icon i {
+        font-size: 1.25rem; /* Smaller icon size for mobile */
+    }
+}
+
+/* Extra small screens (max-width 480px) */
+@media only screen and (max-width: 480px) {
+    .faq_header .head {
+        font-size: 1.75rem; /* Adjusted for small mobile screens */
+    }
+
+    .faq_header .subhead {
+        font-size: 1rem;
+    }
+
+    .faq_item .item_content {
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+    }
+
+    .q_and_ans .question {
+        font-size: 1rem;
+    }
+
+    .q_and_ans .ans {
+        font-size: 0.875rem;
+        line-height: 1.3rem;
+    }
+
+    .faq_container {
+        width: 100%; /* Full width */
+        padding: 1rem; /* Padding adjustment */
     }
 }

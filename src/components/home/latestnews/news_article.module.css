@@ -1,118 +1,258 @@
-/* Updated styles for header */
-.header_container {
-    color: var(--black-800, #212121);
-    text-align: center;
-    font-feature-settings: "clig" off, "liga" off;
-    font-family: futura;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 700;
-    margin: 2rem 0 2rem 0;
-    letter-spacing: -0.0625rem;
+/* Define CSS classes */
+.SidebarNavigation {
+	width: 100%;
+	max-width: 19rem;
+	height: 100vh;
+	background: linear-gradient(145deg, #e0e7ff, #f0f4ff);
+	display: inline-flex;
+	justify-content: flex-start;
+	align-items: flex-start;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+}
+
+.Content {
+	width: 100%;
+	display: flex;
+	align-self: stretch;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.Nav {
+	align-self: stretch;
+	/* height: 22rem;  352px / 16px */
+	padding-top: 2rem;
+	/* 32px / 16px */
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+	gap: 1.5rem;
+	/* 24px / 16px */
+	display: flex;
+}
+.LogoutButtonContainer {
+	margin-left: 0; /* Align it to the left */
+  }
+
+.Header {
+	display: flex;
+	align-self: stretch;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: flex-start;
+
+	padding-left: 1.5rem;
+	padding-right: 1.25rem;
+}
+
+.LogoContainer {
+	width: 8.11rem;
+	height: 2.5rem;
+	position: relative;
+	padding-left: 1.5rem;
+	padding-right: 1.25rem;
+}
+/* Main container */
+.faq_container {
+		background: linear-gradient(145deg, #e0e7ff, #f0f4ff);
+
+	display: flex;
+	justify-content: center;
+	width: 100%;
+	padding: 3rem 0;
   }
   
-  /* Style for article content section */
-  .article_news {
-    font-family: "Poppins", sans-serif;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0 20px; /* Add horizontal padding for equal space on both sides */
-    line-height: 1.6;
-    overflow-x: hidden;
-    flex: 4; /* Make the article section take up most of the space */
-    width: 80%; /* Explicitly set width to 80% */
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
+  /* FAQ content section */
+  .faq_container .faq_content {
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 4rem;
+	max-width: 70rem;
+	width: 100%;
+	padding: 2rem;
   }
   
-  /* Overall page container for Flexbox layout */
-  .page_container {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 20px;
-    width: 100%;
+  /* Header section */
+  .faq_header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.25rem;
+	text-align: center;
   }
   
-  /* Container to hold all three sections in a row */
-  .row_container {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+  .faq_header .head {
+	color: #2c3e50;
+	font-family: 'Poppins', sans-serif;
+	font-size: 3rem;
+	font-weight: 700;
+	line-height: 1.2;
+	letter-spacing: -0.02rem;
+	text-transform: uppercase;
+	margin: 0;
   }
   
-  /* Table of contents section - Fixed to the left */
-  .table_container {
-    position: fixed; /* Fix the table to the left */
-    top: 20px; /* Start 20px from the top of the viewport */
-    left: 20px; /* Keep it 20px from the left of the viewport */
-    width: 20%; /* Adjust the width to 20% of the viewport */
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: var(--light-gray, #f4f4f4);
-    overflow-y: auto; /* Allow vertical scrolling inside the table if content overflows */
-    z-index: 10; /* Ensure it stays above other content */
+  .faq_header .subhead {
+	color: #7f8c8d;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.25rem;
+	font-weight: 400;
+	line-height: 1.8rem;
+	letter-spacing: -0.02rem;
+	margin: 0;
   }
   
-  /* Table header */
-  .table_header {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
+  /* FAQ item container */
+  .faq_content .faq_item_container {
+	display: flex;
+	width: 100%;
+	max-width: 48rem;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1rem;
   }
   
-  /* List items in the table of contents */
-  .table_list {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 14px;
-    text-decoration: none;
-    color: inherit;
-    padding-left: 10px;
-    position: relative;
+  /* Each FAQ item */
+  .faq_item_container .faq_item {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	align-self: stretch;
+	cursor: pointer;
+	padding: 1.3rem;
+	border-radius: 10px;
+	background-color:white;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
   }
   
-  /* Highlight active link and left-side indicator */
-  .table_list.active {
-    color: #3968eb; /* Highlight color when active */
-    font-weight: bold; /* Optionally make the active link bold */
+  /* Content of each FAQ item */
+  .faq_item .item_content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1.5rem;
+	align-self: stretch;
+  }
+  .faq_item_container .faq_item:hover {
+	background-color: white; /* Light grey background on hover */
+	transform: translateY(-5px); /* Slightly lift the tab */
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Stronger shadow for hover effect */
+  }
+  /* Question text */
+  .q_and_ans .question {
+	color: #2c3e50;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.25rem;
+	font-weight: 600;
+	line-height: 1.7rem;
   }
   
-  .table_list.active::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 20px;
-    background-color: #3968eb; /* Active color indicator */
+  /* Answer text */
+  .q_and_ans .ans {
+	color: #2c3e50;
+	font-family: 'Roboto', sans-serif;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.6rem;
   }
   
-  /* Advertisements section */
-  .ads_container {
-    flex: 1;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-left: 20px;
-    background-color: var(--light-gray, #f4f4f4);
+  /* FAQ icon positioning */
+  .item_content .faq_icon {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	/* padding-top: 2px; */
   }
   
-  /* Footer section alignment */
-  .flex_center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
+  /* Icon circle */
+  .icon {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 30px; /* Circle width */
+	height: 30px; /* Circle height */
+	border-radius: 50%; /* Make it a circle */
+	background-color: #fff; /* White background */
+	border: 2px solid transparent; /* Transparent border by default */
+	cursor: pointer; /* Makes the icon clickable */
+	transition: all 0.3s ease; /* Smooth transition for hover and click */
   }
   
-  /* Footer adjustments */
-  footer {
-    margin-top: 10rem;
+  /* Hover effect on icon */
+  .icon:hover {
+	background-color: #f0f0f0; /* Light grey background on hover */
   }
   
+  /* Green circle for the plus sign */
+  .icon.plus {
+	background-color: #28a745; /* Green background */
+	border-color: #28a745; /* Green border */
+  }
+  
+  /* Red circle for the minus sign */
+  .icon.minus {
+	background-color: #e74c3c; /* Red background */
+	border-color: #e74c3c; /* Red border */
+  }
+  .icon i {
+	font-size: 1.5rem; /* Increase icon size */
+}
+  /* Mobile responsiveness */
+  @media only screen and (max-width: 768px) {
+	.faq_container .faq_content {
+	  gap: 2rem;
+	  padding: 1rem;
+	}
+  
+	.faq_header .head {
+	  font-size: 2rem;
+	}
+  
+	.faq_header .subhead {
+	  font-size: 1.125rem;
+	}
+  
+	.q_and_ans .question {
+	  font-size: 1.125rem;
+	}
+  
+	.q_and_ans .ans {
+	  font-size: 0.875rem;
+	  line-height: 1.4rem;
+	}
+  }
+  
+@media only screen and (max-width: 1024px) {
+	.SidebarNavigation {
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 3;
+	}
+
+	.Content {
+		position: relative;
+	}
+
+	.CloseSidebar {
+		display: flex;
+		padding: 0.5rem;
+		justify-content: center;
+		align-items: center;
+		gap: 0.5rem;
+		position: absolute;
+		right: -2.5rem;
+		top: 0.75rem;
+		border-radius: 0.5rem;
+	}
+
+	.CloseSidebar svg {
+		width: 1.5rem;
+		height: 1.5rem;
+	}
+}

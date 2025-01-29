@@ -2,8 +2,9 @@ import React, { useState, useEffect } from "react";
 import styles from "./faq_container.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
+import Reveal from "../../common/reveal/Reveal";
 
-// Static FAQ Data about Rakeback (with one more question)
+// Static FAQ Data about Rakeback
 const faqData = [
   {
     question: "What is Rakeback?",
@@ -61,7 +62,6 @@ const faqData = [
     question: "Can I withdraw my Rakeback immediately?",
     answer: "Most sites allow players to withdraw their rakeback earnings once they reach a certain threshold. However, some sites may require players to meet additional criteria, such as wagering requirements, before they can withdraw their rakeback."
   },
-  // 1 new question added:
   {
     question: "Can I use Rakeback for bonuses or other rewards?",
     answer: "In some cases, poker sites allow you to use your rakeback earnings to redeem bonuses, free tournament tickets, or other rewards. However, it's essential to check the specific terms and conditions of the poker site to see if this is possible."
@@ -70,68 +70,78 @@ const faqData = [
 
 const FaqContainer = () => {
   const [faqList, setFaqList] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [open, setOpen] = useState(null);
 
   useEffect(() => {
-    // Simulate fetching data and setting it to the state
-    setTimeout(() => {
-      try {
-        setFaqList(faqData); // Set static data
-        setLoading(false);    // Set loading to false
-      } catch (err) {
-        setError("Error loading FAQ data.");
-        setLoading(false);
-      }
-    }, 1000); // Simulate network delay
+    setFaqList(faqData);
   }, []);
 
-  const handleQuestionClick = (index) => {
-    // Scroll to the corresponding answer
-    document.getElementById(`answer-${index}`).scrollIntoView({ behavior: "smooth" });
+  const toggleAnswer = (index) => {
+    setOpen(open === index ? null : index); // Toggle open state
   };
 
   return (
     <>
       <Navbar page="home" />
-      <div className={`${styles.faq_container} container_max`}>
-        <div className={styles.header_container}>Frequently Asked Questions about Rakeback</div>
-        
-        {/* Question List - Upper Section */}
-        <div className={styles.question_list}>
-          {loading && <p>Loading FAQs...</p>}
-          {error && <p>{error}</p>}
-          {faqList.length > 0 && faqList.map((faq, index) => (
-            <div
-              key={index}
-              className={styles.question_item}
-              onClick={() => handleQuestionClick(index)}
-            >
-              <p className={styles.question_number}>{index + 1}.</p>
-              <p className={styles.question}>{faq.question}</p>
-            </div>
-          ))}
-        </div>
+      <div className={styles.main_container}>
+      <div className={styles.faq_container}>
+      
 
-        {/* FAQ Section - Answers below each question */}
-        <div className={styles.faq_section}>
-          {faqList.length > 0 && faqList.map((faq, index) => (
-            <div id={`answer-${index}`} className={styles.faq_item} key={index}>
-              <div className={styles.answer}>
-              
-                <p className={styles.question}><a className={styles.question_number}>{index + 1}.</a>{faq.question}</p>
-                <p>{faq.answer}</p>
+ 
+        <Reveal>
+          <div className={styles.faq_header}>
+            <div className={styles.head}>Frequently asked questions</div>
+          </div>
+        </Reveal>
+        <div className={styles.faq_item_container}>
+  {faqData.map((qa, index) => {
+    return (
+      <div
+        className={`${styles.faq_item} ${open === index ? styles.open : ""}`}
+        key={index}
+        onClick={() => toggleAnswer(index)}
+      >
+        <Reveal>
+          <div className={styles.item_content}>
+            <div className={styles.q_and_ans}>
+              {/* Display the question number */}
+              <div className={styles.question}>
+                {index + 1}. {qa.question}
+              </div>
+              {open === index ? <div className={styles.ans}>{qa.answer}</div> : null}
+            </div>
+
+            <div className={styles.faq_icon}>
+              <div className={styles.icon}>
+                {open === index ? <HideIcon /> : <ShowIcon />}
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        </Reveal>
       </div>
-
+    );
+  })}
+</div>
+</div>
+      </div>
       <div style={{ width: "100%", backgroundColor: "#3968eb", marginTop: "10rem" }} className="flex_center">
         <Footer />
       </div>
+      
     </>
   );
 };
 
 export default FaqContainer;
+
+const ShowIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M12 8V16M8 12H16" stroke="#28a745" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const HideIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M8 12H16" stroke="#e74c3c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);

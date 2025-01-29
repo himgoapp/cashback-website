@@ -221,7 +221,7 @@
 }
 :where([autocomplete=one-time-code]) {
 	--otp-digits: 6;
-	--otp-ls: 2ch;
+	--otp-ls: 3ch;
 	--otp-gap: 1.25;
   
 	/* private consts */
