@@ -17,6 +17,7 @@ import NewsArticle from "./components/home/latestnews/NewsArticle"
 import FaqContainer from "./components/home/FAQ/FaqContainer"
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export const UserContext = createContext();
 
