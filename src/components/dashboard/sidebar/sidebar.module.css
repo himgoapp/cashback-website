@@ -64,7 +64,11 @@
 	align-items: flex-start;
 	gap: 0.25rem;
 }
-
+.NavItemBase:hover {
+	border-bottom: none;
+	text-decoration: none;
+  }
+  
 .NavItemBase {
 	display: flex;
 	align-self: stretch;

@@ -21,7 +21,7 @@ const Featured = () => {
         "Is online poker in Ohio for real money legal? No, it’s not. However, it doesn’t mean ...",
       image:
         "https://cms.worldpokerdeals.com/assets/2a86ee40-49af-4dd7-816b-79c7fb24b665?width=600&height=355&format=webp&quality=75&fit=cover",
-      writer: "lalit",
+      writer: "Lalit",
       date: "12 Jan 2025",
       type: "Poker",
     },
@@ -29,7 +29,7 @@ const Featured = () => {
       heading:
         "The Psychology of Fair Play in Online Poker: Strategies for User Retention",
       content:
-        "Picture yourself comfortably seated in your favourite armchair, your laptop in front of you, abou...",
+        "Picture yourself comfortably seated in your favourite armchair, your laptop..",
       image:
         "https://cms.worldpokerdeals.com/assets/c8a08d9a-dcb2-4e5b-8792-18d21d117ef2?width=600&height=357&format=webp&quality=75&fit=cover",
       writer: "Vishal",
