@@ -10,10 +10,11 @@ import { CrossIcon } from "../../../assets/vectors";
 import Reveal from "../reveal/Reveal";
 
 const Navbar = ({ page }) => {
-	// const navigate = useNavigate();
+	
 	const { loginTab, setLoginTab, userData } = useContext(UserContext);
 
 	const [showMenu, setShowMenu] = useState(false);
+	
 
 	return (
 		<Reveal>

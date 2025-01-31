@@ -49,13 +49,13 @@
 .card {
 	width: 30%; /* Each card takes up about 1/3 of the carousel width */
 	margin: 10px;
-	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 	border-radius: 8px;
 	background-color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	height: 400px; /* Set a fixed height for all cards */
+	height: auto; /* Set a fixed height for all cards */
 	overflow: hidden; /* Ensure content doesn’t overflow the card */
 }
 
