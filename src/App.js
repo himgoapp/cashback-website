@@ -11,7 +11,7 @@ import PokerID from "./components/dashboard/pokerID/pokerID";
 import VerifyAccount from "./components/dashboard/veryfyAccount/verifyAccount";
 import KYC from "./components/dashboard/KYC/kyc";
 import Trsnsactions from "./components/dashboard/myTransaction/myTransaction";
-import {ProtectedRoute , NotProtectedRoute} from "./helperFxns/protectedRoute";
+import { ProtectedRoute, NotProtectedRoute } from "./helperFxns/protectedRoute";
 import LatestNews from "./components/home/latestnews/LatestNews";
 import NewsArticle from "./components/home/latestnews/NewsArticle";
 import FaqContainer from "./components/home/FAQ/FaqContainer";
@@ -84,9 +84,9 @@ function App() {
             <Route
               path="/offer_and_deals"
               element={
-                <ProtectedRoute>
+                <NotProtectedRoute>
                   <OfferAndDealsContainer />
-                </ProtectedRoute>
+                </NotProtectedRoute>
               }
             />
 
@@ -143,7 +143,14 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route path="/latest-news" element={<NotProtectedRoute><LatestNews /></NotProtectedRoute>} />
+            <Route
+              path="/latest-news"
+              element={
+                <NotProtectedRoute>
+                  <LatestNews />
+                </NotProtectedRoute>
+              }
+            />
             {/* <Route
 							Route path="/article/:id"
 							element={
@@ -151,7 +158,14 @@ function App() {
 						<NewsArticle/>
 						</ProtectedRoute>}
 						/> */}
-            <Route path="/faq_container" element={<NotProtectedRoute><FaqContainer /></NotProtectedRoute>} />
+            <Route
+              path="/faq_container"
+              element={
+                <NotProtectedRoute>
+                  <FaqContainer />
+                </NotProtectedRoute>
+              }
+            />
             <Route
               path="*"
               element={

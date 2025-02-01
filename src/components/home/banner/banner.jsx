@@ -8,74 +8,62 @@ import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const animationVariants = {
-	hidden: { opacity: 0, scale: 0.8 },
-	visible: {
-		opacity: 1,
-		scale: 1,
-		transition: { duration: 0.5, delay: 0.65 },
-	},
+  hidden: { opacity: 0, scale: 0.8 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, delay: 0.65 },
+  },
 };
 
 const Banner = () => {
-	const navigate = useNavigate();
- const validatetokenAndRedirect =() =>{
-	const token = localStorage.getItem("token")
-	? localStorage.getItem("token")
-	: false;
+  const navigate = useNavigate();
+  const validatetokenAndRedirect = () => {
+    navigate("/offer_and_deals");
+  };
 
-	if (!token) {
-		toast.error(
-			" Please login/signup to get started with RakeBackk!"
-		);
-	} else {
-		navigate("/offer_and_deals")
-	}
+  return (
+    <div className={`container_max ${styles.banner_container}`}>
+      <div className={styles.header_container}>
+        <Reveal>
+          <div className={styles.header_text_container}>
+            <div className={styles.head}>
+              Your ultimate destination for cashback rewards
+            </div>
+            <div className={styles.sub_head}>
+              We're your ticket to turning every poker hand into cold, hard
+              cash.
+            </div>
+          </div>
+          <button
+            className={`primary_button ${styles.btn_container}`}
+            onClick={() => validatetokenAndRedirect()}
+          >
+            {" "}
+            Get started
+          </button>
+        </Reveal>
+      </div>
 
+      <div className={styles.image}>
+        <Reveal variants={animationVariants}>
+          <img src={bannerimg} alt="" width={640} height={500} />{" "}
+        </Reveal>
+      </div>
 
- }
+      <div className={`${styles.layer} ${styles.layer_1}`}>
+        <Reveal variants={animationVariants}>
+          <img src={layer1} alt="" width={260} height={320} />
+        </Reveal>
+      </div>
 
-	return (
-		<div className={`container_max ${styles.banner_container}`}>
-			<div className={styles.header_container}>
-				<Reveal>
-					<div className={styles.header_text_container}>
-						<div className={styles.head}>
-							Your ultimate destination for cashback rewards
-						</div>
-						<div className={styles.sub_head}>
-							We're your ticket to turning every poker hand into cold, hard
-							cash.
-						</div>
-					</div>
-					<button className={`primary_button ${styles.btn_container}`} onClick ={() => validatetokenAndRedirect()} > Get started</button>
-					{/* <Link
-						to='/offer_and_deals'
-						className={`primary_button ${styles.btn_container}`}
-					>
-						Get started
-					</Link> */}
-				</Reveal>
-			</div>
-
-			<div className={styles.image}>
-				<Reveal variants={animationVariants}>
-					<img src={bannerimg} alt='' width={640} height={500} />{" "}
-				</Reveal>
-			</div>
-
-			<div className={`${styles.layer} ${styles.layer_1}`}>
-				<Reveal variants={animationVariants}>
-					<img src={layer1} alt='' width={260} height={320} />
-				</Reveal>
-			</div>
-
-			<div className={`${styles.layer} ${styles.layer_2}`}>
-				<Reveal variants={animationVariants}>
-					<img src={layer1} alt='' width={260} height={320} />
-				</Reveal>
-			</div>
-		</div>
-	);
+      <div className={`${styles.layer} ${styles.layer_2}`}>
+        <Reveal variants={animationVariants}>
+          <img src={layer1} alt="" width={260} height={320} />
+        </Reveal>
+      </div>
+    </div>
+  );
 };
 
 export default Banner;
