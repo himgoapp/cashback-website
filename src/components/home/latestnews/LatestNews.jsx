@@ -6,7 +6,7 @@ import Footer from "../../common/footer/footer";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"; // Import Tabs from react-tabs
 import { newsArticles } from "../../../utils/articleJson";
 
-const LatestNews = ({userData}) => {
+const LatestNews = ({ userData }) => {
   const [activeTab, setActiveTab] = useState("latest");
   const [currentArticles, setCurrentArticles] = useState([]);
 
@@ -141,20 +141,67 @@ const LatestNews = ({userData}) => {
                     </Link>
                   ))}
               </div>
-              {/* Empty Section on the Right */}
-              <div className={styles.ads_section}></div>
+              {/* Important Post Section on the Right */}
+              <div className={styles.important_post}>
+                <h2 className={styles.important_post_heading}>
+                  Important Posts
+                </h2>
+                <ul className={styles.post_list}>
+                  <li className={styles.post_item}>
+                    <img
+                      src="https://cms.worldpokerdeals.com/assets/41ddabb1-48bd-4adf-be71-c468faf90553?width=200&height=100&format=webp&quality=75&fit=cover"
+                      alt="Post 1"
+                      className={styles.post_image}
+                    />
+                    TOP-5 best alternatives to PokerStars in 2025
+                  </li>
+                  <li className={styles.post_item}>
+                    <img
+                      src="https://cms.worldpokerdeals.com/assets/5b06d8c9-8366-4343-aa84-2f4130dfb6d9?width=200&height=99&format=webp&quality=75&fit=cover"
+                      alt="Post 2"
+                      className={styles.post_image}
+                    />
+                    GGPoker vs PokerStars: Where to roll? (2025 update)
+                  </li>
+                  <li className={styles.post_item}>
+                    <img
+                      src="https://cms.worldpokerdeals.com/assets/47d585b4-31b3-4bd2-a5cc-aae97450648e?width=200&height=110&format=webp&quality=75&fit=cover"
+                      alt="Post 3"
+                      className={styles.post_image}
+                    />
+                    Top Poker Unions: PokerBros, PPPoker, ClubGG
+                  </li>
+                  <li className={styles.post_item}>
+                    <img
+                      src="https://cms.worldpokerdeals.com/assets/50e49fd6-ba24-4129-bea3-8e5a18492815?width=200&height=99&format=webp&quality=75&fit=cover"
+                      alt="Post 4"
+                      className={styles.post_image}
+                    />
+                    Where is legal to play WPT Global — Countries and
+                    territories
+                  </li>
+                  <li className={styles.post_item}>
+                    <img
+                      src="https://cms.worldpokerdeals.com/assets/9b477d99-6747-404a-a33e-25887abb0657?width=200&height=99&format=webp&quality=75&fit=cover"
+                      alt="Post 5"
+                      className={styles.post_image}
+                    />
+                    GGNetwork countries guide: What skin can I play? (2025
+                    update)
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </Tabs>
 
         {/* Ads Section */}
       </div>
-
       <div
         style={{
           width: "100%",
           backgroundColor: "#3968eb",
-          marginTop: "10rem",
+          // marginTop: "5rem",
         }}
         className="flex_center"
       >

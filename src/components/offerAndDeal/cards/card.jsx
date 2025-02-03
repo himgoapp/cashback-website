@@ -1,11 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import styles from "./card.module.css"; // Replace with your actual CSS module path
 import { useNavigate } from "react-router-dom";
-import pokerbaazi from "../../../assets/PokerBaazi.svg";
-import mpl from "../../../assets/MPL.jpg";
-import junglePk from "../../../assets/jungleePoker.svg";
+import pokerbaaziout from "../../../assets/Pokerbaazi out.svg";
+import MPLOUT from "../../../assets/MPL OUT.svg";
+import JungleePoker from "../../../assets/Jungleepoker.svg";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
+// import { colorBkg } from "../../../helperFxns/colorCode";
+import {colorBkgOut} from "../../../helperFxns/colorCode"
 
 const OfferCard = ({ fillBtn, product }) => {
 	const navigate = useNavigate();
@@ -35,15 +37,15 @@ const OfferCard = ({ fillBtn, product }) => {
 				{/* Item Content */}
 				<div className={styles.item_content}>
 					{/* Image */}
-					<div className={styles.image}>
+					<div className={styles.image} style={colorBkgOut(product.name)}>
 						{/* Image Content */}{" "}
 						<img
 							src={
 								product && product.name && product.name === "Poker Baazi"
-									? pokerbaazi
+									? pokerbaaziout
 									: product && product.name && product.name === "Junglee Poker"
-									? junglePk
-									: mpl
+									? JungleePoker
+									: MPLOUT
 							}
 							alt=''
 						/>{" "}

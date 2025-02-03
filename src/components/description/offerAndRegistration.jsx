@@ -5,10 +5,11 @@ import proIcon from "../../assets/proIcon.png";
 import bonusgift from "../../assets/bonusgift.png";
 import walletIcon from "../../assets/walletIcon.png";
 // import Navbtn from "../common/button/navbtn/navbtn";
-import mpl from "../../assets/MPL.jpg";
-import junglePk from "../../assets/jungleePoker.svg";
-import pokerbaazi from "../../assets/PokerBaazi.svg";
+import MPL from "../../assets/MPL.svg";
+import JungleePoker from "../../assets/Jungleepoker.svg";
+import pokerbaazi from "../../assets/PokerBaaziBanner.svg";
 import Navbtn from "../common/button/navbtn/navbtn";
+import { colorBkg } from "../../helperFxns/colorCode";
 
 const OfferAndRegistration = () => {
 		const[register,setRegister]=useState(0)
@@ -16,13 +17,14 @@ const OfferAndRegistration = () => {
 	let currentItem = localStorage.getItem("currentProductValue")
 		? JSON.parse(localStorage.getItem("currentProductValue"))
 		: {};
+	
 	return (
 		<div className={styles.offer_and_registration_wrapper}>
 			<div className={styles.offer_and_registration_container}>
 				<div className={styles.offer_container}>
 					<div className={styles.offer_card_container}>
 						<div className={styles.offer_card_content}>
-							<div className={styles.image}>
+							<div className={styles.image} style ={colorBkg(currentItem.name)} >
 								<img
 									src={
 										currentItem &&
@@ -32,8 +34,8 @@ const OfferAndRegistration = () => {
 											: currentItem &&
 											  currentItem.name &&
 											  currentItem.name === "Junglee Poker"
-											? junglePk
-											: mpl
+											? JungleePoker
+											: MPL
 									}
 									alt='Offer'
 								/>

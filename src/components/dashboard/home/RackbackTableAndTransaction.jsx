@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './rackback_table_and_transaction.module.css';
-import pokercard from '../../../assets/pokercard.png';
+import mpllogo from '../../../assets/mpllogo.svg';
 import pokerbaazi from '../../../assets/pokerbaazi.png';
-import jungleepokerlogo from '../../../assets/jungleepokerlogo.png';
+import jungleepokerlogo from '../../../assets/jungleepokerlogo.svg';
 import deposit from '../../../assets/deposit.png'
 import withdrawal from '../../../assets/withdrawal.png'
 const RakebackTable = ({ labels, dashboardInfo  }) => { 
@@ -50,8 +50,8 @@ const RakebackTable = ({ labels, dashboardInfo  }) => {
       src={deposit}
       alt="Status Icon"
       style={{
-        width: '22px',
-        height: '22px',
+        width: '26px',
+        height: '26px',
         borderRadius: '50%',
         marginRight: '10px',
       }}
@@ -62,8 +62,8 @@ const RakebackTable = ({ labels, dashboardInfo  }) => {
       src={withdrawal}
       alt="Status Icon"
       style={{
-        width: '22px',
-        height: '22px',
+        width: '26px',
+        height: '26px',
         borderRadius: '50%',
         marginRight: '10px',
       }}
@@ -76,8 +76,8 @@ const getTableIconStyle = (type)=>{
     src={jungleepokerlogo}
     alt="Status Icon"
     style={{
-      width: '22px',
-      height: '22px',
+      width: '26px',
+      height: '26px',
       borderRadius: '50%',
       marginRight: '10px',
     }}
@@ -88,8 +88,8 @@ const getTableIconStyle = (type)=>{
     src={pokerbaazi}
     alt="Status Icon"
     style={{
-      width: '22px',
-      height: '22px',
+      width: '26px',
+      height: '26px',
       borderRadius: '50%',
       marginRight: '10px',
     }}
@@ -97,11 +97,11 @@ const getTableIconStyle = (type)=>{
   }
   else if (type === 'MPL') {
     return <img
-    src={pokercard}
+    src={mpllogo}
     alt="Status Icon"
     style={{
-      width: '22px',
-      height: '22px',
+      width: '26px',
+      height: '26px',
       borderRadius: '50%',
       marginRight: '10px',
     }}
@@ -109,11 +109,11 @@ const getTableIconStyle = (type)=>{
   }
   else {
     return <img
-    src={pokercard}
+    src={mpllogo}
     alt="Status Icon"
     style={{
-      width: '22px',
-      height: '22px',
+      width: '26px',
+      height: '26px',
       borderRadius: '50%',
       marginRight: '10px',
     }}

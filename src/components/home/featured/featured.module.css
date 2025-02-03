@@ -117,6 +117,7 @@
 	color: white; /* Change arrow color */
 	background: rgba(0, 0, 0, 0.3); /* Optional: add a transparent background for better visibility */
 	border-radius: 50%; /* Optional: give arrows a rounded background */
+	left: -50px;
 }
 
 /* Adjust the position of the prev/next arrows to the sides of the carousel */
@@ -125,7 +126,7 @@
 }
 
 .carousel-control-next {
-	right: 10px;
+	right: 0px;
 }
 
 /* Optional: Style the carousel indicators (dots) */
@@ -164,3 +165,5 @@
 	font-size: 13px;
 }
 
+
+ 

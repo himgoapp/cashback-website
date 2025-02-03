@@ -20,70 +20,45 @@
   padding: 0 20px; /* Add horizontal padding for equal space on both sides */
   line-height: 1.6;
   overflow-x: hidden;
-width: 80%;
-}
-.news_grid{
-margin-top: 12px;
+  padding-bottom: 20px;
 }
 
 .header_container {
   color: var(--black-800, #212121);
   text-align: center;
-  font-feature-settings: "clig" off, "liga" off;
   font-family: futura;
   font-size: 3rem;
-  font-style: normal;
   font-weight: 700;
   margin: 2rem 0 2rem 0;
   letter-spacing: -0.0625rem;
 }
 
-
-.news_grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Equal column width */
-  gap: 25px;
+.tabs_container {
+  margin-top: 20px;
 }
 
-
-
-
-.card_link {
-  display: block; /* Make the entire ad card clickable */
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Inherit text color */
-}
-/* TabList styles */
 .tabList {
   display: flex;
   gap: 2rem;
   list-style: none;
-  font-size: 16px; /* Larger text size */
+  font-size: 16px;
   font-weight: 600;
   color: var(--text-color);
-  padding: 0.5rem 1rem; /* Add padding inside each tab */
+  padding: 0.5rem 1rem;
   margin: 0;
   cursor: pointer;
-  
-  
-}
-.tabList > li { /* Target individual list items if each one is a button */
-  padding: 0.5rem 1rem; /* Adjust the padding as desired */
-  border-radius: 10rem;
-}
-.tabList .active {
-  background-color: #3968eb;  /* or any color you want */
-  color: var(--background-color);
-  border: none;  /* Ensure no border is applied */
-  outline: none; /* Remove any outline when tab is active */
 }
 
-.tabList .tab {
-  padding: 10px 20px;
-  border-radius: var(--border-radius);
-  transition: background-color, color var(--transition);
-  border: none;  /* No border by default */
-  outline: none;  /* Remove any outline */
+.tabList > li {
+  padding: 0.5rem 1rem;
+  border-radius: 10rem;
+}
+
+.tabList .active {
+  background-color: #3968eb;
+  color: var(--background-color);
+  border: none;
+  outline: none;
 }
 
 .tabList .tab:hover {
@@ -91,27 +66,45 @@ margin-top: 12px;
   color: var(--background-color);
 }
 
-/* Optionally, you could also reset the focus outline if needed */
-.tabList .tab:focus {
-  outline: none;
+.news_section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+  gap: 2rem; /* Space between news grid and important post */
 }
 
+.content_layout {
+  display: flex;
+  width: 100%;
+}
 
+.news_grid {
+  width: 80%; /* 80% width for news cards */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
 
+.card_link {
+  text-decoration: none; /* Remove underline from links */
+}
 
-
-/* News Cards */
 .news_card {
   background-color: var(--card-bg);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow-light);
   overflow: hidden;
   transition: var(--transition);
-  cursor: pointer; /* Ensure the card looks clickable */
+  cursor: pointer;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Ensures all cards take equal height within their grid */
+  height: 100%;
 }
+
+.news_card a {
+  text-decoration: none; /* Ensure links within news cards are not underlined */
+}
+
 
 .news_image {
   width: 100%;
@@ -120,33 +113,28 @@ margin-top: 12px;
   filter: grayscale(20%);
 }
 
-.news_title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--gray-900, #101828);
-}
-
 .cardContent {
   padding: 15px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Allow content to grow and fill available space */
-  justify-content: space-between; /* Push content to top and bottom */
+  flex-grow: 1;
+  justify-content: space-between;
 }
 
 .cardMeta {
   font-size: 14px;
   color: gray;
   display: flex;
-  justify-content: flex-start; /* Align the writer and date to the left */
-  gap: 10px; /* Optional, to add space between the writer and date */
-  margin-top: auto; /* Push this section to the bottom of the card */
+  justify-content: flex-start;
+  gap: 10px;
+  margin-top: auto;
 }
 
 .heading_card {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--gray-900, #101828);
+
 }
 
 .para {
@@ -168,7 +156,6 @@ margin-top: 12px;
 
 .type {
   font-size: 13px;
-  
 }
 
 .news_description {
@@ -176,7 +163,7 @@ margin-top: 12px;
   color: var(--text-muted);
   margin: 0 20px 20px;
   line-height: 1.8;
-  flex-grow: 1; /* This will allow the description to fill space and push the footer down */
+  flex-grow: 1;
 }
 
 .news_card:hover {
@@ -188,21 +175,57 @@ margin-top: 12px;
   color: var(--primary-color); /* Change title color on hover */
 }
 
-/* Ads Section - Change to ensure they stack correctly on mobile */
+/* Important Posts Section */
+.important_post {
+  width: 20%; /* Fixed width for better control of the card size */
+  padding: 20px;
+  margin-left: 20px;
+  border-radius: 8px; /* Slightly more rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */
+  background-color: #ffffff; /* A clean white background for better contrast */
+}
+
+.important_post_heading {
+  font-size: 20px;
+  color: #333; /* Slightly darker for better readability */
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+
+.post_list {
+  list-style-type: none; /* Remove default list styling */
+  padding: 0;
+  margin: 0;
+}
+
+.post_item {
+  font-size: 0.875rem;
+  color: #1f2937; /* Darker text for readability */
+  margin-bottom: 15px; /* Space between each post */
+  display: flex;
+  align-items: center; /* Align image and text */
+}
+
+.post_image {
+  width: 50px; /* Increase image size for better visibility */
+  height: 50px;
+  margin-right: 12px; /* Increase spacing between image and text */
+  border-radius: 5px; /* Optional: rounded corners for the image */
+}
+
+
+/* Responsive Layout for Small Screens */
 @media (max-width: 768px) {
-  /* Ensure the grid in news grid collapses into a single column on smaller screens */
+  .news_section {
+    flex-direction: column; /* Stack the news and important posts vertically on small screens */
+  }
+
   .news_grid {
-    grid-template-columns: 1fr; /* Stack news cards in a single column on small screens */
+    grid-template-columns: 1fr; /* Stack news cards in a single column on smaller screens */
   }
 
-  /* For ads container, ensure they are full-width on mobile */
-  .ad_card {
-    width: 100%;
-  }
-
-  /* Mobile responsiveness for ads container */
-  .ads_container {
-    grid-template-columns: 1fr;
+  .important_post {
+    width: 100%; /* Full width for important posts on smaller screens */
     margin-top: 20px;
   }
 
@@ -212,9 +235,5 @@ margin-top: 12px;
 
   .title {
     font-size: 2rem;
-  }
-
-  .news_section {
-    flex-direction: column;
   }
 }
