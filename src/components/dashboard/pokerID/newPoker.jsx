@@ -7,9 +7,7 @@ import styles from "./newPoker.module.css"; // Import your CSS module
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { toast } from "react-toastify";
 import pokerIdIcon from "../../../assets/pokerIdIcon.png";
-import pokerbaazi from "../../../assets/pokerbaazi.png";
-import mpllogo from "../../../assets/mpllogo.svg";
-import jungleepokerlogo from "../../../assets/jungleepokerlogo.svg";
+import {getPokerSiteImage} from "../../../helperFxns/colorCode"
 import { UserContext } from "../../../App";
 
 const staticAccountData = [
@@ -65,18 +63,37 @@ const NewPoker = ({ setGetInfos }) => {
     setShowPokerMenu(false);
   };
 
-  const getPokerSiteImage = (siteName) => {
-    switch (siteName) {
-      case "Junglee Poker":
-        return jungleepokerlogo;
-      case "MPL":
-        return mpllogo;
-      case "Poker Baazi":
-        return pokerbaazi;
-      default:
-        return pokerIdIcon; // Default icon if no match
-    }
-  };
+  // const getPokerSiteImage = (siteName) => {
+  //   switch (siteName) {
+  //     case "Junglee Poker":
+  //       return jungleepokerlogo;
+  //     case "MPL":
+  //       return mpllogo;
+  //     case "Poker Baazi":
+  //       return pokerbaazi;
+  //       case "A23poker":
+  //       return pokerbaazi;
+  //       case "PokerCircle":
+  //       return pokerbaazi;
+  //       case "PokerDangal":
+  //       return pokerbaazi;
+  //       case "Natural8":
+  //       return pokerbaazi;
+  //       case "Pocket52":
+  //       return pokerbaazi;
+  //       case "Adda52":
+  //       return pokerbaazi;
+  //       case "ACRpoker":
+  //       return pokerbaazi;
+  //       case "CoinPoker":
+  //       return pokerbaazi;
+  //       case "WPTglobal":
+  //         return pokerbaazi;
+  //     default:
+  //       return pokerIdIcon; 
+   
+  //   }
+  // };
 
   useEffect(() => {
     getProductsInfo();
@@ -180,7 +197,7 @@ const NewPoker = ({ setGetInfos }) => {
                   placeholder='Enter Account id*'
                 />
               </div>
-              {showAccountMenu && (
+              {/* {showAccountMenu && (
                 <>
                   <div className={styles.SelectMenu}>
                     {staticAccountData &&
@@ -205,7 +222,7 @@ const NewPoker = ({ setGetInfos }) => {
                     onClick={() => setShowAccountMenu(false)}
                   ></div>
                 </>
-              )}
+              )} */}
             </div>
           </div>
 
@@ -217,7 +234,6 @@ const NewPoker = ({ setGetInfos }) => {
             onClick={() => {
               onSubmitFxn();
             }}
-            loading={loading}
           />
         </div>
       </div>

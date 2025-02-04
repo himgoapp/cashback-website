@@ -46,16 +46,12 @@ const OfferCardContainer = ({ searchTerm }) => {
 				filteredProducts.length > 0 &&
 				filteredProducts.map((item, index) => {
 					return (
-						<Link
-							to={userData ? "/description" : "/"}
-							style={{ textDecoration: "none" }}
-							key={index}
-						>
+						
 							<OfferCard
 								fillBtn={(index + 1) % 2 === 0 ? false : true}
 								product={item}
 							/>
-						</Link>
+						
 					);
 				})}
 		</div>

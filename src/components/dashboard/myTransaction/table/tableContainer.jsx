@@ -96,19 +96,20 @@ const columns = [
 	},
 ];
 
-const TableContainer = () => {
+const TableContainer = ({transactionType}) => {
 	const { userData } = useContext(UserContext);
 	const [products, setProducts] = useState([]);
+	const [page , setPage] =useState(0)
 
 	const getTransactions = async () => {
 		if (!userData || !userData._id) return;
-		const res = await alltransactions(userData._id);
+		const res = await alltransactions(userData._id , transactionType, page );
 		setProducts(res.transactionsInfo);
 	};
 
 	useEffect(() => {
 		getTransactions();
-	}, []);
+	}, [transactionType, page]);
 
 	return (
 		<div className={styles.TransactionTableContainer}>

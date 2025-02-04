@@ -11,6 +11,7 @@ import KycStatusPage from "./kycStatusPage";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { Steps } from "primereact/steps";
 import { UserContext } from "../../../App";
+import { useNavigate } from "react-router-dom";
 
 const KycMain = () => {
 	const [setReload, setStepReload] = useState(false);
@@ -22,6 +23,8 @@ const KycMain = () => {
 		setTransactionInfo,
 		setUserData,
 	} = useContext(UserContext);
+	
+	const navigate = useNavigate();
 
 	const getAllUserInfo = async () => {
 		if (!userData || !userData._id) return;
@@ -92,9 +95,10 @@ const KycMain = () => {
 						isSuccess={true}
 						label='Your KYC verification was Successful'
 						btnText='Go to Home'
-						setData={() => {}}
+						setData={() =>  {navigate("/dashboard")}}
+					
 					/>
-				)}
+				)} 
 
 				{userKyc.level === "4" && userKyc.statusValue === "Failed" && (
 					<KycStatusPage

@@ -179,6 +179,7 @@
 .important_post {
   width: 20%; /* Fixed width for better control of the card size */
   padding: 20px;
+  height: fit-content;
   margin-left: 20px;
   border-radius: 8px; /* Slightly more rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the card */

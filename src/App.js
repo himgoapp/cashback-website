@@ -151,13 +151,13 @@ function App() {
                 </NotProtectedRoute>
               }
             />
-            {/* <Route
+            <Route
 							Route path="/article/:id"
 							element={
 								<ProtectedRoute>
 						<NewsArticle/>
 						</ProtectedRoute>}
-						/> */}
+						/>
             <Route
               path="/faq_container"
               element={

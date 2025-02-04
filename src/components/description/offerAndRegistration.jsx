@@ -212,14 +212,14 @@ const OfferAndRegistration = () => {
         className={`secondary_link_nav ${register === 0 ? styles.active : ""}`}
         onClick={() => setRegister(0)}
       >
-        <a className={styles.nav_button}>After Registration</a>
+        <span className={styles.nav_button}>After Registration</span>
       </div>
       
       <div
         className={`secondary_link_nav ${register === 1 ? styles.active : ""}`}
         onClick={() => setRegister(1)}
       >
-        <a className={styles.nav_button}>Old Account</a>
+        <span className={styles.nav_button}>Old Account</span>
       </div>
 
       {/* Type Description */}

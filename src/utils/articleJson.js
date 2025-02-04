@@ -246,12 +246,50 @@ const newsArticles = [{
     id: 24,
       heading: "Interview with ACR Pro Katie Lindsay",
       content:
-        "As the countdown begins for the highly-anticipated $12.5 million Venom tournament, boasting its l...",
+        "As the countdown begins for the highly-anticipated $12.5 million Venom tournament, boasting its l",
       image:
         "https://cms.worldpokerdeals.com/assets/d52d7d58-8aeb-4966-b899-448326291ccf?width=600&height=284&format=webp&quality=75&fit=cover",
       writer: "XYZ",
       date: "31 Jan 2025",
       type: "interviews",
+    },
+     {id: 25,
+      heading: "$8MGTD Sunday Million 18th Anniversary at PokerStars",
+      content:
+        "PokerStars has announced its biggest tournament of the year – Sunday Million 18th Anniversa",
+      image:
+        "https://cms.worldpokerdeals.com/assets/4c80b21d-ad85-46f6-8946-e558d6d2127a?width=600&height=284&format=webp&quality=75&fit=cover",
+      writer: "ABC",
+      date: "01 Jan 2025",
+      type: "mtt",
+    },
+    {id: 26,
+      heading: "$55,000 Iron Man Challenge on Chico Poker Network",
+      content:
+        "An unusual race has been playing on the Chico Poker Network: the Iron Man Challenge. During the 4...",
+      image:
+        "https://cms.worldpokerdeals.com/assets/4c80b21d-ad85-46f6-8946-e558d6d2127a?width=600&height=284&format=webp&quality=75&fit=cover",
+      writer: "XYZ",
+      date: "11 Jan 2025",
+      type: "promotions",
+    },  {id: 27,
+      heading: "Flip&Go: Exclusive GGPoker Tournament Format",
+      content:
+        "Flip&Go: Exclusive Two-Stage Tournaments at GGPoker. What are its main features and which pla...",
+      image:
+        "https://cms.worldpokerdeals.com/assets/e0084a25-e426-49a0-aa5d-6240d7785ec2?width=600&height=355&format=webp&quality=75&fit=cover",
+      writer: "PQR",
+      date: "28 Jan 2025",
+      type: "guide",
+    },  {id: 28,
+      heading: "Patrik Antonius wins $5M at Triton Poker",
+      content:
+        "Finland's top player, Patrick Antonius, made the biggest cash of his career at the Triton Poker S...",
+      image:
+        "https://cms.worldpokerdeals.com/assets/a9963eba-7b48-4207-8bfd-d4dd17462e9f?width=600&height=355&format=webp&quality=75&fit=cover",
+      writer: "XYZ",
+      date: "21 Jan 2025",
+      type: "live",
     },
   ];
 

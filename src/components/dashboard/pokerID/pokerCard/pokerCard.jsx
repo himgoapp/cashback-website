@@ -2,27 +2,24 @@ import React from "react";
 import styles from "./pokerCard.module.css"; // Import your CSS module
 import pokerCardimg from "../../../../assets/pokercard.png";
 import moment from "moment";
-import { statusBaseColor } from "../../../../helperFxns/colorCode";
-import jungleepokerlogo from "../../../../assets/jungleepokerlogo.svg";
-import pokerbaazi from "../../../../assets/pokerbaazi.png";
-import logompl from "../../../../assets/mpllogo.svg"
-const PokerCard = ({ status, color, item }) => {
+import { statusBaseColor, imagePicker } from "../../../../helperFxns/colorCode";
 
+
+
+const PokerCard = ({ status, color, item }) => {
   return (
     <div className={styles.PokerCard}>
       <div className={styles.CardContent}>
         <div className={styles.HeaderAndId}>
           <div className={styles.HeaderAndIdContent}>
-          <img
-							src={
-								item.productId && item.productId.name && item.productId.name === "Poker Baazi"
-									? pokerbaazi
-									: item.productId && item.productId.name && item.productId.name === "Junglee Poker"
-									? jungleepokerlogo
-									: logompl
-							}
-						style={{height:"95px",width:"95px"}}
-						/>{" "}
+            <img
+              src={
+                item && item.productId && item.productId.name
+                  ? imagePicker(item.productId.name)
+                  : pokerCardimg
+              }
+              style={{ height: "50px", width: "50px" }}
+            />{" "}
             <div className={styles.HeaderId}>
               <div className={styles.Head}>
                 {item && item.productId ? item.productId.name : ""}
@@ -30,7 +27,7 @@ const PokerCard = ({ status, color, item }) => {
               <div className={styles.Id}>
                 Account ID: {item && item.referenceId ? item.referenceId : ""}
               </div>
-            </div> 
+            </div>
           </div>
         </div>
       </div>
@@ -38,7 +35,7 @@ const PokerCard = ({ status, color, item }) => {
         <div className={styles.Divider}></div>
         <div className={styles.FooterContent}>
           <div className={styles.PokerStatus}>
-            <div className={styles.Badge}>
+            <div>
               <div className={styles.Text} style={statusBaseColor(status)}>
                 {status}
               </div>
