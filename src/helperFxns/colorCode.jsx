@@ -1,5 +1,5 @@
 import pokerbaazi from "../assets/pokerbaazi.png";
-import jungleepokerlogo from "../assets/jungleepokerlogo.svg";
+import JUNGLEEPOKER from "../assets/JUNGLEEPOKER.svg";
 import deposit from "../assets/deposit.png";
 import withdrawal from "../assets/withdrawal.png";
 import mpllogo from "../assets/mpllogo.svg"
@@ -9,6 +9,10 @@ import CoinPoker from "../assets/coinpoker.svg"
 import pocket52 from "../assets/pocket52.svg"
 import POKERDANGAL from "../assets/POKERDANGAL.svg"
 import wptglobal from "../assets/wptglobal.svg"
+import NATURAL8 from "../assets/NATURAL8.svg"
+import ACRPOKER from "../assets/ACRPOKER.svg"
+import POKERCIRCLE from "../assets/pokercircle (2).svg"
+
 
 
 
@@ -17,7 +21,7 @@ export const colorBkg = (name) => {
     ? { backgroundColor: "#330099" }
     : name === "MPL"
     ? { backgroundColor: "#d60f19" }
-    : { backgroundColor: "white" };
+    : { backgroundColor: "" };
 };
 export const colorBkgOut = (name) => {
   return name === "Poker Baazi"
@@ -128,7 +132,7 @@ export const getTableIconStyle = (type) => {
   if (type === "Junglee Poker") {
     return (
       <img
-        src={jungleepokerlogo}
+        src={JUNGLEEPOKER}
         alt="Status Icon"
         style={{
           width: "26px",
@@ -183,7 +187,7 @@ export const getTableIconStyle = (type) => {
  export const getPokerSiteImage = (siteName) => {
     switch (siteName) {
       case "Junglee Poker":
-        return jungleepokerlogo;
+        return JUNGLEEPOKER;
       case "MPL":
         return mpllogo;
       case "Poker Baazi":
@@ -191,17 +195,17 @@ export const getTableIconStyle = (type) => {
         case "A23poker":
         return A23POKER;
         case "PokerCircle":
-        return pokerbaazi;
+        return POKERCIRCLE;
         case "PokerDangal":
         return POKERDANGAL;
         case "Natural8":
-        return pokerbaazi;
+        return NATURAL8;
         case "Pocket52":
         return pocket52;
         case "Adda52":
         return Adda52;
         case "ACRpoker":
-        return pokerbaazi;
+        return ACRPOKER;
         case "CoinPoker":
         return CoinPoker;
         case "WPTglobal":
@@ -216,7 +220,7 @@ export const getTableIconStyle = (type) => {
     return productName === "Poker Baazi"
        ? pokerbaazi
        : productName === "Junglee Poker"
-       ? jungleepokerlogo
+       ? JUNGLEEPOKER
        : productName === "MPL"
        ? mpllogo
        : productName === "A23poker"
@@ -235,5 +239,5 @@ export const getTableIconStyle = (type) => {
        ? CoinPoker
        : productName === "WPTglobal"
        ? wptglobal
-       : jungleepokerlogo;
+       : JUNGLEEPOKER;
    }; 

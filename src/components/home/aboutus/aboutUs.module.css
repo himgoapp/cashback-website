@@ -7,7 +7,8 @@
 	align-items: center;
 	border-bottom: 0.0625rem solid #eaeaea;
 	gap: 2rem;
-	background: linear-gradient(145deg, #e0e7ff, #f0f4ff);
+	background: linear-gradient(180deg, white, #d8eeff);
+
 	/* border-radius: 1.36388rem; */
 }
 .about__container .content {

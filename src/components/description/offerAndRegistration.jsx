@@ -6,7 +6,7 @@ import bonusgift from "../../assets/bonusgift.png";
 import walletIcon from "../../assets/walletIcon.png";
 // import Navbtn from "../common/button/navbtn/navbtn";
 import MPL from "../../assets/MPL.svg";
-import JungleePoker from "../../assets/Jungleepoker.svg";
+import jungleePoker2 from "../../assets/jungleePokerbanner.jpg";
 import pokerbaazi from "../../assets/PokerBaaziBanner.svg";
 import Navbtn from "../common/button/navbtn/navbtn";
 import { colorBkg } from "../../helperFxns/colorCode";
@@ -34,7 +34,7 @@ const OfferAndRegistration = () => {
 											: currentItem &&
 											  currentItem.name &&
 											  currentItem.name === "Junglee Poker"
-											? JungleePoker
+											? jungleePoker2
 											: MPL
 									}
 									alt='Offer'

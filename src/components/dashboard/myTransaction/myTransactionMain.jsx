@@ -10,17 +10,17 @@ import { UserContext } from "../../../App";
 
 const MyTransactionMain = () => {
   const { userData, walletData, userKyc } = useContext(UserContext);
-  const[transactionType,setTransactionType]=useState("Withdrawal")
+  const [transactionType, setTransactionType] = useState("Withdrawal");
 
   if (!userData || !walletData || !userKyc) return null;
 
- const activeTab = (type , transactionType ) => {
-     if (type === transactionType){
-		return { borderBottom: "0.125rem #3968eb solid" }
-	 }else{ return {}}
-
- }
-  
+  const activeTab = (type, transactionType) => {
+    if (type === transactionType) {
+      return { borderBottom: "0.125rem #3968eb solid" };
+    } else {
+      return {};
+    }
+  };
 
   return (
     <div style={{ width: "100%" }}>
@@ -30,38 +30,37 @@ const MyTransactionMain = () => {
           <div className={styles.TabContent}>
             <div className={styles.TabFilters}>
               <div
-                className={styles.TabButton }
-                style={activeTab("Withdrawal" ,transactionType ) }
-				onClick={() => setTransactionType("Withdrawal")}
-
+                className={styles.TabButton}
+                style={activeTab("Withdrawal", transactionType)}
+                onClick={() => setTransactionType("Withdrawal")}
               >
                 <div
                   className={styles.TabText}
-                  style={{ color: "#333",fontWeight:"bold",fontSize:"14px" }}
+                  style={{ color: "#333", fontWeight: "bold", fontSize: "14px" }}
                 >
                   Withdrawals
                 </div>
               </div>
 
-              <div className={styles.TabButton}
-			 style={activeTab("Deposit" ,transactionType ) }
-			   onClick={() => setTransactionType("Deposit")}
-			  >
+              <div
+                className={styles.TabButton}
+                style={activeTab("Deposit", transactionType)}
+                onClick={() => setTransactionType("Deposit")}
+              >
                 <div
                   className={styles.TabText}
-				  style={{ color: "#333",fontWeight:"bold",fontSize:"14px" }}
+                  style={{ color: "#333", fontWeight: "bold", fontSize: "14px" }}
                 >
                   Deposits
                 </div>
               </div>
-              {/* <div className={styles.TabButton}>
-                <div className={styles.TabText}>TDS</div>
-              </div> */}
             </div>
           </div>
 
-          <KycTDCstatus />
-          <TableContainer transactionType ={transactionType}/>
+          {/* Conditionally render KycTDCstatus based on transactionType */}
+          {transactionType !== "Deposit" && <KycTDCstatus />}
+
+          <TableContainer transactionType={transactionType} />
         </DashboardMain>
       </DashboardMainTopBottom>
     </div>
@@ -109,7 +108,7 @@ const percentIcon = (
         stroke="#3968EB"
         strokeWidth="1.33333"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
     </g>
     <defs>

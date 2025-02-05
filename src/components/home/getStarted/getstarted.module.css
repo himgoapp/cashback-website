@@ -8,7 +8,8 @@
 	display: flex;
 	grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
 	/* border-radius: 1.36388rem; */
-	background: linear-gradient(145deg, #e0e7ff, #f0f4ff);
+	background: linear-gradient(180deg, white, #d8eeff);
+
 
 
 
@@ -16,7 +17,8 @@
 		0px 20px 24px -4px rgba(16, 24, 40, 0.08);
 }
 .getstarted_content .image_container {
-	background: linear-gradient(145deg, #e0e7ff, #f0f4ff);
+	background: linear-gradient(180deg, white, #d8eeff);
+
 
 	border-bottom-left-radius: 1.36388rem;
 	border-top-left-radius: 1.36388rem;

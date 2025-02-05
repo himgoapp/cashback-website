@@ -40,16 +40,21 @@ const Sidebar = ({ active }) => {
 								text: "Poker IDs",
 								link: "/dashboard/pokerid",
 							},
-							{
-								icon: verifyIcon,
-								text: "Verify Account",
-								link: "/dashboard/verify-account",
-							},
+							// {
+							// 	icon: verifyIcon,
+							// 	text: "Verify Account",
+							// 	link: "/dashboard/verify-account",
+							// },
 							{ icon: KYCIcon, text: "KYC", link: "/dashboard/kyc" },
 							{
 								icon: TransactionsIcon,
 								text: "My Transactions",
 								link: "/dashboard/mytransactions",
+							},
+							{
+								icon: verifyIcon,
+								text: "Profile",
+								link: "/dashboard/verify-account",
 							},
 						].map((nav, index) => {
 							return (

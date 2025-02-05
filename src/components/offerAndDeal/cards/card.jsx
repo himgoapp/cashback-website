@@ -3,7 +3,7 @@ import styles from "./card.module.css"; // Replace with your actual CSS module p
 import { useNavigate } from "react-router-dom";
 import pokerbaaziout from "../../../assets/Pokerbaazi out.svg";
 import MPLOUT from "../../../assets/MPL OUT.svg";
-import JungleePoker from "../../../assets/Jungleepoker.svg";
+import JungleePoker2 from "../../../assets/jungleePokerbanner.jpg";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
 // import { colorBkg } from "../../../helperFxns/colorCode";
@@ -44,7 +44,7 @@ const OfferCard = ({ fillBtn, product }) => {
 								product && product.name && product.name === "Poker Baazi"
 									? pokerbaaziout
 									: product && product.name && product.name === "Junglee Poker"
-									? JungleePoker
+									? JungleePoker2
 									: MPLOUT
 							}
 							alt=''

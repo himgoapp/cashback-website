@@ -11,7 +11,7 @@ const VerifyAccount = () => {
 				position: "relative",
 			}}
 		>
-			<Sidebar active={2} />
+			<Sidebar active={4} />
 			<VerifyAccMain />
 		</div>
 	);

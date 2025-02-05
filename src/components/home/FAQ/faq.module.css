@@ -1,6 +1,6 @@
 /* Main container */
 .faq_container {
-		background: linear-gradient(145deg, #e0e7ff, #f0f4ff);
+		background: linear-gradient(180deg, white, #d8eeff);
 
 	display: flex;
 	justify-content: center;

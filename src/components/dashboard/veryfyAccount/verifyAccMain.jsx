@@ -14,7 +14,7 @@ const VerifyAccMain = () => {
 	return (
 		<div style={{ width: "100%" }}>
 			<DashboardMainTopBottom>
-				<DashboardHomeHeader title='Verify Account' data={walletData} />
+				<DashboardHomeHeader title='Profile' data={walletData} />
 				<DashboardMain>
 					{" "}
 					{showWelcomePopup && <WelcomePopup />}

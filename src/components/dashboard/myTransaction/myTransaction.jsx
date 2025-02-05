@@ -5,7 +5,7 @@ import MyTransactionMain from "./myTransactionMain";
 const MyTransaction = () => {
   return (
     <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
-      <Sidebar active={4} />
+      <Sidebar active={3} />
       <MyTransactionMain />
     </div>
   );

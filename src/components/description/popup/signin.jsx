@@ -124,9 +124,9 @@ const PopupSignin = () => {
                     Enter otp we have sent to your mobile.
                   </div>
                   {alert && (
-                    <a className={styles.alert_message}>
+                    <span className={styles.alert_message}>
                       Otp sent again please check!
-                    </a>
+                    </span>
                   )}
                 </div>
 
@@ -186,8 +186,8 @@ const PopupSignin = () => {
                     // }}
                   />
                   <div>
-                    <a className={styles.otp_resend}>Didn't get the otp? </a>
-                    <a
+                    <span className={styles.otp_resend}>Didn't get the otp? </span>
+                    <span
                       className={styles.otp_resend_1}
                       onClick={() => {
                         setAlert(true);
@@ -195,7 +195,7 @@ const PopupSignin = () => {
                       }}
                     >
                       Resend it.
-                    </a>
+                    </span>
                   </div>
                 </div>
                 <div style={{ width: "100%" }}>

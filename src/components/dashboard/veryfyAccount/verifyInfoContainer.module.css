@@ -1,165 +1,146 @@
-.VerifyInfoContainer {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-	gap: 2rem;
+.formContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    background-color: #f5f7fa;
+    min-height: 100vh;
 }
 
-/* VerifyInfoContent */
-.VerifyInfoContent {
-	align-self: stretch;
-	background: white;
-	border-radius: 0.75rem;
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-	border-radius: 0.75rem;
-	background: var(--base-white, #fff);
+.formContent {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
 }
 
-/* InfoHeader */
-.InfoHeader {
-	align-self: stretch;
-	padding: 1rem;
-	background: #f2f6ff;
-	border-top-left-radius: 0.5rem;
-	border-top-right-radius: 0.5rem;
-	border: 2px solid #3968eb;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	gap: 0.25rem;
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
 }
 
-/* InfoHeaderContent */
-.InfoHeaderContent {
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
-	gap: 1rem;
+.formGroup label {
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 500;
 }
 
-/* Icon */
-.Icon {
-	width: 2rem;
-	height: 2rem;
-	position: relative;
-	background: #d1e9ff;
-	border-radius: 1rem;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.formGroup input {
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
 }
 
-/* HeaderText */
-.HeaderText {
-	color: #3968eb;
-	font-size: 1rem;
-	font-family: "Inter", sans-serif;
-	font-weight: 600;
-	line-height: 1.5rem;
-	word-wrap: break-word;
+.formGroup input:focus {
+    border-color: #3968eb;
+    outline: none;
 }
 
-/* Checkbox */
-.Checkbox {
-	width: 1rem;
-	height: 1rem;
-	position: relative;
-	background: #11c15b;
-	border-radius: 0.5rem;
-	border: 0.0625rem #11c15b solid;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+/* Style for Email and Verify Button */
+.emailGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
-/* InfoBody */
-.InfoBody {
-	align-self: stretch;
-	padding: 1rem;
-	display: flex;
-	justify-content: space-between;
-	align-items: flex-start;
-	gap: 0.25rem;
-
-	border-bottom-left-radius: 0.5rem;
-	border-bottom-right-radius: 0.5rem;
-	border: 0.125rem solid #3968eb;
-	border-top: white;
+.emailGroup input {
+    flex: 1;
 }
 
-/* UserInfo */
-.UserInfo {
-	display: flex;
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-	gap: 0.25rem;
+.verifyButton {
+    padding: 0.75rem 1.5rem;
+    background-color: #3968eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* InfoName */
-.InfoName {
-	display: flex;
-	align-self: stretch;
-	justify-content: flex-start;
-	align-items: center;
-	gap: 1.625rem;
+.verifyButton:hover {
+    background-color: #274bb5;
 }
 
-/* InfoNameText */
-.InfoNameText {
-	color: #344054;
-	font-size: 1.25rem;
-	font-family: "Inter", sans-serif;
-	font-weight: 600;
-	line-height: 1.875rem;
-	word-wrap: break-word;
+/* Modal Styles */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-/* IsVerified */
-.IsVerified {
-	align-self: stretch;
-	color: #475467;
-	font-size: 0.875rem;
-	font-family: "Inter", sans-serif;
-	font-weight: 400;
-	line-height: 1.25rem;
-	word-wrap: break-word;
+.showModal {
+    display: flex;
 }
 
-/* InfoBadge */
-.InfoBadge {
-	padding: 0.125rem 0.5rem;
-	mix-blend-mode: multiply;
-	background: #ecfdf3;
-	border-radius: 1rem;
-	display: flex;
-	justify-content: flex-start;
-	align-items: center;
+.modalContent {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
 }
 
-/* BadgeText */
-.BadgeText {
-	text-align: center;
-	color: #027a48;
-	font-size: 0.75rem;
-	font-family: "Inter", sans-serif;
-	font-weight: 500;
-	line-height: 1.125rem;
-	word-wrap: break-word;
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
 
-@media only screen and (max-width: 768px) {
-	.VerifyInfoContainer {
-		width: 100%;
-	}
+.closeButton {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.3s ease;
+}
 
-	.InfoBody {
-		flex-direction: column;
-		gap: 1.5rem;
-	}
+.closeButton:hover {
+    color: #333;
+}
+
+.modalBody label {
+    margin-bottom: 0.5rem;
+    display: block;
+    color: #333;
+}
+
+.modalBody input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+.modalFooter {
+    text-align: right;
+    margin-top: 1rem;
+}
+
+.verifyModalButton {
+    padding: 0.75rem 1.5rem;
+    background-color: #3968eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.verifyModalButton:hover {
+    background-color: #274bb5;
 }

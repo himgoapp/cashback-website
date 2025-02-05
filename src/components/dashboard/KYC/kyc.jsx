@@ -4,7 +4,7 @@ import KycMain from "./kycMain";
 const KYC = () => {
   return (
     <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
-      <Sidebar active={3} />
+      <Sidebar active={2} />
       <KycMain />
     </div>
   );
