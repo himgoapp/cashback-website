@@ -1,0 +1,69 @@
+/* NewArticlesFirstPage.css */
+
+.page_container {
+    background-color: #f7fafc; /* Equivalent to bg-gray-100 */
+    padding: 1rem; /* Equivalent to p-4 */
+    font-family: sans-serif;
+  }
+  
+  .article_card {
+    background-color: #ffffff; /* Equivalent to bg-white */
+    margin: 0 auto; /* Equivalent to mx-auto */
+  }
+  
+  /* Flex container for image and header */
+  .header_flex_container {
+    display: flex;
+    width: 100%;
+    height: 70%; /* Equivalent to h-60 */
+  }
+  
+  /* Image takes 55% width */
+  .header_image {
+    width: 75%;
+  }
+  
+  /* Header title takes 45% width */
+  .header_title_container {
+    width: 45%;
+    background-color: #000; /* Black background for contrast */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+  }
+  
+  .header_title {
+    font-size: 3.25rem; /* Equivalent to text-3xl */
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  @media (min-width: 768px) {
+    .header_title {
+      font-size: 3.25rem; /* Equivalent to md:text-4xl */
+    }
+  }
+  
+  .meta_info {
+    padding: 0.5rem 1.5rem; /* Equivalent to px-6 py-2 */
+    color: #718096; /* Equivalent to text-gray-600 */
+    font-size: 0.875rem; /* Equivalent to text-sm */
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .content_section {
+    padding: 1.5rem; /* Equivalent to p-6 */
+    background-color: #f9fafb; /* Equivalent to bg-gray-50 */
+  }
+  
+  .content_quote {
+    border-left: 4px solid black; /* Equivalent to border-l-4 border-black */
+    padding-left: 1rem; /* Equivalent to pl-4 */
+    font-style: italic;
+    font-size: 1.75rem; /* Equivalent to text-lg */
+    color: #2d3748; /* Equivalent to text-gray-800 */
+  }
+  

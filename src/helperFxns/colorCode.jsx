@@ -1,5 +1,5 @@
 import pokerbaazi from "../assets/pokerbaazi.png";
-import JUNGLEEPOKER from "../assets/JUNGLEEPOKER.svg";
+import jungleePoker from "../assets/jungleePoker.svg";
 import deposit from "../assets/deposit.png";
 import withdrawal from "../assets/withdrawal.png";
 import mpllogo from "../assets/mpllogo.svg"
@@ -132,7 +132,7 @@ export const getTableIconStyle = (type) => {
   if (type === "Junglee Poker") {
     return (
       <img
-        src={JUNGLEEPOKER}
+        src={jungleePoker}
         alt="Status Icon"
         style={{
           width: "26px",
@@ -187,7 +187,7 @@ export const getTableIconStyle = (type) => {
  export const getPokerSiteImage = (siteName) => {
     switch (siteName) {
       case "Junglee Poker":
-        return JUNGLEEPOKER;
+        return jungleePoker;
       case "MPL":
         return mpllogo;
       case "Poker Baazi":
@@ -220,7 +220,7 @@ export const getTableIconStyle = (type) => {
     return productName === "Poker Baazi"
        ? pokerbaazi
        : productName === "Junglee Poker"
-       ? JUNGLEEPOKER
+       ? jungleePoker
        : productName === "MPL"
        ? mpllogo
        : productName === "A23poker"
@@ -239,5 +239,5 @@ export const getTableIconStyle = (type) => {
        ? CoinPoker
        : productName === "WPTglobal"
        ? wptglobal
-       : JUNGLEEPOKER;
+       : jungleePoker;
    }; 

@@ -158,6 +158,7 @@ function App() {
 						<NewsArticle/>
 						</ProtectedRoute>}
 						/>
+            
             <Route
               path="/faq_container"
               element={
@@ -166,6 +167,7 @@ function App() {
                 </NotProtectedRoute>
               }
             />
+
             <Route
               path="*"
               element={
