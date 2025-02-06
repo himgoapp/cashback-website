@@ -7,7 +7,7 @@ import DashboardMain from "../../../layout/dashboardMain";
 import statusStyle from "../KYC/kycStatus.module.css";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
-
+import { TransactionsIcon } from "../../../utils/dashboardMainHeadersIcon";
 const MyTransactionMain = () => {
   const { userData, walletData, userKyc } = useContext(UserContext);
   const [transactionType, setTransactionType] = useState("Withdrawal");
@@ -25,7 +25,9 @@ const MyTransactionMain = () => {
   return (
     <div style={{ width: "100%" }}>
       <DashboardMainTopBottom>
-        <DashboardHomeHeader title="My Transaction" data={walletData} />
+        
+        <DashboardHomeHeader title="My Transaction" data={walletData} icon = {TransactionsIcon} />
+        
         <DashboardMain>
           <div className={styles.TabContent}>
             <div className={styles.TabFilters}>
@@ -118,3 +120,4 @@ const percentIcon = (
     </defs>
   </svg>
 );
+

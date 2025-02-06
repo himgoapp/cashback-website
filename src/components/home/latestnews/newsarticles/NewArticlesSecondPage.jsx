@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./NewsArticlesSecondPage.css"; // Adjust the path if necessary
+import styles from "./NewsArticlesSecondPage.module.css"; // Adjust the path if necessary
 
 function NewsArticlesSecondPage() {
   return (
@@ -44,7 +44,7 @@ function NewsArticlesSecondPage() {
           </section>
 
           <section id="wyoming-2025" className={styles.law}>
-            <h3>How to play poker online in Texas: step-by-step guide</h3>
+            <h2>How to play poker online in Texas: step-by-step guide</h2>
             <p>
               Whether you are a seasoned player or a newcomer, consider the
               guide below on how to start playing online poker right away.

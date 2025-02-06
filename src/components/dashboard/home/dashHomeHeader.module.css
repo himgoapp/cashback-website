@@ -22,7 +22,9 @@
 	/* 24px / 16px */
 	display: flex;
 }
-
+.header_text_gap{
+	margin-left: 12px;
+}
 .HeaderContent {
 	align-self: stretch;
 

@@ -12,6 +12,7 @@ import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { Steps } from "primereact/steps";
 import { UserContext } from "../../../App";
 import { useNavigate } from "react-router-dom";
+import { KYCIcon } from "../../../utils/dashboardMainHeadersIcon"; 
 
 const KycMain = () => {
 	const [setReload, setStepReload] = useState(false);
@@ -47,7 +48,7 @@ const KycMain = () => {
 
 	return (
 		<DashboardMainTopBottom styles={{ width: "100%" }}>
-			<DashboardHomeHeader title='KYC' data={walletData} />
+			<DashboardHomeHeader title='KYC' data={walletData} icon={KYCIcon} />
 			<DashboardMain>
 				{userKyc.level !== "4" && (
 					<KycProgress

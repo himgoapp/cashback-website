@@ -6,17 +6,17 @@ import NewPoker from "./newPoker";
 import PokerCardsContainer from "./pokerCard/PokerCardsContainer";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
-
+import { PokerIcon } from "../../../utils/dashboardMainHeadersIcon";
 const PokerIDMain = () => {
 	const [getInfos, setGetInfos] = useState(false);
 	const { walletData } = useContext(UserContext);
 
 	return (
 		<DashboardMainTopBottom>
-			<DashboardHomeHeader data={walletData} title='Poker ID' />
+			<DashboardHomeHeader data={walletData} title='Poker ID' icon={PokerIcon} />
 			<DashboardMain>
 				<NewPoker setGetInfos={setGetInfos} />
-				<PokerCardsContainer getInfos={getInfos} setGetInfos={setGetInfos} />
+				<PokerCardsContainer getInfos={getInfos} setGetInfos={setGetInfos}  />
 			</DashboardMain>
 		</DashboardMainTopBottom>
 	);

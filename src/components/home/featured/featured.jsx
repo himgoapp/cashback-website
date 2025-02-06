@@ -83,7 +83,7 @@ const Featured = () => {
     padding: "10px",
   };
   return (
-    <div className={`${styles.featured_container} container_max`}>
+    <div className={`${styles.featured_container} `}>
     <div className={styles.featured_content}>
       <div className={styles.header}>
         <Reveal>
@@ -93,7 +93,7 @@ const Featured = () => {
 
       <Carousel
         interval={3000}
-        controls={true}
+        controls={false}
         indicators={true}
         className={styles.carouselWrapper}
       >
@@ -127,7 +127,7 @@ const Featured = () => {
         ))}
       </Carousel>
 
-      <style>
+      {/* <style>
         {`
 .carousel-control-prev, .carousel-control-next {
 ${Object.entries(arrowStyle)
@@ -136,15 +136,15 @@ ${Object.entries(arrowStyle)
 position: absolute;
 top: 50%;
 transform: translateY(-50%);
-z-index: 10; /* Ensure arrows are on top of the carousel */
+z-index: 10; 
 }
 
 // .carousel-control-prev {
-// left: -130px; /* Adjust this value to push the left arrow outside */
+// left: -130px; 
 // }
 
 // .carousel-control-next {
-// right: -130px; /* Adjust this value to push the right arrow outside */
+// right: -130px; 
 // }
 
 .carousel-control-prev-icon, .carousel-control-next-icon {
@@ -155,7 +155,7 @@ height: 2.75rem;
 transform: scale(1.2); 
 }
 `}
-      </style>
+      </style> */}
     </div>
   </div>
   );

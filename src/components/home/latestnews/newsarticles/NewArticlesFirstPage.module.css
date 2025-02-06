@@ -1,0 +1,58 @@
+.page_container {
+  background: linear-gradient(270deg, white, #d8eeff);
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+}
+
+.article_card {
+  /* background-color: #ffffff80; */
+  background: linear-gradient(270deg, white, #d8eeff);
+
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 100%;
+}
+
+.header_flex_container {
+  display: flex;
+  align-items: center;
+}
+
+.image_container {
+  flex: 1;
+}
+
+.header_image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.header_content {
+  flex: 1;
+  padding: 1rem;
+}
+
+.header_title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.meta_info {
+  font-size: 1rem;
+  color: #555;
+}
+
+.content_section {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+
+
+

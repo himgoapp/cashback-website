@@ -1,4 +1,15 @@
+.CardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  width: 100%;
+}
+
 .PokerCard {
+  width: 30%;
+  max-width: 400px;
+  margin-bottom: 1.5rem;
   border: 0.0625rem #eaecf0 solid;
   display: flex;
   flex-direction: column;
@@ -7,8 +18,6 @@
   border-radius: 0.75rem;
   background: var(--base-white, #fff);
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.06), 0px 1px 3px 0px rgba(16, 24, 40, 0.1);
-  width: 100%; /* Ensure it is fluid on all screens */
-  max-width: 400px; /* Optional: To control maximum card size */
 }
 
 .CardContent {
@@ -37,7 +46,7 @@
 }
 
 .Image152 {
-  width: 50%; /* Makes image more fluid */
+  width: 50%;
   height: auto;
 }
 
@@ -130,7 +139,7 @@
 @media only screen and (max-width: 768px) {
   .PokerCard {
     width: 100%;
-    padding: 1rem; /* Padding for smaller devices */
+    padding: 1rem;
   }
   .CardContent {
     padding: 1rem 0.75rem;
@@ -139,25 +148,25 @@
     padding: 0 0.75rem 1rem;
   }
   .Image152 {
-    width: 100%; /* Full width for small screens */
+    width: 100%;
     height: auto;
   }
   .Text {
-    font-size: 0.75rem; /* Smaller text for mobile */
+    font-size: 0.75rem;
   }
   .PokerDate {
-    font-size: 0.875rem; /* Adjust font size for mobile */
+    font-size: 0.875rem;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .PokerCard {
-    padding: 0.75rem; /* Further reduce padding for very small screens */
+    padding: 0.75rem;
   }
   .Text {
-    font-size: 0.75rem; /* Smaller text */
+    font-size: 0.75rem;
   }
   .PokerDate {
-    font-size: 0.75rem; /* Adjust font size for smaller screens */
+    font-size: 0.75rem;
   }
 }

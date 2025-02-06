@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { LogoutIcon } from "../../../assets/vectors";
 import { color } from "framer-motion";
 
-const DashboardHomeHeader = ({ title, data }) => {
+const DashboardHomeHeader = ({ title, data , icon}) => {
 	const {
 		// showSidebar,
 		setShowSidebar,
@@ -17,6 +17,7 @@ const DashboardHomeHeader = ({ title, data }) => {
 		setShowNotifications,
 	} = useContext(UserContext);
 	const navigate = useNavigate();
+
 	const onLogout = () => {
 		localStorage.clear();
 		window.location.reload();
@@ -28,7 +29,7 @@ const DashboardHomeHeader = ({ title, data }) => {
 					<div className={styles.HeaderContentWrapper}>
 						{/*  */}
 						<div className={styles.HeaderTexts}>
-							<div className={styles.HeaderHead}>{title}</div>
+							<div className={styles.HeaderHead}><span>{icon}</span><span className={styles.header_text_gap}>{title}</span></div>
 						</div>
 						{/*  */}
 						<div className={styles.MenuAndLogo}>
@@ -39,18 +40,6 @@ const DashboardHomeHeader = ({ title, data }) => {
 						</div>
 						{/*  */}
 						<div className={styles.HeaderActions}>
-							{/* <div
-								className={styles.HeaderNavBtn}
-								onClick={() => setShowWalletWithdraw(!showWalletWithdraw)}
-							>
-								<div className={styles.HeaderBtnIcon}>
-									<div className={styles.Icon}>{walletIcon}</div>
-								</div>
-								<div className={styles.HeaderBtnText}>
-									₹{data && data.wallet_balance ? data.wallet_balance : "0.00"}
-								</div>
-							
-							</div> */}
 
 							<div
 								className={styles.HeaderNavBtn2}

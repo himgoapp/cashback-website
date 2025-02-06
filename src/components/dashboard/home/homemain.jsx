@@ -9,6 +9,7 @@ import { getDashboardInfo } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
 import RakebackChart from "./RakebackChart";
 import RackbackTableAndTransaction from "./RackbackTableAndTransaction";
+import { HomeIcon } from "../../../utils/dashboardMainHeadersIcon";
 
 const HomeMain = ({ data }) => {
   const { userData, userKyc } = useContext(UserContext);
@@ -29,7 +30,7 @@ const HomeMain = ({ data }) => {
 
   return (
     <DashboardMainTopBottom>
-      <DashboardHomeHeader title="Dashboard" />
+      <DashboardHomeHeader title="Dashboard" icon = {HomeIcon} />
       <DashboardMain>
         {/* <HomeQuickStart data={data} /> */}
         {/* <Withdraw data={walletData} userKyc={userKyc} /> */}
