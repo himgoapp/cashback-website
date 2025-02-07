@@ -1,4 +1,3 @@
-// TableContent.js
 import React, { useState, useEffect, useContext } from "react";
 import styles from "./tableContainer.module.css";
 import { alltransactions } from "../../../../servicefile/transactionservice";
@@ -6,19 +5,7 @@ import moment from "moment";
 import { UserContext } from "../../../../App";
 import { DataGrid } from "@mui/x-data-grid";
 import { statusBaseColor } from "../../../../helperFxns/colorCode";
-
-const dummyTransactionData = [
-  {
-    transaction_hash: "0x1234567890",
-    createdAt: "2021-09-01T12:00:00.000Z",
-    actualAmount: 1000,
-    rackbackcut: 100,
-    status: "Success",
-  },
-];
-
-// rackbackcut for commission
-
+import eyeicon from "../../../../assets/eyeicon.svg"
 const columns = [
   {
     field: "transaction_hash",
@@ -85,22 +72,30 @@ const columns = [
           className={styles.Badge}
           style={rowStatus === "Success" ? { backgroundColor: "#ecfdf3" } : {}}
         >
-          <div
-            // className={styles.Text}
-           style={statusBaseColor(rowStatus)}
-          >
-            {rowStatus}
-          </div>
+          <div style={statusBaseColor(rowStatus)}>{rowStatus}</div>
         </div>
       );
     },
   },
+  {
+    field: "view",
+    headerName: "View",
+    renderCell: (params) => {
+      return (
+        <button className={styles.eyeButton} onClick={() => params.row.handleOpenModal(params.row)}>
+         <img src={eyeicon} /> {/* Simple Eye Icon */}
+        </button>
+      );
+    },
+  }
 ];
 
 const TableContainer = ({ transactionType }) => {
   const { userData } = useContext(UserContext);
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(0);
+  const [open, setOpen] = useState(false); // Modal state
+  const [selectedTransaction, setSelectedTransaction] = useState(null);
 
   const getTransactions = async () => {
     if (!userData || !userData._id) return;
@@ -112,10 +107,27 @@ const TableContainer = ({ transactionType }) => {
     getTransactions();
   }, [transactionType, page]);
 
+  // Define the function to open the modal
+  const handleOpenModal = (transaction) => {
+    setSelectedTransaction(transaction);
+    setOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpen(false);
+    setSelectedTransaction(null);
+  };
+
+  // Inject handleOpenModal into each transaction row
+  const productsWithModal = products.map((transaction) => ({
+    ...transaction,
+    handleOpenModal: handleOpenModal
+  }));
+
   return (
     <div className={styles.TransactionTableContainer}>
       <DataGrid
-        rows={products}
+        rows={productsWithModal}
         columns={columns}
         initialState={{
           pagination: {
@@ -131,6 +143,26 @@ const TableContainer = ({ transactionType }) => {
           width: "100%",
         }}
       />
+
+      {/* Modal for Transaction Details */}
+      {open && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            {/* <span className={styles.closeButton} onClick={handleCloseModal}>×</span> */}
+            {selectedTransaction && (
+              <div>
+                <h3>Transaction Details</h3>
+                <p><strong>Transaction ID:</strong> {selectedTransaction.transaction_hash}</p>
+                <p><strong>Date:</strong> {moment(selectedTransaction.createdAt).format("DD MMM YYYY")}</p>
+                <p><strong>Amount:</strong> ₹{selectedTransaction.actualAmount}</p>
+                <p><strong>TDS:</strong> ₹{selectedTransaction.rackbackcut}</p>
+                <p><strong>Status:</strong> {selectedTransaction.status}</p>
+              </div>
+            )}
+            <button className={styles.closeButton} onClick={handleCloseModal}>Close</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

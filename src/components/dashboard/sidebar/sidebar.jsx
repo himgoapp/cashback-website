@@ -51,11 +51,11 @@ const Sidebar = ({ active }) => {
 								text: "My Transactions",
 								link: "/dashboard/mytransactions",
 							},
-							{
-								icon: verifyIcon,
-								text: "Profile",
-								link: "/dashboard/verify-account",
-							},
+							// {
+							// 	icon: verifyIcon,
+							// 	text: "Profile",
+							// 	link: "/dashboard/verify-account",
+							// },
 						].map((nav, index) => {
 							return (
 								<Link
@@ -100,8 +100,10 @@ const Sidebar = ({ active }) => {
 							</div> */}
 						</div>
 						<button className={styles.Button} onClick={() => onLogout()}>
-							Log out<LogoutIcon />
+							Log out
+							<LogoutIcon />
 						</button>
+						
 					</div>
 				</div>
 				<div
