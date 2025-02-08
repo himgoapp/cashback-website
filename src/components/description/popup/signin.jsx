@@ -6,7 +6,8 @@ import Navbtn from "../../common/button/navbtn/navbtn";
 import signimg from "../../../assets/signin_image_container.png";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-
+import eyeicon from "../../../assets/eyeicon.svg"
+import eyecross from "../../../assets/eyecross.svg"
 import { loginOtp, loginVerify } from "../../../servicefile/authservice";
 import { UserContext } from "../../../App";
 
@@ -19,7 +20,19 @@ const PopupSignin = () => {
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
   const [alert, setAlert] = useState(false);
+  const [isMasked, setIsMasked] = useState(true);
 
+  const handleChange = (otp) => {
+    setOtp(otp);
+  };
+  const handleToggleVisibility = () => {
+    setIsMasked(!isMasked);
+  };
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      verifyOtp();
+    }
+  };
   useEffect(() => {
     if (alert === true) {
       setTimeout(() => {
@@ -104,6 +117,7 @@ const PopupSignin = () => {
                     {helpIcon}
                   </TextInput>
                 </div>
+
                 <div style={{ width: "100%" }}>
                   <Navbtn
                     text={showOtpPart ? "Resend OTP" : "Get OTP"}
@@ -134,25 +148,8 @@ const PopupSignin = () => {
                   className={styles.popup_signin_action}
                   style={{ width: "100%" }}
                 >
-                  {/* <TextInput placeholder='OTP' setValue={setOtp}
-									handleFxn = {() =>verifyOtp()}
-									fxnCheck ={true}
-								/> */}
-                  {/* <input 
-										value={otp}
-										onChange={(e) => setOtp(e.target.value)}
-										autocomplete="one-time-code"
-										inputmode="numeric"
-										maxlength="6"
-										pattern="\d{6}"
-										autofocus="autofocus"
-										onKeyDown={(e) => {
-											if (e.key === "Enter") 
-												verifyOtp();
-											}}			
-                            
-/> */}
-                  <OtpInput
+                  
+                  {/* <OtpInput
                     value={otp}
                     onChange={setOtp}
                     numInputs={6}
@@ -161,32 +158,74 @@ const PopupSignin = () => {
                     }}
                     separator={<span>-</span>}
                     inputStyle={{
-                      width: "2.5rem", // Slightly larger input size
+                      width: "2.5rem",
                       height: "2.5rem",
                       margin: "0 0.5rem",
-                      fontSize: "1.25rem", // Bigger text for better readability
+                      fontSize: "1.25rem", 
                       textAlign: "center",
-                      border: "2px solid #ccc", // Slightly thicker border
-                      borderRadius: "8px", // More rounded corners
-                      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)", // Subtle shadow
-                      transition: "all 0.3s ease", // Smooth transition for effects
+                      border: "2px solid #ccc", 
+                      borderRadius: "8px",
+                      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+                      transition: "all 0.3s ease",
                       fontWeight: "600",
                     }}
                     inputFocusStyle={{
-                      border: "2px solid #4caf50", // Green border when focused
-                      boxShadow: "0 0 10px rgba(76, 175, 80, 0.5)", // Green glow effect
+                      border: "2px solid #4caf50", 
+                      boxShadow: "0 0 10px rgba(76, 175, 80, 0.5)", 
                     }}
                     autoFocus
                     renderInput={(props) => <input {...props} />}
-
-                    // containerStyle={{
-                    //   display: "flex",
-                    //   justifyContent: "center",
-                    //   alignItems: "center",
-                    // }}
+                  /> */}
+                  <div style={{ position: "relative" }}>
+                  <OtpInput
+                    value={otp}
+                    onChange={handleChange}
+                    numInputs={6}
+                    separator={<span>-</span>}
+                    inputStyle={{
+                      width: "2.5rem",
+                      height: "2.5rem",
+                      margin: "0 0.5rem",
+                      fontSize: "1.25rem",
+                      textAlign: "center",
+                      border: "2px solid #ccc",
+                      borderRadius: "8px",
+                      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+                      transition: "all 0.3s ease",
+                      fontWeight: "600",
+                    }}
+                    inputFocusStyle={{
+                      border: "2px solid #4caf50",
+                      boxShadow: "0 0 10px rgba(76, 175, 80, 0.5)",
+                    }}
+                    autoFocus
+                    renderInput={(props) => (
+                      <input
+                        {...props}
+                        type={isMasked ? "password" : "text"}
+                        onKeyDown={handleKeyDown}
+                      />
+                    )}
                   />
+                  <button
+                    onClick={handleToggleVisibility}
+                    style={{
+                      position: "absolute",
+                      top: "50%",
+                      right: "-1.5rem",
+                      transform: "translateY(-50%)",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {isMasked ? <img src={eyeicon}/> : <img src={eyecross}/>}
+                  </button>
+                </div>
                   <div>
-                    <span className={styles.otp_resend}>Didn't get the otp? </span>
+                    <span className={styles.otp_resend}>
+                      Didn't get the otp?{" "}
+                    </span>
                     <span
                       className={styles.otp_resend_1}
                       onClick={() => {

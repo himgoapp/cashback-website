@@ -5,7 +5,7 @@ import moment from "moment";
 import { UserContext } from "../../../../App";
 import { DataGrid } from "@mui/x-data-grid";
 import { statusBaseColor } from "../../../../helperFxns/colorCode";
-import eyeicon from "../../../../assets/eyeicon.svg"
+import eyeicon from "../../../../assets/eyeicon.svg";
 const columns = [
   {
     field: "transaction_hash",
@@ -82,12 +82,15 @@ const columns = [
     headerName: "View",
     renderCell: (params) => {
       return (
-        <button className={styles.eyeButton} onClick={() => params.row.handleOpenModal(params.row)}>
-         <img src={eyeicon} /> {/* Simple Eye Icon */}
+        <button
+          className={styles.eyeButton}
+          onClick={() => params.row.handleOpenModal(params.row)}
+        >
+          <img src={eyeicon} /> {/* Simple Eye Icon */}
         </button>
       );
     },
-  }
+  },
 ];
 
 const TableContainer = ({ transactionType }) => {
@@ -121,7 +124,7 @@ const TableContainer = ({ transactionType }) => {
   // Inject handleOpenModal into each transaction row
   const productsWithModal = products.map((transaction) => ({
     ...transaction,
-    handleOpenModal: handleOpenModal
+    handleOpenModal: handleOpenModal,
   }));
 
   return (
@@ -148,18 +151,48 @@ const TableContainer = ({ transactionType }) => {
       {open && (
         <div className={styles.modal}>
           <div className={styles.modalContent}>
-            {/* <span className={styles.closeButton} onClick={handleCloseModal}>×</span> */}
             {selectedTransaction && (
               <div>
                 <h3>Transaction Details</h3>
-                <p><strong>Transaction ID:</strong> {selectedTransaction.transaction_hash}</p>
-                <p><strong>Date:</strong> {moment(selectedTransaction.createdAt).format("DD MMM YYYY")}</p>
-                <p><strong>Amount:</strong> ₹{selectedTransaction.actualAmount}</p>
-                <p><strong>TDS:</strong> ₹{selectedTransaction.rackbackcut}</p>
-                <p><strong>Status:</strong> {selectedTransaction.status}</p>
+                <p>
+                  <strong>Transaction ID:</strong>{" "}
+                  {selectedTransaction.transaction_hash}
+                </p>
+                <p>
+                  <strong>Date:</strong>{" "}
+                  {moment(selectedTransaction.createdAt).format("DD MMM YYYY")}
+                </p>
+                <p>
+                  <strong>Amount:</strong> ₹{selectedTransaction.actualAmount}
+                </p>
+                <p>
+                  <strong>TDS:</strong> ₹{selectedTransaction.rackbackcut}
+                </p>
+                <p>
+                  <strong>Status:</strong>
+                  <span
+                    style={{
+                      background:
+                        selectedTransaction.status === "Approved"
+                          ? "green"
+                          : selectedTransaction.status === "Pending"
+                          ? "orange"
+                          : "red",
+                          color:"white",
+                      fontWeight: "bold",
+                      borderRadius: "30px",
+                      padding: "2px 6px 4px 6px",
+                    }}
+                  >
+                    {" "}
+                    {selectedTransaction.status}
+                  </span>
+                </p>
               </div>
             )}
-            <button className={styles.closeButton} onClick={handleCloseModal}>Close</button>
+            <button className={styles.closeButton} onClick={handleCloseModal}>
+              Close
+            </button>
           </div>
         </div>
       )}

@@ -222,7 +222,7 @@
   }
 
   .news_grid {
-    grid-template-columns: 1fr; /* Stack news cards in a single column on smaller screens */
+    grid-template-columns: 1fr;
   }
 
   .important_post {
@@ -238,3 +238,5 @@
     font-size: 2rem;
   }
 }
+
+
