@@ -4,92 +4,246 @@ import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
 import Reveal from "../../common/reveal/Reveal";
 
-// Static FAQ Data about Rakeback
-const faqData = [
-  {
-    question: "What is Rakeback?",
-    answer:
-      "Rakeback is a reward system offered by online poker sites where a portion of the rake (the fee the site takes from each pot) is returned to the player. Rakeback typically ranges from 20% to 50%, but this can vary depending on the poker site and the player's activity.",
-  },
-  {
-    question: "How does Rakeback work?",
-    answer:
-      "Rakeback works by returning a percentage of the rake you contribute while playing poker. As you play, a small portion of the pot goes to the poker site as a rake. The poker site then returns a percentage of that rake to you, typically on a weekly or monthly basis.",
-  },
-  {
-    question: "How is Rakeback calculated?",
-    answer:
-      "Rakeback is usually calculated based on how much rake you've contributed in a given time period. Some sites use a formula based on the total amount of rake you've generated, while others might use points or loyalty tiers. The more you play, the more rakeback you can earn.",
-  },
-  {
-    question: "Why should I care about Rakeback?",
-    answer:
-      "Rakeback is essentially free money. It reduces the cost of playing poker by giving you back a portion of the rake you contribute. Over time, this can add up to a significant amount of money and improve your overall profitability, especially if you're a regular player.",
-  },
-  {
-    question: "How do I sign up for Rakeback?",
-    answer:
-      "To sign up for rakeback, you'll typically need to register through a dedicated affiliate link or promo code provided by the poker site. This ensures that you are eligible for rakeback rewards. Some sites require you to opt-in to rakeback programs after registration.",
-  },
-  {
-    question: "Can I earn Rakeback on all poker games?",
-    answer:
-      "Yes, rakeback is usually available on most types of poker games, including cash games, sit-and-gos, and multi-table tournaments. However, you should verify with the poker site’s terms, as some promotions may apply only to specific game formats.",
-  },
-  {
-    question: "Is Rakeback the same on every site?",
-    answer:
-      "No, rakeback terms vary by site. While some poker sites offer a flat percentage (e.g., 30% rakeback), others may provide more complex rewards structures, such as loyalty points or bonuses that increase with play volume. It's important to compare rakeback offers before choosing a site.",
-  },
-  {
-    question: "Are there any restrictions with Rakeback?",
-    answer:
-      "Yes, some sites have restrictions on rakeback. For example, certain games or promotions may not contribute to your rakeback, or you may need to reach a minimum threshold before rakeback is credited. Always check the terms and conditions of the rakeback program.",
-  },
-  {
-    question: "What is a Rakeback deal?",
-    answer:
-      "A rakeback deal refers to the agreement between a player and an affiliate or poker site where the player receives a portion of the rake generated from their play. These deals are often negotiated, and affiliates may offer additional bonuses or higher rakeback percentages depending on the player's volume.",
-  },
-  {
-    question: "Can I track my Rakeback earnings?",
-    answer:
-      "Most poker sites provide a tracking system where players can view their rakeback earnings, either through a dedicated section in their account or by checking their poker logs. You can also track your rakeback earnings through third-party affiliates who offer tracking services.",
-  },
-  {
-    question: "Is there a maximum limit on Rakeback?",
-    answer:
-      "Some sites may have a maximum cap on how much rakeback you can earn, while others offer unlimited earning potential. Always check the terms and conditions of the specific poker site to understand any restrictions or limits on your rakeback earnings.",
-  },
-  {
-    question: "Does Rakeback apply to all players?",
-    answer:
-      "Rakeback is generally available to all players, but certain conditions may apply. For example, some sites may have specific promotions or loyalty programs that grant rakeback based on your play volume or activity level.",
-  },
-  {
-    question: "What happens if I don't claim my Rakeback?",
-    answer:
-      "If you don't claim your rakeback within a specific time period, the rewards might expire. Many poker sites have rules that specify when and how rakeback is credited, so it's important to keep track of your eligible earnings and claim them within the designated time frame.",
-  },
-  {
-    question: "Can I withdraw my Rakeback immediately?",
-    answer:
-      "Most sites allow players to withdraw their rakeback earnings once they reach a certain threshold. However, some sites may require players to meet additional criteria, such as wagering requirements, before they can withdraw their rakeback.",
-  },
-  {
-    question: "Can I use Rakeback for bonuses or other rewards?",
-    answer:
-      "In some cases, poker sites allow you to use your rakeback earnings to redeem bonuses, free tournament tickets, or other rewards. However, it's essential to check the specific terms and conditions of the poker site to see if this is possible.",
-  },
-];
+const faqData = {
+  1: [
+    {
+      question: "What is the legality of online poker?",
+      answer:
+        "Online poker is legal in certain jurisdictions, but it’s essential to check local laws in your region before playing.",
+    },
+    {
+      question: "Can I play poker on my mobile device?",
+      answer:
+        "Yes, many online poker sites offer mobile applications for both iOS and Android devices, allowing you to play on the go.",
+    },
+    {
+      question: "Are online poker sites secure?",
+      answer:
+        "Most reputable poker sites use encryption technologies to ensure that your personal and financial information is secure. Always play on licensed and regulated sites.",
+    },
+    {
+      question: "What are the system requirements for playing online poker?",
+      answer:
+        "Typically, you need a modern computer or mobile device with an internet connection. Specific requirements can vary by site, so check the platform for more details.",
+    },
+    {
+      question: "Can I use third-party software while playing poker?",
+      answer:
+        "Most poker sites prohibit the use of third-party software that provides an unfair advantage. Using such software may result in account suspension.",
+    },
+  ],
+  2: [
+    {
+      question: "How does Rakeback.com work?",
+      answer:
+        "Rakeback.com connects poker players with the best rakeback deals from various poker sites, allowing them to maximize their earnings through rakeback rewards.",
+    },
+    {
+      question: "Is it safe to sign up for rakeback through Rakeback.com?",
+      answer:
+        "Yes, Rakeback.com is a trusted platform that partners with regulated poker sites to ensure a safe and legitimate experience for players.",
+    },
+    {
+      question: "How do I know if I'm eligible for rakeback?",
+      answer:
+        "Eligibility for rakeback depends on the specific site and the deal you're signed up for. Check the terms of the deal and your activity to see if you qualify.",
+    },
+    {
+      question: "Can I earn rakeback on all poker games?",
+      answer:
+        "Rakeback is usually earned from cash games and certain tournaments, depending on the poker site. Always verify the games eligible for rakeback.",
+    },
+    {
+      question: "What is the difference between Rakeback and VIP rewards?",
+      answer:
+        "Rakeback is a direct percentage of the rake paid back to you, while VIP rewards are typically earned through a loyalty program based on points accumulated during gameplay.",
+    },
+  ],
+  3: [
+    {
+      question: "How can I recover my account if I forget my login details?",
+      answer:
+        "Click on 'Forgot Password' and follow the instructions to reset your login credentials. If you need further assistance, contact customer support.",
+    },
+    {
+      question: "How do I update my contact information?",
+      answer:
+        "To update your contact information, visit the 'Account Settings' section and modify your email, phone number, or address as needed.",
+    },
+    {
+      question: "Can I have multiple accounts on the same platform?",
+      answer:
+        "Most poker platforms allow only one account per person. Having multiple accounts can violate the site's terms of service and may result in account suspension.",
+    },
+    {
+      question: "How can I deactivate my account?",
+      answer:
+        "To deactivate your account, contact customer support. They will guide you through the necessary steps to deactivate your account or request self-exclusion.",
+    },
+    {
+      question: "How do I check my account balance?",
+      answer:
+        "You can check your account balance by visiting the 'Cashier' or 'Balance' section in your account dashboard. This will show your current funds and available balance.",
+    },
+  ],
+  4: [
+    {
+      question: "What payment methods can I use to deposit funds?",
+      answer:
+        "Popular payment methods include credit/debit cards, e-wallets like PayPal, bank transfers, and sometimes cryptocurrencies. Refer to the 'Deposit' section for a full list.",
+    },
+    {
+      question: "Can I deposit using cryptocurrency?",
+      answer:
+        "Some poker sites accept cryptocurrency deposits, such as Bitcoin or Ethereum. Check the platform's deposit options to confirm if this method is available.",
+    },
+    {
+      question: "How can I change my banking details?",
+      answer:
+        "To change your banking details, go to the 'Account Settings' or 'Banking' section. You can update your preferred payment method for deposits and withdrawals.",
+    },
+    {
+      question: "Is there a minimum deposit requirement?",
+      answer:
+        "Most platforms have a minimum deposit amount. Check the 'Deposit' section for the specific minimum deposit threshold.",
+    },
+    {
+      question: "How long does it take for a deposit to appear in my account?",
+      answer:
+        "Deposits are usually processed instantly for e-wallets and credit cards, but bank transfers may take a few business days to be completed.",
+    },
+  ],
+  5: [
+    {
+      question: "What should I do if I feel I am gambling too much?",
+      answer:
+        "If you feel you are gambling excessively, seek support from a professional or utilize self-exclusion options available on the platform.",
+    },
+    {
+      question: "Can I set limits on my gameplay?",
+      answer:
+        "Yes, many poker sites allow you to set deposit, loss, and session time limits to help you stay in control of your gambling.",
+    },
+    {
+      question: "What is the self-exclusion process?",
+      answer:
+        "Self-exclusion is a voluntary decision to temporarily or permanently close your account to prevent gambling. You can set it up by contacting customer support or using available tools on the site.",
+    },
+    {
+      question: "How can I check my gambling activity?",
+      answer:
+        "Most platforms offer a 'History' or 'Activity' section, where you can review your betting and gambling patterns. This can help you track your gameplay.",
+    },
+    {
+      question: "What resources are available for problem gambling?",
+      answer:
+        "Many poker sites offer links to organizations that specialize in gambling addiction support. Resources can include hotlines, counseling, and self-help guides.",
+    },
+  ],
+  6: [
+    {
+      question: "What is unfair gameplay?",
+      answer:
+        "Unfair gameplay refers to actions or tactics that violate the rules of the game, such as cheating, using third-party software, or collusion with other players.",
+    },
+    {
+      question: "How can I report unfair gameplay?",
+      answer:
+        "If you encounter unfair gameplay, you should report it to the support team of the platform. Most sites provide an option to file a complaint.",
+    },
+    {
+      question: "What happens if I'm caught using unfair methods to play?",
+      answer:
+        "If you're caught using unfair methods, your account may be suspended or permanently banned. Additionally, any winnings earned through unfair means may be forfeited.",
+    },
+    {
+      question: "Can I get a refund if I am a victim of unfair gameplay?",
+      answer:
+        "Some platforms may offer a refund or adjust the results if you have been affected by unfair gameplay, but this depends on their policies. Contact customer support for assistance.",
+    },
+    {
+      question: "What steps are taken by platforms to prevent unfair gameplay?",
+      answer:
+        "Poker sites implement various security measures, including software monitoring, anti-cheat systems, and player behavior analysis to prevent unfair gameplay.",
+    },
+  ],
+  7: [
+    {
+      question: "How do I claim rakeback promotions?",
+      answer:
+        "To claim rakeback promotions, you typically need to register through an affiliate link or enter a promo code. After registration, ensure your account is tracked properly to receive your rakeback rewards.",
+    },
+    {
+      question: "Are there any special rakeback promotions for new players?",
+      answer:
+        "Yes, many poker sites offer enhanced rakeback deals or bonuses for new players. These promotions often include higher percentage returns or additional bonuses based on your first deposit or gameplay.",
+    },
+    {
+      question: "Can I combine rakeback promotions with other bonuses?",
+      answer:
+        "It depends on the poker site’s terms and conditions. Some platforms allow you to combine rakeback with other bonuses like welcome bonuses or reload promotions, while others may restrict stacking multiple promotions.",
+    },
+    {
+      question: "How often do rakeback promotions change?",
+      answer:
+        "Rakeback promotions can change frequently, often depending on special events, time of year, or player activity. It's important to keep an eye on the site’s promotions page to stay updated on new deals",
+    },
+    {
+      question:
+        "Do I need to meet specific requirements to qualify for rakeback promotions?",
+      answer:
+        "Yes, there may be specific requirements such as playing a certain number of hands, reaching a minimum deposit amount, or qualifying through an affiliate program. Always review the promotion's terms to ensure eligibility.",
+    },
+  ],
+  8: [
+    {
+      question: "How can I access my Rakeback balance?",
+      answer:
+        "You can access your Rakeback balance by logging into your account and visiting the 'Rakeback' or 'Rewards' section.",
+    },
+    {
+      question: "How do I withdraw my Rakeback earnings?",
+      answer:
+        "To withdraw your Rakeback earnings, go to the 'Cashier' or 'Withdrawal' section of your account. Select Rakeback as a withdrawal method, or convert it to your preferred currency.",
+    },
+    {
+      question: "Are there any fees for withdrawing Rakeback?",
+      answer:
+        "Withdrawal fees for Rakeback may vary depending on the platform and the payment method chosen. Be sure to check the platform’s withdrawal policy for specific details.",
+    },
+    {
+      question: "Can I change my banking details for Rakeback payments?",
+      answer:
+        "Yes, you can update your banking details in the 'Account Settings' or 'Banking' section. If you encounter issues, reach out to customer support.",
+    },
+    {
+      question: "How long does it take to process a Rakeback withdrawal?",
+      answer:
+        "The processing time for Rakeback withdrawals varies depending on the platform and the withdrawal method. Typically, it may take a few business days.",
+    },
+  ],
+};
 
 const FaqContainer = () => {
   const [faqList, setFaqList] = useState([]);
   const [open, setOpen] = useState(null);
+  const [activeTab, setActiveTab] = useState(1);
+
+  const tabs = [
+    { id: 1, title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: "📑" },
+    { id: 2, title: "RAKEBACK.COM", icon: "🃏" },
+    { id: 3, title: "MY ACCOUNT", icon: "📝" },
+    { id: 4, title: "BANKING", icon: "🏦" },
+    { id: 5, title: "RESPONSIBLE GAMING", icon: "🤝" },
+    { id: 6, title: "UNFAIR GAMEPLAY", icon: "⚖️" },
+    { id: 7, title: "PROMOTIONS", icon: "🎉" }, 
+    { id: 8, title: "BANKING", icon: "🏦" },
+];
+
 
   useEffect(() => {
-    setFaqList(faqData);
-  }, []);
+    setFaqList(faqData[activeTab]);
+  }, [activeTab]);
 
   const toggleAnswer = (index) => {
     setOpen(open === index ? null : index); // Toggle open state
@@ -105,46 +259,62 @@ const FaqContainer = () => {
               <div className={styles.head}>Frequently asked questions</div>
             </div>
           </Reveal>
-          <div className={styles.faq_item_container}>
-            {faqData.map((qa, index) => {
-              return (
-                <div
-                  className={`${styles.faq_item} ${
-                    open === index ? styles.open : ""
-                  }`}
-                  key={index}
-                  onClick={() => toggleAnswer(index)}
-                >
-                  <Reveal>
-                    <div className={styles.item_content}>
-                      <div className={styles.q_and_ans}>
-                        {/* Display the question number */}
-                        <div className={styles.question}>
-                          {index + 1}. {qa.question}
-                        </div>
-                        {open === index ? (
-                          <div className={styles.ans}>{qa.answer}</div>
-                        ) : null}
-                      </div>
 
-                      <div className={styles.faq_icon}>
-                        <div className={styles.icon}>
-                          {open === index ? <HideIcon /> : <ShowIcon />}
-                        </div>
+          <div className={styles.tabs_container}>
+            <div className={styles.tabs}>
+              {tabs.map((tab) => (
+                <div
+                  key={tab.id}
+                  className={`${styles.tab_box} ${
+                    activeTab === tab.id ? styles.active_box : ""
+                  }`}
+                  onClick={() => setActiveTab(tab.id)}
+                >
+                  <div className={styles.tab}>
+                    <div className={styles.tab_icon}>{tab.icon}</div>
+                    <div className={styles.tab_title}>{tab.title}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className={styles.faq_item_container}>
+            {faqList.map((qa, index) => (
+              <div
+                className={`${styles.faq_item} ${
+                  open === index ? styles.open : ""
+                }`}
+                key={index}
+                onClick={() => toggleAnswer(index)}
+              >
+                <Reveal>
+                  <div className={styles.item_content}>
+                    <div className={styles.q_and_ans}>
+                      <div className={styles.question}>
+                        {index + 1}. {qa.question}
+                      </div>
+                      {open === index ? (
+                        <div className={styles.ans}>{qa.answer}</div>
+                      ) : null}
+                    </div>
+                    <div className={styles.faq_icon}>
+                      <div className={styles.icon}>
+                        {open === index ? <HideIcon /> : <ShowIcon />}
                       </div>
                     </div>
-                  </Reveal>
-                </div>
-              );
-            })}
+                  </div>
+                </Reveal>
+              </div>
+            ))}
           </div>
         </div>
       </div>
+
       <div
         style={{
           width: "100%",
           backgroundColor: "#3968eb",
-          // marginTop: "2rem"
         }}
         className="flex_center"
       >

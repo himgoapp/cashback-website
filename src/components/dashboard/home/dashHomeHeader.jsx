@@ -59,6 +59,12 @@ const DashboardHomeHeader = ({ title, icon }) => {
                 <span className={styles.header_text_gap}>{title}</span>
               </div>
             </div>
+            <div className={styles.MenuAndLogo}>
+							<div className={styles.Menu} onClick={() => setShowSidebar(true)}>
+								{menuIcon}
+							</div>
+							<div className={styles.Logo}>{logoIcon}</div>
+						</div>
             <div className={styles.HeaderActions}>
               <div className={styles.HeaderNavBtn} onClick={handleProfileClick}>
                 <img src={profileicon} alt="Profile Icon" />
