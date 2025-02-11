@@ -244,13 +244,12 @@
 .tabs_container::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
-
 /* Responsive Adjustments */
 @media only screen and (max-width: 1024px) {
     .faq_container .faq_content {
         gap: 1.5rem;
         padding: 1.5rem;
-        max-width: 100%; /* Ensures it adapts to smaller screens */
+        max-width: 100%;
     }
 
     .faq_header .head {
@@ -275,7 +274,7 @@
     }
 
     .tab_box {
-        width: 150px; /* Adjusted size for smaller screens */
+        width: 150px;
         height: 150px;
     }
 }

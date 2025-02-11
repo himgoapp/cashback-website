@@ -1,58 +1,62 @@
 .page_container {
-  background: linear-gradient(270deg, white, #d8eeff);
-  padding: 2rem;
-  display: flex;
-  gap: 2rem;
+  width: 80%;
+  font-family: Arial, sans-serif;
+  margin-left: 80px;
+}
+
+.breadcrumbs {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.breadcrumbs a {
+  color: #007bff;
+  text-decoration: none;
 }
 
 .article_card {
-  /* background-color: #ffffff80; */
-  background: linear-gradient(270deg, white, #d8eeff);
-
-  padding: 1.5rem;
-  border-radius: 8px;
+  position: relative;
   width: 100%;
 }
 
-.header_flex_container {
-  display: flex;
-  align-items: center;
-}
-
 .image_container {
-  flex: 1;
+  position: relative;
+  display: inline-block;
+  width: 100%;
 }
 
 .header_image {
   width: 100%;
   border-radius: 8px;
+  height: 513px;
+  width: 1027px;
 }
 
-.header_content {
-  flex: 1;
-  padding: 1rem;
-}
-
-.header_title {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.meta_info {
-  font-size: 1rem;
-  color: #555;
-}
-
-.content_section {
-  margin-top: 1rem;
-  display: flex;
-  justify-content: center; 
-  align-items: center;
+.article_title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
   width: 100%;
+  font-size: 26px;
   font-weight: bold;
+  color: white;
+  padding: 15px;
+  text-align: left;
+}
+
+.para {
+  margin-top: 5px;
+  color: #555;
   font-size: 1.1rem;
 }
 
+.author_publish {
+  margin-top: 10px;
+}
 
-
-
+.author_publish span {
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}

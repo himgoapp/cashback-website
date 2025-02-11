@@ -197,31 +197,26 @@ const faqData = {
   ],
   8: [
     {
-      question: "How can I access my Rakeback balance?",
-      answer:
-        "You can access your Rakeback balance by logging into your account and visiting the 'Rakeback' or 'Rewards' section.",
+      "question": "How do I claim my winnings?",
+      "answer": "To claim your winnings, log into your account, navigate to the 'Winnings' section, and follow the instructions provided. You may be asked to verify your identity before processing the payout."
     },
     {
-      question: "How do I withdraw my Rakeback earnings?",
-      answer:
-        "To withdraw your Rakeback earnings, go to the 'Cashier' or 'Withdrawal' section of your account. Select Rakeback as a withdrawal method, or convert it to your preferred currency.",
+      "question": "What should I do if I haven't received my winnings?",
+      "answer": "If you haven't received your winnings, check your account for any updates or notifications. Ensure your payment method details are up-to-date. If the issue persists, contact customer support for assistance."
     },
     {
-      question: "Are there any fees for withdrawing Rakeback?",
-      answer:
-        "Withdrawal fees for Rakeback may vary depending on the platform and the payment method chosen. Be sure to check the platform’s withdrawal policy for specific details.",
+      "question": "Can I get a refund if I made a mistake with my bet?",
+      "answer": "Refunds are generally not offered for mistaken bets. However, if there's an issue with the bet due to a system error or technical problem, you may be eligible for a refund. Please contact customer support for further assistance."
     },
     {
-      question: "Can I change my banking details for Rakeback payments?",
-      answer:
-        "Yes, you can update your banking details in the 'Account Settings' or 'Banking' section. If you encounter issues, reach out to customer support.",
+      "question": "How long does it take to process a refund?",
+      "answer": "Refund processing times vary depending on the payment method. Typically, refunds take between 3 to 7 business days to reflect in your account, though this can vary."
     },
     {
-      question: "How long does it take to process a Rakeback withdrawal?",
-      answer:
-        "The processing time for Rakeback withdrawals varies depending on the platform and the withdrawal method. Typically, it may take a few business days.",
+      "question": "Can I withdraw my winnings to any payment method?",
+      "answer": "Winnings can generally be withdrawn to the payment method you used for deposit, but it may depend on the platform's policies. Please check the available withdrawal options in your account settings."
     },
-  ],
+  ]
 };
 
 const FaqContainer = () => {
@@ -236,9 +231,10 @@ const FaqContainer = () => {
     { id: 4, title: "BANKING", icon: "🏦" },
     { id: 5, title: "RESPONSIBLE GAMING", icon: "🤝" },
     { id: 6, title: "UNFAIR GAMEPLAY", icon: "⚖️" },
-    { id: 7, title: "PROMOTIONS", icon: "🎉" }, 
-    { id: 8, title: "BANKING", icon: "🏦" },
+    { id: 7, title: "PROMOTIONS", icon: "🎉" },
+    { id: 8, title: "REFUNDS & WINNINGS", icon: "💸🏆" },
 ];
+
 
 
   useEffect(() => {

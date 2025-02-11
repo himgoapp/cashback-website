@@ -3,10 +3,11 @@ import styles from "./dashHomeHeader.module.css";
 import bellIcon from "../../../assets/header_nav_btn2.png";
 import profileicon from "../../../assets/profileicon.svg";
 import { UserContext } from "../../../App";
-import { useNavigate } from "react-router-dom";
-import Form from "react-bootstrap/Form";
 import Navbtn from "../../common/button/navbtn/navbtn";
-import Button from "react-bootstrap/Button";
+import { Modal, Button, Form } from "react-bootstrap";
+import { sendEmailOtpAPI, loginVerify } from "../../../servicefile/authservice";
+import { toast } from "react-toastify";
+import Logo from "../../common/logo/logo";
 
 const DashboardHomeHeader = ({ title, icon }) => {
   const { userData, setUserData } = useContext(UserContext);
@@ -14,15 +15,20 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [username, setUsername] = useState(userData?.userName || "");
   const [address, setAddress] = useState(userData?.addressProofType || "");
-
+  const [verifyModal, setVerifyModal] = useState(false);
+  const [otp, setOtp] = useState("");
   const { setShowSidebar, showNotifications, setShowNotifications } =
     useContext(UserContext);
-  const navigate = useNavigate();
 
-  const onLogout = () => {
-    localStorage.clear();
-    window.location.reload();
+  const handleClose = () => {
+    setVerifyModal(false);
+    setOtp("");
   };
+
+  // const onLogout = () => {
+  //   localStorage.clear();
+  //   window.location.reload();
+  // };
 
   const handleProfileClick = () => {
     setShowProfileModal(true);
@@ -31,7 +37,34 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const handleCloseModal = () => {
     setShowProfileModal(false);
   };
+  const sendEmailOtp = async (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email && emailRegex.test(email)) {
+      let data = await sendEmailOtpAPI(email);
+      // if (data?.message === "Otp Sent!" && data.data?.type === "success") {
+      //     toast.success("Otp sent! Please check and enter it.");
+      setVerifyModal(true);
+      // } else {
+      //     toast.error(data.message);
+      // }
+    } else {
+      toast.warn("Please enter a valid email address!");
+    }
+  };
 
+  const verifyOtp = async () => {
+    if (otp.length === 6) {
+      let data = await loginVerify(otp);
+      if (data?.message === "Otp verified!" && data.user) {
+        toast.success("Email Verified!");
+        setUserData({ ...data.user, username, address });
+      } else {
+        toast.error("OTP verification failed.");
+      }
+    } else {
+      toast.warn("Please enter a valid 6-digit OTP!");
+    }
+  };
   // Apply blur effect to background when modal is open
   useEffect(() => {
     if (showProfileModal) {
@@ -46,7 +79,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
       document.body.style.overflow = "auto";
       document.body.classList.remove(styles.modalOpen); // Clean up
     };
-  }, [showProfileModal]);
+  }, []);
 
   return (
     <div className={styles.HomeHeader}>
@@ -60,11 +93,11 @@ const DashboardHomeHeader = ({ title, icon }) => {
               </div>
             </div>
             <div className={styles.MenuAndLogo}>
-							<div className={styles.Menu} onClick={() => setShowSidebar(true)}>
-								{menuIcon}
-							</div>
-							<div className={styles.Logo}>{logoIcon}</div>
-						</div>
+              <div className={styles.Menu} onClick={() => setShowSidebar(true)}>
+                {menuIcon}
+              </div>
+              <div className={styles.Logo}>{logoIcon}</div>
+            </div>
             <div className={styles.HeaderActions}>
               <div className={styles.HeaderNavBtn} onClick={handleProfileClick}>
                 <img src={profileicon} alt="Profile Icon" />
@@ -82,99 +115,165 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
       {/* Profile Modal */}
       {showProfileModal && (
-        <div className={styles.profileModal}>
-          <div className={styles.modalContent}>
-            <div className={styles.modalHeader}>
-              <span>Profile</span>
-              <button
-                className={styles.closeModalBtn}
-                onClick={handleCloseModal}
+        <Modal
+          show={showProfileModal}
+          onHide={handleCloseModal}
+          backdrop="static"
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
+          animation={false}
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>Profile</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+              <Form.Group className="mb-3">
+                <Form.Label>Name</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  disabled={!editMode && username !== ""}
+                />
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Address</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your address"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
+                  // disabled={!editMode && address !== ""}
+                />
+              </Form.Group>
+
+              {/* Email Input with Button Inside */}
+              <Form.Group className="mb-3 position-relative">
+                <Form.Label>Email</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter your email"
+                  value={userData?.email || ""}
+                  disabled={!editMode}
+                  style={{
+                    paddingRight: "120px",
+                    height: "40px",
+                  }}
+                />
+
+                {userData?.isEmailVerified ? (
+                  <div
+                    style={{
+                      color: "green",
+                      fontSize: "12px",
+                      marginTop: "5px",
+                    }}
+                  >
+                    Your email is verified.
+                  </div>
+                ) : (
+                  <>
+                    <div
+                      style={{
+                        color: "red",
+                        fontSize: "12px",
+                        marginTop: "5px",
+                      }}
+                    >
+                      Your email is not verified.
+                    </div>
+                    <Button
+                      variant="outline-primary"
+                      size="sm"
+                      onClick={() => sendEmailOtp(userData.email)}
+                    >
+                      Verify Email
+                    </Button>
+                  </>
+                )}
+              </Form.Group>
+
+              <Form.Group className="mb-3">
+                <Form.Label>Phone Number</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your phone number"
+                  value={
+                    userData?.phoneNumber ? `+${userData.phoneNumber}` : ""
+                  }
+                  disabled
+                />
+                {userData?.phoneNumber ? (
+                  <div
+                    style={{
+                      color: "green",
+                      fontSize: "12px",
+                      marginTop: "5px",
+                    }}
+                  >
+                    Your phone number is verified.
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      color: "red",
+                      fontSize: "12px",
+                      marginTop: "5px",
+                    }}
+                  >
+                    Your phone number is not verified.
+                  </div>
+                )}
+              </Form.Group>
+
+              {/* Edit/Save Button with Color Change */}
+              <Button
+                variant="primary"
+                onClick={() => setEditMode(!editMode)}
+                style={{ marginTop: "-12px" }}
               >
-                X
-              </button>
-            </div>
-            <div className={styles.FormContent}>
-              <Form>
-                <Form.Group className="mb-3">
-                  <Form.Label>Name</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter your username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    disabled={!editMode && username !== ""}
-                  />
-                </Form.Group>
-
-                <Form.Group className="mb-3">
-                  <Form.Label>Address</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter your address"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    // disabled={!editMode && address !== ""}
-                  />
-                </Form.Group>
-
-                {/* Email Input with Button Inside */}
-                <Form.Group className="mb-3 position-relative">
-                  <Form.Label>Email</Form.Label>
-                  <Form.Control
-                    type="email"
-                    placeholder="Enter your email"
-                    value={userData?.email || ""}
-                    disabled={!editMode}
-                    style={{
-                      paddingRight: "120px", // Ensure space for the button
-                      height: "40px", // Adjust the input field height
-                    }}
-                  />
-                  <Navbtn
-                    text="Verify Email"
-                    variant="outlined_primary"
-                    size="small"
-                    showIcon={false}
-                    iconColor="#3968EB"
-                    // onClick={() => sendEmailOtp(userData.email)}
-                    style={{
-                      position: "absolute",
-                      right: "10px",
-                      top: "73%",
-                      transform: "translateY(-50%)",
-                      height: "32px",
-                      padding: "0 2px",
-                      minWidth: "100px",
-                      fontSize: "14px",
-                    }}
-                  />
-                </Form.Group>
-
-                <Form.Group className="mb-3">
-                  <Form.Label>Phone Number</Form.Label>
-                  <Form.Control
-                    type="text"
-                    placeholder="Enter your phone number"
-                    value={
-                      userData?.phoneNumber ? `+${userData.phoneNumber}` : ""
-                    }
-                    disabled
-                  />
-                </Form.Group>
-
-                {/* Edit/Save Button with Color Change */}
-                <Button
-                  variant="primary"
-                  onClick={() => setEditMode(!editMode)}
-                  style={{ marginTop: "10px" }}
-                >
-                  {editMode ? "Save" : "Edit"}
-                </Button>
-              </Form>
-            </div>
-          </div>
-        </div>
+                {editMode ? "Save" : "Edit"}
+              </Button>
+            </Form>
+          </Modal.Body>
+        </Modal>
       )}
+      <Modal
+        size="sm"
+        show={verifyModal}
+        onHide={handleClose}
+        backdrop="static"
+        // aria-labelledby="contained-modal-title-vcenter"
+         centered
+        // animation={false}
+      >
+        <Modal.Header className="d-flex justify-content-center" closeButton>
+          <Modal.Title>
+            <Logo />
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className="mb-3">
+              <Form.Label>OTP</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter your 6-digit OTP"
+                onChange={(e) => setOtp(e.target.value)}
+                autoFocus
+              />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="primary" onClick={verifyOtp}>
+            Verify Email
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 };
