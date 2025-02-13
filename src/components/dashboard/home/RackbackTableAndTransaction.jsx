@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "./rackback_table_and_transaction.module.css";
 
-import { getStatusLabel, getStatusClass, getTagIdStatusClass, getTransactionArrowAndStyle, getTableIconStyle } from "../../../helperFxns/colorCode";
+import {
+  getStatusLabel,
+  getStatusClass,
+  getTagIdStatusClass,
+  getTransactionArrowAndStyle,
+  getTableIconStyle,
+} from "../../../helperFxns/colorCode";
 
 // import { color } from "framer-motion";
 const RakebackTable = ({ labels, dashboardInfo }) => {
@@ -15,11 +21,10 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
   //   }
   //   }, [dashboardInfo])
 
-
   // console.log(allTransactions,"56--")
   return (
     <div className={styles.rakeback_container}>
-      <div className={styles.table_container}>
+      {/* <div className={styles.table_container}>
         <font className={styles.heading}>TAG IDS</font>
         <table className={styles.rakeback_table}>
           <thead>
@@ -57,69 +62,54 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
               })}
           </tbody>
         </table>
-      </div>
+      </div> */}
 
       <div className={styles.transactions_container}>
         <font className={styles.transaction_heading}>Latest Transactions</font>
-        <ul>
-          {dashboardInfo &&
-            dashboardInfo.transactionsInfo &&
-            dashboardInfo.transactionsInfo.length > 0 &&
-            dashboardInfo.transactionsInfo.map((transaction, index) => {
-              // console.log(transaction,"101--")
-              const arrow = getTransactionArrowAndStyle(
-                transaction.typeOfTransaction
-              );
+        {dashboardInfo?.transactionsInfo?.length > 0 && (
+          <table className={styles.transaction_table}>
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+              {dashboardInfo.transactionsInfo.map((transaction, index) => {
+                const arrow = getTransactionArrowAndStyle(
+                  transaction.typeOfTransaction
+                );
 
-              return (
-                <li key={index}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
-                    <span>
+                return (
+                  <tr key={index} className={styles.transaction_row}>
+                    <td className={styles.transaction_type}>
+                      <span className={styles.transaction_arrow}>{arrow}</span>
+                      <span>{transaction.typeOfTransaction}</span>
+                    </td>
+                    <td className={styles.amount}>
+                      ₹{transaction.actualAmount}
+                    </td>
+                    <td>
                       <span
-                        style={{
-                          fontSize: "14px",
-                          marginLeft: "5px",
-                          fontWeight: "bold",
-                        }}
+                        className={styles[getStatusClass(transaction.status)]}
                       >
-                        {arrow}
+                        {" "}
+                        {getStatusLabel(transaction.status)}
                       </span>
-                      <span
-                        style={{
-                          marginLeft: "5px",
-                          fontSize: "14px",
-                          fontWeight: "bold",
-                        }}
-                      >
-                        {transaction.typeOfTransaction}
-                      </span>
-                    </span>
-                    <span>
-                      <span className={styles.amount}>
-                        ₹{transaction.actualAmount}
-                      </span>
-                    </span>
-                  </div>
-                  <div className={styles.date}>
-                    <a className={styles[getStatusClass(transaction.status)]}>
-                      {getStatusLabel(transaction.status)}
-                    </a>
-                    <a>
+                    </td>
+                    <td className={styles.date}>
                       {new Date(transaction.createdAt).toLocaleDateString(
                         "en-GB"
                       )}
-                    </a>
-                  </div>
-                </li>
-              );
-            })}
-        </ul>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        )}
       </div>
     </div>
   );

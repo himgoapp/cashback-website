@@ -172,16 +172,23 @@ const TableContainer = ({ transactionType }) => {
                   <strong>Status:</strong>
                   <span
                     style={{
-                      background:
+                      color:
                         selectedTransaction.status === "Approved"
-                          ? "green"
+                          ? "#27ae60"
                           : selectedTransaction.status === "Pending"
-                          ? "orange"
-                          : "red",
-                          color:"white",
+                          ? "#f39c12"
+                          : "#e74c3c",
+                          background:
+                          selectedTransaction.status === "Approved"
+                            ? "#e3fcef"
+                            : selectedTransaction.status === "Pending"
+                            ? "#fff8e1"
+                            : "#fdecea",
                       fontWeight: "bold",
-                      borderRadius: "30px",
-                      padding: "2px 6px 4px 6px",
+                      textDecoration: "none",
+                      borderRadius: "20px",
+                      padding: "2px 5px",
+                      fontSize:"13px"
                     }}
                   >
                     {" "}

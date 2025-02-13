@@ -38,149 +38,111 @@
   height: fit-content;
 }
 
-/* Latest transactions container */
 .transactions_container {
-  width: 300px; /* Fixed width for larger screens */
-  border: 1px solid #ddd;
+  width: 70%;
+  padding: 20px;
+  margin-top: -500px;
+  background: #fff;
   border-radius: 8px;
-  overflow: hidden;
-  background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  padding: 15px;
-  min-width: 300px; /* Ensure a minimum width */
 }
 
-/* Table styles */
-.rakeback_table {
+.transaction_heading {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  display: block;
+  color: #333;
+}
+
+.transaction_table {
   width: 100%;
   border-collapse: collapse;
-  font-family: Arial, sans-serif;
-  color: #28282c;
-  table-layout: fixed; /* Ensures consistent column widths */
-  height: 300px;
 }
 
-.table_head {
-  font-family: "ProximaNova-Semibold", sans-serif !important;
-  font-size: 14px;
+.transaction_table thead {
+  background: #f4f4f4;
 }
 
-.rakeback_table th,
-.rakeback_table td {
-  padding: 12px 15px;
-  text-align: left;
-  font-size: 14px;
+.transaction_table th, 
+.transaction_table td {
+  padding: 8px 8px;
+  /* text-align: center; */
   border-bottom: 1px solid #ddd;
-  overflow: hidden; /* Prevents overflow */
-  text-overflow: ellipsis; /* Ensures text doesn't overflow */
 }
 
-.transaction_date_amount {
-  display: flex;
+.transaction_table th {
+  font-weight: bold;
+  color: #555;
+}
+.transaction_table 
+
+.transaction_table tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.transaction_row:hover {
+  background: #f1f1f1;
+  transition: background 0.3s ease;
+}
+
+.transaction_type {
+  /* align-items: center; */
+  font-weight: bold;
+}
+
+.transaction_arrow {
+  /* margin-right: 8px; */
+  font-size: 1.2rem;
 }
 
 .amount {
   font-weight: bold;
-  color: #28282c;
+  /* color: #27ae60; */
+}
+
+.status {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-align: center;
 }
 
 .date {
-  display: flex;
-  justify-content: space-between;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.status-successful {
+  color: #27ae60;
+  font-weight: bold;
+  text-decoration: none;
+  background: #e3fcef;
+  padding: 2px 5px;
+  border-radius: 20px;
   font-size: 13px;
 }
 
-.rakeback_table th {
-  background-color: #f2f2f2;
-  color: #333;
-  font-weight: bold;
-  text-transform: uppercase;
-}
-
-.rakeback_table tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-.rakeback_table tr:hover {
-  background-color: #f1f1f1;
-  cursor: pointer;
-}
-
-/* Latest Transactions styling */
-.transactions_container h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 15px;
-}
-
-.transactions_container ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.transactions_container li {
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-}
-
-.transactions_container li:last-child {
-  border-bottom: none;
-}
-
-.transactions_container li div {
-  margin-bottom: 5px;
-}
-
-/* Status colors */
-.status-successful {
-    background: green;
-    font-weight: bold;
-    padding: 2px 6px 2px 6px;
-    border-radius: 30px;
-    text-decoration: none;
-    color: white;
-}
-
 .status-pending {
-  color: white;
-  font-weight: bold;
-  background: orange;
-  padding: 2px 6px 2px 6px;
-  border-radius: 30px;
-  text-decoration: none;
+font-weight: bold;
+background: #fff8e1;
+  color: #f39c12;
+  padding: 2px 5px;
+  border-radius: 20px;
+text-decoration: none;
+font-size: 13px;
 }
 
 .status-aborted {
-  color: white;
-  font-weight: bold;
-  padding: 2px 6px 2px 6px;
-  border-radius: 30px;
-  text-decoration: none;
-  background: red;
-}
-/* 
-.status-deposit {
-  background: green;
-  font-weight: bold;
-  padding: 1px 5px 1px 5px;
-  border-radius: 30px;
-  text-decoration: none;
-  color: white;
-} */
-.status {
-  margin-left: 5px;
-  font-size: 14px;
-  font-weight: bold;
+background: #fdecea;
+font-weight: bold;
+padding: 2px 5px;
+border-radius: 20px;
+text-decoration: none;
+font-size: 13px;
+color: #e74c3c;
 }
 
-.transactions_container span {
-  display: inline-flex;
-  align-items: center;
-}
-
-.transactions_container span > span {
-  margin-left: 5px;
-}
 
 /* Add responsive design for smaller screens */
 @media (max-width: 768px) {

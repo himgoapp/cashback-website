@@ -3,7 +3,8 @@
 	width: 100%;
 	max-width: 19rem;
 	height: 100vh;
-	background: #3968eb;
+	/* background: #3968eb; */
+	background: #002366;
 	display: inline-flex;
 	justify-content: flex-start;
 	align-items: flex-start;
@@ -78,10 +79,11 @@
 	padding: 1rem;
 	border-radius: 2rem;
 	width: 100%;
+	text-decoration: none;
 }
 .NavItemBase.active,
 .NavItemBase:hover {
-	background: #4072ff;
+	background: #003fb8;
 }
 
 .ItemContent {
@@ -165,7 +167,7 @@
   }
   
   .Button:hover {
-	background-color: #212121;
+	background-color: #003fb8;
 	transform: scale(1.05);
 	color: white;
   }
@@ -256,6 +258,7 @@
 		top: 0;
 		left: 0;
 		z-index: 3;
+		
 	}
 
 	.Content {
