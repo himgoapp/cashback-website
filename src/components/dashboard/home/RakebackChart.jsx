@@ -220,14 +220,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
           }}
         >
           <div
-            style={{
-              width: "100%",
-              backgroundColor: "#fff",
-              borderRadius: "10px",
-              display: "flex",
-              flexDirection: "column",
-              gap: "10px",
-            }}
+          className={styles.filter_container}
           >
             <font className={styles.filter_heading}>Select Time Period</font>
             <div className={styles.filters}>
@@ -264,6 +257,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
               color: "#fff",
               boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
             }}
+            className={styles.withdrawal_container}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -311,18 +305,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
             </button>
           </div>
           <div
-  style={{
-    width: "100%",
-    maxWidth: "300px",
-    borderRadius: "16px",
-    height: "500px",
-    // padding: "20px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    color: "black",
-    boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
-  }}
+className={styles.events_container}
 >
   {/* <font className={styles.events_heading}>Events</font>
   <div

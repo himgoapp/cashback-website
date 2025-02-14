@@ -1,97 +1,143 @@
 .Button {
-	display: flex; 
-	align-items: center;
-	justify-content: center; 
-	gap: 8px; 
-	background-color: white;
-	color: #28282c; 
-	font-size: 18px;
-	padding: 10px 20px;
-    font-weight: 600;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
-	transition: background-color 0.3s, transform 0.3s;
-  }
-  
-  .Button:hover {
-	background-color: #212121;
-	transform: scale(1.05);
-	color: white;
-  }
-  
-  .Button:focus {
-	outline: none;
-	box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.6); /* Fixed invalid color format */
-  }
-  
-  .Button:active {
-	transform: scale(0.98);
-	background-color: #212121;
-	color: white;
-  }
- 
-  .filter_heading{
-	font-size: 16px;
-	font-family: "ProximaNova-Semibold; sans-serif !important";
-	font-weight: 600;
-    color: #28282c;
-  }
-  .filters{
-display: flex;
-justify-content: space-between;
-color: #28282c;
-font-size: 14px;
-font-family: Arial, sans-serif;
-  }
-  .dashboard_card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background-color: white;
+  color: #28282c;
+  font-size: 18px;
+  padding: 10px 20px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.Button:hover {
+  background-color: #212121;
+  transform: scale(1.05);
+  color: white;
+}
+
+.Button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.6); /* Fixed invalid color format */
+}
+
+.Button:active {
+  transform: scale(0.98);
+  background-color: #212121;
+  color: white;
+}
+.filter_container {
+  width: 100%;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter_heading {
+  font-size: 16px;
+  font-family: "ProximaNova-Semibold; sans-serif !important";
+  font-weight: 600;
+  color: #28282c;
+}
+.filters {
+  display: flex;
+  justify-content: space-between;
+  color: #28282c;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+}
+.dashboard_card {
+  width: 100%;
+  background-color: #002366;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  height: 120px;
+}
+
+.dashboard_greeting {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.dashboard_username {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.dashboard_balance {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.dashboard_image_wrapper {
+  height: 100%;
+  display: flex;
+  align-items: stretch;
+}
+
+.dashboard_image {
+  height: 220px;
+  width: auto;
+  object-fit: cover;
+  margin-top: -100px;
+}
+.events_heading {
+  font-size: 20px;
+  font-weight: bold;
+}
+.events_container{
 	width: 100%;
-	background-color: #002366;
-	border-radius: 16px;
-	padding: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	color: #fff;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-	margin-bottom: 20px;
-	height: 120px;
+    max-width: 300px;
+    border-radius: 16px;
+    height: 500px;
+     /* padding: 20px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+@media (max-width: 480px) {
+  .Button {
+    font-size: 14px;
+    padding: 6px 12px;
   }
-  
-  .dashboard_greeting {
-	font-size: 14px;
-	opacity: 0.8;
+  .filter_container {
+    margin-top: 130px;
   }
-  
-  .dashboard_username {
-	font-size: 18px;
-	font-weight: bold;
+  .filter_heading {
+    font-size: 12px;
+    margin-left: 50px;
   }
-  
-  .dashboard_balance {
-	font-size: 24px;
-	font-weight: bold;
-	margin-top: 5px;
+
+  .filters {
+    font-size: 10px;
+    margin-left: 50px;
   }
-  
-  .dashboard_image_wrapper {
-	height: 100%;
-	display: flex;
-	align-items: stretch;
+
+  .dashboard_card {
+    margin-left: 30px;
   }
-  
-  .dashboard_image {
-	height: 220px;
-	width: auto;
-	object-fit: cover;
-	margin-top: -100px;
+  .withdrawal_container {
+    margin-left: 30px;
   }
   .events_heading {
-	font-size: 20px;
-	font-weight: bold;
-
+    font-size: 16px;
   }
- 
-
-
-  
+  .events_container{
+	margin-left: 30px;
+  }
+}
