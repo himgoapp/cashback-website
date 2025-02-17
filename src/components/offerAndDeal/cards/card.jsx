@@ -1,13 +1,188 @@
+// import React, { useContext, useEffect, useState } from "react";
+// import styles from "./card.module.css"; // Replace with your actual CSS module path
+// import { useNavigate } from "react-router-dom";
+// import pokerbaaziout from "../../../assets/Pokerbaazi out.svg";
+// import MPLOUT from "../../../assets/MPL OUT.svg";
+// import JungleePoker2 from "../../../assets/jungleePokerbanner.jpg";
+// import Navbtn from "../../common/button/navbtn/navbtn";
+// import { UserContext } from "../../../App";
+// // import { colorBkg } from "../../../helperFxns/colorCode";
+// import {colorBkgOut} from "../../../helperFxns/colorCode"
+
+// const OfferCard = ({ fillBtn, product }) => {
+// 	const navigate = useNavigate();
+// 	const { userData } = useContext(UserContext);
+// 	const [mobile, setIsMobile] = useState(true);
+
+// 	useEffect(() => {
+// 		const width = window.innerWidth;
+// 		setIsMobile(width <= 500);
+// 		// eslint-disable-next-line
+// 	}, []);
+
+// 	const onJoinClick = (currentItem) => {
+// 		if (!userData) {
+// 			navigate("/");
+// 		} else {
+// 			localStorage.setItem("currentProductValue", JSON.stringify(product));
+// 			localStorage.setItem("currentProduct", currentItem);
+// 			navigate("/description");
+// 		}
+// 	};
+
+// 	return (
+// 		<div className={styles.card_item_container}>
+// 			{/* Card Item Content */}
+// 			<div className={styles.card_item_content}>
+// 				{/* Item Content */}
+// 				<div className={styles.item_content}>
+// 					{/* Image */}
+// 					<div className={styles.image} style={colorBkgOut(product.name)}>
+// 						{/* Image Content */}{" "}
+// 						<img
+// 							src={
+// 								product && product.name && product.name === "Poker Baazi"
+// 									? pokerbaaziout
+// 									: product && product.name && product.name === "Junglee Poker"
+// 									? JungleePoker2
+// 									: MPLOUT
+// 							}
+// 							alt=''
+// 						/>{" "}
+// 					</div>
+
+// 					{/* Welcome Container */}
+// 					<div className={styles.welcome_container}>
+// 						{/* Welcome Content */}
+// 						<div className={styles.welcome_content}>
+// 							{/* Icon */}
+// 							<div className={styles.icon}>
+// 								{/* Icon Content */}
+// 								<svg
+// 									xmlns='http://www.w3.org/2000/svg'
+// 									width='21'
+// 									height='25'
+// 									viewBox='0 0 21 25'
+// 									fill='none'
+// 								>
+// 									<path
+// 										d='M8.30894 9.82548C11.9167 7.81948 12.9535 5.62852 14.0977 0.961426C15.6926 5.86672 16.8975 7.71976 20.1277 9.27148C15.6147 12.4227 14.7021 14.5841 14.0977 18.6895C12.7011 13.7202 11.4426 11.7633 8.30894 9.82548Z'
+// 										fill='#0D9488'
+// 									/>
+// 									<path
+// 										d='M0.872502 19.311C3.03715 18.2411 3.65922 17.0726 4.34576 14.5835C5.30271 17.1997 6.02564 18.1879 7.96375 19.0155C5.25593 20.6962 4.70842 21.8489 4.34576 24.0385C3.50782 21.3882 2.75269 20.3445 0.872502 19.311Z'
+// 										fill='#0D9488'
+// 									/>
+// 								</svg>
+// 							</div>
+
+// 							{/* Text */}
+// 							<div className={styles.text}>
+// 								{/* Text Content */}Welcome bonus up to <span>Rs. 20000</span>{" "}
+// 							</div>
+// 						</div>
+// 					</div>
+
+// 					{/* Item Info Container */}
+// 					<div className={styles.item_info_container}>
+// 						{/* Availability Container */}
+// 						<div className={styles.availability_container}>
+// 							{/* Available Content */}
+// 							<div className={styles.available_content}>
+// 								{/* Heading */}
+// 								<div className={styles.heading}>{product && product.name}</div>
+
+// 								{/* Tag 1 */}
+// 								<div className={styles.tag1}>{/* Tag 1 Content */}T&C</div>
+
+// 								{/* Tag 2 */}
+// 								<div className={styles.tag2}>{/* Tag 2 Content */}A</div>
+// 							</div>
+// 							{/* Availability Text */}
+// 							<div className={styles.availabilty_text}>
+// 								<div>
+// 									{/* Icon */}
+// 									<div className={styles.icon}>
+// 										{/* Icon Content */}
+// 										{availabiltyicon}
+// 									</div>
+
+// 									{/* Text */}
+// 									<div className={styles.text}>
+// 										{/* Text Content */}Available for players from your country
+// 									</div>
+// 								</div>
+// 								<div className={styles.text}>
+// 									{product && product.smallDescription}
+// 								</div>
+// 							</div>
+// 						</div>
+
+// 						{/* Rating and Review Container */}
+// 						<div className={styles.rating_and_review_container}>
+// 							{/* Rating and Review */}
+// 							<div className={styles.rating_and_review}>
+// 								{/* Rating */}
+// 								<div className={styles.rating}>
+// 									{/* Rating Content */}
+// 									{filstar} {filstar} {filstar} {blankstar} {blankstar}{" "}
+// 								</div>
+
+// 								{/* Text */}
+// 								<div className={styles.text}>
+// 									{/* Text Content */}
+// 									{product && product.rating}
+// 									<span> /5.0</span>{" "}
+// 								</div>
+// 							</div>
+// 						</div>
+// 					</div>
+
+// 					<div style={{ width: "100%" }}>
+// 						{fillBtn ? (
+// 							<Navbtn
+// 								text={userData ? "Join" : "Sign Up"}
+// 								variant={"outlined_primary"}
+// 								size={"small"}
+// 								showIcon={false}
+// 								style={{
+// 									width: "100%",
+// 								}}
+// 								onClick={() => {
+// 									onJoinClick(product._id);
+// 								}}
+// 								disabled={userData ? false : true}
+// 							/>
+// 						) : (
+// 							<Navbtn
+// 								text={userData ? "Join" : "Sign Up"}
+// 								variant={"primary"}
+// 								size={"small"}
+// 								showIcon={false}
+// 								style={{ width: "100%" }}
+// 								onClick={() => {
+// 									onJoinClick(product._id);
+// 								}}
+// 								disabled={userData ? false : true}
+// 							/>
+// 						)}
+// 					</div>
+// 				</div>
+// 			</div>
+// 		</div>
+// 	);
+// };
+
+// export default OfferCard;
 import React, { useContext, useEffect, useState } from "react";
-import styles from "./card.module.css"; // Replace with your actual CSS module path
+import styles from "./card.module.css"; // Make sure this CSS file is present
 import { useNavigate } from "react-router-dom";
 import pokerbaaziout from "../../../assets/Pokerbaazi out.svg";
 import MPLOUT from "../../../assets/MPL OUT.svg";
 import JungleePoker2 from "../../../assets/jungleePokerbanner.jpg";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
-// import { colorBkg } from "../../../helperFxns/colorCode";
-import {colorBkgOut} from "../../../helperFxns/colorCode"
+import { colorBkgOut,getPokerSiteImage} from "../../../helperFxns/colorCode";
 
 const OfferCard = ({ fillBtn, product }) => {
 	const navigate = useNavigate();
@@ -15,9 +190,7 @@ const OfferCard = ({ fillBtn, product }) => {
 	const [mobile, setIsMobile] = useState(true);
 
 	useEffect(() => {
-		const width = window.innerWidth;
-		setIsMobile(width <= 500);
-		// eslint-disable-next-line
+		setIsMobile(window.innerWidth <= 500);
 	}, []);
 
 	const onJoinClick = (currentItem) => {
@@ -31,149 +204,53 @@ const OfferCard = ({ fillBtn, product }) => {
 	};
 
 	return (
-		<div className={styles.card_item_container}>
-			{/* Card Item Content */}
-			<div className={styles.card_item_content}>
-				{/* Item Content */}
-				<div className={styles.item_content}>
-					{/* Image */}
-					<div className={styles.image} style={colorBkgOut(product.name)}>
-						{/* Image Content */}{" "}
-						<img
-							src={
-								product && product.name && product.name === "Poker Baazi"
-									? pokerbaaziout
-									: product && product.name && product.name === "Junglee Poker"
-									? JungleePoker2
-									: MPLOUT
-							}
-							alt=''
-						/>{" "}
-					</div>
+		<div className={styles.card_container}>
+			<div className={styles.logo_container} >
+				<img
+					src={getPokerSiteImage(product.name)}
 
-					{/* Welcome Container */}
-					<div className={styles.welcome_container}>
-						{/* Welcome Content */}
-						<div className={styles.welcome_content}>
-							{/* Icon */}
-							<div className={styles.icon}>
-								{/* Icon Content */}
-								<svg
-									xmlns='http://www.w3.org/2000/svg'
-									width='21'
-									height='25'
-									viewBox='0 0 21 25'
-									fill='none'
-								>
-									<path
-										d='M8.30894 9.82548C11.9167 7.81948 12.9535 5.62852 14.0977 0.961426C15.6926 5.86672 16.8975 7.71976 20.1277 9.27148C15.6147 12.4227 14.7021 14.5841 14.0977 18.6895C12.7011 13.7202 11.4426 11.7633 8.30894 9.82548Z'
-										fill='#0D9488'
-									/>
-									<path
-										d='M0.872502 19.311C3.03715 18.2411 3.65922 17.0726 4.34576 14.5835C5.30271 17.1997 6.02564 18.1879 7.96375 19.0155C5.25593 20.6962 4.70842 21.8489 4.34576 24.0385C3.50782 21.3882 2.75269 20.3445 0.872502 19.311Z'
-										fill='#0D9488'
-									/>
-								</svg>
-							</div>
-
-							{/* Text */}
-							<div className={styles.text}>
-								{/* Text Content */}Welcome bonus up to <span>Rs. 20000</span>{" "}
-							</div>
-						</div>
-					</div>
-
-					{/* Item Info Container */}
-					<div className={styles.item_info_container}>
-						{/* Availability Container */}
-						<div className={styles.availability_container}>
-							{/* Available Content */}
-							<div className={styles.available_content}>
-								{/* Heading */}
-								<div className={styles.heading}>{product && product.name}</div>
-
-								{/* Tag 1 */}
-								<div className={styles.tag1}>{/* Tag 1 Content */}T&C</div>
-
-								{/* Tag 2 */}
-								<div className={styles.tag2}>{/* Tag 2 Content */}A</div>
-							</div>
-							{/* Availability Text */}
-							<div className={styles.availabilty_text}>
-								<div>
-									{/* Icon */}
-									<div className={styles.icon}>
-										{/* Icon Content */}
-										{availabiltyicon}
-									</div>
-
-									{/* Text */}
-									<div className={styles.text}>
-										{/* Text Content */}Available for players from your country
-									</div>
-								</div>
-								<div className={styles.text}>
-									{product && product.smallDescription}
-								</div>
-							</div>
-						</div>
-
-						{/* Rating and Review Container */}
-						<div className={styles.rating_and_review_container}>
-							{/* Rating and Review */}
-							<div className={styles.rating_and_review}>
-								{/* Rating */}
-								<div className={styles.rating}>
-									{/* Rating Content */}
-									{filstar} {filstar} {filstar} {blankstar} {blankstar}{" "}
-								</div>
-
-								{/* Text */}
-								<div className={styles.text}>
-									{/* Text Content */}
-									{product && product.rating}
-									<span> /5.0</span>{" "}
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div style={{ width: "100%" }}>
-						{fillBtn ? (
-							<Navbtn
-								text={userData ? "Join" : "Sign Up"}
-								variant={"outlined_primary"}
-								size={"small"}
-								showIcon={false}
-								style={{
-									width: "100%",
-								}}
-								onClick={() => {
-									onJoinClick(product._id);
-								}}
-								disabled={userData ? false : true}
-							/>
-						) : (
-							<Navbtn
-								text={userData ? "Join" : "Sign Up"}
-								variant={"primary"}
-								size={"small"}
-								showIcon={false}
-								style={{ width: "100%" }}
-								onClick={() => {
-									onJoinClick(product._id);
-								}}
-								disabled={userData ? false : true}
-							/>
-						)}
-					</div>
+					alt={product?.name}
+				/>
+			</div>
+			<div className={styles.offer_section}>
+				<div className={styles.offer_badge}>
+					<span>⭐ Welcome bonus up to Rs. 20,000</span>
 				</div>
+			</div>
+			<div className={styles.availabilty_text}>
+			</div>
+
+
+			<div className={styles.text}>
+				<div >
+					<span className={styles.icon}>{availabiltyicon}</span>
+					<span>Available for players from your country</span>
+				</div>
+				{product.smallDescription.length > 20 ? product.smallDescription.slice(0, 90) + "..."
+					: product.smallDescription}
+			</div>
+			<div className={styles.button_section}>
+				<Navbtn
+					text={userData ? "Join" : "Sign Up"}
+					variant="primary"
+					size="small"
+					showIcon={false}
+					onClick={() => onJoinClick(product._id)}
+					disabled={!userData}
+				/>
+				<Navbtn
+					text="Review"
+					variant="primary"
+					size="small"
+					showIcon={false}
+				/>
 			</div>
 		</div>
 	);
 };
 
 export default OfferCard;
+
 const availabiltyicon = (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
