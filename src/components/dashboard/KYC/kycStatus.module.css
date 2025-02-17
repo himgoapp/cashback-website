@@ -16,6 +16,13 @@
   align-self: stretch;
   border-radius: 0.5rem;
 }
+.illustration3_design{
+  width: 1070px;
+  height: 240px;
+  background: #dde3ef;
+  border-radius: 0.5rem;
+
+}
 .successBorder {
   border-top: 1px solid var(--Success, #11c15b);
   border-right: 1px solid var(--Success, #11c15b);

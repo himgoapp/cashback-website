@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./kycStatus.module.css";
-
+import illustration3 from "../../../assets/illustration3.svg"
 function KycStatus({
   status,
   message,
@@ -26,6 +26,9 @@ function KycStatus({
 
   return (
     <div className={styles.KycStatusContainer}>
+      <div>
+        <img src={illustration3} className={styles.illustration3_design}/>
+      </div>
       <div className={styles.StatusContent} style={borderStyle}>
         <div className={styles.StatusHead}>
           <div className={styles.StatusIcon}>{icon}</div>

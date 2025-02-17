@@ -10,6 +10,9 @@ import jungleePoker2 from "../../assets/jungleePokerbanner.jpg";
 import pokerbaazi from "../../assets/PokerBaaziBanner.svg";
 import Navbtn from "../common/button/navbtn/navbtn";
 import { colorBkg } from "../../helperFxns/colorCode";
+import icon3 from "../../assets/icon3.svg";
+import icon2 from "../../assets/icon2.svg";
+import icon1 from "../../assets/icon1.svg";
 
 const OfferAndRegistration = () => {
 		const[register,setRegister]=useState(0)
@@ -124,10 +127,10 @@ const OfferAndRegistration = () => {
 					</div>
 					<div className={styles.bonus_container}>
 						{[
-							[bonusgift, "First deposit bonus", "200% up to $2000"],
-							[walletIcon, "Rake Refund", "Up to 45%"],
+							[icon3, "First deposit bonus", "200% up to $2000"],
+							[icon1, "Rake Refund", "Up to 45%"],
 							[
-								proIcon,
+								icon2,
 								"For all our players",
 								"Maximum 35% rakeback",
 								"for anyrake amount",
@@ -147,7 +150,7 @@ const OfferAndRegistration = () => {
 											<div className={styles.type}>{bonus[1]}</div>
 											{bonus.length === 4 ? (
 												<>
-													<div className={styles.max}>Maximum 35% rakeback</div>
+													<div className={styles.max}>Max 35% rakeback</div>
 													<div className={styles.type}>{bonus[3]}</div>
 												</>
 											) : (

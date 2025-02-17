@@ -4,8 +4,6 @@ import pokerCardimg from "../../../../assets/pokercard.png";
 import moment from "moment";
 import { statusBaseColor, imagePicker } from "../../../../helperFxns/colorCode";
 
-
-
 const PokerCard = ({ status, color, item }) => {
   return (
     <div className={styles.PokerCard}>
@@ -19,7 +17,7 @@ const PokerCard = ({ status, color, item }) => {
                   : pokerCardimg
               }
               style={{ height: "50px", width: "50px" }}
-            />{" "}
+            />
             <div className={styles.HeaderId}>
               <div className={styles.Head}>
                 {item && item.productId ? item.productId.name : ""}

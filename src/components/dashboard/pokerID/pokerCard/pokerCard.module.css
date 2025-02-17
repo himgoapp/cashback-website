@@ -7,7 +7,7 @@
 }
 
 .PokerCard {
-  width: 30%;
+  width: 100%;
   max-width: 400px;
   margin-bottom: 1.5rem;
   border: 0.0625rem #eaecf0 solid;

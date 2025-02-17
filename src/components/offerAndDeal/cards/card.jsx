@@ -175,78 +175,45 @@
 
 // export default OfferCard;
 import React, { useContext, useEffect, useState } from "react";
-import styles from "./card.module.css"; // Make sure this CSS file is present
+import styles from "./card.module.css";
 import { useNavigate } from "react-router-dom";
-import pokerbaaziout from "../../../assets/Pokerbaazi out.svg";
-import MPLOUT from "../../../assets/MPL OUT.svg";
-import JungleePoker2 from "../../../assets/jungleePokerbanner.jpg";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
-import { colorBkgOut,getPokerSiteImage} from "../../../helperFxns/colorCode";
+import { getPokerSiteImage } from "../../../helperFxns/colorCode";
 
-const OfferCard = ({ fillBtn, product }) => {
-	const navigate = useNavigate();
-	const { userData } = useContext(UserContext);
-	const [mobile, setIsMobile] = useState(true);
+const OfferCard = ({ product }) => {
+    const navigate = useNavigate();
+    const { userData } = useContext(UserContext);
 
-	useEffect(() => {
-		setIsMobile(window.innerWidth <= 500);
-	}, []);
+    const onJoinClick = () => {
+        if (!userData) {
+            navigate("/");
+        } else {
+            localStorage.setItem("currentProductValue", JSON.stringify(product));
+            navigate("/description");
+        }
+    };
 
-	const onJoinClick = (currentItem) => {
-		if (!userData) {
-			navigate("/");
-		} else {
-			localStorage.setItem("currentProductValue", JSON.stringify(product));
-			localStorage.setItem("currentProduct", currentItem);
-			navigate("/description");
-		}
-	};
-
-	return (
-		<div className={styles.card_container}>
-			<div className={styles.logo_container} >
-				<img
-					src={getPokerSiteImage(product.name)}
-
-					alt={product?.name}
-				/>
-			</div>
-			<div className={styles.offer_section}>
-				<div className={styles.offer_badge}>
-					<span>⭐ Welcome bonus up to Rs. 20,000</span>
-				</div>
-			</div>
-			<div className={styles.availabilty_text}>
-			</div>
-
-
-			<div className={styles.text}>
-				<div >
-					<span className={styles.icon}>{availabiltyicon}</span>
-					<span>Available for players from your country</span>
-				</div>
-				{product.smallDescription.length > 20 ? product.smallDescription.slice(0, 90) + "..."
-					: product.smallDescription}
-			</div>
-			<div className={styles.button_section}>
-				<Navbtn
-					text={userData ? "Join" : "Sign Up"}
-					variant="primary"
-					size="small"
-					showIcon={false}
-					onClick={() => onJoinClick(product._id)}
-					disabled={!userData}
-				/>
-				<Navbtn
-					text="Review"
-					variant="primary"
-					size="small"
-					showIcon={false}
-				/>
-			</div>
-		</div>
-	);
+    return (
+        <div className={styles.cardContainer}>
+            <div className={styles.logoContainer}>
+                <img src={getPokerSiteImage(product.name)} alt={product?.name} />
+            </div>
+            
+            <div className={styles.contentSection}>
+                <div className={styles.offerBadge}>💰 Welcome bonus up to Rs. 20,000</div>
+                <h3 className={styles.productTitle}>{product.name}</h3>
+                <p className={styles.availability}>✅ Available for players from your country</p>
+                <p className={styles.description}>{product.smallDescription.length > 90 ? product.smallDescription.slice(0, 150) + "..." : product.smallDescription}</p>
+                <div className={styles.rating}>⭐⭐⭐⭐⭐ 4.5 out of 5</div>
+            </div>
+            
+            <div className={styles.buttonSection}>
+                <Navbtn text={userData ? "Join" : "Sign Up"} variant="filled" onClick={onJoinClick} />
+                <Navbtn text="Review" variant="filled" />
+            </div>
+        </div>
+    );
 };
 
 export default OfferCard;
