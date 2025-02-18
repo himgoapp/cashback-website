@@ -10,6 +10,14 @@
 	align-items: center;
 	position: relative;
 }
+.illustration3_design{
+	width: 1070px;
+	height: 240px;
+	background: #dde3ef;
+	border-radius: 0.5rem;
+	margin-bottom: 30px;
+  
+  }
 .StepBase {
 	display: flex;
 	width: 20rem;
@@ -34,7 +42,7 @@
 }
 .StepBase1.StepBaseCompleted::before,
 .StepBase2.StepBaseCompleted::before {
-	background: #3968eb;
+	background: #002366;
 }
 
 .StepIcon {
@@ -57,7 +65,7 @@
 
 .StepBaseCompleted .Icon,
 .StepBaseCurrent .Icon {
-	background: #3968eb;
+	background: #002366;
 }
 
 .StepBase .Icon svg {

@@ -6,9 +6,10 @@ import {
 import styles from "./newPoker.module.css"; // Import your CSS module
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { toast } from "react-toastify";
-import pokerIdIcon from "../../../assets/pokerIdIcon.png";
+import pokeridsheadericon from "../../../assets/pokeridsheadericon.svg";
 import {getPokerSiteImage} from "../../../helperFxns/colorCode"
 import { UserContext } from "../../../App";
+import { color } from "framer-motion";
 
 const staticAccountData = [
 
@@ -225,7 +226,7 @@ const NewPoker = ({ setGetInfos }) => {
               )} */}
             </div>
           </div>
-
+<div className={styles.submit_button}>
           <Navbtn
             text='Submit'
             variant={"primary"}
@@ -234,8 +235,14 @@ const NewPoker = ({ setGetInfos }) => {
             onClick={() => {
               onSubmitFxn();
             }}
+            style={{color:"white"}}
           />
+          </div>
+            <img src={pokeridsheadericon} className={styles.pokeridsheadericon}/> 
+        
+          
         </div>
+        
       </div>
     </div>
   );

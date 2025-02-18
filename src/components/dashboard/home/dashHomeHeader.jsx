@@ -99,8 +99,11 @@ const DashboardHomeHeader = ({ title, icon }) => {
               <div className={styles.Logo}>{logoIcon}</div>
             </div>
             <div className={styles.HeaderActions}>
-              <div className={styles.HeaderNavBtn} onClick={handleProfileClick}>
+              {/* <div className={styles.HeaderNavBtn} onClick={handleProfileClick}>
                 <img src={profileicon} alt="Profile Icon" />
+              </div> */}
+              <div className={styles.HeaderNavBtn} onClick={handleProfileClick}>
+                {userIcon}
               </div>
               {/* <div
                 className={styles.HeaderNavBtn2}
@@ -186,8 +189,27 @@ const DashboardHomeHeader = ({ title, icon }) => {
                       Your email is not verified.
                     </div>
                     <Button
-                      variant="outline-primary"
+                      variant="primary"
                       size="sm"
+                      style={{
+                        backgroundColor: "rgb(0, 35, 102)", 
+                        color: "white",
+                        borderColor: "rgb(0, 35, 102)",
+                      }}
+                      onMouseOver={(e) => {
+                        e.target.style.backgroundColor = "rgb(82, 255, 51)"; 
+                        e.target.style.borderColor = "rgb(82, 255, 51)";
+                        e.target.style.color = "black";
+
+
+                      }}
+                      onMouseOut={(e) => {
+                        e.target.style.backgroundColor = "rgb(0, 35, 102)";
+                        e.target.style.color = "white";
+                        e.target.style.borderColor = "rgb(0, 35, 102)";
+
+
+                      }}
                       onClick={() => sendEmailOtp(userData.email)}
                     >
                       Verify Email
@@ -233,7 +255,26 @@ const DashboardHomeHeader = ({ title, icon }) => {
               <Button
                 variant="primary"
                 onClick={() => setEditMode(!editMode)}
-                style={{ marginTop: "-12px" }}
+                style={{
+                  backgroundColor: "rgb(0, 35, 102)", 
+                  color: "white",
+                  borderColor: "rgb(0, 35, 102)",
+                  marginTop: "-12px"
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.backgroundColor = "rgb(82, 255, 51)"; 
+                  e.target.style.borderColor = "rgb(82, 255, 51)";
+                  e.target.style.color = "black";
+
+
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.backgroundColor = "rgb(0, 35, 102)";
+                  e.target.style.color = "white";
+                  e.target.style.borderColor = "rgb(0, 35, 102)";
+
+
+                }}
               >
                 {editMode ? "Save" : "Edit"}
               </Button>
@@ -247,7 +288,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
         onHide={handleClose}
         backdrop="static"
         // aria-labelledby="contained-modal-title-vcenter"
-         centered
+        centered
         // animation={false}
       >
         <Modal.Header className="d-flex justify-content-center" closeButton>
@@ -265,11 +306,32 @@ const DashboardHomeHeader = ({ title, icon }) => {
                 onChange={(e) => setOtp(e.target.value)}
                 autoFocus
               />
-            </Form.Group>
+            </Form.Group> 
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="primary" onClick={verifyOtp}>
+          <Button variant="primary" onClick={verifyOtp}
+           style={{
+            backgroundColor: "rgb(0, 35, 102)", 
+            color: "white",
+            borderColor: "rgb(0, 35, 102)",
+            marginTop: "-12px"
+          }}
+          onMouseOver={(e) => {
+            e.target.style.backgroundColor = "rgb(82, 255, 51)"; 
+            e.target.style.borderColor = "rgb(82, 255, 51)";
+            e.target.style.color = "black";
+
+
+          }}
+          onMouseOut={(e) => {
+            e.target.style.backgroundColor = "rgb(0, 35, 102)";
+            e.target.style.color = "white";
+            e.target.style.borderColor = "rgb(0, 35, 102)";
+
+
+          }}
+          >
             Verify Email
           </Button>
         </Modal.Footer>
@@ -279,7 +341,30 @@ const DashboardHomeHeader = ({ title, icon }) => {
 };
 
 export default DashboardHomeHeader;
-
+const userIcon = (
+	<svg
+		xmlns='http://www.w3.org/2000/svg'
+		width='30'
+		height='30'
+		viewBox='0 0 20 20'
+		fill='none'
+	>
+		<g clipPath='url(#clip0_24_3723)'>
+			<path
+				d='M4.43008 16.1985C4.93702 15.0042 6.12061 14.1665 7.49984 14.1665H12.4998C13.8791 14.1665 15.0626 15.0042 15.5696 16.1985M13.3332 7.9165C13.3332 9.75745 11.8408 11.2498 9.99984 11.2498C8.15889 11.2498 6.6665 9.75745 6.6665 7.9165C6.6665 6.07555 8.15889 4.58317 9.99984 4.58317C11.8408 4.58317 13.3332 6.07555 13.3332 7.9165ZM18.3332 9.99984C18.3332 14.6022 14.6022 18.3332 9.99984 18.3332C5.39746 18.3332 1.6665 14.6022 1.6665 9.99984C1.6665 5.39746 5.39746 1.6665 9.99984 1.6665C14.6022 1.6665 18.3332 5.39746 18.3332 9.99984Z'
+				stroke='#101828'
+				strokeWidth='1.66667'
+				strokeLinecap='round'
+				stroke-linejoin='round'
+			/>
+		</g>
+		<defs>
+			<clipPath id='clip0_24_3723'>
+				<rect width='20' height='20' fill='white' />
+			</clipPath>
+		</defs>
+	</svg>
+);
 const logoIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"

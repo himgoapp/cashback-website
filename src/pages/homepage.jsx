@@ -26,7 +26,7 @@ const Homepage = () => {
 			</MainContainer>
 
 			<div
-				style={{ width: "100%", backgroundColor: "#3968eb" }}
+				style={{ width: "100%", backgroundColor: "#002366" }}
 				className='flex_center'
 			>
 				<Footer />

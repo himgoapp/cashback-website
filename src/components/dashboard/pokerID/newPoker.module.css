@@ -8,10 +8,10 @@
 .NewPokerContent {
 	width: 100%;
 	padding: 2.25rem 1.5rem;
-	background: white;
-	/* box-shadow: 0px 0.0625rem 0.125rem rgba(16, 24, 40, 0.06);
+	background: #dde3ef;
+	box-shadow: 0px 0.0625rem 0.125rem rgba(16, 24, 40, 0.06);
 	border-radius: 0.75rem;
-	border: 0.0625rem solid #eaecf0; */
+	border: 0.0625rem solid #eaecf0;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -29,12 +29,17 @@
 
 .NewPokerCreate {
 	display: flex;
-	align-self: stretch;
+	/* align-self: stretch; */
 	justify-content: flex-start;
 	align-items: flex-start;
 	gap: 1.25rem;
+	height: 3rem;
 }
+.pokeridsheadericon{
+	width: 150px;
+	margin-left: 50px;
 
+}
 .NewPokerSelect,
 .SelectContent,
 .NewPokerAccId {
@@ -192,3 +197,36 @@
 		padding: 1rem;
 	}
 }
+@media only screen and (max-width: 768px) {
+	.NewPokerContainer {
+		flex-direction: column;
+		align-items: center;
+		background: #dde3ef;
+		padding-bottom: 110px;
+	}
+.submit_button{
+	margin-top: 55px;
+}
+	
+	.NewPokerCreate {
+		flex-direction: column;
+		width: 100%;
+		gap: 0.75rem;
+	}
+
+	.NewPokerSelect,
+	.NewPokerAccId {
+		min-width: 100%;
+	}
+
+	.pokeridsheadericon {
+		width: 100px;
+		margin-left: 220px;
+		margin-top: -55px;
+	}
+  
+	.SelectMenu {
+		top: 3rem;
+	}
+}
+

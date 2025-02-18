@@ -1,7 +1,7 @@
 import pokerbaazi from "../assets/pokerbaazi.png";
 import JUNGLEEPOKER from "../assets/JUNGLEEPOKER.svg";
-import deposit from "../assets/deposit.png";
-import withdrawal from "../assets/withdrawal.png";
+import depositt from "../assets/depositt.svg";
+import withdrawal from "../assets/withdrawal.svg";
 import mpllogo from "../assets/mpllogo.svg";
 import A23POKER from "../assets/A23POKER.svg";
 import Adda52 from "../assets/Adda52.svg";
@@ -119,12 +119,12 @@ export const getTransactionArrowAndStyle = (type) => {
   if (type === "Deposit") {
     return (
       <img
-        src={deposit}
+        src={depositt}
         alt="Status Icon"
         style={{
-          width: "26px",
-          height: "26px",
-          borderRadius: "50%",
+          width: "24px",
+          height: "24px",
+          // borderRadius: "50%",
           marginRight: "10px",
         }}
       />
@@ -135,9 +135,9 @@ export const getTransactionArrowAndStyle = (type) => {
         src={withdrawal}
         alt="Status Icon"
         style={{
-          width: "26px",
-          height: "26px",
-          borderRadius: "50%",
+          width: "24px",
+          height: "24px",
+          // borderRadius: "50%",
           marginRight: "10px",
         }}
       />

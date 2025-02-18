@@ -41,8 +41,8 @@
 	line-height: 1.25rem; /* 142.857% */
 }
 .tabs .focused {
-	color: #3968eb;
-	border-bottom: 2px solid #3968eb;
+	color: #002366;
+	border-bottom: 2px solid #002366;
 }
 
 /*  */
@@ -203,7 +203,7 @@
 	line-height: 1.25rem; /* 142.857% */
 }
 .amount_and_find .find {
-	color: #3968eb;
+	color: #002366;
 	font-family: Inter;
 	font-size: 0.875rem;
 	font-style: normal;
@@ -225,7 +225,7 @@
 	justify-content: center;
 	flex-shrink: 0;
 	border-radius: 0.5rem;
-	border: 1px dashed #3968eb;
+	border: 1px dashed #002366;
 	background: rgba(255, 255, 255, 0);
 }
 .date_container .time {

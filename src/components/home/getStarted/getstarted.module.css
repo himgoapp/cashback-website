@@ -115,7 +115,7 @@
 	display: none;
 }
 .item .text span {
-	color: #3968eb;
+	color: #002366;
 	font-feature-settings: "clig" off, "liga" off;
 	font-family: Inter;
 	font-size: 1.0625rem;
@@ -153,7 +153,7 @@
 	line-height: 1.4775rem; /* 168.857% */
 }
 .step_container .header span {
-	color: #3968eb;
+	color: #002366;
 }
 .swiper {
 	max-width: 480px;

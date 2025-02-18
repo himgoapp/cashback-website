@@ -55,14 +55,14 @@
 }
 
 .tabList .active {
-  background-color: #3968eb;
+  background-color: #002366;
   color: var(--background-color);
   border: none;
   outline: none;
 }
 
 .tabList .tab:hover {
-  background-color: #3968eb;
+  background-color: #002366;
   color: var(--background-color);
 }
 

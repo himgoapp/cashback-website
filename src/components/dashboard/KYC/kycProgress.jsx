@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./kycProgress.module.css";
-
+import illustration3 from "../../../assets/illustration3.svg"
 const steps = [
 	{
 		head: "Pan Card",
@@ -19,8 +19,11 @@ const steps = [
 function kycProgress({ activeIndex }) {
 	return (
 		<div className={styles.ProgressbarContainer}>
+				<div>
+        <img src={illustration3} className={styles.illustration3_design}/>
+      </div>
 			<div className={styles.ProgressContent}>
-				{/*  */}
+		
 				{steps.map((progress, index) => {
 					let indexStyle = `StepBase${index + 1}`;
 					let status =

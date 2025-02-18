@@ -20,7 +20,7 @@ const NewArticle = () => {
       <div
         style={{
           width: "100%",
-          backgroundColor: "#3968eb",
+          backgroundColor: "#002366",
         }}
         className="flex_center"
       >

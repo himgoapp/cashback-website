@@ -102,7 +102,6 @@ const KycMain = () => {
 			  isSuccess={false}
               style={{
                 color: "white",
-                background: "#002366",
                 padding: "10px",
                 fontWeight: "bold",
                 borderRadius: "6px",
@@ -117,13 +116,13 @@ const KycMain = () => {
             <Navbtn
               text="Go to Home"
 			  isSuccess={true}
-              style={{
-                color: "white",
-                background: "#002366",
-                padding: "10px",
-                fontWeight: "bold",
-                borderRadius: "6px",
-              }}
+              // style={{
+              //   color: "white",
+              //   background: "#002366",
+              //   padding: "10px",
+              //   fontWeight: "bold",
+              //   borderRadius: "6px",
+              // }}
               variant="filled"
 			  setData={() => {
 				setUserKyc({ ...userKyc, level: "1" });

@@ -7,7 +7,7 @@ import styles from "../home/rakeback_chart.module.css";
 import illustration1 from "../../../assets/illustration1.svg";
 import RakebackTable from "./RackbackTableAndTransaction";
 import { Line } from "react-chartjs-2";
-import events from "../../../assets/events.jpg"
+import events from "../../../assets/events.jpg";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -94,12 +94,12 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
 
   const dataMap = {
     today: {
-      earned: [10, 20, 15, 18 , 12, 5, 18],
-      percentage: [20, 25, 15, 18 , 5, 12,8],
+      earned: [10, 20, 15, 18, 12, 5, 18],
+      percentage: [20, 25, 15, 18, 5, 12, 8],
     },
     thisWeek: {
-      earned: [60, 80, 50, 70 , 40, 30, 20],
-      percentage: [20, 25, 15, 18 , 12, 6, 22],
+      earned: [60, 80, 50, 70, 40, 30, 20],
+      percentage: [20, 25, 15, 18, 12, 6, 22],
     },
     thisMonth: {
       earned: [250, 300, 200, 280],
@@ -186,22 +186,27 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
         >
           {/* User Info Card */}
           <div className={styles.dashboard_card}>
-  <div>
-    <div className={styles.dashboard_greeting}>Hello,</div>
-    <div className={styles.dashboard_username}>{dashboardInfo.user.userName}</div>
-    <div className={styles.dashboard_balance}>
-      {userWallet.wallet_balance
-        ? userWallet.wallet_balance.toFixed(2)
-        : "₹0.00"}
-    </div>
-  </div>
+            <div>
+              <div className={styles.dashboard_greeting}>Hello,</div>
+              <div className={styles.dashboard_username}>
+                {dashboardInfo.user.userName}
+              </div>
+              <div className={styles.dashboard_balance}>
+                {userWallet.wallet_balance
+                  ? userWallet.wallet_balance.toFixed(2)
+                  : "₹0.00"}
+              </div>
+            </div>
 
-  {/* Image Wrapper */}
-  <div className={styles.dashboard_image_wrapper}>
-    <img src={illustration1} alt="Illustration" className={styles.dashboard_image} />
-  </div>
-</div>
-
+            {/* Image Wrapper */}
+            <div className={styles.dashboard_image_wrapper}>
+              <img
+                src={illustration1}
+                alt="Illustration"
+                className={styles.dashboard_image}
+              />
+            </div>
+          </div>
 
           <Line
             data={chartData}
@@ -219,9 +224,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
             position: "relative",
           }}
         >
-          <div
-          className={styles.filter_container}
-          >
+          <div className={styles.filter_container}>
             <font className={styles.filter_heading}>Select Time Period</font>
             <div className={styles.filters}>
               {["today", "thisWeek", "thisMonth", "thisYear"].map((filter) => (
@@ -298,16 +301,14 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
                 borderRadius: "8px",
                 fontSize: "16px",
                 cursor: "pointer",
-                fontWeight:"bold"
+                fontWeight: "bold",
               }}
             >
               Withdraw
             </button>
           </div>
-          <div
-className={styles.events_container}
->
-  {/* <font className={styles.events_heading}>Events</font>
+          <div className={styles.events_container}>
+            {/* <font className={styles.events_heading}>Events</font>
   <div
     style={{
       width: "100%",
@@ -316,9 +317,8 @@ className={styles.events_container}
       marginTop: "10px",
     }}
   /> */}
-  <img src={events}/>
-</div>
-
+            <img src={events} />
+          </div>
         </div>
       </div>
 
@@ -328,5 +328,3 @@ className={styles.events_container}
 };
 
 export default RakebackChart;
-
-

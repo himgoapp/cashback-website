@@ -284,6 +284,17 @@
 	gap: 0.875rem;
 	align-self: stretch;
 }
+.events_container{
+	width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
 .bonus_container .bonus_wrapper {
 	display: flex;
 	width: 100%;
@@ -341,7 +352,7 @@
 	line-height: 1.75rem; /* 155.556% */
 }
 .bonus_text .max {
-	color: #3968eb;
+	color: #002366;
 	font-family: Inter;
 	font-size: 0.875rem;
 	font-style: normal;
@@ -387,7 +398,7 @@
 	line-height: 1.25rem; /* 125% */
 }
 .reg_code .text span {
-	color: #3968eb;
+	color: #002366;
 	font-family: Inter;
 	font-size: 1rem;
 	font-style: normal;
@@ -446,10 +457,10 @@
 	gap: 0.5rem;
 }
 .type_content .focused {
-	border-bottom: 2px solid #3968eb;
+	border-bottom: 2px solid #002366;
 }
 .type_content .type span {
-	color: #3968eb;
+	color: #002366;
 	font-family: Inter;
 	font-size: 0.875rem;
 	font-style: normal;
@@ -558,8 +569,8 @@
   }
   .active {
 	font-weight: bold;
-	color: #3968eb; 
-	border-bottom: 2px solid #3968eb; 
+	color: #002366; 
+	border-bottom: 2px solid #002366; 
   }
 @media only screen and (max-width: 1024px) {
 	/* .offer_and_registration_wrapper .offer_and_registration_container {

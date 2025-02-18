@@ -4,6 +4,7 @@ import styles from "./address.module.css";
 import { addAddressProof } from "../../../servicefile/kycservice";
 import { toast } from "react-toastify";
 import { UserContext } from "../../../App";
+import { color } from "framer-motion";
 
 const SelectField = ({ label, placeholder }) => {
 	return (
@@ -180,10 +181,13 @@ function AddressDetail({ setStepReload }) {
 												/>
 												<Navbtn
 													text='Click to upload'
-													variant={"outlined_primary"}
+													variant={"primary"}
 													size={"small"}
 													style={{
 														padding: 0,
+														background:"#002366",
+														color:"white",
+														cursor:"pointer"
 													}}
 													onClickNav={() => {
 														handleClick();

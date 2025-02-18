@@ -18,19 +18,28 @@ const Navbtn = ({
 }) => {
 	return divOrButton === "button" ? (
 		<button
-			className={`${variant}_button ${size} ${styles.navbtn_container}`}
-			style={{ backgroundColor: bg, ...style }}
-			onClick={() => onClick()}
-			disabled={loading || disabled}
-		>
-			{text}
-
-			{showIcon && (
-				<div className={"vector_icon"}>
-					<ShowIcon iconColor={iconColor} />
-				</div>
-			)}
-		</button>
+		className={`${variant}_button ${size} ${styles.navbtn_container}`}
+		style={{ 
+		  backgroundColor: bg || "#002366",  
+		  color: color || "white",  // Default text color
+		  transition: "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
+		  ...style 
+		}}
+		onClick={() => onClick()}
+		disabled={loading || disabled}
+		onMouseEnter={(e) => {
+		  e.target.style.backgroundColor = "rgb(82, 255, 51)"; // Hover background color
+		  e.target.style.color = "black"; // Hover text color
+		}}
+		onMouseLeave={(e) => {
+		  e.target.style.backgroundColor = bg || "#002366"; // Restore original bg
+		  e.target.style.color = color || "white"; // Restore original text color
+		}}
+	  >
+		{text}
+	  </button>
+	  
+	  
 	) : (
 		<div
 			className={styles.navbtn_container}

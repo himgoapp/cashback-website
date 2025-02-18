@@ -10,10 +10,8 @@ const OfferHeader = ({ setSearchTerm, searchTerm }) => {
 				subhead='Discover the Ultimate Poker Experience: Top-rated rooms, unbeatable offers, and more!'
 				offerHead={true}
 			/>
-			<div className={styles.email_input_container}>
-				{/* Input Content */}
+			{/* <div className={styles.email_input_container}>
 				<div className={styles.input_content}>
-					{/* Input */}
 					<input
 						type='search'
 						className={styles.input}
@@ -30,7 +28,7 @@ const OfferHeader = ({ setSearchTerm, searchTerm }) => {
 						showIcon={false}
 					/>
 				</div>
-			</div>
+			</div> */}
 		</div>
 	);
 };
