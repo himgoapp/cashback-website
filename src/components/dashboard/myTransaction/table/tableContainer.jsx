@@ -86,7 +86,7 @@ const columns = [
           className={styles.eyeButton}
           onClick={() => params.row.handleOpenModal(params.row)}
         >
-          <img src={eyeicon} /> {/* Simple Eye Icon */}
+          <img src={eyeicon} /> 
         </button>
       );
     },
@@ -149,60 +149,52 @@ const TableContainer = ({ transactionType }) => {
 
       {/* Modal for Transaction Details */}
       {open && (
-        <div className={styles.modal}>
-          <div className={styles.modalContent}>
-            {selectedTransaction && (
-              <div>
-                <h3>Transaction Details</h3>
-                <p>
-                  <strong>Transaction ID:</strong>{" "}
-                  {selectedTransaction.transaction_hash}
-                </p>
-                <p>
-                  <strong>Date:</strong>{" "}
-                  {moment(selectedTransaction.createdAt).format("DD MMM YYYY")}
-                </p>
-                <p>
-                  <strong>Amount:</strong> ₹{selectedTransaction.actualAmount}
-                </p>
-                <p>
-                  <strong>TDS:</strong> ₹{selectedTransaction.rackbackcut}
-                </p>
-                <p>
-                  <strong>Status:</strong>
-                  <span
-                    style={{
-                      color:
-                        selectedTransaction.status === "Approved"
-                          ? "#27ae60"
-                          : selectedTransaction.status === "Pending"
-                          ? "#f39c12"
-                          : "#e74c3c",
-                          background:
-                          selectedTransaction.status === "Approved"
-                            ? "#e3fcef"
-                            : selectedTransaction.status === "Pending"
-                            ? "#fff8e1"
-                            : "#fdecea",
-                      fontWeight: "bold",
-                      textDecoration: "none",
-                      borderRadius: "20px",
-                      padding: "2px 5px",
-                      fontSize:"13px"
-                    }}
-                  >
-                    {" "}
-                    {selectedTransaction.status}
-                  </span>
-                </p>
-              </div>
-            )}
-            <button className={styles.closeButton} onClick={handleCloseModal}>
-              Close
-            </button>
-          </div>
+  <div className={styles.modal}>
+  <div className={styles.modalContent}>
+      <div className={styles.receiptContainer}>
+        <h3 className={styles.title}>Transaction Details</h3>
+        <p className={styles.transactionId}>
+          Transaction ID: {selectedTransaction.transaction_hash}
+        </p>
+        <p>Account Number: {selectedTransaction.bank.account_number}</p>
+        <p>Bank Name: {selectedTransaction.bank.bank_name}</p>
+        <p>IFSC Code: {selectedTransaction.bank.ifsc_code}</p>
+
+        <div className={styles.detailsRow}>
+          <span>Date:</span>
+          <span>{moment(selectedTransaction.createdAt).format("DD MMM YYYY")}</span>
         </div>
-      )}
+        <div className={styles.detailsRow}>
+          <span>Transaction Type:</span>
+          <span>{selectedTransaction.typeOfTransaction}</span>
+        </div>
+        <div className={styles.detailsRow}>
+          <span>Status:</span>
+          <span
+            className={
+              selectedTransaction.status === "Approved"
+                ? styles.approved
+                : selectedTransaction.status === "Pending"
+                ? styles.pending
+                : styles.rejected
+            }
+          >
+            {selectedTransaction.status}
+          </span>
+        </div>
+        <div className={styles.amountContainer}>
+          <span>Amount</span>
+          <span className={styles.amount}>₹{selectedTransaction.actualAmount}</span>
+        </div>
+      </div>
+
+      <button className={styles.closeButton} onClick={handleCloseModal}>
+        Close
+      </button>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };
