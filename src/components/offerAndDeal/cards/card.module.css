@@ -90,7 +90,7 @@
 .buttonSection button:first-child {
   background-color: #fff;
   color: #0052cc;
-  border: 1px solid #0052cc;
+  /* border: 1px solid #0052cc; */
 }
 
 .buttonSection button:first-child:hover {

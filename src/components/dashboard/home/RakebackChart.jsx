@@ -36,7 +36,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
 
   const [kycPop, setKycPop] = useState(false);
   const [chartHeight, setChartHeight] = useState("60vh");
-  const [selectedFilter, setSelectedFilter] = useState("today");
+  const [selectedFilter, setSelectedFilter] = useState("thisWeek");
   const [depositCount, setDepositCount] = useState(0); // Number of deposits
   const [withdrawCount, setWithdrawCount] = useState(0); // Number of withdrawals
   const amount = [2345.67];
@@ -48,10 +48,6 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
 
     // You can replace this logic with real API calls based on the filter.
     switch (filter) {
-      case "today":
-        deposits = 5;
-        withdrawals = 2;
-        break;
       case "thisWeek":
         deposits = 12;
         withdrawals = 5;
@@ -93,10 +89,6 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
   };
 
   const dataMap = {
-    today: {
-      earned: [10, 20, 15, 18, 12, 5, 18],
-      percentage: [20, 25, 15, 18, 5, 12, 8],
-    },
     thisWeek: {
       earned: [60, 80, 50, 70, 40, 30, 20],
       percentage: [20, 25, 15, 18, 12, 6, 22],
@@ -227,7 +219,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
           <div className={styles.filter_container}>
             <font className={styles.filter_heading}>Select Time Period</font>
             <div className={styles.filters}>
-              {["today", "thisWeek", "thisMonth", "thisYear"].map((filter) => (
+              {["thisWeek", "thisMonth", "thisYear"].map((filter) => (
                 <button
                   key={filter}
                   style={{
