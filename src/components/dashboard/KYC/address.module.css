@@ -26,7 +26,7 @@
 	height: 0.875rem;
 }
 .ActionDetailsContainer .Text .edit span {
-	color: #002366 !important;
+	color: #52131r  !important;
 	font-family: Inter;
 	font-size: 0.875rem;
 	font-style: normal;
@@ -202,6 +202,8 @@ select.form-select {
 	display: flex;
 	padding: 0.625rem 0rem 0.625rem 0.875rem;
 	align-items: center;
+	border-radius: 0.5rem;
+	border: 0.0625rem solid #eaecf0;
 	gap: 0.5rem;
 	flex: 1 0 0;
 }
@@ -327,7 +329,35 @@ select.form-select {
 	gap: 0.75rem;
 	display: flex;
 }
+.SelectMenu {
+	position: absolute;
+	top: 3.5rem;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	background: white;
+	box-shadow: 0px 0.0625rem 0.125rem rgba(16, 24, 40, 0.05);
+	border-radius: 0.75rem;
+	border: 0.0625rem solid #eaecf0;
+	display: flex;
+	flex-direction: column;
+	max-height: 200px;
+	overflow-y: auto;
+}
+.SelectMenu > button {
+	padding: 0.7rem 1rem;
+	color: #101828;
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
 
+	font-family: "Be Vietnam";
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 24px; /* 150% */
+	background-color: white;
+	border: 0;
+}
 @media only screen and (max-width: 768px) {
 	.InputRow {
 		flex-direction: column;
