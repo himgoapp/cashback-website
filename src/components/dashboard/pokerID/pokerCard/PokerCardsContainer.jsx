@@ -57,12 +57,12 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
           <div
             className={styles.TabButton}
             style={
-              activeTab === 1 ? { borderBottom: "0.125rem #002366 solid" } : {}
+              activeTab === 1 ? { borderBottom: "0.125rem #0052cc solid" } : {}
             }
           >
             <button
               className={styles.TabText}
-              style={activeTab === 1 ? { color: "#002366" } : {}}
+              style={activeTab === 1 ? { color: "#0052cc" } : {}}
               onClick={() => setTab(1)}
             >
               View all
@@ -71,12 +71,12 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
           <div
             className={styles.TabButton}
             style={
-              activeTab === 2 ? { borderBottom: "0.125rem #002366 solid" } : {}
+              activeTab === 2 ? { borderBottom: "0.125rem #0052cc solid" } : {}
             }
           >
             <button
               className={styles.TabText}
-              style={activeTab === 2 ? { color: "#002366" } : {}}
+              style={activeTab === 2 ? { color: "#0052cc" } : {}}
               onClick={() => setTab(2)}
             >
               Successful
@@ -85,12 +85,12 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
           <div
             className={styles.TabButton}
             style={
-              activeTab === 3 ? { borderBottom: "0.125rem #002366 solid" } : {}
+              activeTab === 3 ? { borderBottom: "0.125rem #0052cc solid" } : {}
             }
           >
             <button
               className={styles.TabText}
-              style={activeTab === 3 ? { color: "#002366" } : {}}
+              style={activeTab === 3 ? { color: "#0052cc" } : {}}
               onClick={() => setTab(3)}
             >
               Pending
@@ -99,12 +99,12 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
           <div
             className={styles.TabButton}
             style={
-              activeTab === 4 ? { borderBottom: "0.125rem #002366 solid" } : {}
+              activeTab === 4 ? { borderBottom: "0.125rem #0052cc solid" } : {}
             }
           >
             <button
               className={styles.TabText}
-              style={activeTab === 4 ? { color: "#002366" } : {}}
+              style={activeTab === 4 ? { color: "#0052cc" } : {}}
               onClick={() => setTab(4)}
             >
               Aborted

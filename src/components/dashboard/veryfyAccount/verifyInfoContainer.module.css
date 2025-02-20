@@ -1,146 +1,146 @@
 .formContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    background-color: #f5f7fa;
-    min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f5f7fa;
+  min-height: 100vh;
 }
 
 .formContent {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 500px;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
 }
 
 .formGroup {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1.5rem;
 }
 
 .formGroup label {
-    margin-bottom: 0.5rem;
-    color: #333;
-    font-weight: 500;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
 }
 
 .formGroup input {
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: border-color 0.3s ease;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
 }
 
 .formGroup input:focus {
-    border-color: #002366;
-    outline: none;
+  border-color: #0052cc;
+  outline: none;
 }
 
 /* Style for Email and Verify Button */
 .emailGroup {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .emailGroup input {
-    flex: 1;
+  flex: 1;
 }
 
 .verifyButton {
-    padding: 0.75rem 1.5rem;
-    background-color: #002366;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  background-color: #0052cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .verifyButton:hover {
-    background-color: #274bb5;
+  background-color: #274bb5;
 }
 
 /* Modal Styles */
 .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .showModal {
-    display: flex;
+  display: flex;
 }
 
 .modalContent {
-    background: white;
-    padding: 2rem;
-    border-radius: 16px;
-    width: 90%;
-    max-width: 400px;
-    position: relative;
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
 }
 
 .modalHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
 }
 
 .closeButton {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: #999;
-    transition: color 0.3s ease;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #999;
+  transition: color 0.3s ease;
 }
 
 .closeButton:hover {
-    color: #333;
+  color: #333;
 }
 
 .modalBody label {
-    margin-bottom: 0.5rem;
-    display: block;
-    color: #333;
+  margin-bottom: 0.5rem;
+  display: block;
+  color: #333;
 }
 
 .modalBody input {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
 }
 
 .modalFooter {
-    text-align: right;
-    margin-top: 1rem;
+  text-align: right;
+  margin-top: 1rem;
 }
 
 .verifyModalButton {
-    padding: 0.75rem 1.5rem;
-    background-color: #002366;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  padding: 0.75rem 1.5rem;
+  background-color: #0052cc;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .verifyModalButton:hover {
-    background-color: #274bb5;
+  background-color: #274bb5;
 }

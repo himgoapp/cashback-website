@@ -6,7 +6,8 @@ const ScrollToTopButton = () => {
 
   // Show or hide the button based on scroll position
   const handleScroll = () => {
-    if (window.pageYOffset > 300) { // Show button after scrolling 300px
+    if (window.pageYOffset > 300) {
+      // Show button after scrolling 300px
       setIsVisible(true);
     } else {
       setIsVisible(false);
@@ -24,7 +25,7 @@ const ScrollToTopButton = () => {
   // Add scroll event listener on component mount
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    
+
     // Cleanup event listener on unmount
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -34,10 +35,7 @@ const ScrollToTopButton = () => {
   return (
     <>
       {isVisible && (
-        <button
-          onClick={scrollToTop}
-          style={buttonStyle}
-        >
+        <button onClick={scrollToTop} style={buttonStyle}>
           ↑
         </button>
       )}
@@ -50,15 +48,15 @@ const buttonStyle = {
   position: "fixed",
   bottom: "30px",
   right: "20px",
-//   backgroundColor: "#007BFF",
-  backgroundColor: "#002366",
+  //   backgroundColor: "#007BFF",
+  backgroundColor: "#0052cc",
   color: "white",
   border: "none",
   borderRadius: "50%",
   padding: "10px 15px",
   fontSize: "20px",
   cursor: "pointer",
-//   fontWeight:"bold",
+  //   fontWeight:"bold",
   boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
 };
 

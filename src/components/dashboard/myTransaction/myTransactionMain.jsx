@@ -16,7 +16,7 @@ const MyTransactionMain = () => {
 
   const activeTab = (type, transactionType) => {
     if (type === transactionType) {
-      return { borderBottom: "0.125rem #002366 solid" };
+      return { borderBottom: "0.125rem #0052cc solid" };
     } else {
       return {};
     }
@@ -25,9 +25,12 @@ const MyTransactionMain = () => {
   return (
     <div style={{ width: "100%" }}>
       <DashboardMainTopBottom>
-        
-        <DashboardHomeHeader title="My Transaction" data={walletData} icon = {TransactionsIcon} />
-        
+        <DashboardHomeHeader
+          title="My Transaction"
+          data={walletData}
+          icon={TransactionsIcon}
+        />
+
         <DashboardMain>
           <div className={styles.TabContent}>
             <div className={styles.TabFilters}>
@@ -38,7 +41,11 @@ const MyTransactionMain = () => {
               >
                 <div
                   className={styles.TabText}
-                  style={{ color: "#333", fontWeight: "bold", fontSize: "14px" }}
+                  style={{
+                    color: "#333",
+                    fontWeight: "bold",
+                    fontSize: "14px",
+                  }}
                 >
                   Withdrawals
                 </div>
@@ -51,7 +58,11 @@ const MyTransactionMain = () => {
               >
                 <div
                   className={styles.TabText}
-                  style={{ color: "#333", fontWeight: "bold", fontSize: "14px" }}
+                  style={{
+                    color: "#333",
+                    fontWeight: "bold",
+                    fontSize: "14px",
+                  }}
                 >
                   Deposits
                 </div>
@@ -120,4 +131,3 @@ const percentIcon = (
     </defs>
   </svg>
 );
-

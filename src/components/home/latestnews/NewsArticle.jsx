@@ -1,26 +1,26 @@
 import React from "react";
-import { useParams } from "react-router-dom"; 
+import { useParams } from "react-router-dom";
 import styles from "./news_article.module.css";
 import NewsArticlesFirstPage from "./newsarticles/NewsArticlesFirstPage";
-import NewsArticlesSecondPage from "./newsarticles/NewArticlesSecondPage"; 
+import NewsArticlesSecondPage from "./newsarticles/NewArticlesSecondPage";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
 
 const NewArticle = () => {
-  const { id } = useParams(); 
+  const { id } = useParams();
 
   return (
     <>
       <Navbar page="home" />
       <div className={styles.header_container}>Online Poker News</div>
-      
+
       <NewsArticlesFirstPage articleId={id} />
       <NewsArticlesSecondPage articleId={id} />
-      
+
       <div
         style={{
           width: "100%",
-          backgroundColor: "#002366",
+          backgroundColor: "#0052cc",
         }}
         className="flex_center"
       >

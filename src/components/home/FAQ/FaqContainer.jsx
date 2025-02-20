@@ -197,26 +197,31 @@ const faqData = {
   ],
   8: [
     {
-      "question": "How do I claim my winnings?",
-      "answer": "To claim your winnings, log into your account, navigate to the 'Winnings' section, and follow the instructions provided. You may be asked to verify your identity before processing the payout."
+      question: "How do I claim my winnings?",
+      answer:
+        "To claim your winnings, log into your account, navigate to the 'Winnings' section, and follow the instructions provided. You may be asked to verify your identity before processing the payout.",
     },
     {
-      "question": "What should I do if I haven't received my winnings?",
-      "answer": "If you haven't received your winnings, check your account for any updates or notifications. Ensure your payment method details are up-to-date. If the issue persists, contact customer support for assistance."
+      question: "What should I do if I haven't received my winnings?",
+      answer:
+        "If you haven't received your winnings, check your account for any updates or notifications. Ensure your payment method details are up-to-date. If the issue persists, contact customer support for assistance.",
     },
     {
-      "question": "Can I get a refund if I made a mistake with my bet?",
-      "answer": "Refunds are generally not offered for mistaken bets. However, if there's an issue with the bet due to a system error or technical problem, you may be eligible for a refund. Please contact customer support for further assistance."
+      question: "Can I get a refund if I made a mistake with my bet?",
+      answer:
+        "Refunds are generally not offered for mistaken bets. However, if there's an issue with the bet due to a system error or technical problem, you may be eligible for a refund. Please contact customer support for further assistance.",
     },
     {
-      "question": "How long does it take to process a refund?",
-      "answer": "Refund processing times vary depending on the payment method. Typically, refunds take between 3 to 7 business days to reflect in your account, though this can vary."
+      question: "How long does it take to process a refund?",
+      answer:
+        "Refund processing times vary depending on the payment method. Typically, refunds take between 3 to 7 business days to reflect in your account, though this can vary.",
     },
     {
-      "question": "Can I withdraw my winnings to any payment method?",
-      "answer": "Winnings can generally be withdrawn to the payment method you used for deposit, but it may depend on the platform's policies. Please check the available withdrawal options in your account settings."
+      question: "Can I withdraw my winnings to any payment method?",
+      answer:
+        "Winnings can generally be withdrawn to the payment method you used for deposit, but it may depend on the platform's policies. Please check the available withdrawal options in your account settings.",
     },
-  ]
+  ],
 };
 
 const FaqContainer = () => {
@@ -233,9 +238,7 @@ const FaqContainer = () => {
     { id: 6, title: "UNFAIR GAMEPLAY", icon: "⚖️" },
     { id: 7, title: "PROMOTIONS", icon: "🎉" },
     { id: 8, title: "REFUNDS & WINNINGS", icon: "💸🏆" },
-];
-
-
+  ];
 
   useEffect(() => {
     setFaqList(faqData[activeTab]);
@@ -310,7 +313,7 @@ const FaqContainer = () => {
       <div
         style={{
           width: "100%",
-          backgroundColor: "#002366",
+          backgroundColor: "#0052cc",
         }}
         className="flex_center"
       >

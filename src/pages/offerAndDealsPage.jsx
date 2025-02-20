@@ -45,7 +45,7 @@ const OfferAndDealsContainer = () => {
       </MainContainer>
 
       <div
-        style={{ width: "100%", backgroundColor: "#002366" }}
+        style={{ width: "100%", backgroundColor: "#0052cc" }}
         className="flex_center"
       >
         <Footer />{" "}

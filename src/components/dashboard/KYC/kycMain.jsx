@@ -95,11 +95,11 @@ const KycMain = () => {
         ) : userKyc && userKyc.level === "3" ? (
           <BankAccDetails setStepReload={setStepReload} userKyc={userKyc} />
         ) : null}
-		 {userKyc.level === "4" && userKyc.statusValue === "Approved" && (
+        {userKyc.level === "4" && userKyc.statusValue === "Approved" && (
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Navbtn
               text="Go to Home"
-			  isSuccess={false}
+              isSuccess={false}
               style={{
                 color: "white",
                 padding: "10px",
@@ -115,22 +115,22 @@ const KycMain = () => {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Navbtn
               text="Go to Home"
-			  isSuccess={true}
+              isSuccess={true}
               // style={{
               //   color: "white",
-              //   background: "#002366",
+              //   background: "#0052cc",
               //   padding: "10px",
               //   fontWeight: "bold",
               //   borderRadius: "6px",
               // }}
               variant="filled"
-			  setData={() => {
-				setUserKyc({ ...userKyc, level: "1" });
-			}}
+              setData={() => {
+                setUserKyc({ ...userKyc, level: "1" });
+              }}
             />
           </div>
         )}
-		
+
         {/* {userKyc.level === "4" && userKyc.statusValue === "Approved" && (
 					<KycStatusPage
 						isSuccess={true}

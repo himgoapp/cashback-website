@@ -233,7 +233,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
                   style={{
                     flex: 1,
                     backgroundColor:
-                      selectedFilter === filter ? "#002366" : "#f1f1f1",
+                      selectedFilter === filter ? "#0052cc" : "#f1f1f1",
                     border: "none",
                     padding: "10px",
                     borderRadius: "5px",
@@ -252,7 +252,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
               width: "100%",
               maxWidth: "300px",
               borderRadius: "16px",
-              backgroundColor: "#002366",
+              backgroundColor: "#0052cc",
               padding: "20px",
               display: "flex",
               flexDirection: "column",
@@ -294,8 +294,8 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
               onClick={() => withdrawHit()}
               style={{
                 marginTop: "10px",
-                background: "#52ff33",
-                border: "2px solid #52ff33",
+                background: "#ffbf00",
+                border: "2px solid #ffbf00",
                 color: "black",
                 padding: "10px 20px",
                 borderRadius: "8px",

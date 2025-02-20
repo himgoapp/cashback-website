@@ -242,7 +242,7 @@ const LatestNews = ({ userData }) => {
       <div
         style={{
           width: "100%",
-          backgroundColor: "#002366",
+          backgroundColor: "#0052cc",
           // marginTop: "5rem",
         }}
         className="flex_center"

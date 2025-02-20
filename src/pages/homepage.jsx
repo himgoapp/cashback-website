@@ -9,30 +9,30 @@ import FAQ from "../components/home/FAQ/faq";
 import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
 import Footer from "../components/common/footer/footer";
 import MainContainer from "../layout/mainContainer";
-import ScrollToTopButton from "./ScrollToTopButton "
+import ScrollToTopButton from "./ScrollToTopButton ";
 const Homepage = () => {
-	return (
-		<>
-		<Navbar page='home' />
-			<MainContainer>	
-				<Banner />
-				<AboutUs />
-				<Deals />
-				<Getstarted />
-				<Featured />
-				<FAQ />
-				<JoinRakeback />
-				<ScrollToTopButton />
-			</MainContainer>
+  return (
+    <>
+      <Navbar page="home" />
+      <MainContainer>
+        <Banner />
+        <AboutUs />
+        <Deals />
+        <Getstarted />
+        <Featured />
+        <FAQ />
+        <JoinRakeback />
+        <ScrollToTopButton />
+      </MainContainer>
 
-			<div
-				style={{ width: "100%", backgroundColor: "#002366" }}
-				className='flex_center'
-			>
-				<Footer />
-			</div>
-		</>
-	);
+      <div
+        style={{ width: "100%", backgroundColor: "#0052cc" }}
+        className="flex_center"
+      >
+        <Footer />
+      </div>
+    </>
+  );
 };
 
 export default Homepage;

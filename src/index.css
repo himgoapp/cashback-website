@@ -1,272 +1,272 @@
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-		"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-		sans-serif;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	min-width: 320px;
-	overflow-x: hidden;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
+  overflow-x: hidden;
 }
 
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-		monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
 }
 
 .ModalSignIN .modal-footer {
-	border: none;
+  border: none;
 }
 
 .ModalSignIN .modal-content {
-	padding: 50px;
-	border: none;
-	box-shadow: 0px 0px 70px 0px #e2e2e2;
+  padding: 50px;
+  border: none;
+  box-shadow: 0px 0px 70px 0px #e2e2e2;
 }
 
 .ModalSignIN .modal-footer button {
-	margin: 0;
-	width: 100%;
-	height: 50px;
+  margin: 0;
+  width: 100%;
+  height: 50px;
 }
 
 .ModalSignIN .modal-content .modal-header {
-	border: none;
+  border: none;
 }
 
 .ModalSignIN .modal-content .modal-body .Form-Group {
-	position: relative;
+  position: relative;
 }
 
 .ModalSignIN .modal-content .modal-body .Form-Group label.form-label {
-	position: absolute;
-	top: -17px;
-	left: 10px;
-	background: #fff;
-	margin: 0;
-	padding: 5px 10px;
+  position: absolute;
+  top: -17px;
+  left: 10px;
+  background: #fff;
+  margin: 0;
+  padding: 5px 10px;
 }
 
 .ModalSignIN .modal-content .modal-body .Form-Group input {
-	padding: 20px 15px 15px;
+  padding: 20px 15px 15px;
 }
 
 .ModalSignIN .modal-content .modal-body .Form-Group input:focus {
-	box-shadow: none;
+  box-shadow: none;
 }
 
 .ModalSignIN .modal-dialog.modal-lg {
-	margin-top: 70px;
+  margin-top: 70px;
 }
 
 .fade.modal-backdrop {
-	opacity: 1 !important;
-	background: #ffffff9e !important;
+  opacity: 1 !important;
+  background: #ffffff9e !important;
 }
 
 .container {
-	max-width: 1200px !important;
-	margin-inline: auto;
+  max-width: 1200px !important;
+  margin-inline: auto;
 }
 
 input:disabled {
-	cursor: not-allowed;
-	opacity: 0.5;
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .light-text {
-	color: #667085;
+  color: #667085;
 }
 
 .swiper {
-	height: 100%;
-	width: 100%;
+  height: 100%;
+  width: 100%;
 }
 .swiper-slide {
-	height: 100%;
+  height: 100%;
 }
 .get_started_swiper .swiper-pagination {
-	margin-bottom: 1.2rem;
+  margin-bottom: 1.2rem;
 }
 
 .swiper-pagination .swiper-pagination-bullet {
-	width: 16px;
-	height: 10px;
-	border-radius: 26px;
-	background-color: black;
-	opacity: 1;
+  width: 16px;
+  height: 10px;
+  border-radius: 26px;
+  background-color: black;
+  opacity: 1;
 }
 
 .swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
-	background-color: #002366;
-	width: 26px;
+  background-color: #0052cc;
+  width: 26px;
 }
 .custom-swiper-pagination {
-	margin-inline: auto;
-	width: fit-content !important;
-	margin-top: 1rem;
+  margin-inline: auto;
+  width: fit-content !important;
+  margin-top: 1rem;
 }
 
 .custom-swiper-pagination .swiper-pagination-bullet {
-	border: 1px solid #667285;
-	width: 8px;
-	height: 8px;
-	border-radius: 50%;
-	background-color: transparent;
+  border: 1px solid #667285;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: transparent;
 }
 
 .custom-swiper-pagination
-	.swiper-pagination-bullet.swiper-pagination-bullet-active {
-	background: #002366;
-	border: none;
+  .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background: #0052cc;
+  border: none;
 }
 
 button {
-	border: none;
-	font-family: Futura;
+  border: none;
+  font-family: Futura;
 }
 .primary_button,
 .outlined_button,
 .outlined_primary_button {
-	padding: 1rem 2rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	border-radius: 10rem;
-	width: fit-content;
-	gap: 0.375rem;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10rem;
+  width: fit-content;
+  gap: 0.375rem;
 
-	text-align: center;
-	font-family: futura;
-	font-size: 1.375rem;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-	text-decoration: none;
-	transition: all 0.3s;
+  text-align: center;
+  font-family: futura;
+  font-size: 1.375rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+  transition: all 0.3s;
 }
 .primary_button {
-	background-color: #002366;
-	border: none;
-	color: var(--White, #fff);
+  background-color: #0052cc;
+  border: none;
+  color: var(--White, #fff);
 }
 .outlined_button {
-	background-color: #002366;
-	color: white;
+  background-color: #0052cc;
+  color: white;
 }
 .outlined_primary_button {
-	border: 2px solid #002366;
-	background-color: white;
-	color: #002366;
+  border: 2px solid #0052cc;
+  background-color: white;
+  color: #0052cc;
 }
 
 .primary_button:hover {
-	background-color:  rgb(82, 255, 51); ;
-	color: #121212;
-	box-shadow: 0px 4px 4px 0px #00000021;
+  background-color: #ffbf00;
+  color: #121212;
+  box-shadow: 0px 4px 4px 0px #00000021;
 }
 
 .primary_button:hover .vector_icon path {
-	stroke: #121212;
+  stroke: #121212;
 }
 
 .outlined_button:hover {
-	background-color: #121212;
-	color: white;
-	box-shadow: 0px 4px 4px 0px #00000021;
+  background-color: #121212;
+  color: white;
+  box-shadow: 0px 4px 4px 0px #00000021;
 }
 .outlined_button:hover .vector_icon path,
 .outlined_primary_button:hover .vector_icon path {
-	stroke: white;
+  stroke: white;
 }
 
 .outlined_primary_button:hover {
-	background-color: #002366;
-	color: white;
-	box-shadow: 0px 4px 4px 0px #00000021;
+  background-color: #0052cc;
+  color: white;
+  box-shadow: 0px 4px 4px 0px #00000021;
 }
 
 .primary_button.small,
 .outlined_button.small,
 .outlined_primary_button.small {
-	font-size: 1rem;
-	padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
 }
 
 .primary_link,
 .secondary_link {
-	text-align: center;
-	font-family: Futura Md BT;
-	font-size: 1rem;
-	font-style: normal;
-	font-weight: 868;
-	line-height: 1.25rem;
-	text-decoration: none;
-	transition: all 0.3s;
+  text-align: center;
+  font-family: Futura Md BT;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 868;
+  line-height: 1.25rem;
+  text-decoration: none;
+  transition: all 0.3s;
 }
 .primary_link {
-	color: #002366;
+  color: #0052cc;
 }
 .primary_link:hover {
-	color: #121212;
+  color: #121212;
 }
 .secondary_link {
-	color: #121212;
+  color: #121212;
 }
 .secondary_link:hover {
-	color: #002366;
+  color: #0052cc;
 }
 
 .fixed_overlay {
-	position: fixed;
-	inset: 0;
+  position: fixed;
+  inset: 0;
 }
 
 .vector_icon {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .loader {
-	border: 12px solid #e8e6e6; /* Light grey */
-	border-top: 12px solid #002366; /* Blue */
-	border-radius: 50%;
-	width: 100px;
-	height: 100px;
-	animation: spin 2s linear infinite;
-	margin-inline: auto;
+  border: 12px solid #e8e6e6; /* Light grey */
+  border-top: 12px solid #0052cc; /* Blue */
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 2s linear infinite;
+  margin-inline: auto;
 }
 .loader-small {
-	border-width: 4px;
-	width: 32px;
-	height: 32px;
+  border-width: 4px;
+  width: 32px;
+  height: 32px;
 }
 
 button.loading {
-	opacity: 0.7;
-	cursor: not-allowed;
+  opacity: 0.7;
+  cursor: not-allowed;
 }
 
 @keyframes spin {
-	0% {
-		transform: rotate(0deg);
-	}
-	100% {
-		transform: rotate(360deg);
-	}
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .loader_container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 }
 .loader_full_screen {
-	min-height: 100vh;
+  min-height: 100vh;
 }

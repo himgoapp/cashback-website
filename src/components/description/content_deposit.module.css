@@ -7,7 +7,7 @@
 }
 
 .column {
-  width: 45%;  /* Adjust for spacing */
+  width: 45%; /* Adjust for spacing */
   margin: 0 2%; /* Adjust column spacing */
 }
 
@@ -25,25 +25,25 @@
   display: flex;
   font-size: 20px;
   font-weight: 400 !important;
-color:#28282c;
-font-family: "ProximaNova-Semibold", sans-serif !important;
+  color: #28282c;
+  font-family: "ProximaNova-Semibold", sans-serif !important;
 }
-.content_deposit_heading_2{
+.content_deposit_heading_2 {
   font-style: normal;
   display: flex;
   font-size: 20px;
   font-weight: 400 !important;
-color:#28282c;
-font-family: "ProximaNova-Semibold", sans-serif !important;
+  color: #28282c;
+  font-family: "ProximaNova-Semibold", sans-serif !important;
 }
-.content_deposit_main_heading{
-   font-style: normal;
+.content_deposit_main_heading {
+  font-style: normal;
   display: flex;
-width: 80%;
-font-size: 30px;
-font-weight: 400;
-color:#28282c;
-font-family: "ProximaNova-Medium", sans-serif;
+  width: 80%;
+  font-size: 30px;
+  font-weight: 400;
+  color: #28282c;
+  font-family: "ProximaNova-Medium", sans-serif;
 }
 .receipt {
   display: flex;
@@ -70,7 +70,7 @@ font-family: "ProximaNova-Medium", sans-serif;
   width: 80%;
   font-size: 30px;
   font-weight: 400;
-  color:#28282c;
+  color: #28282c;
   font-family: "ProximaNova-Medium", sans-serif;
   margin: 15px 0px 0px 0px;
 }
@@ -83,10 +83,10 @@ font-family: "ProximaNova-Medium", sans-serif;
   font-weight: 400;
   color: #475467;
 }
-.content_deposit_line{
+.content_deposit_line {
   height: 0.0625rem;
-	align-self: stretch;
-	background: #c5d4fc;
+  align-self: stretch;
+  background: #c5d4fc;
 }
 .choose_loyality_program_para {
   padding: 8px 0px 0px 0px;
@@ -96,18 +96,21 @@ font-family: "ProximaNova-Medium", sans-serif;
 
 /* For medium screens (Tablets, up to 1200px) */
 @media screen and (max-width: 1200px) {
-  .content_deposit, .receipt {
-      width: 90%; /* Adjust container width */
-      padding: 15px 0; /* Adjust padding */
+  .content_deposit,
+  .receipt {
+    width: 90%; /* Adjust container width */
+    padding: 15px 0; /* Adjust padding */
   }
   .column {
-      width: 48%; /* Reduce column width slightly */
+    width: 48%; /* Reduce column width slightly */
   }
-  .content_deposit_heading, .receipt {
-      font-size: 1.125rem; /* Slightly smaller font size */
+  .content_deposit_heading,
+  .receipt {
+    font-size: 1.125rem; /* Slightly smaller font size */
   }
-  .choose_loyality_program, .choose_loyality_program_desc {
-      width: 80%; /* Adjust width for medium screens */
+  .choose_loyality_program,
+  .choose_loyality_program_desc {
+    width: 80%; /* Adjust width for medium screens */
   }
 }
 .divider {
@@ -121,10 +124,15 @@ font-family: "ProximaNova-Medium", sans-serif;
 
 .divider::before,
 .divider::after {
-  content: '';
+  content: "";
   flex: 1;
   height: 2px; /* Line thickness */
-  background: linear-gradient(to right, rgba(57, 104, 235, 0) 0%, #002366 50%, rgba(57, 104, 235, 0) 100%);
+  background: linear-gradient(
+    to right,
+    rgba(57, 104, 235, 0) 0%,
+    #0052cc 50%,
+    rgba(57, 104, 235, 0) 100%
+  );
 }
 
 .divider::before {
@@ -138,50 +146,56 @@ font-family: "ProximaNova-Medium", sans-serif;
 .diamond {
   width: 12px;
   height: 12px;
-  background-color: #002366; /* Green color for the diamond */
+  background-color: #0052cc; /* Green color for the diamond */
   transform: rotate(45deg); /* Rotate the square to look like a diamond */
 }
 /* For smaller screens (Tablets, up to 768px) */
 @media screen and (max-width: 768px) {
-  .content_deposit, .receipt {
-      flex-direction: column; /* Stack content vertically */
-      width: 100%; /* Full width */
+  .content_deposit,
+  .receipt {
+    flex-direction: column; /* Stack content vertically */
+    width: 100%; /* Full width */
   }
   .column {
-      width: 100%; /* Full width for columns */
-      margin: 10px 0; /* Adjust margin for stacked layout */
+    width: 100%; /* Full width for columns */
+    margin: 10px 0; /* Adjust margin for stacked layout */
   }
-  .content_deposit_heading, .receipt {
-      font-size: 1.125rem; /* Adjust font size */
+  .content_deposit_heading,
+  .receipt {
+    font-size: 1.125rem; /* Adjust font size */
   }
-  .choose_loyality_program, .choose_loyality_program_desc {
-      width: 90%; /* Adjust for smaller screens */
+  .choose_loyality_program,
+  .choose_loyality_program_desc {
+    width: 90%; /* Adjust for smaller screens */
   }
   .content_deposit_para {
-      font-size: 1rem; /* Adjust font size for better readability */
+    font-size: 1rem; /* Adjust font size for better readability */
   }
 }
 
 /* For mobile screens (up to 480px) */
 @media screen and (max-width: 480px) {
-  .content_deposit, .receipt {
-      width: 100%; /* Full width */
-      padding: 10px 0; /* Adjust padding */
+  .content_deposit,
+  .receipt {
+    width: 100%; /* Full width */
+    padding: 10px 0; /* Adjust padding */
   }
   .column {
-      width: 100%; /* Full width for columns */
-      margin: 8px 0; /* Adjust margin for mobile */
+    width: 100%; /* Full width for columns */
+    margin: 8px 0; /* Adjust margin for mobile */
   }
-  .content_deposit_heading, .receipt {
-      font-size: 1rem; /* Smaller font size */
+  .content_deposit_heading,
+  .receipt {
+    font-size: 1rem; /* Smaller font size */
   }
-  .choose_loyality_program, .choose_loyality_program_desc {
-      width: 100%; /* Full width on mobile */
+  .choose_loyality_program,
+  .choose_loyality_program_desc {
+    width: 100%; /* Full width on mobile */
   }
   .choose_loyality_program_desc {
-      font-size: 1rem; /* Smaller font size */
+    font-size: 1rem; /* Smaller font size */
   }
   .content_deposit_para {
-      font-size: 0.875rem; /* Smaller font size for better fit */
+    font-size: 0.875rem; /* Smaller font size for better fit */
   }
 }
