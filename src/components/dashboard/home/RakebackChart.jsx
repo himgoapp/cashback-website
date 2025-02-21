@@ -5,7 +5,9 @@ import KycPopup from "../popup/kycpop";
 import { toast } from "react-toastify";
 import styles from "../home/rakeback_chart.module.css";
 import illustration1 from "../../../assets/illustration1.svg";
+import backgroundImg from "../../../assets/dashboardillus.png"
 import RakebackTable from "./RackbackTableAndTransaction";
+import { Link } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import events from "../../../assets/events.jpg";
 import {
@@ -94,12 +96,12 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
       percentage: [20, 25, 15, 18, 12, 6, 22],
     },
     thisMonth: {
-      earned: [250, 300, 200, 280],
-      percentage: [20, 25, 15, 18],
+      earned: [250, 300, 200, 280,430,510],
+      percentage: [20, 25, 15, 18,25,32],
     },
     thisYear: {
-      earned: [1200, 1500, 1000, 1300],
-      percentage: [20, 25, 15, 18],
+      earned: [1200, 1500, 1000, 1300,1800,2400],
+      percentage: [20, 25, 15, 18,22,25],
     },
   };
 
@@ -112,6 +114,11 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
     },
     { name: "Poker Baazi", id: "PB768", status: "Aborted", date: "21-01-2025" },
     { name: "MPL", id: "MPL687", status: "Pending", date: "20-01-2025" },
+    { name: "ACPoker", id: "AC687", status: "Pending", date: "10-02-2025" },
+    { name: "Adda52", id: "Ad687", status: "Aborted", date: "20-01-2025" },
+
+    { name: "CoinPoker", id: "Co687", status: "Pending", date: "10-02-2025" },
+
   ];
 
   const chartData = {
@@ -120,10 +127,9 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
       {
         label: `Rakeback Earned (₹) - ${selectedFilter}`,
         data: dataMap[selectedFilter].earned,
-        borderColor: "rgba(103, 58, 183, 1)",
-        backgroundColor: "rgba(103, 58, 183, 0.2)",
+        borderColor: "#0052cc",
         borderWidth: 3,
-        pointBackgroundColor: "#673AB7",
+        pointBackgroundColor: "#0052cc",
         pointBorderColor: "#fff",
         pointRadius: 6,
         pointHoverRadius: 8,
@@ -132,7 +138,24 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
       },
     ],
   };
-
+  const chartOptions = {
+    responsive: true,
+    maintainAspectRatio: false,
+    scales: {
+      x: {
+        ticks: {
+          maxRotation: 0,
+          minRotation: 0,
+          autoSkip: false,
+          font: { size: 12 },
+          callback: function (value) {
+            return value.length > 15 ? value.substring(0, 12) + "..." : value;
+          },
+        },
+      },
+      y: { ticks: { beginAtZero: true } },
+    },
+  };
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth <= 768) {
@@ -177,33 +200,46 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
           }}
         >
           {/* User Info Card */}
-          <div className={styles.dashboard_card}>
+          <div className={styles.dashboard_card} style={{ backgroundImage: `url(${backgroundImg})` }}>
             <div>
               <div className={styles.dashboard_greeting}>Hello,</div>
               <div className={styles.dashboard_username}>
                 {dashboardInfo.user.userName}
               </div>
-              <div className={styles.dashboard_balance}>
-                {userWallet.wallet_balance
-                  ? userWallet.wallet_balance.toFixed(2)
-                  : "₹0.00"}
+              <div className={styles.dashboard_explore}>
+                Explore with Rakebackk
+              </div>
+              <div className={styles.exlpore}>
+                <a
+                  href="/dashboard/pokerid"
+                >
+                  Explore
+                  <Arrow />
+                </a>
               </div>
             </div>
-
             {/* Image Wrapper */}
-            <div className={styles.dashboard_image_wrapper}>
+            {/* <div className={styles.dashboard_image_wrapper}>
               <img
                 src={illustration1}
                 alt="Illustration"
                 className={styles.dashboard_image}
               />
-            </div>
+            </div> */}
+          </div>
+          <div className={styles.chart_heading}>
+            Rakeback Earning and Percentage -
+            {selectedFilter === "thisWeek" && "This Week"}
+            {selectedFilter === "thisMonth" && "This Month"}
+            {selectedFilter === "thisYear" && "This Year"}
+          </div>
+          <div className={styles.chart_container}>          
+            <Line
+            data={chartData}
+            options={chartOptions}
+          />
           </div>
 
-          <Line
-            data={chartData}
-            options={{ responsive: true, maintainAspectRatio: false }}
-          />
         </div>
 
         <div
@@ -224,8 +260,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
                   key={filter}
                   style={{
                     flex: 1,
-                    backgroundColor:
-                      selectedFilter === filter ? "#0052cc" : "#f1f1f1",
+                    backgroundColor: selectedFilter === filter ? "#0052cc" : "#f1f1f1",
                     border: "none",
                     padding: "10px",
                     borderRadius: "5px",
@@ -233,10 +268,12 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
                   }}
                   onClick={() => setSelectedFilter(filter)}
                 >
-                  {filter.charAt(0).toUpperCase() + filter.slice(1)}
+                  {filter.replace(/([A-Z])/g, " $1").trim().charAt(0).toUpperCase() +
+                    filter.replace(/([A-Z])/g, " $1").trim().slice(1)}
                 </button>
               ))}
             </div>
+
           </div>
 
           <div
@@ -245,6 +282,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
               maxWidth: "300px",
               borderRadius: "16px",
               backgroundColor: "#0052cc",
+              height: "250px",
               padding: "20px",
               display: "flex",
               flexDirection: "column",
@@ -260,7 +298,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
               height="24"
               viewBox="0 0 26 26"
               fill="none"
-              style={{ background: "white", borderRadius: "10px" }}
+              style={{ background: "white", borderRadius: "10px", marginTop: "20px" }}
             >
               <path
                 d="M17.1667 8.83358V5.18843C17.1667 4.32204 17.1667 3.88884 16.9842 3.62262C16.8247 3.39002 16.5778 3.23202 16.2997 3.18471C15.9815 3.13056 15.5882 3.31209 14.8016 3.67517L5.56147 7.93982C4.8599 8.26363 4.50912 8.42553 4.25219 8.67662C4.02506 8.8986 3.85168 9.16957 3.74532 9.46882C3.625 9.80732 3.625 10.1937 3.625 10.9664V16.1252M17.6875 15.6044H17.6979M3.625 12.1669L3.625 19.0419C3.625 20.2087 3.625 20.7921 3.85207 21.2377C4.05181 21.6297 4.37052 21.9484 4.76252 22.1482C5.20817 22.3752 5.79156 22.3752 6.95833 22.3752H19.0417C20.2084 22.3752 20.7918 22.3752 21.2375 22.1482C21.6295 21.9484 21.9482 21.6297 22.1479 21.2377C22.375 20.7921 22.375 20.2087 22.375 19.0419V12.1669M17.6875 15.6044H17.6979"
@@ -271,10 +309,10 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
               />
             </svg>
 
-            <div style={{ fontSize: "16px", opacity: "0.8" }}>Your Balance</div>
+            <div style={{ fontSize: "16px", marginTop: "10px" }}>Your Balance</div>
 
             <div
-              style={{ fontSize: "28px", fontWeight: "bold", margin: "5px 0" }}
+              style={{ fontSize: "28px", fontWeight: "bold", margin: "5px 0", marginTop: "10px" }}
             >
               ₹
               {userWallet.wallet_balance
@@ -286,14 +324,14 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
               onClick={() => withdrawHit()}
               style={{
                 marginTop: "10px",
-                background: "#ffbf00",
-                border: "2px solid #ffbf00",
-                color: "black",
-                padding: "10px 20px",
-                borderRadius: "8px",
-                fontSize: "16px",
+                background: "#003fb8",
+                color: "#ffbf00",
+                padding: "10px 30px",
+                borderRadius: "30px",
+                fontSize: "18px",
                 cursor: "pointer",
                 fontWeight: "bold",
+
               }}
             >
               Withdraw
@@ -320,3 +358,35 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
 };
 
 export default RakebackChart;
+const Arrow = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    className="arrow-icon"
+  >
+    <path
+      d="M5 12H19"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M15 16L19 12"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M15 8L19 12"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);

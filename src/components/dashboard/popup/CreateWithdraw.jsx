@@ -40,9 +40,9 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 					style={
 						mobile
 							? {
-									borderTopLeftRadius: ".75rem",
-									borderTopRightRadius: ".75rem",
-							  }
+								borderTopLeftRadius: ".75rem",
+								borderTopRightRadius: ".75rem",
+							}
 							: { borderRadius: ".75rem" }
 					}
 				>
@@ -84,15 +84,15 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 								/>
 							</Form.Group> */}
 							<Form.Group className={styles.formGroup}>
-  <Form.Label className={styles.putAmountLabel}>Put Amount :</Form.Label>
-  <Form.Control
-    type="number"
-    placeholder="Please enter the amount!"
-    onChange={(e) => setAmount(e.target.value)}
-    autoFocus
-    className={styles.amountInput}
-  />
-</Form.Group>
+								<Form.Label className={styles.putAmountLabel}>Put Amount :</Form.Label>
+								<Form.Control
+									type="number"
+									placeholder="Please enter the amount!"
+									onChange={(e) => setAmount(e.target.value)}
+									autoFocus
+									className={styles.amountInput}
+								/>
+							</Form.Group>
 
 						</div>
 						<div
@@ -119,6 +119,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 							position: "absolute",
 							top: "1.5rem",
 							right: "1.5rem",
+							cursor: "pointer"
 						}}
 						onClick={() => setShowWithdraw(false)}
 					>
