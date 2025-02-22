@@ -92,7 +92,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
 
   const dataMap = {
     thisWeek: {
-      earned: [60, 80, 50, 70, 40, 30, 20],
+      earned: [10, 50, 20, 70, 35, 20, 60],
       percentage: [20, 25, 15, 18, 12, 6, 22],
     },
     thisMonth: {

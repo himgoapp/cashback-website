@@ -8,6 +8,8 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { sendEmailOtpAPI, loginVerify } from "../../../servicefile/authservice";
 import { toast } from "react-toastify";
 import Logo from "../../common/logo/logo";
+import avater1 from "../../../assets/avater1.svg"
+import editIcon from "../../../assets/editIcon.png"
 
 const DashboardHomeHeader = ({ title, icon }) => {
   const { userData, setUserData } = useContext(UserContext);
@@ -19,6 +21,63 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const [otp, setOtp] = useState("");
   const { setShowSidebar, showNotifications, setShowNotifications } =
     useContext(UserContext);
+    const [selectedImage, setSelectedImage] = useState(avater1);
+
+    useEffect(() => {
+      const savedImage = localStorage.getItem("profileImage");
+      if (savedImage) {
+        setSelectedImage(savedImage);
+      } else {
+        setSelectedImage(avater1); // Default avatar if nothing found
+      }
+    }, []);
+  
+    const handleImageChange = (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (e) => {
+          const img = new Image();
+          img.src = e.target.result;
+          img.onload = () => {
+            const canvas = document.createElement("canvas");
+            const ctx = canvas.getContext("2d");
+  
+            // Resize image to 300x300
+            const maxWidth = 300;
+            const maxHeight = 300;
+            let width = img.width;
+            let height = img.height;
+  
+            if (width > height) {
+              if (width > maxWidth) {
+                height *= maxWidth / width;
+                width = maxWidth;
+              }
+            } else {
+              if (height > maxHeight) {
+                width *= maxHeight / height;
+                height = maxHeight;
+              }
+            }
+            canvas.width = width;
+            canvas.height = height;
+            ctx.drawImage(img, 0, 0, width, height);
+            const compressedImage = canvas.toDataURL("image/jpeg", 0.7);
+  
+            setSelectedImage(compressedImage);
+            localStorage.setItem("profileImage", compressedImage);
+          };
+        };
+      }
+    };
+  
+    const handleRemoveImage = () => {
+      setSelectedImage(avater1); // Reset to default image
+      localStorage.setItem("profileImage", avater1);
+    };
+
 
   const handleClose = () => {
     setVerifyModal(false);
@@ -103,7 +162,19 @@ const DashboardHomeHeader = ({ title, icon }) => {
                 <img src={profileicon} alt="Profile Icon" />
               </div> */}
               <div className={styles.HeaderNavBtn} onClick={handleProfileClick}>
-                {userIcon}
+                {/* {userIcon} */}
+                <img
+                  src={selectedImage || avater1}
+                  alt="Profile"
+                  className="rounded-circle"
+                  style={{
+                    width: "100%", /* Ensure it takes full width of parent */
+                    height: "100%", /* Ensure it takes full height of parent */
+                    objectFit: "cover",
+                    // border: "2px solid #0052cc",
+                  }}
+                />
+
               </div>
               {/* <div
                 className={styles.HeaderNavBtn2}
@@ -118,161 +189,149 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
       {/* Profile Modal */}
       {showProfileModal && (
-        <Modal
-          show={showProfileModal}
-          onHide={handleCloseModal}
-          backdrop="static"
-          aria-labelledby="contained-modal-title-vcenter"
-          centered
-          animation={false}
-        >
-          <Modal.Header closeButton>
-            <Modal.Title>Profile</Modal.Title>
+        <Modal show={showProfileModal} onHide={handleCloseModal} backdrop="static" centered animation={false}>
+
+          {/* Header */}
+          <Modal.Header closeButton className="border-0" style={{ backgroundColor: "#fdf7e3", textAlign: "center" }}>
+            <Modal.Title className="w-100 fw-bold">Profile</Modal.Title>
           </Modal.Header>
+
           <Modal.Body>
-            <Form>
-              <Form.Group className="mb-3">
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                  disabled={!editMode && username !== ""}
-                />
-              </Form.Group>
+          <div className="d-flex align-items-center mb-3">
+      {/* Profile Image */}
+      <div className="d-flex align-items-center mb-3">
+      {/* Profile Image */}
+      <div className="position-relative">
+        <img
+          src={selectedImage}
+          alt="Profile"
+          className="rounded-circle"
+          style={{
+            width: "80px",
+            height: "80px",
+            objectFit: "cover",
+            border: "3px solid #0052cc",
+          }}
+        />
+        {/* Edit Icon */}
+        <label
+          className="position-absolute"
+          style={{
+            bottom: "0px",
+            right: "0px",
+            cursor: "pointer",
+            background: "#ffbf00",
+            padding: "5px",
+            borderRadius: "50%",
+          }}
+        >
+          <img src={editIcon} alt="Edit" width="20px" />
+          <input type="file" accept="image/*" onChange={handleImageChange} className="d-none" />
+        </label>
 
-              <Form.Group className="mb-3">
-                <Form.Label>Address</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your address"
-                  value={address}
-                  onChange={(e) => setAddress(e.target.value)}
-                  // disabled={!editMode && address !== ""}
-                />
-              </Form.Group>
+        {/* Remove Image Button */}
+        {selectedImage !== avater1 && (
+          <button
+            onClick={handleRemoveImage}
+            className="position-absolute"
+            style={{
+              top: "0px",
+              right: "0px",
+              background: "red",
+              color: "white",
+              border: "none",
+              borderRadius: "50%",
+              width: "24px",
+              height: "24px",
+              fontSize: "14px",
+              lineHeight: "24px",
+              textAlign: "center",
+              cursor: "pointer",
+            }}
+          >
+            X
+          </button>
+        )}
+      </div>
+    </div>
+    </div>
+            {/* Profile Details */}
+            <Form className="mt-2">
 
-              {/* Email Input with Button Inside */}
-              <Form.Group className="mb-3 position-relative">
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  placeholder="Enter your email"
-                  value={userData?.email || ""}
-                  disabled={!editMode}
-                  style={{
-                    paddingRight: "120px",
-                    height: "40px",
-                  }}
-                />
-
-                {userData?.isEmailVerified ? (
-                  <div
-                    style={{
-                      color: "green",
-                      fontSize: "12px",
-                      marginTop: "5px",
-                    }}
-                  >
-                    Your email is verified.
-                  </div>
+              {/* Name */}
+              <div className="d-flex justify-content-between mb-2">
+                <Form.Label className="fw-bold">Name</Form.Label>
+                {editMode ? (
+                  <Form.Control
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="w-50"
+                  />
                 ) : (
-                  <>
-                    <div
-                      style={{
-                        color: "red",
-                        fontSize: "12px",
-                        marginTop: "5px",
-                      }}
-                    >
-                      Your email is not verified.
-                    </div>
-                    <Button
-                      variant="primary"
-                      size="sm"
-                      style={{
-                        backgroundColor: "#0052cc",
-                        color: "white",
-                        borderColor: "#0052cc",
-                      }}
-                      onMouseOver={(e) => {
-                        e.target.style.backgroundColor = "#ffbf00";
-                        e.target.style.borderColor = "#ffbf00";
-                        e.target.style.color = "black";
-                      }}
-                      onMouseOut={(e) => {
-                        e.target.style.backgroundColor = "#0052cc";
-                        e.target.style.color = "white";
-                        e.target.style.borderColor = "#0052cc";
-                      }}
-                      onClick={() => sendEmailOtp(userData.email)}
-                    >
+                  <span className="text-end">{username}</span>
+                )}
+              </div>
+              <hr />
+
+              {/* Email */}
+              <div className="d-flex justify-content-between align-items-center mb-2">
+                <Form.Label className="fw-bold">Email</Form.Label>
+                <div className="text-end">
+                  <span>{userData?.email || "N/A"}</span>
+                  <div className={userData?.isEmailVerified ? "text-success" : "text-danger"} style={{ fontSize: "12px" }}>
+                    {userData?.isEmailVerified ? "Your email is verified." : "Your email is not verified."}
+                  </div>
+                  {!userData?.isEmailVerified && (
+                    <Button size="sm" variant="outline-primary" onClick={() => sendEmailOtp(userData.email)}>
                       Verify Email
                     </Button>
-                  </>
-                )}
-              </Form.Group>
+                  )}
+                </div>
+              </div>
+              <hr />
 
-              <Form.Group className="mb-3">
-                <Form.Label>Phone Number</Form.Label>
-                <Form.Control
-                  type="text"
-                  placeholder="Enter your phone number"
-                  value={
-                    userData?.phoneNumber ? `+${userData.phoneNumber}` : ""
-                  }
-                  disabled
-                />
-                {userData?.phoneNumber ? (
-                  <div
-                    style={{
-                      color: "green",
-                      fontSize: "12px",
-                      marginTop: "5px",
-                    }}
-                  >
+              {/* Phone Number */}
+              <div className="d-flex justify-content-between mb-2">
+                <Form.Label className="fw-bold">Phone Number</Form.Label>
+                <div className="text-end">
+                  <span>{userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}</span>
+                  <div className="text-success" style={{ fontSize: "12px" }}>
                     Your phone number is verified.
                   </div>
-                ) : (
-                  <div
-                    style={{
-                      color: "red",
-                      fontSize: "12px",
-                      marginTop: "5px",
-                    }}
-                  >
-                    Your phone number is not verified.
-                  </div>
-                )}
-              </Form.Group>
+                </div>
+              </div>
+              <hr />
 
-              {/* Edit/Save Button with Color Change */}
+              {/* Address */}
+              <div className="d-flex justify-content-between mb-2">
+                <Form.Label className="fw-bold">Address</Form.Label>
+                {editMode ? (
+                  <Form.Control
+                    type="text"
+                    value={address}
+                    onChange={(e) => setAddress(e.target.value)}
+                    className="w-50"
+                  />
+                ) : (
+                  <span className="text-end">{address || "N/A"}</span>
+                )}
+              </div>
+              <hr />
+
+              {/* Save / Edit Button */}
               <Button
-                variant="primary"
+                className="w-100 mt-3"
+                style={{ backgroundColor: "#0052cc", color: "white" }}
                 onClick={() => setEditMode(!editMode)}
-                style={{
-                  backgroundColor: "#0052cc",
-                  color: "white",
-                  borderColor: "#0052cc",
-                  marginTop: "-12px",
-                }}
-                onMouseOver={(e) => {
-                  e.target.style.backgroundColor = "#ffbf00";
-                  e.target.style.borderColor = "#ffbf00";
-                  e.target.style.color = "black";
-                }}
-                onMouseOut={(e) => {
-                  e.target.style.backgroundColor = "#0052cc";
-                  e.target.style.color = "white";
-                  e.target.style.borderColor = "#0052cc";
-                }}
               >
                 {editMode ? "Save" : "Edit"}
               </Button>
             </Form>
           </Modal.Body>
         </Modal>
+
+
       )}
       <Modal
         size="sm"
@@ -281,7 +340,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
         backdrop="static"
         // aria-labelledby="contained-modal-title-vcenter"
         centered
-        // animation={false}
+      // animation={false}
       >
         <Modal.Header className="d-flex justify-content-center" closeButton>
           <Modal.Title>
