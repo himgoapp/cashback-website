@@ -207,7 +207,7 @@ function AddressDetail({ setStepReload }) {
                           style={{
                             paddingLeft:"10px",
                             paddingRight:"10px",
-                            background: "#52131r ",
+                            background: "#0052cc ",
                             color: "white",
                             cursor: "pointer",
                             borderRadius:"10px",
@@ -251,7 +251,7 @@ function AddressDetail({ setStepReload }) {
                 <button
                   className={`primary_button ${styles.btn_container}`}
 
-                  // onClickNav={() => {addAddressData()}}
+                  onClick={() => {addAddressData()}}
                 >
                   Save changes
                 </button>

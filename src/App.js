@@ -154,9 +154,9 @@ function App() {
             <Route
 							Route path="/article/:id"
 							element={
-								<ProtectedRoute>
+								<NotProtectedRoute>
 						<NewsArticle/>
-						</ProtectedRoute>}
+						</NotProtectedRoute>}
 						/>
             
             <Route

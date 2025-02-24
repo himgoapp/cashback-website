@@ -23,7 +23,7 @@
 
 .text_input_wrapper input,
 .text_input_wrapper input::placeholder {
-	color: var(--gray-500, #667085);
+	color: var(--gray-800, #667085);
 
 	/* Text md/Regular */
 	font-family: Be Vietnam;
@@ -35,5 +35,5 @@
 }
 
 .text_input_container::placeholder {
-	opacity: 0.4;
+	/* opacity: 0.4; */
 }

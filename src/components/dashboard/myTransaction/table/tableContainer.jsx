@@ -156,9 +156,9 @@ const TableContainer = ({ transactionType }) => {
         <p className={styles.transactionId}>
           Transaction ID: {selectedTransaction.transaction_hash}
         </p>
-        <p>Account Number: {selectedTransaction.bank.account_number}</p>
+        {/* <p>Account Number: {selectedTransaction.bank.account_number}</p>
         <p>Bank Name: {selectedTransaction.bank.bank_name}</p>
-        <p>IFSC Code: {selectedTransaction.bank.ifsc_code}</p>
+        <p>IFSC Code: {selectedTransaction.bank.ifsc_code}</p> */}
 
         <div className={styles.detailsRow}>
           <span>Date:</span>

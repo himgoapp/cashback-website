@@ -10,6 +10,7 @@ import RakebackTable from "./RackbackTableAndTransaction";
 import { Link } from "react-router-dom";
 import { Line } from "react-chartjs-2";
 import events from "../../../assets/events.jpg";
+import { useNavigate } from "react-router-dom";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -33,6 +34,7 @@ ChartJS.register(
 
 const RakebackChart = ({ dashboardInfo, userKyc }) => {
   const { userWallet } = dashboardInfo;
+ const navigate = useNavigate();
   console.log(dashboardInfo, userWallet, " 25--");
   const [showWithdraw, setShowWithdraw] = useState(false);
 
@@ -43,6 +45,9 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
   const [withdrawCount, setWithdrawCount] = useState(0); // Number of withdrawals
   const amount = [2345.67];
 
+  const validatetokenAndRedirect = () => {
+    navigate("/dashboard/pokerid");
+  };
   // Mock function to simulate fetching the latest transactions count based on selected filter
   const fetchTransactionCounts = (filter) => {
     let deposits = 0;
@@ -209,13 +214,13 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
               <div className={styles.dashboard_explore}>
                 Explore with Rakebackk
               </div>
-              <div className={styles.exlpore}>
-                <a
-                  href="/dashboard/pokerid"
+              <div className={styles.explore} >
+                <button
+                  onClick={()=>validatetokenAndRedirect()}
                 >
                   Explore
                   <Arrow />
-                </a>
+                </button>
               </div>
             </div>
             {/* Image Wrapper */}
