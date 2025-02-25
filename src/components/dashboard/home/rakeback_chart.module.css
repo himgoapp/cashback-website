@@ -85,9 +85,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-size: cover;
-  background-position: center; 
+  background-position: calc(100% - 100px) center;
   background-repeat: no-repeat; 
+  background-size: 200px;
   width: 100%;
   border-radius: 12px;
   padding: 20px 30px;

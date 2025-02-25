@@ -8,7 +8,7 @@
 .NewPokerContent {
 	width: 100%;
 	padding: 2.25rem 1.5rem;
-	background: #dde3ef;
+	background: #0052cc;
 	box-shadow: 0px 0.0625rem 0.125rem rgba(16, 24, 40, 0.06);
 	border-radius: 0.75rem;
 	border: 0.0625rem solid #eaecf0;
@@ -17,16 +17,30 @@
 	justify-content: center;
 	align-items: flex-start;
 	gap: 1.25rem;
+	background-position:  right;
+	background-repeat: no-repeat; 
+	background-size: 580px;
 }
 
 .NewPokerHead {
-	color: #101828;
+	color: white;
 	font-size: 1.25rem;
 	font-family: "Inter";
 	font-weight: 600;
 	line-height: 2.375rem;
 }
-
+.submit{
+background: #ffbf00;
+color: #000;
+font-size: 18px;
+font-weight: bold;
+padding:8px 20px;
+border-radius: 30px;
+}
+.submit:hover{
+	color: black;
+	background: white;
+}
 .NewPokerCreate {
 	display: flex;
 	/* align-self: stretch; */

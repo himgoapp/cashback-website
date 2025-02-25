@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./kycProgress.module.css";
-import illustration3 from "../../../assets/illustration3.svg"
+import backgroundImg from "../../../assets/KYCILLUSTRATIONS.png";
+
 const steps = [
 	{
 		head: "Pan Card",
@@ -19,8 +20,17 @@ const steps = [
 function kycProgress({ activeIndex }) {
 	return (
 		<div className={styles.ProgressbarContainer}>
-				<div>
-        <img src={illustration3} className={styles.illustration3_design}/>
+			  <div
+        className={styles.kyc_status_header}
+        style={{
+          backgroundImage: `url(${backgroundImg})`,
+        }}
+      >
+        <div className={styles.heading_container}>
+          <span className={styles.heading}> Verify Documents </span>
+          <br />
+          <span className={styles.sub_heading}>To Get Started</span>
+        </div>
       </div>
 			<div className={styles.ProgressContent}>
 		

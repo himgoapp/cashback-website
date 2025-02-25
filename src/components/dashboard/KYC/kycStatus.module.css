@@ -22,6 +22,33 @@
   background: #dde3ef;
   border-radius: 0.5rem;
 }
+.kyc_status_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-position: calc(100% - 150px) center;
+  background-repeat: no-repeat; 
+  background-size: 200px;
+  width: 100%;
+  height: 200px;
+  border-radius: 12px;
+  padding: 20px 30px;
+  position: relative;
+  color: white;
+  overflow: hidden;
+  background-color: #0052cc;
+}
+/* .heading_container{
+  margin-left: 5rem;
+} */
+.heading{
+  font-size: 30px;
+  font-weight: bold;
+}
+.sub_heading{
+  font-size: 20px;
+  font-weight: bold;
+}
 .successBorder {
   border-top: 1px solid var(--Success, #11c15b);
   border-right: 1px solid var(--Success, #11c15b);

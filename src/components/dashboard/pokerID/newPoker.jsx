@@ -10,6 +10,7 @@ import pokeridsheadericon from "../../../assets/pokeridsheadericon.svg";
 import {getPokerSiteImage} from "../../../helperFxns/colorCode"
 import { UserContext } from "../../../App";
 import { color } from "framer-motion";
+import backgroundImg from "../../../assets/pokeridillustration.png"
 
 const staticAccountData = [
 
@@ -102,8 +103,9 @@ const NewPoker = ({ setGetInfos }) => {
   }, []);
 
   return (
-    <div className={styles.NewPokerContainer}>
-      <div className={styles.NewPokerContent}>
+    <div className={styles.NewPokerContainer} >
+      <div className={styles.NewPokerContent} style={{
+      backgroundImage: `url(${backgroundImg})` }}>
         <div className={styles.NewPokerHead}>Add New Poker ID</div>
         <div className={styles.NewPokerCreate}>
           <div className={styles.NewPokerCreate}>
@@ -227,18 +229,15 @@ const NewPoker = ({ setGetInfos }) => {
             </div>
           </div>
 <div className={styles.submit_button}>
-          <Navbtn
-            text='Submit'
-            variant={"primary"}
-            size={"small"}
-            showIcon={false}
+          <button
+           className={styles.submit}
             onClick={() => {
               onSubmitFxn();
             }}
-            style={{color:"white"}}
-          />
+           
+          >Submit</button>
           </div>
-            <img src={pokeridsheadericon} className={styles.pokeridsheadericon}/> 
+            {/* <img src={pokeridsheadericon} className={styles.pokeridsheadericon}/>  */}
         
           
         </div>

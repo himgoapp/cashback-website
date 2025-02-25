@@ -5,7 +5,7 @@ import KycPopup from "../popup/kycpop";
 import { toast } from "react-toastify";
 import styles from "../home/rakeback_chart.module.css";
 import illustration1 from "../../../assets/illustration1.svg";
-import backgroundImg from "../../../assets/dashboardillus.png"
+import backgroundImg from "../../../assets/DASHBOARDILLUSTRATIONN.png"
 import RakebackTable from "./RackbackTableAndTransaction";
 import { Link } from "react-router-dom";
 import { Line } from "react-chartjs-2";
@@ -205,7 +205,8 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
           }}
         >
           {/* User Info Card */}
-          <div className={styles.dashboard_card} style={{ backgroundImage: `url(${backgroundImg})` }}>
+          <div className={styles.dashboard_card} style={{
+            backgroundImage: `url(${backgroundImg})` }}>
             <div>
               <div className={styles.dashboard_greeting}>Hello,</div>
               <div className={styles.dashboard_username}>
