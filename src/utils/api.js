@@ -1,6 +1,8 @@
 import axios from "axios";
 import { baseUrlconfig } from "../config";
 
+let formdataurls = ["/auth/imageupload" , "/auth/updateprofileimage"]
+
 export function getToken() {
 	const Token = localStorage.getItem("token");
 	return Token;
@@ -21,7 +23,7 @@ API.interceptors.request.use(
 		}
 
 		// Dynamically set Content-Type based on request type
-		if (config.url.includes("/auth/imageupload")) {
+		if (formdataurls.includes(config.url)) {
 			config.headers["Content-Type"] = "multipart/form-data";
 		}
 

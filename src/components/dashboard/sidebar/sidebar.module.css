@@ -156,7 +156,9 @@
   font-weight: 600;
   background: none;
 }
-
+.logout_icon{
+  width: 80px;
+}
 /* .Button:hover {
 	background-color: #003fb8;
 	transform: scale(1.05);

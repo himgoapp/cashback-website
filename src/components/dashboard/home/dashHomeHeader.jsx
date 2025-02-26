@@ -8,9 +8,12 @@ import { Modal, Button, Form } from "react-bootstrap";
 import { sendEmailOtpAPI, loginVerify } from "../../../servicefile/authservice";
 import { toast } from "react-toastify";
 import Logo from "../../common/logo/logo";
-import avater1 from "../../../assets/avater1.svg"
-import editIcon from "../../../assets/editIcon.png"
-
+import avater1 from "../../../assets/avater1.svg";
+import editIcon from "../../../assets/editIcon.png";
+import {
+  userProfileEdit,
+  addProfileImage,
+} from "../../../servicefile/dashboardservice";
 const DashboardHomeHeader = ({ title, icon }) => {
   const { userData, setUserData } = useContext(UserContext);
   const [editMode, setEditMode] = useState(false); // Edit mode state
@@ -21,63 +24,104 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const [otp, setOtp] = useState("");
   const { setShowSidebar, showNotifications, setShowNotifications } =
     useContext(UserContext);
-    const [selectedImage, setSelectedImage] = useState(avater1);
+  const [selectedImage, setSelectedImage] = useState(null);
 
-    useEffect(() => {
-      const savedImage = localStorage.getItem("profileImage");
-      if (savedImage) {
-        setSelectedImage(savedImage);
-      } else {
-        setSelectedImage(avater1); // Default avatar if nothing found
+  useEffect(() => {
+    const savedImage = localStorage.getItem("profileImage");
+    if (userData && userData.userImg) {
+      setSelectedImage(userData.userImg);
+    } else {
+      setSelectedImage(avater1);
+    }
+  }, []);
+
+  const handleSaveProfile = async () => {
+    if (editMode) {
+      try {
+        const response = await userProfileEdit(userData._id, username, address);
+
+        if (response.success) {
+          toast.success("Profile updated successfully!");
+
+          // Update local state after saving
+          setUserData((prev) => ({
+            ...prev,
+            name: username,
+            address: address,
+          }));
+
+          setEditMode(false);
+        } else {
+          toast.error(response.message);
+        }
+      } catch (error) {
+        toast.error("An error occurred while updating the profile.");
       }
-    }, []);
-  
-    const handleImageChange = (event) => {
-      const file = event.target.files[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = (e) => {
-          const img = new Image();
-          img.src = e.target.result;
-          img.onload = () => {
-            const canvas = document.createElement("canvas");
-            const ctx = canvas.getContext("2d");
-  
-            // Resize image to 300x300
-            const maxWidth = 300;
-            const maxHeight = 300;
-            let width = img.width;
-            let height = img.height;
-  
-            if (width > height) {
-              if (width > maxWidth) {
-                height *= maxWidth / width;
-                width = maxWidth;
-              }
-            } else {
-              if (height > maxHeight) {
-                width *= maxHeight / height;
-                height = maxHeight;
-              }
+    } else {
+      setEditMode(true);
+    }
+  };
+
+  const addProfile = async (file) => {
+    if (!userData || !userData._id) return;
+
+    if (!file) {
+      toast.error(`Image is required!`);
+    } else {
+      const res = await addProfileImage(userData._id, file);
+      if (res && res.message === "success") {
+        toast.success(`Profile Image is successfully uploaded!`);
+      }
+    }
+  };
+
+  const handleImageChange = (event) => {
+    const file = event.target.files[0];
+
+    if (file) {
+      addProfile(file);
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = (e) => {
+        const img = new Image();
+        img.src = e.target.result;
+        img.onload = () => {
+          const canvas = document.createElement("canvas");
+          const ctx = canvas.getContext("2d");
+
+          // Resize image to 300x300
+          const maxWidth = 300;
+          const maxHeight = 300;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > height) {
+            if (width > maxWidth) {
+              height *= maxWidth / width;
+              width = maxWidth;
             }
-            canvas.width = width;
-            canvas.height = height;
-            ctx.drawImage(img, 0, 0, width, height);
-            const compressedImage = canvas.toDataURL("image/jpeg", 0.7);
-  
-            setSelectedImage(compressedImage);
-            localStorage.setItem("profileImage", compressedImage);
-          };
-        };
-      }
-    };
-  
-    const handleRemoveImage = () => {
-      setSelectedImage(avater1); // Reset to default image
-      localStorage.setItem("profileImage", avater1);
-    };
+          } else {
+            if (height > maxHeight) {
+              width *= maxHeight / height;
+              height = maxHeight;
+            }
+          }
+          canvas.width = width;
+          canvas.height = height;
+          ctx.drawImage(img, 0, 0, width, height);
+          const compressedImage = canvas.toDataURL("image/jpeg", 0.7);
 
+          setSelectedImage(compressedImage);
+          localStorage.setItem("profileImage", compressedImage);
+        };
+      };
+    }
+  };
+
+  // const handleRemoveImage = () => {
+  //   setSelectedImage(avater1); // Reset to default image
+  //   localStorage.setItem("profileImage", avater1);
+  // };
 
   const handleClose = () => {
     setVerifyModal(false);
@@ -168,13 +212,12 @@ const DashboardHomeHeader = ({ title, icon }) => {
                   alt="Profile"
                   className="rounded-circle"
                   style={{
-                    width: "100%", /* Ensure it takes full width of parent */
-                    height: "100%", /* Ensure it takes full height of parent */
+                    width: "100%" /* Ensure it takes full width of parent */,
+                    height: "100%" /* Ensure it takes full height of parent */,
                     objectFit: "cover",
                     // border: "2px solid #0052cc",
                   }}
                 />
-
               </div>
               {/* <div
                 className={styles.HeaderNavBtn2}
@@ -189,75 +232,89 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
       {/* Profile Modal */}
       {showProfileModal && (
-        <Modal show={showProfileModal} onHide={handleCloseModal} backdrop="static" centered animation={false}>
-
+        <Modal
+          show={showProfileModal}
+          onHide={handleCloseModal}
+          backdrop="static"
+          centered
+          animation={false}
+        >
           {/* Header */}
-          <Modal.Header closeButton className="border-0" style={{ backgroundColor: "#fdf7e3", textAlign: "center" }}>
+          <Modal.Header
+            closeButton
+            className="border-0"
+            style={{ backgroundColor: "#fdf7e3", textAlign: "center" }}
+          >
             <Modal.Title className="w-100 fw-bold">Profile</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
-          <div className="d-flex align-items-center mb-3">
-      {/* Profile Image */}
-      <div className="d-flex align-items-center mb-3">
-      {/* Profile Image */}
-      <div className="position-relative">
-        <img
-          src={selectedImage}
-          alt="Profile"
-          className="rounded-circle"
-          style={{
-            width: "80px",
-            height: "80px",
-            objectFit: "cover",
-            border: "3px solid #0052cc",
-          }}
-        />
-        {/* Edit Icon */}
-        <label
-          className="position-absolute"
-          style={{
-            bottom: "0px",
-            right: "0px",
-            cursor: "pointer",
-            background: "#ffbf00",
-            padding: "5px",
-            borderRadius: "50%",
-          }}
-        >
-          <img src={editIcon} alt="Edit" width="20px" />
-          <input type="file" accept="image/*" onChange={handleImageChange} className="d-none" />
-        </label>
+            <div className="d-flex align-items-center mb-3">
+              {/* Profile Image */}
+              <div className="d-flex align-items-center mb-3">
+                {/* Profile Image */}
+                <div className="position-relative">
+                  <img
+                    src={selectedImage}
+                    alt="Profile"
+                    className="rounded-circle"
+                    style={{
+                      width: "80px",
+                      height: "80px",
+                      objectFit: "cover",
+                      border: "3px solid #0052cc",
+                    }}
+                  />
+                  {/* Edit Icon */}
+                  <label
+                    className="position-absolute"
+                    style={{
+                      bottom: "0px",
+                      right: "0px",
+                      cursor: "pointer",
+                      background: "#ffbf00",
+                      padding: "5px",
+                      borderRadius: "50%",
+                    }}
+                  >
+                    <img src={editIcon} alt="Edit" width="20px" />
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageChange}
+                      className="d-none"
+                    />
+                  </label>
 
-        {/* Remove Image Button */}
-        {selectedImage !== avater1 && (
-          <button
-            onClick={handleRemoveImage}
-            className="position-absolute"
-            style={{
-              top: "0px",
-              right: "0px",
-              background: "red",
-              color: "white",
-              border: "none",
-              borderRadius: "50%",
-              width: "24px",
-              height: "24px",
-              fontSize: "14px",
-              lineHeight: "24px",
-              textAlign: "center",
-              cursor: "pointer",
-            }}
-          >
-            X
-          </button>
-        )}
-      </div>
-    </div>
-    </div>
+
+                  {/* Remove Image Button */}
+                  {/* {selectedImage !== avater1 && (
+                    <button
+                      onClick={handleRemoveImage}
+                      className="position-absolute"
+                      style={{
+                        top: "0px",
+                        right: "0px",
+                        background: "red",
+                        color: "white",
+                        border: "none",
+                        borderRadius: "50%",
+                        width: "24px",
+                        height: "24px",
+                        fontSize: "14px",
+                        lineHeight: "24px",
+                        textAlign: "center",
+                        cursor: "pointer",
+                      }}
+                    >
+                      X
+                    </button>
+                  )} */}
+                </div>
+              </div>
+            </div>
             {/* Profile Details */}
             <Form className="mt-2">
-
               {/* Name */}
               <div className="d-flex justify-content-between mb-2">
                 <Form.Label className="fw-bold">Name</Form.Label>
@@ -279,11 +336,22 @@ const DashboardHomeHeader = ({ title, icon }) => {
                 <Form.Label className="fw-bold">Email</Form.Label>
                 <div className="text-end">
                   <span>{userData?.email || "N/A"}</span>
-                  <div className={userData?.isEmailVerified ? "text-success" : "text-danger"} style={{ fontSize: "12px" }}>
-                    {userData?.isEmailVerified ? "Your email is verified." : "Your email is not verified."}
+                  <div
+                    className={
+                      userData?.isEmailVerified ? "text-success" : "text-danger"
+                    }
+                    style={{ fontSize: "12px" }}
+                  >
+                    {userData?.isEmailVerified
+                      ? "Your email is verified."
+                      : "Your email is not verified."}
                   </div>
                   {!userData?.isEmailVerified && (
-                    <Button size="sm" variant="outline-primary" onClick={() => sendEmailOtp(userData.email)}>
+                    <Button
+                      size="sm"
+                      variant="outline-primary"
+                      onClick={() => sendEmailOtp(userData.email)}
+                    >
                       Verify Email
                     </Button>
                   )}
@@ -295,7 +363,9 @@ const DashboardHomeHeader = ({ title, icon }) => {
               <div className="d-flex justify-content-between mb-2">
                 <Form.Label className="fw-bold">Phone Number</Form.Label>
                 <div className="text-end">
-                  <span>{userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}</span>
+                  <span>
+                    {userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}
+                  </span>
                   <div className="text-success" style={{ fontSize: "12px" }}>
                     Your phone number is verified.
                   </div>
@@ -323,15 +393,13 @@ const DashboardHomeHeader = ({ title, icon }) => {
               <Button
                 className="w-100 mt-3"
                 style={{ backgroundColor: "#0052cc", color: "white" }}
-                onClick={() => setEditMode(!editMode)}
+                onClick={handleSaveProfile}
               >
                 {editMode ? "Save" : "Edit"}
               </Button>
             </Form>
           </Modal.Body>
         </Modal>
-
-
       )}
       <Modal
         size="sm"
@@ -340,7 +408,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
         backdrop="static"
         // aria-labelledby="contained-modal-title-vcenter"
         centered
-      // animation={false}
+        // animation={false}
       >
         <Modal.Header className="d-flex justify-content-center" closeButton>
           <Modal.Title>

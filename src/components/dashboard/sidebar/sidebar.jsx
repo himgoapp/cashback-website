@@ -15,6 +15,7 @@ import {
   barIcon,
   CameraIcon,
 } from "../../../utils/sideBarIcon";
+import logout from "../../../assets/logout.svg"
 const Sidebar = ({ active }) => {
   const { showSidebar, setShowSidebar, mobile, userData, setUserData } =
     useContext(UserContext);
@@ -107,9 +108,7 @@ const Sidebar = ({ active }) => {
             <div className={styles.TextAndSupportingText}>
               {data && data.userName ? data.userName : "Not filled!"}
 			  <button className={styles.Button}  onClick={() => onLogout()}>
-              <LogoutIcon
-              
-              />
+             <img src={logout} className={styles.logout_icon}/>
 			  </button>
             </div>
 
