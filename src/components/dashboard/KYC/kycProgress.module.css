@@ -151,3 +151,17 @@
     height: 100%;
   }
 }
+@media only screen and (max-width: 480px) {
+  .kyc_status_header {
+    background-position-x: 190px;
+    background-size: 160px;
+  }
+
+  .heading {
+    font-size: 16px;
+  }
+
+  .sub_heading {
+    font-size: 13px;
+  }
+}

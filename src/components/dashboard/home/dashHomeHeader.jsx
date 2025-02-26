@@ -19,7 +19,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const [editMode, setEditMode] = useState(false); // Edit mode state
   const [showProfileModal, setShowProfileModal] = useState(false);
   const [username, setUsername] = useState(userData?.userName || "");
-  const [address, setAddress] = useState(userData?.addressProofType || "");
+  const [address, setAddress] = useState(userData?.address || "");
   const [verifyModal, setVerifyModal] = useState(false);
   const [otp, setOtp] = useState("");
   const { setShowSidebar, showNotifications, setShowNotifications } =
@@ -28,6 +28,9 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
   useEffect(() => {
     const savedImage = localStorage.getItem("profileImage");
+    if (userData && userData.address) {
+      setAddress(userData.address);
+    }
     if (userData && userData.userImg) {
       setSelectedImage(userData.userImg);
     } else {
@@ -285,7 +288,6 @@ const DashboardHomeHeader = ({ title, icon }) => {
                       className="d-none"
                     />
                   </label>
-
 
                   {/* Remove Image Button */}
                   {/* {selectedImage !== avater1 && (
