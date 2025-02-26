@@ -109,4 +109,8 @@
     .navbar_container .burger_menu {
         display: flex;
     }
+    .menu_container{
+        align-items: flex-start;
+    }
+   
 }
