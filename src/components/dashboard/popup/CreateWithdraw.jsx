@@ -36,7 +36,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 		<div className={styles.PopupWithOpacity}>
 			<div className={styles.PopupSigninWrapper} style={{ width: "34.675rem" }}>
 				<div
-					className={styles.PopupSigininContainer}
+					className={styles.PopupSigininContainerWithdraw}
 					style={
 						mobile
 							? {
