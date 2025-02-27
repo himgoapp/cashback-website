@@ -98,6 +98,7 @@
 		line-height: 140%; /* 2.8rem */
 		letter-spacing: -0.0625rem;
 	}
+	
 	.header_text_container .sub_head {
 		color: var(--Text-Blue, #3e3e59);
 		text-align: center;

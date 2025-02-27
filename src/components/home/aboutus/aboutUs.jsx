@@ -42,7 +42,7 @@ const AboutUs = () => {
             <div className={styles.head_info}>
               <div className={styles.head_cont}>
                 <div className={styles.head_text}>
-                  What is Rakeback – Get Paid to Play
+                  What is  <span style={{color:"#ffbf00",fontWeight:"700",fontFamily:"Futura"}}>Rakeback</span> – Get Paid to Play
                 </div>
                 <div className={styles.subhead_text}>
                   When you play online poker, a portion of your bets, known as

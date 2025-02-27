@@ -8,6 +8,7 @@ import statusStyle from "../KYC/kycStatus.module.css";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
 import { TransactionsIcon } from "../../../utils/dashboardMainHeadersIcon";
+import backgroundImg from "../../../assets/transback.svg"
 const MyTransactionMain = () => {
   const { userData, walletData, userKyc } = useContext(UserContext);
   const [transactionType, setTransactionType] = useState("Withdrawal");
@@ -32,6 +33,10 @@ const MyTransactionMain = () => {
         />
 
         <DashboardMain>
+          {/* <div className={styles.transactions_header} style={{
+            backgroundImage: `url(${backgroundImg})` }}>
+
+          </div> */}
           <div className={styles.TabContent}>
             <div className={styles.TabFilters}>
               <div

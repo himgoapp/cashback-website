@@ -1,3 +1,13 @@
+.transactions_header{
+	height: 200px;
+	background: #0052cc;
+	border-radius: 12px;
+	background-repeat: no-repeat;
+	background-size: 1150px;
+	background-position-y:-55px;
+	background-position-x: -35px ;
+
+}
 /* TabContent */
 .TabContent {
 	align-self: stretch;
@@ -8,7 +18,6 @@
 	align-items: flex-start;
 	gap: 0.5rem;
 }
-
 /* TabFilters */
 .TabFilters {
 	display: flex;

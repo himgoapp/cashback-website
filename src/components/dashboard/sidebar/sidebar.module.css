@@ -157,7 +157,7 @@
   background: none;
 }
 .logout_icon{
-  width: 80px;
+  width: 50px;
 }
 /* .Button:hover {
 	background-color: #003fb8;
@@ -190,7 +190,7 @@
 .TextAndSupportingText {
   display: flex;
   align-items: center;
-  gap: 11rem;
+  gap: 8rem;
   color: white;
   font-weight: bold;
   font-family: "ProximaNovaA-Medium", sans-serif;

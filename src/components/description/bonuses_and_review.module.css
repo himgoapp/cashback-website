@@ -275,30 +275,6 @@
   font-weight: 500;
   line-height: 1.25rem;
 }
-
-@media only screen and (max-width: 768px) {
-  /*  */
-  .bonuses_and_review_wrapper .bonus_and_review_container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    /* changed */
-    align-items: flex-start;
-    gap: 1.875rem;
-  }
-  .bonuses_and_review_wrapper .content_container {
-    width: 100%;
-  }
-
-  /*  */
-  .bonus_and_review_container .bonus_and_review_description {
-    width: 100%;
-    padding: 0;
-  }
-  .horizontal_tabs .tabs {
-    flex-direction: column;
-  }
-}
 .description_text_line {
   margin: 15px 0px 15px 0px;
   color: #28282c;
@@ -429,4 +405,83 @@
   color: white;
   font-weight: bold;
   border: 1px solid #4caf50;
+}
+@media only screen and (max-width: 1024px) {
+  .two_column_layout {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .left_column, .right_column {
+    width: 100%;
+  }
+  .content_container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .content_container table {
+    display: block;
+    width: max-content; /* Prevents shrinking */
+    max-width: 100%;
+  }
+
+  .content_container th,
+  .content_container td {
+    font-size: 14px;
+    padding: 8px;
+  }
+}
+
+
+
+@media only screen and (max-width: 768px) {
+  .bonuses_and_review_wrapper .bonus_and_review_container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .content_container {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .bonus_and_review_container .description_text {
+    font-size: 20px;
+    line-height: 28px;
+  }
+  
+  .horizontal_tabs .tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+  }
+
+  .tab_button_base {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .bonus_and_review_container .description_text {
+    font-size: 18px;
+    line-height: 26px;
+  }
+ .bonus_and_review_container .content_container{
+  width: 100%;
+}
+  .tab_button_base {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .freerolls_container {
+    padding: 0.75rem;
+  }
+
+  .tabs {
+    gap: 0.5rem;
+  }
 }

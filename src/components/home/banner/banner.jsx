@@ -27,9 +27,10 @@ const Banner = () => {
       <div className={styles.header_container}>
         <Reveal>
           <div className={styles.header_text_container}>
-            <div className={styles.head}>
-              Your ultimate destination for cashback rewards
-            </div>
+          <div className={styles.head}>
+  Your ultimate destination for <span style={{color:"#ffbf00",fontWeight:"700",fontFamily:"Futura"}}>cashback</span> rewards
+</div>
+
             <div className={styles.sub_head}>
               We're your ticket to turning every poker hand into cold, hard
               cash.

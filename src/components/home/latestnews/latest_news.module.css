@@ -212,26 +212,55 @@
   border-radius: 5px; /* Optional: rounded corners for the image */
 }
 
-/* Responsive Layout for Small Screens */
+@media (max-width: 1024px) {
+  .news_grid {
+    grid-template-columns: repeat(2, 1fr); /* Two-column layout for tablets */
+  }
+}
+
 @media (max-width: 768px) {
   .news_section {
-    flex-direction: column; /* Stack the news and important posts vertically on small screens */
+    flex-direction: column; /* Stack sections vertically */
   }
 
   .news_grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Single column layout on mobile */
   }
 
   .important_post {
-    width: 100%; /* Full width for important posts on smaller screens */
+    width: 100%; /* Full width for better responsiveness */
     margin-top: 20px;
   }
 
   .header_container {
-    font-size: 2.5rem;
+    font-size: 2rem; /* Reduce size for smaller screens */
   }
 
-  .title {
-    font-size: 2rem;
+  .tabList {
+    flex-wrap: wrap; /* Allow tabs to wrap if they don’t fit */
+    gap: 1rem; /* Reduce gap for smaller screens */
+    justify-content: center;
   }
+
+  .tabList > li {
+    font-size: 14px; /* Reduce font size for smaller screens */
+    padding: 0.4rem 0.8rem;
+  }
+
+  .latest_news {
+    padding: 0 10px; /* Reduce padding to prevent overflow */
+  }
+}
+@media (max-width: 768px) {
+  .important_post {
+    display: none; /* Hide important post section on mobile */
+  }
+.content_layout{
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+.para {
+  display: none;
+}
 }
