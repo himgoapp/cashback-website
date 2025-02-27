@@ -5,7 +5,7 @@ import moment from "moment";
 import { UserContext } from "../../../../App";
 import { DataGrid } from "@mui/x-data-grid";
 import { statusBaseColor } from "../../../../helperFxns/colorCode";
-import eyeicon from "../../../../assets/eyeicon.svg";
+import eyeicon from "../../../../assets/eyevisible.svg";
 const columns = [
   {
     field: "transaction_hash",
