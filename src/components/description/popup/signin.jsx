@@ -96,9 +96,7 @@ const PopupSignin = () => {
   className={styles.PopupSigininContainer}
   style={{
     backgroundImage: `url(${backgroundImg})`,
-    backgroundRepeat: "no-repeat",
-    backgroundSize: "auto 400px", 
-    backgroundPosition: "center ", 
+
   }}
 >
 

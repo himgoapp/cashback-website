@@ -23,7 +23,7 @@ const Banner = () => {
   };
 
   return (
-    <div className={`container_max ${styles.banner_container}`}>
+    <div className={` ${styles.banner_container}`}>
       <div className={styles.header_container}>
         <Reveal>
           <div className={styles.header_text_container}>

@@ -10,7 +10,7 @@
 .main_container {
   display: flex;
   justify-content: center;
-  background: linear-gradient(145deg, #e0e7ff, #f0f4ff);
+  background: white;
 }
 
 .faq_header {

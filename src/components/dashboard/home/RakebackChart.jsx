@@ -46,7 +46,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
   const amount = [2345.67];
 
   const validatetokenAndRedirect = () => {
-    navigate("/dashboard/pokerid");
+    navigate("/offer_and_deals");
   };
   // Mock function to simulate fetching the latest transactions count based on selected filter
   const fetchTransactionCounts = (filter) => {
@@ -208,10 +208,10 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
           <div className={styles.dashboard_card} style={{
             backgroundImage: `url(${backgroundImg})` }}>
             <div>
-              <div className={styles.dashboard_greeting}>Hello,</div>
-              <div className={styles.dashboard_username}>
+              <div className={styles.dashboard_greeting}>Hello , {dashboardInfo.user.userName}</div>
+              {/* <div className={styles.dashboard_username}>
                 {dashboardInfo.user.userName}
-              </div>
+              </div> */}
               <div className={styles.dashboard_explore}>
                 Explore with Rakebackk
               </div>

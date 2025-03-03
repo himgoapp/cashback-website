@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./homepage.module.css"
 import Navbar from "../components/common/navbar/navbar";
 import Banner from "../components/home/banner/banner";
 import AboutUs from "../components/home/aboutus/aboutUs";
@@ -12,7 +13,7 @@ import MainContainer from "../layout/mainContainer";
 import ScrollToTopButton from "./ScrollToTopButton ";
 const Homepage = () => {
   return (
-    <>
+    <div className={styles.homepage_container}>
       <Navbar page="home" />
       <MainContainer>
         <Banner />
@@ -31,7 +32,7 @@ const Homepage = () => {
       >
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

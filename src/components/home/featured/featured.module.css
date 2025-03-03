@@ -234,6 +234,15 @@
 		display: none;
 	}
 }
-
-
+@media (max-width: 480px) {
+	.head{
+		font-size: 1.75rem;
+	}
+	.heading_card{
+		font-size: 18px;
+	}
+.para{
+display: none;
+}
+}
  

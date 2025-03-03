@@ -18,7 +18,7 @@ const Navbar = ({ page }) => {
     <Reveal>
       <div className={styles.container_max}>
         <div className={styles.navbar_container}>
-          <a href="/">
+          <a href="/" className={styles.logo_container_pc}>
             <Logo />
           </a>
           <div className={styles.navbar_link_container}>
@@ -36,15 +36,12 @@ const Navbar = ({ page }) => {
 										setLoginTab(true);
 									}}
 								/> */}
-                <Navbtn
-                  text="SignUp/Login"
-                  variant={"outlined"}
-                  size={"small"}
-                  showIcon={false}
+                <button
+            className={styles.signin_button}
                   onClick={() => {
                     setLoginTab(true);
                   }}
-                />
+                >SignUp/Login</button>
               </div>
             )}
           </div>
@@ -66,7 +63,8 @@ const Navbar = ({ page }) => {
               >
                 <path
                   d="M3 12H21M3 6H21M3 18H21"
-                  stroke="#667085"
+                  // stroke="#667085"
+                  stroke="black"
                   strokeWidth="2"
                   strokeLinecap="round"
                   stroke-linejoin="round"
@@ -77,6 +75,7 @@ const Navbar = ({ page }) => {
           {showMenu && (
             <div className={styles.link_mobile_container}>
               <div className={styles.link_mobile_header}>
+              
                 <Logo />
                 <button
                   aria-label="Close menu"
@@ -92,16 +91,13 @@ const Navbar = ({ page }) => {
                   dashboardMenu
                 ) : (
                   <div className={styles.btn_link_container}>
-                    <Navbtn
-                      text="SignUp/Login"
-                      variant={"outlined"}
-                      size={"small"}
-                      showIcon={false}
+                    <button
+                   className={styles.signin_button}
                       onClick={() => {
                         setLoginTab(true);
                         setShowMenu(false);
                       }}
-                    />
+                    >SignUp/Login</button>
                   </div>
                 )}
               </div>
@@ -118,19 +114,19 @@ export default Navbar;
 
 const homePageMenu = (
   <div className={styles.menu_container}>
-    <Link to="/offer_and_deals" className="secondary_link">
+    <Link to="/offer_and_deals" className={styles.secondary_link}>
       Deals
     </Link>
-    <a href="/latest-news" className={"secondary_link"}>
+    <a href="/latest-news" className={styles.secondary_link}>
       Latest/News
     </a>
-    <a href="/#" className={"secondary_link"}>
+    <a href="/#" className={styles.secondary_link}>
       Promotions
     </a>
-    <a href="/#about-us" className={"secondary_link"}>
+    <a href="/#about-us" className={styles.secondary_link}>
       About Us
     </a>
-    <a href="/faq_container" className={"secondary_link"}>
+    <a href="/faq_container" className={styles.secondary_link}>
       FAQs
     </a>
   </div>
@@ -138,7 +134,7 @@ const homePageMenu = (
 
 const dashboardMenu = (
   <div className={styles.menu_container}>
-    <Link to="/dashboard" className="secondary_link">
+    <Link to="/dashboard" className={styles.secondary_link}>
       Dashboard
     </Link>
   </div>
@@ -146,16 +142,16 @@ const dashboardMenu = (
 
 const offersAndDealsPageMenu = (
   <div className={styles.menu_container}>
-    <Link to="/offer_and_deals" className="secondary_link">
+    <Link to="/offer_and_deals" className={styles.secondary_link}>
       Deals
     </Link>
-    <a href="/latest-news" className={"secondary_link"}>
+    <a href="/latest-news" className={styles.secondary_link}>
       Latest/News
     </a>
-    <a href="/#" className={"secondary_link"}>
+    <a href="/#" className={styles.secondary_link}>
       Promotions
     </a>
-    <a href="/faq_container" className={"secondary_link"}>
+    <a href="/faq_container" className={styles.secondary_link}>
       FAQs
     </a>
   </div>

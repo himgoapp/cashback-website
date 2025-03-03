@@ -169,4 +169,14 @@
 	  line-height: 1.4rem;
 	}
   }
-  
+  @media only screen and (max-width: 480px) {
+	.q_and_ans .question {
+		font-size: 14px;
+	  }
+	  .faq_item_container .faq_item {
+		padding: 0.3rem;
+	  }
+	  .faq_header .head {
+		font-size: 1.75rem;
+	  }
+  }
