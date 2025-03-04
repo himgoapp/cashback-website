@@ -97,16 +97,18 @@
 .PopupSigininContainer {
   display: flex;
   height: 100%;
-  padding: 3rem 2.5rem;
+  padding: 20px;
   flex-direction: column;
   align-items: center;
   gap: 1.25rem;
   flex: 1 0 0;
-  border-radius: 0.75rem;
-  background: #0252cc;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.2);
   background-repeat: no-repeat;
   background-size: auto 400px;
   background-position: center;
+  
 }
 .PopupSigininContainerWithdraw {
   display: flex;
@@ -126,7 +128,7 @@
   align-items: center;
   justify-content: center;
   gap: 1.5rem;
-  height: 49vh;
+  height: 70vh;
 }
 
 /* .PopupSigninText {
@@ -138,7 +140,7 @@
 } */
 
 .Head {
-  color: white;
+  color: black;
   font-family: Futura Md BT;
   font-size: 1.875rem;
   font-style: normal;
@@ -148,7 +150,7 @@
   line-height: 2.375rem; /* 126.667% */
 }
 .Subhead {
-  color: white;
+  color: black;
 
   /* Text md/Regular */
   font-family: Inter;
@@ -158,7 +160,7 @@
   line-height: 1.5rem; /* 150% */
 }
 .Subhead1 {
-  color: white;
+  color: #002855;
 
   /* Text md/Regular */
   font-family: Inter;
@@ -168,13 +170,13 @@
   line-height: 1.5rem; /* 150% */
 }
 .otp_resend {
-  color: white;
+  color: #002855;
   display: flex;
   justify-content: center;
   font-size: 14px;
 }
 .otp_resend_1 {
-  color: white;
+  color: #002855;
   cursor: pointer;
   margin-left: 5px;
   font-size: 14px;
@@ -219,13 +221,15 @@
   font-weight: bold;
   padding: 8px 20px;
   border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 }
-.otp_button:hover {
+/* .otp_button:hover {
   color: black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background: white;
   transform: scale(1.05);
-}
+} */
 .submit_button {
   background: #ffbf00;
   color: #000;
@@ -233,13 +237,15 @@
   font-weight: bold;
   padding: 8px 20px;
   border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+
 }
-.submit_button:hover {
+/* .submit_button:hover {
   color: black;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   background: white;
   transform: scale(1.05);
-}
+} */
 @media only screen and (max-width: 425px) {
   .PopupWithOpacity {
     bottom: 0;

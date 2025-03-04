@@ -89,11 +89,15 @@
   background: #ffbf00;
   color: black;
   transition: background 0.3s #0052cc, color 0.3s #0052cc;
+  font-size: 18px;
 }
 
 .btn_container .btn:hover {
   background: #0052cc;
   color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+
 }
 
 .list_info .item {
@@ -123,10 +127,63 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-shrink: 0;
   align-self: stretch;
   margin-inline: auto;
 }
+.slider_container {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow: hidden; /* Hides overflow to create a seamless scroll */
+  white-space: nowrap;
+}
+
+.slider {
+  display: flex;
+  width: max-content;
+  animation: scroll 25s linear infinite;
+}
+
+.slider:hover {
+  animation-play-state: paused;
+}
+
+.slider a {
+  text-decoration: none;
+}
+
+.user_card {
+  margin-right: 16px; /* Instead of using `gap` */
+  transition: transform 0.3s ease;
+}
+
+.user_card:hover {
+  transform: scale(1.05);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%); /* Scrolls exactly halfway for looping */
+  }
+}
+
+.logo_container {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+}
+
+.logo {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 
 @media only screen and (max-width: 768px) {
   .about__container {
@@ -170,8 +227,12 @@ font-size: 16px;
 .tag{
   margin-bottom: 10px;
 }
+.list_info{
+  margin-top: -30px;
+}
 .btn_container .btn{
   font-size: 14px;
   padding: 8px 14px;
+  margin-top: -30px;
 }
 }

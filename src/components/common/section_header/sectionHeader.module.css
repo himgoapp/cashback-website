@@ -105,9 +105,11 @@
 
 @media only screen and (max-width: 768px) {
 	.head_and_subhead .subhead {
-		font-size: 1.125rem;
+		font-size: 18px;
 	}
-
+	.head_and_subhead .head {
+		font-size: 28px;
+	}
 	.offer_subhead {
 		width: 100%;
 	}

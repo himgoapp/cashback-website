@@ -68,10 +68,23 @@
 
 .scrollable {
   overflow-y: auto;
-  max-height: 400px; /* Only apply max-height when scroll is needed */
+  max-height: 400px;
 }
 
 @media (max-width: 768px) {
+  .TabFilters {
+    gap: 0.75rem;
+  }
+
+  .CardsRow {
+    flex-direction: row;
+  }
+  .CardItem {
+    /* flex-basis: 100%; */
+  }
+}
+
+@media (max-width: 480px) {
   .TabFilters {
     gap: 0.75rem;
   }

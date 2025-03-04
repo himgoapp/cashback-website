@@ -173,7 +173,7 @@
   }
 
   .filter_container {
-    margin-top: 25rem;
+    margin-top: 10rem;
   }
 
   .filter_heading {
@@ -217,12 +217,14 @@
   }
   .chart_container {
     margin-left: 30px;
+    height: 300px;
   }
   .events_container {
     margin-left: 30px;
   }
   .chart_heading {
     margin-left: 50px;
+    font-size: 15px;
   }
   .dashboard_image {
     margin-left: 18px;

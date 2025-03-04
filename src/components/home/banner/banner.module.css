@@ -155,3 +155,18 @@
     padding: 10px 14px;
   }
 }
+@media only screen and (max-width: 480px){
+.header_text_container{
+margin-top: -45px;
+}
+.header_text_container .head{
+font-size: 26px;
+}
+.sub_head{
+  font-size: 16px;
+padding: 0 12px;
+}
+.image{
+  margin-top: 20px !important;
+}
+}

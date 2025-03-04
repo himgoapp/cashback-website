@@ -64,5 +64,11 @@
 	.deals_container .content {
 gap: 0;
 	}
-
+	.head_container .head{
+		margin-top: -40px;
+	}
+	.head_container .subhead{
+		margin-top: -10px;
+line-height: 1.5rem;
+	}
 	}
