@@ -158,15 +158,15 @@ function App() {
 						<NewsArticle/>
 						</NotProtectedRoute>}
 						/>
-            
-            <Route
-              path="/faq_container"
-              element={
-                <NotProtectedRoute>
-                  <FaqContainer />
-                </NotProtectedRoute>
-              }
-            />
+           <Route
+  path="/faq_container/:category?"
+  element={
+    <NotProtectedRoute>
+      <FaqContainer />
+    </NotProtectedRoute>
+  }
+/>
+
 
             <Route
               path="*"

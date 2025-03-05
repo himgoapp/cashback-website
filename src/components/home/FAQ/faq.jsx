@@ -1,123 +1,62 @@
-import React, { useState } from "react";
+import React from "react";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 import styles from "./faq.module.css";
 import Reveal from "../../common/reveal/Reveal";
+import FaqContainer from "./FaqContainer";
 
-const QandA = [
-  {
-    question: "What is Poker-Cash, and how does it work?",
-    answer:
-      "Yes, you can try us for free for 30 days. If you want, we’ll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.",
-  },
-  {
-    question: "Is Poker-Cash secure?",
-    answer: "Answer here",
-  },
-  {
-    question: "What poker apps are compatible with Poker-Cash?",
-    answer: "Answer here",
-  },
-  {
-    question:
-      "Are the exclusive deals and discounts tailored to my poker preferences?",
-    answer: "Answer here",
-  },
-  {
-    question: "How can I get in touch with Poker-Cash support?",
-    answer: "Answer here",
-  },
-  {
-    question: "What sets Poker-Cash apart from other poker tracking platforms?",
-    answer: "Answer here",
-  },
+const tabs = [
+  { id: 1, title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: "📑", path: "/faq_container/legal" },
+  { id: 2, title: "RAKEBACK.COM", icon: "🃏", path: "/faq_container/rakeback" },
+  { id: 3, title: "MY ACCOUNT", icon: "📝", path: "/faq_container/account" },
+  { id: 4, title: "BANKING", icon: "🏦", path: "/faq_container/banking" },
+  { id: 5, title: "RESPONSIBLE GAMING", icon: "🤝", path: "/faq_container/responsible" },
+  { id: 6, title: "UNFAIR GAMEPLAY", icon: "⚖️", path: "/faq_container/unfair" },
+  { id: 7, title: "PROMOTIONS", icon: "🎉", path: "/faq_container/promotions" },
+  { id: 8, title: "REFUNDS & WINNINGS", icon: "💸🏆", path: "/faq_container/refunds" },
 ];
 
 const FAQ = () => {
-  const [open, setOpen] = useState(null);
-
-  const toggleAnswer = (index) => {
-    setOpen(open === index ? null : index);
-  };
+  const location = useLocation();
 
   return (
-    <div id="faq" className={`${styles.faq_container}`}>
+    <div id="faq" className={styles.faq_container}>
       <div className={`${styles.faq_content} container_max`}>
         <Reveal>
           <div className={styles.faq_header}>
-            <div className={styles.head}>Frequently asked questions</div>
-            {/* <div className={styles.subhead}>
-              Lorem ipsum dolor sit amet consectetur.
-            </div> */}
+            <div className={styles.head}>Frequently Asked Questions</div>
+            <div className={styles.subhead}>
+              Select a category below to find relevant questions.
+            </div>
           </div>
         </Reveal>
 
-        <div className={styles.faq_item_container}>
-          {QandA.map((qa, index) => {
-            return (
-              <div
-                className={`${styles.faq_item} ${open === index ? styles.open : ""}`}
-                key={index}
-                onClick={() => toggleAnswer(index)}
-              >
-                <Reveal>
-                  <div className={styles.item_content}>
-                    <div className={styles.q_and_ans}>
-                      <div className={styles.question}>{qa.question}</div>
-                      {open === index ? (
-                        <div className={styles.ans}>{qa.answer}</div>
-                      ) : null}
-                    </div>
-
-                    <div className={styles.faq_icon}>
-                      {/* Show plus or minus icon inside a circle */}
-                      <div className={styles.icon}>
-                        {open === index ? <HideIcon /> : <ShowIcon />}
-                      </div>
-                    </div>
+        <div className={styles.main_container}>
+          <div className={styles.tabs_container}>
+            <div className={styles.tabs}>
+              {tabs.map((tab) => (
+                <Link
+                  key={tab.id}
+                  to={tab.path} // Links correctly to the path
+                  className={`${styles.tab_box} ${
+                    location.pathname === tab.path ? styles.active_box : ""
+                  }`}
+                >
+                  <div className={styles.tab}>
+                    <div className={styles.tab_icon}>{tab.icon}</div>
+                    <div className={styles.tab_title}>{tab.title}</div>
                   </div>
-                </Reveal>
-              </div>
-            );
-          })}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+      <Routes>
+        <Route path="/faq_container/*" element={<FaqContainer />} />
+      </Routes>
         </div>
       </div>
     </div>
   );
 };
-
-const ShowIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-    <path
-      d="M12 8V16M8 12H16"
-      stroke="#28a745"  /* Green color for plus sign */
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
-
-const HideIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-    <path
-      d="M8 12H16"
-      stroke="#e74c3c"  /* Red color for minus sign */
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-);
 
 export default FAQ;

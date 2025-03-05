@@ -4,3 +4,6 @@
 	gap: 1.25rem;
 
 }
+@media (max-width: 480px) {
+.offer_cards_container{ margin-top: -60px
+}}

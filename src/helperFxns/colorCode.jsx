@@ -1,5 +1,5 @@
 import pokerbaazi from "../assets/pokerbaazi.png";
-import JUNGLEEPOKER from "../assets/JungleePokerimg.svg";
+import JUNGLEEPOKER from "../assets/jungleepokerlogo.svg";
 import depositt from "../assets/depositt.svg";
 import withdrawal from "../assets/withdrawal.svg";
 import mpllogo from "../assets/mpllogo.svg";

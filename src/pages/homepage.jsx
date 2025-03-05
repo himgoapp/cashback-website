@@ -11,6 +11,7 @@ import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
 import Footer from "../components/common/footer/footer";
 import MainContainer from "../layout/mainContainer";
 import ScrollToTopButton from "./ScrollToTopButton ";
+import TrustedBrands from "../components/home/trustedbrands/trustedBrands"
 const Homepage = () => {
   return (
     <div className={styles.homepage_container}>
@@ -18,6 +19,7 @@ const Homepage = () => {
       <MainContainer>
         <Banner />
         <AboutUs />
+        <TrustedBrands/>
         <Deals />
         <Getstarted />
         <Featured />

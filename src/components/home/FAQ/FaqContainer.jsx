@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import styles from "./faq_container.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
 import Reveal from "../../common/reveal/Reveal";
 
 const faqData = {
-  1: [
+  legal: [
     {
       question: "What is the legality of online poker?",
       answer:
@@ -32,7 +33,7 @@ const faqData = {
         "Most poker sites prohibit the use of third-party software that provides an unfair advantage. Using such software may result in account suspension.",
     },
   ],
-  2: [
+  rakeback: [
     {
       question: "How does Rakeback.com work?",
       answer:
@@ -59,7 +60,7 @@ const faqData = {
         "Rakeback is a direct percentage of the rake paid back to you, while VIP rewards are typically earned through a loyalty program based on points accumulated during gameplay.",
     },
   ],
-  3: [
+  account: [
     {
       question: "How can I recover my account if I forget my login details?",
       answer:
@@ -86,7 +87,7 @@ const faqData = {
         "You can check your account balance by visiting the 'Cashier' or 'Balance' section in your account dashboard. This will show your current funds and available balance.",
     },
   ],
-  4: [
+  banking: [
     {
       question: "What payment methods can I use to deposit funds?",
       answer:
@@ -113,7 +114,7 @@ const faqData = {
         "Deposits are usually processed instantly for e-wallets and credit cards, but bank transfers may take a few business days to be completed.",
     },
   ],
-  5: [
+  responsible: [
     {
       question: "What should I do if I feel I am gambling too much?",
       answer:
@@ -140,7 +141,7 @@ const faqData = {
         "Many poker sites offer links to organizations that specialize in gambling addiction support. Resources can include hotlines, counseling, and self-help guides.",
     },
   ],
-  6: [
+  unfair: [
     {
       question: "What is unfair gameplay?",
       answer:
@@ -167,7 +168,7 @@ const faqData = {
         "Poker sites implement various security measures, including software monitoring, anti-cheat systems, and player behavior analysis to prevent unfair gameplay.",
     },
   ],
-  7: [
+  promotions: [
     {
       question: "How do I claim rakeback promotions?",
       answer:
@@ -195,7 +196,7 @@ const faqData = {
         "Yes, there may be specific requirements such as playing a certain number of hands, reaching a minimum deposit amount, or qualifying through an affiliate program. Always review the promotion's terms to ensure eligibility.",
     },
   ],
-  8: [
+  refunds: [
     {
       question: "How do I claim my winnings?",
       answer:
@@ -224,28 +225,37 @@ const faqData = {
   ],
 };
 
+const tabs = [
+  { id: "legal", title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: "📑" },
+  { id: "rakeback", title: "RAKEBACK.COM", icon: "🃏" },
+  { id: "account", title: "MY ACCOUNT", icon: "📝" },
+  { id: "banking", title: "BANKING", icon: "🏦" },
+  { id: "responsible", title: "RESPONSIBLE GAMING", icon: "🤝" },
+  { id: "unfair", title: "UNFAIR GAMEPLAY", icon: "⚖️" },
+  { id: "promotions", title: "PROMOTIONS", icon: "🎉" },
+  { id: "refunds", title: "REFUNDS & WINNINGS", icon: "💸🏆" }
+];
+
 const FaqContainer = () => {
+  const { category } = useParams(); 
+  const navigate = useNavigate(); 
   const [faqList, setFaqList] = useState([]);
   const [open, setOpen] = useState(null);
-  const [activeTab, setActiveTab] = useState(1);
-
-  const tabs = [
-    { id: 1, title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: "📑" },
-    { id: 2, title: "RAKEBACK.COM", icon: "🃏" },
-    { id: 3, title: "MY ACCOUNT", icon: "📝" },
-    { id: 4, title: "BANKING", icon: "🏦" },
-    { id: 5, title: "RESPONSIBLE GAMING", icon: "🤝" },
-    { id: 6, title: "UNFAIR GAMEPLAY", icon: "⚖️" },
-    { id: 7, title: "PROMOTIONS", icon: "🎉" },
-    { id: 8, title: "REFUNDS & WINNINGS", icon: "💸🏆" },
-  ];
 
   useEffect(() => {
-    setFaqList(faqData[activeTab]);
-  }, [activeTab]);
+    if (!category || !faqData[category]) {
+      navigate("/faq_container/legal", { replace: true });
+    } else {
+      setFaqList(faqData[category]);
+    }
+    setOpen(null);
+  }, [category, navigate]);
+  const handleTabClick = (tabId) => {
+    navigate(`/faq_container/${tabId}`); 
+  };
 
   const toggleAnswer = (index) => {
-    setOpen(open === index ? null : index); // Toggle open state
+    setOpen((prevOpen) => (prevOpen === index ? null : index));
   };
 
   return (
@@ -255,7 +265,7 @@ const FaqContainer = () => {
         <div className={styles.faq_container}>
           <Reveal>
             <div className={styles.faq_header}>
-              <div className={styles.head}>Frequently asked questions</div>
+              <div className={styles.head}>Frequently Asked Questions</div>
             </div>
           </Reveal>
 
@@ -264,10 +274,8 @@ const FaqContainer = () => {
               {tabs.map((tab) => (
                 <div
                   key={tab.id}
-                  className={`${styles.tab_box} ${
-                    activeTab === tab.id ? styles.active_box : ""
-                  }`}
-                  onClick={() => setActiveTab(tab.id)}
+                  className={`${styles.tab_box} ${category === tab.id ? styles.active_box : ""}`}
+                  onClick={() => handleTabClick(tab.id)}
                 >
                   <div className={styles.tab}>
                     <div className={styles.tab_icon}>{tab.icon}</div>
@@ -279,44 +287,36 @@ const FaqContainer = () => {
           </div>
 
           <div className={styles.faq_item_container}>
-            {faqList.map((qa, index) => (
-              <div
-                className={`${styles.faq_item} ${
-                  open === index ? styles.open : ""
-                }`}
-                key={index}
-                onClick={() => toggleAnswer(index)}
-              >
-                <Reveal>
-                  <div className={styles.item_content}>
-                    <div className={styles.q_and_ans}>
-                      <div className={styles.question}>
-                        {index + 1}. {qa.question}
+            {faqList.length > 0 ? (
+              faqList.map((qa, index) => (
+                <div
+                  className={`${styles.faq_item} ${open === index ? styles.open : ""}`}
+                  key={index}
+                  onClick={() => toggleAnswer(index)}
+                >
+                  <Reveal>
+                    <div className={styles.item_content}>
+                      <div className={styles.q_and_ans}>
+                        <div className={styles.question}>{index + 1}. {qa.question}</div>
+                        {open === index && <div className={styles.ans}>{qa.answer}</div>}
                       </div>
-                      {open === index ? (
-                        <div className={styles.ans}>{qa.answer}</div>
-                      ) : null}
-                    </div>
-                    <div className={styles.faq_icon}>
-                      <div className={styles.icon}>
-                        {open === index ? <HideIcon /> : <ShowIcon />}
+                      <div className={styles.faq_icon}>
+                        <div className={styles.icon}>
+                          {open === index ? <HideIcon /> : <ShowIcon />}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Reveal>
-              </div>
-            ))}
+                  </Reveal>
+                </div>
+              ))
+            ) : (
+              <div className={styles.no_faq}>No FAQs available for this category.</div>
+            )}
           </div>
         </div>
       </div>
 
-      <div
-        style={{
-          width: "100%",
-          backgroundColor: "#0052cc",
-        }}
-        className="flex_center"
-      >
+      <div className="flex_center" style={{ width: "100%", backgroundColor: "#0052cc" }}>
         <Footer />
       </div>
     </>
@@ -325,38 +325,15 @@ const FaqContainer = () => {
 
 export default FaqContainer;
 
+
 const ShowIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-    <path
-      d="M12 8V16M8 12H16"
-      stroke="#28a745"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M12 8V16M8 12H16" stroke="#28a745" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );
 
 const HideIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
-    fill="none"
-  >
-    <path
-      d="M8 12H16"
-      stroke="#e74c3c"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+    <path d="M8 12H16" stroke="#e74c3c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
   </svg>
 );

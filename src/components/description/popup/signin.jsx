@@ -11,7 +11,7 @@ import eyecross from "../../../assets/eyecrossblack.svg";
 import { loginOtp, loginVerify } from "../../../servicefile/authservice";
 import { UserContext } from "../../../App";
 import backgroundImg from "../../../assets/rl.svg"
-
+import backgroundAnimation from "../../../assets/Frame.gif"
 const PopupSignin = () => {
   const { setLoginTab, setUserData, setShowWelcomePopup, userData } =
     useContext(UserContext);
@@ -92,13 +92,12 @@ const PopupSignin = () => {
   return (
     <div className={styles.PopupWithOpacity}>
       <div className={styles.PopupSigninWrapperTwo}>
-      <div
-  className={styles.PopupSigininContainer}
-  // style={{
-  //   backgroundImage: `url(${backgroundImg})`,
+      <div className={styles.PopupSigininContainer}
+      
+      >
+     
+      {/* <video className={styles.bg_video} src={backgroundAnimation} autoPlay loop muted /> */}
 
-  // }}
->
 
 
           <div className={styles.PopupSigninContent} 
@@ -111,6 +110,9 @@ const PopupSignin = () => {
             className={styles.rakelogo_container}
           >
             {rakelogo}
+
+          </div>
+          <div>
           </div>
           <button
             style={{
@@ -200,33 +202,6 @@ const PopupSignin = () => {
                   className={styles.popup_signin_action}
                   style={{ width: "100%" }}
                 >
-                  {/* <OtpInput
-                    value={otp}
-                    onChange={setOtp}
-                    numInputs={6}
-                    onKeyDown={(e) => {
-                      if (e.key === "Enter") verifyOtp();
-                    }}
-                    separator={<span>-</span>}
-                    inputStyle={{
-                      width: "2.5rem",
-                      height: "2.5rem",
-                      margin: "0 0.5rem",
-                      fontSize: "1.25rem", 
-                      textAlign: "center",
-                      border: "2px solid #ccc", 
-                      borderRadius: "8px",
-                      boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
-                      transition: "all 0.3s ease",
-                      fontWeight: "600",
-                    }}
-                    inputFocusStyle={{
-                      border: "2px solid #4caf50", 
-                      boxShadow: "0 0 10px rgba(76, 175, 80, 0.5)", 
-                    }}
-                    autoFocus
-                    renderInput={(props) => <input {...props} />}
-                  /> */}
                   <div style={{ position: "relative" }}>
                     <OtpInput
                       value={otp}
@@ -303,35 +278,6 @@ const PopupSignin = () => {
             )}
           </div>
         </div>
-        {/* <div
-          className={styles.PopupImageContainer}
-          style={{ position: "relative" }}
-        >
-          <img src={signimg} alt="" />
-          <div
-            style={{
-              position: "absolute",
-              top: "1.5rem",
-              left: "50%",
-              transform: "translateX(-50%)",
-            }}
-          >
-            {rakelogo}
-          </div>
-          <button
-            style={{
-              position: "absolute",
-              top: "1.5rem",
-              right: "1.5rem",
-              background: "transparent",
-              border: "none",
-              padding: "0",
-            }}
-            onClick={() => setLoginTab(false)}
-          >
-            {closeIcon}
-          </button>
-        </div> */}
       </div>
       <div className={styles.opacityDiv} 
       // onClick={() => setLoginTab(false)}
