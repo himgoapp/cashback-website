@@ -32,7 +32,7 @@
 .transactions_container {
   width: 68%;
   padding: 20px;
-  margin-top: -387px;
+  margin-top: -363px;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -64,6 +64,8 @@
 .transaction_table th {
   font-weight: bold;
   color: #555;
+  font-size: 16px;
+  
 }
 .transaction_table 
 
@@ -77,15 +79,17 @@
 }
 
 .transaction_type {
-  font-weight: bold;
+  font-weight:600;
+  font-size: 14px;
 }
 
 .transaction_arrow {
-  font-size: 1.2rem;
+  font-size: 14px;
 }
 
 .amount {
   font-weight: bold;
+  font-size: 14px;
 }
 
 .status {
@@ -97,7 +101,7 @@
 
 .date {
   color: #777;
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
 .status-successful {
@@ -107,7 +111,7 @@
   background: #e3fcef;
   padding: 2px 5px;
   border-radius: 20px;
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .status-pending {
@@ -117,7 +121,7 @@ background: #fff8e1;
   padding: 2px 5px;
   border-radius: 20px;
 text-decoration: none;
-font-size: 13px;
+font-size: 14px;
 }
 
 .status-aborted {
@@ -126,7 +130,7 @@ font-weight: bold;
 padding: 2px 5px;
 border-radius: 20px;
 text-decoration: none;
-font-size: 13px;
+font-size: 14px;
 color: #e74c3c;
 }
 
@@ -147,21 +151,44 @@ color: #e74c3c;
   .table_container {
     margin-bottom: 20px;
     width: 100%;
-    overflow-x: auto; /* Enables horizontal scrolling */
+    /* overflow-x: auto;  */
   }
 
   .table_container table {
     width: 100%;
     min-width: 600px;
     display: block;
-    overflow-x: auto;
   }
 
   .transactions_container {
     width: 100%;
     margin-top: 0px;
-    padding: 10px;
+  }
+  .amount{
+    font-size: 13px !important;
+  }
+  .transaction_heading{
+    font-size: 16px;
+  }
+  .transaction_type{
+    /* font-size: 13px; */
+    display: flex;
+  }
+  .typeOfTransaction_trans{
+    margin: 2px 0px 0 0;
+    font-size: 13px;
+  }
+  .transaction_table th {
+text-align: center;
+    font-size: 14px;
+  }
+  .date{
+    font-size: 13px;
+  }
+  .status-pending,.status-successful,.status-aborted{
+    font-size: 13px ;
   }
 }
+
 
 

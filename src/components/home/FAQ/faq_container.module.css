@@ -5,6 +5,7 @@
   width: 100%; /* Takes up full width within max-width constraint */
   padding: 2rem;
   box-sizing: border-box; /* Ensures padding is included in width calculation */
+  
 }
 
 .main_container {
@@ -55,7 +56,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 80%;
+
+    width: 80%;
+    max-width: 900px; 
+  
   margin: 0 auto;
   margin-bottom: 4rem;
 }
@@ -70,7 +74,8 @@
   padding: 1.3rem;
   border-radius: 10px;
   background-color: white;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 20px rgba(16, 24, 40, 0.15), 0px 6px 6px rgba(16, 24, 40, 0.1);
+
   transition: all 0.3s ease;
   margin-bottom: 12px;
 }
@@ -81,6 +86,7 @@
   justify-content: space-between;
   gap: 1.5rem;
   align-self: stretch;
+
 }
 
 .faq_item_container .faq_item:hover {
@@ -92,7 +98,7 @@
 .q_and_ans .question {
   color: #2c3e50;
   font-family: "Roboto", sans-serif;
-  font-size: 1.25rem;
+  font-size: 18px;
   font-weight: 600;
   line-height: 1.7rem;
 }
@@ -100,7 +106,7 @@
 .q_and_ans .ans {
   color: #2c3e50;
   font-family: "Roboto", sans-serif;
-  font-size: 1rem;
+  font-size: 14px;
   font-weight: 400;
   line-height: 1.6rem;
 }
@@ -159,6 +165,7 @@
 .tabs {
   display: flex;
   gap: 15px; /* Spacing between tabs */
+  
 }
 
 /* Individual Tab Box */
@@ -174,9 +181,9 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 140px;
-  min-width: 140px;
+  /* min-width: 140px; */
   height: auto;
-  min-height: 140px;
+  /* min-height: 140px; */
   cursor: pointer;
   flex: 0 0 auto;
   overflow: hidden;
@@ -186,7 +193,7 @@
 }
 
 .tab_title {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: bold;
   color: #0052cc;
   max-width: 90%;
@@ -204,8 +211,8 @@
 
 /* Active Tab */
 .active_box {
-  background: #0052cc;
-  color: white;
+  background: #ffbf00;
+  /* color: white; */
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
@@ -225,7 +232,7 @@
 
 .active_box .tab_icon,
 .active_box .tab_title {
-  color: white;
+  color: #0052cc;
 }
 
 .tabs_container::-webkit-scrollbar {
@@ -283,7 +290,7 @@
   .faq_container .faq_content {
     gap: 1.5rem;
     padding: 1rem;
-    max-width: 100%; /* Ensures container stays responsive */
+    max-width: 100%; 
   }
 
   .faq_header .head {
@@ -309,14 +316,14 @@
   }
 
   .tab_box {
-    min-width: 130px;
-    height: 90px;
+width: 100px;
+height: 100px;
   }
 }
 
 @media only screen and (max-width: 480px) {
   .faq_header .head {
-    font-size: 1.75rem;
+    font-size: 20px;
   }
 
   .faq_header .subhead {
@@ -327,13 +334,20 @@
     width: 100%;
     padding: 1rem;
   }
-
+.tab_title{
+  font-size: 10px;
+}
   .tabs_container {
     padding: 5px;
   }
-
-  .tab_box {
-    min-width: 120px;
-    height: 80px;
+  .faq_item .item_content{
+    flex-direction: row;
+    justify-content: center;
+  }
+  .q_and_ans .question{
+    font-size: 16px;
+  }
+  .q_and_ans .ans{
+    font-size: 14px;
   }
 }

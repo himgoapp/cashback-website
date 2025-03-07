@@ -205,7 +205,12 @@ const OfferCard = ({ product }) => {
                 <h3 className={styles.productTitle}>{product.name}</h3>
                 <p className={styles.availability}>✅ Available for players from your country</p>
                 <p className={styles.description}>{product.smallDescription.length > 90 ? product.smallDescription.slice(0, 150) + "..." : product.smallDescription}</p>
-                <div className={styles.rating}>⭐⭐⭐⭐⭐ 4.5 out of 5</div>
+				<div className={styles.rating_container}>
+  <span className={styles.stars}>⭐⭐⭐⭐⭐</span>
+  <span className={styles.rating_text}>4.5 out of 5</span>
+</div>
+
+
             </div>
             
             <div className={styles.buttonSection}>

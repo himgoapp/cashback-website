@@ -3,16 +3,23 @@ import { Link, Route, Routes, useLocation } from "react-router-dom";
 import styles from "./faq.module.css";
 import Reveal from "../../common/reveal/Reveal";
 import FaqContainer from "./FaqContainer";
-
+import bank from "../../../assets/bank.svg";
+import rakeback from "../../../assets/rackback.svg";
+import legal from "../../../assets/legal.svg";
+import myaccount from "../../../assets/myaccount.svg";
+import promotions from "../../../assets/promotions.svg";
+import responsible from "../../../assets/responsible gaiming.svg";
+import rewards from "../../../assets/reward.svg";
+import unfair from "../../../assets/unfair.svg";
 const tabs = [
-  { id: 1, title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: "📑", path: "/faq_container/legal" },
-  { id: 2, title: "RAKEBACK.COM", icon: "🃏", path: "/faq_container/rakeback" },
-  { id: 3, title: "MY ACCOUNT", icon: "📝", path: "/faq_container/account" },
-  { id: 4, title: "BANKING", icon: "🏦", path: "/faq_container/banking" },
-  { id: 5, title: "RESPONSIBLE GAMING", icon: "🤝", path: "/faq_container/responsible" },
-  { id: 6, title: "UNFAIR GAMEPLAY", icon: "⚖️", path: "/faq_container/unfair" },
-  { id: 7, title: "PROMOTIONS", icon: "🎉", path: "/faq_container/promotions" },
-  { id: 8, title: "REFUNDS & WINNINGS", icon: "💸🏆", path: "/faq_container/refunds" },
+  { id: 1, title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: legal, path: "/faq_container/legal" },
+  { id: 2, title: "RAKEBACK.COM", icon: rakeback, path: "/faq_container/rakeback" },
+  { id: 3, title: "MY ACCOUNT", icon:myaccount, path: "/faq_container/account" },
+  { id: 4, title: "BANKING", icon: bank, path: "/faq_container/banking" },
+  { id: 5, title: "RESPONSIBLE GAMING", icon: responsible, path: "/faq_container/responsible" },
+  { id: 6, title: "UNFAIR GAMEPLAY", icon: unfair, path: "/faq_container/unfair" },
+  { id: 7, title: "PROMOTIONS", icon:promotions, path: "/faq_container/promotions" },
+  { id: 8, title: "REFUNDS & WINNINGS", icon: rewards, path: "/faq_container/refunds" },
 ];
 
 const FAQ = () => {
@@ -42,7 +49,12 @@ const FAQ = () => {
                   }`}
                 >
                   <div className={styles.tab}>
-                    <div className={styles.tab_icon}>{tab.icon}</div>
+                    <div className={styles.tab_icon}>  <img
+                        src={tab.icon}
+                        alt={tab.title}
+                        width="35"
+                        height="35"
+                      /></div>
                     <div className={styles.tab_title}>{tab.title}</div>
                   </div>
                 </Link>

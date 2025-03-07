@@ -4,6 +4,14 @@ import styles from "./faq_container.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
 import Reveal from "../../common/reveal/Reveal";
+import bank from "../../../assets/bank.svg";
+import rakeback from "../../../assets/rackback.svg";
+import legal from "../../../assets/legal.svg";
+import myaccount from "../../../assets/myaccount.svg";
+import promotions from "../../../assets/promotions.svg";
+import responsible from "../../../assets/responsible gaiming.svg";
+import rewards from "../../../assets/reward.svg";
+import unfair from "../../../assets/unfair.svg";
 
 const faqData = {
   legal: [
@@ -226,19 +234,19 @@ const faqData = {
 };
 
 const tabs = [
-  { id: "legal", title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: "📑" },
-  { id: "rakeback", title: "RAKEBACK.COM", icon: "🃏" },
-  { id: "account", title: "MY ACCOUNT", icon: "📝" },
-  { id: "banking", title: "BANKING", icon: "🏦" },
-  { id: "responsible", title: "RESPONSIBLE GAMING", icon: "🤝" },
-  { id: "unfair", title: "UNFAIR GAMEPLAY", icon: "⚖️" },
-  { id: "promotions", title: "PROMOTIONS", icon: "🎉" },
-  { id: "refunds", title: "REFUNDS & WINNINGS", icon: "💸🏆" }
+  { id: "legal", title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: legal },
+  { id: "rakeback", title: "RAKEBACK.COM", icon: rakeback },
+  { id: "account", title: "MY ACCOUNT", icon: myaccount },
+  { id: "banking", title: "BANKING", icon: bank },
+  { id: "responsible", title: "RESPONSIBLE GAMING", icon: responsible },
+  { id: "unfair", title: "UNFAIR GAMEPLAY", icon: unfair },
+  { id: "promotions", title: "PROMOTIONS", icon: promotions },
+  { id: "refunds", title: "REFUNDS & WINNINGS", icon: rewards },
 ];
 
 const FaqContainer = () => {
-  const { category } = useParams(); 
-  const navigate = useNavigate(); 
+  const { category } = useParams();
+  const navigate = useNavigate();
   const [faqList, setFaqList] = useState([]);
   const [open, setOpen] = useState(null);
 
@@ -251,7 +259,7 @@ const FaqContainer = () => {
     setOpen(null);
   }, [category, navigate]);
   const handleTabClick = (tabId) => {
-    navigate(`/faq_container/${tabId}`); 
+    navigate(`/faq_container/${tabId}`);
   };
 
   const toggleAnswer = (index) => {
@@ -274,11 +282,21 @@ const FaqContainer = () => {
               {tabs.map((tab) => (
                 <div
                   key={tab.id}
-                  className={`${styles.tab_box} ${category === tab.id ? styles.active_box : ""}`}
+                  className={`${styles.tab_box} ${
+                    category === tab.id ? styles.active_box : ""
+                  }`}
                   onClick={() => handleTabClick(tab.id)}
                 >
                   <div className={styles.tab}>
-                    <div className={styles.tab_icon}>{tab.icon}</div>
+                    <div className={styles.tab_icon}>
+                      {/* {tab.icon} */}
+                      <img
+                        src={tab.icon}
+                        alt={tab.title}
+                        width="35"
+                        height="35"
+                      />
+                    </div>
                     <div className={styles.tab_title}>{tab.title}</div>
                   </div>
                 </div>
@@ -290,15 +308,21 @@ const FaqContainer = () => {
             {faqList.length > 0 ? (
               faqList.map((qa, index) => (
                 <div
-                  className={`${styles.faq_item} ${open === index ? styles.open : ""}`}
+                  className={`${styles.faq_item} ${
+                    open === index ? styles.open : ""
+                  }`}
                   key={index}
                   onClick={() => toggleAnswer(index)}
                 >
                   <Reveal>
                     <div className={styles.item_content}>
                       <div className={styles.q_and_ans}>
-                        <div className={styles.question}>{index + 1}. {qa.question}</div>
-                        {open === index && <div className={styles.ans}>{qa.answer}</div>}
+                        <div className={styles.question}>
+                          {index + 1}. {qa.question}
+                        </div>
+                        {open === index && (
+                          <div className={styles.ans}>{qa.answer}</div>
+                        )}
                       </div>
                       <div className={styles.faq_icon}>
                         <div className={styles.icon}>
@@ -310,13 +334,18 @@ const FaqContainer = () => {
                 </div>
               ))
             ) : (
-              <div className={styles.no_faq}>No FAQs available for this category.</div>
+              <div className={styles.no_faq}>
+                No FAQs available for this category.
+              </div>
             )}
           </div>
         </div>
       </div>
 
-      <div className="flex_center" style={{ width: "100%", backgroundColor: "#0052cc" }}>
+      <div
+        className="flex_center"
+        style={{ width: "100%", backgroundColor: "#0052cc" }}
+      >
         <Footer />
       </div>
     </>
@@ -325,15 +354,38 @@ const FaqContainer = () => {
 
 export default FaqContainer;
 
-
 const ShowIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path d="M12 8V16M8 12H16" stroke="#28a745" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+  >
+    <path
+      d="M12 8V16M8 12H16"
+      stroke="#28a745"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );
 
 const HideIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-    <path d="M8 12H16" stroke="#e74c3c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+  >
+    <path
+      d="M8 12H16"
+      stroke="#e74c3c"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
   </svg>
 );

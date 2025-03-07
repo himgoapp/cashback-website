@@ -46,7 +46,7 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
                   <tr key={index} className={styles.transaction_row}>
                     <td className={styles.transaction_type}>
                       <span className={styles.transaction_arrow}>{arrow}</span>
-                      <span>{transaction.typeOfTransaction}</span>
+                      <span className={styles.typeOfTransaction_trans}>{transaction.typeOfTransaction}</span>
                     </td>
                     <td className={styles.amount}>
                       ₹{transaction.actualAmount}

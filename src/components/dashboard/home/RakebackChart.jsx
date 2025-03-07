@@ -139,6 +139,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
         pointRadius: 6,
         pointHoverRadius: 8,
         fill: true,
+        fontSize:"12px",
         tension: 0.4,
       },
     ],
@@ -187,14 +188,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
       {kycPop && <KycPopup setKycPop={setKycPop} />}
 
       <div
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-          alignItems: "flex-start",
-          gap: "20px",
-          flexWrap: "wrap",
-        }}
+       className={styles.main_container}
       >
         <div
           style={{
@@ -208,7 +202,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
           <div className={styles.dashboard_card} style={{
             backgroundImage: `url(${backgroundImg})` }}>
             <div>
-              <div className={styles.dashboard_greeting}>Hello , {dashboardInfo.user.userName}</div>
+              <div className={styles.dashboard_greeting}>Hello, {dashboardInfo.user.userName}</div>
               {/* <div className={styles.dashboard_username}>
                 {dashboardInfo.user.userName}
               </div> */}
@@ -298,13 +292,14 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
             }}
             className={styles.withdrawal_container}
           >
+            <div className={styles.withdrawal_container_inner}></div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="26"
               height="24"
               viewBox="0 0 26 26"
               fill="none"
-              style={{ background: "white", borderRadius: "10px", marginTop: "20px" }}
+              className={styles.withdraw_icon}
             >
               <path
                 d="M17.1667 8.83358V5.18843C17.1667 4.32204 17.1667 3.88884 16.9842 3.62262C16.8247 3.39002 16.5778 3.23202 16.2997 3.18471C15.9815 3.13056 15.5882 3.31209 14.8016 3.67517L5.56147 7.93982C4.8599 8.26363 4.50912 8.42553 4.25219 8.67662C4.02506 8.8986 3.85168 9.16957 3.74532 9.46882C3.625 9.80732 3.625 10.1937 3.625 10.9664V16.1252M17.6875 15.6044H17.6979M3.625 12.1669L3.625 19.0419C3.625 20.2087 3.625 20.7921 3.85207 21.2377C4.05181 21.6297 4.37052 21.9484 4.76252 22.1482C5.20817 22.3752 5.79156 22.3752 6.95833 22.3752H19.0417C20.2084 22.3752 20.7918 22.3752 21.2375 22.1482C21.6295 21.9484 21.9482 21.6297 22.1479 21.2377C22.375 20.7921 22.375 20.2087 22.375 19.0419V12.1669M17.6875 15.6044H17.6979"
@@ -315,10 +310,11 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
               />
             </svg>
 
-            <div style={{ fontSize: "16px", marginTop: "10px" }}>Your Balance</div>
+            <div className={styles.wallet_balance_head}>Your Balance</div>
 
             <div
-              style={{ fontSize: "28px", fontWeight: "bold", margin: "5px 0", marginTop: "10px" }}
+           
+            className={styles.wallet_balance}
             >
               ₹
               {userWallet.wallet_balance
@@ -328,17 +324,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
 
             <button
               onClick={() => withdrawHit()}
-              style={{
-                marginTop: "10px",
-                background: "#003fb8",
-                color: "#ffbf00",
-                padding: "10px 30px",
-                borderRadius: "30px",
-                fontSize: "18px",
-                cursor: "pointer",
-                fontWeight: "bold",
-
-              }}
+              className={styles.withdrawal_button}
             >
               Withdraw
             </button>

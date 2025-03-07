@@ -24,7 +24,7 @@
 
 .NewPokerHead {
   color: white;
-  font-size: 1.25rem;
+  font-size: 22px;
   font-family: "Inter";
   font-weight: 600;
   line-height: 2.375rem;
@@ -32,11 +32,11 @@
 .submit {
   background: #ffbf00;
   color: #000;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  padding: 10px 20px;
+  padding: 12px 20px;
   border-radius: 30px;
-  margin-top: 2px;
+  margin-top: 0px;
 }
 .submit:hover {
   color: black;
@@ -229,7 +229,7 @@
     margin-top: 55px;
   }
 .submit{
-  font-size: 20px;
+  font-size: 16px;
 }
   .NewPokerCreate {
     flex-direction: column;
