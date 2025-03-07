@@ -119,7 +119,7 @@ const NewPoker = ({ setGetInfos }) => {
                   >
                     <div className={styles.SelectedValue}>
                       <img src={getPokerSiteImage(product.label)} alt={product.label} style={{ width:'24px',
-                        height:'24px',  viewBox: '0 0 24 24'}} />
+                        height:'20px',  viewBox: '0 0 24 24'}} />
                       <div>{product.label}</div>
                     </div>
                     <div>

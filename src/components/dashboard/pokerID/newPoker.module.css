@@ -34,9 +34,9 @@
   color: #000;
   font-size: 18px;
   font-weight: bold;
-  padding: 5px 15px;
+  padding: 10px 20px;
   border-radius: 30px;
-  margin-top: 5px;
+  margin-top: 2px;
 }
 .submit:hover {
   color: black;
@@ -257,7 +257,7 @@
     flex-direction: column;
     align-items: center;
     background: #0052cc;
-    padding-bottom: 120px;
+    padding-bottom: 88px;
     border: none;
     background-size: 814px;
     background-repeat: no-repeat;
@@ -265,9 +265,10 @@
  
   }
   .submit_button {
-    margin-top: 55px;
+    margin-top: 24px;
   }
 .submit{
+  padding: 6px 16px;
   font-size: 14px;
 }
   .NewPokerCreate {
@@ -289,6 +290,13 @@
 
   .SelectMenu {
     top: 3rem;
+  }
+  .SelectBtn{
+    padding: 2px 10px;
+  }
+  .SelectWrapper{
+    padding: 4.82px 10px;
+
   }
 }
 

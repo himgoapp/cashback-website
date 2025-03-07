@@ -19,7 +19,7 @@ const TrustedBrands = () => {
         { name: "WPTglobal" }
     ];
     const pokerSites = {
-        "Junglee Poker": "https://www.jungleerummy.com/",
+        "Junglee Poker": "https://www.jungleepoker.com/",
         "MPL": "https://www.mpl.live/",
         "Poker Baazi": "https://www.pokerbaazi.com/",
         "A23poker": "https://www.a23.com/",
@@ -35,8 +35,9 @@ const TrustedBrands = () => {
 
 
     return (
-        <div className={styles.main_container}>
-            <div className={styles.heading}>Trusted by great brands</div>     
+<>
+<div className={styles.heading}>Trusted by great brands</div>     
+
              <div className={styles.slider_container} ref={sliderRef}>
             <div className={styles.slider}>
                 {[...users, ...users].map((user, index) => (
@@ -58,8 +59,7 @@ const TrustedBrands = () => {
                 ))}
             </div>
         </div>
-        </div>
-
+     </>
     )
 };
 

@@ -144,21 +144,24 @@ color: #e74c3c;
   cursor: pointer;
 }
 @media (max-width: 480px) {
-
   .table_container {
-    margin-bottom: 20px; 
-    width: 100%; 
+    margin-bottom: 20px;
+    width: 100%;
+    overflow-x: auto; /* Enables horizontal scrolling */
+  }
+
+  .table_container table {
+    width: 100%;
+    min-width: 600px;
+    display: block;
+    overflow-x: auto;
   }
 
   .transactions_container {
-    width: 100%; 
-    margin-top: 0px; 
-    padding: 10px; 
+    width: 100%;
+    margin-top: 0px;
+    padding: 10px;
   }
 }
 
-.transactions_container li:hover {
-  background-color: #f1f1f1;
-  cursor: pointer;
-}
 

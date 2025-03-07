@@ -2,31 +2,42 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import styles from "./sidebar.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../../App";
-import Navbtn from "../../common/button/navbtn/navbtn";
-import { LogoutIcon } from "../../../assets/vectors";
-import {
-  PokerIcon,
-  TransactionsIcon,
-  verifyIcon,
-  logo,
-  HomeIcon,
-  closeIcon,
-  KYCIcon,
-  barIcon,
-  CameraIcon,
+import { 
+  PokerIcon, 
+  TransactionsIcon, 
+  KYCIcon, 
+  HomeIcon, 
+  closeIcon, 
+  logo 
 } from "../../../utils/sideBarIcon";
-import logout from "../../../assets/logout.svg"
+import logout from "../../../assets/logout.svg";
+
 const Sidebar = ({ active }) => {
-  const { showSidebar, setShowSidebar, mobile, userData, setUserData } =
-    useContext(UserContext);
+  const { showSidebar, setShowSidebar, userData } = useContext(UserContext);
   const [data, setData] = useState({});
-  const imageRef = useRef(null);
-  const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768); 
 
   useEffect(() => {
-    let currentValue = userData && userData.phoneNumber ? userData : {};
-    setData(currentValue);
-  }, [userData]);
+    setData(userData && userData.phoneNumber ? userData : {});
+
+    if (window.innerWidth < 768) {
+      setShowSidebar(false);
+    } else {
+      setShowSidebar(true); 
+    }
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+      if (window.innerWidth >= 768) {
+        setShowSidebar(true); 
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, [userData, setShowSidebar]);
 
   const onLogout = () => {
     localStorage.clear();
@@ -36,7 +47,7 @@ const Sidebar = ({ active }) => {
   return (
     <div
       className={styles.SidebarNavigation}
-      style={showSidebar ? { display: "inline-flex" } : { display: "none" }}
+      style={{ display: showSidebar || !isMobile ? "inline-flex" : "none" }} 
     >
       <div className={styles.Content}>
         <div className={styles.Nav}>
@@ -46,34 +57,16 @@ const Sidebar = ({ active }) => {
           <div className={styles.Navigation}>
             {[
               { icon: HomeIcon, text: "Home", link: "/dashboard" },
-              {
-                icon: PokerIcon,
-                text: "Poker IDs",
-                link: "/dashboard/pokerid",
-              },
-              // {
-              // 	icon: verifyIcon,
-              // 	text: "Verify Account",
-              // 	link: "/dashboard/verify-account",
-              // },
+              { icon: PokerIcon, text: "Poker IDs", link: "/dashboard/pokerid" },
               { icon: KYCIcon, text: "KYC", link: "/dashboard/kyc" },
-              {
-                icon: TransactionsIcon,
-                text: "My Transactions",
-                link: "/dashboard/mytransactions",
-              },
-              // {
-              // 	icon: verifyIcon,
-              // 	text: "Profile",
-              // 	link: "/dashboard/verify-account",
-              // },
+              { icon: TransactionsIcon, text: "My Transactions", link: "/dashboard/mytransactions" },
             ].map((nav, index) => {
               return (
                 <Link
+                  key={index}
                   to={nav.link}
-                  className={`${styles.NavItemBase} ${
-                    active === index && styles.active
-                  }`}
+                  className={`${styles.NavItemBase} ${active === index ? styles.active : ""}`}
+                  onClick={() => isMobile && setShowSidebar(false)} // Close only on mobile
                 >
                   <div className={styles.ItemContent}>
                     <div className={styles.BarChart01}>
@@ -86,44 +79,23 @@ const Sidebar = ({ active }) => {
             })}
           </div>
         </div>
+
         <div className={styles.Footer}>
           <div className={styles.AvatarLabelGroup}>
-            {/* <div
-							className={styles.ImageUploadContainer}
-							onClick={() => {
-								imageRef.current.click();
-							}}
-						>
-							<CameraIcon />
-							<input
-								type='file'
-								name='image'
-								id='image'
-								ref={imageRef}
-								style={{ display: "none" }}
-								accept='.jpg, .jpeg, .png, .svg'
-							/>
-						</div> */}
-
             <div className={styles.TextAndSupportingText}>
-              {data && data.userName ? data.userName : "Not filled!"}
-			  <button className={styles.Button}  onClick={() => onLogout()}>
-             <img src={logout} className={styles.logout_icon}/>
-			  </button>
+              {data?.userName || "Not filled!"}
+              <button className={styles.Button} onClick={onLogout}>
+                <img src={logout} className={styles.logout_icon} alt="Logout" />
+              </button>
             </div>
-
-            {/* <button className={styles.Button} onClick={() => onLogout()}>
-							Log out
-							<LogoutIcon />
-						</button> */}
           </div>
         </div>
-        <div
-          className={styles.CloseSidebar}
-          onClick={() => setShowSidebar(false)}
-        >
-          {closeIcon}
-        </div>
+
+        {isMobile && (
+          <div className={styles.CloseSidebar} onClick={() => setShowSidebar(false)}>
+            {closeIcon}
+          </div>
+        )}
       </div>
     </div>
   );

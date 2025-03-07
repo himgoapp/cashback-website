@@ -79,13 +79,13 @@
 .HeaderNavBtn {
 	width: 4rem;
 	height: 4rem;
-	border-radius: 50%; /* Makes the div circular */
-	overflow: hidden; /* Prevents image from overflowing */
+	border-radius: 50%; 
+	overflow: hidden; 
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	cursor: pointer;
-	border: 2px solid #0052cc; /* Optional border */
+	border: 2px solid #0052cc; 
   }
    
 
@@ -224,7 +224,7 @@
 	}
 
 	.Logo svg {
-		width: 2.0625rem;
+		width: 7.0625rem;
 		height: 2.75rem;
 	}
 
@@ -233,4 +233,11 @@
 		transform: translateY(15%);
 		
 	}
+}
+@media only screen and (max-width: 1024px) {
+.HeaderNavBtn{
+width: 2.5rem;
+height: 2.5rem;
+margin-top: -8px;
+}
 }

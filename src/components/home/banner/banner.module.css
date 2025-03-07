@@ -47,6 +47,7 @@
   margin-inline: auto;
   background: #ffbf00;
   color: black;
+  padding: 12px 20px;
 }
 .header_container .btn_container:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

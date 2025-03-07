@@ -99,3 +99,8 @@
 		display: none;
 	}
 }
+@media only screen and (max-width: 768px) {
+	.join_rakeback_container_wrapper {
+	margin-top: -70px;
+	}
+}

@@ -220,7 +220,8 @@
     height: 300px;
   }
   .events_container {
-    margin-left: 30px;
+    /* margin-left: 30px; */
+    display: none;
   }
   .chart_heading {
     margin-left: 50px;

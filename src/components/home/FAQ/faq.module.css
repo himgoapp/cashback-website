@@ -393,4 +393,19 @@
 	  font-size: 25px;
 	}
   }
-  
+  @media (max-width: 480px) {
+	.faq_container{
+		margin-top: -100px;
+	}
+  .faq_header .head{
+	font-size: 22px;
+  }
+  .faq_header .subhead{
+	font-size: 14px;
+	margin-top: -10px;
+
+  }
+  .tabs_container{
+	margin-top: -30px;
+  }
+}
