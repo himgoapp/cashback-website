@@ -66,7 +66,7 @@
 .howto_q .subhead {
   color: var(--Text-Blue, #3e3e59);
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Inter;
+  font-family: futura;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
@@ -116,7 +116,7 @@
 .item .text span {
   color: #0052cc;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Inter;
+  font-family: futura;
   font-size: 1.0625rem;
   font-style: normal;
   font-weight: 600;
@@ -125,7 +125,7 @@
 .item .text {
   color: #232334;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Inter;
+  font-family: futura;
   font-size: 1.0625rem;
   font-style: normal;
   font-weight: 600;
@@ -135,8 +135,8 @@
   align-self: stretch;
   color: #3e3e59;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Inter;
-  font-size: 14px;
+  font-family: futura;
+  font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.4775rem; /* 168.857% */
@@ -145,7 +145,7 @@
   align-self: stretch;
   color: #3e3e59;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: Inter;
+  font-family: futura;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -153,6 +153,7 @@
 }
 .step_container .header span {
   color: #0052cc;
+  font-family: futura;
 }
 .swiper {
   max-width: 480px;
@@ -194,7 +195,7 @@
     font-size: 1.375rem;
   }
   .howto_q .subhead {
-    font-size: 1rem;
+    font-size: 18px;
   }
   .howto_container .faq_container {
     width: 100%;
@@ -202,10 +203,10 @@
   }
 
   .item .text span {
-    font-size: 1rem;
+    font-size: 16px;
   }
   .item .text {
-    font-size: 1rem;
+    font-size: 16px;
   }
 
   .getstarted_content .image_container {

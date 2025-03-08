@@ -250,7 +250,7 @@ export const imagePicker = (productName) => {
     : productName === "Adda52"
     ? Adda52
     : productName === "ACRpoker"
-    ? pokerbaazi
+    ? ACRPOKER
     : productName === "CoinPoker"
     ? CoinPoker
     : productName === "WPTglobal"

@@ -132,8 +132,8 @@ const LatestNews = ({ userData }) => {
                           <div className={styles.cardMeta}>
                             <span className={styles.writer}>
                               {article.writer}
-                            </span>{" "}
-                            |{" "}
+                            </span>
+                            |
                             <span className={styles.date}>{article.date}</span>
                           </div>
                         </div>

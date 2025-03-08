@@ -27,7 +27,7 @@ const FAQ = () => {
 
   return (
     <div id="faq" className={styles.faq_container}>
-      <div className={`${styles.faq_content} container_max`}>
+      <div className={`${styles.faq_content} `}>
         <Reveal>
           <div className={styles.faq_header}>
             <div className={styles.head}>Frequently Asked Questions</div>

@@ -175,12 +175,16 @@
 	width: 100%;
 	padding: 2rem;
 	box-sizing: border-box;
-  }
+	margin-top: -40px;
+
+}
   
   .main_container {
 	display: flex;
 	justify-content: center;
 	background: white;
+	margin-top: -20px;
+
   }
   
   .faq_header {
@@ -194,7 +198,7 @@
   
   .faq_header .head {
 	color: #2c3e50;
-	font-family: "Poppins", sans-serif;
+	font-family: futura;
 	font-size: 3rem;
 	font-weight: 700;
 	line-height: 1.2;
@@ -205,7 +209,7 @@
   
   .faq_header .subhead {
 	color: #7f8c8d;
-	font-family: "Roboto", sans-serif;
+	font-family: futura;
 	font-size: 1.25rem;
 	font-weight: 400;
 	line-height: 1.8rem;
@@ -309,6 +313,7 @@
 	color: #0052cc;
 	max-width: 90%;
 	text-align: center;
+	font-family: futura;
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	white-space: normal;
@@ -395,13 +400,13 @@
   }
   @media (max-width: 480px) {
 	.faq_container{
-		margin-top: -100px;
+		margin-top: -60px;
 	}
   .faq_header .head{
 	font-size: 22px;
   }
   .faq_header .subhead{
-	font-size: 14px;
+	font-size: 16px;
 	margin-top: -10px;
 
   }

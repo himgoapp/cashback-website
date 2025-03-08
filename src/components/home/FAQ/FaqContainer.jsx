@@ -267,7 +267,7 @@ const FaqContainer = () => {
   };
 
   return (
-    <>
+    <div style={{overflow:"hidden"}}>
       <Navbar page="home" />
       <div className={styles.main_container}>
         <div className={styles.faq_container}>
@@ -348,7 +348,7 @@ const FaqContainer = () => {
       >
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

@@ -16,18 +16,20 @@
 	font-weight: 700;
 	color: var(--black-800, #212121);
 	font-feature-settings: "clig" off, "liga" off;
-	font-family: "Futura";
+	font-family: futura;
 	letter-spacing: -0.0375rem;
 }
 
 .type {
 	font-size: 13px; /* Adjusted font size */
 	margin-top: 2px;
+	font-family: futura;
 }
 
 .subhead {
 	font-size: 16px;
 	color: gray;
+	font-family: futura;
 }
 
 /* Wrapper for the Carousel to allow positioning of controls */
@@ -83,6 +85,7 @@
 	font-size: 14px;
 	color: gray;
 	display: flex;
+	font-family: futura;
 	justify-content: flex-start; /* Align the writer and date to the left */
 	gap: 10px; /* Optional, to add space between the writer and date */
 	margin-top: auto; /* Push this section to the bottom of the card */
@@ -93,17 +96,20 @@
 	font-size: 0.875rem;
 	color: var(--gray-900, #101828);
 	font-weight: 600;
+	font-family: futura;
 }
 
 .date {
 	color: var(--gray-600, #475467);
 	font-weight: 400;
+	font-family: futura;
 }
 
 .type {
 	font-size: 13px;
 	color: var(--gray-900, #101828); /* Ensures type color consistency */
 	font-weight: 600;
+	font-family: futura;
 }
 
 /* Style for the previous/next carousel arrows, inside the carouselWrapper */
@@ -142,11 +148,13 @@
 	font-size: 20px;
 	font-weight: 600;
 	color: var(--gray-900, #101828);
+	font-family: futura;
 }
 
 .para {
 	color: #3e3e59;
-	font-size: 0.875rem;
+	font-size:16px;
+	font-family: futura;
 }
 
 .writer {

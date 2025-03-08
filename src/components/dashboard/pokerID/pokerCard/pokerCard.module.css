@@ -9,7 +9,7 @@
 .PokerCard {
   width: 100%;
   max-width: 400px;
-  margin-bottom: 1.5rem;
+  margin-bottom: -1.3rem;
   border: 0.0625rem #eaecf0 solid;
   display: flex;
   flex-direction: column;
@@ -163,6 +163,8 @@
 @media only screen and (max-width: 480px) {
   .PokerCard {
     padding: 0.75rem;
+  margin-bottom: 0px;
+
   }
   .Text {
     font-size: 0.75rem;

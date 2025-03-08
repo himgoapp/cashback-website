@@ -43,7 +43,7 @@ const JoinRakeback = () => {
 									onClick={() => {
 										setLoginTab(true);
 									}}
-								/>
+									/>
 							)}
 						</div>
 						<div className={styles.icon1}>

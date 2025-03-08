@@ -20,6 +20,7 @@
     align-items: center;
     gap: 5.625rem;
     margin-left: 200px;
+    
 }
 
 /* Menu Container */
@@ -35,6 +36,8 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    font-family: 'Futura';
+
 }
 
 /* Burger Menu for Mobile */
@@ -58,8 +61,9 @@
 .menu_container .secondary_link{
     color: white;
     text-decoration: none;
-    font-weight: bold;
+    /* font-weight: bold; */
     font-size: 16px;
+    font-family: 'futura semi-bold';
 }
 /* Mobile Links Container */
 .link_mobile_container {
@@ -89,6 +93,7 @@
     font-weight: bold;
     font-size: 14px;
     border-radius: 30px;
+    font-family: futura;
 }
 .signin_button:hover{
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);

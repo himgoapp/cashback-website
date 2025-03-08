@@ -314,11 +314,11 @@
   .tabs_container {
     padding: 10px;
   }
-
   .tab_box {
-width: 100px;
-height: 100px;
-  }
+    width: 100px;
+    height: 100px;
+      }
+
 }
 
 @media only screen and (max-width: 480px) {
@@ -329,7 +329,10 @@ height: 100px;
   .faq_header .subhead {
     font-size: 1rem;
   }
-
+  .tab_box {
+    width: 100px;
+    height: 100px;
+      }
   .faq_container {
     width: 100%;
     padding: 1rem;

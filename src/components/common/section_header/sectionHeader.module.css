@@ -37,7 +37,7 @@
 .head_and_subhead .subhead {
 	color: #3e3e59;
 	text-align: center;
-	font-family: Inter;
+	font-family: futura;
 	font-size: 1.375rem;
 	font-style: normal;
 	font-weight: 400;
@@ -88,7 +88,7 @@
 	.head_and_subhead .subhead {
 		color: #3e3e59;
 		text-align: center;
-		font-family: Inter;
+		font-family: futura;
 		font-size: 1.25rem;
 		font-style: normal;
 		font-weight: 400;
@@ -112,5 +112,6 @@
 	}
 	.offer_subhead {
 		width: 100%;
+		margin-top: -15px;
 	}
 }

@@ -8,7 +8,7 @@ import offerbg from "../assets/offerbannerbg.png";
 import MainContainer from "../layout/mainContainer";
 const OfferAndDealsContainer = () => {
   return (
-    <>
+    <div style={{overflow:"hidden"}}>
       {/* <MainContainer> */}
       <Navbar page="offer" />
       <div style={{ position: "relative", marginTop: "4rem" }}>
@@ -16,7 +16,7 @@ const OfferAndDealsContainer = () => {
           <OfferAndDeal />
         </MainContainer>{" "}
         {/* banner background image */}
-        <div
+        {/* <div
           className=""
           style={{
             position: "absolute",
@@ -35,7 +35,7 @@ const OfferAndDealsContainer = () => {
               zIndex: -1,
             }}
           />
-        </div>{" "}
+        </div> */}
       </div>
       <MainContainer styles={{ padding: "0", paddingTop: "4rem" }}>
         <FAQ />
@@ -51,7 +51,7 @@ const OfferAndDealsContainer = () => {
         <Footer />{" "}
       </div>
       {/* </MainContainer> */}
-    </>
+    </div>
   );
 };
 
