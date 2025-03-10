@@ -50,6 +50,7 @@ const OfferCardContainer = ({ searchTerm }) => {
 							<OfferCard
 								fillBtn={(index + 1) % 2 === 0 ? false : true}
 								product={item}
+								index={index}
 							/>
 						
 					);

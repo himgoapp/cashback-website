@@ -1,16 +1,18 @@
 :root {
-  --primary-color: #ff6f61; /* Vibrant coral */
-  --secondary-color: #37474f; /* Deep gray */
-  --accent-color: #00bcd4; /* Bright cyan */
-  --background-color: #fefefe; /* Clean white */
-  --card-bg: #ffffff; /* Neutral card background */
-  --text-color: #212121; /* Dark gray */
-  --text-muted: #757575; /* Lighter gray */
-  --border-radius: 12px; /* Rounded corners */
+  --primary-color: #ff6f61;
+  --secondary-color: #37474f;
+  --accent-color: #00bcd4;
+  --background-color: #fefefe;
+  --card-bg: #ffffff;
+  --text-color: #212121;
+  --text-muted: #757575;
+  --border-radius: 12px;
   --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.1);
   --shadow-heavy: 0 8px 20px rgba(0, 0, 0, 0.2);
+  --shadow-premium: 0 4px 8px rgba(0, 0, 0, 0.06), 0 8px 16px rgba(0, 0, 0, 0.08); /* Premium shadow */
   --transition: 0.3s ease-in-out;
 }
+
 
 .latest_news {
   font-family: "Poppins", sans-serif;
@@ -35,6 +37,7 @@
 
 .tabs_container {
   margin-top: 20px;
+  
 }
 
 .tabList {
@@ -96,18 +99,22 @@
 }
 
 .news_card {
-  /* background-color: var(--card-bg); */
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-light);
+  box-shadow: var(--shadow-premium);
   overflow: hidden;
   transition: var(--transition);
   cursor: pointer;
   display: flex;
   flex-direction: column;
   height: 100%;
-  
+  background-color: var(--card-bg);
 }
-
+.news_card:hover {
+  transform: translateY(-8px); /* Slight lift effect */
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12), 0 16px 32px rgba(0, 0, 0, 0.14); /* Stronger shadow on hover */
+  background-color: var(--card-bg);
+  color: inherit;
+}
 .news_card a {
   text-decoration: none; /* Ensure links within news cards are not underlined */
 }

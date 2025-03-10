@@ -60,7 +60,7 @@ const PopupSignin = () => {
       }
       setLoading(false);
     } else {
-      toast.warn("Please fill your 10 digit phone number carefully!");
+      // toast.warn("Please fill your 10 digit phone number carefully!");
     }
   };
 
@@ -81,11 +81,11 @@ const PopupSignin = () => {
           navigate("/dashboard/verify-account");
         }
       } else {
-        toast.error(`${data.message}`);
+        // toast.error(`${data.message}`);
       }
       setLoading(false);
     } else {
-      toast.warn("please fill your otp carefully!");
+      // toast.warn("please fill your otp carefully!");
     }
   };
 

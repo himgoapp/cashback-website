@@ -5,7 +5,7 @@ import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
 import { getPokerSiteImage } from "../../../helperFxns/colorCode";
 
-const OfferCard = ({ product }) => {
+const OfferCard = ({ product,index }) => {
 	const navigate = useNavigate();
 	const { userData } = useContext(UserContext);
 
@@ -25,55 +25,63 @@ const OfferCard = ({ product }) => {
 	  
 	return (
 		<div className={styles.cardContainer}>
-			<div className={styles.logoContainer}>
-				<img
-					src={getPokerSiteImage(product.name)}
-					alt={`Logo of ${product.name}`}
-				/>
-			</div>
-
-			<div className={styles.contentSection}>
-				{product.offer && (
-					<div className={styles.offerBadge}>💰 {product.offer}</div>
-				)}
-				<h3 className={styles.productTitle}>{product.name}</h3>
-				<p className={styles.availability}>✅ Available for players from your country</p>
-				<p className={styles.description}>
-					{product.smallDescription.length > 150
-						? product.smallDescription.slice(0, 150) + "..."
-						: product.smallDescription}
-				</p>
-
-				<div className={styles.rating_container}>
-				<div className={styles.rating_container}>
-    <span className={styles.stars}>
-        <span className={styles.premium_star}>★</span>
-        <span className={styles.premium_star}>★</span>
-        <span className={styles.premium_star}>★</span>
-        <span className={styles.premium_star}>★</span>
-        <span className={styles.premium_star}>★</span>
-    </span>
-</div>
-
-    <span className={styles.rating_text}>4.5 out of 5</span>
-</div>
-
-
-			</div>
-
-			<div className={styles.buttonSection}>
-				<Navbtn
-					text={userData ? "Join" : "Sign Up"}
-					variant="filled"
-					onClick={onJoinClick}
-				/>
-				<Navbtn
-					text="Review"
-					variant="filled"
-					className={styles.reviewButton}
-				/>
-			</div>
+		{/* Number Tag */}
+		{/* <div className={styles.numberTag}>#{index + 1}</div> */}
+  
+		<div className={styles.logoContainer}>
+		  <img
+			src={getPokerSiteImage(product.name)}
+			alt={`Logo of ${product.name}`}
+		  />
 		</div>
+  
+		<div className={styles.contentSection}>
+		  {product.offer && (
+			<div className={styles.offerBadge}>💰 {product.offer}</div>
+		  )}
+		  <h3 className={styles.productTitle}>{product.name}</h3>
+		 	{/* <div className={styles.offer_bonus_rack}>
+		  <div className={styles.offer_bonus}>
+Deposit bonus ₹2,000
+</div>
+			<div  className={styles.offer_rack}>
+			Rakeback up to 48%
+</div>
+		  </div> */}
+		  <p className={styles.availability}>
+			✅ Available for players from your country
+		  </p>
+		  <p className={styles.description}>
+			{product.smallDescription.length > 150
+			  ? product.smallDescription.slice(0, 150) + "..."
+			  : product.smallDescription}
+		  </p>
+  
+		  {/* <div className={styles.rating_container}>
+			<span className={styles.stars}>
+			  <span className={styles.premium_star}>★</span>
+			  <span className={styles.premium_star}>★</span>
+			  <span className={styles.premium_star}>★</span>
+			  <span className={styles.premium_star}>★</span>
+			  <span className={styles.premium_star}>★</span>
+			</span>
+			<span className={styles.rating_text}>4.5 out of 5</span>
+		  </div> */}
+		</div>
+	
+		<div className={styles.buttonSection}>
+		  <Navbtn
+			text={userData ? "Join" : "Sign Up"}
+			variant="filled"
+			onClick={onJoinClick}
+		  />
+		  <Navbtn
+			text="Review"
+			variant="filled"
+			className={styles.reviewButton}
+		  />
+		</div>
+	  </div>
 	);
 };
 

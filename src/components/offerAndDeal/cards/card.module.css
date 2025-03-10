@@ -1,7 +1,6 @@
 .cardContainer {
   position: relative;
   width: 80%;
-  /* max-width: 80%; */
   background: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(10px);
   border-radius: 16px;
@@ -11,16 +10,15 @@
   justify-content: space-between;
   padding: 20px;
   margin: -30px auto 60px auto;
-  /* transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; */
-  /* border: 2px solid #ff6a00; */
   border: 1px solid #ffbf00;
-  /* background-clip: padding-box; */
+  transition: all 0.3s ease-in-out;
+  overflow: hidden;
 }
-
-/* .cardContainer:hover {
-  transform: translateY(-8px);
-  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.2);
-} */
+.cardContainer:hover {
+  transform: scale(1.03); 
+  box-shadow: 0px 12px 25px rgba(0, 0, 0, 0.25);
+  border: 1px solid #ffa500; 
+}
 .premium_star {
   color: #ffbf00; 
   font-size: 1.2em;
@@ -47,7 +45,27 @@ margin-left: 2px;
   flex: 1;
   padding: 0 20px;
 }
-
+.offer_bonus_rack{
+  display: flex;
+  /* justify-content: right; */
+  gap: 20px;
+}
+.offer_bonus{
+color: #0052cc;
+font-weight: bold;
+border: 2px solid black;
+border-radius: 12px;
+padding: 4px 10px;
+font-size: 12px;
+}
+.offer_rack{
+  font-size: 12px;
+color: #ffbf00;
+  font-weight: bold;
+  border:2px solid black;
+  border-radius: 12px;
+  padding: 4px 10px;
+}
 .offerBadge {
   background: linear-gradient(135deg, #ffb400, #ff6a00);
   color: #fff;
@@ -140,116 +158,84 @@ margin-left: 2px;
   background: #e2e6ea;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 }
+.numberTag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #ffcc00;
+  color: #000;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 14px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+
 @media (max-width: 768px) {
   .cardContainer {
-    width: 90%;
-    flex-direction: column;
-    padding: 16px;
-    text-align: center;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.18);
-    backdrop-filter: blur(12px);
-    box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.12);
-
-  }
-
-  .logoContainer {
-    margin-bottom: 14px;
+    padding: 10px;
+  
   }
 
   .logoContainer img {
-    width: 90px;
-    height: 90px;
+    width: 75px;
+    margin-top: -130px;
+    margin-left: -50px;
   }
 
-  .offerBadge {
-    font-size: 14px;
-    padding: 7px 12px;
-    border-radius: 8px;
-    background: linear-gradient(135deg, #ffb400, #ff6a00);
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
-  }
 
   .productTitle {
-    font-size: 22px;
-    font-weight: 700;
-    margin: 8px 0;
-    color: #222;
+  margin-left: -50px;
   }
 
   .availability {
-    font-size: 14px;
+    margin-left: -130px;
+    margin-top: 38px;
   }
 
   .description {
-    font-size: 14px;
-    color: #444;
-    margin-bottom: 12px;
-    line-height: 1.5;
+margin-left: -130px;
+font-size: 16px;
   }
-
-  .rating_container {
-    font-size: 16px;
-  }
-
-  .buttonSection {
-    flex-direction: row;
-    justify-content: center;
-    gap: 12px;
-    margin-top: 15px;
-  }
-
-  .buttonSection button {
-    width: 140px;
-    font-size: 15px;
-    padding: 10px 14px;
-    border-radius: 12px;
-    font-weight: 600;
-    transition: all 0.3s ease-in-out;
+  .numberTag {
+  margin-left: 520px;
   }
 }
 
 @media (max-width: 480px) {
   .cardContainer {
     width: 100%;
-    padding: 12px;
-    margin-top:15px;
+    padding: 15px;
+    height: 200px;
   }
-
   .logoContainer img {
-    width: 85px;
-    height: 85px;
+    margin-left: -65px;
   }
-
-  .offerBadge {
-    font-size: 12px;
-    padding: 6px 10px;
-  }
-
-  .productTitle {
-    font-size: 20px;
-    margin-top: -20px;
-  }
-
   .availability {
-    font-size: 13px;
+    margin-top: 20px;
   }
-
+  .productTitle{
+    margin-top: 30px;
+    margin-left: -75px;
+    font-size: 18px;
+  }
+  .logoContainer img {
+    width: 50px;
+    height: 50px;
+  }
   .description {
-    font-size: 13px;
-  }
-
-  .rating_container {
     font-size: 14px;
-  }
-
-  .buttonSection {
-    gap: 10px;
-  }
-
+      }
+  .numberTag {
+    margin-left: 300px;
+    }
   .buttonSection button {
-    width: 130px;
-    font-size: 14px;
-    padding: 9px 12px;
+    width: 80px;
+    font-size: 13px;
+    padding: 8px;
   }
+  .buttonSection {
+    margin-top: 0px;
+      }
 }
