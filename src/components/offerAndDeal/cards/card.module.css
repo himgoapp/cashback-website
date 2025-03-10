@@ -225,14 +225,19 @@ font-size: 16px;
     height: 50px;
   }
   .description {
-    font-size: 14px;
+    font-size: 14px; /* Adjust as needed */
+    color: #444;
+    line-height: 1.5em; /* Proper spacing between lines */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: normal;
     word-wrap: break-word;
-    max-height: 3.6em;
-    line-height: 1.2em;
+    margin-bottom: 15px;
+    font-family: futura;
   }
+  
 
   .numberTag {
     margin-left: 300px;
