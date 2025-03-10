@@ -206,7 +206,7 @@ font-size: 16px;
 @media (max-width: 480px) {
   .cardContainer {
     width: 100%;
-    padding: 15px;
+    padding: -5px;
     height: 200px;
   }
   .logoContainer img {

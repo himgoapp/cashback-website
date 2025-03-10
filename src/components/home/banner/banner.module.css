@@ -30,6 +30,7 @@
   font-size: 3rem;
   font-style: normal;
   font-weight: 700;
+  margin-top: 30px;
   line-height: 120%; /* 3.6rem */
   letter-spacing: -0.0625rem;
 }
@@ -40,6 +41,7 @@
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
+  margin-bottom: 10px;
   line-height: 2.5rem; /* 222.222% */
 }
 .header_container .btn_container {
