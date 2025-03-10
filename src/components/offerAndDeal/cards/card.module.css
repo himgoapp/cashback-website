@@ -216,9 +216,9 @@ font-size: 16px;
     margin-top: 20px;
   }
   .productTitle{
-    margin-top: 30px;
+    /* margin-top: 30px; */
     margin-left: -75px;
-    font-size: 18px;
+    font-size: 16px;
   }
   .logoContainer img {
     width: 50px;
@@ -226,7 +226,14 @@ font-size: 16px;
   }
   .description {
     font-size: 14px;
-      }
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    word-wrap: break-word;
+    max-height: 3.6em;
+    line-height: 1.2em;
+  }
+
   .numberTag {
     margin-left: 300px;
     }
@@ -239,3 +246,6 @@ font-size: 16px;
     margin-top: 0px;
       }
 }
+
+
+
