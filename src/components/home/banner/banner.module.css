@@ -162,8 +162,11 @@
   }
 }
 @media only screen and (max-width: 480px){
-.header_text_container{
-margin-top: -45px;
+.banner_container{
+  padding-bottom: 25px;
+}
+  .header_text_container{
+margin-top: -40px;
 }
 .header_text_container .head{
 font-size: 26px;
@@ -172,6 +175,9 @@ font-size: 26px;
   font-size: 16px;
 padding: 0 12px;
 }
+.btn_container {
+
+margin-bottom: 10px;}
 .image{
   margin-top: 20px !important;
 }
