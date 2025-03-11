@@ -84,7 +84,7 @@
 }
 
 .transaction_arrow {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .amount {
@@ -150,19 +150,18 @@ color: #e74c3c;
 @media (max-width: 480px) {
   .table_container {
     margin-bottom: 20px;
-    width: 350px;
+    width: 100%;
     padding: 10px;
     /* overflow-x: auto;  */
   }
 
   .table_container table {
     width: 100%;
-    min-width: 600px;
     display: block;
   }
 
   .transactions_container {
-    width: 100%;
+    width: 350px;
     margin-top: 0px;
   }
   .amount{
