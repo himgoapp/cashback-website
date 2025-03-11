@@ -149,6 +149,9 @@
 }
 
 @media (max-width: 480px) {
+  .rakeback_container{
+margin-left: 5px;
+ }
   .table_container {
     margin-bottom: 20px;
     width: 100%;

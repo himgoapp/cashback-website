@@ -155,6 +155,7 @@ text-decoration: none;
 }
 .SelectMenu .active {
   background-color: #e9eaeb;
+  color: black;
 }
 
 .InputWithLabel,
