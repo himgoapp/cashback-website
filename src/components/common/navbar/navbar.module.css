@@ -61,9 +61,9 @@
 .menu_container .secondary_link{
     color: white;
     text-decoration: none;
-    /* font-weight: bold; */
+    font-weight: bold;
     font-size: 16px;
-    font-family: 'futura semi-bold';
+    font-family:'Inter';
 }
 /* Mobile Links Container */
 .link_mobile_container {

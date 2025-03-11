@@ -189,7 +189,7 @@ const OfferAndRegistration = () => {
               />
               <Navbtn
                 text="Registration Instructions"
-                variant={"outlined_primary"}
+                variant={"primary"}
                 size={"small"}
                 style={{
                   width: "100%",

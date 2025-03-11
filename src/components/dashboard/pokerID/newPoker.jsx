@@ -7,7 +7,7 @@ import styles from "./newPoker.module.css"; // Import your CSS module
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { toast } from "react-toastify";
 import pokeridsheadericon from "../../../assets/pokeridsheadericon.svg";
-import {getPokerSiteImage} from "../../../helperFxns/colorCode"
+import { getPokerSiteImage } from "../../../helperFxns/colorCode"
 import { UserContext } from "../../../App";
 import { color } from "framer-motion";
 import backgroundImg from "../../../assets/pokeridillustration.png"
@@ -29,9 +29,9 @@ const NewPoker = ({ setGetInfos }) => {
 
   const getProductsInfo = async () => {
     const res = await getProductsSimple();
-    let mappedValue = res.map((item) => {
+    let mappedValue = res && res.length > 0 ? res.map((item) => {
       return { value: item._id, label: item.name };
-    });
+    }) : [];
     setAllProductIds(mappedValue);
   };
 
@@ -93,7 +93,7 @@ const NewPoker = ({ setGetInfos }) => {
   //         return pokerbaazi;
   //     default:
   //       return pokerIdIcon; 
-   
+
   //   }
   // };
 
@@ -105,7 +105,8 @@ const NewPoker = ({ setGetInfos }) => {
   return (
     <div className={styles.NewPokerContainer} >
       <div className={styles.NewPokerContent} style={{
-      backgroundImage: `url(${backgroundImg})` }}>
+        backgroundImage: `url(${backgroundImg})`
+      }}>
         <div className={styles.NewPokerHead}>Add New Poker ID</div>
         <div className={styles.NewPokerCreate}>
           <div className={styles.NewPokerCreate}>
@@ -118,8 +119,10 @@ const NewPoker = ({ setGetInfos }) => {
                     onClick={() => setShowPokerMenu(!showPokerMenu)}
                   >
                     <div className={styles.SelectedValue}>
-                      <img src={getPokerSiteImage(product.label)} alt={product.label} style={{ width:'24px',
-                        height:'20px',  viewBox: '0 0 24 24'}} />
+                      <img src={getPokerSiteImage(product.label)} alt={product.label} style={{
+                        width: '24px',
+                        height: '20px', viewBox: '0 0 24 24'
+                      }} />
                       <div>{product.label}</div>
                     </div>
                     <div>
@@ -142,7 +145,7 @@ const NewPoker = ({ setGetInfos }) => {
                     className={styles.SelectBtn}
                     onClick={() => setShowPokerMenu(!showPokerMenu)}
                   >
-                    <div>Select Poker Site</div>
+                    <div className={styles.select_poker_site}>Select Poker Site</div>
                     <div>
                       <svg
                         width='24'
@@ -173,8 +176,10 @@ const NewPoker = ({ setGetInfos }) => {
                               className={item.value === productId ? styles.active : ""}
                               key={index}
                             >
-                                <img src={getPokerSiteImage(item.label)} alt={item.label} style={{ width:'24px',
-                        height:'24px',  viewBox: '0 0 24 24'}} />
+                              <img src={getPokerSiteImage(item.label)} alt={item.label} style={{
+                                width: '24px',
+                                height: '24px', viewBox: '0 0 24 24'
+                              }} />
                               {item.label}
                             </button>
                           );
@@ -228,20 +233,20 @@ const NewPoker = ({ setGetInfos }) => {
               )} */}
             </div>
           </div>
-<div className={styles.submit_button}>
-          <button
-           className={styles.submit}
-            onClick={() => {
-              onSubmitFxn();
-            }}
-           
-          >Submit</button>
+          <div className={styles.submit_button}>
+            <button
+              className={styles.submit}
+              onClick={() => {
+                onSubmitFxn();
+              }}
+
+            >Submit</button>
           </div>
-            {/* <img src={pokeridsheadericon} className={styles.pokeridsheadericon}/>  */}
-        
-          
+          {/* <img src={pokeridsheadericon} className={styles.pokeridsheadericon}/>  */}
+
+
         </div>
-        
+
       </div>
     </div>
   );

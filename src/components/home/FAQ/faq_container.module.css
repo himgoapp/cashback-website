@@ -337,6 +337,9 @@
     width: 100%;
     padding: 1rem;
   }
+  .faq_item_container{
+    width: 100%;
+  }
 .tab_title{
   font-size: 10px;
 }

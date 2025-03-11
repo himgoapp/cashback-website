@@ -150,7 +150,8 @@ color: #e74c3c;
 @media (max-width: 480px) {
   .table_container {
     margin-bottom: 20px;
-    width: 100%;
+    width: 350px;
+    padding: 10px;
     /* overflow-x: auto;  */
   }
 
