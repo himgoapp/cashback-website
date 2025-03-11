@@ -7,6 +7,7 @@
   font-family: "ProximaNovaA-Medium", sans-serif;
   color: #28282c;
 }
+
 .transaction_heading {
   font-size: 18px;
   font-weight: bold;
@@ -25,7 +26,7 @@
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  min-width: 350px; 
+  min-width: 350px;
   height: fit-content;
 }
 
@@ -55,7 +56,7 @@
   background: #f4f4f4;
 }
 
-.transaction_table th, 
+.transaction_table th,
 .transaction_table td {
   padding: 8px 8px;
   border-bottom: 1px solid #ddd;
@@ -65,11 +66,10 @@
   font-weight: bold;
   color: #555;
   font-size: 16px;
-  
-}
-.transaction_table 
 
-.transaction_table tbody tr:nth-child(even) {
+}
+
+.transaction_table .transaction_table tbody tr:nth-child(even) {
   background: #fafafa;
 }
 
@@ -79,7 +79,7 @@
 }
 
 .transaction_type {
-  font-weight:600;
+  font-weight: 600;
   font-size: 14px;
 }
 
@@ -115,31 +115,31 @@
 }
 
 .status-pending {
-font-weight: bold;
-background: #fff8e1;
+  font-weight: bold;
+  background: #fff8e1;
   color: #f39c12;
   padding: 2px 5px;
   border-radius: 20px;
-text-decoration: none;
-font-size: 14px;
+  text-decoration: none;
+  font-size: 14px;
 }
 
 .status-aborted {
-background: #fdecea;
-font-weight: bold;
-padding: 2px 5px;
-border-radius: 20px;
-text-decoration: none;
-font-size: 14px;
-color: #e74c3c;
+  background: #fdecea;
+  font-weight: bold;
+  padding: 2px 5px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 14px;
+  color: #e74c3c;
 }
 
 @media (max-width: 768px) {
 
   .transactions_container {
-    width: 55%; 
-    margin-top: -355px; 
-    padding: 10px; 
+    width: 55%;
+    margin-top: -355px;
+    padding: 10px;
   }
 }
 
@@ -147,48 +147,56 @@ color: #e74c3c;
   background-color: #f1f1f1;
   cursor: pointer;
 }
+
 @media (max-width: 480px) {
   .table_container {
     margin-bottom: 20px;
     width: 100%;
     padding: 10px;
-    /* overflow-x: auto;  */
+    overflow-x: auto; 
   }
 
   .table_container table {
     width: 100%;
     display: block;
   }
-
+ 
   .transactions_container {
-    width: 350px;
+    width: 350px !important;
     margin-top: 0px;
   }
-  .amount{
-    font-size: 13px !important;
+
+  .amount {
+    font-size: 12px !important;
   }
-  .transaction_heading{
-    font-size: 16px;
+
+  .transaction_heading {
+    font-size: 15px;
   }
-  .transaction_type{
+
+  .transaction_type {
     /* font-size: 13px; */
     display: flex;
   }
-  .typeOfTransaction_trans{
-    margin: 2px 0px 0 0;
-    font-size: 13px;
+
+  .typeOfTransaction_trans {
+    margin: 4px 0px 0 0;
+    font-size: 12px;
   }
+
   .transaction_table th {
-text-align: center;
-    font-size: 14px;
+    text-align: center;
+    font-size: 12px;
+    padding: 5px;
   }
-  .date{
-    font-size: 13px;
+
+  .date {
+    font-size: 12px;
   }
-  .status-pending,.status-successful,.status-aborted{
-    font-size: 13px ;
+
+  .status-pending,
+  .status-successful,
+  .status-aborted {
+    font-size: 12px;
   }
 }
-
-
-

@@ -66,7 +66,7 @@ const Sidebar = ({ active }) => {
                   key={index}
                   to={nav.link}
                   className={`${styles.NavItemBase} ${active === index ? styles.active : ""}`}
-                  onClick={() => isMobile && setShowSidebar(false)} // Close only on mobile
+                  onClick={() => isMobile && setShowSidebar(false)} 
                 >
                   <div className={styles.ItemContent}>
                     <div className={styles.BarChart01}>
