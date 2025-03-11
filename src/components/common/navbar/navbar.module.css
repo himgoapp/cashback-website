@@ -106,9 +106,7 @@
     flex-direction: column;
     gap: 1rem;
 }
-.logo_container_pc{
-    /* margin-left: -30px; */
-}
+
 /* Mobile Header */
 .link_mobile_header {
     display: flex;
