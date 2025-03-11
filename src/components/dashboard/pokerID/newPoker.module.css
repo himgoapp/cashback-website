@@ -138,7 +138,7 @@ text-decoration: none;
 }
 .SelectMenu > button {
   padding: 0.7rem 1rem;
-  color: #101828;
+  color: black;
   display: flex;
   align-items: center;
   gap: 0.4rem;
