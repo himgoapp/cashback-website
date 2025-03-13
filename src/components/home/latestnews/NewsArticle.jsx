@@ -10,9 +10,9 @@ const NewArticle = () => {
   const { id } = useParams();
 
   return (
-    <>
+    <div style={{overflow:"hidden"}}>
       <Navbar page="home" />
-      <div className={styles.header_container}>Online Poker News</div>
+      {/* <div className={styles.header_container}>Online Poker News</div> */}
 
       <NewsArticlesFirstPage articleId={id} />
       <NewsArticlesSecondPage articleId={id} />
@@ -26,7 +26,7 @@ const NewArticle = () => {
       >
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

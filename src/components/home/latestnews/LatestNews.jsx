@@ -97,51 +97,37 @@ const LatestNews = ({ userData }) => {
               </Tab>
             </TabList>
           </div>
-
-          {/* Latest News Tab: Show news cards */}
           <div className={styles.news_section}>
             <div className={styles.content_layout}>
-              {/* News Cards on the Left */}
               <div className={styles.news_grid}>
                 {currentArticles &&
                   currentArticles.length > 0 &&
                   currentArticles.map((article) => (
-                    <Link
-                      to={`/article/${article.id}`}
-                      key={article.id}
-                      className={styles.card_link}
-                    >
-                      <div className={styles.news_card}>
-                        <img
-                          src={article.image}
-                          alt={article.heading}
-                          className={styles.news_image}
-                        />
-                        <div className={styles.cardContent}>
-                          <font className={styles.type}>
-                            {typeFullName(article.type)}
-                          </font>
-                          <font className={styles.heading_card}>
-                            {article.heading}
-                          </font>
-                          <p className={styles.para}>
-                            {article.content.length > 20
-                              ? article.content.slice(0, 90) + "..."
-                              : article.content}
-                          </p>
-                          <div className={styles.cardMeta}>
-                            <span className={styles.writer}>
-                              {article.writer}
-                            </span>
-                            |
-                            <span className={styles.date}>{article.date}</span>
-                          </div>
-                        </div>
+                    <Link to={`/article/${article.id}`} key={article.id} className={styles.card_link}>
+                    <div className={styles.news_card}>
+                      <div className={styles.news_image_wrapper}>
+                        <img src={article.image} alt={article.heading} className={styles.news_image} />
                       </div>
-                    </Link>
+                      <div className={styles.cardContent}>
+                        <div className={styles.cardMetaTop}>
+                          <span className={styles.type}>{article.type}</span>
+                          <span className={styles.date}>📅 {article.date}</span>
+                        </div>
+                  
+                        <h3 className={styles.heading_card}>{article.heading}</h3>
+                        <p className={styles.news_description}>{article.description}</p>
+                        <div className={styles.cardMeta}>
+                          <span className={styles.writer}>✍️ {article.writer}</span>
+                        </div>
+                  
+                    
+                      </div>
+                    </div>
+                  </Link>
+                  
+
                   ))}
               </div>
-              {/* Important Post Section on the Right */}
               <div className={styles.important_post}>
                 <h2 className={styles.important_post_heading}>
                   Important Posts

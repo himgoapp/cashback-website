@@ -44,14 +44,14 @@
 }
 
 .menu_items .item {
-  color: var(--neutraul-01-ddddd, #ddd);
+  color: white;
   text-align: right;
 
   /* Base (Bold)/L */
-  font-family: Karla;
-  font-size: 1rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 600;
   line-height: normal;
   letter-spacing: -0.02rem;
   text-decoration: none;
@@ -86,8 +86,8 @@
   color: #fff;
 
   /* Body 2/L */
-  font-family: Karla;
-  font-size: 1.125rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 1.6875rem;

@@ -140,6 +140,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
         pointHoverRadius: 8,
         fill: true,
         fontSize: "12px",
+        fontFamily:'"Roboto", sans-serif;',
         tension: 0.4,
       },
     ],

@@ -8,6 +8,7 @@ const newsArticles = [{
       writer: "XYZ",
       date: "21 Jan 2025",
       type: "latest",
+      description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },{
       id: 2,
       heading: "New Jersey Prepares Law to Regulate Sweepstakes Gaming",
@@ -18,6 +19,7 @@ const newsArticles = [{
       writer: "ABC",
       date: "25 Jan 2025",
       type: "latest",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },{
       id: 3,
       heading: "Hijack Poker: The First Legal Online Poker Room in Texas",
@@ -28,17 +30,19 @@ const newsArticles = [{
       writer: "PQR",
       date: "11 Jan 2025",
       type: "latest",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 4,
       heading: "Online Poker Sites in Georgia: Where to Play at 2025",
       content:
-        "Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada,...",
+        "Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and ",
       image:
         "https://cms.worldpokerdeals.com/assets/bb7975a9-9208-478e-8cdf-263b4c6a4a2a?width=600&height=355&format=webp&quality=75&fit=cover",
       writer: "XYZ",
       date: "15 Jan 2025",
       type: "blog",
+      description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 5,
@@ -50,6 +54,7 @@ const newsArticles = [{
       writer: "PQR",
       date: "10 Jan 2025",
       type: "blog",
+   description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 6,
@@ -61,6 +66,7 @@ const newsArticles = [{
       writer: "XYZ",
       date: "17 Jan 2025",
       type: "blog",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 7,
@@ -72,6 +78,7 @@ const newsArticles = [{
       writer: "ABC",
       date: "27 Jan 2025",
       type: "blog",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 8,
@@ -83,6 +90,8 @@ const newsArticles = [{
       writer: "PQR",
       date: "02 Jan 2025",
       type: "blog",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
+      
     },
     {
       id: 9,
@@ -94,6 +103,7 @@ const newsArticles = [{
       writer: "XYZ",
       date: "17 Jan 2025",
       type: "promotions",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 10,
@@ -105,6 +115,7 @@ const newsArticles = [{
       writer: "ABC",
       date: "12 Jan 2025",
       type: "promotions",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 11,
@@ -116,6 +127,8 @@ const newsArticles = [{
       writer: "PQR",
       date: "25 Jan 2025",
       type: "promotions",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
+
     },
     {
       id: 12,
@@ -127,6 +140,7 @@ const newsArticles = [{
       writer: "XYZ",
       date: "04 Jan 2025",
       type: "mtt",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 13,
@@ -138,6 +152,7 @@ const newsArticles = [{
       writer: "ABC",
       date: "28 Jan 2025",
       type: "mtt",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 14,
@@ -149,6 +164,7 @@ const newsArticles = [{
       writer: "PQR",
       date: "31 Jan 2025",
       type: "mtt",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 15,
@@ -160,6 +176,7 @@ const newsArticles = [{
       writer: "XYZ",
       date: "11 Jan 2025",
       type: "guide",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },{
       id: 16,
       heading: "Spin & Go: PokerStars vs. All Competitors",
@@ -170,6 +187,7 @@ const newsArticles = [{
       writer: "ABC",
       date: "22 Jan 2025",
       type: "guide",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },{
       id: 17,
       heading: "Flip&Go: Exclusive GGPoker Tournament Format",
@@ -180,6 +198,7 @@ const newsArticles = [{
       writer: "PQR",
       date: "17 Jan 2025",
       type: "guide",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },{
       id: 18,
       heading: "Scott Stewart wins the 2024 WPT World Championship Main Event",
@@ -190,6 +209,7 @@ const newsArticles = [{
       writer: "XYZ",
       date: "22 Jan 2025",
       type: "live",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },{
       id: 19,
       heading: "Yinan Zhou won the 2024 WSOP Paradise Super Main Event",
@@ -200,6 +220,7 @@ const newsArticles = [{
       writer: "ABC",
       date: "18 Jan 2025",
       type: "live",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },{
       id: 20,
       heading: "Bryn Kenney Wins Triton Poker Monte Carlo Main Event",
@@ -210,6 +231,7 @@ const newsArticles = [{
       writer: "PQR",
       date: "20 Jan 2025",
       type: "live",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
       id: 21,
@@ -221,6 +243,7 @@ const newsArticles = [{
       writer: "XYZ",
       date: "23 Jan 2025",
       type: "interviews",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },{
       id: 22,
       heading: "Interview with ACR Pro Rob Kuhn",
@@ -231,6 +254,7 @@ const newsArticles = [{
       writer: "ABC",
       date: "15 Jan 2025",
       type: "interviews",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },{
       id: 23,
       heading: "Interview with ACR Pro Drew Gonzalez",
@@ -241,6 +265,7 @@ const newsArticles = [{
       writer: "PQR",
       date: "21 Jan 2025",
       type: "interviews",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {
     id: 24,
@@ -252,6 +277,7 @@ const newsArticles = [{
       writer: "XYZ",
       date: "31 Jan 2025",
       type: "interviews",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
      {id: 25,
       heading: "$8MGTD Sunday Million 18th Anniversary at PokerStars",
@@ -262,6 +288,7 @@ const newsArticles = [{
       writer: "ABC",
       date: "01 Jan 2025",
       type: "mtt",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
     {id: 26,
       heading: "$55,000 Iron Man Challenge on Chico Poker Network",
@@ -272,6 +299,7 @@ const newsArticles = [{
       writer: "XYZ",
       date: "11 Jan 2025",
       type: "promotions",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },  {id: 27,
       heading: "Flip&Go: Exclusive GGPoker Tournament Format",
       content:
@@ -281,6 +309,7 @@ const newsArticles = [{
       writer: "PQR",
       date: "28 Jan 2025",
       type: "guide",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },  {id: 28,
       heading: "Patrik Antonius wins $5M at Triton Poker",
       content:
@@ -290,6 +319,7 @@ const newsArticles = [{
       writer: "XYZ",
       date: "21 Jan 2025",
       type: "live",
+       description:"Poker is massively popular in the US, yet not all states treat it equally. In contrast to Nevada, Delaware, or New Jersey, where it’s fully legalized, real money online poker in Georgia remains illegal. However, you can play in offshore poker rooms, and "
     },
   ];
 

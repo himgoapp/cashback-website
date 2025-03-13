@@ -72,7 +72,8 @@ const columns = [
           className={styles.Badge}
           style={rowStatus === "Success" ? { backgroundColor: "#ecfdf3" } : {}}
         >
-          <div style={statusBaseColor(rowStatus)}>{rowStatus}</div>
+          <div className={styles.status_base_color}
+          style={statusBaseColor(rowStatus)}>{rowStatus}</div>
         </div>
       );
     },

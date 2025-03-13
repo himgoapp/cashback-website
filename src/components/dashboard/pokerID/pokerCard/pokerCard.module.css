@@ -61,7 +61,7 @@
 .Head {
   color: #101828;
   font-size: 1rem;
-  font-family: "Inter";
+  font-family: "Roboto", sans-serif;;
   font-weight: 600;
   line-height: 1.5rem;
   word-wrap: break-word;
@@ -70,7 +70,7 @@
 .Id {
   color: #344054;
   font-size: 0.875rem;
-  font-family: "Inter";
+  font-family: "Roboto", sans-serif;;
   font-weight: 400;
   line-height: 1.25rem;
   word-wrap: break-word;
@@ -121,7 +121,7 @@
   text-align: center;
   color: #b42318;
   font-size: 0.875rem;
-  font-family: "Inter";
+  font-family: "Roboto", sans-serif;;
   font-weight: 500;
   line-height: 1.25rem;
   word-wrap: break-word;
@@ -130,7 +130,7 @@
 .PokerDate {
   color: #475467;
   font-size: 1rem;
-  font-family: "Inter";
+  font-family: "Roboto", sans-serif;;
   font-weight: 400;
   line-height: 1.5rem;
   word-wrap: break-word;

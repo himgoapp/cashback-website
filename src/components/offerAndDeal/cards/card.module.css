@@ -81,7 +81,7 @@ color: #ffbf00;
   font-size: 20px;
   font-weight: bold;
   margin: 10px 0;
-  font-family: futura;
+  font-family: "Roboto", sans-serif;
   color: #222;
 }
 
@@ -89,7 +89,7 @@ color: #ffbf00;
   font-size: 13px;
   color: #27ae60;
   font-weight: 600;
-  font-family: futura;
+  font-family: "Roboto", sans-serif;
   margin-bottom: 10px;
 }
 
@@ -98,7 +98,7 @@ color: #ffbf00;
   color: #444;
   margin-bottom: 15px;
   line-height: 1.5;
-  font-family: futura;
+  font-family: "Roboto", sans-serif;
 }
 
 /* Rating Section */
@@ -107,12 +107,12 @@ color: #ffbf00;
   align-items: center;
   gap: 6px;
   font-size: 16px;
-  font-family: futura;
+  font-family: "Roboto", sans-serif;
   font-weight: bold;
   color: #ffbf00;
 }
 .rating_text{
-  font-family: futura;
+  font-family: "Roboto", sans-serif;
 }
 /* Button Section */
 .buttonSection {
@@ -129,7 +129,7 @@ color: #ffbf00;
   border-radius: 10px;
   font-size: 17px;
   font-weight: bold;
-  font-family: futura;
+  font-family: "Roboto", sans-serif;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
 }
@@ -235,7 +235,7 @@ font-size: 16px;
     text-overflow: ellipsis;
     word-wrap: break-word;
     margin-bottom: 15px;
-    font-family: futura;
+    font-family: "Roboto", sans-serif;
   }
   
 

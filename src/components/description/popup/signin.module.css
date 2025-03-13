@@ -155,7 +155,7 @@
 
 .Head {
   color: black;
-  font-family: Futura Md BT;
+  font-family: "Roboto", sans-serif;;
   font-size: 1.875rem;
   font-style: normal;
   font-weight: 700;
@@ -165,9 +165,7 @@
 }
 .Subhead {
   color: black;
-
-  /* Text md/Regular */
-  font-family: Inter;
+  font-family: "Roboto", sans-serif;;
   font-size: 16px;
   font-style: normal;
   /* font-weight: 600; */
@@ -175,28 +173,32 @@
 }
 .Subhead1 {
   color: #002855;
+  
 
   /* Text md/Regular */
-  font-family: Inter;
+  font-family: "Roboto", sans-serif;;
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: 1.5rem; /* 150% */
 }
-.otp_resend {
+.otp_resend span {
   color: #002855;
   display: flex;
   justify-content: center;
   font-size: 14px;
+  font-family: "Roboto", sans-serif;;
 }
 .otp_resend_1 {
   color: #002855;
   cursor: pointer;
   margin-left: 5px;
   font-size: 14px;
+  font-family: "Roboto", sans-serif;;
 }
 .alert_message {
   color: red;
+  font-family: "Roboto", sans-serif;;
 }
 .popup_signin_action {
   display: flex;
@@ -209,7 +211,7 @@
 
 .input_label {
   color: var(--gray-700, #344054);
-  font-family: Inter;
+  font-family: "Roboto", sans-serif;;
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 500;
@@ -233,6 +235,7 @@
   color: #000;
   font-size: 20px;
   font-weight: bold;
+  font-family: "Roboto", sans-serif;;
   padding: 8px 20px;
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -253,6 +256,7 @@
   font-size: 20px;
   font-weight: bold;
   padding: 8px 20px;
+  font-family: "Roboto", sans-serif;;
   border-radius: 30px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 

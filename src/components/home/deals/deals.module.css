@@ -22,7 +22,7 @@
 .head_container .head {
 	color: #070a1e;
 	text-align: center;
-	font-family: Futura;
+	font-family: "Roboto", sans-serif;
 	font-size: 2.625rem;
 	font-style: normal;
 	font-weight: 700;
@@ -31,7 +31,7 @@
 .head_container .subhead {
 	color: #5c6077;
 	text-align: center;
-	font-family: futura;
+	font-family: "Roboto", sans-serif;
 	font-size: 20px;
 	font-style: normal;
 	font-weight: 400;

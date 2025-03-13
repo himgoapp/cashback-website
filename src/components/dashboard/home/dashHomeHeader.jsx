@@ -256,7 +256,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
             className="border-0"
             style={{ backgroundColor: "#ffbf00", textAlign: "center" }}
           >
-            <Modal.Title className="w-100 fw-bold"  >Profile</Modal.Title>
+            <Modal.Title className="w-100 fw-bold"  style={{ fontFamily: 'Roboto, sans-serif' }}  >Profile</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
@@ -305,7 +305,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
       className="w-50 text-center"
     />
   ) : (
-    <span className="text-center" style={{fontWeight:"bold",fontSize:"20px"}}>{username}</span>
+    <span className="text-center" style={{fontWeight:"bold",fontSize:"20px", fontFamily: 'Roboto, sans-serif'}}>{username}</span>
   )}
 </div>
 
@@ -313,14 +313,14 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
               {/* Email */}
               <div className="d-flex justify-content-between align-items-center mb-2">
-                <Form.Label className="fw-bold">Email</Form.Label>
+                <Form.Label className="fw-bold" style={{ fontFamily: 'Roboto, sans-serif'}}>Email</Form.Label>
                 <div className="text-end">
-                  <span>{userData?.email || "N/A"}</span>
+                  <span style={{ fontFamily: 'Roboto, sans-serif'}}>{userData?.email || "N/A"}</span>
                   <div
                     className={
                       userData?.isEmailVerified ? "text-success" : "text-danger"
                     }
-                    style={{ fontSize: "12px" }}
+                    style={{ fontSize: "12px", fontFamily: 'Roboto, sans-serif' }}
                   >
                     {userData?.isEmailVerified
                       ? "Your email is verified."
@@ -331,6 +331,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
                       size="sm"
                       variant="outline-primary"
                       onClick={() => sendEmailOtp(userData.email)}
+                      style={{ fontFamily: 'Roboto, sans-serif'}}
                     >
                       Verify Email
                     </Button>
@@ -341,12 +342,12 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
               {/* Phone Number */}
               <div className="d-flex justify-content-between mb-2">
-                <Form.Label className="fw-bold">Phone Number</Form.Label>
+                <Form.Label className="fw-bold"style={{ fontFamily: 'Roboto, sans-serif'}}>Phone Number</Form.Label>
                 <div className="text-end">
-                  <span>
+                  <span style={{ fontFamily: 'Roboto, sans-serif'}}>
                     {userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}
                   </span>
-                  <div className="text-success" style={{ fontSize: "12px" }}>
+                  <div className="text-success" style={{ fontSize: "12px", fontFamily: 'Roboto, sans-serif' }}>
                     Your phone number is verified.
                   </div>
                 </div>

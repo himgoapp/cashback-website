@@ -1,7 +1,7 @@
 .heading{
     color: #5c6077;
 	text-align: center;
-  font-family: futura;
+  font-family: "Roboto", sans-serif;
 	font-size: 22px;
 	font-style: normal;
 	font-weight: 400;
@@ -67,7 +67,7 @@
 
 @media only screen and (max-width: 480px){
   .logo_container{
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     }
   }

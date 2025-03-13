@@ -17,7 +17,7 @@ const DescriptionPage = () => {
   const { showSigninPopup } = useContext(UserContext);
 
   return (
-    <div style={{ position: "relative" }}>
+    <div style={{ position: "relative",overflow:"hidden" }}>
       {/* <MainContainer> */}
       <Navbar page="offer" />
       <div style={{ position: "relative", marginTop: "4rem" }}>

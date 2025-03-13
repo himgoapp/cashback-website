@@ -47,6 +47,7 @@
   border-radius: 30px;
   font-size: 16px;
   cursor: pointer;
+  font-family: "Roboto", sans-serif;;
   font-weight: bold;
 }
 .filter_container {
@@ -60,7 +61,7 @@
 
 .filter_heading {
   font-size: 16px;
-  font-family: "ProximaNova-Semibold; sans-serif !important";
+  font-family: "Roboto", sans-serif;;
   font-weight: 600;
   color: #28282c;
 }
@@ -71,7 +72,7 @@
   color: #28282c;
   font-size: 14px;
   gap: 14px;
-  font-family: Arial, sans-serif;
+  font-family:"Roboto", sans-serif;;
 }
 
 .chart_heading {
@@ -79,11 +80,12 @@
   font-weight: bold;
   margin-top: 20px;
   color: black;
-  /* margin-left: 30px; */
+font-family: "Roboto", sans-serif;;
 }
 
 .explore {
   margin-top: 20px;
+
 }
 .explore button {
   text-decoration: none;
@@ -93,6 +95,7 @@
   padding: 5px 10px;
   text-align: center;
   border-radius: 30px;
+  font-family: "Roboto", sans-serif;;
   font-size: 16px;
   cursor: pointer;
   font-weight: bold;
@@ -123,16 +126,19 @@
 .dashboard_greeting {
   font-size: 14px;
   opacity: 0.8;
+  font-family: "Roboto", sans-serif;;
 }
 
 .dashboard_username {
   font-size: 16px;
   font-weight: bold;
+  font-family: "Roboto", sans-serif;;
   margin-top: 5px;
 }
 
 .dashboard_explore {
   font-size: 22px;
+  font-family: "Roboto", sans-serif;;
   font-weight: bold;
   margin-top: 5px;
 }
@@ -171,11 +177,13 @@
 .wallet_balance {
   font-size: 24px;
   font-weight: bold;
+  font-family: "Roboto", sans-serif;;
   margin: 5px 0;
   margin-top: 10px;
 }
 .wallet_balance_head {
   font-size: 14px;
+  font-family: "Roboto", sans-serif;;
   margin-top: 10px;
 }
 .withdrawal_container_inner{

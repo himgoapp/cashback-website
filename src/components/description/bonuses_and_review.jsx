@@ -1,16 +1,47 @@
-import React , {useState} from "react";
+import React , {useState,useEffect} from "react";
 import styles from "./bonuses_and_review.module.css";
 import { generateArray } from "../../utils/generateArray";
 import BonusList from "./BonusList";
 // import ContentData from "./ContentData";
+import { imagePicker } from "../../helperFxns/colorCode";
+
 const BonusesAndReview = () => {
 	const[content_1,setContent1]=useState(0)
-
+	const [showPopup, setShowPopup] = useState(false);
+	const [copied, setCopied] = useState(false);
+  
+	const handleCopy = (text) => {
+	  navigator.clipboard.writeText(text);
+	  setCopied(true); // Show tooltip
+	  setTimeout(() => setCopied(false), 1500); // Hide after 1.5 seconds
+	};
+	// useEffect(() => {
+	// 	const timer = setTimeout(() => {
+	// 	  setShowPopup(true);
+	// 	}, 1000);
+	// 	return () => clearTimeout(timer);
+	//   }, []);
+	
+	useEffect(() => {
+		const handleScroll = () => {
+		  if (window.scrollY > 500) { // Show popup after scrolling 300px
+			setShowPopup(true);
+		  }
+		  if (window.scrollY < 500) { // Show popup after scrolling 300px
+			setShowPopup(false);
+		  }
+		};
+	  
+		window.addEventListener('scroll', handleScroll);
+	  
+		return () => window.removeEventListener('scroll', handleScroll);
+	  }, []);
 	let currentItem = localStorage.getItem("currentProductValue")
 		? JSON.parse(localStorage.getItem("currentProductValue"))
 		: {};
 
 	return (
+		<>
 <div className={styles.bonuses_and_review_wrapper}>
   {/* Horizontal Tabs */}
   <div className={styles.horizontal_tabs}>
@@ -254,8 +285,63 @@ You can rate the poker room from 1 to 5 stars, and also write a text review, bot
 </div>
 
 </div>
+{/* {showPopup && (
+  <div className={styles.bottom_center_popup}>
+    <div className={styles.popup_content}>
+      
+      {currentItem?.name && (
+        <img
+          src={imagePicker(currentItem.name)}
+          alt={currentItem.name}
+          className={styles.popup_logo}
+        />
+      )}
+
+      <div className={styles.popup_text}>
+        <div>
+          <strong>{currentItem?.name || "CGPoker"}</strong>
+        </div>
+		<div className={styles.fire_banner}>
+  <span className={styles.fire}>🔥</span>
+  Bonus 300% up to ₹2,000 + 20% rakeback surcharge from us
+  <span className={styles.fire}>🔥</span>
+</div>
 
 
+      </div>
+
+      <div className={styles.popup_referral}>
+        <div>Referral code</div>
+        <div>
+          <b>
+            {currentItem?.name || "Junglee Poker"}
+            <button
+    onClick={() => handleCopy(currentItem?.name || "Junglee Poker")}
+    className={styles.copy_btn}
+    title="Copy code"
+  >
+    📋
+  </button>
+
+  {copied && (
+    <span className={styles.tooltip}>Copied!</span>
+  )}
+          </b>
+        </div>
+      </div>
+
+      <button
+        className={styles.register_btn}
+        // onClick={() => alert('Redirect to Register Page')}
+      >
+        Register
+      </button>
+
+    </div>
+
+  </div>
+)} */}
+</>
 		// <div className={styles.bonuses_and_review_wrapper}>
 		// <BonusList/>
 		// </div>

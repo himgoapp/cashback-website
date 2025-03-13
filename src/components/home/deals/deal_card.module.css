@@ -38,7 +38,7 @@
 }
 .title {
 	color: #070a1e;
-	font-family: futura;
+	font-family: "Roboto", sans-serif;
 	font-size: 1.5rem;
 	font-style: normal;
 	font-weight: 700;
@@ -48,7 +48,7 @@
 
 .description {
 	color: var(--light-mode-colors-primary-grey-light-mode, #5c6077);
-	font-family: futura;
+	font-family: "Roboto", sans-serif;
 	font-size: 1.125rem;
 	font-style: normal;
 	font-weight: 400;
@@ -60,7 +60,7 @@
 	gap: 1.25rem;
 
 	color: #5c6077;
-	font-family: futura;
+	font-family: "Roboto", sans-serif;
 	font-size: 1.125rem;
 	font-style: normal;
 	font-weight: 400;

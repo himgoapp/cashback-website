@@ -37,10 +37,12 @@
 .heading{
   font-size: 30px;
   font-weight: bold;
+  font-family: "Roboto", sans-serif;;
 }
 .sub_heading{
   font-size: 20px;
   font-weight: bold;
+  font-family: "Roboto", sans-serif;;
 }
 .StepBase {
   display: flex;

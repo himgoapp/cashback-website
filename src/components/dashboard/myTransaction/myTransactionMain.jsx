@@ -46,11 +46,7 @@ const MyTransactionMain = () => {
               >
                 <div
                   className={styles.TabText}
-                  style={{
-                    color: "#333",
-                    fontWeight: "bold",
-                    fontSize: "14px",
-                  }}
+               
                 >
                   Withdrawals
                 </div>
@@ -63,11 +59,7 @@ const MyTransactionMain = () => {
               >
                 <div
                   className={styles.TabText}
-                  style={{
-                    color: "#333",
-                    fontWeight: "bold",
-                    fontSize: "14px",
-                  }}
+                 
                 >
                   Deposits
                 </div>
