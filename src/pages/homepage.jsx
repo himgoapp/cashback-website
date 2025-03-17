@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./homepage.module.css"
+import styles from "./homepage.module.css";
 import Navbar from "../components/common/navbar/navbar";
 import Banner from "../components/home/banner/banner";
 import AboutUs from "../components/home/aboutus/aboutUs";
@@ -11,15 +11,24 @@ import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
 import Footer from "../components/common/footer/footer";
 import MainContainer from "../layout/mainContainer";
 import ScrollToTopButton from "./ScrollToTopButton ";
-import TrustedBrands from "../components/home/trustedbrands/trustedBrands"
+import TrustedBrands from "../components/home/trustedbrands/trustedBrands";
+import { Helmet } from "react-helmet";
+
 const Homepage = () => {
   return (
     <div className={styles.homepage_container}>
+      <Helmet>
+        <title>Rakebackk | Poker Cashback Site in India</title>
+        <meta
+          name="description"
+          content="Online Poker Rakeback Deal Offers for 2025 - Best Reviews of the Poker Sites in India. Play Online Poker Games and Win Real Money. Get up to ₹50000 welcome Bonus"
+        />
+      </Helmet>
       <Navbar page="home" />
       <MainContainer>
         <Banner />
         <AboutUs />
-        <TrustedBrands/>
+        <TrustedBrands />
         <Deals />
         <Getstarted />
         <Featured />
