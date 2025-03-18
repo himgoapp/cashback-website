@@ -21,7 +21,6 @@ const BonusesAndReview = () => {
 	// 	}, 1000);
 	// 	return () => clearTimeout(timer);
 	//   }, []);
-	
 	useEffect(() => {
 		const handleScroll = () => {
 		  if (window.scrollY > 500) { // Show popup after scrolling 300px
@@ -39,7 +38,6 @@ const BonusesAndReview = () => {
 	let currentItem = localStorage.getItem("currentProductValue")
 		? JSON.parse(localStorage.getItem("currentProductValue"))
 		: {};
-
 	return (
 		<>
 <div className={styles.bonuses_and_review_wrapper}>
@@ -303,7 +301,10 @@ You can rate the poker room from 1 to 5 stars, and also write a text review, bot
         </div>
 		<div className={styles.fire_banner}>
   <span className={styles.fire}>🔥</span>
-  Bonus 300% up to ₹2,000 + 20% rakeback surcharge from us
+
+  {currentItem && currentItem.welcomeBonus
+                        ? currentItem.welcomeBonus
+                        : "   Bonus 300% up to ₹2,000 + 20% rakeback surcharge from us" }
   <span className={styles.fire}>🔥</span>
 </div>
 
