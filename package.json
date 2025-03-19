@@ -21,18 +21,16 @@
 		"react-bootstrap": "^2.10.9",
 		"react-chartjs-2": "^5.3.0",
 		"react-dom": "^18.2.0",
-		"react-helmet": "^6.1.0",
+		"react-helmet-async": "^2.0.5",
 		"react-otp-input": "^3.1.1",
 		"react-router-dom": "^6.16.0",
 		"react-scripts": "5.0.1",
-		"react-snap": "^1.23.0",
 		"react-tabs": "^6.1.0",
 		"react-toastify": "^10.0.5",
 		"swiper": "^11.1.9",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {
-		"postinstall": "react-snap",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test",
@@ -44,9 +42,6 @@
 			"react-app/jest"
 		]
 	},
-	"reactSnap": {
-    "inlineCss": true
-  },
 	"browserslist": {
 		"production": [
 			">0.2%",

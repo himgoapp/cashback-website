@@ -5,7 +5,7 @@ import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs"; // Import Tabs from react-tabs
 import { newsArticles } from "../../../utils/articleJson";
-import { Helmet } from "react-helmet";
+import Meta from "../../../Meta";
 
 const LatestNews = ({ userData }) => {
   const [activeTab, setActiveTab] = useState("latest");
@@ -45,13 +45,10 @@ const LatestNews = ({ userData }) => {
 
   return (
     <>
-      <Helmet>
-        <title>Latest Online Poker News India | Rakebackk</title>
-        <meta
-          name="description"
-          content="Check Today's Latest Poker News in India at Rakebackk. Indian poker sites, Upcoming Poker tournaments in India, online poker games, poker tips and much more."
-        />
-      </Helmet>
+      <Meta
+        title="Latest Online Poker News India | Rakebackk"
+        description="Check Today's Latest Poker News in India at Rakebackk. Indian poker sites, Upcoming Poker tournaments in India, online poker games, poker tips and much more"
+      />
       <Navbar page="home" />
       <div className={styles.latest_news}>
         {/* Header */}

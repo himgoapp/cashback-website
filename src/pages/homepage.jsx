@@ -12,18 +12,15 @@ import Footer from "../components/common/footer/footer";
 import MainContainer from "../layout/mainContainer";
 import ScrollToTopButton from "./ScrollToTopButton ";
 import TrustedBrands from "../components/home/trustedbrands/trustedBrands";
-import { Helmet } from "react-helmet";
+import Meta from "../Meta";
 
 const Homepage = () => {
   return (
     <div className={styles.homepage_container}>
-      <Helmet>
-        <title>Rakebackk | Poker Cashback Site in India</title>
-        <meta
-          name="description"
-          content="Online Poker Rakeback Deal Offers for 2025 - Best Reviews of the Poker Sites in India. Play Online Poker Games and Win Real Money. Get up to ₹50000 welcome Bonus"
-        />
-      </Helmet>
+      <Meta
+        title="Rakebackk | Poker Cashback Site in India"
+        description="Online Poker Rakeback Deal Offers for 2025 - Best Reviews of the Poker Sites in India. Play Online Poker Games and Win Real Money. Get up to ₹50000 welcome Bonus"
+      />
       <Navbar page="home" />
       <MainContainer>
         <Banner />
