@@ -12,5 +12,18 @@
   <lastmod>2025-03-18T11:52:28+00:00</lastmod>
 </url>
 
+<url>
+        <loc>https://rakebackk.com/latest-news</loc>
+        <lastmod>2025-03-18T11:52:28+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+<url>
+        <loc>https://rakebackk.com/offer_and_deals</loc>
+        <lastmod>2025-03-18T11:52:28+00:00</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
 
 </urlset>
