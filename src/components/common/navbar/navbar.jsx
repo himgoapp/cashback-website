@@ -118,7 +118,7 @@ const homePageMenu = (
       Deals
     </Link>
     <a href="/latest-news" className={styles.secondary_link}>
-      Latest/News
+      Latest News
     </a>
     <a href="/#" className={styles.secondary_link}>
       Promotions
@@ -146,7 +146,7 @@ const offersAndDealsPageMenu = (
       Deals
     </Link>
     <a href="/latest-news" className={styles.secondary_link}>
-      Latest/News
+      Latest News
     </a>
     <a href="/#" className={styles.secondary_link}>
       Promotions

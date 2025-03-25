@@ -6,6 +6,7 @@ import Footer from "../../common/footer/footer";
 import { Tab, Tabs, TabList } from "react-tabs";
 import { getBlogs } from "../../../servicefile/blogservice";
 import Meta from "../../../Meta";
+import RightSidebar from "./RightSidebar";
 
 const LatestNews = ({ userData }) => {
   const [activeTab, setActiveTab] = useState("latest");
@@ -118,7 +119,7 @@ const LatestNews = ({ userData }) => {
 
                     return (
                       <Link
-                        to={`/article/${blogId}`}
+                        to={`/news/${blogId}`}
                         key={article.id}
                         className={styles.card_link}
                       >
@@ -163,8 +164,9 @@ const LatestNews = ({ userData }) => {
                 )}
               </div>
 
-              {/* ✅ Important Posts Section */}
-              <div className={styles.important_post}>
+              <div className={styles.rightSidebar}>
+    <RightSidebar />
+    <div className={styles.important_post}>
                 <h2 className={styles.important_post_heading}>
                   Important Posts
                 </h2>
@@ -213,6 +215,8 @@ const LatestNews = ({ userData }) => {
                   </li>
                 </ul>
               </div>
+  </div>
+          
             </div>
           </div>
         </Tabs>

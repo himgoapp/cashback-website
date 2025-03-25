@@ -1,0 +1,125 @@
+.sidebar {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  max-width: 340px;
+  padding-bottom: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.heading{
+  background: #222;
+  text-align: center;
+  padding: 10px 0 2px;
+}
+.sidebarTitle {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+.country {
+  font-size: 14px;
+  color: white;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 12px;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  border-radius: 6px; /* Ensures the hover effect looks smoother */
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.item:hover {
+  background: rgba(0, 0, 255, 0.07);
+  transform: scale(1.02);
+  width: 100%; /* Makes sure hover covers the full width */
+}
+
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 8px;
+  margin-right: 14px;
+  object-fit: contain;
+  transition: transform 0.3s ease-in-out;
+}
+
+.item:hover .logo {
+  transform: scale(1.1);
+}
+
+.details {
+  flex: 1;
+}
+
+.details strong {
+  font-size: 16px;
+  color: #222;
+  font-weight: 600;
+}
+
+.details p {
+  font-size: 13px;
+  color: #555;
+  margin: 3px 0 0;
+}
+
+.arrow {
+  font-size: 22px;
+  color: #444;
+  transition: transform 0.3s ease-in-out, color 0.3s;
+}
+
+.item:hover .arrow {
+  transform: translateX(5px);
+  color: #007bff;
+}
+
+.link {
+  display: block;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #007bff, #0056b3);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: 15px;
+  margin-left: 13px;
+  padding: 10px 14px;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.link:hover {
+  background: linear-gradient(135deg, #0056b3, #004494);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05);
+}
+@media screen and (max-width: 480px) {
+.sidebar {
+margin-left: 10px;}
+.link{
+  margin-left: 50px;
+}
+}

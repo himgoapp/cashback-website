@@ -4,43 +4,30 @@ import { getBlogById } from "../../../servicefile/blogservice";
 import styles from "./blogDetail.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
+import RightSidebar from "./RightSidebar";
 
 const NewArticle = () => {
   const { blogId } = useParams();
   const navigate = useNavigate();
   const [blog, setBlog] = useState(null);
   const [activeSection, setActiveSection] = useState(null);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [tocVisible, setTocVisible] = useState(!isMobile); 
 
-  const fetchBlog = async () => {
-    // const authToken = localStorage.getItem("authToken");
-    // if (!authToken) {
-    //   window.location.href = "/";
-    //   return;
-    // }
-
-    if (!blogId) {
-      console.error("No blog ID found in URL.");
-      return;
-    }
-    try {
-      let id = blogId.substring(blogId.lastIndexOf("_") + 1);
-
-      const blogData = await getBlogById(id);
-      console.log("Fetched Blog Data:", blogData);
-
-      const fetchedBlog =
-        blogData?.data?.product?.[0] || blogData?.product?.[0];
-
-      if (!fetchedBlog) {
-        throw new Error("Blog data is missing or incorrect format.");
-      }
-
-      setBlog(fetchedBlog);
-    } catch (error) {
-    } finally {
-    }
-  };
   useEffect(() => {
+    const fetchBlog = async () => {
+      if (!blogId) return;
+      try {
+        let id = blogId.substring(blogId.lastIndexOf("_") + 1);
+        const blogData = await getBlogById(id);
+        const fetchedBlog =
+          blogData?.data?.product?.[0] || blogData?.product?.[0];
+        if (fetchedBlog) setBlog(fetchedBlog);
+      } catch (error) {
+        console.error("Error fetching blog:", error);
+      }
+    };
+
     fetchBlog();
   }, [blogId]);
 
@@ -63,6 +50,16 @@ const NewArticle = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const checkScreenSize = () => {
+      setIsMobile(window.innerWidth < 768);
+      setTocVisible(window.innerWidth >= 768); 
+    };
+
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
+
   if (!blog || !blog.content) return <p className={styles.error}></p>;
 
   const headings = [];
@@ -76,11 +73,12 @@ const NewArticle = () => {
   );
 
   return (
-    <>
+    <div >
       <Navbar page="home" />
+      
       <div className={styles.blogDetail}>
         <div className={styles.breadcrumb}>
-          <span className={styles.home} onClick={() => navigate(-1)}>
+          <span className={styles.home} onClick={() => navigate("/latest-news")}>
             Home
           </span>
           <span className={styles.separator}> » </span>
@@ -98,33 +96,45 @@ const NewArticle = () => {
           <h1 className={styles.title}>{blog.title}</h1>
           <h3 className={styles.subheading}>{blog.subheading}</h3>
         </div>
-
+<div className={styles.blogContainer}>
         <div className={styles.blogContent}>
-          <div className={styles.toc}>
-            <h4>Table of Contents</h4>
-            <ul>
-              {headings.map((item, index) => (
-                <li
-                  key={index}
-                  className={`${styles.tocItem} ${
-                    activeSection === item.id ? styles.active : ""
-                  }`}
-                  onClick={() => {
-                    document
-                      .getElementById(item.id)
-                      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                  }}
-                >
-                  {item.title}
-                </li>
-              ))}
-            </ul>
+          <div className={`${styles.toc} ${isMobile ? styles.mobileToc : ""}`}>
+            {isMobile && (
+              <h4 onClick={() => setTocVisible(!tocVisible)}>
+                📖 Table of Contents {tocVisible ? "▲" : "▼"}
+              </h4>
+            )}
+            {tocVisible && (
+              <ul>
+                <h4>   📖 Table of Contents</h4>
+                {headings.map((item, index) => (
+                  <li
+                    key={index}
+                    className={`${styles.tocItem} ${
+                      activeSection === item.id ? styles.active : ""
+                    }`}
+                    onClick={() => {
+                      document
+                        .getElementById(item.id)
+                        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }}
+                  >
+                    
+                    {item.title}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
 
           <div className={styles.description}>
             <div dangerouslySetInnerHTML={{ __html: contentWithIds }} />
           </div>
         </div>
+        <div className={styles.rightSidebar}>
+    <RightSidebar />
+  </div>
+  </div>
       </div>
       <div
         className="flex_center"
@@ -132,7 +142,7 @@ const NewArticle = () => {
       >
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 

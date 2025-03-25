@@ -152,7 +152,7 @@ function App() {
             />
             <Route
               Route
-              path="/article/:blogId"
+              path="/news/:blogId"
               element={
                 <NotProtectedRoute>
                   <BlogDetail />
