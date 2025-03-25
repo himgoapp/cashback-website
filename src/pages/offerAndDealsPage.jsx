@@ -4,11 +4,17 @@ import OfferAndDeal from "../components/offerAndDeal/offerAndDeal";
 import FAQ from "../components/home/FAQ/faq";
 import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
 import Footer from "../components/common/footer/footer";
-import offerbg from "../assets/offerbannerbg.png";
+// import offerbg from "../assets/offerbannerbg.png";
 import MainContainer from "../layout/mainContainer";
+import Meta from "../Meta";
 const OfferAndDealsContainer = () => {
   return (
-    <div style={{overflow:"hidden"}}>
+    <div style={{ overflow: "hidden" }}>
+      <Meta
+        title="Best Rakeback Offers & Deals | Maximize Your Rewards | Rakebackk"
+        description="Discover the latest rakeback offers and exclusive deals to maximize your rewards. Get the best cashback and bonuses for poker, casino, and betting sites today!"
+        link="https://www.rakebackk.com/offer_and_deals"
+      />
       {/* <MainContainer> */}
       <Navbar page="offer" />
       <div style={{ position: "relative", marginTop: "4rem" }}>
