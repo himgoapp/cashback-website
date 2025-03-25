@@ -55,7 +55,9 @@ const LatestNews = ({ userData }) => {
       try {
         const blogs = await getBlogs();
         const endTime = performance.now(); // End API timer
-        console.log(`API Response Time: ${(endTime - startTime).toFixed(2)} ms`);
+        console.log(
+          `API Response Time: ${(endTime - startTime).toFixed(2)} ms`
+        );
 
         // Store data in sessionStorage (cache)
         sessionStorage.setItem("blogs", JSON.stringify(blogs));
@@ -109,35 +111,53 @@ const LatestNews = ({ userData }) => {
                 {loading ? (
                   <p>Loading articles...</p>
                 ) : currentArticles.length > 0 ? (
-                  currentArticles.map((article) => (
-                    <Link
-                      to={`/article/${article._id}`}
-                      key={article.id}
-                      className={styles.card_link}
-                    >
-                      <div className={styles.news_card}>
-                        <div className={styles.news_image_wrapper}>
-                          <img
-                            src={article.imageUrl}
-                            alt={article.title}
-                            className={styles.news_image}
-                          />
+                  currentArticles.map((article) => {
+                    let blogId = `${article.title}_${article._id}`;
+
+                    blogId = blogId.replace(/ /g, "_");
+
+                    return (
+                      <Link
+                        to={`/article/${blogId}`}
+                        key={article.id}
+                        className={styles.card_link}
+                      >
+                        <div className={styles.news_card}>
+                          <div className={styles.news_image_wrapper}>
+                            <img
+                              src={article.imageUrl}
+                              alt={article.title}
+                              className={styles.news_image}
+                            />
+                          </div>
+                          <div className={styles.cardContent}>
+                            <div className={styles.cardMetaTop}>
+                              <span className={styles.type}>
+                                {article.type || "latest"}
+                              </span>
+                              <span className={styles.date}>
+                                📅{" "}
+                                {new Date(article.date).toLocaleDateString(
+                                  "en-GB"
+                                )}
+                              </span>
+                            </div>
+                            <h3 className={styles.heading_card}>
+                              {article.title}
+                            </h3>
+                            <p className={styles.news_description}>
+                              {article.subheading}
+                            </p>
+                            <div className={styles.cardMeta}>
+                              <span className={styles.writer}>
+                                ✍️ {article.author || "Unknown"}
+                              </span>
+                            </div>
+                          </div>
                         </div>
-                        <div className={styles.cardContent}>
-                        <div className={styles.cardMetaTop}>
-                    <span className={styles.type}>{article.type || "latest"}</span>
-                    <span className={styles.date}>📅 {new Date(article.date).toLocaleDateString('en-GB')}</span>
-                  </div>
-                          <h3 className={styles.heading_card}>{article.title}</h3>
-                          <p className={styles.news_description}>{article.subheading}</p>
-                          <div className={styles.cardMeta}>
-                    <span className={styles.writer}>✍️ {article.author || "Unknown"}</span>
-                  </div>
-                        </div>
-                     
-                      </div>
-                    </Link>
-                  ))
+                      </Link>
+                    );
+                  })
                 ) : (
                   <p>No articles available.</p>
                 )}
@@ -145,7 +165,9 @@ const LatestNews = ({ userData }) => {
 
               {/* ✅ Important Posts Section */}
               <div className={styles.important_post}>
-                <h2 className={styles.important_post_heading}>Important Posts</h2>
+                <h2 className={styles.important_post_heading}>
+                  Important Posts
+                </h2>
                 <ul className={styles.post_list}>
                   <li className={styles.post_item}>
                     <img
@@ -177,7 +199,8 @@ const LatestNews = ({ userData }) => {
                       alt="Post 4"
                       className={styles.post_image}
                     />
-                    Where is legal to play WPT Global — Countries and territories
+                    Where is legal to play WPT Global — Countries and
+                    territories
                   </li>
                   <li className={styles.post_item}>
                     <img
@@ -185,7 +208,8 @@ const LatestNews = ({ userData }) => {
                       alt="Post 5"
                       className={styles.post_image}
                     />
-                    GGNetwork countries guide: What skin can I play? (2025 update)
+                    GGNetwork countries guide: What skin can I play? (2025
+                    update)
                   </li>
                 </ul>
               </div>
@@ -197,7 +221,7 @@ const LatestNews = ({ userData }) => {
         className="flex_center"
         style={{ width: "100%", backgroundColor: "#0052cc" }}
       >
-      <Footer />
+        <Footer />
       </div>
     </>
   );
