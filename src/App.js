@@ -13,7 +13,7 @@ import KYC from "./components/dashboard/KYC/kyc";
 import Trsnsactions from "./components/dashboard/myTransaction/myTransaction";
 import { ProtectedRoute, NotProtectedRoute } from "./helperFxns/protectedRoute";
 import LatestNews from "./components/home/latestnews/LatestNews";
-import NewsArticle from "./components/home/latestnews/NewsArticle";
+import BlogDetail from "./components/home/latestnews/NewsArticle";
 import FaqContainer from "./components/home/FAQ/FaqContainer";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -36,7 +36,6 @@ function App() {
   const [loginTab, setLoginTab] = useState(false);
   const [mobile, setMobile] = useState(true);
 
-  console.log("userData", userData);
   useEffect(() => {
     setMobile(window.innerWidth <= 500);
   }, []);
@@ -153,10 +152,10 @@ function App() {
             />
             <Route
               Route
-              path="/article/:id"
+              path="/article/:blogId"
               element={
                 <NotProtectedRoute>
-                  <NewsArticle />
+                  <BlogDetail />
                 </NotProtectedRoute>
               }
             />
