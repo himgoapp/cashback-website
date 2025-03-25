@@ -6,22 +6,22 @@ import OfferSignup from "./signup/signup";
 import { UserContext } from "../../App";
 
 const OfferAndDeal = () => {
-	const [searchTerm, setSearchTerm] = useState("");
-	const { userData } = useContext(UserContext);
+  const [searchTerm, setSearchTerm] = useState("");
+  const { userData } = useContext(UserContext);
 
-	return (
-		<div className={`${styles.offer_and_deals_wrapper_main}`}>
-			<div className={`${styles.offer_and_deals_wrapper} container_max`}>
-				<OfferHeader
-					setSearchTerm={(searchTerm) => setSearchTerm(searchTerm)}
-					searchTerm={searchTerm}
-				/>
+  return (
+    <div className={`${styles.offer_and_deals_wrapper_main}`}>
+      <div className={`${styles.offer_and_deals_wrapper} container_max`}>
+        <OfferHeader
+          setSearchTerm={(searchTerm) => setSearchTerm(searchTerm)}
+          searchTerm={searchTerm}
+        />
 
-				<OfferCardContainer searchTerm={searchTerm} />
-			</div>
-			{!userData && <OfferSignup />}
-		</div>
-	);
+        <OfferCardContainer searchTerm={searchTerm} />
+      </div>
+      {!userData && <OfferSignup />}
+    </div>
+  );
 };
 
 export default OfferAndDeal;

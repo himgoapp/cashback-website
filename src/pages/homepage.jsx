@@ -20,7 +20,7 @@ const Homepage = () => {
       <Meta
         title="Rakebackk | Poker Cashback Site in India"
         description="Online Poker Rakeback Deal Offers for 2025 - Best Reviews of the Poker Sites in India. Play Online Poker Games and Win Real Money. Get up to ₹50000 welcome Bonus."
-        link="https://www.rakebackk.com"
+        link="https://rakebackk.com"
       />
       <Navbar page="home" />
       <MainContainer>

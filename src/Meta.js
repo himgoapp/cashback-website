@@ -11,7 +11,7 @@ const Meta = ({ title, description, link }) => {
           "Online Poker Rakeback Deal Offers for 2025 - Best Reviews of the Poker Sites in India. Play Online Poker Games and Win Real Money. Get up to ₹50000 welcome Bonus"
         }
       />
-      <link rel="canonical" href={link || "https://www.rakebackk.com"} />
+      <link rel="canonical" href={link || "https://rakebackk.com"} />
       <meta name="robots" content="index, follow" />
     </Helmet>
   );
