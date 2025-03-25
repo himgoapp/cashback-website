@@ -13,7 +13,7 @@ const OfferAndDealsContainer = () => {
       <Meta
         title="Best Rakeback Offers & Deals | Maximize Your Rewards | Rakebackk"
         description="Discover the latest rakeback offers and exclusive deals to maximize your rewards. Get the best cashback and bonuses for poker, casino, and betting sites today!"
-        link="https://www.rakebackk.com/offer_and_deals"
+        link="https://rakebackk.com/offer_and_deals"
       />
       {/* <MainContainer> */}
       <Navbar page="offer" />
