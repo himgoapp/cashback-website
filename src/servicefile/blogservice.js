@@ -12,17 +12,9 @@ export const getBlogs = async () => {
   };
 
   export const getBlogById = async (id) => {
-    const authToken = localStorage.getItem("authToken");
-
-    if (!authToken) {
-        console.warn("User not logged in. Cannot fetch blog.");
-        return { error: "User not logged in." };
-    }
-
+   
     try {
-        const response = await API.get(`/blogs/getblogbyid/${id}`, {
-            headers: { Authorization: `Bearer ${authToken}` },
-        });
+        const response = await API.get(`/blogs/getblogbyid/${id}`)
         return response.data;
     } catch (error) {
         console.error("Error fetching blog by ID:", error);

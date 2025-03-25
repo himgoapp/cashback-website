@@ -11,34 +11,34 @@ const NewArticle = () => {
   const [blog, setBlog] = useState(null);
   const [activeSection, setActiveSection] = useState(null);
 
+  const fetchBlog = async () => {
+    // const authToken = localStorage.getItem("authToken");
+    // if (!authToken) {
+    //   window.location.href = "/";
+    //   return; 
+    // }
+
+    if (!blogId) {
+      console.error("No blog ID found in URL.");
+      return;
+    }
+    try {
+      const blogData = await getBlogById(blogId);
+      console.log("Fetched Blog Data:", blogData); 
+
+      const fetchedBlog = blogData?.data?.product?.[0] || blogData?.product?.[0];
+
+      if (!fetchedBlog) {
+        throw new Error("Blog data is missing or incorrect format.");
+      }
+
+      setBlog(fetchedBlog);
+    } catch (error) {
+    } finally {
+    }
+  };
   useEffect(() => {
-    const fetchBlog = async () => {
-      const authToken = localStorage.getItem("authToken");
-      if (!authToken) {
-        window.location.href = "/";
-        return; 
-      }
-  
-      if (!blogId) {
-        console.error("No blog ID found in URL.");
-        return;
-      }
-  
-      try {
-        const blogData = await getBlogById(blogId);
-        console.log("Fetched Blog Data:", blogData); 
-  
-        const fetchedBlog = blogData?.data?.product?.[0] || blogData?.product?.[0];
-  
-        if (!fetchedBlog) {
-          throw new Error("Blog data is missing or incorrect format.");
-        }
-  
-        setBlog(fetchedBlog);
-      } catch (error) {
-      } finally {
-      }
-    };
+ 
   
     fetchBlog();
   }, [blogId]);  

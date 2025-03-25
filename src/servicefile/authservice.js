@@ -23,51 +23,51 @@ export const loginOtp = async (phoneNumber, isEmail = false) => {
 	}
 };
 
-// export const loginVerify = async (phoneNumber, loginOtp) => {
-// 	let body = {
-// 		phoneNumber: `91${phoneNumber}`,
-// 		Otp: loginOtp,
-// 	};
-
-// 	try {
-// 		let data = await API.post(`/auth/verifyLoginOtp`, {
-// 			...body,
-// 		}).then((res) => res.data);
-
-// 		return data;
-// 	} catch (error) {
-// 		const { response } = error;
-// 		if (response) {
-// 			return {
-// 				message: response.data.message || "Something Went Wrong!",
-// 			};
-// 		}
-// 		return { message: "Something Went Wrong!" };
-// 	}
-// };
 export const loginVerify = async (phoneNumber, loginOtp) => {
-    let body = {
-        phoneNumber: `91${phoneNumber}`,
-        Otp: loginOtp,
-    };
+	let body = {
+		phoneNumber: `91${phoneNumber}`,
+		Otp: loginOtp,
+	};
 
-    try {
-        let response = await API.post(`/auth/verifyLoginOtp`, body);
-        console.log("API Response:", response.data); 
+	try {
+		let data = await API.post(`/auth/verifyLoginOtp`, {
+			...body,
+		}).then((res) => res.data);
 
-        if (response.data.token) {
-            localStorage.setItem("authToken", response.data.token); 
-            console.log("Stored Token:", localStorage.getItem("authToken")); 
-        } else {
-            console.error("No token received from API");
-        }
-
-        return response.data;
-    } catch (error) {
-        console.error("Login API Error:", error);
-        return { message: "Something Went Wrong!" };
-    }
+		return data;
+	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
+		return { message: "Something Went Wrong!" };
+	}
 };
+// export const loginVerify = async (phoneNumber, loginOtp) => {
+//     let body = {
+//         phoneNumber: `91${phoneNumber}`,
+//         Otp: loginOtp,
+//     };
+
+//     try {
+//         let response = await API.post(`/auth/verifyLoginOtp`, body);
+//         console.log("API Response:", response.data); 
+
+//         if (response.data.token) {
+//             localStorage.setItem("authToken", response.data.token); 
+//             console.log("Stored Token:", localStorage.getItem("authToken")); 
+//         } else {
+//             console.error("No token received from API");
+//         }
+
+//         return response.data;
+//     } catch (error) {
+//         console.error("Login API Error:", error);
+//         return { message: "Something Went Wrong!" };
+//     }
+// };
 
 
 // INFO: Not used yet
