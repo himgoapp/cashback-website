@@ -82,7 +82,7 @@
   text-decoration: none;
   color: inherit;
   display: flex;
-  align-items: center;
+  /* align-items: center */
   gap: 8px; /* Minimal spacing */
   transition: background-color 0.2s ease, transform 0.15s ease;
   border-radius: 4px;
