@@ -78,11 +78,11 @@ const NewArticle = () => {
       
       <div className={styles.blogDetail}>
         <div className={styles.breadcrumb}>
-          <span className={styles.home} onClick={() => navigate("/latest-news")}>
-            Home
+          {/* <span className={styles.home} onClick={() => navigate("/latest-news")}>
+            Online Poker News
           </span>
           <span className={styles.separator}> » </span>
-          <span className={styles.current}>{blog.type}</span>
+          <span className={styles.current}>{blog.type}</span> */}
         </div>
 
         <div className={styles.blogHeader}>
@@ -98,35 +98,34 @@ const NewArticle = () => {
         </div>
 <div className={styles.blogContainer}>
         <div className={styles.blogContent}>
-          <div className={`${styles.toc} ${isMobile ? styles.mobileToc : ""}`}>
-            {isMobile && (
-              <h4 onClick={() => setTocVisible(!tocVisible)}>
-                📖 Table of Contents {tocVisible ? "▲" : "▼"}
-              </h4>
-            )}
-            {tocVisible && (
-              <ul>
-                <h4>   📖 Table of Contents</h4>
-                {headings.map((item, index) => (
-                  <li
-                    key={index}
-                    className={`${styles.tocItem} ${
-                      activeSection === item.id ? styles.active : ""
-                    }`}
-                    onClick={() => {
-                      document
-                        .getElementById(item.id)
-                        ?.scrollIntoView({ behavior: "smooth", block: "start" });
-                    }}
-                  >
-                    
-                    {item.title}
-                  </li>
-                ))}
-              </ul>
-            )}
-          </div>
+  <div className={`${styles.toc} ${tocVisible ? "expanded" : ""}`}>
+    {/* Clicking on heading toggles TOC */}
+    <h4 onClick={() => setTocVisible(!tocVisible)}>
+      📖 Table of Contents {tocVisible ? "▲" : "▼"}
+    </h4>
 
+    {/* TOC List */}
+    <ul style={{ display: tocVisible ? "block" : "none" }}>
+      {headings.map((item, index) => (
+        <li
+        className={`${styles.tocItem} ${
+          activeSection === item.id ? styles.active : ""
+        }`}
+          key={index}
+        
+          onClick={() => {
+            document.getElementById(item.id)?.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+            setTocVisible(false); // Close TOC on click
+          }}
+        >
+          {item.title}
+        </li>
+      ))}
+    </ul>
+  </div>
           <div className={styles.description}>
             <div dangerouslySetInnerHTML={{ __html: contentWithIds }} />
           </div>
