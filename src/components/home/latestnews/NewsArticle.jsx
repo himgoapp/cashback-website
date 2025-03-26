@@ -78,11 +78,14 @@ const NewArticle = () => {
       
       <div className={styles.blogDetail}>
         <div className={styles.breadcrumb}>
-          {/* <span className={styles.home} onClick={() => navigate("/latest-news")}>
+      <span className={styles.home} onClick={() => navigate("/latest-news")}>
             Online Poker News
           </span>
           <span className={styles.separator}> » </span>
-          <span className={styles.current}>{blog.type}</span> */}
+          <span className={styles.current}>
+  {blog.type.charAt(0).toUpperCase() + blog.type.slice(1)}
+</span>
+
         </div>
 
         <div className={styles.blogHeader}>
