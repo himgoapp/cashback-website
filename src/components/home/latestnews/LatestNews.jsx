@@ -17,11 +17,11 @@ const LatestNews = ({ userData }) => {
   const typename = [
     { type: "latest", label: "Latest News" },
     { type: "Live Poker", label: "Live Poker" },
-    { type: "Promotions", label: "Promotions" },
+    { type: "promotions", label: "Promotions" },
     { type: "Blog", label: "Blog" },
     { type: "MTT Series", label: "MTT Series" },
     { type: "Interviews", label: "Interviews" },
-    { type: "Guides", label: "Guides" },
+    { type: "guides", label: "Guides" },
   ];
 
   const handleTabs = (type) => {
