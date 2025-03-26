@@ -12,14 +12,14 @@ import responsible from "../../../assets/responsible gaiming.svg";
 import rewards from "../../../assets/reward.svg";
 import unfair from "../../../assets/unfair.svg";
 const tabs = [
-  { id: 1, title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: legal, path: "/faq_container/legal" },
-  { id: 2, title: "RAKEBACK.COM", icon: rakeback, path: "/faq_container/rakeback" },
-  { id: 3, title: "MY ACCOUNT", icon:myaccount, path: "/faq_container/account" },
-  { id: 4, title: "BANKING", icon: bank, path: "/faq_container/banking" },
-  { id: 5, title: "RESPONSIBLE GAMING", icon: responsible, path: "/faq_container/responsible" },
-  { id: 6, title: "UNFAIR GAMEPLAY", icon: unfair, path: "/faq_container/unfair" },
-  { id: 7, title: "PROMOTIONS", icon:promotions, path: "/faq_container/promotions" },
-  { id: 8, title: "REFUNDS & WINNINGS", icon: rewards, path: "/faq_container/refunds" },
+  { id: 1, title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: legal, path: "/faq/legal" },
+  { id: 2, title: "RAKEBACK.COM", icon: rakeback, path: "/faq/rakeback" },
+  { id: 3, title: "MY ACCOUNT", icon:myaccount, path: "/faq/account" },
+  { id: 4, title: "BANKING", icon: bank, path: "/faq/banking" },
+  { id: 5, title: "RESPONSIBLE GAMING", icon: responsible, path: "/faq/responsible" },
+  { id: 6, title: "UNFAIR GAMEPLAY", icon: unfair, path: "/faq/unfair" },
+  { id: 7, title: "PROMOTIONS", icon:promotions, path: "/faq/promotions" },
+  { id: 8, title: "REFUNDS & WINNINGS", icon: rewards, path: "/faq/refunds" },
 ];
 
 const FAQ = () => {
@@ -63,7 +63,7 @@ const FAQ = () => {
           </div>
 
       <Routes>
-        <Route path="/faq_container/*" element={<FaqContainer />} />
+        <Route path="/faq/*" element={<FaqContainer />} />
       </Routes>
         </div>
       </div>

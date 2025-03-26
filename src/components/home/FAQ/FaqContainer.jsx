@@ -12,6 +12,7 @@ import promotions from "../../../assets/promotions.svg";
 import responsible from "../../../assets/responsible gaiming.svg";
 import rewards from "../../../assets/reward.svg";
 import unfair from "../../../assets/unfair.svg";
+import Meta from "../../../Meta";
 
 const faqData = {
   legal: [
@@ -252,14 +253,14 @@ const FaqContainer = () => {
 
   useEffect(() => {
     if (!category || !faqData[category]) {
-      navigate("/faq_container/legal", { replace: true });
+      navigate("/faq/legal", { replace: true });
     } else {
       setFaqList(faqData[category]);
     }
     setOpen(null);
   }, [category, navigate]);
   const handleTabClick = (tabId) => {
-    navigate(`/faq_container/${tabId}`);
+    navigate(`/faq/${tabId}`);
   };
 
   const toggleAnswer = (index) => {
@@ -267,7 +268,13 @@ const FaqContainer = () => {
   };
 
   return (
-    <div style={{overflow:"hidden"}}>
+    <div style={{overflow:"hidden"}}> 
+  <Meta
+  title="FAQ - Rakeback"
+  description="Find answers to commonly asked questions about legalities, gameplay, account settings, banking, and more."
+  link={`https://www.rakebackk.com`}
+/>
+
       <Navbar page="home" />
       <div className={styles.main_container}>
         <div className={styles.faq_container}>

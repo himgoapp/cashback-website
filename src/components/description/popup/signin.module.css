@@ -173,8 +173,6 @@
 }
 .Subhead1 {
   color: #002855;
-  
-
   /* Text md/Regular */
   font-family: "Roboto", sans-serif;;
   font-size: 16px;
@@ -241,8 +239,12 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
 }
-
-
+.logo {
+	margin-left: -50px;
+}
+.logo_font{
+	font-family: "HP Simplified H", Arial, sans-serif;
+}
 
 /* .otp_button:hover {
   color: black;

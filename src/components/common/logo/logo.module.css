@@ -2,8 +2,14 @@
 	width: 9.125rem;
 	height: 2.8125rem;
 	flex-shrink: 0;
+	margin-left: -40px;
 }
-
+.logo_font{
+	font-family: "HP Simplified H", Arial, sans-serif;
+}
+.logo_fonts{
+	font-family: "HP Simplified H", Arial, sans-serif;
+}
 @media only screen and (max-width: 768px) {
 	.logo {
 		width: 8.51669rem;

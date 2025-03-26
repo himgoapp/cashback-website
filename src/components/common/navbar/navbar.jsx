@@ -126,7 +126,7 @@ const homePageMenu = (
     <a href="/#about-us" className={styles.secondary_link}>
       About Us
     </a>
-    <a href="/faq_container" className={styles.secondary_link}>
+    <a href="/faq" className={styles.secondary_link}>
       FAQs
     </a>
   </div>
@@ -151,7 +151,7 @@ const offersAndDealsPageMenu = (
     <a href="/#" className={styles.secondary_link}>
       Promotions
     </a>
-    <a href="/faq_container" className={styles.secondary_link}>
+    <a href="/faq" className={styles.secondary_link}>
       FAQs
     </a>
   </div>

@@ -78,10 +78,45 @@
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
 }
-
 .card_link {
   text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Minimal spacing */
+  transition: background-color 0.2s ease, transform 0.15s ease;
+  border-radius: 4px;
 }
+
+.card_link:hover {
+  background-color: rgba(0, 82, 204, 0.07); /* Very subtle hover effect */
+  transform: scale(1.01); /* Tiny lift effect */
+}
+
+.post_image {
+  width: 45px; /* Slightly smaller */
+  height: 45px;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.card_link:hover .post_image {
+  transform: scale(1.05); /* Tiny zoom */
+}
+
+.post_content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.post_item {
+  display: flex;
+  align-items: center;
+  padding: 6px 0; /* Minimal padding */
+  border-bottom: 1px solid #ddd;
+}
+
 
 .news_card {
   position: relative;

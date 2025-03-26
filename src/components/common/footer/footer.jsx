@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./footer.module.css"; // Replace with your actual CSS module path
-import { LogoLight } from "../logo/logo";
+import  Logo  from "../logo/logo";
 
 const Footer = () => {
 	return (
@@ -9,7 +9,7 @@ const Footer = () => {
 				<div className={styles.menu_container}>
 					<div className={styles.menu_content}>
 						<a href='/' className={styles.logo}>
-							<LogoLight />
+							<Logo />
 						</a>
 
 						<div className={styles.menu_items}>

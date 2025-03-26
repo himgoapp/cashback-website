@@ -160,7 +160,7 @@ function App() {
               }
             />
             <Route
-              path="/faq_container/:category?"
+              path="/faq/:category?"
               element={
                 <NotProtectedRoute>
                   <FaqContainer />

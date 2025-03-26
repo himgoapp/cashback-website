@@ -7,7 +7,7 @@ import Navbtn from "../../common/button/navbtn/navbtn";
 import { Modal, Button, Form } from "react-bootstrap";
 import { sendEmailOtpAPI, loginVerify } from "../../../servicefile/authservice";
 import { toast } from "react-toastify";
-import Logo from "../../common/logo/logo";
+import {RakebackLogo} from "../../common/logo/logo";
 import avater1 from "../../../assets/avater1.svg";
 import {
   PokerIcon,
@@ -392,7 +392,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
       >
         <Modal.Header className="d-flex justify-content-center" closeButton>
           <Modal.Title>
-            <Logo />
+            <RakebackLogo />
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

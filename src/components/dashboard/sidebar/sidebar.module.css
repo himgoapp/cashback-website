@@ -52,8 +52,11 @@
   position: relative;
   padding-left: 1.5rem;
   padding-right: 1.25rem;
+  margin-left: -40px;
 }
-
+.logo_font{
+  font-family: "HP Simplified H", Arial, sans-serif;
+}
 .Navigation {
   width: 100%;
   align-self: stretch;

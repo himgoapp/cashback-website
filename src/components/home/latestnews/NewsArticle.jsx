@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getBlogById } from "../../../servicefile/blogservice";
+import { getBlogById,getBlogs } from "../../../servicefile/blogservice";
 import styles from "./blogDetail.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
@@ -14,6 +14,8 @@ const NewArticle = () => {
   const [activeSection, setActiveSection] = useState(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [tocVisible, setTocVisible] = useState(!isMobile);
+  const [allArticles, setAllArticles] = useState([]);
+  const [currentArticles, setCurrentArticles] = useState([]);
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -32,6 +34,42 @@ const NewArticle = () => {
     fetchBlog();
   }, [blogId]);
 
+  
+  useEffect(() => {
+    const fetchArticles = async () => {
+
+      const cachedBlogs = sessionStorage.getItem("blogs");
+      if (cachedBlogs) {
+        setAllArticles(JSON.parse(cachedBlogs));
+        setCurrentArticles(JSON.parse(cachedBlogs));
+        return;
+      }
+
+      const startTime = performance.now(); 
+
+      try {
+        const blogs = await getBlogs();
+      
+        const endTime = performance.now(); 
+        console.log(
+          `API Response Time: ${(endTime - startTime).toFixed(2)} ms`
+        );
+      
+        // Store data in sessionStorage (cache)
+        sessionStorage.setItem("blogs", JSON.stringify(blogs));
+
+        setAllArticles(blogs);
+        setCurrentArticles(blogs);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+        
+      } finally {
+      }
+    };
+    fetchArticles();
+  }, []);
+
+  
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll("h2");
@@ -141,6 +179,25 @@ const NewArticle = () => {
           </div>
           <div className={styles.rightSidebar}>
             <RightSidebar />
+            <div className={styles.important_post}>
+              <h2 className={styles.important_post_heading}>Important Posts</h2>
+              <ul className={styles.post_list}>
+                {currentArticles.length > 0 ? (
+                  currentArticles.map((post) => (
+                    <li key={post.id} className={styles.post_item}>
+                      <img
+                        src={post.imageUrl}
+                        alt={post.title}
+                        className={styles.post_image}
+                      />
+                      {post.title}
+                    </li>
+                  ))
+                ) : (
+                  <p>No important posts available.</p>
+                )}
+              </ul>
+            </div>
           </div>
         </div>
       </div>

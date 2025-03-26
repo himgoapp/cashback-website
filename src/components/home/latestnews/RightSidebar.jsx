@@ -21,7 +21,7 @@ const RightSidebar = () => {
   return (
     <div className={styles.sidebar}>
       <div className={styles.heading}>
-      <h4 className={styles.sidebarTitle}>Top 5 Poker Rooms</h4>
+      <h4 className={styles.sidebarTitle}>Top Poker Rooms</h4>
       <span className={styles.country}><img src="https://worldpokerdeals.com/icons/countries/India.svg" style={{width:"20px"}}/> for India</span>
       </div>
       <ul className={styles.list}>
