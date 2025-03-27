@@ -1,10 +1,10 @@
 import { API } from "../utils/api";
 
 
-export const getBlogs = async () => {
+export const getBlogs = async (type,page) => {
     try {
-      const response = await API.get("/blogs/blogslist?page=1");
-      return response.data.blogsList || []; 
+      const response = await API.get(`/blogs/blogslist?type=${type}&page=${page}`);
+      return response.data; 
     } catch (error) {
       console.error("Error fetching blogs:", error);
       return [];

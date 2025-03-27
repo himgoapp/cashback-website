@@ -35,59 +35,25 @@ const NewArticle = () => {
   }, [blogId]);
 
   
+  const fetchRelatedArticles = async () => {
+    if (!blog || !blog.type) return;
+
+    try {
+      const response = await getBlogs(blog.type, 1); 
+      if (response && response.blogsList) {
+        const relatedPosts = response.blogsList.filter((post) => post._id !== blog._id).slice(0, 5);
+        setCurrentArticles(relatedPosts);
+      }
+    } catch (error) {
+      console.error("Error fetching related articles:", error);
+    }
+  };
   useEffect(() => {
-    const fetchArticles = async () => {
-
-      const cachedBlogs = sessionStorage.getItem("blogs");
-      if (cachedBlogs) {
-        setAllArticles(JSON.parse(cachedBlogs));
-        setCurrentArticles(JSON.parse(cachedBlogs));
-        return;
-      }
-
-      const startTime = performance.now(); 
-
-      try {
-        const blogs = await getBlogs();
-      
-        const endTime = performance.now(); 
-        console.log(
-          `API Response Time: ${(endTime - startTime).toFixed(2)} ms`
-        );
-      
-        // Store data in sessionStorage (cache)
-        sessionStorage.setItem("blogs", JSON.stringify(blogs));
-
-        setAllArticles(blogs);
-        setCurrentArticles(blogs);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-        
-      } finally {
-      }
-    };
-    fetchArticles();
-  }, []);
-
+    
   
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll("h2");
-      let currentSection = null;
-
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        if (rect.top >= 0 && rect.top <= 200) {
-          currentSection = section.id;
-        }
-      });
-
-      setActiveSection(currentSection);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+    fetchRelatedArticles();
+  }, [blog]);
+  
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -165,7 +131,10 @@ const NewArticle = () => {
                         behavior: "smooth",
                         block: "start",
                       });
-                      setTocVisible(false); // Close TOC on click
+                    
+                      if (isMobile) {
+                        setTocVisible(false); // Only close TOC on mobile
+                      }
                     }}
                   >
                     {item.title}
@@ -180,24 +149,30 @@ const NewArticle = () => {
           <div className={styles.rightSidebar}>
             <RightSidebar />
             <div className={styles.important_post}>
-              <h2 className={styles.important_post_heading}>Important Posts</h2>
-              <ul className={styles.post_list}>
-                {currentArticles.length > 0 ? (
-                  currentArticles.map((post) => (
-                    <li key={post.id} className={styles.post_item}>
-                      <img
-                        src={post.imageUrl}
-                        alt={post.title}
-                        className={styles.post_image}
-                      />
-                      {post.title}
-                    </li>
-                  ))
-                ) : (
-                  <p>No important posts available.</p>
-                )}
-              </ul>
-            </div>
+  <h2 className={styles.important_post_heading}>Important Posts</h2>
+  <ul className={styles.post_list}>
+    {currentArticles.length > 0 ? (
+      currentArticles.map((post) => (
+        <li
+          key={post.id}
+          className={styles.post_item}
+          onClick={() => navigate(`/news/${post._id}`)} 
+          style={{ cursor: "pointer" }} 
+        >
+          <img
+            src={post.imageUrl}
+            alt={post.title}
+            className={styles.post_image}
+          />
+          <span>{post.title}</span>
+        </li>
+      ))
+    ) : (
+      <p>No important posts available.</p>
+    )}
+  </ul>
+</div>
+
           </div>
         </div>
       </div>

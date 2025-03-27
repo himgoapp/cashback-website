@@ -9,76 +9,35 @@ import Meta from "../../../Meta";
 import RightSidebar from "./RightSidebar";
 
 const LatestNews = ({ userData }) => {
-  const [activeTab, setActiveTab] = useState("latest");
+  const [activeTab, setActiveTab] = useState("Latest News");
   const [allArticles, setAllArticles] = useState([]);
   const [currentArticles, setCurrentArticles] = useState([]);
   const [loading, setLoading] = useState(true);
-
-  const typename = [
-    { type: "latest", label: "Latest News" },
-    { type: "Live Poker", label: "Live Poker" },
-    { type: "promotions", label: "Promotions" },
-    { type: "Blog", label: "Blog" },
-    { type: "MTT Series", label: "MTT Series" },
-    { type: "Interviews", label: "Interviews" },
-    { type: "guides", label: "Guides" },
-  ];
+  const [page, setPage] = useState(1)
+  const [totalPage , setTotalPage] = useState(1)
 
   const handleTabs = (type) => {
     setActiveTab(type);
   };
 
-  const filterArticles = (type) => {
-    if (type === "latest") {
-      setCurrentArticles(allArticles);
-    } else {
-      const filtered = allArticles.filter((item) => item.type === type);
-      setCurrentArticles(filtered);
-    }
+  const filterArticles = async () => {
+      let type = activeTab === "Latest News" ? undefined : activeTab
+      const response = await getBlogs(type , page);
+      if(response && response.blogsList){
+        let length = response.length < 10 ? 1 : response.length / 9;
+        setCurrentArticles(response.blogsList);
+        setTotalPage(length);
+        setLoading(false);
+      }
   };
 
-  useEffect(() => {
-    const fetchArticles = async () => {
-      setLoading(true);
 
-      // Check if data is cached
-      const cachedBlogs = sessionStorage.getItem("blogs");
-      if (cachedBlogs) {
-        console.log("Using Cached Data");
-        setAllArticles(JSON.parse(cachedBlogs));
-        setCurrentArticles(JSON.parse(cachedBlogs));
-        setLoading(false);
-        return;
-      }
-
-      const startTime = performance.now(); // Start API timer
-
-      try {
-        const blogs = await getBlogs();
-        const endTime = performance.now(); // End API timer
-        console.log(
-          `API Response Time: ${(endTime - startTime).toFixed(2)} ms`
-        );
-
-        // Store data in sessionStorage (cache)
-        sessionStorage.setItem("blogs", JSON.stringify(blogs));
-
-        setAllArticles(blogs);
-        setCurrentArticles(blogs);
-      } catch (error) {
-        console.error("Error fetching blogs:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchArticles();
-  }, []);
-  const importantPosts = currentArticles.filter((post) => post.type === activeTab);
 
   useEffect(() => {
-    filterArticles(activeTab);
-  }, [activeTab, allArticles]);
+    filterArticles()
+  }, [activeTab, page]);
+
+  
 
   return (
     <>
@@ -95,13 +54,13 @@ const LatestNews = ({ userData }) => {
         <Tabs>
           <div className={styles.tabs_container}>
             <TabList className={styles.tabList}>
-              {typename.map((item) => (
+              {["Latest News", "Live Poker", "Blog", "MTT Series", "Promotions", "Interviews", "Guides"].map((tab) => (
                 <Tab
-                  key={item.type}
-                  className={activeTab === item.type ? styles.active : ""}
-                  onClick={() => handleTabs(item.type)}
+                  key={tab}
+                  className={activeTab === tab ? styles.active : ""}
+                  onClick={() => handleTabs(tab)}
                 >
-                  {item.label}
+                  {tab}
                 </Tab>
               ))}
             </TabList>
@@ -116,7 +75,7 @@ const LatestNews = ({ userData }) => {
                   currentArticles.map((article) => {
                     let blogId = `${article.title}_${article._id}`;
 
-                    blogId = blogId.replace(/ /g, "_");
+                    blogId = blogId.replace(/[\s?]/g, "_");
 
                     return (
                       <Link
@@ -166,50 +125,29 @@ const LatestNews = ({ userData }) => {
               </div>
 
               <div className={styles.rightSidebar}>
-  <RightSidebar />
-  <div className={styles.important_post}>
-    <h2 className={styles.important_post_heading}>Important Posts</h2>
-    <ul className={styles.post_list}>
-  {activeTab === "latest"
-    ? allArticles.slice(0, 5).map((post) => {
+                <RightSidebar />
+                <div className={styles.important_post}>
+                  <h2 className={styles.important_post_heading}>Important Posts</h2>
+                  <ul className={styles.post_list}>
+  {currentArticles.length > 0
+    ? currentArticles.slice(0, 5).map((post) => {
         const blogId = `${post.title.replace(/ /g, "_")}_${post._id}`;
         return (
           <li key={post._id} className={styles.post_item}>
             <Link to={`/news/${blogId}`} className={styles.card_link}>
-              <img
-                src={post.imageUrl}
-                alt={post.title}
-                className={styles.post_image}
-              />
+              <img src={post.imageUrl} alt={post.title} className={styles.post_image} />
               {post.title}
             </Link>
           </li>
         );
       })
-    : currentArticles.length > 0
-    ? currentArticles
-        .filter((post) => post.type === activeTab)
-        .map((post) => {
-          const blogId = `${post.title.replace(/ /g, "_")}_${post._id}`;
-          return (
-            <li key={post._id} className={styles.post_item}>
-              <Link to={`/news/${blogId}`} className={styles.card_link}>
-                <img
-                  src={post.imageUrl}
-                  alt={post.title}
-                  className={styles.post_image}
-                />
-                {post.title}
-              </Link>
-            </li>
-          );
-        })
     : <p>No important posts available.</p>
   }
 </ul>
 
-  </div>
-</div>
+
+                </div>
+              </div>
             </div>
           </div>
         </Tabs>
