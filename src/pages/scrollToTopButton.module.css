@@ -110,7 +110,15 @@
   width: 24px;
   height: 24px;
 }
-
+.logo {
+	width: 9.125rem;
+	height: 2.8125rem;
+	flex-shrink: 0;
+	margin-left: -40px;
+}
+.logo_fonts{
+	font-family: "HP Simplified H", Arial, sans-serif;
+}
 /* Popup Animation */
 @keyframes fadeInUp {
   from {
