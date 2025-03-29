@@ -222,9 +222,17 @@
 		width: 1.5rem;
 		height: 1.5rem;
 	}
-
+	.logo {
+		width: 9.125rem;
+		height: 2.8125rem;
+		flex-shrink: 0;
+	}
+	
+	.logo_fonts{
+		font-family: "HP Simplified H", Arial, sans-serif;
+	}
 	.Logo svg {
-		width: 7.0625rem;
+		width: 6.0625rem;
 		height: 2.75rem;
 	}
 

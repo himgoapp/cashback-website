@@ -197,13 +197,13 @@
   }
   
   .faq_header .head {
-	color: #2c3e50;
+	color: black;
 	font-family: Futura;
 	font-size: 3rem;
 	font-weight: 700;
 	line-height: 1.2;
 	letter-spacing: -0.02rem;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
 	margin: 0;
   }
   

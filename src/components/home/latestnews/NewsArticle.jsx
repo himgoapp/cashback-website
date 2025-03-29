@@ -17,20 +17,29 @@ const NewArticle = () => {
   const [allArticles, setAllArticles] = useState([]);
   const [currentArticles, setCurrentArticles] = useState([]);
 
-  useEffect(() => {
-    const fetchBlog = async () => {
-      if (!blogId) return;
-      try {
-        let id = blogId.substring(blogId.lastIndexOf("_") + 1);
-        const blogData = await getBlogById(id);
-        const fetchedBlog =
-          blogData?.data?.product?.[0] || blogData?.product?.[0];
-        if (fetchedBlog) setBlog(fetchedBlog);
-      } catch (error) {
-        console.error("Error fetching blog:", error);
-      }
-    };
 
+  const fetchBlog = async () => {
+    if (!blogId) return;
+    try {
+      let id = blogId.substring(blogId.lastIndexOf("_") + 1);
+      console.log("Fetching Blog ID:", id);
+  
+      const blogData = await getBlogById(id);
+      console.log("API Response:", blogData);
+  
+      const fetchedBlog =
+        blogData?.data?.product?.[0] || blogData?.product?.[0];
+  
+      if (fetchedBlog) {
+        setBlog(fetchedBlog);
+      } else {
+        console.warn("No blog found in response.");
+      }
+    } catch (error) {
+      console.error("Error fetching blog:", error);
+    }
+  };
+  useEffect(() => {
     fetchBlog();
   }, [blogId]);
 
@@ -76,7 +85,6 @@ const NewArticle = () => {
       return `<h2 id="section-${index}" class="${styles.sectionHeading}">${p1}</h2>`;
     }
   );
-
   return (
     <div>
       <Meta
@@ -152,11 +160,13 @@ const NewArticle = () => {
   <h2 className={styles.important_post_heading}>Important Posts</h2>
   <ul className={styles.post_list}>
     {currentArticles.length > 0 ? (
-      currentArticles.map((post) => (
+      currentArticles.map((post) => {
+        const blogId = `${post.title.replace(/ /g, "_")}_${post._id}`;
+        return(
         <li
           key={post.id}
           className={styles.post_item}
-          onClick={() => navigate(`/news/${post._id}`)} 
+          onClick={() => navigate(`/news/${blogId}`)} 
           style={{ cursor: "pointer" }} 
         >
           <img
@@ -166,7 +176,7 @@ const NewArticle = () => {
           />
           <span>{post.title}</span>
         </li>
-      ))
+      )})
     ) : (
       <p>No important posts available.</p>
     )}

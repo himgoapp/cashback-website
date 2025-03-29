@@ -14,21 +14,21 @@ const LatestNews = ({ userData }) => {
   const [currentArticles, setCurrentArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1)
-  const [totalPage , setTotalPage] = useState(1)
+  const [totalPage, setTotalPage] = useState(1)
 
   const handleTabs = (type) => {
     setActiveTab(type);
   };
 
   const filterArticles = async () => {
-      let type = activeTab === "Latest News" ? undefined : activeTab
-      const response = await getBlogs(type , page);
-      if(response && response.blogsList){
-        let length = response.length < 10 ? 1 : response.length / 9;
-        setCurrentArticles(response.blogsList);
-        setTotalPage(length);
-        setLoading(false);
-      }
+    let type = activeTab === "Latest News" ? undefined : activeTab
+    const response = await getBlogs(type, page);
+    if (response && response.blogsList) {
+      let length = response.length < 10 ? 1 : response.length / 9;
+      setCurrentArticles(response.blogsList);
+      setTotalPage(length);
+      setLoading(false);
+    }
   };
 
 
@@ -37,7 +37,16 @@ const LatestNews = ({ userData }) => {
     filterArticles()
   }, [activeTab, page]);
 
-  
+  const typeColors = {
+    Blog: "#ff4d4d",
+    Promotions: "#ffcc00",
+    Guides: "#ff4d4d",
+    Interviews: "#007bff",
+    "MTT Series":"#4caf50",
+    "Live Poker": "#007bff",
+    "Latest News": "#ffcc00",
+  };
+
 
   return (
     <>
@@ -93,7 +102,10 @@ const LatestNews = ({ userData }) => {
                           </div>
                           <div className={styles.cardContent}>
                             <div className={styles.cardMetaTop}>
-                              <span className={styles.type}>
+                              <span
+                                className={styles.type}
+                                style={{ backgroundColor: typeColors[article.type] || "#ffcc00", color: "#fff", padding: "5px 10px", borderRadius: "5px" }}
+                              >
                                 {article.type || "latest"}
                               </span>
                               <span className={styles.date}>
@@ -129,21 +141,21 @@ const LatestNews = ({ userData }) => {
                 <div className={styles.important_post}>
                   <h2 className={styles.important_post_heading}>Important Posts</h2>
                   <ul className={styles.post_list}>
-  {currentArticles.length > 0
-    ? currentArticles.slice(0, 5).map((post) => {
-        const blogId = `${post.title.replace(/ /g, "_")}_${post._id}`;
-        return (
-          <li key={post._id} className={styles.post_item}>
-            <Link to={`/news/${blogId}`} className={styles.card_link}>
-              <img src={post.imageUrl} alt={post.title} className={styles.post_image} />
-              {post.title}
-            </Link>
-          </li>
-        );
-      })
-    : <p>No important posts available.</p>
-  }
-</ul>
+                    {currentArticles.length > 0
+                      ? currentArticles.slice(0, 5).map((post) => {
+                        const blogId = `${post.title.replace(/ /g, "_")}_${post._id}`;
+                        return (
+                          <li key={post._id} className={styles.post_item}>
+                            <Link to={`/news/${blogId}`} className={styles.card_link}>
+                              <img src={post.imageUrl} alt={post.title} className={styles.post_image} />
+                              {post.title}
+                            </Link>
+                          </li>
+                        );
+                      })
+                      : <p>No important posts available.</p>
+                    }
+                  </ul>
 
 
                 </div>

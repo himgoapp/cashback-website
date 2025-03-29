@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import styles from "./offerAndRegistration.module.css"; // Replace with your actual CSS module path
 // import offercard from "../../assets/offercard.png";
 import proIcon from "../../assets/proIcon.png";
@@ -14,13 +14,9 @@ import icon3 from "../../assets/icon3.svg";
 import icon2 from "../../assets/icon2.svg";
 import icon1 from "../../assets/icon1.svg";
 import events from "../../assets/events.jpg"
+import { getProductById } from "../../servicefile/productservice";
+const OfferAndRegistration = ({currentItem}) => {
 
-const OfferAndRegistration = () => {
-  const [register, setRegister] = useState(0);
-
-  let currentItem = localStorage.getItem("currentProductValue")
-    ? JSON.parse(localStorage.getItem("currentProductValue"))
-    : {};
 
   return (
     <div className={styles.offer_and_registration_wrapper}>

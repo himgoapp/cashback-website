@@ -182,7 +182,7 @@ const rakelogo = (
 		  fill="none"
 		  
 		>
-			<text x="40" y="30" className={styles.logo_fonts} font-size="20" fill="black"font-weight="bold" letter-spacing="2px" >
+			<text x="40" y="30" className={styles.logo_fonts} font-size="20" fill="black"font-weight="bold" letter-spacing="0.5px" >
 	  Rakebackk
 	</text>
 		  {/* <path

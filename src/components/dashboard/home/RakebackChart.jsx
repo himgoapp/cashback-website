@@ -199,15 +199,11 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
             height: chartHeight,
           }}
         >
-          {/* User Info Card */}
           <div className={styles.dashboard_card} style={{
             backgroundImage: `url(${backgroundImg})`
           }}>
             <div>
               <div className={styles.dashboard_greeting}>Hello, {dashboardInfo.user.userName}</div>
-              {/* <div className={styles.dashboard_username}>
-                {dashboardInfo.user.userName}
-              </div> */}
               <div className={styles.dashboard_explore}>
                 Explore with Rakebackk
               </div>
@@ -220,14 +216,6 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
                 </button>
               </div>
             </div>
-            {/* Image Wrapper */}
-            {/* <div className={styles.dashboard_image_wrapper}>
-              <img
-                src={illustration1}
-                alt="Illustration"
-                className={styles.dashboard_image}
-              />
-            </div> */}
           </div>
           <div className={styles.chart_heading}>
             Rakeback Earning and Percentage -

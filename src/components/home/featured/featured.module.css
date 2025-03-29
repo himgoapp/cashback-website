@@ -12,12 +12,14 @@
 }
 
 .head {
-	font-size: 2.625rem;
+	color: #2c3e50;
+	font-family: Futura;
+	font-size: 3rem;
 	font-weight: 700;
-	color: var(--black-800, #212121);
-	font-feature-settings: "clig" off, "liga" off;
-	font-family: "Roboto", sans-serif;
-	letter-spacing: -0.0375rem;
+	line-height: 1.2;
+	letter-spacing: -0.02rem;
+	color: black;
+	margin: 0;
 }
 
 .type {
@@ -67,14 +69,16 @@
 	object-fit: cover;
 	border-top-left-radius: 8px;
 	border-top-right-radius: 8px;
+	cursor: pointer;
 }
 
 .cardContent {
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
-	flex-grow: 1; /* Allow content to grow and fill available space */
-	justify-content: space-between; /* Push content to top and bottom */
+	flex-grow: 1; 
+	justify-content: space-between; 
+	cursor: pointer;
 }
 
 .cardContent h5 {
@@ -86,9 +90,9 @@
 	color: gray;
 	display: flex;
 	font-family: "Roboto", sans-serif;
-	justify-content: flex-start; /* Align the writer and date to the left */
-	gap: 10px; /* Optional, to add space between the writer and date */
-	margin-top: auto; /* Push this section to the bottom of the card */
+	justify-content: flex-start; 
+	gap: 10px; 
+	margin-top: auto; 
 }
 
 .writer,
@@ -97,6 +101,7 @@
 	color: var(--gray-900, #101828);
 	font-weight: 600;
 	font-family: "Roboto", sans-serif;
+	cursor: pointer;
 }
 
 .date {

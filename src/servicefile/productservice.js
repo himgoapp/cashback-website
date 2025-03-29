@@ -60,3 +60,13 @@ export const submitAccountId = async (
 		return { message: "Something Went Wrong!" };
 	}
 };
+export const getProductById = async (product_id) => {
+   
+    try {
+        const response = await API.get(`/products/productbyid/${product_id}`)
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching room by ID:", error);
+        throw new Error("Failed to fetch room.");
+    }
+};

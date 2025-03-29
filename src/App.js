@@ -90,7 +90,7 @@ function App() {
             />
 
             <Route
-              path="/description"
+              path="/description/:roomId"
               element={
                 <ProtectedRoute>
                   <DescriptionPage />

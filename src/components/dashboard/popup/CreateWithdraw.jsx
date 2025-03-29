@@ -112,8 +112,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 						{/* input form end */}
 					</div>
 				</div>
-				{/* close icon in popup */}
-				{!mobile && (
+			
 					<div
 						style={{
 							position: "absolute",
@@ -125,7 +124,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 					>
 						{closeIcon}
 					</div>
-				)}
+			
 			</div>
 			{/* popup opacity background */}
 			<div

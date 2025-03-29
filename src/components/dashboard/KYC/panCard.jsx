@@ -10,7 +10,37 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 	const { userData } = useContext(UserContext);
 	const [edit, setEdit] = useState(false);
 	const [panCardNo, setPanCardNo] = useState("");
+	const [inputMode, setInputMode] = useState("text"); // Default Alphabet Keyboard
 
+	const handleChange = (e) => {
+	  let value = e.target.value.toUpperCase();
+  
+	  // Remove invalid characters (Only A-Z, 0-9)
+	  value = value.replace(/[^A-Z0-9]/g, "");
+  
+	  // Max length = 10
+	  if (value.length > 10) {
+		value = value.slice(0, 10);
+	  }
+  
+	  // Allow valid PAN structure while typing
+	  if (
+		/^[A-Z]{0,5}$/.test(value) || // First 5 → Letters
+		/^[A-Z]{5}[0-9]{0,4}$/.test(value) || // Next 4 → Numbers
+		/^[A-Z]{5}[0-9]{4}[A-Z]?$/.test(value) // Last 1 → Letter
+	  ) {
+		setPanCardNo(value);
+  
+		// **Auto-Switch Keyboard Mode**
+		if (value.length === 0) {
+		  setInputMode("text"); // Reset to Alphabet Keyboard if Empty
+		} else if (value.length === 5) {
+		  setInputMode("numeric"); // Switch to Number Keyboard
+		} else if (value.length === 9) {
+		  setInputMode("text"); // Switch Back to Alphabet Keyboard
+		}
+	  }
+	};
 	const panCardAdd = async () => {
 		if (!userData || !userData._id) return;
 
@@ -45,7 +75,7 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 				<div className={styles.AddressDetailsForm}>
 					<div className={styles.AddressDetailsContent}>
 						<div className={styles.InputRow}>
-							<TextField
+							{/* <TextField
 								label='PAN Card Number'
 								placeholder='GSVD73YB3B'
 								currentValue={panCardNo}
@@ -57,7 +87,25 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 										e.target.value = e.target.value.slice(0, 10);
 									}
 								}}
+							/> */}
+							<TextField
+								label="PAN Card Number"
+								placeholder="ABCDE1234F"
+								variant="outlined"
+								fullWidth
+								inputMode={inputMode} // Auto-switch Keyboard Mode
+								autoCapitalize="characters"
+								autoCorrect="off"
+								pattern="[A-Z]{5}[0-9]{4}[A-Z]"
+								inputProps={{
+									maxLength: 10,
+									style: { textTransform: "uppercase" },
+								}}
+								value={panCardNo}
+								onChange={handleChange}
+								onFocus={() => setInputMode("text")} // Ensure Alphabet Keyboard on Focus
 							/>
+
 						</div>
 					</div>
 					<div className={styles.FormFooter}>
