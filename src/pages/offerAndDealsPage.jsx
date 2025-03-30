@@ -11,8 +11,8 @@ const OfferAndDealsContainer = () => {
   return (
     <div style={{ overflow: "hidden" }}>
       <Meta
-        title="Best Rakeback Offers & Deals | Maximize Your Rewards | Rakebackk"
-        description="Discover the latest rakeback offers and exclusive deals to maximize your rewards. Get the best cashback and bonuses for poker, casino, and betting sites today!"
+        title="2025 Online Poker Rakeback Deals"
+        description="Looking For the Online Poker Rakeback Deals and Poker Cashback Deals? Check Rakebackk For Best Poker Deals & Offer. Ultimate Poker Experience"
         link="https://rakebackk.com/offer_and_deals"
       />
       {/* <MainContainer> */}

@@ -3,12 +3,14 @@ import { Helmet } from "react-helmet-async";
 const Meta = ({ title, description, link }) => {
   return (
     <Helmet>
-      <title>{title || "Rakebackk | Poker Cashback Site in India"}</title>
+      <title>
+        {title || "Best Poker Rakeback Site India | Win Real Money"}
+      </title>
       <meta
         name="description"
         content={
           description ||
-          "Online Poker Rakeback Deal Offers for 2025 - Best Reviews of the Poker Sites in India. Play Online Poker Games and Win Real Money. Get up to ₹50000 welcome Bonus"
+          "Top Poker Rakeback and Cashback Site in India | Play Online Poker Games in India with Your Choice of Poker Website and Win Real Money 2025."
         }
       />
       <link rel="canonical" href={link || "https://rakebackk.com"} />
