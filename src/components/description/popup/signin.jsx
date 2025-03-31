@@ -214,7 +214,7 @@ const PopupSignin = () => {
                       inputStyle={{
                         width: "2.5rem",
                         height: "2.5rem",
-                        margin: "0 0.5rem",
+                        margin: "0 0.3rem",
                         fontSize: "1.25rem",
                         textAlign: "center",
                         border: "2px solid #ccc",

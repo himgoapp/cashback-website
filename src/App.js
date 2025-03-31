@@ -80,7 +80,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
+            {/* <Route
               path="/offer_and_deals"
               element={
                 <NotProtectedRoute>
@@ -173,7 +173,7 @@ function App() {
               element={
                 <h1 className="text-center text-danger pt-5">Not Found</h1>
               }
-            />
+            /> */}
           </Routes>
         </Router>
       </UserContext.Provider>

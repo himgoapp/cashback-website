@@ -1,0 +1,77 @@
+/* Contact Us Modal */
+.contactModalHeader {
+    border: none;
+}
+
+.contactModalTitle {
+    font-weight: bold;
+    color: #212529;
+}
+
+.contactModalBody {
+    padding: 20px;
+}
+
+/* Form Styling */
+.contactFormGroup label {
+    font-weight: 600;
+}
+
+.contactInput {
+    border-radius: 8px;
+    border: 1px solid #6c757d;
+    background-color: #f8f9fa;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
+}
+
+.contactInput:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5);
+}
+
+/* Submit Button */
+.submitBtn {
+    padding: 10px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    background-color: #0056b3;
+    border: none;
+    font-size: 14px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s ease;
+}
+.logo_font{
+	font-family: "HP Simplified H", Arial, sans-serif;
+}
+.submitBtn:hover {
+    background-color: #004494;
+}
+
+/* Thank You Modal */
+.thankYouHeader {
+    border: none;
+}
+
+.thankYouTitle {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.thankYouBody {
+    text-align: center;
+}
+
+.thankYouBtn {
+    background-color: #28a745;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+}
+
+.thankYouBtn:hover {
+    background-color: #218838;
+}
