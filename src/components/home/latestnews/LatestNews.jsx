@@ -53,7 +53,7 @@ const LatestNews = ({ userData }) => {
       <Meta
         title="Latest Online Poker News India | Rakebackk"
         description="Check Today's Latest Poker News in India at Rakebackk."
-        link="https://www.rakebackk.com/latest-news"
+        link="https://www.rakebackk.com/latest_news"
       />
       <Navbar page="home" />
 

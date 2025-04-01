@@ -117,7 +117,7 @@ function App() {
             />
 
             <Route
-              path="/dashboard/verify-account"
+              path="/dashboard/verify_account"
               element={
                 <ProtectedRoute>
                   <VerifyAccount />
@@ -143,7 +143,7 @@ function App() {
               }
             />
             <Route
-              path="/latest-news"
+              path="/latest_news"
               element={
                 <NotProtectedRoute>
                   <LatestNews />
@@ -166,14 +166,14 @@ function App() {
                   <FaqContainer />
                 </NotProtectedRoute>
               }
-            />
+            /> */}
 
             <Route
               path="*"
               element={
                 <h1 className="text-center text-danger pt-5">Not Found</h1>
               }
-            /> */}
+            />
           </Routes>
         </Router>
       </UserContext.Provider>

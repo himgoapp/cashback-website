@@ -13,9 +13,9 @@ import MainContainer from "../layout/mainContainer";
 import ScrollToTopButton from "./ScrollToTopButton ";
 import TrustedBrands from "../components/home/trustedbrands/trustedBrands";
 import Meta from "../Meta";
-import ComingSoon from "../assets/ComingSoon1.jpg";
-import ComingSoonMobile from "../assets/mobile view png.png"
+import MobileView from "../assets/MobileView.png"
 import ContactUsModal from "./ContactUsModal"
+import Desktop from "../assets/Desktop.png"
 const Homepage = () => {
   const [showModal, setShowModal] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -29,12 +29,12 @@ const Homepage = () => {
   }, []);
   return (
     <div className={styles.homepage_container}>
-      <Meta
+      {/* <Meta
         title="Best Poker Rakeback Site India | Win Real Money "
         description="Top Poker Rakeback and Cashback Site in India | Play Online Poker Games in India with Your Choice of Poker Website and Win Real Money 2025."
         link="https://rakebackk.com"
       />
-      {/* <Navbar page="home" />
+      <Navbar page="home" />
       <MainContainer>
         <Banner />
         <AboutUs />
@@ -45,8 +45,8 @@ const Homepage = () => {
         <FAQ />
         <JoinRakeback />
         <ScrollToTopButton />
-      </MainContainer> */}
-{/* 
+      </MainContainer>
+
       <div
         style={{ width: "100%", backgroundColor: "#0052cc" }}
         className="flex_center"
@@ -55,13 +55,13 @@ const Homepage = () => {
       </div> */}
      <div className={styles.contact_button}>
         <button className={styles.contact} onClick={() => setShowModal(true)}>
-          Contact Us
+          CONTACT US
         </button>
       </div>
       <ContactUsModal show={showModal} handleClose={() => setShowModal(false)} />
 
       <img
-      src={isMobile ? ComingSoonMobile : ComingSoon}
+      src={isMobile ? MobileView : Desktop}
       className={isMobile ? styles.coming_soon_mobile : styles.coming_soon}
     />
 </div>

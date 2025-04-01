@@ -97,7 +97,7 @@ const NewArticle = () => {
         <div className={styles.breadcrumb}>
           <span
             className={styles.home}
-            onClick={() => navigate("/latest-news")}
+            onClick={() => navigate("/latest_news")}
           >
             Online Poker News
           </span>
