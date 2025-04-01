@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import styles from "./homepage.module.css";
 import Navbar from "../components/common/navbar/navbar";
 import Banner from "../components/home/banner/banner";
@@ -14,10 +14,19 @@ import ScrollToTopButton from "./ScrollToTopButton ";
 import TrustedBrands from "../components/home/trustedbrands/trustedBrands";
 import Meta from "../Meta";
 import ComingSoon from "../assets/ComingSoon1.jpg";
-import ComingSoonMobile from "../assets/ComingSoonMobile.jpg"
+import ComingSoonMobile from "../assets/mobile view png.png"
 import ContactUsModal from "./ContactUsModal"
 const Homepage = () => {
   const [showModal, setShowModal] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   return (
     <div className={styles.homepage_container}>
       <Meta
@@ -51,8 +60,10 @@ const Homepage = () => {
       </div>
       <ContactUsModal show={showModal} handleClose={() => setShowModal(false)} />
 
-<img src={ComingSoon} className={styles.coming_soon} />
-<img src={ComingSoonMobile} className={styles.coming_soon_mobile} />
+      <img
+      src={isMobile ? ComingSoonMobile : ComingSoon}
+      className={isMobile ? styles.coming_soon_mobile : styles.coming_soon}
+    />
 </div>
   );
 };
