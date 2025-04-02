@@ -77,7 +77,7 @@ body {
 
   .contact_button {
     position: absolute;
-    top: 59vh;
+    top: 70vh;
     left: 50%;
     transform: translateX(-50%);
   }
