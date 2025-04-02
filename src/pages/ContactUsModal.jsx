@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Modal, Button, Form, Spinner,InputGroup } from "react-bootstrap";
+import { Modal, Button, Form, Spinner, InputGroup } from "react-bootstrap";
 import { ContactUs } from "../servicefile/contactus";
 import styles from "./contactUsModal.module.css"; // Import CSS module
 
 const ContactUsModal = ({ show, handleClose }) => {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
+    const [phoneError, setPhoneError] = useState(""); // State for error message
     const [loading, setLoading] = useState(false);
-    const [showThankYou, setShowThankYou] = useState(false); // Thank You Modal State
+    const [showThankYou, setShowThankYou] = useState(false);
 
     const handleNameChange = (e) => {
         const value = e.target.value.replace(/[^A-Za-z\s]/g, "");
@@ -15,22 +16,32 @@ const ContactUsModal = ({ show, handleClose }) => {
     };
 
     const handlePhoneChange = (e) => {
-        const value = e.target.value.replace(/\D/g, "");
-        if (value.length <= 10) {
-            setPhone(value);
+        let value = e.target.value.replace(/\D/g, "").slice(0, 10);
+        setPhone(value);
+
+        // Clear error when the user starts typing
+        if (value.length === 10) {
+            setPhoneError("");
         }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setLoading(true);
 
+        // Validate phone number
+        if (phone.length !== 10) {
+            setPhoneError("Phone number must be exactly 10 digits");
+            return;
+        }
+
+        setLoading(true);
         const formData = { name, phone };
 
         try {
             await ContactUs(formData);
             setName("");
             setPhone("");
+            setPhoneError(""); // Clear error after successful submission
             handleClose();
             setTimeout(() => setShowThankYou(true), 500);
         } catch (error) {
@@ -47,69 +58,67 @@ const ContactUsModal = ({ show, handleClose }) => {
                     <Modal.Title className={styles.contactModalTitle}>{rakelogo}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className={styles.contactModalBody}>
-    <Form onSubmit={handleSubmit}>
-        {/* Name Field with Border */}
-        <Form.Group className={`mb-3 ${styles.contactFormGroup}`} controlId="name">
-            <Form.Label className={styles.contactLabel}>Name</Form.Label>
-            <div className={styles.inputContainer}>
-                <Form.Control
-                    type="text"
-                    className={`${styles.contactInput} ${styles.borderedInput}`}
-                    value={name}
-                    onChange={handleNameChange}
-                    required
-                />
-            </div>
-        </Form.Group>
+                    <Form onSubmit={handleSubmit}>
+                        {/* Name Field */}
+                        <Form.Group className={`mb-3 ${styles.contactFormGroup}`} controlId="name">
+                            <Form.Label className={styles.contactLabel}>Name</Form.Label>
+                            <Form.Control
+                                type="text"
+                                className={`${styles.contactInput} ${styles.borderedInput}`}
+                                value={name}
+                                onChange={handleNameChange}
+                                required
+                            />
+                        </Form.Group>
 
-        {/* Phone Field with +91 Prefix */}
-        <Form.Group className={`mb-3 ${styles.contactFormGroup}`} controlId="phone">
-            <Form.Label className={styles.contactLabel}>Phone Number</Form.Label>
-            <div className={styles.inputContainer}>
-                <InputGroup>
-                    <InputGroup.Text className={styles.inputPrefix}>+91</InputGroup.Text>
-                    <Form.Control
-                        type="number"
-                        className={`${styles.contactInput} ${styles.borderedInput}`}
-                        value={phone}
-                        onChange={handlePhoneChange}
-                        maxLength="10"
-                        required
-                    />
-                </InputGroup>
-            </div>
-        </Form.Group>
+                        {/* Phone Field with Validation */}
+                        <Form.Group className={`mb-3 ${styles.contactFormGroup}`} controlId="phone">
+                            <Form.Label className={styles.contactLabel}>Phone Number</Form.Label>
+                            <InputGroup>
+                                <InputGroup.Text className={styles.inputPrefix}>+91</InputGroup.Text>
+                                <Form.Control
+                                    type="text"
+                                    className={`${styles.contactInput} ${styles.borderedInput} ${
+                                        phoneError ? styles.errorInput : ""
+                                    }`}
+                                    value={phone}
+                                    onChange={handlePhoneChange}
+                                    maxLength="10"
+                                    required
+                                />
+                            </InputGroup>
+                            {phoneError && <p className={styles.errorText}>{phoneError}</p>}
+                        </Form.Group>
 
-        <div className="text-center">
-            <Button variant="primary" type="submit" className={styles.submitBtn}>
-                {loading ? <Spinner size="sm" animation="border" /> : "Submit"}
-            </Button>
-        </div>
-    </Form>
-</Modal.Body>
-
+                        <div className="text-center">
+                            <Button variant="primary" type="submit" className={styles.submitBtn}>
+                                {loading ? <Spinner size="sm" animation="border" /> : "Submit"}
+                            </Button>
+                        </div>
+                    </Form>
+                </Modal.Body>
             </Modal>
 
-
+            {/* Thank You Modal */}
             <Modal show={showThankYou} onHide={() => setShowThankYou(false)} centered>
                 <Modal.Header closeButton className={styles.thankYouHeader}>
                     <Modal.Title className={styles.thankYouTitle}>Thank You!</Modal.Title>
                 </Modal.Header>
                 <Modal.Body className={styles.thankYouBody}>
                     <p>Your request has been submitted successfully.</p>
-                    <Button variant="success" onClick={() => setShowThankYou(false)} className={styles.thankYouBtn}>
+                    <Button
+                        variant="success"
+                        onClick={() => setShowThankYou(false)}
+                        className={styles.thankYouBtn}
+                    >
                         Close
                     </Button>
                 </Modal.Body>
             </Modal>
-
         </>
     );
 };
-
 export default ContactUsModal;
-
-
 const rakelogo = (
     <svg
         xmlns="http://www.w3.org/2000/svg"

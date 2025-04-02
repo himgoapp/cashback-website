@@ -70,3 +70,17 @@
 .thankYouBtn:hover {
     background-color: #218838;
 }
+.errorInput {
+    border: 2px solid red !important;
+    /* background-color: #ffe6e6 !important; */
+    color: red;
+}
+.errorText {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+    .errorInput::placeholder {
+    color: darkred;
+    opacity: 0.7;
+}
