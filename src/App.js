@@ -80,7 +80,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            {/* <Route
+            <Route
               path="/offer_and_deals"
               element={
                 <NotProtectedRoute>
@@ -166,7 +166,7 @@ function App() {
                   <FaqContainer />
                 </NotProtectedRoute>
               }
-            /> */}
+            />
 
             <Route
               path="*"
