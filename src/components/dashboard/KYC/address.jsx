@@ -14,8 +14,8 @@ const SelectField = ({ label, options, placeholder, currentValue, setValue }) =>
         <div className={styles.InputWrapper}>
           <select
             className={styles.SelectTextWrapper}
-            value={currentValue} 
-            onChange={(e) => setValue(e.target.value)} 
+            value={currentValue}
+            onChange={(e) => setValue(e.target.value)}
           >
             <option value="">{placeholder}</option>
             {options.map((option, index) => (
@@ -33,6 +33,12 @@ const SelectField = ({ label, options, placeholder, currentValue, setValue }) =>
   );
 };
 
+const documentMaxLengths = {
+  aaddhar_card: 12,
+  driving_license: 16,
+  passport: 9,
+  voter_id: 10,
+};
 
 export const TextField = ({
   label,
@@ -41,6 +47,7 @@ export const TextField = ({
   setValue,
   type,
   ...props
+  
 }) => {
   return (
     <div className={styles.TextInput}>
@@ -131,12 +138,14 @@ function AddressDetail({ setStepReload }) {
                 placeholder="Olivia"
                 currentValue={firstName}
                 setValue={setFirstName}
+                required
               />
               <TextField
                 label="Last name"
                 placeholder="Rhye"
                 currentValue={lastName}
                 setValue={setLastName}
+                required
               />
             </div>
             <div className={styles.InputRow}>
@@ -150,20 +159,23 @@ function AddressDetail({ setStepReload }) {
                 label="Address Proof Document Type"
                 placeholder="Address Proof..."
                 currentValue={addressProofType}
-								setValue={setAddressProofType}
-
+                setValue={setAddressProofType}
                 options={[
                   { value: "aaddhar_card", label: "Aaddhar Card" },
                   { value: "driving_license", label: "Driving License" },
                   { value: "passport", label: "Passport" },
                   { value: "voter_id", label: "Voter ID" },
                 ]}
+                required
               />
+
               <TextField
                 label="Address Proof Document Number"
-                placeholder="GSVD73YB3B"
+                // placeholder="GSVD73YB3B"
                 currentValue={documentNumber}
                 setValue={setDocumentNumber}
+                maxLength={documentMaxLengths[addressProofType] || 20} 
+                required
               />
             </div>
             <div className={styles.InputRow}>
@@ -179,6 +191,7 @@ function AddressDetail({ setStepReload }) {
                     e.target.value = e.target.value.slice(0, -1);
                   }
                 }}
+                required
               />
             </div>
             <div className={styles.UploadArea}>
@@ -199,18 +212,19 @@ function AddressDetail({ setStepReload }) {
                           style={{ display: "none" }}
                           accept=".jpg, .jpeg"
                           onChange={handleChange}
+                          required
                         />
                         <Navbtn
                           text="Click to upload"
                           variant={"primary"}
                           size={"small"}
                           style={{
-                            paddingLeft:"10px",
-                            paddingRight:"10px",
+                            paddingLeft: "10px",
+                            paddingRight: "10px",
                             background: "#0052cc ",
                             color: "white",
                             cursor: "pointer",
-                            borderRadius:"10px",
+                            borderRadius: "10px",
 
                           }}
                           onClickNav={() => {
@@ -251,7 +265,7 @@ function AddressDetail({ setStepReload }) {
                 <button
                   className={`primary_button ${styles.btn_container}`}
 
-                  onClick={() => {addAddressData()}}
+                  onClick={() => { addAddressData() }}
                 >
                   Save changes
                 </button>

@@ -29,7 +29,7 @@ const Homepage = () => {
   }, []);
   return (
     <div className={styles.homepage_container}>
-      {/* <Meta
+      <Meta
         title="Best Poker Rakeback Site India | Win Real Money "
         description="Top Poker Rakeback and Cashback Site in India | Play Online Poker Games in India with Your Choice of Poker Website and Win Real Money 2025."
         link="https://rakebackk.com"
@@ -52,8 +52,8 @@ const Homepage = () => {
         className="flex_center"
       >
         <Footer />
-      </div> */}
-     <div className={styles.contact_button}>
+      </div>
+     {/* <div className={styles.contact_button}>
         <button className={styles.contact} onClick={() => setShowModal(true)}>
           CONTACT US
         </button>
@@ -63,7 +63,7 @@ const Homepage = () => {
       <img
       src={isMobile ? MobileView : Desktop}
       className={isMobile ? styles.coming_soon_mobile : styles.coming_soon}
-    />
+    /> */}
 </div>
   );
 };

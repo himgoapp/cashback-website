@@ -26,7 +26,7 @@
 	height: 0.875rem;
 }
 .ActionDetailsContainer .Text .edit span {
-	color: #52131r  !important;
+	color: #5213  !important;
 	font-family: Inter;
 	font-size: 0.875rem;
 	font-style: normal;
@@ -34,6 +34,12 @@
 	line-height: 1.125rem; /* 128.571% */
 	text-decoration-line: underline;
 }
+.errorText {
+	color: red;
+	font-size: 0.8rem;
+	margin-top: 4px;
+  }
+  
 .AddressDetailsForm {
 	display: flex;
 	flex-direction: column;

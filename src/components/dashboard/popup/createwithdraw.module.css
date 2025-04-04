@@ -11,6 +11,9 @@
     z-index: 1050;
     min-width: 320px;
   }
+  .logo_font{
+    font-family: "HP Simplified H", Arial, sans-serif;
+  }
   .opacityDiv {
     position: absolute;
     width: 100%;

@@ -122,6 +122,7 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 									variant={"primary"}
 									size={"small"}
 									showIcon={false}
+									disabled={panCardNo.length !== 10}
 								/>
 							</div>
 						</div>

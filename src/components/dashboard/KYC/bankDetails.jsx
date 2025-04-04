@@ -12,7 +12,8 @@ function BankAccDetails({ setStepReload }) {
 	const [bank_name, setBankName] = useState("");
 	const [ifsc_code, setIfscCode] = useState("");
 	const [validate, setValidate] = useState("");
-
+	const [errors, setErrors] = useState({});
+	
 	const addBankDetailsData = async () => {
 		if (!userData || !userData._id) return;
 
@@ -51,18 +52,45 @@ function BankAccDetails({ setStepReload }) {
 					<div className={styles.AddressDetailsContent}>
 						<div className={styles.InputRow}>
 							<TextField
-								label='Account Number'
-								placeholder='*********************'
-								type='password'
+								label="Account Number"
+								placeholder="*********************"
+								type="password"
 								value={account_number}
-								setValue={setAccountNumber}
+								onChange={(e) => {
+									const value = e.target.value;
+									if (/^\d*$/.test(value) && value.length <= 18) {
+										setAccountNumber(value);
+									}
+								}}
+								inputProps={{
+									minLength: 9,
+									maxLength: 18,
+									inputMode: 'numeric',
+									pattern: '[0-9]*'
+								}}
+								required
 							/>
+
 							<TextField
-								label='Verify Account Number'
-								placeholder='83832993803748'
+								label="Verify Account Number"
+								placeholder="83832993803748"
+								type="text"
 								value={validate}
-								setValue={setValidate}
+								onChange={(e) => {
+									const value = e.target.value;
+									if (/^\d*$/.test(value) && value.length <= 18) {
+										setValidate(value);
+									}
+								}}
+								inputProps={{
+									minLength: 9,
+									maxLength: 18,
+									inputMode: 'numeric',
+									pattern: '[0-9]*'
+								}}
+								required
 							/>
+
 						</div>
 						<div className={styles.InputRow}>
 							{" "}
@@ -71,12 +99,14 @@ function BankAccDetails({ setStepReload }) {
 								placeholder='ICICI Bank'
 								value={bank_name}
 								setValue={setBankName}
+								required
 							/>
 							<TextField
 								label='IFSC Code'
 								placeholder='ICICI22881'
 								value={ifsc_code}
 								setValue={setIfscCode}
+								required
 							/>
 						</div>
 					</div>
