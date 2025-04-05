@@ -19,7 +19,7 @@ const animationVariants = {
 const Banner = () => {
   const navigate = useNavigate();
   const validatetokenAndRedirect = () => {
-    navigate("/offer_and_deals");
+    navigate("/offer-and-deals");
   };
 
   return (

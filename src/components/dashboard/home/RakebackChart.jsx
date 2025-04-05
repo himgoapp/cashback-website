@@ -46,7 +46,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
   const amount = [2345.67];
 
   const validatetokenAndRedirect = () => {
-    navigate("/offer_and_deals");
+    navigate("/offer-and-deals");
   };
   // Mock function to simulate fetching the latest transactions count based on selected filter
   const fetchTransactionCounts = (filter) => {

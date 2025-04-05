@@ -114,10 +114,10 @@ export default Navbar;
 
 const homePageMenu = (
   <div className={styles.menu_container}>
-    <Link to="/offer_and_deals" className={styles.secondary_link}>
+    <Link to="/offer-and-deals" className={styles.secondary_link}>
       Deals
     </Link>
-    <a href="/latest_news" className={styles.secondary_link}>
+    <a href="/latest-news" className={styles.secondary_link}>
       Latest News
     </a>
     <a href="/#" className={styles.secondary_link}>
@@ -142,7 +142,7 @@ const dashboardMenu = (
 
 const offersAndDealsPageMenu = (
   <div className={styles.menu_container}>
-    <Link to="/offer_and_deals" className={styles.secondary_link}>
+    <Link to="/offer-and-deals" className={styles.secondary_link}>
       Deals
     </Link>
     <a href="/latest_news" className={styles.secondary_link}>

@@ -81,7 +81,7 @@ function App() {
               }
             />
             <Route
-              path="/offer_and_deals"
+              path="/offer-and-deals"
               element={
                 <NotProtectedRoute>
                   <OfferAndDealsContainer />
@@ -117,7 +117,7 @@ function App() {
             />
 
             <Route
-              path="/dashboard/verify_account"
+              path="/dashboard/verify-account"
               element={
                 <ProtectedRoute>
                   <VerifyAccount />
@@ -143,7 +143,7 @@ function App() {
               }
             />
             <Route
-              path="/latest_news"
+              path="/latest-news"
               element={
                 <NotProtectedRoute>
                   <LatestNews />

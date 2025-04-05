@@ -31,7 +31,8 @@ const PopupSignin = () => {
   };
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      verifyOtp();
+      e.preventDefault(); 
+      verifyOtp(); 
     }
   };
   useEffect(() => {
@@ -238,6 +239,7 @@ const PopupSignin = () => {
                           onInput={(e) => {
                             e.target.value = e.target.value.replace(/[^0-9]/g, "");
                           }}
+                          onKeyDown={(e) => handleKeyDown(e)}
                         />
                       )}
                     />

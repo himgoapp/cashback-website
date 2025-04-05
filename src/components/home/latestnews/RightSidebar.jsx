@@ -46,7 +46,7 @@ const RightSidebar = () => {
       </ul>
       <button 
         className={styles.link}
-        onClick={() => navigate("/offer_and_deals")}
+        onClick={() => navigate("/offer-and-deals")}
       >
         List of all poker rooms for India
       </button>
