@@ -175,6 +175,7 @@ const FullPageSignin = () => {
             <form onSubmit={handlePhoneSubmit} className={styles.form}>
               <div className={styles.inputField}>
                 <input
+                autoFocus
                   type="tel"
                   inputMode="numeric"
                   pattern="[0-9]*"
