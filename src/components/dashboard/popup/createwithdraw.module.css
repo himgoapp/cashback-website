@@ -82,7 +82,7 @@
     position: relative;
     display: flex;
     width: 100%;
-    max-width: 49rem;
+    max-width: 34.675rem;
     align-items: center;
     z-index: 1051; /* Ensure this is above the overlay */
   }
@@ -270,7 +270,9 @@
     .Subhead {
       font-size: 1rem;
     }
-  
+  .PopupSigninWrapper{
+    width: 370px;
+  }
     .PopupSigninWrapperTwo {
       grid-template-columns: 1fr;
     }

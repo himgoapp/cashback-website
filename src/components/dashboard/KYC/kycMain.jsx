@@ -79,10 +79,11 @@ const KycMain = () => {
             retry={true}
           />
         )}
-        {userKyc.level === "4" && userKyc.statusValue === "Failed" && (
+      
+        {userKyc.level === "1" && userKyc.statusValue === "Rejected" && (
           <KycStatus
-            status="Failed"
-            message="Your KYC verification was unsuccessful; please retry or contact customer support for further assistance"
+            status="Rejected"
+            message={userKyc.rejectedMessage}
             color="#B42318"
             colorBg="#FEF3F2"
             borderColor="#FF5252"

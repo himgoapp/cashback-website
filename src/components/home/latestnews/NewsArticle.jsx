@@ -6,6 +6,7 @@ import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
 import RightSidebar from "./RightSidebar";
 import Meta from "../../../Meta";
+import Reveal from "../../common/reveal/Reveal";
 
 const NewArticle = () => {
   const { blogId } = useParams();
@@ -93,6 +94,7 @@ const NewArticle = () => {
         link={`https://www.rakebackk.com/news/${blogId}`}
       />
       <Navbar page="home" />
+      <Reveal>
       <div className={styles.blogDetail}>
         <div className={styles.breadcrumb}>
           <span
@@ -192,6 +194,7 @@ const NewArticle = () => {
       >
         <Footer />
       </div>
+      </Reveal>
     </div>
   );
 };

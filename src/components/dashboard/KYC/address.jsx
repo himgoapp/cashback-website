@@ -96,7 +96,7 @@ function AddressDetail({ setStepReload }) {
       !documentNumber ||
       !proofState
     ) {
-      toast.error(`All fields are required for saving address information!`);
+      // toast.error(`All fields are required for saving address information!`);
     } else {
       const res = await addAddressProof(
         userData._id,
@@ -109,7 +109,7 @@ function AddressDetail({ setStepReload }) {
       );
       if (res && res.message === "success") {
         localStorage.setItem("transactionInfo", "true");
-        toast.success(`Address information saved!`);
+        // toast.success(`Address information saved!`);
         setStepReload(true);
       }
     }

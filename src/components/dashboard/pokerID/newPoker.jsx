@@ -45,9 +45,9 @@ const NewPoker = ({ setGetInfos }) => {
         referralCode
       );
       if (data && data.message) {
-        toast.success(`${data.message}`);
+        // toast.success(`${data.message}`);
       } else {
-        toast.error(`${data.message}`);
+        // toast.error(`${data.message}`);
       }
       setGetInfos(true);
       setProductId("");
@@ -55,7 +55,7 @@ const NewPoker = ({ setGetInfos }) => {
       setReferralCode("");
       setLoading(false);
     } else {
-      toast.warn("Poker Site and Account id is a required field!");
+      // toast.warn("Poker Site and Account id is a required field!");
     }
   };
 
@@ -64,38 +64,6 @@ const NewPoker = ({ setGetInfos }) => {
     setProduct(poker);
     setShowPokerMenu(false);
   };
-
-  // const getPokerSiteImage = (siteName) => {
-  //   switch (siteName) {
-  //     case "Junglee Poker":
-  //       return jungleepokerlogo;
-  //     case "MPL":
-  //       return mpllogo;
-  //     case "Poker Baazi":
-  //       return pokerbaazi;
-  //       case "A23poker":
-  //       return pokerbaazi;
-  //       case "PokerCircle":
-  //       return pokerbaazi;
-  //       case "PokerDangal":
-  //       return pokerbaazi;
-  //       case "Natural8":
-  //       return pokerbaazi;
-  //       case "Pocket52":
-  //       return pokerbaazi;
-  //       case "Adda52":
-  //       return pokerbaazi;
-  //       case "ACRpoker":
-  //       return pokerbaazi;
-  //       case "CoinPoker":
-  //       return pokerbaazi;
-  //       case "WPTglobal":
-  //         return pokerbaazi;
-  //     default:
-  //       return pokerIdIcon; 
-
-  //   }
-  // };
 
   useEffect(() => {
     getProductsInfo();

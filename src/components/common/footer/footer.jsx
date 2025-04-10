@@ -13,7 +13,7 @@ const Footer = () => {
 						</a>
 
 						<div className={styles.menu_items}>
-							<a href='/#about-us' className={styles.item}>
+							<a href='/#about_us' className={styles.item}>
 								About us
 							</a>
 

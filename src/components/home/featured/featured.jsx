@@ -55,20 +55,21 @@ const Featured = () => {
               <Carousel.Item key={index}>
                 <div className={styles.carouselRow}>
                   {chunk.map((item, idx) => (
-                    <div className={styles.card} key={idx} onClick={() => handleRedirect(item)}>
-                      <img src={item.imageUrl} alt={item.title} className={styles.cardImage} />
-                      <div className={styles.cardContent}>
-                        <font className={styles.type}>{item.type}</font>
-                        <font className={styles.heading_card}>{item.title}</font>
-                        <p className={styles.para}>
-                          {item.subheading.length > 90 ? item.subheading.slice(0, 90) + "..." : item.subheading}
-                        </p>
-                        <div className={styles.cardMeta}>
-                          <span className={styles.writer}>{item.author}</span> |{" "}
-                          <span className={styles.date}>{item.date}</span>
-                        </div>
-                      </div>
-                    </div>
+               <div className={styles.card} key={idx} onClick={() => handleRedirect(item)}>
+               <img src={item.imageUrl} alt={item.title} className={styles.cardImage} />
+               <div className={styles.cardContent}>
+                 <span className={styles.type}>{item.type}</span>
+                 <h5 className={styles.heading_card}>{item.title}</h5>
+                 <p className={styles.para}>
+                   {item.subheading.length > 90 ? item.subheading.slice(0, 90) + "..." : item.subheading}
+                 </p>
+                 <div className={styles.cardMeta}>
+                   <span className={styles.writer}>{item.author}</span>
+                   <span className={styles.date}>{item.date}</span>
+                 </div>
+               </div>
+             </div>
+             
                   ))}
                 </div>
               </Carousel.Item>

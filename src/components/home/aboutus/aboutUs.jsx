@@ -19,7 +19,7 @@ const AboutUs = () => {
     delay: 0.65,
   };
   return (
-    <div id="about-us" className={`${styles.about__container} `}>
+    <div id="about_us" className={`${styles.about__container} `}>
       <div className={styles.content}>
         <Reveal
           variants={{

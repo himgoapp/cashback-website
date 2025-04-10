@@ -1,21 +1,23 @@
 import React, { useState, useContext } from "react";
 import styles from "./navbar.module.css";
 import Navbtn from "../button/navbtn/navbtn";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Logo from "../logo/logo";
-// import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../App";
-import PopupSignin from "../../description/popup/signin";
 import { CrossIcon } from "../../../assets/vectors";
 import Reveal from "../reveal/Reveal";
 
 const Navbar = ({ page }) => {
-  const { loginTab, setLoginTab, userData } = useContext(UserContext);
-
+  const { userData } = useContext(UserContext);
+  const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
 
+  const handleSignInClick = () => {
+    navigate("/login");
+  };
+
   return (
-    <Reveal>
+    <>
       <div className={styles.container_max}>
         <div className={styles.navbar_container}>
           <a href="/" className={styles.logo_container_pc}>
@@ -23,29 +25,22 @@ const Navbar = ({ page }) => {
           </a>
           <div className={styles.navbar_link_container}>
             {page === "home" && homePageMenu}
+            {page === "login" && homePageMenu}
             {page === "offer" && offersAndDealsPageMenu}
+            {page === "welcome" && homePageMenu}
             {userData ? (
               dashboardMenu
             ) : (
               <div className={styles.btn_link_container}>
-                {/* <Navbtn
-									text='Sign up'
-									variant={"outlined"}
-									size={"small"}
-									onClick={() => {
-										setLoginTab(true);
-									}}
-								/> */}
                 <button
-            className={styles.signin_button}
-                  onClick={() => {
-                    setLoginTab(true);
-                  }}
-                >SignUp/Login</button>
+                  className={styles.signin_button}
+                  onClick={()=>handleSignInClick()}
+                >
+                  SignUp/Login
+                </button>
               </div>
             )}
           </div>
-          {/* for mobile screen */}
 
           <button
             className={styles.burger_menu}
@@ -63,11 +58,10 @@ const Navbar = ({ page }) => {
               >
                 <path
                   d="M3 12H21M3 6H21M3 18H21"
-                  // stroke="#667085"
                   stroke="black"
                   strokeWidth="2"
                   strokeLinecap="round"
-                  stroke-linejoin="round"
+                  strokeLinejoin="round"
                 />
               </svg>
             </div>
@@ -75,7 +69,6 @@ const Navbar = ({ page }) => {
           {showMenu && (
             <div className={styles.link_mobile_container}>
               <div className={styles.link_mobile_header}>
-              
                 <Logo />
                 <button
                   aria-label="Close menu"
@@ -86,18 +79,19 @@ const Navbar = ({ page }) => {
               </div>
               <div>
                 {page === "home" && homePageMenu}
+                {page === "login" && homePageMenu}
+                {page === "welcome" && homePageMenu}
                 {page === "offer" && offersAndDealsPageMenu}
                 {userData ? (
                   dashboardMenu
                 ) : (
                   <div className={styles.btn_link_container}>
                     <button
-                   className={styles.signin_button}
-                      onClick={() => {
-                        setLoginTab(true);
-                        setShowMenu(false);
-                      }}
-                    >SignUp/Login</button>
+                      className={styles.signin_button}
+                      onClick={()=>handleSignInClick()}
+                    >
+                      SignUp/Login
+                    </button>
                   </div>
                 )}
               </div>
@@ -105,8 +99,7 @@ const Navbar = ({ page }) => {
           )}
         </div>
       </div>
-      {loginTab && <PopupSignin />}
-    </Reveal>
+    </>
   );
 };
 
@@ -123,7 +116,7 @@ const homePageMenu = (
     <a href="/#" className={styles.secondary_link}>
       Promotions
     </a>
-    <a href="/#about-us" className={styles.secondary_link}>
+    <a href="/#about_us" className={styles.secondary_link}>
       About Us
     </a>
     <a href="/faq" className={styles.secondary_link}>
@@ -145,7 +138,7 @@ const offersAndDealsPageMenu = (
     <Link to="/offer-and-deals" className={styles.secondary_link}>
       Deals
     </Link>
-    <a href="/latest_news" className={styles.secondary_link}>
+    <a href="/latest-news" className={styles.secondary_link}>
       Latest News
     </a>
     <a href="/#" className={styles.secondary_link}>

@@ -18,11 +18,11 @@ function BankAccDetails({ setStepReload }) {
 		if (!userData || !userData._id) return;
 
 		if (!account_number || !bank_name || !ifsc_code || !validate) {
-			toast.error(`All fields are required for saving address information!`);
+			// toast.error(`All fields are required for saving address information!`);
 		} else if (account_number !== validate) {
-			toast.error(
-				`Account Number value is not same in Account Number and Verify Account Number fields!`
-			);
+			// toast.error(
+			// 	`Account Number value is not same in Account Number and Verify Account Number fields!`
+			// );
 		} else if (
 			account_number &&
 			bank_name &&

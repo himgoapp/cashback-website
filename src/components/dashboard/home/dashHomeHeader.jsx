@@ -5,7 +5,7 @@ import profileicon from "../../../assets/profileicon.svg";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { Modal, Button, Form } from "react-bootstrap";
-import { sendEmailOtpAPI, loginVerify } from "../../../servicefile/authservice";
+import { sendEmailOtpAPI, loginVerify,verifyEmailOtpAPI } from "../../../servicefile/authservice";
 import { toast } from "react-toastify";
 import {RakebackLogo} from "../../common/logo/logo";
 import avater1 from "../../../assets/avater1.svg";
@@ -30,6 +30,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const [address, setAddress] = useState(userData?.address || "");
   const [verifyModal, setVerifyModal] = useState(false);
   const [otp, setOtp] = useState("");
+  const [email, setEmail] = useState("");
   const { setShowSidebar, showNotifications, setShowNotifications } =
     useContext(UserContext);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -77,11 +78,11 @@ const DashboardHomeHeader = ({ title, icon }) => {
     if (!userData || !userData._id) return;
 
     if (!file) {
-      toast.error(`Image is required!`);
+      // toast.error(`Image is required!`);
     } else {
       const res = await addProfileImage(userData._id, file);
       if (res && res.message === "success") {
-        toast.success(`Profile Image is successfully uploaded!`);
+        // toast.success(`Profile Image is successfully uploaded!`);
       }
     }
   };
@@ -162,7 +163,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
       //     toast.error(data.message);
       // }
     } else {
-      toast.warn("Please enter a valid email address!");
+      // toast.warn("Please enter a valid email address!");
     }
   };
 
@@ -170,15 +171,36 @@ const DashboardHomeHeader = ({ title, icon }) => {
     if (otp.length === 6) {
       let data = await loginVerify(otp);
       if (data?.message === "Otp verified!" && data.user) {
-        toast.success("Email Verified!");
+        // toast.success("Email Verified!");
         setUserData({ ...data.user, username, address });
       } else {
-        toast.error("OTP verification failed.");
+        // toast.error("OTP verification failed.");
       }
     } else {
-      toast.warn("Please enter a valid 6-digit OTP!");
+      // toast.warn("Please enter a valid 6-digit OTP!");
     }
   };
+  const verifyEmailOtp = async () => {
+    if (otp.length !== 6) {
+      console.warn("OTP should be 6 digits.");
+      return;
+    }
+
+    try {
+      const data = await verifyEmailOtpAPI(email, otp);
+
+      if (data?.message === "Otp verified!" && data.user) {
+        setUserData({ ...data.user, username, address });
+        console.log("OTP verified successfully!");
+      } else {
+        console.error(data?.message || "Invalid OTP or user not found.");
+      }
+    } catch (error) {
+      console.error("An error occurred while verifying OTP:", error);
+    }
+  };
+  
+  
   // Apply blur effect to background when modal is open
   useEffect(() => {
     if (showProfileModal) {
@@ -219,7 +241,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
               <div className={styles.HeaderNavBtn} onClick={handleProfileClick}>
                 {/* {userIcon} */}
                 <img
-                  src={selectedImage || avater1}
+                  src={avater1}
                   alt="Profile"
                   className="rounded-circle"
                   style={{
@@ -263,7 +285,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
             <div className="d-flex justify-content-center align-items-center mb-3">
               <div className="position-relative">
                 <img
-                  src={selectedImage}
+                  src={avater1}
                   alt="Profile"
                   className="rounded-circle"
                   style={{
@@ -273,7 +295,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
                     border: "3px solid #0052cc",
                   }}
                 />
-                <label
+                {/* <label
                   className="position-absolute"
                   style={{
                     bottom: "0px",
@@ -291,7 +313,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
                     onChange={handleImageChange}
                     className="d-none"
                   />
-                </label>
+                </label> */}
               </div>
             </div>
 
@@ -318,19 +340,21 @@ const DashboardHomeHeader = ({ title, icon }) => {
                   <span style={{ fontFamily: 'Roboto, sans-serif'}}>{userData?.email || "N/A"}</span>
                   <div
                     className={
-                      userData?.isEmailVerified ? "text-success" : "text-danger"
+                      userData?.emailVerifystatus ? "text-success" : "text-danger"
                     }
                     style={{ fontSize: "12px", fontFamily: 'Roboto, sans-serif' }}
                   >
-                    {userData?.isEmailVerified
+                    {userData?.emailVerifystatus
                       ? "Your email is verified."
                       : "Your email is not verified."}
                   </div>
-                  {!userData?.isEmailVerified && (
+                  {!userData?.emailVerifystatus && (
                     <Button
                       size="sm"
                       variant="outline-primary"
-                      onClick={() => sendEmailOtp(userData.email)}
+                      onClick={() => {sendEmailOtp(userData.email)
+                        setEmail(userData.email)
+                      }}
                       style={{ fontFamily: 'Roboto, sans-serif'}}
                     >
                       Verify Email
@@ -400,10 +424,17 @@ const DashboardHomeHeader = ({ title, icon }) => {
             <Form.Group className="mb-3">
               <Form.Label>OTP</Form.Label>
               <Form.Control
-                type="text"
-                placeholder="Enter your 6-digit OTP"
-                onChange={(e) => setOtp(e.target.value)}
-                autoFocus
+               type="number"
+               placeholder="Enter your 6-digit OTP"
+               onChange={(e) => {
+                 const value = e.target.value;
+                 if (value.length <= 6) {
+                   setOtp(value);
+                 }
+               }}
+               value={otp}
+               autoFocus
+               maxLength={6}
               />
             </Form.Group>
           </Form>
@@ -411,7 +442,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
         <Modal.Footer>
           <Button
             variant="primary"
-            onClick={verifyOtp}
+            onClick={()=>verifyEmailOtp()}
             style={{
               backgroundColor: "#0052cc",
               color: "white",

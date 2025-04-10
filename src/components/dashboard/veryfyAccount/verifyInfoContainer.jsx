@@ -27,13 +27,13 @@ function VerifyInfoContainer() {
         if (email && emailRegex.test(email)) {
             let data = await sendEmailOtpAPI(email);
             if (data?.message === "Otp Sent!" && data.data?.type === "success") {
-                toast.success("Otp sent! Please check and enter it.");
+                // toast.success("Otp sent! Please check and enter it.");
                 setVerifyModal(true);
             } else {
-                toast.error(data.message);
+                // toast.error(data.message);
             }
         } else {
-            toast.warn("Please enter a valid email address!");
+            // toast.warn("Please enter a valid email address!");
         }
     };
 
@@ -41,13 +41,13 @@ function VerifyInfoContainer() {
         if (otp.length === 6) {
             let data = await loginVerify(otp);
             if (data?.message === "Otp verified!" && data.user) {
-                toast.success("Email Verified!");
+                // toast.success("Email Verified!");
                 setUserData({ ...data.user, username, address });
             } else {
-                toast.error("OTP verification failed.");
+                // toast.error("OTP verification failed.");
             }
         } else {
-            toast.warn("Please enter a valid 6-digit OTP!");
+            // toast.warn("Please enter a valid 6-digit OTP!");
         }
     };
 

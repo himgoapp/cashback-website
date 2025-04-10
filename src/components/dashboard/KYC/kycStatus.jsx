@@ -15,7 +15,7 @@ function KycStatus({
     icon = pendingIcon;
   } else if (status === "Successful") {
     icon = successIcon;
-  } else if (status === "Failed") {
+  } else if (status === "Rejected") {
     icon = failureIcon;
   }
   const borderStyle = {
@@ -27,7 +27,7 @@ function KycStatus({
 
   return (
     <div className={styles.KycStatusContainer}>
-      <div
+     { status !== "Rejected" && <div
         className={styles.kyc_status_header}
         style={{
           backgroundImage: `url(${backgroundImg})`,
@@ -38,7 +38,7 @@ function KycStatus({
           <br />
           <span className={styles.sub_heading}>To Get Started</span>
         </div>
-      </div>
+      </div>}
       <div className={styles.StatusContent} style={borderStyle}>
         <div className={styles.StatusHead}>
           <div className={styles.StatusIcon}>{icon}</div>
@@ -58,7 +58,7 @@ function KycStatus({
           <div className={styles.MessageText}>
             {message}
             {/* if status is failed > */}
-            {retry && <span className={styles.retry}>Retry KYC Form</span>}
+            {/* {retry && <span className={styles.retry}>Retry KYC Form</span>} */}
           </div>
         </div>
       </div>

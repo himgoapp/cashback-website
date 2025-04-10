@@ -7,16 +7,19 @@ import Footer from "../components/common/footer/footer";
 // import offerbg from "../assets/offerbannerbg.png";
 import MainContainer from "../layout/mainContainer";
 import Meta from "../Meta";
+import Reveal from "../components/common/reveal/Reveal";
+
 const OfferAndDealsContainer = () => {
   return (
     <div style={{ overflow: "hidden" }}>
       <Meta
         title="2025 Online Poker Rakeback Deals"
         description="Looking For the Online Poker Rakeback Deals and Poker Cashback Deals? Check Rakebackk For Best Poker Deals & Offer. Ultimate Poker Experience"
-        link="https://rakebackk.com/offer-and-deals"
+        link="https://rakebackk.com/offer_and-deals"
       />
       {/* <MainContainer> */}
       <Navbar page="offer" />
+<Reveal>
       <div style={{ position: "relative", marginTop: "4rem" }}>
         <MainContainer>
           <OfferAndDeal />
@@ -56,6 +59,7 @@ const OfferAndDealsContainer = () => {
       >
         <Footer />{" "}
       </div>
+      </Reveal>
       {/* </MainContainer> */}
     </div>
   );

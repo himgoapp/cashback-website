@@ -15,6 +15,8 @@ import { ProtectedRoute, NotProtectedRoute } from "./helperFxns/protectedRoute";
 import LatestNews from "./components/home/latestnews/LatestNews";
 import BlogDetail from "./components/home/latestnews/NewsArticle";
 import FaqContainer from "./components/home/FAQ/FaqContainer";
+import WelcomePage from "./components/dashboard/popup/welcome"
+import FullPageSignin from "./components/description/popup/signin";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -77,6 +79,14 @@ function App() {
               element={
                 <ProtectedRoute>
                   <HomePage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/welcome"
+              element={
+                <ProtectedRoute>
+                  <WelcomePage  />
                 </ProtectedRoute>
               }
             />
@@ -167,7 +177,14 @@ function App() {
                 </NotProtectedRoute>
               }
             />
-
+  <Route
+              path="/login"
+              element={
+                <NotProtectedRoute>
+                  <FullPageSignin/>
+                  </NotProtectedRoute>
+              }
+            />
             <Route
               path="*"
               element={

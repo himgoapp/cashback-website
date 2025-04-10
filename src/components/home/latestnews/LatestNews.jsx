@@ -7,7 +7,7 @@ import { Tab, Tabs, TabList } from "react-tabs";
 import { getBlogs } from "../../../servicefile/blogservice";
 import Meta from "../../../Meta";
 import RightSidebar from "./RightSidebar";
-
+import Reveal from "../../common/reveal/Reveal";
 const LatestNews = ({ userData }) => {
   const [activeTab, setActiveTab] = useState("Latest News");
   const [allArticles, setAllArticles] = useState([]);
@@ -49,14 +49,14 @@ const LatestNews = ({ userData }) => {
 
 
   return (
-    <>
+<>
       <Meta
         title="Latest Online Poker News India | Rakebackk"
         description="Check Today's Latest Poker News in India at Rakebackk."
         link="https://www.rakebackk.com/latest-news"
       />
       <Navbar page="home" />
-
+      <Reveal>
       <div className={styles.latest_news}>
         <div className={styles.header_container}>Online Poker News</div>
 
@@ -164,13 +164,15 @@ const LatestNews = ({ userData }) => {
           </div>
         </Tabs>
       </div>
+   
       <div
         className="flex_center"
         style={{ width: "100%", backgroundColor: "#0052cc" }}
       >
         <Footer />
       </div>
-    </>
+      </Reveal>
+     </>
   );
 };
 

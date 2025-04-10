@@ -21,20 +21,20 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 		if (value < maxAmount) {
 			let res = await createTransaction(userData._id, amount);
 			if (res && res.transaction === true) {
-				toast.success(`${res.message}`);
+				// toast.success(`${res.message}`);
 				localStorage.setItem("transactionInfo", "true");
 				navigate("/dashboard/mytransactions");
 			}
 		} else {
 			toast.error(
-				"Amount put for withdraw, cannot be greater than Wallet's Balance"
+				// "Amount put for withdraw, cannot be greater than Wallet's Balance"
 			);
 		}
 	};
 
 	return (
-		<div className={styles.PopupWithOpacity}>
-			<div className={styles.PopupSigninWrapper} style={{ width: "34.675rem" }}>
+		<div className={styles.PopupWithOpacity} >
+			<div className={styles.PopupSigninWrapper} >
 				<div
 					className={styles.PopupSigininContainerWithdraw}
 					style={
@@ -129,7 +129,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 			{/* popup opacity background */}
 			<div
 				className={styles.opacityDiv}
-				onClick={() => setShowWithdraw(false)}
+				onClick={() => setShowWithdraw(true)}
 			/>
 		</div>
 	);

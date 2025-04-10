@@ -45,13 +45,13 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 		if (!userData || !userData._id) return;
 
 		if (!panCardNo) {
-			toast.error(`PanCard is a required field.`);
+			// toast.error(`PanCard is a required field.`);
 		} else {
 			const res = await addPanCard(userData._id, panCardNo);
 			if (res && res.message === "PanCard Added!") {
 				localStorage.setItem("transactionInfo", "true");
 				setStepReload(true);
-				toast.success(`${res.message}`);
+				// toast.success(`${res.message}`);
 			}
 		}
 	};

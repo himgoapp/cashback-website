@@ -45,32 +45,7 @@ export const loginVerify = async (phoneNumber, loginOtp) => {
 		return { message: "Something Went Wrong!" };
 	}
 };
-// export const loginVerify = async (phoneNumber, loginOtp) => {
-//     let body = {
-//         phoneNumber: `91${phoneNumber}`,
-//         Otp: loginOtp,
-//     };
 
-//     try {
-//         let response = await API.post(`/auth/verifyLoginOtp`, body);
-//         console.log("API Response:", response.data); 
-
-//         if (response.data.token) {
-//             localStorage.setItem("authToken", response.data.token); 
-//             console.log("Stored Token:", localStorage.getItem("authToken")); 
-//         } else {
-//             console.error("No token received from API");
-//         }
-
-//         return response.data;
-//     } catch (error) {
-//         console.error("Login API Error:", error);
-//         return { message: "Something Went Wrong!" };
-//     }
-// };
-
-
-// INFO: Not used yet
 export const verifySendOtpPhone = async (phoneNumber) => {
 	let body = {
 		phoneNumber: `91${phoneNumber}`,
@@ -92,7 +67,6 @@ export const verifySendOtpPhone = async (phoneNumber) => {
 		return { message: "Something Went Wrong!" };
 	}
 };
-
 // INFO: Not used yet
 export const phoneVerify = async (phoneNumber, loginOtp) => {
 	let body = {
@@ -164,7 +138,28 @@ export const sendEmailOtpAPI = async (email) => {
 		return { message: "Something Went Wrong!" };
 	}
 };
+export const verifyEmailOtpAPI = async (email,Otp) => {
+	let body = {
+		email: email,
+		 Otp:Otp,
+	};
 
+	try {
+		let data = await API.post(`/auth/verifyemailOtp`, {
+			...body,
+		}).then((res) => res.data);
+
+		return data;
+	} catch (error) {
+		const { response } = error;
+		if (response) {
+			return {
+				message: response.data.message || "Something Went Wrong!",
+			};
+		}
+		return { message: "Something Went Wrong!" };
+	}
+};
 export const getUserInfo = async () => {
 	try {
 		let res = await API.get(`/users/getuserinfo`);
