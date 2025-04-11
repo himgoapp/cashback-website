@@ -28,8 +28,8 @@ const RightSidebar = () => {
       </div>
       <ul className={styles.list}>
       {products.slice(0, 5).map((room, index) => {
-        let roomId = `${room.name}_${room._id}`;
-        roomId = roomId.replace(/[\s?]/g, "_");
+        let roomId = `${room.name}-${room._id}`;
+        roomId = roomId.replace(/[\s?]/g, "-");
 
 
         return(

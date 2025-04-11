@@ -82,9 +82,9 @@ const LatestNews = ({ userData }) => {
                   <p>Loading articles...</p>
                 ) : currentArticles.length > 0 ? (
                   currentArticles.map((article) => {
-                    let blogId = `${article.title}_${article._id}`;
+                    let blogId = `${article.title}-${article._id}`;
 
-                    blogId = blogId.replace(/[\s?]/g, "_");
+                    blogId = blogId.replace(/[\s?]/g, "-");
 
                     return (
                       <Link
@@ -143,7 +143,7 @@ const LatestNews = ({ userData }) => {
                   <ul className={styles.post_list}>
                     {currentArticles.length > 0
                       ? currentArticles.slice(0, 5).map((post) => {
-                        const blogId = `${post.title.replace(/ /g, "_")}_${post._id}`;
+                        const blogId = `${post.title.replace(/ /g, "-")}-${post._id}`;
                         return (
                           <li key={post._id} className={styles.post_item}>
                             <Link to={`/news/${blogId}`} className={styles.card_link}>

@@ -10,11 +10,13 @@ const OfferCard = ({ product,index }) => {
 	const { userData } = useContext(UserContext);
 
 	const onJoinClick = (roomId) => {
+
+		let value = roomId.replace(/[\s?]/g, "-");
 		if (!userData) {
 			navigate("/");
 		} else {
 			// localStorage.setItem("currentProductValue", JSON.stringify(product));
-			navigate(`/description/${roomId}`);
+			navigate(`/description/${value}`);
 		}
 	};
 	useEffect(() => {
@@ -73,7 +75,7 @@ Deposit bonus ₹2,000
 		  <Navbtn
 			text={userData ? "Join" : "Sign Up"}
 			variant="filled"
-			onClick={()=>onJoinClick(`${product.name}_${product._id}`)}
+			onClick={()=>onJoinClick(`${product.name}-${product._id}`)}
 		  />
 		  <Navbtn
 			text="Review"

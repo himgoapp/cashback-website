@@ -1,14 +1,16 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext, useState, useEffect,useRef } from "react";
 import styles from "./dashHomeHeader.module.css";
 import bellIcon from "../../../assets/header_nav_btn2.png";
 import profileicon from "../../../assets/profileicon.svg";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { Modal, Button, Form } from "react-bootstrap";
-import { sendEmailOtpAPI, loginVerify,verifyEmailOtpAPI } from "../../../servicefile/authservice";
+import { sendEmailOtpAPI, loginVerify, verifyEmailOtpAPI , getUserInfo } from "../../../servicefile/authservice";
 import { toast } from "react-toastify";
-import {RakebackLogo} from "../../common/logo/logo";
+import { RakebackLogo } from "../../common/logo/logo";
 import avater1 from "../../../assets/avater1.svg";
+import Loading from "../../common/Loading/Loading";
+
 import {
   PokerIcon,
   TransactionsIcon,
@@ -34,6 +36,38 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const { setShowSidebar, showNotifications, setShowNotifications } =
     useContext(UserContext);
   const [selectedImage, setSelectedImage] = useState(null);
+  const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
+  const [loading, setLoading] = useState(false);
+  const inputRefs = useRef([]);
+
+  useEffect(() => {
+    inputRefs.current = inputRefs.current.slice(0, 6);
+  }, []);
+  const handleOtpChange = (index, value) => {
+    // Only accept digits
+    if (/^\d*$/.test(value)) {
+      const newOtpValues = [...otpValues];
+      newOtpValues[index] = value;
+      setOtpValues(newOtpValues);
+
+      // Auto-focus to next input if current input is filled
+      if (value !== '' && index < 5) {
+        inputRefs.current[index + 1].focus();
+      }
+    }
+  };
+  const handleKeyDown = (index, e) => {
+    // Navigate between inputs with arrow keys
+    if (e.key === 'ArrowRight' && index < 5) {
+      inputRefs.current[index + 1].focus();
+    } else if (e.key === 'ArrowLeft' && index > 0) {
+      inputRefs.current[index - 1].focus();
+    }
+    // Move to previous input on backspace if current is empty
+    else if (e.key === 'Backspace' && index > 0 && otpValues[index] === '') {
+      inputRefs.current[index - 1].focus();
+    }
+  };
 
   useEffect(() => {
     const savedImage = localStorage.getItem("profileImage");
@@ -46,7 +80,25 @@ const DashboardHomeHeader = ({ title, icon }) => {
       setSelectedImage(avater1);
     }
   }, []);
+  const handlePaste = (e) => {
+    e.preventDefault();
+    const pastedData = e.clipboardData.getData('text');
+    const numericData = pastedData.replace(/[^\d]/g, '').substring(0, 6);
 
+    if (numericData) {
+      const newOtpValues = [...otpValues];
+      for (let i = 0; i < numericData.length; i++) {
+        if (i < 6) {
+          newOtpValues[i] = numericData[i];
+        }
+      }
+      setOtpValues(newOtpValues);
+
+      // Focus on the appropriate input after paste
+      const focusIndex = Math.min(numericData.length, 5);
+      inputRefs.current[focusIndex].focus();
+    }
+  };
   const handleSaveProfile = async () => {
     if (editMode) {
       try {
@@ -73,6 +125,19 @@ const DashboardHomeHeader = ({ title, icon }) => {
       setEditMode(true);
     }
   };
+
+
+  const getUserData = async () =>{
+    const res = await getUserInfo();
+    if (res.success) {
+      setUserData(res.userInfo.user);
+      setLoading(false);
+    } else {
+     
+    }
+
+    
+  }
 
   const addProfile = async (file) => {
     if (!userData || !userData._id) return;
@@ -137,9 +202,8 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
   const handleClose = () => {
     setVerifyModal(false);
-    setOtp("");
+    setOtpValues(['', '', '', '', '', '']);
   };
-
   // const onLogout = () => {
   //   localStorage.clear();
   //   window.location.reload();
@@ -153,12 +217,15 @@ const DashboardHomeHeader = ({ title, icon }) => {
     setShowProfileModal(false);
   };
   const sendEmailOtp = async (email) => {
+    setLoading(true)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (email && emailRegex.test(email)) {
       let data = await sendEmailOtpAPI(email);
       // if (data?.message === "Otp Sent!" && data.data?.type === "success") {
       //     toast.success("Otp sent! Please check and enter it.");
       setVerifyModal(true);
+      setLoading(false);
+      setShowProfileModal(false)
       // } else {
       //     toast.error(data.message);
       // }
@@ -181,26 +248,30 @@ const DashboardHomeHeader = ({ title, icon }) => {
     }
   };
   const verifyEmailOtp = async () => {
-    if (otp.length !== 6) {
-      console.warn("OTP should be 6 digits.");
+    setLoading(true);
+    const combinedOtp = otpValues.join('');
+    if (combinedOtp.length !== 6) {
       return;
     }
 
     try {
-      const data = await verifyEmailOtpAPI(email, otp);
+      const data = await verifyEmailOtpAPI(email, combinedOtp);
+      if (data?.message === "Email verified!") {
+        setOtpValues(['', '', '', '', '', '']);
+        setVerifyModal(false);
+        setShowProfileModal(false);
+        getUserData()
 
-      if (data?.message === "Otp verified!" && data.user) {
-        setUserData({ ...data.user, username, address });
-        console.log("OTP verified successfully!");
       } else {
-        console.error(data?.message || "Invalid OTP or user not found.");
+        // Handle error
       }
     } catch (error) {
-      console.error("An error occurred while verifying OTP:", error);
+      // Handle error
     }
   };
-  
-  
+
+
+
   // Apply blur effect to background when modal is open
   useEffect(() => {
     if (showProfileModal) {
@@ -238,7 +309,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
               {/* <div className={styles.HeaderNavBtn} onClick={handleProfileClick}>
                 <img src={profileicon} alt="Profile Icon" />
               </div> */}
-              <div className={styles.HeaderNavBtn} onClick={handleProfileClick}>
+              <div className={styles.HeaderNavBtn} onClick={()=>handleProfileClick()}>
                 {/* {userIcon} */}
                 <img
                   src={avater1}
@@ -276,9 +347,9 @@ const DashboardHomeHeader = ({ title, icon }) => {
           <Modal.Header
             closeButton
             className="border-0"
-            style={{ backgroundColor: "#ffbf00", textAlign: "center" }}
+            style={{ backgroundColor: "#0052cc", textAlign: "center" ,color:"white"}}
           >
-            <Modal.Title className="w-100 fw-bold"  style={{ fontFamily: 'Roboto, sans-serif' }}  >Profile</Modal.Title>
+            <Modal.Title className="w-100 fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}  >Profile</Modal.Title>
           </Modal.Header>
 
           <Modal.Body>
@@ -318,26 +389,26 @@ const DashboardHomeHeader = ({ title, icon }) => {
             </div>
 
             <Form className="mt-2">
-            <div className="d-flex justify-content-center mb-3">
-  {editMode ? (
-    <Form.Control
-      type="text"
-      value={username}
-      onChange={(e) => setUsername(e.target.value)}
-      className="w-50 text-center"
-    />
-  ) : (
-    <span className="text-center" style={{fontWeight:"bold",fontSize:"20px", fontFamily: 'Roboto, sans-serif'}}>{username}</span>
-  )}
-</div>
+              <div className="d-flex justify-content-center mb-3">
+                {editMode ? (
+                  <Form.Control
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="w-50 text-center"
+                  />
+                ) : (
+                  <span className="text-center" style={{ fontWeight: "bold", fontSize: "20px", fontFamily: 'Roboto, sans-serif' }}>{username}</span>
+                )}
+              </div>
 
               <hr />
 
               {/* Email */}
               <div className="d-flex justify-content-between align-items-center mb-2">
-                <Form.Label className="fw-bold" style={{ fontFamily: 'Roboto, sans-serif'}}>Email</Form.Label>
+                <Form.Label className="fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}>Email</Form.Label>
                 <div className="text-end">
-                  <span style={{ fontFamily: 'Roboto, sans-serif'}}>{userData?.email || "N/A"}</span>
+                  <span style={{ fontFamily: 'Roboto, sans-serif' }}>{userData?.email || "N/A"}</span>
                   <div
                     className={
                       userData?.emailVerifystatus ? "text-success" : "text-danger"
@@ -352,27 +423,30 @@ const DashboardHomeHeader = ({ title, icon }) => {
                     <Button
                       size="sm"
                       variant="outline-primary"
-                      onClick={() => {sendEmailOtp(userData.email)
+                      onClick={() => {
+                        sendEmailOtp(userData.email)
                         setEmail(userData.email)
                       }}
-                      style={{ fontFamily: 'Roboto, sans-serif'}}
+                      style={{ fontFamily: 'Roboto, sans-serif' }}
                     >
-                      Verify Email
+                          {loading ? <Loading size="sm" animation="border" /> : "Verify Email"}
+                      
                     </Button>
                   )}
+                                              
                 </div>
               </div>
               <hr />
 
               {/* Phone Number */}
               <div className="d-flex justify-content-between mb-2">
-                <Form.Label className="fw-bold"style={{ fontFamily: 'Roboto, sans-serif'}}>Phone Number</Form.Label>
+                <Form.Label className="fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}>Mobile Number</Form.Label>
                 <div className="text-end">
-                  <span style={{ fontFamily: 'Roboto, sans-serif'}}>
+                  <span style={{ fontFamily: 'Roboto, sans-serif' }}>
                     {userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}
                   </span>
                   <div className="text-success" style={{ fontSize: "12px", fontFamily: 'Roboto, sans-serif' }}>
-                    Your phone number is verified.
+                    Your mobile number is verified.
                   </div>
                 </div>
               </div>
@@ -406,40 +480,58 @@ const DashboardHomeHeader = ({ title, icon }) => {
         </Modal>
       )}
       <Modal
-        size="sm"
+        size="md"
         show={verifyModal}
         onHide={handleClose}
         backdrop="static"
-        // aria-labelledby="contained-modal-title-vcenter"
         centered
-        // animation={false}
       >
-        <Modal.Header className="d-flex justify-content-center" closeButton>
-          <Modal.Title>
+        <Modal.Header closeButton className="border-0">
+          <Modal.Title className="w-100 text-center">
             <RakebackLogo />
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
-            <Form.Group className="mb-3">
-              <Form.Label>OTP</Form.Label>
+          <h3 className="text-center mb-3">Enter OTP</h3>
+          <p className="text-center text-muted mb-4">
+            Enter OTP sent to your existing email 
+          </p>
+
+          <div className="d-flex justify-content-between mb-4">
+            {[0, 1, 2, 3, 4, 5].map((index) => (
               <Form.Control
-               type="number"
-               placeholder="Enter your 6-digit OTP"
-               onChange={(e) => {
-                 const value = e.target.value;
-                 if (value.length <= 6) {
-                   setOtp(value);
-                 }
-               }}
-               value={otp}
-               autoFocus
-               maxLength={6}
+                key={index}
+                ref={(el) => (inputRefs.current[index] = el)}
+                className="text-center mx-1"
+                style={{
+                  width: '40px',
+                  height: '45px',
+                  fontSize: '18px',
+                  padding: '0'
+                }}
+                value={otpValues[index]}
+                maxLength={1}
+                onChange={(e) => handleOtpChange(index, e.target.value)}
+                onKeyDown={(e) => handleKeyDown(index, e)}
+                onPaste={index === 0 ? handlePaste : null}
+                autoFocus={index === 0}
               />
-            </Form.Group>
-          </Form>
+            ))}
+          </div>
+
+          <div className="text-center mb-4">
+            <span className="text-muted">Haven't received the OTP? </span>
+            <Button
+              variant="link"
+              className="p-0"
+              onClick={() => sendEmailOtp(email)}
+              style={{ color: '#0052cc', textDecoration: 'none' }}
+            >
+              Resend
+            </Button>
+          </div>
         </Modal.Body>
-        <Modal.Footer>
+        <Modal.Footer className="border-0 justify-content-center">
           <Button
             variant="primary"
             onClick={()=>verifyEmailOtp()}
@@ -447,8 +539,10 @@ const DashboardHomeHeader = ({ title, icon }) => {
               backgroundColor: "#0052cc",
               color: "white",
               borderColor: "#0052cc",
-              marginTop: "-12px",
+              width: "100%",
+              padding: "10px"
             }}
+            disabled={otpValues.join('').length < 6}
             onMouseOver={(e) => {
               e.target.style.backgroundColor = "#ffbf00";
               e.target.style.borderColor = "#ffbf00";
@@ -460,7 +554,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
               e.target.style.borderColor = "#0052cc";
             }}
           >
-            Verify Email
+            Continue
           </Button>
         </Modal.Footer>
       </Modal>
@@ -495,18 +589,18 @@ const userIcon = (
 );
 const logoIcon = (
   <div className={styles.logo}>
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="220"
-    height="40"
-    viewBox="0 0 150 46"
-    fill="none"
-    
-  >
-      <text x="40" y="30" className={styles.logo_fonts} font-size="20"  fill="black"font-weight="bold"  letter-spacing="0.5px" >
-Rakebackk
-</text>
-    {/* <path
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="220"
+      height="40"
+      viewBox="0 0 150 46"
+      fill="none"
+
+    >
+      <text x="40" y="30" className={styles.logo_fonts} font-size="20" fill="black" font-weight="bold" letter-spacing="0.5px" >
+        Rakebackk
+      </text>
+      {/* <path
       d="M49.8129 16.5347H44.7276C43.6425 16.529 42.5996 16.9545 41.8279 17.7177C41.0563 18.4809 40.619 19.5194 40.6123 20.605C40.6123 22.1847 41.5747 23.5839 43.1435 24.3114L40.8373 28.589C40.7858 28.6804 40.7587 28.7836 40.7587 28.8886C40.7587 28.9935 40.7858 29.0967 40.8373 29.1881C40.8903 29.275 40.9651 29.3463 41.0544 29.395C41.1437 29.4437 41.2442 29.468 41.3459 29.4654H43.2109C43.3148 29.4689 43.4176 29.443 43.5075 29.3908C43.5974 29.3387 43.6708 29.2623 43.7194 29.1703L46.0078 24.5913H47.5843V28.8765C47.5881 29.0295 47.6505 29.1753 47.7586 29.2837C47.8667 29.3921 48.0123 29.4549 48.1653 29.459H49.7989C49.9531 29.4587 50.1009 29.3972 50.2098 29.288C50.3187 29.1788 50.3799 29.0308 50.3799 28.8765V17.1173C50.38 16.9654 50.3207 16.8195 50.2148 16.7107C50.1089 16.6018 49.9647 16.5387 49.8129 16.5347ZM47.5792 22.2025H44.931C44.1084 22.2025 43.4156 21.4852 43.4156 20.6342C43.4255 20.2388 43.5896 19.8629 43.8727 19.5867C44.1558 19.3106 44.5356 19.1561 44.931 19.1562H47.5792V22.2025Z"
       fill="white"
 transform="scale(-1,1) translate(-92,0)"  
@@ -543,12 +637,12 @@ transform="scale(-1,1) translate(-92,0)"
       d="M145.876 28.4414L141.239 22.6484L145.549 17.5794C145.628 17.4883 145.68 17.3755 145.698 17.2545C145.717 17.1335 145.701 17.0095 145.654 16.8974C145.605 16.7874 145.527 16.6945 145.429 16.6302C145.33 16.5658 145.216 16.5326 145.1 16.5348H143.394C143.298 16.534 143.202 16.5565 143.116 16.6007C143.029 16.6449 142.954 16.7094 142.895 16.7892L139.016 21.3544V17.2066C139.013 17.0291 138.945 16.8596 138.825 16.7341C138.705 16.6086 138.542 16.5371 138.372 16.5348H136.875C136.79 16.5339 136.706 16.5507 136.628 16.5842C136.549 16.6177 136.478 16.6671 136.418 16.7297C136.358 16.7923 136.311 16.8667 136.279 16.9486C136.247 17.0305 136.231 17.1182 136.232 17.2066V28.7926C136.231 28.881 136.247 28.9687 136.279 29.0506C136.311 29.1325 136.358 29.2069 136.418 29.2695C136.478 29.332 136.549 29.3815 136.628 29.415C136.706 29.4484 136.79 29.4653 136.875 29.4644H138.372C138.542 29.4621 138.705 29.3906 138.825 29.2651C138.945 29.1396 139.013 28.9701 139.016 28.7926V24.0633L143.028 29.2303C143.087 29.3089 143.164 29.3714 143.252 29.4122C143.339 29.453 143.435 29.4709 143.53 29.4644H145.385C145.499 29.4669 145.612 29.4351 145.709 29.3729C145.806 29.3106 145.885 29.2205 145.934 29.1132C145.986 29.0068 146.008 28.8874 145.998 28.7686C145.987 28.6498 145.945 28.5364 145.876 28.4414Z"
       fill="white"
     /> */}
-    <path
-      d="M31.8434 24.164C32.8936 21.9495 33.4358 19.5258 33.4302 17.0721C33.4302 7.93884 26.0499 0.5 16.9609 0.5C7.87188 0.5 0.480426 7.93884 0.480426 17.0721C0.477925 19.5307 1.02403 21.9586 2.07844 24.1766C0.727073 25.9193 -0.00472093 28.0675 2.29193e-05 30.2779C0.00233253 32.9415 1.05574 35.4951 2.92863 37.3773C4.80153 39.2595 7.3406 40.3163 9.98763 40.3153C11.623 40.3153 13.8607 39.7693 15.2148 39.063C15.1762 39.1883 15.1277 39.3235 15.0791 39.4588C15.0638 39.5105 15.0429 39.5605 15.0169 39.6078C14.7934 40.1669 14.5219 40.7053 14.2054 41.217C14.1681 41.2922 14.1196 41.3648 14.0698 41.4525C13.1447 42.993 11.9634 44.3621 10.5775 45.5H23.3443C21.9639 44.356 20.7831 42.988 19.8508 41.4525C19.8022 41.3648 19.7525 41.2922 19.7164 41.217C19.4001 40.7051 19.1282 40.1667 18.9037 39.6078C18.8883 39.556 18.8674 39.506 18.8414 39.4588C18.7941 39.3235 18.7444 39.187 18.707 39.063C20.076 39.7681 22.3162 40.3153 23.9466 40.3153C25.8112 40.3203 27.6397 39.7984 29.2239 38.8089C30.8081 37.8194 32.0844 36.4022 32.9073 34.7186C33.7303 33.035 34.0669 31.1527 33.8788 29.286C33.6907 27.4194 32.9854 25.6434 31.8434 24.1603V24.164ZM21.9902 1.88633C25.1707 2.9573 27.9345 5.01042 29.8882 7.7535L25.9765 10.575C24.6149 8.65936 22.6865 7.22565 20.4668 6.47863L21.9902 1.88633ZM12.1756 1.80117L13.6143 6.41726C11.267 7.16866 8.04362 10.4247 8.04362 10.4247L4.18548 7.54436C6.18192 4.83166 8.97798 2.82187 12.1756 1.80117ZM18.7195 33.0005C18.6537 32.9986 18.5879 33.0023 18.5228 33.0117C18.2941 33.0413 18.0639 33.0581 17.8333 33.0618C17.7563 33.0733 17.6784 33.0779 17.6006 33.0756C17.3778 33.0869 17.17 33.0994 16.9609 33.0994C16.7518 33.0994 16.5539 33.0869 16.3461 33.0756C16.2596 33.0779 16.173 33.0733 16.0872 33.0618C15.8612 33.0581 15.6356 33.0413 15.4114 33.0117C15.3243 33.0005 15.2397 33.0005 15.1625 32.988C14.6958 32.9379 14.2266 32.8627 13.7736 32.7776C13.7665 32.7716 13.7579 32.7677 13.7487 32.7663C13.4998 32.7162 13.2683 32.6661 13.0219 32.6047C12.9886 32.5947 12.9562 32.5821 12.9248 32.5672C6.09962 30.7651 1.04545 24.5034 1.04545 17.0721V16.9118L5.87933 16.9619V17.047C5.87686 18.2338 6.06817 19.4129 6.44561 20.5373C14.1196 14.6826 16.9609 7.07223 16.9609 7.07223C16.9609 7.07223 19.8022 14.6826 27.4762 20.5373C27.8403 19.4394 28.031 18.2908 28.0412 17.1335L32.8751 17.1835C32.8154 25.365 26.6262 32.1088 18.7195 33.0005Z"
-      fill="#0052cc"
-    />
-  </svg>
-</div>
+      <path
+        d="M31.8434 24.164C32.8936 21.9495 33.4358 19.5258 33.4302 17.0721C33.4302 7.93884 26.0499 0.5 16.9609 0.5C7.87188 0.5 0.480426 7.93884 0.480426 17.0721C0.477925 19.5307 1.02403 21.9586 2.07844 24.1766C0.727073 25.9193 -0.00472093 28.0675 2.29193e-05 30.2779C0.00233253 32.9415 1.05574 35.4951 2.92863 37.3773C4.80153 39.2595 7.3406 40.3163 9.98763 40.3153C11.623 40.3153 13.8607 39.7693 15.2148 39.063C15.1762 39.1883 15.1277 39.3235 15.0791 39.4588C15.0638 39.5105 15.0429 39.5605 15.0169 39.6078C14.7934 40.1669 14.5219 40.7053 14.2054 41.217C14.1681 41.2922 14.1196 41.3648 14.0698 41.4525C13.1447 42.993 11.9634 44.3621 10.5775 45.5H23.3443C21.9639 44.356 20.7831 42.988 19.8508 41.4525C19.8022 41.3648 19.7525 41.2922 19.7164 41.217C19.4001 40.7051 19.1282 40.1667 18.9037 39.6078C18.8883 39.556 18.8674 39.506 18.8414 39.4588C18.7941 39.3235 18.7444 39.187 18.707 39.063C20.076 39.7681 22.3162 40.3153 23.9466 40.3153C25.8112 40.3203 27.6397 39.7984 29.2239 38.8089C30.8081 37.8194 32.0844 36.4022 32.9073 34.7186C33.7303 33.035 34.0669 31.1527 33.8788 29.286C33.6907 27.4194 32.9854 25.6434 31.8434 24.1603V24.164ZM21.9902 1.88633C25.1707 2.9573 27.9345 5.01042 29.8882 7.7535L25.9765 10.575C24.6149 8.65936 22.6865 7.22565 20.4668 6.47863L21.9902 1.88633ZM12.1756 1.80117L13.6143 6.41726C11.267 7.16866 8.04362 10.4247 8.04362 10.4247L4.18548 7.54436C6.18192 4.83166 8.97798 2.82187 12.1756 1.80117ZM18.7195 33.0005C18.6537 32.9986 18.5879 33.0023 18.5228 33.0117C18.2941 33.0413 18.0639 33.0581 17.8333 33.0618C17.7563 33.0733 17.6784 33.0779 17.6006 33.0756C17.3778 33.0869 17.17 33.0994 16.9609 33.0994C16.7518 33.0994 16.5539 33.0869 16.3461 33.0756C16.2596 33.0779 16.173 33.0733 16.0872 33.0618C15.8612 33.0581 15.6356 33.0413 15.4114 33.0117C15.3243 33.0005 15.2397 33.0005 15.1625 32.988C14.6958 32.9379 14.2266 32.8627 13.7736 32.7776C13.7665 32.7716 13.7579 32.7677 13.7487 32.7663C13.4998 32.7162 13.2683 32.6661 13.0219 32.6047C12.9886 32.5947 12.9562 32.5821 12.9248 32.5672C6.09962 30.7651 1.04545 24.5034 1.04545 17.0721V16.9118L5.87933 16.9619V17.047C5.87686 18.2338 6.06817 19.4129 6.44561 20.5373C14.1196 14.6826 16.9609 7.07223 16.9609 7.07223C16.9609 7.07223 19.8022 14.6826 27.4762 20.5373C27.8403 19.4394 28.031 18.2908 28.0412 17.1335L32.8751 17.1835C32.8154 25.365 26.6262 32.1088 18.7195 33.0005Z"
+        fill="#0052cc"
+      />
+    </svg>
+  </div>
 );
 
 const menuIcon = (

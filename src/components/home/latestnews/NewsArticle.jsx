@@ -22,7 +22,7 @@ const NewArticle = () => {
   const fetchBlog = async () => {
     if (!blogId) return;
     try {
-      let id = blogId.substring(blogId.lastIndexOf("_") + 1);
+      let id = blogId.substring(blogId.lastIndexOf("-") + 1);
       console.log("Fetching Blog ID:", id);
   
       const blogData = await getBlogById(id);
@@ -163,7 +163,7 @@ const NewArticle = () => {
   <ul className={styles.post_list}>
     {currentArticles.length > 0 ? (
       currentArticles.map((post) => {
-        const blogId = `${post.title.replace(/ /g, "_")}_${post._id}`;
+        const blogId = `${post.title.replace(/ /g, "-")}-${post._id}`;
         return(
         <li
           key={post.id}

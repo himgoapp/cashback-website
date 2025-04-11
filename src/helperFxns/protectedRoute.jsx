@@ -67,10 +67,16 @@ const ProtectedRoute = ({ children }) => {
 		const res = await getUserInfo();
 
 		if (res.success) {
-			setUserData(res.userInfo.user);
-			setWalletData(res.userInfo.userWallet);
-			setUserKyc(res.userInfo.userKyc);
-			setLoading(false);
+            let userData = res.userInfo.user ;
+
+			if(userData && userData.email && userData.userName){
+				setUserData(res.userInfo.user);
+				setWalletData(res.userInfo.userWallet);
+				setUserKyc(res.userInfo.userKyc);
+				setLoading(false);
+			}else{
+                navigate("/welcome")
+			}
 		} else {
 			localStorage.clear();
 			navigate("/", { replace: true });

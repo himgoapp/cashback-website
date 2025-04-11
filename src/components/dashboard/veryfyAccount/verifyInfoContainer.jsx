@@ -111,10 +111,10 @@ function VerifyInfoContainer() {
                     </Form.Group>
 
                     <Form.Group className="mb-3">
-                        <Form.Label>Phone Number</Form.Label>
+                        <Form.Label>Mobile Number</Form.Label>
                         <Form.Control
                             type="text"
-                            placeholder="Enter your phone number"
+                            placeholder="Enter your mobile number"
                             value={userData?.phoneNumber || ""}
                             disabled
                         />

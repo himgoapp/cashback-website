@@ -25,7 +25,7 @@ const DescriptionPage = () => {
   const fetchProduct = async () => {
     if (!roomId) return;
     try {
-      let id = roomId.substring(roomId.lastIndexOf("_") + 1);
+      let id = roomId.substring(roomId.lastIndexOf("-") + 1);
       console.log("Fetching Room ID:", id);
 
       const roomData = await getProductById(id);

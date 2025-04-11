@@ -9,6 +9,8 @@ import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
 import { TransactionsIcon } from "../../../utils/dashboardMainHeadersIcon";
 import backgroundImg from "../../../assets/transback.svg"
+import depositt from "../../../assets/depositt.svg"
+import withdrawal from "../../../assets/withdrawal.svg"
 const MyTransactionMain = () => {
   const { userData, walletData, userKyc } = useContext(UserContext);
   const [transactionType, setTransactionType] = useState("Withdrawal");
@@ -46,12 +48,17 @@ const MyTransactionMain = () => {
               >
                 <div
                   className={styles.TabText}
-               
+
                 >
-                  Withdrawals
+
+                  <div className="d-flex align-items-center">
+                  <span className="me-2">
+          <GradientWithdrawalIcon size={24} />
+        </span>
+        <span>Withdrawals</span>
+                  </div>
                 </div>
               </div>
-
               <div
                 className={styles.TabButton}
                 style={activeTab("Deposit", transactionType)}
@@ -59,9 +66,16 @@ const MyTransactionMain = () => {
               >
                 <div
                   className={styles.TabText}
-                 
+
                 >
-                  Deposits
+                  <div className="d-flex align-items-center">
+                  <span className="me-2">
+          <GradientDepositIcon size={24} />
+        </span>
+        <span>My Earnings</span>
+                  </div>
+
+
                 </div>
               </div>
             </div>
@@ -128,3 +142,69 @@ const percentIcon = (
     </defs>
   </svg>
 );
+const  GradientWithdrawalIcon = ({ className = "", size = 24 }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      className={`${className}`}
+    >
+      <defs>
+        <linearGradient id="withdrawalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#FF5252" />
+          <stop offset="100%" stopColor="#FF1744" />
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="10" fill="url(#withdrawalGradient)" />
+      <path
+        d="M16 14L12 18L8 14"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 16V6"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
+const GradientDepositIcon = ({ className = "", size = 24 }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      className={`${className}`}
+    >
+      <defs>
+        <linearGradient id="depositGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#4CAF50" />
+          <stop offset="100%" stopColor="#2E7D32" />
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="10" fill="url(#depositGradient)" />
+      <path
+        d="M8 10L12 6L16 10"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 6V16"
+        stroke="white"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+};
