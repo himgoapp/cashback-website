@@ -6,11 +6,16 @@ import avater1 from "../../../assets/avater1.svg";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { Modal, Button, Form } from "react-bootstrap";
-import { sendEmailOtpAPI, loginVerify, verifyEmailOtpAPI, getUserInfo } from "../../../servicefile/authservice";
+import {
+  sendEmailOtpAPI,
+  loginVerify,
+  verifyEmailOtpAPI,
+  getUserInfo,
+} from "../../../servicefile/authservice";
 import { toast } from "react-toastify";
 import { RakebackLogo } from "../../common/logo/logo";
 import Loading from "../../common/Loading/Loading";
-import {  useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import {
   PokerIcon,
   TransactionsIcon,
@@ -36,7 +41,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const { setShowSidebar, showNotifications, setShowNotifications } =
     useContext(UserContext);
   const [selectedImage, setSelectedImage] = useState(null);
-  const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
+  const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
   const [loading, setLoading] = useState(false);
   const [editName, setEditName] = useState(false);
   const [userName, setUserName] = useState("");
@@ -48,10 +53,10 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const handleMyTransactionClick = () => {
     navigate("/dashboard/mytransactions");
   };
-  
+
   useEffect(() => {
     inputRefs.current = inputRefs.current.slice(0, 6);
-    
+
     if (userData) {
       setUserName(userData.userName || "");
       setEmail(userData.email || "");
@@ -83,10 +88,10 @@ const DashboardHomeHeader = ({ title, icon }) => {
     let timer;
     if (countdown > 0) {
       timer = setInterval(() => {
-        setCountdown(prevCount => prevCount - 1);
+        setCountdown((prevCount) => prevCount - 1);
       }, 1000);
     }
-    
+
     return () => {
       if (timer) clearInterval(timer);
     };
@@ -100,26 +105,26 @@ const DashboardHomeHeader = ({ title, icon }) => {
       setOtpValues(newOtpValues);
 
       // Auto-focus to next input if current input is filled
-      if (value !== '' && index < 5) {
+      if (value !== "" && index < 5) {
         inputRefs.current[index + 1].focus();
       }
     }
   };
-  
+
   const onLogout = () => {
     localStorage.clear();
     window.location.reload();
   };
-  
+
   const handleKeyDown = (index, e) => {
     // Navigate between inputs with arrow keys
-    if (e.key === 'ArrowRight' && index < 5) {
+    if (e.key === "ArrowRight" && index < 5) {
       inputRefs.current[index + 1].focus();
-    } else if (e.key === 'ArrowLeft' && index > 0) {
+    } else if (e.key === "ArrowLeft" && index > 0) {
       inputRefs.current[index - 1].focus();
     }
     // Move to previous input on backspace if current is empty
-    else if (e.key === 'Backspace' && index > 0 && otpValues[index] === '') {
+    else if (e.key === "Backspace" && index > 0 && otpValues[index] === "") {
       inputRefs.current[index - 1].focus();
     }
   };
@@ -135,8 +140,8 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
   const handlePaste = (e) => {
     e.preventDefault();
-    const pastedData = e.clipboardData.getData('text');
-    const numericData = pastedData.replace(/[^\d]/g, '').substring(0, 6);
+    const pastedData = e.clipboardData.getData("text");
+    const numericData = pastedData.replace(/[^\d]/g, "").substring(0, 6);
 
     if (numericData) {
       const newOtpValues = [...otpValues];
@@ -163,7 +168,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
   const handleClose = () => {
     setVerifyModal(false);
-    setOtpValues(['', '', '', '', '', '']);
+    setOtpValues(["", "", "", "", "", ""]);
   };
 
   const handleProfileClick = () => {
@@ -181,13 +186,17 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
   const handleSaveProfile = async () => {
     try {
-      const response = await userProfileEdit(userData._id, userName, userData.address || "");
+      const response = await userProfileEdit(
+        userData._id,
+        userName,
+        userData.address || ""
+      );
 
       if (response.success) {
         // toast.success("Profile updated successfully!");
-        setUserData(prev => ({
+        setUserData((prev) => ({
           ...prev,
-          userName: userName
+          userName: userName,
         }));
         setEditName(false);
       } else {
@@ -215,7 +224,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
   const verifyEmailOtp = async () => {
     setLoading(true);
-    const combinedOtp = otpValues.join('');
+    const combinedOtp = otpValues.join("");
     if (combinedOtp.length !== 6) {
       setLoading(false);
       return;
@@ -224,7 +233,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
     try {
       const data = await verifyEmailOtpAPI(email, combinedOtp);
       if (data?.message === "Email verified!") {
-        setOtpValues(['', '', '', '', '', '']);
+        setOtpValues(["", "", "", "", "", ""]);
         setVerifyModal(false);
         getUserData();
         // toast.success("Email verified successfully!");
@@ -268,35 +277,45 @@ const DashboardHomeHeader = ({ title, icon }) => {
                     }}
                   />
                 </div>
-                
+
                 {/* Profile Dropdown */}
                 {showDropdown && (
-   <div className={styles.dropdown}>
-   <div className={styles.content}>
-     <div className={styles.userInfo}>
-       <p className={styles.greeting}>Hello,</p>
-       <h5 className={styles.userName}>{userData?.userName || "User"}</h5>
-     </div>
+                  <div className={styles.dropdown}>
+                    <div className={styles.content}>
+                      <div className={styles.userInfo}>
+                        <p className={styles.greeting}>Hello,</p>
+                        <h5 className={styles.userName}>
+                          {userData?.userName || "User"}
+                        </h5>
+                      </div>
 
-     <div className={styles.stat}>
-  <span className="material-icons" style={{ fontSize: "22px", color: "#3b82f6" }}>bar_chart</span>
-  <p>Total Rakeback</p>
-  <h6></h6>
-</div>
+                      {/* <div className={styles.stat}>
+                        <span
+                          className="material-icons"
+                          style={{ fontSize: "22px", color: "#3b82f6" }}
+                        >
+                          bar_chart
+                        </span>
+                        <p>Total Rakeback</p>
+                        <h6></h6>
+                      </div> */}
 
-     <hr className={styles.separator} />
+                      <hr className={styles.separator} />
 
-     {/* Menu Items */}
-     <div className={styles.menu}>
-       {/* Account Settings */}
-       <div className={styles.menuItem} onClick={handleAccountSettings}>
-         <span className="material-icons">account_circle</span>
-         <span>Account Settings</span>
-       </div>
+                      {/* Menu Items */}
+                      <div className={styles.menu}>
+                        {/* Account Settings */}
+                        <div
+                          className={styles.menuItem}
+                          onClick={handleAccountSettings}
+                        >
+                          <span className="material-icons">account_circle</span>
+                          <span>Account Settings</span>
+                        </div>
 
-       {/* Cashback & Rewards Section */}
-       <div className={styles.menuSection}>
-         {/* <p className={styles.menuSectionTitle}>Cashback & Rewards</p>
+                        {/* Cashback & Rewards Section */}
+                        <div className={styles.menuSection}>
+                          {/* <p className={styles.menuSectionTitle}>Cashback & Rewards</p>
          <div className={styles.menuItem}>
            <span className="material-icons">currency_rupee</span>
            <span>My Earnings</span>
@@ -305,19 +324,25 @@ const DashboardHomeHeader = ({ title, icon }) => {
            <span className="material-icons">payment</span>
            <span>Payments</span>
          </div> */}
-         <div className={styles.menuItem}  onClick={()=>handleMyTransactionClick()}>
-           <span className="material-icons">history</span>
-           <span >Payments History</span>
-         </div>
-       </div>
-       <div className={styles.logout} onClick={()=>onLogout()}>
-         <span className="material-icons">exit_to_app</span>
-         <span>Logout</span>
-       </div>
-     </div>
-   </div>
- </div>
-)}
+                          <div
+                            className={styles.menuItem}
+                            onClick={() => handleMyTransactionClick()}
+                          >
+                            <span className="material-icons">history</span>
+                            <span>Payments History</span>
+                          </div>
+                        </div>
+                        <div
+                          className={styles.logout}
+                          onClick={() => onLogout()}
+                        >
+                          <span className="material-icons">exit_to_app</span>
+                          <span>Logout</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -339,10 +364,13 @@ const DashboardHomeHeader = ({ title, icon }) => {
           style={{
             background: "linear-gradient(90deg, #0052cc 0%, #007bff 100%)",
             color: "white",
-            textAlign: "center"
+            textAlign: "center",
           }}
         >
-          <Modal.Title className="w-100 fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}>
+          <Modal.Title
+            className="w-100 fw-bold"
+            style={{ fontFamily: "Roboto, sans-serif" }}
+          >
             Profile
           </Modal.Title>
         </Modal.Header>
@@ -359,7 +387,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
                   height: "80px",
                   objectFit: "cover",
                   border: "3px solid #0052cc",
-                  boxShadow: "0 4px 12px rgba(0, 82, 204, 0.4)"
+                  boxShadow: "0 4px 12px rgba(0, 82, 204, 0.4)",
                 }}
               />
             </div>
@@ -375,7 +403,10 @@ const DashboardHomeHeader = ({ title, icon }) => {
                   className="w-50 text-center"
                 />
               ) : (
-                <span className="text-center fw-semibold fs-5" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                <span
+                  className="text-center fw-semibold fs-5"
+                  style={{ fontFamily: "Roboto, sans-serif" }}
+                >
                   {userName}
                 </span>
               )}
@@ -385,30 +416,45 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
             {/* Email Section */}
             <div className="d-flex justify-content-between align-items-center mb-2">
-              <Form.Label className="fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}>Email</Form.Label>
+              <Form.Label
+                className="fw-bold"
+                style={{ fontFamily: "Roboto, sans-serif" }}
+              >
+                Email
+              </Form.Label>
               <div className="text-end">
                 <div className="d-flex align-items-center justify-content-end gap-2">
-                  <span style={{ fontFamily: 'Roboto, sans-serif' }}>{userData?.email || "N/A"}</span>
+                  <span style={{ fontFamily: "Roboto, sans-serif" }}>
+                    {userData?.email || "N/A"}
+                  </span>
                   {userData?.emailVerifystatus && (
-                    <svg 
-                      width="16" 
-                      height="16" 
-                      viewBox="0 0 16 16" 
-                      fill="none" 
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
                       xmlns="http://www.w3.org/2000/svg"
                     >
                       <circle cx="8" cy="8" r="7" fill="#28a745" />
-                      <path d="M5.5 8L7 9.5L10.5 6" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                      <path
+                        d="M5.5 8L7 9.5L10.5 6"
+                        stroke="white"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
                     </svg>
                   )}
                 </div>
                 <div
-                  className={userData?.emailVerifystatus ? "text-success d-flex align-items-center justify-content-end" : "text-danger"}
-                  style={{ fontSize: "12px", fontFamily: 'Roboto, sans-serif' }}
+                  className={
+                    userData?.emailVerifystatus
+                      ? "text-success d-flex align-items-center justify-content-end"
+                      : "text-danger"
+                  }
+                  style={{ fontSize: "12px", fontFamily: "Roboto, sans-serif" }}
                 >
-                  {userData?.emailVerifystatus
-                    ? "Verified"
-                    : "Not verified"}
+                  {userData?.emailVerifystatus ? "Verified" : "Not verified"}
                 </div>
 
                 {!userData?.emailVerifystatus && (
@@ -416,21 +462,26 @@ const DashboardHomeHeader = ({ title, icon }) => {
                     size="sm"
                     variant="primary"
                     className="rounded-pill px-3 mt-1"
-                    style={{ 
-                      fontWeight: "bold", 
-                      fontFamily: 'Roboto, sans-serif',
-                      background: "linear-gradient(90deg, #0052cc 0%, #007bff 100%)",
+                    style={{
+                      fontWeight: "bold",
+                      fontFamily: "Roboto, sans-serif",
+                      background:
+                        "linear-gradient(90deg, #0052cc 0%, #007bff 100%)",
                       border: "none",
-                      boxShadow: "0 2px 4px rgba(0, 82, 204, 0.3)"
+                      boxShadow: "0 2px 4px rgba(0, 82, 204, 0.3)",
                     }}
                     onClick={() => {
                       sendEmailOtp(userData.email);
                       setEmail(userData.email);
                     }}
                   >
-                    {loading ? <Loading size="sm" animation="border" /> : "Verify Email"}
+                    {loading ? (
+                      <Loading size="sm" animation="border" />
+                    ) : (
+                      "Verify Email"
+                    )}
                   </Button>
-               )}
+                )}
               </div>
             </div>
 
@@ -438,25 +489,38 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
             {/* Phone */}
             <div className="d-flex justify-content-between align-items-center mb-2">
-              <Form.Label className="fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}>Mobile Number</Form.Label>
+              <Form.Label
+                className="fw-bold"
+                style={{ fontFamily: "Roboto, sans-serif" }}
+              >
+                Mobile Number
+              </Form.Label>
               <div className="text-end">
                 <div className="d-flex align-items-center justify-content-end gap-2">
-                  <span style={{ fontFamily: 'Roboto, sans-serif' }}>
+                  <span style={{ fontFamily: "Roboto, sans-serif" }}>
                     {userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}
                   </span>
-                  <svg 
-                    width="16" 
-                    height="16" 
-                    viewBox="0 0 16 16" 
-                    fill="none" 
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
                     xmlns="http://www.w3.org/2000/svg"
                   >
                     <circle cx="8" cy="8" r="7" fill="#28a745" />
-                    <path d="M5.5 8L7 9.5L10.5 6" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    <path
+                      d="M5.5 8L7 9.5L10.5 6"
+                      stroke="white"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
-                <div className="text-success d-flex align-items-center justify-content-end" 
-                     style={{ fontSize: "12px", fontFamily: 'Roboto, sans-serif' }}>
+                <div
+                  className="text-success d-flex align-items-center justify-content-end"
+                  style={{ fontSize: "12px", fontFamily: "Roboto, sans-serif" }}
+                >
                   Verified
                 </div>
               </div>
@@ -476,50 +540,59 @@ const DashboardHomeHeader = ({ title, icon }) => {
         size="md"
         className="fade"
       >
-        <Modal.Header 
-          closeButton 
+        <Modal.Header
+          closeButton
           className="border-0 pb-0"
           style={{
-       
             borderTopLeftRadius: "12px",
-            borderTopRightRadius: "12px"
+            borderTopRightRadius: "12px",
           }}
         >
           <Modal.Title className="w-100 text-center d-flex justify-content-center align-items-center">
             <RakebackLogo />
           </Modal.Title>
         </Modal.Header>
-        
-        <Modal.Body style={{
-          paddingTop: "10px",
-          paddingBottom: "30px"
-        }}>
+
+        <Modal.Body
+          style={{
+            paddingTop: "10px",
+            paddingBottom: "30px",
+          }}
+        >
           <div className="text-center mb-4 position-relative">
             <div className="position-relative d-inline-block">
-              <div style={{
-                position: "absolute",
-                width: "70px",
-                height: "60px",
-                borderRadius: "50%",
-                background: "linear-gradient(90deg, rgba(0,82,204,0.1) 0%, rgba(0,123,255,0.1) 100%)",
-                top: "-12px",
-                left: "50%",
-                transform: "translateX(-50%)",
-                zIndex: 0
-              }}></div>
-              <span 
-                className="material-icons" 
-                style={{ 
-                  fontSize: "36px", 
+              <div
+                style={{
+                  position: "absolute",
+                  width: "70px",
+                  height: "60px",
+                  borderRadius: "50%",
+                  background:
+                    "linear-gradient(90deg, rgba(0,82,204,0.1) 0%, rgba(0,123,255,0.1) 100%)",
+                  top: "-12px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  zIndex: 0,
+                }}
+              ></div>
+              <span
+                className="material-icons"
+                style={{
+                  fontSize: "36px",
                   color: "#0052cc",
                   position: "relative",
-                  zIndex: 1
+                  zIndex: 1,
                 }}
               >
                 mark_email_read
               </span>
             </div>
-            <h3 className="mt-3 mb-2 fw-bold" style={{ color: "#0A2540", fontSize: "24px" }}>Verify Your Email</h3>
+            <h3
+              className="mt-3 mb-2 fw-bold"
+              style={{ color: "#0A2540", fontSize: "24px" }}
+            >
+              Verify Your Email
+            </h3>
             <p className="text-muted mb-1" style={{ fontSize: "14px" }}>
               We've sent a verification code to
             </p>
@@ -529,17 +602,17 @@ const DashboardHomeHeader = ({ title, icon }) => {
           </div>
 
           <div className="px-3 mb-4">
-            <div 
-              className="d-flex justify-content-between gap-2" 
+            <div
+              className="d-flex justify-content-between gap-2"
               style={{
                 maxWidth: "320px",
-                margin: "0 auto"
+                margin: "0 auto",
               }}
             >
               {[0, 1, 2, 3, 4, 5].map((index) => (
-                <div 
-                  key={index} 
-                  className="position-relative" 
+                <div
+                  key={index}
+                  className="position-relative"
                   style={{ flex: "1" }}
                 >
                   <Form.Control
@@ -551,9 +624,11 @@ const DashboardHomeHeader = ({ title, icon }) => {
                       padding: "0",
                       borderRadius: "8px",
                       border: "1px solid #d0d5dd",
-                      boxShadow: otpValues[index] ? "0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px rgba(0, 82, 204, 0.1)" : "0 1px 2px rgba(16, 24, 40, 0.05)",
+                      boxShadow: otpValues[index]
+                        ? "0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px rgba(0, 82, 204, 0.1)"
+                        : "0 1px 2px rgba(16, 24, 40, 0.05)",
                       backgroundColor: "#fff",
-                      transition: "all 0.2s ease"
+                      transition: "all 0.2s ease",
                     }}
                     value={otpValues[index]}
                     maxLength={1}
@@ -582,13 +657,13 @@ const DashboardHomeHeader = ({ title, icon }) => {
                 onClick={() => {
                   sendEmailOtp(email);
                 }}
-                style={{ 
-                  color: "#0052cc", 
-                  textDecoration: "none", 
+                style={{
+                  color: "#0052cc",
+                  textDecoration: "none",
                   fontWeight: "600",
                   padding: "4px 12px",
                   fontSize: "14px",
-                  transition: "all 0.2s ease"
+                  transition: "all 0.2s ease",
                 }}
                 className="rounded-pill"
                 disabled={loading}
@@ -598,12 +673,12 @@ const DashboardHomeHeader = ({ title, icon }) => {
             )}
           </div>
         </Modal.Body>
-        
-        <Modal.Footer 
+
+        <Modal.Footer
           className="border-0 justify-content-center p-4"
           style={{
             borderBottomLeftRadius: "12px",
-            borderBottomRightRadius: "12px"
+            borderBottomRightRadius: "12px",
           }}
         >
           <Button
@@ -619,9 +694,9 @@ const DashboardHomeHeader = ({ title, icon }) => {
               fontSize: "16px",
               borderRadius: "8px",
               boxShadow: "0 2px 6px rgba(0, 82, 204, 0.3)",
-              transition: "all 0.2s ease"
+              transition: "all 0.2s ease",
             }}
-            disabled={otpValues.join('').length < 6 || loading}
+            disabled={otpValues.join("").length < 6 || loading}
             className="position-relative"
           >
             {loading ? (
@@ -632,7 +707,10 @@ const DashboardHomeHeader = ({ title, icon }) => {
             ) : (
               <span className="d-flex align-items-center justify-content-center">
                 Verify Email
-                <span className="material-icons ms-2" style={{ fontSize: "18px" }}>
+                <span
+                  className="material-icons ms-2"
+                  style={{ fontSize: "18px" }}
+                >
                   arrow_forward
                 </span>
               </span>
@@ -677,9 +755,16 @@ const logoIcon = (
       height="40"
       viewBox="0 0 150 46"
       fill="none"
-
     >
-      <text x="40" y="30" className={styles.logo_fonts} font-size="20" fill="black" font-weight="bold" letter-spacing="0.5px" >
+      <text
+        x="40"
+        y="30"
+        className={styles.logo_fonts}
+        font-size="20"
+        fill="black"
+        font-weight="bold"
+        letter-spacing="0.5px"
+      >
         Rakebackk
       </text>
       {/* <path
