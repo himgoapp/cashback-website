@@ -82,12 +82,12 @@ const Sidebar = ({ active }) => {
 
         <div className={styles.Footer}>
           <div className={styles.AvatarLabelGroup}>
-            <div className={styles.TextAndSupportingText}>
+            {/* <div className={styles.TextAndSupportingText}>
               {data?.userName || "Not filled!"}
               <button className={styles.Button} onClick={onLogout}>
                 <img src={logout} className={styles.logout_icon} alt="Logout" />
               </button>
-            </div>
+            </div> */}
           </div>
         </div>
 

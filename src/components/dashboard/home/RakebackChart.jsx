@@ -203,7 +203,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
             backgroundImage: `url(${backgroundImg})`
           }}>
             <div>
-              <div className={styles.dashboard_greeting}>Hello, {dashboardInfo.user.userName}</div>
+              {/* <div className={styles.dashboard_greeting}>Hello, {dashboardInfo.user.userName}</div> */}
               <div className={styles.dashboard_explore}>
                 Explore with Rakebackk
               </div>
@@ -239,7 +239,7 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
             display: "flex",
             flexDirection: "column",
             gap: "20px",
-            position: "relative",
+            // position: "relative",
           }}
         >
           <div className={styles.filter_container}>

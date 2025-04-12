@@ -1,16 +1,16 @@
-import React, { useContext, useState, useEffect,useRef } from "react";
+import React, { useContext, useState, useEffect, useRef } from "react";
 import styles from "./dashHomeHeader.module.css";
 import bellIcon from "../../../assets/header_nav_btn2.png";
 import profileicon from "../../../assets/profileicon.svg";
+import avater1 from "../../../assets/avater1.svg";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { Modal, Button, Form } from "react-bootstrap";
-import { sendEmailOtpAPI, loginVerify, verifyEmailOtpAPI , getUserInfo } from "../../../servicefile/authservice";
+import { sendEmailOtpAPI, loginVerify, verifyEmailOtpAPI, getUserInfo } from "../../../servicefile/authservice";
 import { toast } from "react-toastify";
 import { RakebackLogo } from "../../common/logo/logo";
-import avater1 from "../../../assets/avater1.svg";
 import Loading from "../../common/Loading/Loading";
-
+import {  useNavigate } from "react-router-dom";
 import {
   PokerIcon,
   TransactionsIcon,
@@ -24,12 +24,12 @@ import {
   userProfileEdit,
   addProfileImage,
 } from "../../../servicefile/dashboardservice";
+
 const DashboardHomeHeader = ({ title, icon }) => {
+  const navigate = useNavigate();
   const { userData, setUserData } = useContext(UserContext);
-  const [editMode, setEditMode] = useState(false); // Edit mode state
-  const [showProfileModal, setShowProfileModal] = useState(false);
-  const [username, setUsername] = useState(userData?.userName || "");
-  const [address, setAddress] = useState(userData?.address || "");
+  const [showDropdown, setShowDropdown] = useState(false);
+  const [showAccountSettings, setShowAccountSettings] = useState(false);
   const [verifyModal, setVerifyModal] = useState(false);
   const [otp, setOtp] = useState("");
   const [email, setEmail] = useState("");
@@ -38,11 +38,60 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [otpValues, setOtpValues] = useState(['', '', '', '', '', '']);
   const [loading, setLoading] = useState(false);
+  const [editName, setEditName] = useState(false);
+  const [userName, setUserName] = useState("");
+  const [editMode, setEditMode] = useState(false);
+  const [countdown, setCountdown] = useState(0);
   const inputRefs = useRef([]);
+  const dropdownRef = useRef(null);
 
+  const handleMyTransactionClick = () => {
+    navigate("/dashboard/mytransactions");
+  };
+  
   useEffect(() => {
     inputRefs.current = inputRefs.current.slice(0, 6);
-  }, []);
+    
+    if (userData) {
+      setUserName(userData.userName || "");
+      setEmail(userData.email || "");
+    }
+
+    // Handle outside click to close dropdown
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowDropdown(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [userData]);
+
+  // Auto-focus first input when modal opens
+  useEffect(() => {
+    if (verifyModal && inputRefs.current[0]) {
+      setTimeout(() => {
+        inputRefs.current[0].focus();
+      }, 300);
+    }
+  }, [verifyModal]);
+
+  // Countdown timer for resend button
+  useEffect(() => {
+    let timer;
+    if (countdown > 0) {
+      timer = setInterval(() => {
+        setCountdown(prevCount => prevCount - 1);
+      }, 1000);
+    }
+    
+    return () => {
+      if (timer) clearInterval(timer);
+    };
+  }, [countdown]);
+
   const handleOtpChange = (index, value) => {
     // Only accept digits
     if (/^\d*$/.test(value)) {
@@ -56,6 +105,12 @@ const DashboardHomeHeader = ({ title, icon }) => {
       }
     }
   };
+  
+  const onLogout = () => {
+    localStorage.clear();
+    window.location.reload();
+  };
+  
   const handleKeyDown = (index, e) => {
     // Navigate between inputs with arrow keys
     if (e.key === 'ArrowRight' && index < 5) {
@@ -71,15 +126,13 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
   useEffect(() => {
     const savedImage = localStorage.getItem("profileImage");
-    if (userData && userData.address) {
-      setAddress(userData.address);
-    }
     if (userData && userData.userImg) {
       setSelectedImage(userData.userImg);
     } else {
       setSelectedImage(avater1);
     }
-  }, []);
+  }, [userData]);
+
   const handlePaste = (e) => {
     e.preventDefault();
     const pastedData = e.clipboardData.getData('text');
@@ -99,158 +152,72 @@ const DashboardHomeHeader = ({ title, icon }) => {
       inputRefs.current[focusIndex].focus();
     }
   };
-  const handleSaveProfile = async () => {
-    if (editMode) {
-      try {
-        const response = await userProfileEdit(userData._id, username, address);
 
-        if (response.success) {
-          toast.success("Profile updated successfully!");
-
-          // Update local state after saving
-          setUserData((prev) => ({
-            ...prev,
-            name: username,
-            address: address,
-          }));
-
-          setEditMode(false);
-        } else {
-          toast.error(response.message);
-        }
-      } catch (error) {
-        toast.error("An error occurred while updating the profile.");
-      }
-    } else {
-      setEditMode(true);
-    }
-  };
-
-
-  const getUserData = async () =>{
+  const getUserData = async () => {
     const res = await getUserInfo();
     if (res.success) {
       setUserData(res.userInfo.user);
       setLoading(false);
-    } else {
-     
-    }
-
-    
-  }
-
-  const addProfile = async (file) => {
-    if (!userData || !userData._id) return;
-
-    if (!file) {
-      // toast.error(`Image is required!`);
-    } else {
-      const res = await addProfileImage(userData._id, file);
-      if (res && res.message === "success") {
-        // toast.success(`Profile Image is successfully uploaded!`);
-      }
     }
   };
-
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-
-    if (file) {
-      addProfile(file);
-      const reader = new FileReader();
-      reader.readAsDataURL(file);
-      reader.onload = (e) => {
-        const img = new Image();
-        img.src = e.target.result;
-        img.onload = () => {
-          const canvas = document.createElement("canvas");
-          const ctx = canvas.getContext("2d");
-
-          // Resize image to 300x300
-          const maxWidth = 300;
-          const maxHeight = 300;
-          let width = img.width;
-          let height = img.height;
-
-          if (width > height) {
-            if (width > maxWidth) {
-              height *= maxWidth / width;
-              width = maxWidth;
-            }
-          } else {
-            if (height > maxHeight) {
-              width *= maxHeight / height;
-              height = maxHeight;
-            }
-          }
-          canvas.width = width;
-          canvas.height = height;
-          ctx.drawImage(img, 0, 0, width, height);
-          const compressedImage = canvas.toDataURL("image/jpeg", 0.7);
-
-          setSelectedImage(compressedImage);
-          localStorage.setItem("profileImage", compressedImage);
-        };
-      };
-    }
-  };
-
-  // const handleRemoveImage = () => {
-  //   setSelectedImage(avater1); // Reset to default image
-  //   localStorage.setItem("profileImage", avater1);
-  // };
 
   const handleClose = () => {
     setVerifyModal(false);
     setOtpValues(['', '', '', '', '', '']);
   };
-  // const onLogout = () => {
-  //   localStorage.clear();
-  //   window.location.reload();
-  // };
 
   const handleProfileClick = () => {
-    setShowProfileModal(true);
+    setShowDropdown(!showDropdown);
   };
 
-  const handleCloseModal = () => {
-    setShowProfileModal(false);
+  const handleAccountSettings = () => {
+    setShowAccountSettings(true);
+    setShowDropdown(false);
   };
-  const sendEmailOtp = async (email) => {
-    setLoading(true)
+
+  const handleCloseAccountSettings = () => {
+    setShowAccountSettings(false);
+  };
+
+  const handleSaveProfile = async () => {
+    try {
+      const response = await userProfileEdit(userData._id, userName, userData.address || "");
+
+      if (response.success) {
+        // toast.success("Profile updated successfully!");
+        setUserData(prev => ({
+          ...prev,
+          userName: userName
+        }));
+        setEditName(false);
+      } else {
+        toast.error(response.message);
+      }
+    } catch (error) {
+      // toast.error("An error occurred while updating the profile.");
+    }
+  };
+
+  const sendEmailOtp = async (emailToVerify) => {
+    setLoading(true);
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (email && emailRegex.test(email)) {
-      let data = await sendEmailOtpAPI(email);
-      // if (data?.message === "Otp Sent!" && data.data?.type === "success") {
-      //     toast.success("Otp sent! Please check and enter it.");
+    if (emailToVerify && emailRegex.test(emailToVerify)) {
+      let data = await sendEmailOtpAPI(emailToVerify);
       setVerifyModal(true);
+      setCountdown(60); // Start 60-second countdown for resend button
       setLoading(false);
-      setShowProfileModal(false)
-      // } else {
-      //     toast.error(data.message);
-      // }
+      setShowAccountSettings(false);
     } else {
       // toast.warn("Please enter a valid email address!");
+      setLoading(false);
     }
   };
 
-  const verifyOtp = async () => {
-    if (otp.length === 6) {
-      let data = await loginVerify(otp);
-      if (data?.message === "Otp verified!" && data.user) {
-        // toast.success("Email Verified!");
-        setUserData({ ...data.user, username, address });
-      } else {
-        // toast.error("OTP verification failed.");
-      }
-    } else {
-      // toast.warn("Please enter a valid 6-digit OTP!");
-    }
-  };
   const verifyEmailOtp = async () => {
     setLoading(true);
     const combinedOtp = otpValues.join('');
     if (combinedOtp.length !== 6) {
+      setLoading(false);
       return;
     }
 
@@ -259,34 +226,16 @@ const DashboardHomeHeader = ({ title, icon }) => {
       if (data?.message === "Email verified!") {
         setOtpValues(['', '', '', '', '', '']);
         setVerifyModal(false);
-        setShowProfileModal(false);
-        getUserData()
-
+        getUserData();
+        // toast.success("Email verified successfully!");
       } else {
-        // Handle error
+        // toast.error("OTP verification failed.");
       }
     } catch (error) {
-      // Handle error
+      // toast.error("An error occurred during verification.");
     }
+    setLoading(false);
   };
-
-
-
-  // Apply blur effect to background when modal is open
-  useEffect(() => {
-    if (showProfileModal) {
-      document.body.style.overflow = "hidden"; // Prevent scrolling
-      document.body.classList.add(styles.modalOpen); // Add class to body for blur
-    } else {
-      document.body.style.overflow = "auto"; // Re-enable scrolling
-      document.body.classList.remove(styles.modalOpen); // Remove class from body
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-      document.body.classList.remove(styles.modalOpen); // Clean up
-    };
-  }, []);
 
   return (
     <div className={styles.HomeHeader}>
@@ -306,255 +255,388 @@ const DashboardHomeHeader = ({ title, icon }) => {
               <div className={styles.Logo}>{logoIcon}</div>
             </div>
             <div className={styles.HeaderActions}>
-              {/* <div className={styles.HeaderNavBtn} onClick={handleProfileClick}>
-                <img src={profileicon} alt="Profile Icon" />
-              </div> */}
-              <div className={styles.HeaderNavBtn} onClick={()=>handleProfileClick()}>
-                {/* {userIcon} */}
-                <img
-                  src={avater1}
-                  alt="Profile"
-                  className="rounded-circle"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    // border: "2px solid #0052cc",
-                  }}
-                />
+              <div className={styles.HeaderNavBtn} ref={dropdownRef}>
+                <div onClick={handleProfileClick}>
+                  <img
+                    src={avater1}
+                    alt="Profile"
+                    className="rounded-circle"
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                    }}
+                  />
+                </div>
+                
+                {/* Profile Dropdown */}
+                {showDropdown && (
+   <div className={styles.dropdown}>
+   <div className={styles.content}>
+     <div className={styles.userInfo}>
+       <p className={styles.greeting}>Hello,</p>
+       <h5 className={styles.userName}>{userData?.userName || "User"}</h5>
+     </div>
+
+     <div className={styles.stat}>
+  <span className="material-icons" style={{ fontSize: "22px", color: "#3b82f6" }}>bar_chart</span>
+  <p>Total Rakeback</p>
+  <h6></h6>
+</div>
+
+     <hr className={styles.separator} />
+
+     {/* Menu Items */}
+     <div className={styles.menu}>
+       {/* Account Settings */}
+       <div className={styles.menuItem} onClick={handleAccountSettings}>
+         <span className="material-icons">account_circle</span>
+         <span>Account Settings</span>
+       </div>
+
+       {/* Cashback & Rewards Section */}
+       <div className={styles.menuSection}>
+         {/* <p className={styles.menuSectionTitle}>Cashback & Rewards</p>
+         <div className={styles.menuItem}>
+           <span className="material-icons">currency_rupee</span>
+           <span>My Earnings</span>
+         </div>
+         <div className={styles.menuItem}>
+           <span className="material-icons">payment</span>
+           <span>Payments</span>
+         </div> */}
+         <div className={styles.menuItem}  onClick={()=>handleMyTransactionClick()}>
+           <span className="material-icons">history</span>
+           <span >Payments History</span>
+         </div>
+       </div>
+       <div className={styles.logout} onClick={()=>onLogout()}>
+         <span className="material-icons">exit_to_app</span>
+         <span>Logout</span>
+       </div>
+     </div>
+   </div>
+ </div>
+)}
               </div>
-              {/* <div
-                className={styles.HeaderNavBtn2}
-                onClick={() => setShowNotifications(!showNotifications)}
-              >
-                <img src={bellIcon} alt="Notification Bell" />
-              </div> */}
             </div>
           </div>
         </div>
       </div>
 
-      {/* Profile Modal */}
-      {showProfileModal && (
-        <Modal
-          show={showProfileModal}
-          onHide={handleCloseModal}
-          backdrop="static"
-          centered
-          animation={false}
+      {/* Premium Account Settings Modal */}
+      <Modal
+        show={showAccountSettings}
+        onHide={handleCloseAccountSettings}
+        backdrop="static"
+        centered
+        animation={false}
+        dialogClassName={styles.premiumModal}
+      >
+        <Modal.Header
+          closeButton
+          className="border-0"
+          style={{
+            background: "linear-gradient(90deg, #0052cc 0%, #007bff 100%)",
+            color: "white",
+            textAlign: "center"
+          }}
         >
-          {/* Header */}
-          <Modal.Header
-            closeButton
-            className="border-0"
-            style={{ backgroundColor: "#0052cc", textAlign: "center" ,color:"white"}}
-          >
-            <Modal.Title className="w-100 fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}  >Profile</Modal.Title>
-          </Modal.Header>
+          <Modal.Title className="w-100 fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}>
+            Profile
+          </Modal.Title>
+        </Modal.Header>
 
-          <Modal.Body>
-            <div className="d-flex justify-content-center align-items-center mb-3">
-              <div className="position-relative">
-                <img
-                  src={avater1}
-                  alt="Profile"
-                  className="rounded-circle"
-                  style={{
-                    width: "80px",
-                    height: "80px",
-                    objectFit: "cover",
-                    border: "3px solid #0052cc",
-                  }}
+        <Modal.Body>
+          <div className="d-flex justify-content-center align-items-center mb-3">
+            <div className="position-relative">
+              <img
+                src={avater1}
+                alt="Profile"
+                className="rounded-circle"
+                style={{
+                  width: "80px",
+                  height: "80px",
+                  objectFit: "cover",
+                  border: "3px solid #0052cc",
+                  boxShadow: "0 4px 12px rgba(0, 82, 204, 0.4)"
+                }}
+              />
+            </div>
+          </div>
+
+          <Form className="mt-2">
+            <div className="d-flex justify-content-center mb-3">
+              {editMode ? (
+                <Form.Control
+                  type="text"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                  className="w-50 text-center"
                 />
-                {/* <label
-                  className="position-absolute"
-                  style={{
-                    bottom: "0px",
-                    right: "0px",
-                    cursor: "pointer",
-                    background: "#ffbf00",
-                    padding: "5px",
-                    borderRadius: "50%",
-                  }}
+              ) : (
+                <span className="text-center fw-semibold fs-5" style={{ fontFamily: 'Roboto, sans-serif' }}>
+                  {userName}
+                </span>
+              )}
+            </div>
+
+            <div className={styles.customDivider} />
+
+            {/* Email Section */}
+            <div className="d-flex justify-content-between align-items-center mb-2">
+              <Form.Label className="fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}>Email</Form.Label>
+              <div className="text-end">
+                <div className="d-flex align-items-center justify-content-end gap-2">
+                  <span style={{ fontFamily: 'Roboto, sans-serif' }}>{userData?.email || "N/A"}</span>
+                  {userData?.emailVerifystatus && (
+                    <svg 
+                      width="16" 
+                      height="16" 
+                      viewBox="0 0 16 16" 
+                      fill="none" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <circle cx="8" cy="8" r="7" fill="#28a745" />
+                      <path d="M5.5 8L7 9.5L10.5 6" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  )}
+                </div>
+                <div
+                  className={userData?.emailVerifystatus ? "text-success d-flex align-items-center justify-content-end" : "text-danger"}
+                  style={{ fontSize: "12px", fontFamily: 'Roboto, sans-serif' }}
                 >
-                  <img src={editIcon} alt="Edit" width="20px" />
-                  <input
-                    type="file"
-                    accept="image/*"
-                    onChange={handleImageChange}
-                    className="d-none"
-                  />
-                </label> */}
+                  {userData?.emailVerifystatus
+                    ? "Verified"
+                    : "Not verified"}
+                </div>
+
+                {!userData?.emailVerifystatus && (
+                  <Button
+                    size="sm"
+                    variant="primary"
+                    className="rounded-pill px-3 mt-1"
+                    style={{ 
+                      fontWeight: "bold", 
+                      fontFamily: 'Roboto, sans-serif',
+                      background: "linear-gradient(90deg, #0052cc 0%, #007bff 100%)",
+                      border: "none",
+                      boxShadow: "0 2px 4px rgba(0, 82, 204, 0.3)"
+                    }}
+                    onClick={() => {
+                      sendEmailOtp(userData.email);
+                      setEmail(userData.email);
+                    }}
+                  >
+                    {loading ? <Loading size="sm" animation="border" /> : "Verify Email"}
+                  </Button>
+               )}
               </div>
             </div>
 
-            <Form className="mt-2">
-              <div className="d-flex justify-content-center mb-3">
-                {editMode ? (
-                  <Form.Control
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                    className="w-50 text-center"
-                  />
-                ) : (
-                  <span className="text-center" style={{ fontWeight: "bold", fontSize: "20px", fontFamily: 'Roboto, sans-serif' }}>{username}</span>
-                )}
-              </div>
+            <div className={styles.customDivider} />
 
-              <hr />
-
-              {/* Email */}
-              <div className="d-flex justify-content-between align-items-center mb-2">
-                <Form.Label className="fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}>Email</Form.Label>
-                <div className="text-end">
-                  <span style={{ fontFamily: 'Roboto, sans-serif' }}>{userData?.email || "N/A"}</span>
-                  <div
-                    className={
-                      userData?.emailVerifystatus ? "text-success" : "text-danger"
-                    }
-                    style={{ fontSize: "12px", fontFamily: 'Roboto, sans-serif' }}
-                  >
-                    {userData?.emailVerifystatus
-                      ? "Your email is verified."
-                      : "Your email is not verified."}
-                  </div>
-                  {!userData?.emailVerifystatus && (
-                    <Button
-                      size="sm"
-                      variant="outline-primary"
-                      onClick={() => {
-                        sendEmailOtp(userData.email)
-                        setEmail(userData.email)
-                      }}
-                      style={{ fontFamily: 'Roboto, sans-serif' }}
-                    >
-                          {loading ? <Loading size="sm" animation="border" /> : "Verify Email"}
-                      
-                    </Button>
-                  )}
-                                              
-                </div>
-              </div>
-              <hr />
-
-              {/* Phone Number */}
-              <div className="d-flex justify-content-between mb-2">
-                <Form.Label className="fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}>Mobile Number</Form.Label>
-                <div className="text-end">
+            {/* Phone */}
+            <div className="d-flex justify-content-between align-items-center mb-2">
+              <Form.Label className="fw-bold" style={{ fontFamily: 'Roboto, sans-serif' }}>Mobile Number</Form.Label>
+              <div className="text-end">
+                <div className="d-flex align-items-center justify-content-end gap-2">
                   <span style={{ fontFamily: 'Roboto, sans-serif' }}>
                     {userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}
                   </span>
-                  <div className="text-success" style={{ fontSize: "12px", fontFamily: 'Roboto, sans-serif' }}>
-                    Your mobile number is verified.
-                  </div>
+                  <svg 
+                    width="16" 
+                    height="16" 
+                    viewBox="0 0 16 16" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="8" cy="8" r="7" fill="#28a745" />
+                    <path d="M5.5 8L7 9.5L10.5 6" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <div className="text-success d-flex align-items-center justify-content-end" 
+                     style={{ fontSize: "12px", fontFamily: 'Roboto, sans-serif' }}>
+                  Verified
                 </div>
               </div>
-              <hr />
+            </div>
 
-              {/* Address */}
-              {/* <div className="d-flex justify-content-between mb-2">
-                <Form.Label className="fw-bold">Address</Form.Label>
-                {editMode ? (
-                  <Form.Control
-                    type="text"
-                    value={address}
-                    onChange={(e) => setAddress(e.target.value)}
-                    className="w-50"
-                  />
-                ) : (
-                  <span className="text-end">{address || "N/A"}</span>
-                )}
-              </div>
-              <hr /> */}
+            <div className={styles.customDivider} />
+          </Form>
+        </Modal.Body>
+      </Modal>
 
-              {/* <Button
-                className="w-100 mt-3"
-                style={{ backgroundColor: "#0052cc", color: "white" }}
-                onClick={handleSaveProfile}
-              >
-                {editMode ? "Save" : "Edit"}
-              </Button> */}
-            </Form>
-          </Modal.Body>
-        </Modal>
-      )}
+      {/* Premium Email Verification OTP Modal */}
       <Modal
-        size="md"
         show={verifyModal}
         onHide={handleClose}
         backdrop="static"
         centered
+        size="md"
+        className="fade"
       >
-        <Modal.Header closeButton className="border-0">
-          <Modal.Title className="w-100 text-center">
+        <Modal.Header 
+          closeButton 
+          className="border-0 pb-0"
+          style={{
+       
+            borderTopLeftRadius: "12px",
+            borderTopRightRadius: "12px"
+          }}
+        >
+          <Modal.Title className="w-100 text-center d-flex justify-content-center align-items-center">
             <RakebackLogo />
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body>
-          <h3 className="text-center mb-3">Enter OTP</h3>
-          <p className="text-center text-muted mb-4">
-            Enter OTP sent to your existing email 
-          </p>
-
-          <div className="d-flex justify-content-between mb-4">
-            {[0, 1, 2, 3, 4, 5].map((index) => (
-              <Form.Control
-                key={index}
-                ref={(el) => (inputRefs.current[index] = el)}
-                className="text-center mx-1"
-                style={{
-                  width: '40px',
-                  height: '45px',
-                  fontSize: '18px',
-                  padding: '0'
+        
+        <Modal.Body style={{
+          paddingTop: "10px",
+          paddingBottom: "30px"
+        }}>
+          <div className="text-center mb-4 position-relative">
+            <div className="position-relative d-inline-block">
+              <div style={{
+                position: "absolute",
+                width: "70px",
+                height: "60px",
+                borderRadius: "50%",
+                background: "linear-gradient(90deg, rgba(0,82,204,0.1) 0%, rgba(0,123,255,0.1) 100%)",
+                top: "-12px",
+                left: "50%",
+                transform: "translateX(-50%)",
+                zIndex: 0
+              }}></div>
+              <span 
+                className="material-icons" 
+                style={{ 
+                  fontSize: "36px", 
+                  color: "#0052cc",
+                  position: "relative",
+                  zIndex: 1
                 }}
-                value={otpValues[index]}
-                maxLength={1}
-                onChange={(e) => handleOtpChange(index, e.target.value)}
-                onKeyDown={(e) => handleKeyDown(index, e)}
-                onPaste={index === 0 ? handlePaste : null}
-                autoFocus={index === 0}
-              />
-            ))}
+              >
+                mark_email_read
+              </span>
+            </div>
+            <h3 className="mt-3 mb-2 fw-bold" style={{ color: "#0A2540", fontSize: "24px" }}>Verify Your Email</h3>
+            <p className="text-muted mb-1" style={{ fontSize: "14px" }}>
+              We've sent a verification code to
+            </p>
+            <p className="fw-bold mb-0" style={{ color: "#0052cc" }}>
+              {email}
+            </p>
+          </div>
+
+          <div className="px-3 mb-4">
+            <div 
+              className="d-flex justify-content-between gap-2" 
+              style={{
+                maxWidth: "320px",
+                margin: "0 auto"
+              }}
+            >
+              {[0, 1, 2, 3, 4, 5].map((index) => (
+                <div 
+                  key={index} 
+                  className="position-relative" 
+                  style={{ flex: "1" }}
+                >
+                  <Form.Control
+                    ref={(el) => (inputRefs.current[index] = el)}
+                    className="text-center fw-bold"
+                    style={{
+                      height: "54px",
+                      fontSize: "20px",
+                      padding: "0",
+                      borderRadius: "8px",
+                      border: "1px solid #d0d5dd",
+                      boxShadow: otpValues[index] ? "0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px rgba(0, 82, 204, 0.1)" : "0 1px 2px rgba(16, 24, 40, 0.05)",
+                      backgroundColor: "#fff",
+                      transition: "all 0.2s ease"
+                    }}
+                    value={otpValues[index]}
+                    maxLength={1}
+                    onChange={(e) => handleOtpChange(index, e.target.value)}
+                    onKeyDown={(e) => handleKeyDown(index, e)}
+                    onPaste={index === 0 ? handlePaste : null}
+                    autoComplete="off"
+                    inputMode="numeric"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="text-center mb-4">
-            <span className="text-muted">Haven't received the OTP? </span>
-            <Button
-              variant="link"
-              className="p-0"
-              onClick={() => sendEmailOtp(email)}
-              style={{ color: '#0052cc', textDecoration: 'none' }}
-            >
-              Resend
-            </Button>
+            <p className="text-muted mb-1" style={{ fontSize: "14px" }}>
+              Didn't receive code?
+            </p>
+            {countdown > 0 ? (
+              <p style={{ color: "#0052cc", fontSize: "14px" }}>
+                Resend code in <span className="fw-bold">{countdown}s</span>
+              </p>
+            ) : (
+              <Button
+                variant="link"
+                onClick={() => {
+                  sendEmailOtp(email);
+                }}
+                style={{ 
+                  color: "#0052cc", 
+                  textDecoration: "none", 
+                  fontWeight: "600",
+                  padding: "4px 12px",
+                  fontSize: "14px",
+                  transition: "all 0.2s ease"
+                }}
+                className="rounded-pill"
+                disabled={loading}
+              >
+                Resend Code
+              </Button>
+            )}
           </div>
         </Modal.Body>
-        <Modal.Footer className="border-0 justify-content-center">
+        
+        <Modal.Footer 
+          className="border-0 justify-content-center p-4"
+          style={{
+            borderBottomLeftRadius: "12px",
+            borderBottomRightRadius: "12px"
+          }}
+        >
           <Button
             variant="primary"
-            onClick={()=>verifyEmailOtp()}
+            onClick={verifyEmailOtp}
             style={{
-              backgroundColor: "#0052cc",
+              background: "linear-gradient(90deg, #0052cc 0%, #007bff 100%)",
               color: "white",
-              borderColor: "#0052cc",
+              border: "none",
               width: "100%",
-              padding: "10px"
+              padding: "12px",
+              fontWeight: "600",
+              fontSize: "16px",
+              borderRadius: "8px",
+              boxShadow: "0 2px 6px rgba(0, 82, 204, 0.3)",
+              transition: "all 0.2s ease"
             }}
-            disabled={otpValues.join('').length < 6}
-            onMouseOver={(e) => {
-              e.target.style.backgroundColor = "#ffbf00";
-              e.target.style.borderColor = "#ffbf00";
-              e.target.style.color = "black";
-            }}
-            onMouseOut={(e) => {
-              e.target.style.backgroundColor = "#0052cc";
-              e.target.style.color = "white";
-              e.target.style.borderColor = "#0052cc";
-            }}
+            disabled={otpValues.join('').length < 6 || loading}
+            className="position-relative"
           >
-            Continue
+            {loading ? (
+              <span className="d-flex align-items-center justify-content-center">
+                <Loading size="sm" animation="border" />
+                <span className="ms-2">Verifying...</span>
+              </span>
+            ) : (
+              <span className="d-flex align-items-center justify-content-center">
+                Verify Email
+                <span className="material-icons ms-2" style={{ fontSize: "18px" }}>
+                  arrow_forward
+                </span>
+              </span>
+            )}
           </Button>
         </Modal.Footer>
       </Modal>

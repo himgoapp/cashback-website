@@ -350,5 +350,6 @@
 
   .dashboard_card {
     background-position-x: 185px;
+    position: unset;
   }
 }
