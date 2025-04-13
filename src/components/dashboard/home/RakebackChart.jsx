@@ -239,10 +239,9 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
             display: "flex",
             flexDirection: "column",
             gap: "20px",
-            // position: "relative",
           }}
         >
-          <div className={styles.filter_container}>
+          <div className={styles.filter_container} >
             <font className={styles.filter_heading}>Select Time Period</font>
             <div className={styles.filters}>
               {["thisWeek", "thisMonth", "thisYear"].map((filter) => (
@@ -255,6 +254,9 @@ const RakebackChart = ({ dashboardInfo, userKyc }) => {
                     padding: "10px",
                     borderRadius: "5px",
                     color: selectedFilter === filter ? "#fff" : "#000",
+                  
+                      position: "relative",
+          
                   }}
                   onClick={() => setSelectedFilter(filter)}
                 >
