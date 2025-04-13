@@ -141,6 +141,7 @@
   .kyc_status_header {
     background-position-x: 190px;
     background-size: 160px;
+    position: unset;
   }
   .heading{
     font-size: 16px;

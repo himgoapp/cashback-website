@@ -11,6 +11,11 @@
 	align-items: center;
 	z-index: 999;
   }
+  .TransactionTableContainer {
+	position: relative;
+	overflow: visible;
+	z-index: 1;
+  }
   
   /* Modal Box */
   .modalContent {
@@ -199,5 +204,10 @@
 	  font-size: 14px;
 	  padding: 10px;
 	}
+	.TransactionTableContainer {
+		position: unset !important;
+		overflow: visible !important;
+		z-index: auto !important;
+	  }
   }
   
