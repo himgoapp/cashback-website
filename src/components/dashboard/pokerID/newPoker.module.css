@@ -65,7 +65,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  position: unset;
+  position:relative;
   width: 100%;
   height: 100%;
 text-decoration: none;
@@ -285,9 +285,13 @@ text-decoration: none;
 
   .NewPokerSelect,
   .NewPokerAccId {
-    min-width: 100%;
+    width: 100%;
   }
-
+  .NewPokerSelect,
+  .SelectContent,
+  .NewPokerAccId{
+   position: unset;
+  }
   .pokeridsheadericon {
     width: 100px;
     margin-left: 220px;
@@ -295,7 +299,9 @@ text-decoration: none;
   }
 
   .SelectMenu {
-    top: 3rem;
+    top: 14rem;
+    width: 85%;
+    margin-left: 28px;
   }
   .SelectBtn{
     padding: 2px 10px;

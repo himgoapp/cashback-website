@@ -73,7 +73,7 @@
 }
 
 .news_grid {
-  width: 80%;
+  width: 75%;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 25px;
@@ -244,9 +244,8 @@
   font-family: "Roboto", sans-serif;
 }
 
-/* Important Posts */
 .important_post {
-margin-top: 20px;
+  margin-top: 20px;
   width: 100%;
   padding: 20px;
   background: rgba(255, 255, 255, 0.8);
@@ -264,7 +263,6 @@ margin-top: 20px;
   font-weight: 600;
   margin-bottom: 15px;
 }
-
 .post_list {
   list-style: none;
   padding: 0;
@@ -272,18 +270,33 @@ margin-top: 20px;
 }
 
 .post_item {
-  font-size: 14px;
-  color: #1f2937;
-  margin-bottom: 15px;
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 .post_image {
-  width: 50px;
-  height: 50px;
-  margin-right: 12px;
-  border-radius: 5px;
+  width: 100px; 
+  height: 100px; 
+  object-fit: cover;
+  margin-right: 20px; 
+}
+
+.text_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.post_title {
+  font-size: 14px; 
+  margin: 0;
+  font-weight: bold;
+}
+
+.post_meta {
+  font-size: 12px;
+  color: #888; 
 }
 
 /* Responsive CSS */

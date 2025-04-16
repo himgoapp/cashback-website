@@ -71,6 +71,7 @@
 .StatusIcon svg {
   width: 1rem;
   height: 1rem;
+  margin-top: -4px;
 }
 
 .HeadText {
@@ -142,6 +143,11 @@
     background-position-x: 190px;
     background-size: 160px;
     position: unset;
+  }
+  .KycStatusContainer{
+    margin-top: 15px;
+    margin-bottom: 15px;
+
   }
   .heading{
     font-size: 16px;

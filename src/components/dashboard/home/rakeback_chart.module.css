@@ -352,4 +352,10 @@
     background-position-x: 185px;
     position: unset;
   }
+
+  .filters button {
+    padding: 15px; 
+    font-size: 14px;
+    position: relative;
+  }
 }

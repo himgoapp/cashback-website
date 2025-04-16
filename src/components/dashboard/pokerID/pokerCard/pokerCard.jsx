@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./pokerCard.module.css"; // Import your CSS module
+import styles from "./pokerCard.module.css";
 import pokerCardimg from "../../../../assets/pokercard.png";
 import moment from "moment";
 import { statusBaseColor, imagePicker } from "../../../../helperFxns/colorCode";
@@ -10,14 +10,17 @@ const PokerCard = ({ status, color, item }) => {
       <div className={styles.CardContent}>
         <div className={styles.HeaderAndId}>
           <div className={styles.HeaderAndIdContent}>
-            <img
-              src={
-                item && item.productId && item.productId.name
-                  ? imagePicker(item.productId.name)
-                  : pokerCardimg
-              }
-              style={{ height: "50px", width: "50px" }}
-            />
+            <div className={styles.ImageWrapper}>
+              <img
+                src={
+                  item && item.productId && item.productId.name
+                    ? imagePicker(item.productId.name)
+                    : pokerCardimg
+                }
+                className={styles.ProductImage}
+                alt={item?.productId?.name || "Product"}
+              />
+            </div>
             <div className={styles.HeaderId}>
               <div className={styles.Head}>
                 {item && item.productId ? item.productId.name : ""}
@@ -32,19 +35,23 @@ const PokerCard = ({ status, color, item }) => {
       <div className={styles.CardFooter}>
         <div className={styles.Divider}></div>
         <div className={styles.FooterContent}>
-          <div className={styles.PokerStatus}>
-            <div>
-              <div className={styles.Text} style={statusBaseColor(status)}>
-                {status}
-              </div>
+          <div className={styles.StatusContainer}>
+            <div className={styles.StatusBadge} style={statusBaseColor(status)}>
+              <div className={styles.StatusIndicator}></div>
+              <span>{status}</span>
             </div>
           </div>
-          <div className={styles.PokerDate}>
-            {item && item.createdAt
-              ? `${moment(item.createdAt).format("DD MMM YYYY")} || ${moment(
-                  item.createdAt
-                ).format("LT")} `
-              : ""}
+          <div className={styles.DateContainer}>
+            {item && item.createdAt && (
+              <>
+                <div className={styles.DateValue}>
+                  {moment(item.createdAt).format("DD MMM YYYY")}
+                </div>
+                <div className={styles.TimeValue}>
+                  {moment(item.createdAt).format("LT")}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

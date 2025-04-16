@@ -1,125 +1,265 @@
 .sidebar {
-  background: rgba(255, 255, 255, 0.8);
+  width: 100%;
+  max-width: 380px;
+  background: black;
   border-radius: 12px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  max-width: 340px;
-  padding-bottom: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 24px 20px;
+  color: black;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+  font-family: 'Inter', 'Roboto', sans-serif;
 }
-.heading{
-  background: #222;
-  text-align: center;
-  padding: 10px 0 2px;
+
+.heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  position: relative;
 }
+
+.heading:after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+}
+
 .sidebarTitle {
   font-size: 20px;
-  font-weight: bold;
-  color: white;
-  margin-bottom: 6px;
+  margin: 0;
+  font-weight: 600;
+  background: white;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
   letter-spacing: 0.5px;
 }
 
-.country {
-  font-size: 14px;
-  color: white;
-  font-weight: 500;
-  display: block;
-  margin-bottom: 12px;
-}
-
-.list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.item {
+.locationBadge {
   display: flex;
   align-items: center;
-  padding: 14px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-  transition: all 0.3s ease-in-out;
+  font-size: 14px;
+  padding: 6px 10px;
+  border-radius: 20px;
+}
+
+.flagIcon {
+  width: 30px;
+  height: auto;
+}
+
+.roomList {
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.roomCard {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
   cursor: pointer;
-  border-radius: 6px; /* Ensures the hover effect looks smoother */
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.item:last-child {
-  border-bottom: none;
+.roomCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
-.item:hover {
-  background: rgba(0, 0, 255, 0.07);
-  transform: scale(1.02);
-  width: 100%; /* Makes sure hover covers the full width */
+/* Individual room card stylings */
+.roomCard:nth-child(1) {
+  background: linear-gradient(135deg, rgba(224, 31, 31, 0.1), rgba(33, 10, 10, 0.7));
+  border-left: 3px solid #021371;
 }
 
+.roomCard:nth-child(2) {
+  background: linear-gradient(135deg, rgba(9, 81, 179, 0.1), rgba(10, 20, 36, 0.7));
+  border-left: 3px solid #ff234d;
+}
 
-.logo {
+.roomCard:nth-child(3) {
+  background: linear-gradient(135deg, rgba(119, 119, 119, 0.1), rgba(28, 28, 34, 0.7));
+  border-left: 3px solid #ed011f;
+}
+
+.roomCard:nth-child(4) {
+  background: linear-gradient(135deg, rgba(228, 43, 104, 0.1), rgba(32, 10, 20, 0.7));
+  border-left: 3px solid #00122b;
+}
+
+.roomCard:nth-child(5) {
+  background: linear-gradient(135deg, rgba(207, 22, 22, 0.1), rgba(33, 16, 16, 0.7));
+  border-left: 3px solid #b04540;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px 5px;
+  background: white;
+}
+
+.logoWrapper {
   width: 50px;
   height: 50px;
-  border-radius: 8px;
+  overflow: hidden;
+  padding: 2px;
+  display: flex;
+  
+  align-items: center;
+  justify-content: center;
   margin-right: 14px;
+}
+
+.logo {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
-  transition: transform 0.3s ease-in-out;
 }
 
-.item:hover .logo {
-  transform: scale(1.1);
-}
-
-.details {
-  flex: 1;
-}
-
-.details strong {
-  font-size: 16px;
-  color: #222;
+.roomName {
+  font-size: 17px;
   font-weight: 600;
+  margin: 0;
+  letter-spacing: 0.3px;
 }
 
-.details p {
-  font-size: 13px;
-  color: #555;
-  margin: 3px 0 0;
+.bonusHighlight {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding: 0 16px 14px;
+  
 }
 
-.arrow {
-  font-size: 22px;
-  color: #444;
-  transition: transform 0.3s ease-in-out, color 0.3s;
+.bonusIcon {
+  font-size: 18px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 50%;
+  color: #ffd700;
 }
 
-.item:hover .arrow {
-  transform: translateX(5px);
-  color: #007bff;
+.bonusText {
+  font-size: 14px;
+  color: black;
+  font-weight: 500;
 }
 
-.link {
-  display: block;
-  text-align: center;
+.signupBtn {
+  width: 100%;
+  padding: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
   color: #fff;
-  background: linear-gradient(135deg, #007bff, #0056b3);
-  text-decoration: none;
   font-size: 15px;
   font-weight: 600;
-  margin-top: 15px;
-  margin-left: 13px;
-  padding: 10px 14px;
-  border-radius: 6px;
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.link:hover {
-  background: linear-gradient(135deg, #0056b3, #004494);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  transform: scale(1.05);
+.signupBtn:hover {
+  background: rgba(255, 255, 255, 0.15);
 }
-@media screen and (max-width: 480px) {
-.sidebar {
-margin-left: 10px;}
-.link{
-  margin-left: 50px;
+
+.signupBtn:active {
+  transform: scale(0.98);
 }
+
+.footerLink {
+  text-align: center;
+  margin-top: 6px;
 }
+
+.allRoomsLink {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.allRoomsLink:hover {
+  text-decoration: underline;
+}
+.roomCard:nth-child(1):before {
+  background: #061058;
+  box-shadow: 0 0 15px #061058;
+}
+
+.roomCard:nth-child(2):before {
+  background: #ed1c24;
+  box-shadow: 0 0 15px #ed1c24;
+}
+
+.roomCard:nth-child(3):before {
+  background: #c40000;
+  box-shadow: 0 0 15px #c40000;
+}
+
+.roomCard:nth-child(4):before {
+  background: #021a38;
+  box-shadow: 0 0 15px #021a38;
+}
+
+.roomCard:nth-child(5):before {
+  background: #b04540;
+  box-shadow: 0 0 15px #b04540;
+}
+.roomCard:nth-child(1) .signupBtn {
+  background: #061058;
+  color: white;
+}
+.roomCard:nth-child(2) .signupBtn {
+  background: #ed1c24;
+  color: white;
+}.roomCard:nth-child(3) .signupBtn {
+  background: #c40000;
+  color: white;
+}.roomCard:nth-child(4) .signupBtn {
+  background: #021a38;
+  color: white;
+}.roomCard:nth-child(5) .signupBtn {
+  background: #b04540;
+  color: white;
+}
+/* Add animation for fresh cards */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.roomCard {
+  animation: fadeIn 0.5s ease forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+  opacity: 0;
+}
+
+/* Make sure to set the index in JS */
+.roomCard:nth-child(1) { --index: 1; }
+.roomCard:nth-child(2) { --index: 2; }
+.roomCard:nth-child(3) { --index: 3; }
+.roomCard:nth-child(4) { --index: 4; }
+.roomCard:nth-child(5) { --index: 5; }

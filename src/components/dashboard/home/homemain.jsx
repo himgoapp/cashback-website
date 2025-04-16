@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import DashboardHomeHeader from "./dashHomeHeader";
-// import HomeQuickStart from "./quickStart";
 import Withdraw from "./withdraw";
 import DashboardMain from "../../../layout/dashboardMain";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
@@ -14,14 +13,21 @@ import { HomeIcon } from "../../../utils/dashboardMainHeadersIcon";
 const HomeMain = ({ data }) => {
   const { userData, userKyc } = useContext(UserContext);
   const [dashboardInfo, setDashboardInfo] = useState({});
+  const [graphData, setGraphData] = useState(null); // New state for graphData
 
   const getdata = async () => {
-    let data = await getDashboardInfo(userData._id);
-    if (data && data.userInfo) {
-      let result = data.userInfo;
-      setDashboardInfo(result);
+    try {
+      const data = await getDashboardInfo(userData._id);
+      if (data && data.userInfo) {
+        setDashboardInfo(data.userInfo);
+      }
+      if (data && data.graphData) {
+        setGraphData(data.graphData);
+      }
+    } catch (error) {
     }
   };
+
   useEffect(() => {
     if (userData && userData._id) {
       getdata();
@@ -30,20 +36,17 @@ const HomeMain = ({ data }) => {
 
   return (
     <DashboardMainTopBottom>
-      <DashboardHomeHeader title="Dashboard" icon = {HomeIcon} />
+      <DashboardHomeHeader title="Dashboard" icon={HomeIcon} />
       <DashboardMain>
-        {/* <HomeQuickStart data={data} /> */}
-        {/* <Withdraw data={walletData} userKyc={userKyc} /> */}
-        {/* <DashboardDealCards products={products} /> */}
-        {/* <BarChart/> */}
+        {/* Other components you may add later */}
         {dashboardInfo && dashboardInfo.user && (
-          <RakebackChart dashboardInfo={dashboardInfo} 
-          userKyc={userKyc}
-           />
+          <RakebackChart
+            dashboardInfo={dashboardInfo}
+            userKyc={userKyc}
+            graphData={graphData} // ✅ Passing graphData
+          />
         )}
-    
-          {/* <RackbackTableAndTransaction dashboardInfo = {dashboardInfo} /> */}
-     
+        {/* <RackbackTableAndTransaction dashboardInfo={dashboardInfo} /> */}
       </DashboardMain>
     </DashboardMainTopBottom>
   );

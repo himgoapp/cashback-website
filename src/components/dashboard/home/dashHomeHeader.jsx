@@ -16,6 +16,7 @@ import { toast } from "react-toastify";
 import { RakebackLogo } from "../../common/logo/logo";
 import Loading from "../../common/Loading/Loading";
 import { useNavigate } from "react-router-dom";
+import wallet from "../../../assets/wallet.png";
 import {
   PokerIcon,
   TransactionsIcon,
@@ -38,7 +39,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const [verifyModal, setVerifyModal] = useState(false);
   const [otp, setOtp] = useState("");
   const [email, setEmail] = useState("");
-  const { setShowSidebar, showNotifications, setShowNotifications } =
+  const { setShowSidebar, showNotifications, setShowNotifications, walletData } =
     useContext(UserContext);
   const [selectedImage, setSelectedImage] = useState(null);
   const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
@@ -53,7 +54,9 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const handleMyTransactionClick = () => {
     navigate("/dashboard/mytransactions");
   };
-
+  const handlClick = () => {
+    navigate("/");
+  };
   useEffect(() => {
     inputRefs.current = inputRefs.current.slice(0, 6);
 
@@ -261,11 +264,21 @@ const DashboardHomeHeader = ({ title, icon }) => {
               <div className={styles.Menu} onClick={() => setShowSidebar(true)}>
                 {menuIcon}
               </div>
-              <div className={styles.Logo}>{logoIcon}</div>
+              <div className={styles.Logo} onClick={() => handlClick()}>{logoIcon}</div>
             </div>
             <div className={styles.HeaderActions}>
+
+              <span className={styles.wallet}>
+                <img src={wallet}  />
+              </span>
+              <span className={styles.wallet_balance}>
+                ₹{walletData && walletData.wallet_balance
+                  ? walletData.wallet_balance.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+                  : "0.00"}
+              </span>
+
               <div className={styles.HeaderNavBtn} ref={dropdownRef}>
-                <div onClick={handleProfileClick}>
+                <div onClick={() => handleProfileClick()}>
                   <img
                     src={avater1}
                     alt="Profile"
@@ -760,7 +773,7 @@ const logoIcon = (
         x="40"
         y="30"
         className={styles.logo_fonts}
-        font-size="20"
+        font-size="19"
         fill="black"
         font-weight="bold"
         letter-spacing="0.5px"

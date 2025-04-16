@@ -53,64 +53,24 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
   return (
     <div className={styles.PokerCardsContainer}>
       <div className={styles.TabContent}>
-        <div className={styles.TabFilters}>
-          <div
-            className={styles.TabButton}
-            style={
-              activeTab === 1 ? { borderBottom: "0.125rem #0052cc solid" } : {}
-            }
-          >
-            <button
-              className={styles.TabText}
-              style={activeTab === 1 ? { color: "#0052cc" } : {}}
-              onClick={() => setTab(1)}
-            >
-              View all
-            </button>
-          </div>
-          <div
-            className={styles.TabButton}
-            style={
-              activeTab === 2 ? { borderBottom: "0.125rem #0052cc solid" } : {}
-            }
-          >
-            <button
-              className={styles.TabText}
-              style={activeTab === 2 ? { color: "#0052cc" } : {}}
-              onClick={() => setTab(2)}
-            >
-              Successful
-            </button>
-          </div>
-          <div
-            className={styles.TabButton}
-            style={
-              activeTab === 3 ? { borderBottom: "0.125rem #0052cc solid" } : {}
-            }
-          >
-            <button
-              className={styles.TabText}
-              style={activeTab === 3 ? { color: "#0052cc" } : {}}
-              onClick={() => setTab(3)}
-            >
-              Pending
-            </button>
-          </div>
-          <div
-            className={styles.TabButton}
-            style={
-              activeTab === 4 ? { borderBottom: "0.125rem #0052cc solid" } : {}
-            }
-          >
-            <button
-              className={styles.TabText}
-              style={activeTab === 4 ? { color: "#0052cc" } : {}}
-              onClick={() => setTab(4)}
-            >
-              Aborted
-            </button>
-          </div>
-        </div>
+      <div className={styles.TabFilters}>
+  {["View all", "Successful", "Pending", "Aborted"].map((label, index) => {
+    const tabIndex = index + 1;
+    const isActive = activeTab === tabIndex;
+
+    return (
+      <button
+        key={label}
+        className={`${styles.TabButton} ${isActive ? styles.Active : ""}`}
+        onClick={() => setTab(tabIndex)}
+      >
+        {label}
+        <span className={styles.Underline}></span>
+      </button>
+    );
+  })}
+</div>
+
       </div>
       <div
         className={`${styles.CardsContent} ${

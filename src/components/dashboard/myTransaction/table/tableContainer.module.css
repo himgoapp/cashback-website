@@ -1,37 +1,274 @@
-/* Modal Background Overlay */
-.modal {
+.tableContainerWrapper {
+	background-color: #ffffff;
+	border-radius: 12px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+	margin-bottom: 24px;
+	overflow: hidden;
+  }
+  
+  .tableHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 24px;
+	border-bottom: 1px solid #edf2f7;
+  }
+  
+  .tableTitle {
+	font-size: 18px;
+	font-weight: 600;
+	color: black;
+	margin: 0;
+  }
+  
+  .tableStats {
+	font-size: 14px;
+	color: #718096;
+  }
+  
+  .transactionCell {
+	position: relative;
+  }
+  
+  .transactionId {
+	font-family: "Roboto", sans-serif;
+	letter-spacing: 0.5px;
+	color: #4a5568;
+  }
+  
+  .transactionFull {
+	display: none;
+	position: absolute;
+	background-color: #2d3748;
+	color: white;
+	padding: 8px 12px;
+	border-radius: 6px;
+	font-size: 12px;
+	z-index: 10;
+	top: 100%;
+	left: 0;
+	white-space: nowrap;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .transactionCell:hover .transactionFull {
+	display: block;
+  }
+  
+  /* Date and Time cell styles */
+  .dateTimeCell {
+	display: flex;
+	flex-direction: column;
+  }
+  
+  .date {
+	font-weight: 500;
+	color: #2d3748;
+  }
+  
+  .time {
+	font-size: 12px;
+	color: #718096;
+	margin-top: 2px;
+  }
+  
+  /* Amount styling */
+  .creditAmount {
+	color: #047857;
+	font-weight: 600;
+  }
+  
+  .debitAmount {
+	color: #b91c1c;
+	font-weight: 600;
+  }
+  
+  .tdsAmount {
+	color: #6b7280;
+  }
+  
+  .zeroAmount {
+	color: #9ca3af;
+  }
+  
+  /* Status badge */
+  .statusBadge {
+	padding: 6px 10px;
+	border-radius: 50px;
+	font-size: 12px;
+	font-weight: 600;
+	text-align: center;
+	min-width: 90px;
+	display: inline-block;
+  }
+  
+  /* View button */
+  .actionButton {
+	background-color: #f3f4f6;
+	border: none;
+	border-radius: 8px;
+	width: 36px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+  }
+  
+  .actionButton:hover {
+	background-color: #e5e7eb;
+  }
+  
+  /* Eye icon styling */
+  .eyeIcon {
+	width: 18px;
+	height: 18px;
+	opacity: 0.7;
+  }
+  
+  .actionButton:hover .eyeIcon {
+	opacity: 1;
+  }
+  
+  /* Loading and no data states */
+  .loader {
+	padding: 24px;
+	text-align: center;
+	color: #4a5568;
+	font-size: 14px;
+  }
+  
+  .noData {
+	padding: 32px;
+	text-align: center;
+	color: #718096;
+	font-size: 15px;
+  }
+  
+  /* Enhanced Pagination Styles */
+  .paginationContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 16px 24px;
+	border-top: 1px solid #edf2f7;
+	flex-wrap: wrap;
+	gap: 16px;
+  }
+  
+  .paginationInfo {
+	color: #718096;
+	font-size: 14px;
+  }
+  
+  .paginationControls {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+  }
+  
+  .pageButton {
+	min-width: 36px;
+	height: 36px;
+	border: 1px solid #e2e8f0;
+	background-color: #ffffff;
+	color: #4a5568;
+	border-radius: 6px;
+	font-size: 14px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	transition: all 0.2s ease;
+  }
+  
+  .pageButton:hover:not(:disabled) {
+	background-color: #f7fafc;
+	border-color: #cbd5e0;
+  }
+  
+  .pageButton:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+  }
+  
+  .navButton {
+	font-size: 16px;
+	font-weight: bold;
+  }
+  
+  .activePageButton {
+	background-color: #3182ce;
+	color: white;
+	border-color: #3182ce;
+  }
+  
+  .activePageButton:hover {
+	background-color: #2b6cb0;
+	border-color: #2b6cb0;
+  }
+  
+  .ellipsis {
+	padding: 0 8px;
+	color: #718096;
+  }
+  
+  .paginationRowsPerPage {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+  }
+  
+  .rowsPerPageLabel {
+	color: #718096;
+	font-size: 14px;
+  }
+  
+  .rowsPerPageSelect {
+	border: 1px solid #e2e8f0;
+	border-radius: 6px;
+	padding: 6px 12px;
+	background-color: #ffffff;
+	color: #4a5568;
+	font-size: 14px;
+	cursor: pointer;
+	outline: none;
+  }
+  
+  .rowsPerPageSelect:focus {
+	border-color: #3182ce;
+	box-shadow: 0 0 0 1px #3182ce;
+  }
+  
+  /* Modal styles */
+  .modalBackdrop {
 	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
 	bottom: 0;
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: rgba(0, 0, 0, 0.5);
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	z-index: 999;
-  }
-  .TransactionTableContainer {
-	position: relative;
-	overflow: visible;
-	z-index: 1;
+	justify-content: center;
+	z-index: 1000;
+	backdrop-filter: blur(5px);
   }
   
-  /* Modal Box */
   .modalContent {
-	background-color: #fff;
-	padding: 25px;
-	width: 400px;
+	background-color: white;
 	border-radius: 12px;
-	text-align: center;
-	box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-	animation: slideDown 0.3s ease-in-out;
+	width: 100%;
+	max-width: 480px;
+	box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+	overflow: hidden;
+	animation: slideIn 0.3s ease-out;
   }
   
-  /* Animation */
-  @keyframes slideDown {
+  @keyframes slideIn {
 	from {
-	  transform: translateY(-30px);
+	  transform: translateY(20px);
 	  opacity: 0;
 	}
 	to {
@@ -40,174 +277,135 @@
 	}
   }
   
-  /* Title */
-  .title {
-	font-size: 22px;
-	font-weight: bold;
-	margin-bottom: 10px;
-	padding: 8px 0;
-	border-bottom: 1px solid #ddd;
-	color: #333;
-	font-family: "Roboto", sans-serif;
-  }
-  
-  /* Transaction ID */
-  .transactionId {
-	font-size: 12px;
-	color: #555;
-	margin-bottom: 8px;
-	font-family: "Roboto", sans-serif;
-  }
-  
-  /* General Text */
-  .modalContent p {
-	font-size: 14px;
-	color: #333;
-	margin: 5px 0;
-	font-family: "Roboto", sans-serif;
-  }
-  
-  /* Receipt Container */
   .receiptContainer {
-	padding: 15px 0;
+	padding: 0;
   }
   
-  /* Transaction Details Row */
-  .detailsRow {
+  .receiptHeader {
+	padding: 24px;
+	border-bottom: 1px solid #f0f0f0;
 	display: flex;
 	justify-content: space-between;
-	padding: 8px 0;
+	align-items: center;
+  }
+  
+  .receiptTitle {
+	margin: 0;
+	font-size: 18px;
+	font-weight: 600;
+	color: #1a202c;
+  }
+  
+  .statusBadgeLarge {
+	padding: 8px 16px;
+	border-radius: 50px;
 	font-size: 14px;
-	color: #333;
-	font-family: "Roboto", sans-serif;
-	border-bottom: 1px solid #ddd;
+	font-weight: 600;
   }
   
-  /* Last row should have no border */
-  .detailsRow:last-child {
-	border-bottom: none;
+  .receiptBody {
+	padding: 20px 24px;
   }
   
-  .status {
-	font-weight: bold;
-	padding: 4px 10px;
-	border-radius: 5px;
-	font-size: 13px;
-	font-family: "Roboto", sans-serif;
-	text-transform: capitalize;
-  }
-  .status_base_color{
-	font-family: "Roboto",sans-serif;
-
-  }
-  .Badge {
-	display: flex;
-	padding: 0.25rem 0.5rem;
-	align-items: center;
-	border-radius: 1rem;
-	mix-blend-mode: multiply;
-	height: fit-content;
-	line-height: normal;
-}
-.StatusColumn {
-	display: flex;
-	align-items: center;
-}
-
-  .approved {
-	color: #27ae60;
-	background: #e3fcef;
-	font-weight: bold;
-	border-radius: 1rem;
-	font-family: "Roboto", sans-serif;
-	padding: 0.25rem 0.5rem;
+  .receiptSection {
+	margin-bottom: 16px;
   }
   
-  .pending {
-	color: #f39c12;
-	font-weight: bold;
-	background: #fff8e1;
-	font-family: "Roboto", sans-serif;
-	border-radius: 1rem;
-	padding: 0.25rem 0.5rem;
-  }
-  
-  .rejected {
-	color: #e74c3c;
-	font-weight: bold;
-	background: #fdecea;
-	border-radius: 1rem;
-	font-family: "Roboto", sans-serif;
-	padding: 0.25rem 0.5rem;
-  }
-  
-  /* Amount Section */
-  .amountContainer {
+  .receiptRow {
 	display: flex;
 	justify-content: space-between;
-	padding: 10px;
+	padding: 10px 0;
+  }
+  
+  .receiptLabel {
+	color: #718096;
+	font-size: 14px;
+  }
+  
+  .receiptValue {
+	color: #2d3748;
+	font-weight: 500;
+	font-size: 14px;
+	word-break: break-all;
+  }
+  
+  .receiptDivider {
+	height: 1px;
+	background-color: #edf2f7;
+	margin: 16px 0;
+  }
+  
+  .amountSection {
+	background-color: #f7fafc;
+	margin: 16px -24px -20px;
+	padding: 16px 24px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .amountLabel {
 	font-size: 16px;
-	font-weight: bold;
-	margin-top: 15px;
-	background: #f8f9fa;
-	font-family: "Roboto", sans-serif;
-	border-radius: 5px;
+	font-weight: 600;
+	color: #4a5568;
   }
   
-  /* Amount Text */
-  .amount {
-	color: black;
-	font-family: "Roboto", sans-serif;
+  .amountValue {
+	font-size: 20px;
+	font-weight: 700;
   }
   
-  /* Close Button */
+  .amountValue.credit {
+	color: #047857;
+  }
+  
+  .amountValue.debit {
+	color: #b91c1c;
+  }
+  
+  .modalActions {
+	padding: 16px 24px;
+	background-color: #f9fafb;
+	border-top: 1px solid #edf2f7;
+	display: flex;
+	justify-content: flex-end;
+  }
+  
   .closeButton {
-	background: #0052cc;
-	color: white;
-	border: none;
-	padding: 12px;
-	width: 100%;
-	border-radius: 5px;
-	font-size: 16px;
-	font-family: "Roboto", sans-serif;
+	background-color: #fff;
+	border: 1px solid #d1d5db;
+	border-radius: 8px;
+	color: #4b5563;
+	font-weight: 500;
+	padding: 10px 16px;
 	cursor: pointer;
-	margin-top: 15px;
-	font-weight: bold;
-	transition: background-color 0.3s ease;
+	transition: all 0.2s;
   }
   
   .closeButton:hover {
-	background: #ffbf00;
-	color: black;
-  }
-  .eyeButton{
-	background: none;
-  }
-  /* Responsive Design */
-  @media only screen and (max-width: 450px) {
-	.modalContent {
-	  width: 90%;
-	  padding: 20px;
-	}
-  
-	.detailsRow {
-	  font-size: 13px;
-	  padding: 6px 0;
-	}
-  
-	.amountContainer {
-	  font-size: 14px;
-	  padding: 8px;
-	}
-  
-	.closeButton {
-	  font-size: 14px;
-	  padding: 10px;
-	}
-	.TransactionTableContainer {
-		position: unset !important;
-		overflow: visible !important;
-		z-index: auto !important;
-	  }
+	background-color: #f3f4f6;
   }
   
+  /* Responsive adjustments */
+  @media screen and (max-width: 768px) {
+	.paginationContainer {
+	  flex-direction: column;
+	  align-items: flex-start;
+	}
+	
+	.paginationControls {
+	  order: 1;
+	  width: 100%;
+	  justify-content: center;
+	  margin-top: 12px;
+	}
+	
+	.paginationInfo {
+	  order: 0;
+	}
+	
+	.paginationRowsPerPage {
+	  order: 2;
+	  margin-top: 12px;
+	}
+  }

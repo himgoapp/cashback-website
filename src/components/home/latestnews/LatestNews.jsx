@@ -42,14 +42,14 @@ const LatestNews = ({ userData }) => {
     Promotions: "#ffcc00",
     Guides: "#ff4d4d",
     Interviews: "#007bff",
-    "MTT Series":"#4caf50",
+    "MTT Series": "#4caf50",
     "Live Poker": "#007bff",
     "Latest News": "#ffcc00",
   };
 
 
   return (
-<>
+    <>
       <Meta
         title="Latest Online Poker News India | Rakebackk"
         description="Check Today's Latest Poker News in India at Rakebackk."
@@ -57,122 +57,132 @@ const LatestNews = ({ userData }) => {
       />
       <Navbar page="home" />
       <Reveal>
-      <div className={styles.latest_news}>
-        <div className={styles.header_container}>Online Poker News</div>
+        <div className={styles.latest_news}>
+          <div className={styles.header_container}>Online Poker News</div>
 
-        <Tabs>
-          <div className={styles.tabs_container}>
-            <TabList className={styles.tabList}>
-              {["Latest News", "Live Poker", "Blog", "MTT Series", "Promotions", "Interviews", "Guides"].map((tab) => (
-                <Tab
-                  key={tab}
-                  className={activeTab === tab ? styles.active : ""}
-                  onClick={() => handleTabs(tab)}
-                >
-                  {tab}
-                </Tab>
-              ))}
-            </TabList>
-          </div>
+          <Tabs>
+            <div className={styles.tabs_container}>
+              <TabList className={styles.tabList}>
+                {["Latest News", "Live Poker", "Blog", "MTT Series", "Promotions", "Interviews", "Guides"].map((tab) => (
+                  <Tab
+                    key={tab}
+                    className={activeTab === tab ? styles.active : ""}
+                    onClick={() => handleTabs(tab)}
+                  >
+                    {tab}
+                  </Tab>
+                ))}
+              </TabList>
+            </div>
 
-          <div className={styles.news_section}>
-            <div className={styles.content_layout}>
-              <div className={styles.news_grid}>
-                {loading ? (
-                  <p>Loading articles...</p>
-                ) : currentArticles.length > 0 ? (
-                  currentArticles.map((article) => {
-                    let blogId = `${article.title}-${article._id}`;
+            <div className={styles.news_section}>
+              <div className={styles.content_layout}>
+                <div className={styles.news_grid}>
+                  {loading ? (
+                    <p>Loading articles...</p>
+                  ) : currentArticles.length > 0 ? (
+                    currentArticles.map((article) => {
+                      let blogId = `${article.title}-${article._id}`;
 
-                    blogId = blogId.replace(/[\s?]/g, "-");
+                      blogId = blogId.replace(/[\s?]/g, "-");
 
-                    return (
-                      <Link
-                        to={`/news/${blogId}`}
-                        key={article.id}
-                        className={styles.card_link}
-                      >
-                        <div className={styles.news_card}>
-                          <div className={styles.news_image_wrapper}>
-                            <img
-                              src={article.imageUrl}
-                              alt={article.title}
-                              className={styles.news_image}
-                            />
-                          </div>
-                          <div className={styles.cardContent}>
-                            <div className={styles.cardMetaTop}>
-                              <span
-                                className={styles.type}
-                                style={{ backgroundColor: typeColors[article.type] || "#ffcc00", color: "#fff", padding: "5px 10px", borderRadius: "5px" }}
-                              >
-                                {article.type || "latest"}
-                              </span>
-                              <span className={styles.date}>
-                                📅{" "}
-                                {new Date(article.date).toLocaleDateString(
-                                  "en-GB"
-                                )}
-                              </span>
+                      return (
+                        <Link
+                          to={`/news/${blogId}`}
+                          key={article.id}
+                          className={styles.card_link}
+                        >
+                          <div className={styles.news_card}>
+                            <div className={styles.news_image_wrapper}>
+                              <img
+                                src={article.imageUrl}
+                                alt={article.title}
+                                className={styles.news_image}
+                              />
                             </div>
-                            <h3 className={styles.heading_card}>
-                              {article.title}
-                            </h3>
-                            <p className={styles.news_description}>
-                              {article.subheading}
-                            </p>
-                            <div className={styles.cardMeta}>
-                              <span className={styles.writer}>
-                                ✍️ {article.author || "Unknown"}
-                              </span>
+                            <div className={styles.cardContent}>
+                              <div className={styles.cardMetaTop}>
+                                <span
+                                  className={styles.type}
+                                  style={{ backgroundColor: typeColors[article.type] || "#ffcc00", color: "#fff", padding: "5px 10px", borderRadius: "5px" }}
+                                >
+                                  {article.type || "latest"}
+                                </span>
+                                <span className={styles.date}>
+                                  📅{" "}
+                                  {new Date(article.date).toLocaleDateString(
+                                    "en-GB"
+                                  )}
+                                </span>
+                              </div>
+                              <h3 className={styles.heading_card}>
+                                {article.title}
+                              </h3>
+                              <p className={styles.news_description}>
+                                {article.subheading}
+                              </p>
+                              <div className={styles.cardMeta}>
+                                <span className={styles.writer}>
+                                  ✍️ {article.author || "Unknown"}
+                                </span>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </Link>
-                    );
-                  })
-                ) : (
-                  <p>No articles available.</p>
-                )}
-              </div>
+                        </Link>
+                      );
+                    })
+                  ) : (
+                    <p>No articles available.</p>
+                  )}
+                </div>
 
-              <div className={styles.rightSidebar}>
-                <RightSidebar />
-                <div className={styles.important_post}>
-                  <h2 className={styles.important_post_heading}>Important Posts</h2>
-                  <ul className={styles.post_list}>
-                    {currentArticles.length > 0
-                      ? currentArticles.slice(0, 5).map((post) => {
-                        const blogId = `${post.title.replace(/ /g, "-")}-${post._id}`;
-                        return (
-                          <li key={post._id} className={styles.post_item}>
-                            <Link to={`/news/${blogId}`} className={styles.card_link}>
-                              <img src={post.imageUrl} alt={post.title} className={styles.post_image} />
-                              {post.title}
-                            </Link>
-                          </li>
-                        );
-                      })
-                      : <p>No important posts available.</p>
-                    }
-                  </ul>
-
+                <div className={styles.rightSidebar}>
+                  <RightSidebar />
+                  <div className={styles.important_post}>
+                    <h2 className={styles.important_post_heading}>Important Posts</h2>
+                    <ul className={styles.post_list}>
+                      {currentArticles.length > 0
+                        ? currentArticles.slice(0, 5).map((post) => {
+                          const blogId = `${post.title.replace(/ /g, "-")}-${post._id}`;
+                          return (
+                            <li key={post._id} className={styles.post_item}>
+                              <Link to={`/news/${blogId}`} className={styles.card_link}>
+                                <div className={styles.post_content}>
+                                  <img src={post.imageUrl} alt={post.title} className={styles.post_image} />
+                                  <div className={styles.text_content}>
+                                    <p className={styles.post_title}>{post.title}</p>
+                                    <p className={styles.post_meta}>
+                                      {new Date(post.date).toLocaleDateString('en-US', {
+                                        month: 'short',
+                                        day: '2-digit',
+                                        year: 'numeric'
+                                      })}
+                                    </p>
+                                  </div>
+                                </div>
+                              </Link>
+                            </li>
+                          );
+                        })
+                        : <p>No important posts available.</p>
+                      }
+                    </ul>
+                  </div>
 
                 </div>
               </div>
             </div>
-          </div>
-        </Tabs>
-      </div>
-   
-      <div
-        className="flex_center"
-        style={{ width: "100%", backgroundColor: "#0052cc" }}
-      >
-        <Footer />
-      </div>
+          </Tabs>
+        </div>
+
+        <div
+          className="flex_center"
+          style={{ width: "100%", backgroundColor: "#0052cc" }}
+        >
+          <Footer />
+        </div>
       </Reveal>
-     </>
+    </>
   );
 };
 

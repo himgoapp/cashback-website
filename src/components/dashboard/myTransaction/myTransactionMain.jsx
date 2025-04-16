@@ -83,6 +83,7 @@ const MyTransactionMain = () => {
 
           {/* Conditionally render KycTDCstatus based on transactionType */}
           {transactionType !== "Deposit" && <KycTDCstatus />}
+          {transactionType === "Deposit" && <DepositMessage />}
 
           <TableContainer transactionType={transactionType} />
         </DashboardMain>
@@ -110,6 +111,30 @@ const KycTDCstatus = () => {
           <div className={statusStyle.HeadText}>
             <div className={statusStyle.HeadLabel}>
               5% TDS will be applicable to all the users
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+const DepositMessage = () => {
+  return (
+    <div className={statusStyle.KycStatusContainer}>
+      <div
+        className={statusStyle.StatusContent}
+        style={{
+          borderTop: `1px solid #3968EB`,
+          borderRight: `1px solid #3968EB`,
+          borderBottom: `1px solid #3968EB`,
+          borderLeft: `5px solid #3968EB`,
+        }}
+      >
+        <div className={statusStyle.StatusHead}>
+          <div className={statusStyle.StatusIcon}>{percentIcon}</div>
+          <div className={statusStyle.HeadText}>
+            <div className={statusStyle.HeadLabel}>
+            Rakeback earning – keep playing, keep earning!
             </div>
           </div>
         </div>

@@ -1,55 +1,131 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styles from "./rightSidebar.module.css";
 import { getProducts } from "../../../servicefile/productservice";
 import { getPokerSiteImage } from "../../../helperFxns/colorCode";
 import { useNavigate } from "react-router-dom";
-
+import IndiaFlag from "../../../assets/Flag_of_India.png"
 const RightSidebar = () => {
- const navigate = useNavigate();
+  const navigate = useNavigate();
   const [products, setProducts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const sidebarRef = useRef(null);
 
   useEffect(() => {
     const getdata = async () => {
-      let data = await getProducts();
-      if (data && data.length > 0) {
-        setProducts(data);
+      setIsLoading(true);
+      try {
+        let data = await getProducts();
+        if (data && data.length > 0) {
+          setProducts(data);
+        }
+      } catch (error) {
+        console.error("Error fetching poker rooms:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
     getdata();
   }, []);
+
+  useEffect(() => {
+    // Add subtle animation on scroll
+    const handleScroll = () => {
+      if (!sidebarRef.current) return;
+      
+      const rect = sidebarRef.current.getBoundingClientRect();
+      const isVisible = 
+        rect.top >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight);
+      
+      if (isVisible) {
+        sidebarRef.current.classList.add(styles.visible);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check visibility on mount
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const handleClick = (roomId) => {
     navigate(`/description/${roomId}`);
   };
-  return (
-    <div className={styles.sidebar}>
-      <div className={styles.heading}>
-      <h4 className={styles.sidebarTitle}>Top Poker Rooms</h4>
-      <span className={styles.country}><img src="https://worldpokerdeals.com/icons/countries/India.svg" style={{width:"20px"}}/> for India</span>
+
+  const handleSignUp = (roomId, e) => {
+    e.stopPropagation();
+    // window.open(`/sign-up/${roomId}`, '_blank');
+    navigate(`/description/${roomId}`);
+
+  };
+
+  if (isLoading) {
+    return (
+      <div className={`${styles.sidebar} ${styles.loading}`}>
+        <div className={styles.loadingSpinner}></div>
+        <p className={styles.loadingText}>Loading top poker rooms...</p>
       </div>
-      <ul className={styles.list}>
-      {products.slice(0, 5).map((room, index) => {
-        let roomId = `${room.name}-${room._id}`;
-        roomId = roomId.replace(/[\s?]/g, "-");
+    );
+  }
 
+  return (
+    <div className={styles.sidebar} ref={sidebarRef}>
+      <div className={styles.heading}>
+        <h2 className={styles.sidebarTitle}>Top Poker Rooms</h2>
+        <div className={styles.locationBadge}>
+          <img src={IndiaFlag} 
+               alt="India flag" 
+               className={styles.flagIcon} />
+        </div>
+      </div>
+      
+      <div className={styles.roomList}>
+        {products.slice(0, 5).map((room, index) => {
+          let roomId = `${room.name}-${room._id}`;
+          roomId = roomId.replace(/[\s?]/g, "-");
 
-        return(
-        <li key={index} className={styles.item} onClick={() => handleClick(roomId)}>
-          <img src={getPokerSiteImage(room.name)} alt={`Logo of ${room.name}`} className={styles.logo} />
-          <div className={styles.details}>
-            <strong>{room.name}</strong>
-            <p>🎁 {room.welcomeBonus}</p>
-          </div>
-          <span className={styles.arrow}>›</span>
-        </li>
-      )})}
-
-      </ul>
-      <button 
-        className={styles.link}
-        onClick={() => navigate("/offer-and-deals")}
-      >
-        List of all poker rooms for India
-      </button>
+          return (
+            <div 
+              key={index} 
+              className={styles.roomCard} 
+              onClick={() => handleClick(roomId)}
+              style={{"--index": index + 1}}
+            >
+              <div className={styles.cardHeader}>
+                <div className={styles.logoWrapper}>
+                  <img 
+                    src={getPokerSiteImage(room.name)} 
+                    alt={`${room.name}`} 
+                    className={styles.logo} 
+                  />
+                </div>
+                <h3 className={styles.roomName}>{room.name}</h3>
+              </div>
+              
+              <div className={styles.bonusHighlight}>
+                <div className={styles.bonusIcon}>🎁</div>
+                <div className={styles.bonusText}>{room.welcomeBonus}</div>
+              </div>
+              
+              <button 
+                className={styles.signupBtn}
+                onClick={(e) => handleSignUp(roomId, e)}
+              >
+                Sign up
+              </button>
+            </div>
+          );
+        })}
+      </div>
+      
+      <div className={styles.footerLink}>
+        <button 
+          className={styles.allRoomsLink}
+          onClick={() => navigate("/offer-and-deals")}
+        >
+          List of all poker rooms for India
+        </button>
+      </div>
     </div>
   );
 };
