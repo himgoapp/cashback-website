@@ -2,14 +2,17 @@ import React, { useContext } from "react";
 import SectionHeader from "../../common/section_header/sectionHeader";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import styles from "./joinRakeback.module.css";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { UserContext } from "../../../App";
 import PopupSignin from "../../description/popup/signin";
 import Reveal from "../../common/reveal/Reveal";
 
 const JoinRakeback = () => {
+	  const navigate = useNavigate();
 	const { loginTab, setLoginTab, userData } = useContext(UserContext);
-
+	const handleSignInClick = () => {
+		navigate("/login");
+	  };
 	return (
 		<Reveal
 			variants={{
@@ -40,9 +43,7 @@ const JoinRakeback = () => {
 									variant='primary'
 									size='small'
 									showIcon={true}
-									onClick={() => {
-										setLoginTab(true);
-									}}
+									onClick={()=>handleSignInClick()}
 									/>
 							)}
 						</div>

@@ -8,45 +8,56 @@ import { getBlogs } from "../../../servicefile/blogservice";
 import Meta from "../../../Meta";
 import RightSidebar from "./RightSidebar";
 import Reveal from "../../common/reveal/Reveal";
+
 const LatestNews = ({ userData }) => {
   const [activeTab, setActiveTab] = useState("Latest News");
   const [allArticles, setAllArticles] = useState([]);
   const [currentArticles, setCurrentArticles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1)
-  const [totalPage, setTotalPage] = useState(1)
+  const [page, setPage] = useState(1);
+  const [totalPage, setTotalPage] = useState(1);
 
   const handleTabs = (type) => {
     setActiveTab(type);
+    // Reset to first page when changing tabs
+    setPage(1);
   };
 
   const filterArticles = async () => {
-    let type = activeTab === "Latest News" ? undefined : activeTab
+    let type = activeTab === "Latest News" ? undefined : activeTab;
     const response = await getBlogs(type, page);
     if (response && response.blogsList) {
-      let length = response.length < 10 ? 1 : response.length / 9;
+      let length = response.length < 10 ? 1 : Math.ceil(response.length / 9);
       setCurrentArticles(response.blogsList);
       setTotalPage(length);
       setLoading(false);
     }
   };
 
-
-
   useEffect(() => {
-    filterArticles()
+    filterArticles();
   }, [activeTab, page]);
 
+  // Premium color mapping for article types
   const typeColors = {
-    Blog: "#ff4d4d",
-    Promotions: "#ffcc00",
-    Guides: "#ff4d4d",
-    Interviews: "#007bff",
-    "MTT Series": "#4caf50",
-    "Live Poker": "#007bff",
-    "Latest News": "#ffcc00",
+    Blog: "#3a63e3", // Primary blue
+    Promotions: "#00c6bb", // Accent teal
+    Guides: "#ff6b6b", // Soft red
+    Interviews: "#7c5cf5", // Purple
+    "MTT Series": "#38b47e", // Emerald green
+    "Live Poker": "#5271ff", // Bright blue
+    "Latest News": "#e6a919", // Gold
   };
 
+  // Format date in a more premium way
+  const formatDate = (dateString) => {
+    const options = { 
+      month: 'short', 
+      day: 'numeric', 
+      year: 'numeric' 
+    };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+  };
 
   return (
     <>
@@ -66,7 +77,7 @@ const LatestNews = ({ userData }) => {
                 {["Latest News", "Live Poker", "Blog", "MTT Series", "Promotions", "Interviews", "Guides"].map((tab) => (
                   <Tab
                     key={tab}
-                    className={activeTab === tab ? styles.active : ""}
+                    className={activeTab === tab ? styles.active : styles.tab}
                     onClick={() => handleTabs(tab)}
                   >
                     {tab}
@@ -79,21 +90,22 @@ const LatestNews = ({ userData }) => {
               <div className={styles.content_layout}>
                 <div className={styles.news_grid}>
                   {loading ? (
-                    <p>Loading articles...</p>
+                    <div className={styles.loader}>
+                      <p>Loading premium content...</p>
+                    </div>
                   ) : currentArticles.length > 0 ? (
                     currentArticles.map((article) => {
                       let blogId = `${article.title}-${article._id}`;
-
                       blogId = blogId.replace(/[\s?]/g, "-");
 
                       return (
                         <Link
                           to={`/news/${blogId}`}
-                          key={article.id}
+                          key={article._id}
                           className={styles.card_link}
                         >
                           <div className={styles.news_card}>
-                            <div className={styles.news_image_wrapper}>
+                            <div className={styles.image_wrapper}>
                               <img
                                 src={article.imageUrl}
                                 alt={article.title}
@@ -104,15 +116,14 @@ const LatestNews = ({ userData }) => {
                               <div className={styles.cardMetaTop}>
                                 <span
                                   className={styles.type}
-                                  style={{ backgroundColor: typeColors[article.type] || "#ffcc00", color: "#fff", padding: "5px 10px", borderRadius: "5px" }}
+                                  style={{ 
+                                    backgroundColor: typeColors[article.type] || typeColors["Latest News"],
+                                  }}
                                 >
-                                  {article.type || "latest"}
+                                  {article.type || "Latest"}
                                 </span>
                                 <span className={styles.date}>
-                                  📅{" "}
-                                  {new Date(article.date).toLocaleDateString(
-                                    "en-GB"
-                                  )}
+                                  📅 {formatDate(article.date)}
                                 </span>
                               </div>
                               <h3 className={styles.heading_card}>
@@ -123,7 +134,7 @@ const LatestNews = ({ userData }) => {
                               </p>
                               <div className={styles.cardMeta}>
                                 <span className={styles.writer}>
-                                  ✍️ {article.author || "Unknown"}
+                                  ✍️ {article.author || "Poker Expert"}
                                 </span>
                               </div>
                             </div>
@@ -132,7 +143,7 @@ const LatestNews = ({ userData }) => {
                       );
                     })
                   ) : (
-                    <p>No articles available.</p>
+                    <p className={styles.no_content}>No articles available for this category.</p>
                   )}
                 </div>
 
@@ -142,8 +153,8 @@ const LatestNews = ({ userData }) => {
                     <h2 className={styles.important_post_heading}>Important Posts</h2>
                     <ul className={styles.post_list}>
                       {currentArticles.length > 0
-                        ? currentArticles.slice(0, 5).map((post) => {
-                          const blogId = `${post.title.replace(/ /g, "-")}-${post._id}`;
+                        ? currentArticles.slice(0, 4).map((post) => {
+                          const blogId = `${post.title.replace(/[\s?]/g, "-")}-${post._id}`;
                           return (
                             <li key={post._id} className={styles.post_item}>
                               <Link to={`/news/${blogId}`} className={styles.card_link}>
@@ -152,11 +163,7 @@ const LatestNews = ({ userData }) => {
                                   <div className={styles.text_content}>
                                     <p className={styles.post_title}>{post.title}</p>
                                     <p className={styles.post_meta}>
-                                      {new Date(post.date).toLocaleDateString('en-US', {
-                                        month: 'short',
-                                        day: '2-digit',
-                                        year: 'numeric'
-                                      })}
+                                      📅 {formatDate(post.date)}
                                     </p>
                                   </div>
                                 </div>
@@ -168,7 +175,6 @@ const LatestNews = ({ userData }) => {
                       }
                     </ul>
                   </div>
-
                 </div>
               </div>
             </div>

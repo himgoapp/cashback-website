@@ -13,24 +13,34 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 	const navigate = useNavigate();
 	const { mobile, userData } = useContext(UserContext);
 	const [amount, setAmount] = useState(0);
+	const[error, setError] = useState(false);
 
 	const withdrawfxn = async () => {
 		if (!userData || !userData._id) return;
-
+	  
 		let value = parseInt(amount);
-		if (value < maxAmount) {
-			let res = await createTransaction(userData._id, amount);
-			if (res && res.transaction === true) {
-				// toast.success(`${res.message}`);
-				localStorage.setItem("transactionInfo", "true");
-				navigate("/dashboard/mytransactions");
-			}
-		} else {
-			toast.error(
-				// "Amount put for withdraw, cannot be greater than Wallet's Balance"
-			);
+		if (!value || value <= 0) {
+			setError("Please enter a valid amount greater than 0.");
+			setTimeout(() => {
+				setError('');
+			  }, 5000);
+		  return;
 		}
-	};
+	  
+		if (value <= maxAmount) {
+		  let res = await createTransaction(userData._id, value);
+		  if (res && res.transaction === true) {
+			localStorage.setItem("transactionInfo", "true");
+			navigate("/dashboard/mytransactions");
+		  }
+		} else {
+			setError("Amount entered cannot be more than your wallet balance.");
+			setTimeout(() => {
+				setError('');
+			  }, 5000);
+		}
+	  };
+	  
 
 	return (
 		<div className={styles.PopupWithOpacity} >
@@ -92,9 +102,13 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 									autoFocus
 									className={styles.amountInput}
 								/>
+								<Form.Label className={styles.putAmountLabel}>
+							{error && <span  style={{fontSize:"14px",color:"red"}}>{error}</span>}
+							</Form.Label>
 							</Form.Group>
-
+						
 						</div>
+						
 						<div
 							className={styles.btn_action}
 							style={{ width: "100%" }}

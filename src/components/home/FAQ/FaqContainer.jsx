@@ -250,7 +250,8 @@ const FaqContainer = () => {
   const navigate = useNavigate();
   const [faqList, setFaqList] = useState([]);
   const [open, setOpen] = useState(null);
-
+  const [animateTab, setAnimateTab] = useState(false);
+  
   useEffect(() => {
     if (!category || !faqData[category]) {
       navigate("/faq/legal", { replace: true });
@@ -259,8 +260,13 @@ const FaqContainer = () => {
     }
     setOpen(null);
   }, [category, navigate]);
+
   const handleTabClick = (tabId) => {
-    navigate(`/faq/${tabId}`);
+    setAnimateTab(true);
+    setTimeout(() => {
+      navigate(`/faq/${tabId}`);
+      setAnimateTab(false);
+    }, 300);
   };
 
   const toggleAnswer = (index) => {
@@ -268,40 +274,43 @@ const FaqContainer = () => {
   };
 
   return (
-    <div style={{overflow:"hidden"}}> 
-  <Meta
-  title="FAQ - Rakeback"
-  description="Find answers to commonly asked questions about legalities, gameplay, account settings, banking, and more."
-  link={`https://www.rakebackk.com`}
-/>
+    <div className={styles.page_wrapper}>
+      <Meta
+        title="FAQ - Rakeback"
+        description="Find answers to commonly asked questions about legalities, gameplay, account settings, banking, and more."
+        link={`https://www.rakebackk.com`}
+      />
 
       <Navbar page="home" />
+
+      <div className={styles.hero_section}>
+        <div className={styles.hero_content}>
+          <h1 className={styles.hero_title}>Frequently Asked Questions</h1>
+          <div className={styles.hero_subtitle}>
+            Find answers to your most important questions about our platform
+          </div>
+        </div>
+      </div>
+
       <div className={styles.main_container}>
         <div className={styles.faq_container}>
-          <Reveal>
-            <div className={styles.faq_header}>
-              <div className={styles.head}>Frequently Asked Questions</div>
-            </div>
-          </Reveal>
-
-          <div className={styles.tabs_container}>
+          <div className={`${styles.tabs_container} ${animateTab ? styles.fade : ''}`}>
             <div className={styles.tabs}>
               {tabs.map((tab) => (
                 <div
                   key={tab.id}
-                  className={`${styles.tab_box} ${
-                    category === tab.id ? styles.active_box : ""
-                  }`}
+                  className={`${styles.tab_box} ${category === tab.id ? styles.active_box : ""
+                    }`}
                   onClick={() => handleTabClick(tab.id)}
                 >
                   <div className={styles.tab}>
                     <div className={styles.tab_icon}>
-                      {/* {tab.icon} */}
                       <img
                         src={tab.icon}
                         alt={tab.title}
                         width="35"
                         height="35"
+                        className={styles.tab_icon_img}
                       />
                     </div>
                     <div className={styles.tab_title}>{tab.title}</div>
@@ -314,31 +323,29 @@ const FaqContainer = () => {
           <div className={styles.faq_item_container}>
             {faqList.length > 0 ? (
               faqList.map((qa, index) => (
-                <div
-                  className={`${styles.faq_item} ${
-                    open === index ? styles.open : ""
-                  }`}
-                  key={index}
-                  onClick={() => toggleAnswer(index)}
-                >
-                  <Reveal>
+                <Reveal key={index}>
+                  <div
+                    className={`${styles.faq_item} ${open === index ? styles.open : ""
+                      }`}
+                    onClick={() => toggleAnswer(index)}
+                  >
                     <div className={styles.item_content}>
                       <div className={styles.q_and_ans}>
                         <div className={styles.question}>
-                          {index + 1}. {qa.question}
+                          <span className={styles.question_number}>{index + 1}.</span> {qa.question}
                         </div>
-                        {open === index && (
-                          <div className={styles.ans}>{qa.answer}</div>
-                        )}
+                        <div className={`${styles.ans} ${open === index ? styles.ans_visible : ''}`}>
+                          {qa.answer}
+                        </div>
                       </div>
                       <div className={styles.faq_icon}>
-                        <div className={styles.icon}>
+                        <div className={`${styles.icon} ${open === index ? styles.icon_active : ''}`}>
                           {open === index ? <HideIcon /> : <ShowIcon />}
                         </div>
                       </div>
                     </div>
-                  </Reveal>
-                </div>
+                  </div>
+                </Reveal>
               ))
             ) : (
               <div className={styles.no_faq}>
@@ -371,7 +378,7 @@ const ShowIcon = () => (
   >
     <path
       d="M12 8V16M8 12H16"
-      stroke="#28a745"
+      stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -389,7 +396,7 @@ const HideIcon = () => (
   >
     <path
       d="M8 12H16"
-      stroke="#e74c3c"
+      stroke="currentColor"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"

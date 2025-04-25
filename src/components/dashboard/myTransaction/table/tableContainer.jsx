@@ -11,13 +11,13 @@ import zIndex from "@mui/material/styles/zIndex";
 const getStatusColor = (status) => {
   switch (status.toLowerCase()) {
     case "approved":
-      return { backgroundColor: "#ecfdf3", color: "#027a48" }; 
+      return { backgroundColor: "#ecfdf3", color: "#027a48" };
     case "pending":
       return { backgroundColor: "#fff8e1", color: "#b26a00" };
     case "aborted":
-      return { backgroundColor: "#fdecea", color: "#b00020" }; 
+      return { backgroundColor: "#fdecea", color: "#b00020" };
     default:
-      return { backgroundColor: "#e0e0e0", color: "#333" }; 
+      return { backgroundColor: "#e0e0e0", color: "#333" };
   }
 };
 
@@ -36,7 +36,7 @@ const customStyles = {
       borderBottom: '1px solid #edf2f7',
       fontSize: '14px',
       fontWeight: '600',
-      color: '#4a5568',
+      color: 'black',
       minHeight: '56px',
       paddingLeft: '16px',
       paddingRight: '16px',
@@ -115,7 +115,7 @@ const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPer
   const maxPagesToShow = 5;
   let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
   let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
-  
+
   if (endPage - startPage + 1 < maxPagesToShow) {
     startPage = Math.max(1, endPage - maxPagesToShow + 1);
   }
@@ -137,18 +137,18 @@ const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPer
       <div className={styles.paginationInfo}>
         Showing {rowCount > 0 ? firstIndex : 0} to {Math.min(lastIndex, rowCount)} of {rowCount} entries
       </div>
-      
+
       <div className={styles.paginationControls}>
-        <button 
-          className={`${styles.pageButton} ${styles.navButton}`} 
+        <button
+          className={`${styles.pageButton} ${styles.navButton}`}
           onClick={() => onChangePage(1)}
           disabled={disabledLesser}
         >
           «
         </button>
-        
-        <button 
-          className={`${styles.pageButton} ${styles.navButton}`} 
+
+        <button
+          className={`${styles.pageButton} ${styles.navButton}`}
           onClick={() => onChangePage(currentPage - 1)}
           disabled={disabledLesser}
         >
@@ -158,8 +158,8 @@ const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPer
         {/* First page button if not in view */}
         {startPage > 1 && (
           <>
-            <button 
-              className={styles.pageButton} 
+            <button
+              className={styles.pageButton}
               onClick={() => onChangePage(1)}
             >
               1
@@ -175,32 +175,32 @@ const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPer
         {endPage < totalPages && (
           <>
             {endPage < totalPages - 1 && <span className={styles.ellipsis}>...</span>}
-            <button 
-              className={styles.pageButton} 
+            <button
+              className={styles.pageButton}
               onClick={() => onChangePage(totalPages)}
             >
               {totalPages}
             </button>
           </>
         )}
-        
-        <button 
-          className={`${styles.pageButton} ${styles.navButton}`} 
+
+        <button
+          className={`${styles.pageButton} ${styles.navButton}`}
           onClick={() => onChangePage(currentPage + 1)}
           disabled={disabledGreater}
         >
           ›
         </button>
-        
-        <button 
-          className={`${styles.pageButton} ${styles.navButton}`} 
+
+        <button
+          className={`${styles.pageButton} ${styles.navButton}`}
           onClick={() => onChangePage(totalPages)}
           disabled={disabledGreater}
         >
           »
         </button>
       </div>
-      
+
       {/* <div className={styles.paginationRowsPerPage}>
         <span className={styles.rowsPerPageLabel}>Rows per page:</span>
         <select 
@@ -228,18 +228,18 @@ const TableContainer = ({ transactionType }) => {
   // const [perPage, setPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [flow, setFlow] = useState(false);
- 
+  const shouldShowTDS = transactions.some(row => row.typeOfTransaction !== "Deposit");
 
-  const getTransactions = async (page , checkValue) => {
+  const getTransactions = async (page, checkValue) => {
     if (!userData || !userData._id) return;
 
-    if(checkValue === true){
+    if (checkValue === true) {
       setFlow(true);
-    }else{
+    } else {
       setFlow(false);
       setCurrentPage(1);
     }
-  
+
     setLoading(true);
     try {
       const res = await alltransactions(userData._id, transactionType, page);
@@ -252,15 +252,16 @@ const TableContainer = ({ transactionType }) => {
       setLoading(false);
     }
   };
-  
+
 
   useEffect(() => {
-    getTransactions(1 , false);
+    getTransactions(1, false);
   }, [transactionType]);
 
   useEffect(() => {
-    if(flow === true){
-    getTransactions(currentPage , true);}
+    if (flow === true) {
+      getTransactions(currentPage, true);
+    }
   }, [currentPage]);
 
   const handlePageChange = (page) => {
@@ -314,16 +315,17 @@ const TableContainer = ({ transactionType }) => {
         </div>
       ),
     },
-    {
+    ...(shouldShowTDS ? [{
       name: "TDS",
       selector: row => row.rackbackcut,
       sortable: true,
       right: true,
-      cell: row => 
-        row.typeOfTransaction === "Deposit" 
+      cell: row =>
+        row.typeOfTransaction === "Deposit"
           ? <span className={styles.zeroAmount}>₹0.00</span>
           : <span className={styles.tdsAmount}>{formatCurrency(row.rackbackcut)}</span>
-    },
+    }] : []),
+
     {
       name: "Amount",
       selector: row => row.actualAmount,
@@ -341,7 +343,7 @@ const TableContainer = ({ transactionType }) => {
       selector: row => row.status,
       sortable: true,
       cell: row => (
-        <div 
+        <div
           className={styles.statusBadge}
           style={getStatusColor(row.status)}
         >
@@ -353,8 +355,8 @@ const TableContainer = ({ transactionType }) => {
       name: "Actions",
       button: true,
       cell: row => (
-        <button 
-          className={styles.actionButton} 
+        <button
+          className={styles.actionButton}
           onClick={() => handleOpenModal(row)}
           aria-label="View transaction details"
         >
@@ -372,7 +374,7 @@ const TableContainer = ({ transactionType }) => {
           <span>Total: {totalRows} transactions</span>
         </div>
       </div> */}
-    <DataTable
+      <DataTable
         columns={columns}
         data={transactions}
         customStyles={customStyles}
@@ -384,8 +386,8 @@ const TableContainer = ({ transactionType }) => {
         onChangePage={handlePageChange}
         // onChangeRowsPerPage={handlePerRowsChange}
         paginationComponent={props => (
-          <CustomPagination 
-            {...props} 
+          <CustomPagination
+            {...props}
             currentPage={currentPage}
           />
         )}
@@ -400,7 +402,7 @@ const TableContainer = ({ transactionType }) => {
         pointerOnHover
         responsive
       />
-  
+
       {open && selectedTransaction && (
         <div className={styles.modalBackdrop} onClick={handleCloseModal}>
           <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
@@ -408,7 +410,7 @@ const TableContainer = ({ transactionType }) => {
               <div className={styles.receiptHeader}>
                 <h3 className={styles.receiptTitle}>Transaction Receipt</h3>
                 <div className={styles.statusHeader}>
-                  <div 
+                  <div
                     className={styles.statusBadgeLarge}
                     style={getStatusColor(selectedTransaction.status)}
                   >
@@ -416,14 +418,14 @@ const TableContainer = ({ transactionType }) => {
                   </div>
                 </div>
               </div>
-              
+
               <div className={styles.receiptBody}>
                 <div className={styles.receiptSection}>
                   <div className={styles.receiptRow}>
                     <span className={styles.receiptLabel}>Transaction ID</span>
                     <span className={styles.receiptValue}>{selectedTransaction.transaction_hash}</span>
                   </div>
-                  
+
                   <div className={styles.receiptRow}>
                     <span className={styles.receiptLabel}>Date & Time</span>
                     <span className={styles.receiptValue}>
@@ -436,18 +438,19 @@ const TableContainer = ({ transactionType }) => {
                     <span className={styles.receiptValue}>{selectedTransaction.typeOfTransaction}</span>
                   </div>
                 </div>
-
+                {selectedTransaction.typeOfTransaction === "Withdrawal" && selectedTransaction.status === "Approved" && <div className={styles.receiptRow}>
+                  <span className={styles.receiptLabel}>UTR</span>
+                  <span className={styles.receiptValue}>{selectedTransaction.utr}</span>
+                </div>}
                 <div className={styles.receiptDivider}></div>
-
                 <div className={styles.receiptSection}>
                   <div className={styles.receiptRow}>
-                    <span className={styles.receiptLabel}>TDS Amount</span>
-                    <span className={styles.receiptValue}>
-                      {selectedTransaction.typeOfTransaction === "Deposit" 
-                        ? "₹0.00" 
-                        : formatCurrency(selectedTransaction.rackbackcut)
-                      }
-                    </span>
+                    {selectedTransaction.typeOfTransaction === "Deposit" ? "" : (<>
+                      <span className={styles.receiptLabel}>TDS Amount</span>
+                      <span className={styles.receiptValue}>
+                        {formatCurrency(selectedTransaction.rackbackcut)
+                        }
+                      </span></>)}
                   </div>
 
                   <div className={styles.amountSection}>

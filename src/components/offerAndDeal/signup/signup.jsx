@@ -14,7 +14,7 @@ const OfferSignup = () => {
 
 				<div className={styles.signup_methods_container}>
 					<div className={styles.btn}>
-						<Link to='/' className='primary_button small'>
+						<Link to='/login' className='primary_button small'>
 							Sign Up
 						</Link>
 					</div>

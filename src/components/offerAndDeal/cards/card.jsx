@@ -1,93 +1,123 @@
-import React, { useContext,useEffect } from "react";
-import styles from "./card.module.css";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
 import { getPokerSiteImage } from "../../../helperFxns/colorCode";
+import styles from "./card.module.css"
 
-const OfferCard = ({ product,index }) => {
-	const navigate = useNavigate();
-	const { userData } = useContext(UserContext);
+const OfferCard = ({ product, index }) => {
+  const navigate = useNavigate();
+  const { userData } = useContext(UserContext);
 
-	const onJoinClick = (roomId) => {
+  const onJoinClick = (roomId) => {
+    let value = roomId.replace(/[\s?]/g, "-");
+    if (!userData) {
+      navigate("/");
+    } else {
+      navigate(`/description/${value}`);
+    }
+  };
 
-		let value = roomId.replace(/[\s?]/g, "-");
-		if (!userData) {
-			navigate("/");
-		} else {
-			// localStorage.setItem("currentProductValue", JSON.stringify(product));
-			navigate(`/description/${value}`);
-		}
-	};
-	useEffect(() => {
-		if (userData) {
-		  localStorage.setItem("userData", JSON.stringify(userData));
-		}
-	  }, [userData]);
-	  
-	return (
-		<div className={styles.cardContainer}>
-		{/* Number Tag */}
-		{/* <div className={styles.numberTag}>#{index + 1}</div> */}
-  
-		<div className={styles.logoContainer}>
-		  <img
-			src={getPokerSiteImage(product.name)}
-			alt={`Logo of ${product.name}`}
-		  />
-		</div>
-  
-		<div className={styles.contentSection}>
-		  {product.offer && (
-			<div className={styles.offerBadge}>💰 {product.offer}</div>
-		  )}
-		  <h3 className={styles.productTitle}>{product.name}</h3>
-		 	{/* <div className={styles.offer_bonus_rack}>
-		  <div className={styles.offer_bonus}>
-Deposit bonus ₹2,000
-</div>
-			<div  className={styles.offer_rack}>
-			Rakeback up to 48%
-</div>
-		  </div> */}
-		  <p className={styles.availability}>
-			✅ Available for players from your country
-		  </p>
-		  <p className={styles.description}>
-			{product.smallDescription.length > 150
-			  ? product.smallDescription.slice(0, 150) + "..."
-			  : product.smallDescription}
-		  </p>
-  
-		  {/* <div className={styles.rating_container}>
-			<span className={styles.stars}>
-			  <span className={styles.premium_star}>★</span>
-			  <span className={styles.premium_star}>★</span>
-			  <span className={styles.premium_star}>★</span>
-			  <span className={styles.premium_star}>★</span>
-			  <span className={styles.premium_star}>★</span>
-			</span>
-			<span className={styles.rating_text}>4.5 out of 5</span>
-		  </div> */}
-		</div>
-	
-		<div className={styles.buttonSection}>
-		  <Navbtn
-			text={userData ? "Join" : "Sign Up"}
-			variant="filled"
-			onClick={()=>onJoinClick(`${product.name}-${product._id}`)}
-		  />
-		  <Navbtn
-			text="Review"
-			variant="filled"
-			className={styles.reviewButton}
-		  />
-		</div>
-	  </div>
-	);
+  useEffect(() => {
+    if (userData) {
+      localStorage.setItem("userData", JSON.stringify(userData));
+    }
+  }, [userData]);
+
+  const renderRating = (rating) => {
+    if (!rating) return null;
+
+    if (!isNaN(rating)) {
+      const fullStars = Math.floor(rating);
+      const hasHalfStar = rating % 1 >= 0.5;
+      const stars = [];
+
+      for (let i = 0; i < fullStars; i++) {
+        stars.push(
+          <span key={`star-${i}`} className={styles.filledStar}>
+            ★
+          </span>
+        );
+      }
+
+      if (hasHalfStar) {
+        stars.push(
+          <span key="half-star" className={styles.halfStar}>
+            ★
+          </span>
+        );
+      }
+
+      const emptyStars = 5 - Math.ceil(rating);
+      for (let i = 0; i < emptyStars; i++) {
+        stars.push(
+          <span key={`empty-star-${i}`} className={styles.emptyStar}>
+            ☆
+          </span>
+        );
+      }
+
+      return (
+        <div className={styles.ratingDisplay}>
+          <div className={styles.stars}>{stars}</div>
+          <span className={styles.ratingNumber}>{rating.toFixed(1)}</span>
+        </div>
+      );
+    }
+
+    return <div className={styles.offerBonus}>{rating}</div>;
+  };
+
+  return (
+    <div className={styles.cardContainer}>
+      <div className={styles.numberTag}>#{index + 1}</div>
+
+      <div className={styles.logoContainer}>
+        <img
+          src={getPokerSiteImage(product?.name)}
+          alt={`Logo of ${product?.name}`}
+        />
+      </div>
+
+      <div className={styles.contentSection}>
+        {product?.offer && (
+          <div className={styles.offerBadge}>💰 {product.offer}</div>
+        )}
+        <h3 className={styles.productTitle}>{product?.name}</h3>
+
+        <div className={styles.offerBonusRack}>
+          {renderRating(product?.rating)}
+        </div>
+
+        <p className={styles.availability}>
+          Available for players from your country
+        </p>
+
+        <p className={styles.description}>
+          {product?.smallDescription?.length > 150
+            ? product.smallDescription.slice(0, 150) + "..."
+            : product?.smallDescription}
+        </p>
+      </div>
+
+      <div className={styles.buttonSection}>
+        <Navbtn
+          text={userData ? "Join Now" : "Sign Up"}
+          variant="filled"
+          onClick={() => onJoinClick(`${product.name}-${product._id}`)}
+        />
+        <Navbtn
+          text="Read Review"
+          variant="outlined"
+          className={styles.reviewButton}
+        />
+      </div>
+    </div>
+  );
 };
 
 export default OfferCard;
+
 
 
 const availabiltyicon = (
