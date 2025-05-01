@@ -3,7 +3,8 @@ import styles from "./rightSidebar.module.css";
 import { getProducts } from "../../../servicefile/productservice";
 import { getPokerSiteImage } from "../../../helperFxns/colorCode";
 import { useNavigate } from "react-router-dom";
-import IndiaFlag from "../../../assets/Flag_of_India.png"
+import IndiaFlag from "../../../assets/Flag_of_India.png";
+
 const RightSidebar = () => {
   const navigate = useNavigate();
   const [products, setProducts] = useState([]);
@@ -54,16 +55,16 @@ const RightSidebar = () => {
 
   const handleSignUp = (roomId, e) => {
     e.stopPropagation();
-    // window.open(`/sign-up/${roomId}`, '_blank');
     navigate(`/description/${roomId}`);
-
   };
 
   if (isLoading) {
     return (
       <div className={`${styles.sidebar} ${styles.loading}`}>
-        <div className={styles.loadingSpinner}></div>
-        <p className={styles.loadingText}>Loading top poker rooms...</p>
+        <div className={styles.loadingContainer}>
+          <div className={styles.loadingSpinner}></div>
+          <p className={styles.loadingText}>Loading top poker rooms...</p>
+        </div>
       </div>
     );
   }
@@ -71,48 +72,55 @@ const RightSidebar = () => {
   return (
     <div className={styles.sidebar} ref={sidebarRef}>
       <div className={styles.heading}>
-        <h2 className={styles.sidebarTitle}>Top Poker Rooms</h2>
+        <h2 className={styles.sidebarTitle}>
+          <span className={styles.titleHighlight}>Top  Poker Rooms</span>
+        </h2>
         <div className={styles.locationBadge}>
           <img src={IndiaFlag} 
                alt="India flag" 
                className={styles.flagIcon} />
+          {/* <span className={styles.locationText}>India</span> */}
         </div>
       </div>
       
       <div className={styles.roomList}>
-        {products.slice(0, 5).map((room, index) => {
+        {products.slice(0, 5).map((room) => {
           let roomId = `${room.name}-${room._id}`;
           roomId = roomId.replace(/[\s?]/g, "-");
 
           return (
             <div 
-              key={index} 
               className={styles.roomCard} 
-              onClick={() => handleClick(roomId)}
-              style={{"--index": index + 1}}
             >
-              <div className={styles.cardHeader}>
-                <div className={styles.logoWrapper}>
-                  <img 
-                    src={getPokerSiteImage(room.name)} 
-                    alt={`${room.name}`} 
-                    className={styles.logo} 
-                  />
+             
+              
+              <div className={styles.cardContent}>
+                <div className={styles.cardHeader}>
+                  <div className={styles.logoWrapper}>
+                    <img 
+                      src={getPokerSiteImage(room.name)} 
+                      alt={`${room.name}`} 
+                      className={styles.logo} 
+                    />
+                  </div>
+                  <h3 className={styles.roomName}>{room.name}</h3>
                 </div>
-                <h3 className={styles.roomName}>{room.name}</h3>
+                
+                <div className={styles.bonusHighlight}>
+                  <div className={styles.bonusIcon}>
+                    <span className={styles.bonusSymbol}>🎁</span>
+                  </div>
+                  <div className={styles.bonusText}>{room.welcomeBonus}</div>
+                </div>
+                
+                <button 
+                  className={styles.signupBtn}
+                  onClick={(e) => handleSignUp(roomId, e)}
+                >
+                  <span>Claim Bonus</span>
+                  <span className={styles.arrowIcon}>→</span>
+                </button>
               </div>
-              
-              <div className={styles.bonusHighlight}>
-                <div className={styles.bonusIcon}>🎁</div>
-                <div className={styles.bonusText}>{room.welcomeBonus}</div>
-              </div>
-              
-              <button 
-                className={styles.signupBtn}
-                onClick={(e) => handleSignUp(roomId, e)}
-              >
-                Sign up
-              </button>
             </div>
           );
         })}
@@ -123,7 +131,7 @@ const RightSidebar = () => {
           className={styles.allRoomsLink}
           onClick={() => navigate("/offer-and-deals")}
         >
-          List of all poker rooms for India
+          View All Available Poker Rooms
         </button>
       </div>
     </div>

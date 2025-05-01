@@ -1,111 +1,168 @@
 .sidebar {
   width: 100%;
   max-width: 380px;
-  background: black;
-  border-radius: 12px;
-  padding: 24px 20px;
-  color: black;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
-  font-family: 'Inter', 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #0a0a14 0%, #161626 100%);
+  border-radius: 16px;
+  padding: 28px 24px;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  font-family: 'Inter', 'Poppins', 'Roboto', sans-serif;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    rgba(116, 116, 116, 0),
+    rgba(226, 185, 95, 0.5),
+    rgba(116, 116, 116, 0));
 }
 
 .heading {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 28px;
   position: relative;
 }
 
 .heading:after {
   content: '';
   position: absolute;
-  bottom: -12px;
+  bottom: -14px;
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.05), rgba(255,255,255,0.2), rgba(255,255,255,0.05));
+  background: linear-gradient(90deg, 
+    rgba(255, 255, 255, 0.01), 
+    rgba(255, 255, 255, 0.15), 
+    rgba(255, 255, 255, 0.01));
 }
 
 .sidebarTitle {
-  font-size: 20px;
+  font-size: 22px;
   margin: 0;
-  font-weight: 600;
-  background: white;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.titleHighlight {
+  background: linear-gradient(90deg, #e2b95f, #f8e7b9);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: 0.5px;
+  /* -webkit-text-fill-color: transparent; */
 }
 
 .locationBadge {
   display: flex;
   align-items: center;
+  gap: 6px;
   font-size: 14px;
-  padding: 6px 10px;
+  padding: 6px 12px;
   border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.locationText {
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .flagIcon {
-  width: 30px;
+  width: 20px;
   height: auto;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.2));
 }
 
 .roomList {
-  margin: 20px 0;
+  margin: 24px 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 16px;
 }
 
 .roomCard {
   background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .roomCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
   border-color: rgba(255, 255, 255, 0.15);
+}
+
+.rankBadge {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(135deg, #e2b95f, #f8e7b9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
 }
 
 /* Individual room card stylings */
 .roomCard:nth-child(1) {
-  background: linear-gradient(135deg, rgba(224, 31, 31, 0.1), rgba(33, 10, 10, 0.7));
-  border-left: 3px solid #021371;
+  background: linear-gradient(135deg, rgba(6, 16, 88, 0.15), rgba(33, 10, 10, 0.5));
+  border-left: 3px solid #061058;
 }
 
 .roomCard:nth-child(2) {
-  background: linear-gradient(135deg, rgba(9, 81, 179, 0.1), rgba(10, 20, 36, 0.7));
-  border-left: 3px solid #ff234d;
+  background: linear-gradient(135deg, rgba(237, 28, 36, 0.15), rgba(10, 20, 36, 0.5));
+  border-left: 3px solid #ed1c24;
 }
 
 .roomCard:nth-child(3) {
-  background: linear-gradient(135deg, rgba(119, 119, 119, 0.1), rgba(28, 28, 34, 0.7));
-  border-left: 3px solid #ed011f;
+  background: linear-gradient(135deg, rgba(196, 0, 0, 0.15), rgba(28, 28, 34, 0.5));
+  border-left: 3px solid #c40000;
 }
 
 .roomCard:nth-child(4) {
-  background: linear-gradient(135deg, rgba(228, 43, 104, 0.1), rgba(32, 10, 20, 0.7));
-  border-left: 3px solid #00122b;
+  background: linear-gradient(135deg, rgba(2, 26, 56, 0.15), rgba(32, 10, 20, 0.5));
+  border-left: 3px solid #021a38;
 }
 
 .roomCard:nth-child(5) {
-  background: linear-gradient(135deg, rgba(207, 22, 22, 0.1), rgba(33, 16, 16, 0.7));
+  background: linear-gradient(135deg, rgba(176, 69, 64, 0.15), rgba(33, 16, 16, 0.5));
   border-left: 3px solid #b04540;
 }
 
 .cardHeader {
   display: flex;
   align-items: center;
-  padding: 14px 16px 5px;
+  padding: 16px 16px 8px;
   background: white;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .logoWrapper {
@@ -114,10 +171,11 @@
   overflow: hidden;
   padding: 2px;
   display: flex;
-  
   align-items: center;
   justify-content: center;
   margin-right: 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -131,39 +189,43 @@
   font-weight: 600;
   margin: 0;
   letter-spacing: 0.3px;
+  color: #111;
 }
 
 .bonusHighlight {
   display: flex;
   align-items: center;
   background: white;
-  padding: 0 16px 14px;
-  
+  padding: 8px 16px 16px;
 }
 
 .bonusIcon {
   font-size: 18px;
-  margin-right: 8px;
+  margin-right: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
-  height: 24px;
-  background: rgba(255, 215, 0, 0.1);
+  width: 28px;
+  height: 28px;
+  background: linear-gradient(135deg, #ffdf7e, #e2b95f);
   border-radius: 50%;
-  color: #ffd700;
+  box-shadow: 0 2px 6px rgba(226, 185, 95, 0.3);
+}
+
+.bonusSymbol {
+  font-size: 14px;
 }
 
 .bonusText {
-  font-size: 14px;
-  color: black;
-  font-weight: 500;
+  font-size: 15px;
+  color: #222;
+  font-weight: 600;
 }
 
 .signupBtn {
   width: 100%;
-  padding: 10px;
-  background: rgba(255, 255, 255, 0.08);
+  padding: 12px;
+  background: #061058;
   border: none;
   color: #fff;
   font-size: 15px;
@@ -174,80 +236,99 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 8px;
 }
 
-.signupBtn:hover {
-  background: rgba(255, 255, 255, 0.15);
+.arrowIcon {
+  font-size: 18px;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: all 0.3s ease;
+}
+
+.signupBtn:hover .arrowIcon {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .signupBtn:active {
   transform: scale(0.98);
 }
 
+.roomCard:nth-child(1) .signupBtn {
+  background: linear-gradient(to right, #061058, #0a1b80);
+}
+.roomCard:nth-child(2) .signupBtn {
+  background: linear-gradient(to right, #ed1c24, #ff3942);
+}
+.roomCard:nth-child(3) .signupBtn {
+  background: linear-gradient(to right, #c40000, #e80000);
+}
+.roomCard:nth-child(4) .signupBtn {
+  background: linear-gradient(to right, #021a38, #042d65);
+}
+.roomCard:nth-child(5) .signupBtn {
+  background: linear-gradient(to right, #b04540, #d65048);
+}
+
 .footerLink {
   text-align: center;
-  margin-top: 6px;
+  margin-top: 12px;
 }
 
 .allRoomsLink {
-  background: none;
-  border: none;
-  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 14px;
   cursor: pointer;
-  padding: 8px 16px;
+  padding: 10px 18px;
   border-radius: 20px;
   transition: all 0.2s ease;
   font-weight: 500;
 }
 
 .allRoomsLink:hover {
-  text-decoration: underline;
-}
-.roomCard:nth-child(1):before {
-  background: #061058;
-  box-shadow: 0 0 15px #061058;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
 }
 
-.roomCard:nth-child(2):before {
-  background: #ed1c24;
-  box-shadow: 0 0 15px #ed1c24;
+/* Loading state */
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
 }
 
-.roomCard:nth-child(3):before {
-  background: #c40000;
-  box-shadow: 0 0 15px #c40000;
+.loadingContainer {
+  text-align: center;
 }
 
-.roomCard:nth-child(4):before {
-  background: #021a38;
-  box-shadow: 0 0 15px #021a38;
+.loadingSpinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-top: 3px solid rgba(226, 185, 95, 0.8);
+  border-radius: 50%;
+  margin: 0 auto 16px;
+  animation: spin 1s linear infinite;
 }
 
-.roomCard:nth-child(5):before {
-  background: #b04540;
-  box-shadow: 0 0 15px #b04540;
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
-.roomCard:nth-child(1) .signupBtn {
-  background: #061058;
-  color: white;
+
+.loadingText {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin: 0;
 }
-.roomCard:nth-child(2) .signupBtn {
-  background: #ed1c24;
-  color: white;
-}.roomCard:nth-child(3) .signupBtn {
-  background: #c40000;
-  color: white;
-}.roomCard:nth-child(4) .signupBtn {
-  background: #021a38;
-  color: white;
-}.roomCard:nth-child(5) .signupBtn {
-  background: #b04540;
-  color: white;
-}
-/* Add animation for fresh cards */
+
+/* Add animation for cards */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
+  from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
@@ -257,9 +338,39 @@
   opacity: 0;
 }
 
-/* Make sure to set the index in JS */
-.roomCard:nth-child(1) { --index: 1; }
-.roomCard:nth-child(2) { --index: 2; }
-.roomCard:nth-child(3) { --index: 3; }
-.roomCard:nth-child(4) { --index: 4; }
-.roomCard:nth-child(5) { --index: 5; }
+/* Sidebar entrance animation */
+@keyframes sidebarEntrance {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.sidebar {
+  animation: sidebarEntrance 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.visible {
+  opacity: 1;
+}
+
+/* Add some shine effect for premium look */
+@keyframes shine {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* .sidebarTitle:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    rgba(255,255,255,0) 0%, 
+    rgba(255,255,255,0.2) 50%, 
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shine 3s infinite;
+} */

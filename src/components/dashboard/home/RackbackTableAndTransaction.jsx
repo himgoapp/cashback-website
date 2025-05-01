@@ -51,13 +51,16 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
                     <td className={styles.amount}>
                       ₹{transaction.actualAmount}
                     </td>
-                    <td>
-                      <span
-                        className={styles[getStatusClass(transaction.status)]}
-                      >
-                        {" "}
-                        {getStatusLabel(transaction.status)}
-                      </span>
+                    <td className={styles.status}>
+                      {(() => {
+                        const { className, icon } = getStatusClass(transaction.status);
+                        return (
+                          <span className={`${styles[className]} ${styles.status_wrapper}`}>
+                            <span className={styles.status_icon}>{icon}</span>
+                            <span className={styles.status_text}>{getStatusLabel(transaction.status)}</span>
+                          </span>
+                        );
+                      })()}
                     </td>
                     <td className={styles.date}>
                       {new Date(transaction.createdAt).toLocaleDateString(

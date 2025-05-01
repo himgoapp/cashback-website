@@ -17,41 +17,41 @@ export const colorBkg = (name) => {
   return name === "Poker Baazi"
     ? { backgroundColor: "#330099" }
     : name === "MPL"
-    ? { backgroundColor: "#d60f19" }
-    : { backgroundColor: "" };
+      ? { backgroundColor: "#d60f19" }
+      : { backgroundColor: "" };
 };
 export const colorBkgOut = (name) => {
   return name === "Poker Baazi"
     ? { backgroundColor: "#3c2e8e" }
     : name === "MPL"
-    ? { backgroundColor: "#d62027" }
-    : { backgroundColor: "white" };
+      ? { backgroundColor: "#d62027" }
+      : { backgroundColor: "white" };
 };
 
 export const statusBaseColor = (status) => {
   return status === "Approved"
     ? {
-        color: "#27ae60",
-        background: "#e3fcef",
-        fontWeight: "bold",
-        borderRadius: "20px",
-        padding: "2px 5px",
-        fontSize: "13px",
-        textDecoration: "none",
-      }
+      color: "#027a48",
+      background: "rgba(12, 110, 88, 0.1)",
+      fontWeight: "bold",
+      borderRadius: "20px",
+      padding: "2px 5px",
+      fontSize: "13px",
+      textDecoration: "none",
+    }
     : status === "Aborted"
-    ? {
-        color: "#e74c3c",
-        background: "#fdecea",
+      ? {
+        color: "#b00020",
+        background: "rgba(164, 48, 48, 0.1)",
         fontWeight: "bold",
         borderRadius: "20px",
         padding: "2px 5px",
         fontSize: "13px",
         textDecoration: "none",
       }
-    : {
-        color: "#f39c12",
-        background: "#fff8e1",
+      : {
+        color: "#b26a00",
+        background: "rgba(219, 168, 88, 0.1)",
         fontWeight: "bold",
         borderRadius: "20px",
         padding: "2px 5px",
@@ -76,15 +76,62 @@ export const getStatusLabel = (status) => {
 export const getStatusClass = (status) => {
   switch (status) {
     case "Approved":
-      return "status-successful";
+      return {
+        className: "status-successful",
+         icon:     <svg
+         width="14"
+         height="14"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="#027a48"
+         strokeWidth="2"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+       >
+         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+         <polyline points="22 4 12 14.01 9 11.01"></polyline>
+       </svg>
+      }; 
     case "Pending":
-      return "status-pending";
+      return { className: "status-pending",
+        icon:  <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#b26a00"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="6" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+       };
     case "Aborted":
-      return "status-aborted";
+      return { className: "status-aborted",
+         icon: <svg
+         width="14"
+         height="14"
+         viewBox="0 0 24 24"
+         fill="none"
+         stroke="#b00020"
+         strokeWidth="2"
+         strokeLinecap="round"
+         strokeLinejoin="round"
+       >
+         <circle cx="12" cy="12" r="10"></circle>
+         <line x1="15" y1="9" x2="9" y2="15"></line>
+         <line x1="9" y1="9" x2="15" y2="15"></line>
+       </svg>
+          };
     default:
-      return "";
+      return { className: "", icon: "" };
   }
 };
+
+
 
 export const getTagIdStatusClass = (status) => {
   if (status === "Approved") {
@@ -236,24 +283,80 @@ export const imagePicker = (productName) => {
   return productName === "Poker Baazi"
     ? pokerbaazi
     : productName === "Junglee Poker"
-    ? JUNGLEEPOKER
-    : productName === "MPL"
-    ? mpllogo
-    : productName === "A23poker"
-    ? A23POKER
-    : productName === "PokerCircle"
-    ? pokerbaazi
-    : productName === "PokerDangal"
-    ? POKERDANGAL
-    : productName === "Pocket52"
-    ? pocket52
-    : productName === "Adda52"
-    ? Adda52
-    : productName === "ACRpoker"
-    ? ACRPOKER
-    : productName === "CoinPoker"
-    ? CoinPoker
-    : productName === "WPTglobal"
-    ? wptglobal
-    : JUNGLEEPOKER;
+      ? JUNGLEEPOKER
+      : productName === "MPL"
+        ? mpllogo
+        : productName === "A23poker"
+          ? A23POKER
+          : productName === "PokerCircle"
+            ? pokerbaazi
+            : productName === "PokerDangal"
+              ? POKERDANGAL
+              : productName === "Pocket52"
+                ? pocket52
+                : productName === "Adda52"
+                  ? Adda52
+                  : productName === "ACRpoker"
+                    ? ACRPOKER
+                    : productName === "CoinPoker"
+                      ? CoinPoker
+                      : productName === "WPTglobal"
+                        ? wptglobal
+                        : JUNGLEEPOKER;
+};
+export const getStatusIcon = (status) => {
+  if (status === "Approved" || status === "Successful") {
+    return (
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#027a48"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    );
+  }
+  if (status === "Pending") {
+    return (
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#b26a00"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="6" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+    );
+  }
+  if (status === "Aborted") {
+    return (
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#b00020"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="15" y1="9" x2="9" y2="15"></line>
+        <line x1="9" y1="9" x2="15" y2="15"></line>
+      </svg>
+    );
+  }
+  return null;
 };

@@ -1,0 +1,339 @@
+.blogDetail {
+    padding: 15px 0;
+    font-family: "Segoe UI", sans-serif;
+    margin-bottom: 20px;
+  }
+  
+  .blogHeader {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .title {
+    color: var(--secondary-color);
+    text-align: center;
+    font-family: "Roboto", sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 2rem 0 1rem;
+    letter-spacing: -0.0625rem;
+    position: relative;
+  }
+  
+  .subheading {
+    font-size: 1.1rem;
+    color: #666;
+    margin-top: 10px;
+  }
+  
+  .blogContainer {
+    display: flex;
+    justify-content: center;
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 15px;
+  }
+  
+  .blogContent {
+    display: flex;
+    gap: 20px;
+    box-sizing: border-box;
+    width: 100%;
+  }
+  
+  .toc {
+    position: sticky;
+    top: 70px;
+    background: #fcfcfc;
+    padding: 20px;
+    border-radius: 12px;
+    height: fit-content;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.08);
+    max-width: 280px;
+    width: 100%;
+    min-width: 250px;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid rgba(230, 230, 230, 0.8);
+    box-sizing: border-box;
+    z-index: 100;
+  }
+  
+  .toc::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  .toc::-webkit-scrollbar-thumb {
+    background: rgba(0, 82, 204, 0.3);
+    border-radius: 4px;
+  }
+  
+  .toc ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 15px;
+    position: relative; 
+    --active-section-bottom: 0px;
+  }
+  
+  .toc ul::before {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #cccccc;
+    border-radius: 1px;
+    z-index: 1;
+  }
+  
+  .toc ul::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 0; 
+    width: 2px;
+    height: var(--active-section-bottom);
+    background: #0052cc;
+    border-radius: 1px;
+    z-index: 5;
+    transition: height 0.3s ease-out;
+  }
+  
+  .tocItem {
+    list-style: none;
+    cursor: pointer;
+    padding: 10px 15px 10px 30px;
+    display: flex;
+    align-items: center;
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    margin-bottom: 5px;
+    position: relative;
+  }
+  
+  .tocItem::before {
+    content: '';
+    position: absolute;
+    left: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #cccccc;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+  
+  .tocItem:hover {
+    text-decoration: none;
+    color: #0052cc;
+    background: rgba(0, 123, 255, 0.08);
+  }
+  
+  .tocItem:hover::before {
+    background: #0052cc;
+  }
+  
+  .tocItem.active {
+    font-weight: 600;
+    color: #0052cc;
+    background: rgba(0, 123, 255, 0.12);
+  }
+  
+  .tocItem.active::before {
+    background: #0052cc;
+    box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
+  }
+  
+  .tocItem.completed {
+    color: #0052cc;
+    font-weight: 600;
+    background: rgba(0, 123, 255, 0.08);
+  }
+  
+  .tocItem.active::before,
+  .tocItem.completed::before {
+    background: #0052cc;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .toc h4 {
+    font-size: 18px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    position: relative;
+    padding-bottom: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .toc h4::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: linear-gradient(90deg, #0052cc, #0070db);
+    border-radius: 2px;
+  }
+     .dropdownButton {
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	padding: 10px 14px;
+	border-radius: 6px;
+	font-size: 16px;
+	cursor: pointer;
+	width: 100%;
+	text-align: left;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+  }
+  
+  .arrow {
+	font-size: 18px;
+	margin-left: 8px;
+  }
+  .description {
+    flex: 1;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .sectionHeading {
+    margin-top: 35px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #222;
+    scroll-margin-top: 100px;
+  }
+  
+  /* Improved Responsive Design */
+  @media screen and (max-width: 1024px) {
+    .blogContent {
+      gap: 15px;
+    }
+    
+    .toc {
+      min-width: 220px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .title {
+      font-size: 2rem;
+      margin: 1.5rem 0 0.8rem;
+    }
+    
+    .subheading {
+      font-size: 1rem;
+    }
+    
+    .blogContainer {
+      padding: 0 10px;
+    }
+    
+    .blogContent {
+      flex-direction: column;
+    }
+  
+    .toc {
+      position: relative;
+      top: 0;
+      width: 100%;
+      max-width: 100%;
+      min-width: 100%;
+      margin-bottom: 20px;
+      padding: 15px;
+      transition: max-height 0.3s ease-in-out, overflow 0.3s ease-in-out;
+      overflow: hidden;
+      max-height: auto;
+    }
+    
+    .toc h4 {
+      margin-bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .toc h4::after {
+      content: "▼";
+      position: static;
+      width: auto;
+      height: auto;
+      background: none;
+      font-size: 12px;
+      transition: transform 0.3s ease;
+    }
+    
+    .toc.expanded {
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    
+    .toc.expanded h4::after {
+      content: "▲";
+      transform: rotate(0);
+    }
+    
+    .toc:not(.expanded) ul {
+      display: none;
+    }
+    
+    .description {
+      padding: 15px;
+    }
+    
+    .sectionHeading {
+      font-size: 1.3rem;
+      margin-top: 30px;
+      scroll-margin-top: 80px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .title {
+      font-size: 1.8rem;
+    }
+    
+    .description {
+      padding: 12px;
+      border: none;
+    }
+    
+    .tocItem {
+      padding: 8px 12px 8px 28px;
+      font-size: 13px;
+    }
+    .toc ul::before,
+	.toc ul::after {
+	  display: none;
+	}
+  
+	.toc {
+	  border: none;
+	  box-shadow: none;
+	  margin-left: 0;
+	  padding: 20px 0;
+	}
+  
+	.tocItem::before {
+	  display: none;
+	}
+  }

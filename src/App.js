@@ -20,6 +20,7 @@ import FullPageSignin from "./components/description/popup/signin";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import TermsConditions from "./components/common/footer/termsConditions";
 
 export const UserContext = createContext();
 
@@ -189,6 +190,14 @@ function App() {
               path="*"
               element={
                 <h1 className="text-center text-danger pt-5">Not Found</h1>
+              }
+            />
+              <Route
+              path="/terms-and-conditions"
+              element={
+                <NotProtectedRoute>
+                  <TermsConditions />
+                </NotProtectedRoute>
               }
             />
           </Routes>

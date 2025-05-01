@@ -1,5 +1,4 @@
 :root {
-  /* Premium color palette */
   --primary-color: #3a63e3;
   --secondary-color: #283252;
   --accent-color: #00c6bb;
@@ -41,9 +40,7 @@
   display: block;
   width: 80px;
   height: 4px;
-  /* background: var(--primary-color); */
   margin: 16px auto 0;
-  /* border-radius: 2px; */
 }
 
 .tabs_container {
@@ -122,7 +119,6 @@
   width: 100%;
 }
 
-/* Image Wrapper */
 .image_wrapper {
   overflow: hidden;
   border-radius: var(--border-radius);
@@ -141,7 +137,6 @@
   filter: brightness(0.95);
 }
 
-/* Hover Effects */
 .news_card:hover .news_image {
   transform: scale(1.05);
   filter: brightness(1.05);
@@ -151,7 +146,6 @@
   transform: translateY(-6px);
 }
 
-/* Card Content Overlapping */
 .cardContent {
   position: relative;
   background: var(--card-bg);
@@ -168,7 +162,6 @@
   border: 1px solid var(--border-subtle);
 }
 
-/* Optional hover lift */
 .news_card:hover .cardContent {
   box-shadow: var(--shadow-heavy);
   border-color: rgba(255, 255, 255, 0.5);
@@ -250,7 +243,6 @@
   gap: 5px;
 }
 
-/* Improved Important Posts */
 .important_post {
   margin-top: 20px;
   width: 100%;
@@ -350,7 +342,6 @@
   gap: 4px;
 }
 
-/* Responsive CSS */
 @media (max-width: 1024px) {
   .news_grid {
     grid-template-columns: repeat(2, 1fr);
@@ -416,6 +407,7 @@
     padding: 20px;
     margin: 0 auto;
     width: 100%;
+    margin-top: 40px;
   }
   
   .heading_card {

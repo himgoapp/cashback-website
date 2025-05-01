@@ -96,11 +96,23 @@
   color: #1e293b;
   font-size: 14px;
 }
+.status_wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
 
+.status_icon {
+  font-size: 14px;
+}
+
+.status_text {
+  font-size: 13px;
+}
 .status-successful {
-  color: #10b981;
+  color: #027a48;
   font-weight: 600;
-  background: #ecfdf5;
+  background: rgba(12, 110, 88, 0.1);
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -109,8 +121,8 @@
 
 .status-pending {
   font-weight: 600;
-  background: #fff7ed;
-  color: #f59e0b;
+  background: rgba(219, 168, 88, 0.1);
+  color: #b26a00;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
@@ -118,12 +130,12 @@
 }
 
 .status-aborted {
-  background: #fef2f2;
+  background: rgba(164, 48, 48, 0.1);
   font-weight: 600;
   padding: 6px 12px;
   border-radius: 20px;
   font-size: 13px;
-  color: #ef4444;
+  color: #b00020;
   display: inline-block;
 }
 
@@ -134,7 +146,20 @@
     padding: 18px;
   }
 }
-
+.transaction_table{
+  margin-left: -10px;
+}
+.status-successful,
+.status-pending,
+.status-aborted {
+  padding: 4px 6px;
+  font-size: 9px;
+  border-radius: 10px;
+  margin: 0 auto;
+  display: inline-flex;
+  min-height: 22px;
+  min-width: 70px;
+}
 @media (max-width: 480px) {
   .rakeback_container {
     margin-left: 5px;
@@ -189,11 +214,17 @@
   .date {
     font-size: 12px;
   }
-
-  .status-pending,
-  .status-successful,
-  .status-aborted {
-    font-size: 11px;
-    padding: 4px 8px;
+  .status_wrapper {
+    gap: 4px;
   }
+
+  .status_icon {
+    font-size: 12px;
+  }
+
+  .status_text {
+    font-size: 11px;
+  }
+
+
 }

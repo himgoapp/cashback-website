@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./pokerCard.module.css";
 import pokerCardimg from "../../../../assets/pokercard.png";
 import moment from "moment";
-import { statusBaseColor, imagePicker } from "../../../../helperFxns/colorCode";
+import { statusBaseColor, imagePicker,getStatusIcon  } from "../../../../helperFxns/colorCode";
 
 const PokerCard = ({ status, color, item }) => {
   return (
@@ -37,8 +37,10 @@ const PokerCard = ({ status, color, item }) => {
         <div className={styles.FooterContent}>
           <div className={styles.StatusContainer}>
             <div className={styles.StatusBadge} style={statusBaseColor(status)}>
-              <div className={styles.StatusIndicator}></div>
-              <span>{status}</span>
+              <div className={styles.StatusIndicator}> {getStatusIcon(status)}</div>
+              <span className={styles.StatusText}>
+    {status}
+  </span>
             </div>
           </div>
           <div className={styles.DateContainer}>

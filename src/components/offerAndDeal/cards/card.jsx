@@ -1,13 +1,32 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
 import { getPokerSiteImage } from "../../../helperFxns/colorCode";
-import styles from "./card.module.css"
+import styles from "./card.module.css";
 
 const OfferCard = ({ product, index }) => {
   const navigate = useNavigate();
   const { userData } = useContext(UserContext);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth <= 480);
+
+  // Handle window resize
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth <= 480);
+    };
+
+    // Set up event listener
+    window.addEventListener('resize', handleResize);
+    
+    // Check size on initial load
+    handleResize();
+    
+    // Clean up
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   const onJoinClick = (roomId) => {
     let value = roomId.replace(/[\s?]/g, "-");
@@ -72,44 +91,84 @@ const OfferCard = ({ product, index }) => {
     <div className={styles.cardContainer}>
       <div className={styles.numberTag}>#{index + 1}</div>
 
-      <div className={styles.logoContainer}>
-        <img
-          src={getPokerSiteImage(product?.name)}
-          alt={`Logo of ${product?.name}`}
-        />
-      </div>
+      {isMobileView ? (
+        // Mobile layout with logo and title at the top
+        <>
+          <div className={styles.mobileHeaderSection}>
+            <div className={styles.logoContainer}>
+              <img
+                src={getPokerSiteImage(product?.name)}
+                alt={`Logo of ${product?.name}`}
+              />
+            </div>
+            <div className={styles.headerTitleSection}>
+              <h3 className={styles.productTitle}>{product?.name}</h3>
+              {product?.offer && (
+                <div className={styles.offerBadge}>💰 {product.offer}</div>
+              )}
+            </div>
+          </div>
+          
+          <div className={styles.contentSection}>
+            <div className={styles.offerBonusRack}>
+              {renderRating(product?.rating)}
+            </div>
 
-      <div className={styles.contentSection}>
-        {product?.offer && (
-          <div className={styles.offerBadge}>💰 {product.offer}</div>
-        )}
-        <h3 className={styles.productTitle}>{product?.name}</h3>
+            <p className={styles.availability}>
+              Available for players from your country
+            </p>
 
-        <div className={styles.offerBonusRack}>
-          {renderRating(product?.rating)}
-        </div>
+            <p className={styles.description}>
+              {product?.smallDescription?.length > 150
+                ? product.smallDescription.slice(0, 150) + "..."
+                : product?.smallDescription}
+            </p>
+          </div>
+        </>
+      ) : (
+        // Desktop layout (unchanged)
+        <>
+          <div className={styles.logoContainer}>
+            <img
+              src={getPokerSiteImage(product?.name)}
+              alt={`Logo of ${product?.name}`}
+            />
+          </div>
 
-        <p className={styles.availability}>
-          Available for players from your country
-        </p>
+          <div className={styles.contentSection}>
+            {product?.offer && (
+              <div className={styles.offerBadge}>💰 {product.offer}</div>
+            )}
+            <h3 className={styles.productTitle}>{product?.name}</h3>
 
-        <p className={styles.description}>
-          {product?.smallDescription?.length > 150
-            ? product.smallDescription.slice(0, 150) + "..."
-            : product?.smallDescription}
-        </p>
-      </div>
+            <div className={styles.offerBonusRack}>
+              {renderRating(product?.rating)}
+            </div>
+
+            <p className={styles.availability}>
+              Available for players from your country
+            </p>
+
+            <p className={styles.description}>
+              {product?.smallDescription?.length > 150
+                ? product.smallDescription.slice(0, 150) + "..."
+                : product?.smallDescription}
+            </p>
+          </div>
+        </>
+      )}
 
       <div className={styles.buttonSection}>
         <Navbtn
           text={userData ? "Join Now" : "Sign Up"}
           variant="filled"
-          onClick={() => onJoinClick(`${product.name}-${product._id}`)}
+        //   onClick={() => onJoinClick(`${product.name}-${product._id}`)}
         />
         <Navbtn
           text="Read Review"
           variant="outlined"
           className={styles.reviewButton}
+		  onClick={() => onJoinClick(`${product.name}-${product._id}`)}
         />
       </div>
     </div>
@@ -117,7 +176,6 @@ const OfferCard = ({ product, index }) => {
 };
 
 export default OfferCard;
-
 
 
 const availabiltyicon = (

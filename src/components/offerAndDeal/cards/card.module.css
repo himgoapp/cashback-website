@@ -109,13 +109,13 @@
   letter-spacing: -0.5px;
 }
 
-.offer_bonus_rack {
+.offerBonusRack {
   display: flex;
   gap: 12px;
   margin: 12px 0;
 }
 
-.offer_bonus {
+.offerBonus {
   background: #f0f7ff;
   color: #0052cc;
   font-weight: bold;
@@ -208,6 +208,47 @@ button.reviewButton {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Rating styles */
+.ratingDisplay {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stars {
+  display: flex;
+}
+
+.filledStar, .halfStar, .emptyStar {
+  font-size: 20px;
+}
+
+.filledStar {
+  color: #FBBC38;
+}
+
+.halfStar {
+  position: relative;
+  color: #CCCFD2;
+}
+
+.halfStar:before {
+  content: '★';
+  position: absolute;
+  color: #FBBC38;
+  width: 50%;
+  overflow: hidden;
+}
+
+.emptyStar {
+  color: #CCCFD2;
+}
+
+.ratingNumber {
+  font-weight: bold;
+  color: #333;
+}
+
 @media (max-width: 768px) {
   .cardContainer {
     width: 95%;
@@ -252,6 +293,9 @@ button.reviewButton {
 @media (max-width: 480px) {
   .cardContainer {
     padding: 15px;
+    /* Change to column direction for mobile */
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .numberTag {
@@ -263,25 +307,40 @@ button.reviewButton {
     padding: 4px 10px;
   }
   
+  /* Header section with logo and title */
+  .mobileHeaderSection {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
   .logoContainer {
     flex: 0 0 70px;
     height: 70px;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     padding: 8px;
+    margin-right: 15px;
+  }
+  
+  .headerTitleSection {
+    flex: 1;
+  }
+  
+  .productTitle {
+    font-size: 16px;
+    margin: 0 0 5px;
   }
   
   .contentSection {
     width: 100%;
+    padding: 0;
+    margin-top: 5px;
   }
   
   .offerBadge {
     font-size: 12px;
     padding: 6px 12px;
-  }
-  
-  .productTitle {
-    font-size: 16px;
-    margin: 8px 0 5px;
   }
   
   .availability {
@@ -300,6 +359,7 @@ button.reviewButton {
   .buttonSection {
     flex-direction: row;
     gap: 8px;
+    width: 100%;
   }
   
   .buttonSection button {

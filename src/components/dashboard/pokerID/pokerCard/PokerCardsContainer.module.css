@@ -1,6 +1,5 @@
 .PokerCardsContainer {
   width: 100%;
-  /* padding-bottom: 3rem; */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -12,7 +11,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.3rem 0.5rem;
-  gap: 1rem;
+  gap: 2px;
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -81,7 +80,9 @@
     0 4px 12px rgba(0, 0, 0, 0.05),
     0 1px 3px rgba(0, 0, 0, 0.03);
 }
-
+.TabIcon{
+  margin-right: 8px;
+}
 
 .CardsRow {
   display: flex;
@@ -101,14 +102,11 @@
 
 @media (max-width: 768px) {
   .TabFilters {
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .CardsRow {
     flex-direction: row;
-  }
-  .CardItem {
-    /* flex-basis: 100%; */
   }
 }
 
@@ -118,11 +116,15 @@
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
     padding: 0.5rem;
+    margin-left: -10px;
   }
 
   .TabButton {
     font-size: 0.8rem;
-    padding: 0.7rem 0.75rem;
+    padding: 0.7rem 0.42rem;
+  }
+  .TabIcon{
+    margin-right: 5px;
   }
   .CardsRow {
     flex-direction: row;

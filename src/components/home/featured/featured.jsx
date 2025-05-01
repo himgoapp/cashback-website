@@ -34,12 +34,20 @@ const Featured = () => {
   };
 
   const handleRedirect = (article) => {
-    let blogId = `${article.title}_${article._id}`;
-    blogId = blogId.replace(/[\s?]/g, "_"); 
+    let blogId = `${article.title}-${article._id}`;
+    blogId = blogId.replace(/[\s?]/g, "-"); 
     navigate(`/news/${blogId}`);
   };
   const blogChunks = chunkArray(blogs, 3);
 
+  const formatDate = (dateString) => {
+    const options = { 
+      month: 'short', 
+      day: 'numeric', 
+      year: 'numeric' 
+    };
+    return new Date(dateString).toLocaleDateString('en-US', options);
+  };
   return (
     <div className={`${styles.featured_container}`}>
       <div className={styles.featured_content}>
@@ -64,8 +72,8 @@ const Featured = () => {
                    {item.subheading.length > 90 ? item.subheading.slice(0, 90) + "..." : item.subheading}
                  </p>
                  <div className={styles.cardMeta}>
-                   <span className={styles.writer}>{item.author}</span>
-                   <span className={styles.date}>{item.date}</span>
+                   <span className={styles.writer}> ✍️ {item.author}</span>
+                   <span className={styles.date}>  📅 {formatDate(item.date)}</span>
                  </div>
                </div>
              </div>

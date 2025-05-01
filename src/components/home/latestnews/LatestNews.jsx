@@ -19,7 +19,6 @@ const LatestNews = ({ userData }) => {
 
   const handleTabs = (type) => {
     setActiveTab(type);
-    // Reset to first page when changing tabs
     setPage(1);
   };
 
@@ -38,18 +37,17 @@ const LatestNews = ({ userData }) => {
     filterArticles();
   }, [activeTab, page]);
 
-  // Premium color mapping for article types
   const typeColors = {
-    Blog: "#3a63e3", // Primary blue
-    Promotions: "#00c6bb", // Accent teal
-    Guides: "#ff6b6b", // Soft red
-    Interviews: "#7c5cf5", // Purple
-    "MTT Series": "#38b47e", // Emerald green
-    "Live Poker": "#5271ff", // Bright blue
-    "Latest News": "#e6a919", // Gold
+    Blog: "#3a63e3", 
+    Promotions: "#00c6bb", 
+    Guides: "#ff6b6b", 
+    Interviews: "#7c5cf5",
+    "MTT Series": "#38b47e", 
+    "Live Poker": "#5271ff", 
+    "Latest News": "#e6a919", 
   };
 
-  // Format date in a more premium way
+  
   const formatDate = (dateString) => {
     const options = { 
       month: 'short', 
