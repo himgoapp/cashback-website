@@ -222,7 +222,8 @@
 	transition: all 0.3s ease-in-out;
 	background: rgba(248, 249, 250, 0.9);
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-	margin-bottom: 20px;
+	margin-bottom: 30px;
+	margin-top: -30px;
   }
   
   .home {
@@ -727,6 +728,8 @@
 	.breadcrumb {
 	  font-size: 14px;
 	  padding: 10px 15px;
+	  margin-top: 10px;
+	  
 	}
   
 	.toc {
@@ -804,7 +807,7 @@
 	  padding: 18px;
 	  font-size: 15px;
 	  border-radius: 12px;
-	  margin-top: 80px;
+	  margin-top: 70px;
 
 	}
   
@@ -846,6 +849,7 @@
 	  border: none;
 	  box-shadow: none;
 	  margin-left: 0;
+	  background: none;
 	  padding: 20px 0;
 	}
   

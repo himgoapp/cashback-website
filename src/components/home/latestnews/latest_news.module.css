@@ -52,7 +52,7 @@
   display: flex;
   gap: 1rem;
   list-style: none;
-  font-size: 15px;
+  font-size: 14px !important;
   font-family: "Roboto", sans-serif;
   font-weight: 500;
   color: var(--text-color);
@@ -61,8 +61,8 @@
   box-shadow: var(--shadow-light);
   border-radius: 20px;
   background-color: white;
-  padding: 8px;
-}
+  padding:8px
+;}
 
 .tabList > li {
   padding: 0.6rem 1.2rem;
@@ -396,7 +396,8 @@
     justify-content: center;
     gap: 10px;
     font-size: 13px;
-    padding: 5px;
+      padding-top: 15px
+
   }
   
   .tabList > li {

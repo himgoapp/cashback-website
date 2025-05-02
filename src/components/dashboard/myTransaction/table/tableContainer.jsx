@@ -6,15 +6,15 @@ import { alltransactions } from "../../../../servicefile/transactionservice";
 import styles from "./tableContainer.module.css";
 
 const EyeIcon = () => (
-  <svg 
-    width="20" 
-    height="20" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
+  <svg
+    width="20"
+    height="20"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={styles.eyeIcon}
   >
     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
@@ -23,15 +23,15 @@ const EyeIcon = () => (
 );
 
 const PrintIcon = () => (
-  <svg 
-    width="18" 
-    height="18" 
-    viewBox="0 0 24 24" 
-    fill="none" 
-    stroke="currentColor" 
-    strokeWidth="2" 
-    strokeLinecap="round" 
-    strokeLinejoin="round" 
+  <svg
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
     className={styles.printIcon}
   >
     <polyline points="6 9 6 2 18 2 18 9"></polyline>
@@ -56,8 +56,8 @@ const NoDataComponent = () => (
 const getStatusInfo = (status) => {
   switch (status.toLowerCase()) {
     case "approved":
-      return { 
-        backgroundColor: "rgba(12, 110, 88, 0.1)", 
+      return {
+        backgroundColor: "rgba(12, 110, 88, 0.1)",
         color: "#027a48",
         borderColor: "rgba(12, 110, 88, 0.2)",
         icon: (
@@ -68,8 +68,8 @@ const getStatusInfo = (status) => {
         )
       };
     case "pending":
-      return { 
-        backgroundColor: "rgba(219, 168, 88, 0.1)", 
+      return {
+        backgroundColor: "rgba(219, 168, 88, 0.1)",
         color: "#b26a00",
         borderColor: "rgba(219, 168, 88, 0.2)",
         icon: (
@@ -81,8 +81,8 @@ const getStatusInfo = (status) => {
         )
       };
     case "aborted":
-      return { 
-        backgroundColor: "rgba(164, 48, 48, 0.1)", 
+      return {
+        backgroundColor: "rgba(164, 48, 48, 0.1)",
         color: "#b00020",
         borderColor: "rgba(164, 48, 48, 0.2)",
         icon: (
@@ -94,8 +94,8 @@ const getStatusInfo = (status) => {
         )
       };
     default:
-      return { 
-        backgroundColor: "#f1f5f9", 
+      return {
+        backgroundColor: "#f1f5f9",
         color: "#64748b",
         borderColor: "#e2e8f0",
         icon: (
@@ -268,7 +268,7 @@ const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPer
 
       <div className={styles.paginationRowsPerPage}>
         <span className={styles.rowsPerPageLabel}>Rows per page:</span>
-        <select 
+        <select
           className={styles.rowsPerPageSelect}
           value={rowsPerPage}
           onChange={e => onChangeRowsPerPage(Number(e.target.value), currentPage)}
@@ -335,7 +335,7 @@ const TableContainer = ({ transactionType }) => {
 
   const handlePerRowsChange = async (newPerPage, page) => {
     setPerPage(newPerPage);
-    setCurrentPage(1); 
+    setCurrentPage(1);
   };
 
   const handleOpenModal = (transaction) => {
@@ -348,61 +348,7 @@ const TableContainer = ({ transactionType }) => {
     setSelectedTransaction(null);
   };
 
-  // const handlePrintReceipt = () => {
-  //   if (!selectedTransaction) return;
-    
-  //   const receiptContent = document.createElement('div');
-  //   receiptContent.innerHTML = `
-  //     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
-  //       <div style="text-align: center; margin-bottom: 20px;">
-  //         <h2 style="margin-bottom: 5px;">Transaction Receipt</h2>
-  //         <p style="color: #666; margin-top: 0;">Status: ${selectedTransaction.status}</p>
-  //       </div>
-  //       <div style="margin-bottom: 20px; border-top: 1px solid #eee; border-bottom: 1px solid #eee; padding: 15px 0;">
-  //         <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-  //           <span style="color: #666;">Transaction ID:</span>
-  //           <span>${selectedTransaction.transaction_hash}</span>
-  //         </div>
-  //         <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-  //           <span style="color: #666;">Date & Time:</span>
-  //           <span>${moment(selectedTransaction.createdAt).format("DD MMM YYYY, h:mm A")}</span>
-  //         </div>
-  //         <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-  //           <span style="color: #666;">Transaction Type:</span>
-  //           <span>${selectedTransaction.typeOfTransaction}</span>
-  //         </div>
-  //         ${selectedTransaction.typeOfTransaction === "Withdrawal" && selectedTransaction.status === "Approved" ? 
-  //           `<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-  //             <span style="color: #666;">UTR:</span>
-  //             <span>${selectedTransaction.utr}</span>
-  //           </div>` : ''}
-  //       </div>
-  //       <div style="margin-bottom: 20px;">
-  //         ${selectedTransaction.typeOfTransaction !== "Deposit" ? 
-  //           `<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-  //             <span style="color: #666;">TDS Amount:</span>
-  //             <span>${formatCurrency(selectedTransaction.rackbackcut)}</span>
-  //           </div>` : ''}
-  //         <div style="display: flex; justify-content: space-between; background-color: #f9fafb; padding: 15px; font-size: 18px; font-weight: bold;">
-  //           <span>Total Amount:</span>
-  //           <span style="color: ${selectedTransaction.typeOfTransaction === "Deposit" ? '#027a48' : '#b00020'}">
-  //             ${selectedTransaction.typeOfTransaction === "Deposit" ? "+" : "-"}${formatCurrency(selectedTransaction.actualAmount)}
-  //           </span>
-  //         </div>
-  //       </div>
-  //       <div style="font-size: 12px; color: #666; text-align: center; margin-top: 30px;">
-  //         <p>This is an electronically generated receipt.</p>
-  //       </div>
-  //     </div>
-  //   `;
-    
-  //   const printWindow = window.open('', '_blank');
-  //   printWindow.document.write('<html><head><title>Transaction Receipt</title></head><body>');
-  //   printWindow.document.write(receiptContent.innerHTML);
-  //   printWindow.document.write('</body></html>');
-  //   printWindow.document.close();
-  //   printWindow.print();
-  // };
+
 
   const formatCurrency = (amount) => {
     return new Intl.NumberFormat('en-IN', {
@@ -500,34 +446,36 @@ const TableContainer = ({ transactionType }) => {
 
   return (
     <div className={styles.tableContainerWrapper}>
-      <div className={styles.tableHeader}>
+      {/* <div className={styles.tableHeader}>
         <h2 className={styles.tableTitle}>{transactionType} Transactions</h2>
         <div className={styles.tableStats}>
           <span>Total: {totalRows} transactions</span>
         </div>
-      </div>
+      </div> */}
       <DataTable
         columns={columns}
         data={transactions}
+        progressPending={loading}
         customStyles={customStyles}
         pagination
         paginationServer
         paginationTotalRows={totalRows}
-        paginationPerPage={perPage}
         paginationDefaultPage={currentPage}
         onChangePage={handlePageChange}
         onChangeRowsPerPage={handlePerRowsChange}
-        paginationComponent={props => (
+        noDataComponent={<NoDataComponent />}
+        paginationComponent={({ ...props }) => (
           <CustomPagination
             {...props}
+            rowsPerPage={perPage}
+            rowCount={totalRows}
+            onChangePage={handlePageChange}
+            onChangeRowsPerPage={handlePerRowsChange}
             currentPage={currentPage}
           />
         )}
-        noDataComponent={<NoDataComponent />}
-        highlightOnHover
-        pointerOnHover
-        responsive
       />
+
 
       {open && selectedTransaction && (
         <div className={styles.modalBackdrop} onClick={handleCloseModal}>
@@ -569,7 +517,7 @@ const TableContainer = ({ transactionType }) => {
                     <span className={styles.receiptLabel}>Transaction Type</span>
                     <span className={styles.receiptValue}>{selectedTransaction.typeOfTransaction}</span>
                   </div>
-                  
+
                   {selectedTransaction.typeOfTransaction === "Withdrawal" && selectedTransaction.status === "Approved" && (
                     <div className={styles.receiptRow}>
                       <span className={styles.receiptLabel}>UTR</span>
@@ -577,11 +525,10 @@ const TableContainer = ({ transactionType }) => {
                     </div>
                   )}
                 </div>
-                
+
                 <div className={styles.receiptDivider}></div>
-                
+
                 <div className={styles.receiptSection}>
-                  {/* <h3>Financial Details</h3> */}
                   {selectedTransaction.typeOfTransaction !== "Deposit" && (
                     <div className={styles.receiptRow}>
                       <span className={styles.receiptLabel}>TDS Amount</span>
@@ -601,15 +548,8 @@ const TableContainer = ({ transactionType }) => {
               </div>
             </div>
             <div className={styles.modalActions}>
-              {/* <button 
-                className={styles.printButton} 
-                onClick={handlePrintReceipt}
-                aria-label="Print receipt"
-              >
-                <PrintIcon /> Print Receipt
-              </button> */}
-              <button 
-                className={styles.closeButton} 
+              <button
+                className={styles.closeButton}
                 onClick={handleCloseModal}
                 aria-label="Close modal"
               >
