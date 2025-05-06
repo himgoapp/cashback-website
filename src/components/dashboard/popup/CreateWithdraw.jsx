@@ -101,6 +101,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount }) => {
 									onChange={(e) => setAmount(e.target.value)}
 									autoFocus
 									className={styles.amountInput}
+									style={{fontFamily:'"Roboto", sans-serif'}}
 								/>
 								<Form.Label className={styles.putAmountLabel}>
 							{error && <span  style={{fontSize:"14px",color:"red"}}>{error}</span>}

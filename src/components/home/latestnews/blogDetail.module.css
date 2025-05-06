@@ -40,7 +40,7 @@
   
   .title {
 	font-size: 36px;
-	font-family: "Roboto", sans-serif;
+	font-family: "Futura";
 	font-weight: 800;
 	margin-top: 24px;
 	color: #111;
@@ -98,6 +98,7 @@
 	box-sizing: border-box;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
+	
   }
   
   .description:hover {
@@ -106,8 +107,10 @@
   
   .description p {
 	margin-bottom: 1.5rem;
+	font-family: "Roboto", sans-serif;
+	color: #666666;
   }
-  
+
   .description a {
 	color: #0052cc;
 	text-decoration: none;
@@ -153,11 +156,10 @@
   .description li {
 	margin-bottom: 8px;
   }
-  
+
   .sectionHeading {
 	margin-top: 45px;
 	font-size: 24px;
-	font-family: "Roboto", sans-serif;
 	font-weight: bold;
 	color: #111;
 	position: relative;
@@ -167,6 +169,7 @@
 	box-sizing: border-box;
 	overflow-wrap: break-word;
 	word-wrap: break-word;
+	font-family: "Futura";
   }
   
   .sectionHeading::after {
@@ -194,6 +197,7 @@
 	color: white;
 	text-align: left;
 	padding: 12px 15px;
+	
 	font-weight: 600;
   }
   
@@ -224,6 +228,7 @@
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 	margin-bottom: 30px;
 	margin-top: -30px;
+	
   }
   
   .home {
@@ -231,6 +236,7 @@
 	text-decoration: none;
 	font-weight: bold;
 	position: relative;
+	font-family: "Futura";
 	transition: all 0.2s ease;
   }
   
@@ -261,11 +267,12 @@
   .current {
 	color: #444;
 	font-weight: 500;
+	font-family: 'Roboto', sans-serif;
   }
   
   .toc {
 	position: sticky;
-	top: 90px;
+	top:40px;
 	background: #fcfcfc;
 	padding: 25px;
 	border-radius: 14px;
@@ -296,66 +303,48 @@
 	padding-left: 0;
 	margin-top: 15px;
 	position: relative;
-	--active-section-bottom: 0;
   }
   
+  /* Only show line between dots, not after the last one */
   .toc ul::before {
 	content: '';
 	position: absolute;
 	left: 7px;
-	top: 0;
-	bottom: 0;
+	top: 24px; /* Increased from 10px to start below the first dot */
+	height: calc(100% - 60px);
 	width: 2px;
 	background: #cccccc;
 	border-radius: 1px;
+	z-index: 1;
   }
   
+  /* For the blue progress line - also stop before the last item */
   .toc ul::after {
 	content: '';
 	position: absolute;
 	left: 7px;
-	top: 0; 
+	top: 24px; /* Same top offset to align progress line with the background line */
+	height: calc(min(var(--active-section-bottom), 100% - 60px));
 	width: 2px;
-	height: var(--active-section-bottom); 
-	background: #0052cc; 
+	background: #0052cc;
 	border-radius: 1px;
 	z-index: 5;
+	transition: height 0.3s ease-out;
   }
   
-  .tocItem.active {
-	font-weight: 600;
-	color: #0052cc;
-	background: rgba(0, 123, 255, 0.12);
-  }
-  
-  .tocItem.active::before {
-	background: #0052cc;
-	width: 12px;
-	height: 12px;
-	box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
-  }
-  .tocItem.completed {
-	color: #0052cc;
-	font-weight: 600;
-	background: rgba(0, 123, 255, 0.08);
-  }
-  
-  .tocItem.completed::before {
-	background: #0052cc;
-  }
   .tocItem {
 	list-style: none;
 	cursor: pointer;
-	padding: 12px 18px 12px 30px;
+	padding: 10px 15px 10px 30px;
 	display: flex;
 	align-items: center;
 	color: #666;
-	font-size: 15px;
+	font-size: 14px;
 	font-weight: 500;
 	font-family: "Roboto", sans-serif;
 	transition: all 0.3s ease-in-out;
 	border-radius: 8px;
-	margin-bottom: 6px;
+	margin-bottom: 5px;
 	position: relative;
   }
   
@@ -373,38 +362,42 @@
 	z-index: 10;
   }
   
-  .tocItem:hover {
-	text-decoration: none;
-	color: #0052cc;
-	background: rgba(0, 123, 255, 0.08);
-  }
-  
-  .tocItem:hover::before {
-	background: #0052cc;
-  }
-  
-  .tocItem.active {
+ /* .tocItem:hover {
+  text-decoration: none;
+  color: #0052cc;
+} */
+
+/* .tocItem:hover::before {
+  background: #0052cc;
+} */
+
+.tocItem.active {
 	font-weight: 600;
 	color: #0052cc;
-	background: rgba(0, 123, 255, 0.12);
   }
   
   .tocItem.active::before {
 	background: #0052cc;
-	width: 12px;
-	height: 12px;
 	box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
   }
   
-  .tocItem.active ~ .tocItem::before {
-	background: #cccccc;
+  .tocItem.completed {
+	color: #0052cc;
+	font-weight: 600;
   }
   
+  .tocItem.active::before,
+  .tocItem.completed::before {
+	background: #0052cc;
+	width: 12px;
+	height: 12px;
+  }
+   
   .toc h4 {
-	font-size: 20px;
-	font-family: "Roboto", sans-serif;
+	font-size: 18px;
+	font-family: "Futura";
 	font-weight: bold;
-	margin-bottom: 12px;
+	margin-bottom: 10px;
 	position: relative;
 	padding-bottom: 8px;
 	cursor: pointer;
@@ -423,6 +416,7 @@
 	background: linear-gradient(90deg, #0052cc, #0070db);
 	border-radius: 2px;
   }
+  
   .dropdownButton {
 	background-color: #f9f9f9;
 	border: 1px solid #ddd;
@@ -466,6 +460,7 @@
 	color: #222;
 	font-weight: 700;
 	margin-bottom: 20px;
+	font-family: "Futura";
 	position: relative;
 	padding-bottom: 10px;
   }
@@ -492,6 +487,7 @@
 	margin: 0;
 	font-weight: 600;
 	line-height: 1.4;
+	font-family: "Futura";
 	display: -webkit-box;
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
@@ -529,8 +525,14 @@
 	color: #777;
 	margin-top: 5px;
 	font-weight: 500;
+	font-family: "Roboto", sans-serif;
+  }
+  
+  .post_meta span {
 	display: flex;
 	align-items: center;
+	
+	
   }
   
   .post_meta::before {

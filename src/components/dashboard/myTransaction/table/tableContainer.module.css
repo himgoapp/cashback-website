@@ -9,9 +9,9 @@
 	--premium-neutral: #64748b;
 	--premium-border: #e2e8f0;
 	--premium-shadow: rgba(17, 24, 39, 0.08);
-  }
-  
-  .tableContainerWrapper {
+}
+
+.tableContainerWrapper {
 	background-color: var(--premium-light);
 	border-radius: 16px;
 	box-shadow: 0 10px 30px var(--premium-shadow);
@@ -19,50 +19,50 @@
 	overflow: hidden;
 	border: 1px solid rgba(226, 232, 240, 0.7);
 	transition: all 0.3s ease;
-  }
-  
-  .tableContainerWrapper:hover {
+}
+
+.tableContainerWrapper:hover {
 	box-shadow: 0 14px 40px rgba(17, 24, 39, 0.12);
-  }
-  
-  .tableHeader {
+}
+
+.tableHeader {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 24px 28px;
 	border-bottom: 1px solid var(--premium-border);
 	background: linear-gradient(to right, rgba(58, 90, 120, 0.02), rgba(58, 90, 120, 0.08));
-  }
-  
-  .tableTitle {
-	font-family:"Roboto", sans-serif;
+}
+
+.tableTitle {
+		font-family: "Roboto", sans-serif;
 	font-size: 22px;
 	font-weight: 600;
 	color: var(--premium-dark);
 	margin: 0;
 	letter-spacing: -0.3px;
-  }
-  
-  .tableStats {
-	font-family:"Roboto", sans-serif;
+}
+
+.tableStats {
+	font-family: "Roboto", sans-serif;
 	font-size: 14px;
 	color: var(--premium-neutral);
 	font-weight: 500;
-  }
-  
-  .transactionCell {
+}
+
+.transactionCell {
 	position: relative;
 	transition: all 0.2s ease;
-  }
-  
-  .transactionId {
-	font-family: "Roboto Mono", monospace;
+}
+
+.transactionId {
+	font-family: "Roboto", sans-serif;
 	letter-spacing: 0.5px;
 	color: var(--premium-dark);
 	font-weight: 500;
-  }
-  
-  .transactionFull {
+}
+
+.transactionFull {
 	display: none;
 	position: absolute;
 	background-color: var(--premium-dark);
@@ -81,68 +81,73 @@
 	margin-top: -70px;
 	transform: translateY(-5px);
 	transition: all 0.2s ease;
-  }
-  
-  .transactionCell:hover .transactionFull {
+}
+
+.transactionCell:hover .transactionFull {
 	display: block;
 	opacity: 1;
 	transform: translateY(0);
-  }
-  
-  .dateTimeCell {
+}
+
+.dateTimeCell {
 	display: flex;
 	flex-direction: column;
-  }
-  
-  .date {
+}
+
+.date {
 	font-weight: 600;
 	color: var(--premium-dark);
-	font-family: 'Inter', sans-serif;
-  }
-  
-  .time {
+	font-family: "Roboto", sans-serif;
+
+}
+
+.time {
 	font-size: 12px;
 	color: var(--premium-neutral);
 	margin-top: 4px;
-	font-family: 'Inter', sans-serif;
-  }
-  
-  .creditAmount {
+	font-family: "Roboto", sans-serif;
+
+}
+
+.creditAmount {
 	color: var(--premium-success);
 	font-weight: 700;
 	position: relative;
-  }
-  
-  .creditAmount::before {
+}
+
+.creditAmount::before {
 	opacity: 0.8;
-  }
-  
-  .debitAmount {
+}
+
+.debitAmount {
 	color: var(--premium-error);
 	font-weight: 700;
 	position: relative;
-  }
-  
-  .debitAmount::before {
-	opacity: 0.8;
-  }
+}
 
-  .tdsAmount {
+.debitAmount::before {
+	opacity: 0.8;
+}
+
+.tdsAmount {
 	color: var(--premium-neutral);
 	font-weight: 600;
-  }
-  .statusIcon{
-margin-right: 8px;
-  }
-  .statusIconLarge{
+}
+
+.statusIcon {
 	margin-right: 8px;
-  }
-  .zeroAmount {
+}
+
+.statusIconLarge {
+	margin-right: 8px;
+}
+
+.zeroAmount {
 	color: var(--premium-neutral);
 	opacity: 0.7;
-  }
-  
-  .statusBadge {
+}
+
+.statusBadge {
 	padding: 8px 14px;
 	border-radius: 50px;
 	font-size: 12px;
@@ -152,27 +157,27 @@ margin-right: 8px;
 	display: inline-block;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
 	transition: all 0.2s ease;
-  }
-  
-  .statusBadge.success {
+}
+
+.statusBadge.success {
 	background-color: rgba(12, 110, 88, 0.1);
 	color: var(--premium-success);
 	border: 1px solid rgba(12, 110, 88, 0.2);
-  }
-  
-  .statusBadge.pending {
+}
+
+.statusBadge.pending {
 	background-color: rgba(219, 168, 88, 0.1);
 	color: #f39c12;
 	border: 1px solid rgba(219, 168, 88, 0.2);
-  }
-  
-  .statusBadge.failed {
+}
+
+.statusBadge.failed {
 	background-color: rgba(164, 48, 48, 0.1);
 	color: var(--premium-error);
 	border: 1px solid rgba(164, 48, 48, 0.2);
-  }
-  
-  .actionButton {
+}
+
+.actionButton {
 	background-color: rgba(58, 90, 120, 0.06);
 	border: 1px solid rgba(58, 90, 120, 0.1);
 	border-radius: 10px;
@@ -183,28 +188,28 @@ margin-right: 8px;
 	justify-content: center;
 	cursor: pointer;
 	transition: all 0.3s ease;
-  }
-  
-  .actionButton:hover {
+}
+
+.actionButton:hover {
 	background-color: rgba(58, 90, 120, 0.1);
 	transform: translateY(-2px);
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  }
-  
-  .eyeIcon {
+}
+
+.eyeIcon {
 	width: 18px;
 	height: 18px;
 	opacity: 0.7;
 	stroke: var(--premium-primary);
 	transition: all 0.2s ease;
-  }
-  
-  .actionButton:hover .eyeIcon {
+}
+
+.actionButton:hover .eyeIcon {
 	opacity: 1;
 	stroke: var(--premium-primary-dark);
-  }
-  
-  .loader {
+}
+
+.loader {
 	padding: 32px;
 	text-align: center;
 	color: var(--premium-neutral);
@@ -213,9 +218,9 @@ margin-right: 8px;
 	align-items: center;
 	justify-content: center;
 	flex-direction: column;
-  }
-  
-  .loader::before {
+}
+
+.loader::before {
 	content: '';
 	width: 36px;
 	height: 36px;
@@ -224,14 +229,19 @@ margin-right: 8px;
 	border-radius: 50%;
 	animation: spin 1s linear infinite;
 	margin-bottom: 16px;
-  }
-  
-  @keyframes spin {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
-  }
-  
-  .noData {
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.noData {
 	padding: 40px;
 	text-align: center;
 	color: var(--premium-neutral);
@@ -241,16 +251,16 @@ margin-right: 8px;
 	justify-content: center;
 	flex-direction: column;
 	background-color: rgba(100, 116, 139, 0.02);
-  }
-  
-  .noData::before {
+}
+
+.noData::before {
 	content: '📋';
 	font-size: 28px;
 	margin-bottom: 14px;
 	opacity: 0.7;
-  }
-  
-  .paginationContainer {
+}
+
+.paginationContainer {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -259,21 +269,22 @@ margin-right: 8px;
 	flex-wrap: wrap;
 	gap: 16px;
 	background: linear-gradient(to right, rgba(58, 90, 120, 0.02), rgba(58, 90, 120, 0.06));
-  }
-  
-  .paginationInfo {
+}
+
+.paginationInfo {
 	color: var(--premium-neutral);
 	font-size: 14px;
+	font-family: "Roboto", sans-serif;
 	font-weight: 500;
-  }
-  
-  .paginationControls {
+}
+
+.paginationControls {
 	display: flex;
 	align-items: center;
 	gap: 6px;
-  }
-  
-  .pageButton {
+}
+
+.pageButton {
 	min-width: 38px;
 	height: 38px;
 	border: 1px solid var(--premium-border);
@@ -287,55 +298,56 @@ margin-right: 8px;
 	cursor: pointer;
 	transition: all 0.25s ease;
 	font-weight: 500;
-  }
-  
-  .pageButton:hover:not(:disabled) {
+}
+
+.pageButton:hover:not(:disabled) {
 	background-color: rgba(58, 90, 120, 0.04);
 	border-color: rgba(58, 90, 120, 0.2);
 	transform: translateY(-1px);
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  }
-  
-  .pageButton:disabled {
+}
+
+.pageButton:disabled {
 	opacity: 0.4;
 	cursor: not-allowed;
-  }
-  
-  .navButton {
+}
+
+.navButton {
 	font-size: 16px;
 	font-weight: bold;
-  }
-  
-  .activePageButton {
+}
+
+.activePageButton {
 	background-color: var(--premium-primary);
 	color: white;
 	border-color: var(--premium-primary);
 	box-shadow: 0 2px 8px rgba(58, 90, 120, 0.3);
-  }
-  
-  .activePageButton:hover {
+}
+
+.activePageButton:hover {
 	background-color: var(--premium-primary-dark);
 	border-color: var(--premium-primary-dark);
-  }
-  
-  .ellipsis {
+}
+
+.ellipsis {
 	padding: 0 8px;
 	color: var(--premium-neutral);
-  }
-  
-  .paginationRowsPerPage {
+}
+
+.paginationRowsPerPage {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-  }
-  
-  .rowsPerPageLabel {
+}
+
+.rowsPerPageLabel {
 	color: var(--premium-neutral);
 	font-size: 14px;
 	font-weight: 500;
-  }
-  
-  .rowsPerPageSelect {
+	font-family: "Roboto", sans-serif;
+}
+
+.rowsPerPageSelect {
 	border: 1px solid var(--premium-border);
 	border-radius: 8px;
 	padding: 8px 14px;
@@ -351,14 +363,14 @@ margin-right: 8px;
 	background-repeat: no-repeat;
 	background-position: right 10px center;
 	padding-right: 30px;
-  }
-  
-  .rowsPerPageSelect:focus {
+}
+
+.rowsPerPageSelect:focus {
 	border-color: var(--premium-primary);
 	box-shadow: 0 0 0 2px rgba(58, 90, 120, 0.15);
-  }
-  
-  .modalBackdrop {
+}
+
+.modalBackdrop {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -371,14 +383,19 @@ margin-right: 8px;
 	z-index: 1000;
 	backdrop-filter: blur(6px);
 	animation: fadeIn 0.3s ease;
-  }
-  
-  @keyframes fadeIn {
-	from { opacity: 0; }
-	to { opacity: 1; }
-  }
-  
-  .modalContent {
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+.modalContent {
 	background-color: white;
 	border-radius: 16px;
 	width: 100%;
@@ -387,99 +404,103 @@ margin-right: 8px;
 	overflow: hidden;
 	animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 	border: 1px solid rgba(226, 232, 240, 0.8);
-  }
-  
-  @keyframes slideIn {
+}
+
+@keyframes slideIn {
 	from {
-	  transform: translateY(30px) scale(0.97);
-	  opacity: 0;
+		transform: translateY(30px) scale(0.97);
+		opacity: 0;
 	}
+
 	to {
-	  transform: translateY(0) scale(1);
-	  opacity: 1;
+		transform: translateY(0) scale(1);
+		opacity: 1;
 	}
-  }
-  
-  .receiptContainer {
+}
+
+.receiptContainer {
 	padding: 0;
-  }
-  
-  .receiptHeader {
+}
+
+.receiptHeader {
 	padding: 28px;
 	border-bottom: 1px solid var(--premium-border);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	background: linear-gradient(to right, rgba(58, 90, 120, 0.02), rgba(58, 90, 120, 0.08));
-  }
-  
-  .receiptTitle {
+}
+
+.receiptTitle {
 	margin: 0;
 	font-size: 20px;
 	font-weight: 600;
 	color: var(--premium-dark);
-	font-family: 'Playfair Display', serif;
+	font-family: 'Futura';
 	letter-spacing: -0.3px;
-  }
-  
-  .statusBadgeLarge {
+}
+
+.statusBadgeLarge {
 	padding: 8px 18px;
 	border-radius: 50px;
 	font-size: 14px;
 	font-weight: 600;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  }
-  
-  .receiptBody {
+}
+
+.receiptBody {
 	padding: 24px 28px;
-  }
-  
-  .receiptSection {
+}
+
+.receiptSection {
 	margin-bottom: 20px;
-  }
-  
-  .receiptSection h3 {
+}
+
+.receiptSection h3 {
 	font-size: 15px;
 	color: var(--premium-neutral);
 	margin-bottom: 12px;
 	text-transform: uppercase;
 	letter-spacing: 1px;
 	font-weight: 600;
-  }
-  
-  .receiptRow {
+	font-family: "Roboto", sans-serif;
+}
+
+.receiptRow {
 	display: flex;
 	justify-content: space-between;
 	padding: 12px 0;
 	border-bottom: 1px dashed rgba(226, 232, 240, 0.7);
-  }
-  
-  .receiptRow:last-child {
+}
+
+.receiptRow:last-child {
 	border-bottom: none;
-  }
-  
-  .receiptLabel {
+}
+
+.receiptLabel {
 	color: var(--premium-neutral);
 	font-size: 14px;
 	font-weight: 500;
-  }
-  
-  .receiptValue {
+	font-family: "Roboto", sans-serif;
+}
+
+.receiptValue {
 	color: var(--premium-dark);
 	font-weight: 600;
 	font-size: 14px;
+	font-family: "Roboto", sans-serif;
 	word-break: break-all;
 	text-align: right;
 	max-width: 60%;
-  }
-  
-  .receiptDivider {
+}
+
+.receiptDivider {
 	height: 1px;
 	background-color: var(--premium-border);
 	margin: 20px 0;
-  }
-  
-  .amountSection {
+}
+
+.amountSection {
 	background: linear-gradient(to right, rgba(58, 90, 120, 0.03), rgba(58, 90, 120, 0.08));
 	margin: 20px -28px -24px;
 	padding: 20px 28px;
@@ -487,46 +508,48 @@ margin-right: 8px;
 	justify-content: space-between;
 	align-items: center;
 	border-top: 1px solid var(--premium-border);
-  }
-  
-  .amountLabel {
+}
+
+.amountLabel {
 	font-size: 16px;
 	font-weight: 600;
+	font-family: "Roboto", sans-serif;
 	color: var(--premium-dark);
-  }
-  
-  .amountValue {
+}
+
+.amountValue {
 	font-size: 22px;
 	font-weight: 700;
-	font-family: 'Inter', sans-serif;
-  }
-  
-  .amountValue.credit {
+	font-family: "Roboto", sans-serif;
+
+}
+
+.amountValue.credit {
 	color: var(--premium-success);
-  }
-  
-  .amountValue.credit::before {
+}
+
+.amountValue.credit::before {
 	opacity: 0.8;
-  }
-  
-  .amountValue.debit {
+}
+
+.amountValue.debit {
 	color: var(--premium-error);
-  }
-  
-  .amountValue.debit::before {
+}
+
+.amountValue.debit::before {
 	opacity: 0.8;
-  }
-  
-  .modalActions {
+}
+
+.modalActions {
 	padding: 18px 28px;
 	background-color: var(--premium-light);
 	border-top: 1px solid var(--premium-border);
 	display: flex;
 	justify-content: flex-end;
 	gap: 12px;
-  }
-  
-  .closeButton {
+}
+
+.closeButton {
 	background-color: white;
 	border: 1px solid var(--premium-border);
 	border-radius: 10px;
@@ -534,17 +557,18 @@ margin-right: 8px;
 	font-weight: 600;
 	padding: 12px 20px;
 	cursor: pointer;
+	font-family: "Futura";
 	transition: all 0.25s ease;
 	font-size: 14px;
-  }
-  
-  .closeButton:hover {
+}
+
+.closeButton:hover {
 	background-color: var(--premium-light);
 	transform: translateY(-1px);
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-  }
-  
-  .printButton {
+}
+
+.printButton {
 	background-color: var(--premium-primary);
 	border: 1px solid var(--premium-primary);
 	border-radius: 10px;
@@ -557,30 +581,30 @@ margin-right: 8px;
 	display: flex;
 	align-items: center;
 	gap: 8px;
-  }
-  
-  .printButton:hover {
+}
+
+.printButton:hover {
 	background-color: var(--premium-primary-dark);
 	transform: translateY(-1px);
 	box-shadow: 0 2px 8px rgba(58, 90, 120, 0.3);
-  }
-  
-  .printIcon {
+}
+
+.printIcon {
 	width: 16px;
 	height: 16px;
-  }
-  
-  table {
+}
+
+table {
 	width: 100%;
 	border-collapse: separate;
 	border-spacing: 0;
-  }
-  
-  thead tr {
+}
+
+thead tr {
 	background-color: rgba(58, 90, 120, 0.03);
-  }
-  
-  th {
+}
+
+th {
 	text-align: left;
 	padding: 16px;
 	font-weight: 600;
@@ -589,85 +613,96 @@ margin-right: 8px;
 	text-transform: uppercase;
 	letter-spacing: 0.5px;
 	border-bottom: 1px solid var(--premium-border);
-  }
-  
-  td {
+}
+
+td {
 	padding: 18px 16px;
 	border-bottom: 1px solid rgba(226, 232, 240, 0.5);
-  }
-  
-  tbody tr {
+}
+
+tbody tr {
 	transition: all 0.2s ease;
-  }
-  
-  tbody tr:hover {
+}
+
+tbody tr:hover {
 	background-color: rgba(58, 90, 120, 0.02);
-  }
-  
-  tbody tr:last-child td {
+}
+
+tbody tr:last-child td {
 	border-bottom: none;
-  }
-  
-  @media screen and (max-width: 768px) {
-	.tableHeader, .paginationContainer {
-	  flex-direction: column;
-	  align-items: flex-start;
-	  gap: 12px;
+}
+
+@media screen and (max-width: 768px) {
+
+	.tableHeader,
+	.paginationContainer {
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 12px;
 	}
-	
+
 	.tableTitle {
-	  margin-bottom: 4px;
+		margin-bottom: 4px;
 	}
-	
+
 	.paginationControls {
-	  order: 1;
-	  width: 100%;
-	  justify-content: center;
-	  margin-top: 12px;
+		order: 1;
+		width: 100%;
+		justify-content: center;
+		margin-top: 12px;
 	}
-	
+
 	.paginationInfo {
-	  order: 0;
+		order: 0;
 	}
-	
+
 	.paginationRowsPerPage {
-	  order: 2;
-	  margin-top: 12px;
-	  width: 100%;
-	  justify-content: space-between;
+		order: 2;
+		margin-top: 12px;
+		width: 100%;
+		justify-content: space-between;
 	}
-	
+
 	.modalContent {
-	  width: 90%;
-	  margin: 0 16px;
+		width: 90%;
+		margin: 0 16px;
 	}
-	
-	.receiptHeader, .receiptBody {
-	  padding: 20px;
+
+	.receiptHeader,
+	.receiptBody {
+		padding: 20px;
 	}
-	
+
 	.amountSection {
-	  margin: 20px -20px -20px;
-	  padding: 16px 20px;
+		margin: 20px -20px -20px;
+		padding: 16px 20px;
 	}
-  }
-  
-  @keyframes pulse {
-	0% { transform: scale(1); }
-	50% { transform: scale(1.02); }
-	100% { transform: scale(1); }
-  }
-  
-  .tableContainerWrapper:hover .tableTitle {
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	50% {
+		transform: scale(1.02);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+.tableContainerWrapper:hover .tableTitle {
 	color: var(--premium-primary-dark);
 	transition: color 0.3s ease;
-  }
-  
-  tbody tr {
+}
+
+tbody tr {
 	transform: translateX(0);
 	transition: transform 0.3s ease;
-  }
-  
-  tbody tr:hover {
+}
+
+tbody tr:hover {
 	transform: translateX(4px);
-  }
+}

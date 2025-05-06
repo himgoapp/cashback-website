@@ -24,7 +24,7 @@ const Navbtn = ({
         color: color || "white", // Default text color
         transition: "background-color 0.3s ease-in-out, color 0.3s ease-in-out",
         ...style,
-        fontFamily:'"Roboto", sans-serif'
+        fontFamily:'Futura'
       }}
       onClick={() => onClick()}
       disabled={loading || disabled}

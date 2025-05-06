@@ -13,7 +13,14 @@ function BankAccDetails({ setStepReload }) {
 	const [ifsc_code, setIfscCode] = useState("");
 	const [validate, setValidate] = useState("");
 	const [errors, setErrors] = useState({});
-	
+
+	const isFormValid =
+		account_number &&
+		bank_name &&
+		ifsc_code &&
+		validate &&
+		account_number === validate;
+
 	const addBankDetailsData = async () => {
 		if (!userData || !userData._id) return;
 
@@ -38,7 +45,7 @@ function BankAccDetails({ setStepReload }) {
 			);
 			if (res && res.message === "Bank Saved Successfully!") {
 				localStorage.setItem("transactionInfo", "true");
-				toast.success(`Bank information saved!`);
+				// toast.success(`Bank information saved!`);
 				setStepReload(true);
 			}
 		}
@@ -47,7 +54,7 @@ function BankAccDetails({ setStepReload }) {
 	return (
 		<>
 			<div className={styles.AddressDetailsContainer}>
-				<div className={styles.Text}>Bank Account Details</div>
+				<div className={styles.Text} style={{ fontFamily: "Futura" }}>Bank Account Details</div>
 				<div className={styles.AddressDetailsForm}>
 					<div className={styles.AddressDetailsContent}>
 						<div className={styles.InputRow}>
@@ -121,10 +128,12 @@ function BankAccDetails({ setStepReload }) {
 							>
 								<Navbtn
 									text='Save changes'
-									variant={"primary"}
-									size={"small"}
+									variant='primary'
+									size='small'
 									showIcon={false}
+									disabled={!isFormValid}
 								/>
+
 							</div>
 						</div>
 					</div>

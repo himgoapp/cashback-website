@@ -37,12 +37,12 @@
 .heading{
   font-size: 30px;
   font-weight: bold;
-  font-family: "Roboto", sans-serif;;
+  font-family: "Futura";
 }
 .sub_heading{
   font-size: 20px;
   font-weight: bold;
-  font-family: "Roboto", sans-serif;;
+  font-family: "Futura";
 }
 .StepBase {
   display: flex;
@@ -111,7 +111,7 @@
 .StepContent .Head {
   color: var(--gray-700, #344054);
 
-  font-family: Inter;
+  font-family: "Futura";
   font-size: 1rem;
   font-style: normal;
   font-weight: 600;
@@ -120,7 +120,7 @@
 .StepContent .Subhead {
   color: var(--gray-600, var(--text-secondary, #475467));
 
-  font-family: Be Vietnam;
+  font-family: "Roboto",sans-serif;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;

@@ -179,8 +179,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
   };
 
   const handleAccountSettings = () => {
-    setShowAccountSettings(true);
-    setShowDropdown(false);
+    navigate("/dashboard/profile");
   };
 
   const handleCloseAccountSettings = () => {
@@ -293,68 +292,81 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
                 {/* Profile Dropdown */}
                 {showDropdown && (
-                  <div className={styles.dropdown}>
-                    <div className={styles.content}>
-                      <div className={styles.userInfo}>
-                        <p className={styles.greeting}>Hello,</p>
-                        <h5 className={styles.userName}>
-                          {userData?.userName || "User"}
-                        </h5>
-                      </div>
+         <div className={styles.dropdown}>
+         <div className={styles.content}>
+           <div className={styles.userInfo}>
+             {/* <div className={styles.avatar}>
+               <span className={styles.initial}>U</span>
+             </div> */}
+             <div className={styles.userDetails}>
+               <p className={styles.greeting} style={{fontFamily:'"Roboto",sans-serif'}}>Hello,</p>
+               <h5 className={styles.userName}>{userData?.userName || "User"}</h5>
+             </div>
+           </div>
+           
+           {/* <div className={styles.statsWrapper}>
+             <div className={styles.stat}>
+               <span className="material-icons {styles.statIcon}">attach_money</span>
+               <div className={styles.statInfo}>
+                 <p className={styles.statLabel}>Balance</p>
+                 <h6 className={styles.statValue}>₹12,850</h6>
+               </div>
+             </div>
+             <div className={styles.stat}>
+               <span className="material-icons {styles.statIcon}">diamond</span>
+               <div className={styles.statInfo}>
+                 <p className={styles.statLabel}>Points</p>
+                 <h6 className={styles.statValue}>850</h6>
+               </div>
+             </div>
+           </div> */}
+       
+           {/* Menu Items */}
+           <div className={styles.menu}>
+             {/* Account Settings */}
+             <div className={styles.menuItem} onClick={() => handleAccountSettings()}>
+               <div className={styles.menuIcon}>
+               <span class="material-icons">
+account_circle
+</span>
 
-                      {/* <div className={styles.stat}>
-                        <span
-                          className="material-icons"
-                          style={{ fontSize: "22px", color: "#3b82f6" }}
-                        >
-                          bar_chart
-                        </span>
-                        <p>Total Rakeback</p>
-                        <h6></h6>
-                      </div> */}
 
-                      <hr className={styles.separator} />
+               </div>
+               <span className={styles.menuTitle} style={{fontFamily:'"Roboto",sans-serif'}}>Profile</span>
+               {/* <span className="material-icons {styles.chevron}">chevron_right</span> */}
+             </div>
+       
+             {/* Payments History */}
+             <div className={styles.menuItem} onClick={() => handleMyTransactionClick()}>
+               <div className={styles.menuIcon}>
+               <span class="material-icons">history</span>
 
-                      {/* Menu Items */}
-                      <div className={styles.menu}>
-                        {/* Account Settings */}
-                        <div
-                          className={styles.menuItem}
-                          onClick={handleAccountSettings}
-                        >
-                          <span className="material-icons">account_circle</span>
-                          <span>Account Settings</span>
-                        </div>
+               </div>
+               <span className={styles.menuTitle} style={{fontFamily:'"Roboto",sans-serif'}}>Payments History</span>
+               {/* <span className="material-icons {styles.chevron}">chevron_right</span> */}
+             </div>
+             
+             {/* <div className={styles.menuItem}>
+               <div className={styles.menuIcon}>
+                 <span className="material-icons">{styles.helpOutline}</span>
+               </div>
+               <span className={styles.menuTitle}>Help & Support</span>
+               <span className="material-icons {styles.chevron}">chevron_right</span>
+             </div>
+              */}
+             <div className={styles.logout} onClick={() => onLogout()}>
+               <div className={styles.menuIcon}>
+               <span class="material-icons" style={{color: "#EF4444"}}>exit_to_app</span>
 
-                        {/* Cashback & Rewards Section */}
-                        <div className={styles.menuSection}>
-                          {/* <p className={styles.menuSectionTitle}>Cashback & Rewards</p>
-         <div className={styles.menuItem}>
-           <span className="material-icons">currency_rupee</span>
-           <span>My Earnings</span>
+
+               </div>
+               <span className={styles.menuTitle} style={{fontFamily:'"Roboto",sans-serif'}}>Logout</span>
+             </div>
+           </div>
          </div>
-         <div className={styles.menuItem}>
-           <span className="material-icons">payment</span>
-           <span>Payments</span>
-         </div> */}
-                          <div
-                            className={styles.menuItem}
-                            onClick={() => handleMyTransactionClick()}
-                          >
-                            <span className="material-icons">history</span>
-                            <span>Payments History</span>
-                          </div>
-                        </div>
-                        <div
-                          className={styles.logout}
-                          onClick={() => onLogout()}
-                        >
-                          <span className="material-icons">exit_to_app</span>
-                          <span>Logout</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+       </div>
+       
+          
                 )}
               </div>
             </div>

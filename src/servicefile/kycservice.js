@@ -58,20 +58,15 @@ export const addPanCard = async (user_id, panCardNo) => {
 export const addAddressProof = async (
 	user_id,
 	file,
-	firstName,
-	lastName,
+	
 	addressProofType,
 	documentNumber,
-	proofState
 ) => {
 	const formData = new FormData();
 	formData.append("image", file);
 	formData.append("id", user_id);
-	formData.append("firstName", firstName);
-	formData.append("lastName", lastName);
 	formData.append("addressProofType", addressProofType);
-	formData.append("documentNumber", documentNumber);
-	formData.append("proofState", proofState);
+	formData.append("addressProofDocumentNumber", documentNumber);
 
 	let body = formData;
 

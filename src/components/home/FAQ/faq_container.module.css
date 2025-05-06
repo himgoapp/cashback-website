@@ -31,7 +31,7 @@
 
 .hero_title {
   color: white;
-  font-family: "Poppins", sans-serif;
+  font-family: "Futura";
   font-size: 3rem;
   font-weight: 700;
   line-height: 1.2;
@@ -146,6 +146,7 @@
   word-wrap: break-word;
   overflow-wrap: break-word;
   white-space: normal;
+  font-family: "Futura";
   transition: color 0.3s ease;
 }
 
@@ -225,7 +226,7 @@
 
 .question {
   color: #2c3e50;
-  font-family: "Poppins", sans-serif;
+  font-family: "Futura";
   font-size: 18px;
   font-weight: 600;
   line-height: 1.7rem;

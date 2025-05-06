@@ -188,8 +188,9 @@ const FullPageSignin = () => {
                     }
                   }}
                   required
+                  style={{fontFamily:'"Roboto",sans-serif'}}
                 />
-                <label>Enter mobile number</label>
+                <label style={{fontFamily:'"Roboto",sans-serif'}}>Enter mobile number</label>
               </div>
               
               <button
@@ -233,6 +234,7 @@ const FullPageSignin = () => {
                   onPaste={index === 0 ? handlePaste : null}
                   className={styles.otpInput}
                   autoFocus={index === 0 && showOtpPart}
+                  style={{fontFamily:'"Roboto",sans-serif',fontWeight:"400"}}
                 />
               ))}
             </div>
@@ -241,7 +243,7 @@ const FullPageSignin = () => {
               <p>
                 Haven't received the OTP?{' '}
                 {resendTimer > 0 ? (
-                  <span>Resend in <span className={styles.timer}>{resendTimer}s</span></span>
+                  <span  style={{fontFamily:'"Roboto",sans-serif',fontWeight:"400"}}>Resend in <span className={styles.timer}  style={{fontFamily:'"Roboto",sans-serif'}}>{resendTimer}s</span></span>
                 ) : (
                   <button
                     className={styles.resendButton}

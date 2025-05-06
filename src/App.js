@@ -21,7 +21,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TermsConditions from "./components/common/footer/termsConditions";
-
+import Profile from "./components/dashboard/profile/profile";
 export const UserContext = createContext();
 
 function App() {
@@ -153,6 +153,15 @@ function App() {
                 </ProtectedRoute>
               }
             />
+             <Route
+              path="/dashboard/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+
             <Route
               path="/latest-news"
               element={

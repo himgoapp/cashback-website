@@ -121,6 +121,7 @@ const WelcomePage = () => {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
+                    style={{fontFamily:'"Roboto", sans-serif'}}
                   />
                   <label htmlFor="email">Enter email</label>
                 </div>
@@ -134,6 +135,7 @@ const WelcomePage = () => {
                     id="name"
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
+                    style={{fontFamily:'"Roboto", sans-serif'}}
                     required
                   />
                   <label htmlFor="name">Enter Name</label>

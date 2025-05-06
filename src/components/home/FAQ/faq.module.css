@@ -144,7 +144,10 @@
 	color: #0052cc;
 	max-width: 90%;
 	text-align: center;
-	font-family: "Roboto", sans-serif;
+	font-family: "Futura";
+  }
+  
+  .tab_title p {
 	word-wrap: break-word;
 	overflow-wrap: break-word;
 	white-space: normal;

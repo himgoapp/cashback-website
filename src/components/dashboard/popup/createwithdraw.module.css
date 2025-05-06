@@ -42,7 +42,7 @@
     font-size: 16px;
     font-weight: 600;
     color: var(--gray-600, var(--text-secondary, #475467));
-  
+  font-family: "Futura" !important;
     margin-bottom: 8px;
     transition: color 0.3s ease;
   }
@@ -142,7 +142,7 @@
   
   .Head {
     color: black;
-    font-family: Futura Md BT;
+    font-family: "Futura";
     font-size: 1.875rem;
     font-style: normal;
     font-weight: 700;
@@ -155,7 +155,7 @@
     color: black;
   
     /* Text md/Regular */
-    font-family: Inter;
+    font-family: "Roboto", sans-serif;
     font-size: 16px;
     font-style: normal;
     font-weight: 600;

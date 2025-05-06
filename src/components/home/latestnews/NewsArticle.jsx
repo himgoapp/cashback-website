@@ -172,7 +172,8 @@ const NewArticle = () => {
       const cleanTitle = p1.replace(/<[^>]+>/g, "");
       const sectionId = `section-${index}`;
       headingsRef.current.push({ id: sectionId, title: cleanTitle });
-      return `<h2 id="${sectionId}" class="${styles.sectionHeading}">${p1}</h2>`;
+      return `<h2 id="${sectionId}" class="${styles.sectionHeading}">${cleanTitle}</h2>`; 
+
     }
   );
 
@@ -285,7 +286,7 @@ const NewArticle = () => {
             </div>
 
             <div className={styles.rightSidebar}>
-              <RightSidebar />
+              {/* <RightSidebar /> */}
               <div className={styles.important_post}>
                 <h2 className={styles.important_post_heading}>
                   Related Articles

@@ -8,7 +8,8 @@ import {
   KYCIcon, 
   HomeIcon, 
   closeIcon, 
-  logo 
+  logo,
+  profileIcon 
 } from "../../../utils/sideBarIcon";
 import logout from "../../../assets/logout.svg";
 
@@ -25,6 +26,7 @@ const Sidebar = ({ active }) => {
     } else {
       setShowSidebar(true); 
     }
+    console.log("Active index: ", active);
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -60,21 +62,23 @@ const Sidebar = ({ active }) => {
               { icon: PokerIcon, text: "Poker IDs", link: "/dashboard/pokerid" },
               { icon: KYCIcon, text: "KYC", link: "/dashboard/kyc" },
               { icon: TransactionsIcon, text: "My Transactions", link: "/dashboard/mytransactions" },
+              { icon: profileIcon, text: "Profile", link: "/dashboard/profile" },
             ].map((nav, index) => {
               return (
                 <Link
-                  key={index}
-                  to={nav.link}
-                  className={`${styles.NavItemBase} ${active === index ? styles.active : ""}`}
-                  onClick={() => isMobile && setShowSidebar(false)} 
-                >
-                  <div className={styles.ItemContent}>
-                    <div className={styles.BarChart01}>
-                      <div className={styles.Icon}>{nav.icon}</div>
-                    </div>
-                    <div className={styles.Text}>{nav.text}</div>
+                key={index}
+                to={nav.link}
+                className={`${styles.NavItemBase} ${active === index ? styles.active : ""}`}
+                onClick={() => isMobile && setShowSidebar(false)} 
+              >
+                <div className={styles.ItemContent}>
+                  <div className={styles.BarChart01}>
+                    <div className={styles.Icon}>{nav.icon}</div>
                   </div>
-                </Link>
+                  <div className={styles.Text}>{nav.text}</div>
+                </div>
+              </Link>
+              
               );
             })}
           </div>

@@ -56,18 +56,6 @@ const Footer = () => {
           </div>
 
           <div className={styles.social_links}>
-            <a href="#" className={styles.link_icon} aria-label="Discord">
-              <div className={styles.icon}>{discord}</div>
-            </a>
-            <a
-              className={styles.link_icon}
-              href="https://x.com/rakebackcom"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-            >
-              <div className={styles.icon}>{twitter}</div>
-            </a>
             <a href="#" className={styles.link_icon} aria-label="Instagram">
               <div className={styles.icon}>{ig}</div>
             </a>

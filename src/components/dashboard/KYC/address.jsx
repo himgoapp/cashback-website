@@ -10,16 +10,17 @@ const SelectField = ({ label, options, placeholder, currentValue, setValue }) =>
   return (
     <div className={styles.SelectInput}>
       <div className={styles.SelectInputContent}>
-        <div className={styles.InputLabel}>{label}</div>
+        <div className={styles.InputLabel} style={{ fontFamily: '"Roboto",sans-serif' }}>{label}</div>
         <div className={styles.InputWrapper}>
           <select
             className={styles.SelectTextWrapper}
             value={currentValue}
             onChange={(e) => setValue(e.target.value)}
+            style={{ fontFamily: '"Roboto",sans-serif' }}
           >
-            <option value="">{placeholder}</option>
+            <option value="" style={{ fontFamily: '"Roboto",sans-serif' }}>{placeholder}</option>
             {options.map((option, index) => (
-              <option key={index} value={option.value}>
+              <option style={{ fontFamily: '"Roboto",sans-serif' }} key={index} value={option.value}>
                 {option.label}
               </option>
             ))}
@@ -34,7 +35,7 @@ const SelectField = ({ label, options, placeholder, currentValue, setValue }) =>
 };
 
 const documentMaxLengths = {
-  aaddhar_card: 12,
+  aadhaar_card: 12,
   driving_license: 16,
   passport: 9,
   voter_id: 10,
@@ -47,12 +48,13 @@ export const TextField = ({
   setValue,
   type,
   ...props
-  
+
 }) => {
   return (
     <div className={styles.TextInput}>
       <div className={styles.TextInputWithLabel}>
-        <div className={styles.TextLabel}>{label}</div>
+        <div className={styles.TextLabel} style={{ fontFamily: '"Roboto",sans-serif' }}> {label}
+        <span className={styles.requiredAsterisk}>*</span></div>
         <input
           type={type ? type : "text"}
           className={styles.TextFieldInput}
@@ -60,6 +62,7 @@ export const TextField = ({
           value={currentValue}
           onChange={(e) => setValue(e.target.value)}
           {...props}
+          style={{ fontFamily: '"Roboto",sans-serif' }}
         />
       </div>
     </div>
@@ -76,6 +79,8 @@ function AddressDetail({ setStepReload }) {
   const [documentNumber, setDocumentNumber] = useState("");
   const [proofState, setProofState] = useState("");
 
+  const isFormValid = file && addressProofType && documentNumber;
+
   const handleClick = (event) => {
     imageRef.current.click();
   };
@@ -90,22 +95,17 @@ function AddressDetail({ setStepReload }) {
 
     if (
       !file ||
-      !firstName ||
-      !lastName ||
+
       !addressProofType ||
-      !documentNumber ||
-      !proofState
+      !documentNumber
     ) {
       // toast.error(`All fields are required for saving address information!`);
     } else {
       const res = await addAddressProof(
         userData._id,
         file,
-        firstName,
-        lastName,
         addressProofType,
         documentNumber,
-        proofState
       );
       if (res && res.message === "success") {
         localStorage.setItem("transactionInfo", "true");
@@ -129,11 +129,11 @@ function AddressDetail({ setStepReload }) {
   return (
     <>
       <div className={styles.AddressDetailsContainer}>
-        <div className={styles.Text}>Address Details</div>
+        <div className={styles.Text} style={{ fontFamily: 'Futura' }}>Address Details</div>
         <div className={styles.AddressDetailsForm}>
           <div className={styles.AddressDetailsContent}>
             <div className={styles.InputRow}>
-              <TextField
+              {/* <TextField
                 label="First name"
                 placeholder="Olivia"
                 currentValue={firstName}
@@ -146,7 +146,7 @@ function AddressDetail({ setStepReload }) {
                 currentValue={lastName}
                 setValue={setLastName}
                 required
-              />
+              /> */}
             </div>
             <div className={styles.InputRow}>
               {/* <SelectField
@@ -155,30 +155,61 @@ function AddressDetail({ setStepReload }) {
 								currentValue={addressProofType}
 								setValue={setAddressProofType}
 							/> */}
-              <SelectField
+              {/* <SelectField
                 label="Address Proof Document Type"
-                placeholder="Address Proof..."
+                // placeholder="Address Proof..."
                 currentValue={addressProofType}
                 setValue={setAddressProofType}
                 options={[
-                  { value: "aaddhar_card", label: "Aaddhar Card" },
-                  { value: "driving_license", label: "Driving License" },
+                  { value: "aadhaar_card", label: "Aaddhar Card" },
                   { value: "passport", label: "Passport" },
                   { value: "voter_id", label: "Voter ID" },
                 ]}
                 required
-              />
+              /> */}
+              <div className={styles.formGroup} >
+                <label htmlFor="addressProofType" className={styles.formLabel} style={{ fontFamily: '"Roboto",sans-serif' }}>
+                  Address Proof Document Type<span className={styles.requiredAsterisk}>*</span>
+
+                  {/* <span className={styles.required}>*</span> */}
+                </label>
+                <select
+                  id="addressProofType"
+                  className={styles.formControl}
+                  value={addressProofType}
+                  onChange={(e) => setAddressProofType(e.target.value)}
+                  required
+                  style={{
+                    fontFamily: '"Roboto",sans-serif', color: "#344054"
+                  }}
+                >
+                  {/* <option value="">-- Select Document Type --</option> */}
+                  <option value="aadhaar_card" style={{
+                    fontFamily: '"Roboto",sans-serif', color: "#344054"
+
+                  }}>Aaddhar Card</option>
+                  <option value="passport" style={{
+                    fontFamily: '"Roboto",sans-serif', color: "#344054"
+
+                  }}>Passport</option>
+                  <option value="voter_id" style={{
+                    fontFamily: '"Roboto",sans-serif', color: "#344054"
+
+                  }}>Voter ID</option>
+                </select>
+              </div>
 
               <TextField
                 label="Address Proof Document Number"
                 // placeholder="GSVD73YB3B"
                 currentValue={documentNumber}
                 setValue={setDocumentNumber}
-                maxLength={documentMaxLengths[addressProofType] || 20} 
+                maxLength={documentMaxLengths[addressProofType] || 20}
                 required
               />
+              
             </div>
-            <div className={styles.InputRow}>
+            {/* <div className={styles.InputRow}>
               <TextField
                 label="State"
                 placeholder="Bihar"
@@ -193,10 +224,10 @@ function AddressDetail({ setStepReload }) {
                 }}
                 required
               />
-            </div>
+            </div> */}
             <div className={styles.UploadArea}>
               <div className={styles.UploadLabel}>
-                Upload Address Proof Document*
+                Upload Address Proof Document<span className={styles.requiredAsterisk}>*</span>
               </div>
               <div className={styles.FileUpload}>
                 <div className={styles.FileUploadBase}>
@@ -225,6 +256,7 @@ function AddressDetail({ setStepReload }) {
                             color: "white",
                             cursor: "pointer",
                             borderRadius: "10px",
+                            fontWeight: "500"
 
                           }}
                           onClickNav={() => {
@@ -235,7 +267,7 @@ function AddressDetail({ setStepReload }) {
                           <div className={styles.Text}></div>
                         </div>
                         {file && file.name && (
-                          <div className={styles.ActionText}>
+                          <div className={styles.ActionText} style={{ fontFamily: '"Roboto",sans-serif' }}>
                             Selected File : {file.name}
                           </div>
                         )}
@@ -264,11 +296,16 @@ function AddressDetail({ setStepReload }) {
 								/> */}
                 <button
                   className={`primary_button ${styles.btn_container}`}
-
-                  onClick={() => { addAddressData() }}
+                  onClick={() => { addAddressData(); }}
+                  disabled={!isFormValid}
+                  style={{
+                    background: !isFormValid ? "#ccc" : "#0052cc",
+                    cursor: !isFormValid ? "not-allowed" : "pointer"
+                  }}
                 >
                   Save changes
                 </button>
+
               </div>
             </div>
           </div>

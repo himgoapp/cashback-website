@@ -65,7 +65,7 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 	return (
 		<>
 			<div className={styles.AddressDetailsContainer}>
-				<div className={styles.Text}>
+				<div className={styles.Text} style={{fontFamily:"Futura"}}>
 					PAN Card
 					<div className={styles.edit} onClick={() => setEdit(true)}>
 						{editIcon}
@@ -95,6 +95,7 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 								fullWidth
 								inputMode={inputMode} // Auto-switch Keyboard Mode
 								autoCapitalize="characters"
+
 								autoCorrect="off"
 								pattern="[A-Z]{5}[0-9]{4}[A-Z]"
 								inputProps={{

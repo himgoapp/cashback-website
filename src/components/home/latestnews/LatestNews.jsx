@@ -146,7 +146,7 @@ const LatestNews = ({ userData }) => {
                 </div>
 
                 <div className={styles.rightSidebar}>
-                  <RightSidebar />
+                  {/* <RightSidebar /> */}
                   <div className={styles.important_post}>
                     <h2 className={styles.important_post_heading}>Important Posts</h2>
                     <ul className={styles.post_list}>

@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import WithdrawPopUp from "../popup/CreateWithdraw";
 import KycPopup from "../popup/kycpop";
 import { toast } from "react-toastify";
 import styles from "../home/rakeback_chart.module.css";
-import illustration1 from "../../../assets/illustration1.svg";
-import backgroundImg from "../../../assets/DASHBOARDILLUSTRATIONN.png"
+import backgroundImg from "../../../assets/DASHBOARDILLUSTRATIONN.png";
 import RakebackTable from "./RackbackTableAndTransaction";
-import { Link } from "react-router-dom";
-import { Line } from "react-chartjs-2";
-import events from "../../../assets/events.jpg";
 import { useNavigate } from "react-router-dom";
+import events from "../../../assets/events.jpg";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -32,12 +29,10 @@ ChartJS.register(
   Legend
 );
 
-const RakebackChart = ({ dashboardInfo, userKyc,graphData }) => {
+const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
   const { userWallet } = dashboardInfo;
   const navigate = useNavigate();
-  console.log(dashboardInfo, userWallet, " 25--");
   const [showWithdraw, setShowWithdraw] = useState(false);
-
   const [kycPop, setKycPop] = useState(false);
   const [chartHeight, setChartHeight] = useState("60vh");
   const [selectedFilter, setSelectedFilter] = useState("thisWeek");
@@ -46,13 +41,10 @@ const RakebackChart = ({ dashboardInfo, userKyc,graphData }) => {
     navigate("/offer-and-deals");
   };
 
-
   const withdrawHit = () => {
     if (userKyc && userKyc.status === true && userKyc.level === "4") {
       if (userWallet.wallet_balance < 1000) {
-        toast.error(
-          "Sorry! Your Wallet balance is lower than the withdraw limit!"
-        );
+        toast.error("Sorry! Your Wallet balance is lower than the withdraw limit!");
       } else {
         setShowWithdraw(true);
       }
@@ -74,26 +66,30 @@ const RakebackChart = ({ dashboardInfo, userKyc,graphData }) => {
     }
   };
 
- const validGraphData = getDataForFilter();
+  const validGraphData = getDataForFilter();
 
-  const labels = validGraphData.map((data) => data.date);
-  console.log("Graph Data:", graphData);
+  const labels=  validGraphData.map((data) => {
+    if (selectedFilter === "thisWeek") {
+      return data.date
+        ? new Date(data.date).toLocaleDateString("en-US", { weekday: "short" })
+        : "";
+    } else if (selectedFilter === "thisMonth") {
+      return `${data.week}`;
+    } else if (selectedFilter === "thisYear") {
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      return typeof data.month === "number" ? monthNames[data.month] : data.month;
+    }
+    return "";
+  })
+  
+  
 
-   const chartData = {
-    labels: validGraphData.map((data) => {
-      if (selectedFilter === "thisWeek") {
-        return data.date; 
-      } else if (selectedFilter === "thisMonth") {
-        return data.week; 
-      } else if (selectedFilter === "thisYear") {
-        return data.month; 
-      }
-      return "";
-    }),
+  const chartData = {
+    labels,
     datasets: [
       {
         label: `Rakeback Earned (₹) - ${selectedFilter}`,
-        data: validGraphData.map((data) => data.total), 
+        data: validGraphData.map((data) => data.total),
         borderColor: "#0052cc",
         borderWidth: 3,
         pointBackgroundColor: "#0052cc",
@@ -116,13 +112,19 @@ const RakebackChart = ({ dashboardInfo, userKyc,graphData }) => {
           minRotation: 0,
           autoSkip: false,
           font: { size: 12 },
-          callback: function (value) {
-            return value.length > 15 ? value.substring(0, 12) + "..." : value;
+          callback: function (value, index, values) {
+            const label = this.getLabelForValue(value);
+            return label.length > 15 ? label.substring(0, 12) + "..." : label;
           },
         },
       },
       y: {
-        ticks: { beginAtZero: true },
+        beginAtZero: true,
+        suggestedMin: 0,
+        ticks: {
+          beginAtZero: true,
+          precision: 0,
+        },
       },
     },
   };
@@ -142,7 +144,6 @@ const RakebackChart = ({ dashboardInfo, userKyc,graphData }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-
   return (
     <>
       {showWithdraw && (
@@ -153,9 +154,7 @@ const RakebackChart = ({ dashboardInfo, userKyc,graphData }) => {
       )}
       {kycPop && <KycPopup setKycPop={setKycPop} />}
 
-      <div
-        className={styles.main_container}
-      >
+      <div className={styles.main_container}>
         <div
           style={{
             flex: 1,
@@ -164,36 +163,28 @@ const RakebackChart = ({ dashboardInfo, userKyc,graphData }) => {
             height: chartHeight,
           }}
         >
-          <div className={styles.dashboard_card} style={{
-            backgroundImage: `url(${backgroundImg})`
-          }}>
+          <div className={styles.dashboard_card} style={{ backgroundImage: `url(${backgroundImg})` }}>
             <div>
-              {/* <div className={styles.dashboard_greeting}>Hello, {dashboardInfo.user.userName}</div> */}
-              <div className={styles.dashboard_explore}>
-                Explore with Rakebackk
-              </div>
-              <div className={styles.explore} >
-                <button
-                  onClick={() => validatetokenAndRedirect()}
-                >
+              <div className={styles.dashboard_explore}>Explore with Rakebackk</div>
+              <div className={styles.explore}>
+                <button onClick={validatetokenAndRedirect}>
                   Explore
                   <Arrow />
                 </button>
               </div>
             </div>
           </div>
+
           <div className={styles.chart_heading}>
-          Rakeback Earning and Percentage - {selectedFilter === "thisWeek" && "This Week"}
-          {selectedFilter === "thisMonth" && "This Month"}
-          {selectedFilter === "thisYear" && "This Year"}
-        </div>
-          <div className={styles.chart_container}>
-            <Line
-              data={chartData}
-              options={chartOptions}
-            />
+            Rakeback Earning and Percentage -{" "}
+            {selectedFilter === "thisWeek" && "This Week"}
+            {selectedFilter === "thisMonth" && "This Month"}
+            {selectedFilter === "thisYear" && "This Year"}
           </div>
 
+          <div className={styles.chart_container}>
+            <Line data={chartData} options={chartOptions} />
+          </div>
         </div>
 
         <div
@@ -205,36 +196,30 @@ const RakebackChart = ({ dashboardInfo, userKyc,graphData }) => {
             gap: "20px",
           }}
           className={styles.filter_main_container}
-
         >
-          <div className={styles.filter_container} >
+          <div className={styles.filter_container}>
             <font className={styles.filter_heading}>Select Time Period</font>
             <div className={styles.filters}>
-            {["thisWeek", "thisMonth", "thisYear"].map((filter) => (
-              <button
-                key={filter}
-                style={{
-                  flex: 1,
-                  backgroundColor: selectedFilter === filter ? "#0052cc" : "#f1f1f1",
-                  border: "none",
-                  padding: "10px",
-                  borderRadius: "5px",
-                  color: selectedFilter === filter ? "#fff" : "#000",
-                }}
-                onClick={() => setSelectedFilter(filter)}
-              >
-                {filter.replace(/([A-Z])/g, " $1").trim().charAt(0).toUpperCase() +
-                  filter.replace(/([A-Z])/g, " $1").trim().slice(1)}
-              </button>
-            ))}
+              {["thisWeek", "thisMonth", "thisYear"].map((filter) => (
+                <button
+                  key={filter}
+                  style={{
+                    flex: 1,
+                    backgroundColor: selectedFilter === filter ? "#0052cc" : "#f1f1f1",
+                    border: "none",
+                    padding: "10px",
+                    borderRadius: "5px",
+                    color: selectedFilter === filter ? "#fff" : "#000",
+                  }}
+                  onClick={() => setSelectedFilter(filter)}
+                >
+                  {filter.replace(/([A-Z])/g, " $1").trim().replace(/^./, str => str.toUpperCase())}
+                </button>
+              ))}
+            </div>
           </div>
 
-          </div>
-
-          <div
-
-            className={styles.withdrawal_container}
-          >
+          <div className={styles.withdrawal_container}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 26 26"
@@ -251,34 +236,23 @@ const RakebackChart = ({ dashboardInfo, userKyc,graphData }) => {
 
             <div className={styles.wallet_balance_head}>Your Balance</div>
 
-            <div
-
-              className={styles.wallet_balance}
-            >
+            <div className={styles.wallet_balance}>
               ₹
               {userWallet.wallet_balance
-                ? userWallet.wallet_balance.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) 
+                ? userWallet.wallet_balance.toLocaleString("en-IN", {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  })
                 : "0.00"}
             </div>
 
-            <button
-              onClick={() => withdrawHit()}
-              className={styles.withdrawal_button}
-            >
+            <button onClick={withdrawHit} className={styles.withdrawal_button}>
               Withdraw
             </button>
           </div>
+
           <div className={styles.events_container}>
-            {/* <font className={styles.events_heading}>Events</font>
-  <div
-    style={{
-      width: "100%",
-      height: "2px", 
-      backgroundColor: "black",
-      marginTop: "10px",
-    }}
-  /> */}
-            <img src={events} />
+            <img src={events} alt="Events" />
           </div>
         </div>
       </div>
@@ -289,6 +263,7 @@ const RakebackChart = ({ dashboardInfo, userKyc,graphData }) => {
 };
 
 export default RakebackChart;
+
 const Arrow = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

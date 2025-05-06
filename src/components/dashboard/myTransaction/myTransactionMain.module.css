@@ -41,6 +41,9 @@
 	gap: 0.5rem;
 	cursor: pointer;
 }
+.HeadLabel{
+	font-family: "Futura";
+}
 @media only screen and (max-width: 768px) {
 	.TabContent {
 		width: 100%;

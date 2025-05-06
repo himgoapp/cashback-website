@@ -20,6 +20,7 @@
   border: 1px solid rgba(200, 200, 255, 0.2);
   overflow-x: auto;
   scroll-behavior: smooth;
+  font-family: "Futura";
 }
 
 .TabButton {
@@ -115,8 +116,8 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 0.5rem;
-    margin-left: -10px;
+    padding: 0.4rem;
+    margin-left: -12px;
   }
 
   .TabButton {

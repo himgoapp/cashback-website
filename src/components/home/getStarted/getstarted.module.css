@@ -145,7 +145,7 @@
   align-self: stretch;
   color: #3e3e59;
   font-feature-settings: "clig" off, "liga" off;
-  font-family: "Roboto", sans-serif;
+  font-family: "Futura";
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
@@ -153,7 +153,7 @@
 }
 .step_container .header span {
   color: #0052cc;
-  font-family: "Roboto", sans-serif;
+  font-family: "Futura";
 }
 .swiper {
   max-width: 480px;

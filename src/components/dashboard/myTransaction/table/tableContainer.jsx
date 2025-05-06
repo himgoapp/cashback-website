@@ -22,23 +22,7 @@ const EyeIcon = () => (
   </svg>
 );
 
-const PrintIcon = () => (
-  <svg
-    width="18"
-    height="18"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={styles.printIcon}
-  >
-    <polyline points="6 9 6 2 18 2 18 9"></polyline>
-    <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-    <rect x="6" y="14" width="12" height="8"></rect>
-  </svg>
-);
+
 
 const NoDataComponent = () => (
   <div className={styles.noData}>
@@ -49,7 +33,7 @@ const NoDataComponent = () => (
       <line x1="9" y1="15" x2="15" y2="15"></line>
     </svg>
     <h3 className={styles.noDataTitle}>No Transactions Found</h3>
-    <p className={styles.noDataText}>There are no transactions to display at this time.</p>
+    <p className={styles.noDataText} style={{fontFamily:'"Roboto",sans-serif'}}>There are no transactions to display at this time.</p>
   </div>
 );
 
@@ -115,6 +99,7 @@ const customStyles = {
       borderRadius: '12px',
       overflow: 'hidden',
       boxShadow: '0 8px 30px rgba(0, 0, 0, 0.06)',
+      
     },
   },
   headRow: {
@@ -125,8 +110,7 @@ const customStyles = {
       fontWeight: '600',
       color: '#3a5a78',
       minHeight: '56px',
-      paddingLeft: '20px',
-      paddingRight: '20px',
+   
     },
   },
   headCells: {
@@ -136,6 +120,8 @@ const customStyles = {
       fontSize: '13px',
       letterSpacing: '0.5px',
       textTransform: 'uppercase',
+      fontFamily: "Roboto, sans-serif !important",
+
     },
   },
   rows: {
@@ -266,7 +252,7 @@ const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPer
         </button>
       </div>
 
-      <div className={styles.paginationRowsPerPage}>
+      {/* <div className={styles.paginationRowsPerPage}>
         <span className={styles.rowsPerPageLabel}>Rows per page:</span>
         <select
           className={styles.rowsPerPageSelect}
@@ -278,7 +264,7 @@ const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPer
           <option value={50}>50</option>
           <option value={100}>100</option>
         </select>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -366,18 +352,18 @@ const TableContainer = ({ transactionType }) => {
     {
       name: "Transaction ID",
       selector: row => row.transaction_hash,
-      sortable: true,
+      sortable: false,
       cell: row => (
         <div className={styles.transactionCell}>
           <span className={styles.transactionId}>{row.transaction_hash.substring(0, 8)}...</span>
-          <div className={styles.transactionFull}>{row.transaction_hash}</div>
+          <div className={styles.transactionFull} >{row.transaction_hash}</div>
         </div>
       ),
     },
     {
       name: "Date & Time",
       selector: row => row.createdAt,
-      sortable: true,
+      sortable: false,
       cell: row => (
         <div className={styles.dateTimeCell}>
           <div className={styles.date}>{moment(row.createdAt).format("DD MMM YYYY")}</div>
@@ -388,21 +374,21 @@ const TableContainer = ({ transactionType }) => {
     ...(shouldShowTDS ? [{
       name: "TDS",
       selector: row => row.rackbackcut,
-      sortable: true,
+      sortable: false,
       right: true,
       cell: row =>
         row.typeOfTransaction === "Deposit"
-          ? <span className={styles.zeroAmount}>₹0.00</span>
-          : <span className={styles.tdsAmount}>{formatCurrency(row.rackbackcut)}</span>
+          ? <span className={styles.zeroAmount} style={{fontFamily:'"Roboto",sans-serif'}}>₹0.00</span>
+          : <span className={styles.tdsAmount} style={{fontFamily:'"Roboto",sans-serif'}} >{formatCurrency(row.rackbackcut)}</span>
     }] : []),
 
     {
       name: "Amount",
       selector: row => row.actualAmount,
-      sortable: true,
+      sortable: false,
       right: true,
       cell: row => (
-        <span className={row.typeOfTransaction === "Deposit" ? styles.creditAmount : styles.debitAmount}>
+        <span className={row.typeOfTransaction === "Deposit" ? styles.creditAmount : styles.debitAmount} style={{fontFamily:'"Roboto",sans-serif'}}>
           {formatCurrency(row.actualAmount)}
         </span>
       ),
@@ -410,7 +396,7 @@ const TableContainer = ({ transactionType }) => {
     {
       name: "Status",
       selector: row => row.status,
-      sortable: true,
+      sortable: false,
       cell: row => {
         const statusInfo = getStatusInfo(row.status);
         return (
@@ -423,7 +409,7 @@ const TableContainer = ({ transactionType }) => {
             }}
           >
             <span className={styles.statusIcon}>{statusInfo.icon}</span>
-            <span>{row.status}</span>
+            <span style={{fontFamily:'"Roboto",sans-serif'}}>{row.status}</span>
           </div>
         );
       },
@@ -493,7 +479,7 @@ const TableContainer = ({ transactionType }) => {
                     }}
                   >
                     <span className={styles.statusIconLarge}>{getStatusInfo(selectedTransaction.status).icon}</span>
-                    <span>{selectedTransaction.status}</span>
+                    <span style={{fontFamily:'"Roboto",sans-serif'}}>{selectedTransaction.status}</span>
                   </div>
                 </div>
               </div>

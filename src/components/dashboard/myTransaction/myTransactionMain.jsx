@@ -55,7 +55,7 @@ const MyTransactionMain = () => {
                   <span className="me-2">
           <GradientWithdrawalIcon size={24} />
         </span>
-        <span>Withdrawals</span>
+        <span style={{fontFamily:"Futura"}}>Withdrawals</span>
                   </div>
                 </div>
               </div>
@@ -72,7 +72,7 @@ const MyTransactionMain = () => {
                   <span className="me-2">
           <GradientDepositIcon size={24} />
         </span>
-        <span>My Earnings</span>
+        <span style={{fontFamily:"Futura"}}>My Earnings</span>
                   </div>
 
 

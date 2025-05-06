@@ -44,11 +44,11 @@
 .heading{
   font-size: 30px;
   font-weight: bold;
-  font-family: "Roboto", sans-serif;;
+  font-family: "Futura";
 }
 .sub_heading{
   font-size: 20px;
-  font-family: "Roboto", sans-serif;;
+  font-family: "Futura";
   font-weight: bold;
 }
 .successBorder {
@@ -82,7 +82,7 @@
 }
 .HeadLabel {
   color: #344054;
-  font-family: "Roboto", sans-serif;;
+  font-family: "Futura";
   font-size: 0.875rem;
   font-style: normal;
   font-weight: 600;

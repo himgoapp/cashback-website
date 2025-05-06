@@ -171,6 +171,7 @@ const NewPoker = ({ setGetInfos }) => {
                   type='text'
                   className={styles.SelectContent + " " + styles.SelectWrapper}
                   placeholder='Enter Account id*'
+                  style={{fontFamily:'"Roboto", sans-serif'}}
                 />
               </div>
               {/* {showAccountMenu && (
