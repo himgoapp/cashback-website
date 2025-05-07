@@ -633,7 +633,6 @@ tbody tr:last-child td {
 }
 
 @media screen and (max-width: 768px) {
-
 	.tableHeader,
 	.paginationContainer {
 		flex-direction: column;

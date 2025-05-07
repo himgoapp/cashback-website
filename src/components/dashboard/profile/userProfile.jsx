@@ -254,7 +254,6 @@ const UserProfile = () => {
           <div className={styles.content}>
             <div className={styles.section}>
               <h3 className={styles.sectionTitle}>Personal Information</h3>
-
               {/* Full Name Field */}
               <div className={styles.fieldContainer}>
                 {editName ? (
@@ -355,6 +354,7 @@ const UserProfile = () => {
 <div className={styles.row}>
   <div className={styles.fieldBox}>
     <label className={styles.floatingLabel}>PAN Number</label>
+    
     <div className={styles.fieldBoxContent}>
       <span className={styles.fieldValue}>
         {userKyc?.panCardNo || "Not Submitted"}
@@ -420,69 +420,56 @@ const UserProfile = () => {
         centered
         size="md"
         className="fade"
+        style={{
+          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+        }}
       >
+        {/* <div style={{ 
+          background: "linear-gradient(135deg, #0052cc 0%, #283593 100%)",
+          borderTopLeftRadius: "16px",
+          borderTopRightRadius: "16px",
+          height: "8px"
+        }}></div> */}
+        
         <Modal.Header
           closeButton
-          className="border-0 pb-0"
+          className="border-0 pb-0 pt-4"
           style={{
-            borderTopLeftRadius: "12px",
-            borderTopRightRadius: "12px",
+            background: "#ffffff",
           }}
         >
-          <Modal.Title className="w-100 text-center d-flex justify-content-center align-items-center">
-            <RakebackLogo />
+          <Modal.Title className="w-100 text-center">
+            <h2 className="fw-bold" style={{ 
+              fontSize: "30px", 
+              color: "#0052cc", 
+              letterSpacing: "-0.5px",
+              marginBottom: "5px",
+              fontFamily:"Futura"
+            }}>Enter OTP</h2>
           </Modal.Title>
         </Modal.Header>
 
         <Modal.Body
           style={{
             paddingTop: "10px",
-            paddingBottom: "30px",
+            paddingBottom: "25px",
+            background: "#ffffff"
           }}
         >
-          <div className="text-center mb-4 position-relative">
-            <div className="position-relative d-inline-block">
-              <div
-                style={{
-                  position: "absolute",
-                  width: "70px",
-                  height: "60px",
-                  borderRadius: "50%",
-                  background:
-                    "linear-gradient(90deg, rgba(0,82,204,0.1) 0%, rgba(0,123,255,0.1) 100%)",
-                  top: "-12px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  zIndex: 0,
-                }}
-              ></div>
-              <span
-                className="material-icons"
-                style={{
-                  fontSize: "36px",
-                  color: "#0052cc",
-                  position: "relative",
-                  zIndex: 1,
-                }}
-              >
-                mark_email_read
-              </span>
-            </div>
-            <h3
-              className="mt-3 mb-2 fw-bold"
-              style={{ color: "#0A2540", fontSize: "24px" }}
-            >
-              Verify Your Email
-            </h3>
-            <p className="text-muted mb-1" style={{ fontSize: "14px" }}>
-              We've sent a verification code to
-            </p>
-            <p className="fw-bold mb-0" style={{ color: "#0052cc" }}>
-              {email}
+          <div className="text-center mb-4">
+            <p style={{ 
+              fontSize: "16px", 
+              color: "#455a64",
+              fontWeight: "400",
+              maxWidth: "280px",
+              margin: "0 auto", 
+              fontFamily:'"Roboto",sans-serif'
+            }}>
+              Enter OTP sent to your existing email and mobile number
             </p>
           </div>
 
-          <div className="px-3 mb-4">
+          <div className="px-4 mb-5">
             <div
               className="d-flex justify-content-between gap-2"
               style={{
@@ -498,18 +485,20 @@ const UserProfile = () => {
                 >
                   <Form.Control
                     ref={(el) => (inputRefs.current[index] = el)}
-                    className="text-center fw-bold"
+                    className="text-center"
                     style={{
-                      height: "54px",
-                      fontSize: "20px",
+                      height: "40px",
+                      width:"40px",
+                      fontSize: "22px",
                       padding: "0",
-                      borderRadius: "8px",
-                      border: "1px solid #d0d5dd",
+                      borderRadius: "12px",
+                      border: index === 0 ? "2px solid #e0e0e0" : "2px solid #e0e0e0",
                       boxShadow: otpValues[index]
-                        ? "0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px rgba(0, 82, 204, 0.1)"
-                        : "0 1px 2px rgba(16, 24, 40, 0.05)",
-                      backgroundColor: "#fff",
-                      transition: "all 0.2s ease",
+                        ? "0 4px 14px rgba(57, 73, 171, 0.15), 0 0 0 2px rgba(57, 73, 171, 0.1)"
+                        : "0 2px 10px rgba(0, 0, 0, 0.03)",
+                      backgroundColor: "#ffffff",
+                      transition: "all 0.3s ease",
+                       fontFamily:'"Roboto",sans-serif'
                     }}
                     value={otpValues[index]}
                     maxLength={1}
@@ -525,57 +514,66 @@ const UserProfile = () => {
           </div>
 
           <div className="text-center mb-4">
-            <p className="text-muted mb-1" style={{ fontSize: "14px" }}>
-              Didn't receive code?
-            </p>
-            {countdown > 0 ? (
-              <p style={{ color: "#0052cc", fontSize: "14px" }}>
-                Resend code in <span className="fw-bold">{countdown}s</span>
+            <div className="d-flex align-items-center justify-content-center">
+              <p className="mb-0" style={{ fontSize: "14px", color: "#546e7a", fontFamily:'"Roboto",sans-serif' }}>
+                Haven't received the OTP?
               </p>
-            ) : (
-              <Button
-                variant="link"
-                onClick={() => {
-                  sendEmailOtp(email);
-                }}
-                style={{
-                  color: "#0052cc",
-                  textDecoration: "none",
-                  fontWeight: "600",
-                  padding: "4px 12px",
-                  fontSize: "14px",
-                  transition: "all 0.2s ease",
-                }}
-                className="rounded-pill"
-                disabled={loading}
-              >
-                Resend Code
-              </Button>
-            )}
+              {countdown > 0 ? (
+                <span className="ms-2" style={{ color: "#3949ab", fontSize: "14px", fontWeight: "500" , fontFamily:'Futura'}}>
+                  Resend in <span className="fw-bold">{countdown}s</span>
+                </span>
+              ) : (
+                <Button
+                  variant="link"
+                  onClick={() => {
+                    sendEmailOtp(email);
+                  }}
+                  style={{
+                    color: "#0052cc",
+                    textDecoration: "none",
+                    fontWeight: "600",
+                    padding: "4px 8px",
+                     fontFamily:'Futura',
+                    fontSize: "14px",
+                  }}
+                  className="ms-2 p-0"
+                  disabled={loading}
+                >
+                  Resend
+                </Button>
+              )}
+            </div>
           </div>
         </Modal.Body>
 
         <Modal.Footer
-          className="border-0 justify-content-center p-4"
+          className="border-0 justify-content-center p-4 pt-0 pb-5"
           style={{
-            borderBottomLeftRadius: "12px",
-            borderBottomRightRadius: "12px",
+            background: "#ffffff",
+            borderBottomLeftRadius: "16px",
+            borderBottomRightRadius: "16px",
           }}
         >
           <Button
             variant="primary"
             onClick={verifyEmailOtp}
             style={{
-              background: "linear-gradient(90deg, #0052cc 0%, #007bff 100%)",
-              color: "white",
+              background: otpValues.join("").length < 6 
+                ? "#f5f5f5" 
+                : "linear-gradient(135deg, #0052cc 0%, #0052cc 100%)",
+              color: otpValues.join("").length < 6 ? "#9e9e9e" : "white",
               border: "none",
               width: "100%",
-              padding: "12px",
+              padding: "16px",
               fontWeight: "600",
-              fontSize: "16px",
-              borderRadius: "8px",
-              boxShadow: "0 2px 6px rgba(0, 82, 204, 0.3)",
-              transition: "all 0.2s ease",
+              fontSize: "17px",
+              borderRadius: "14px",
+              transition: "all 0.3s ease",
+              boxShadow: otpValues.join("").length < 6 
+                ? "none" 
+                : "0 10px 20px rgba(57, 73, 171, 0.25), 0 6px 6px rgba(57, 73, 171, 0.1)",
+              position: "relative",
+              overflow: "hidden",
             }}
             disabled={otpValues.join("").length < 6 || loading}
             className="position-relative"
@@ -587,13 +585,7 @@ const UserProfile = () => {
               </span>
             ) : (
               <span className="d-flex align-items-center justify-content-center">
-                Verify Email
-                <span
-                  className="material-icons ms-2"
-                  style={{ fontSize: "18px" }}
-                >
-                  arrow_forward
-                </span>
+                Continue
               </span>
             )}
           </Button>

@@ -6,6 +6,8 @@ import avater1 from "../../../assets/avater1.svg";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { Modal, Button, Form } from "react-bootstrap";
+import ReactDOM from 'react-dom';
+
 import {
   sendEmailOtpAPI,
   loginVerify,
@@ -48,15 +50,32 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const [userName, setUserName] = useState("");
   const [editMode, setEditMode] = useState(false);
   const [countdown, setCountdown] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   const inputRefs = useRef([]);
   const dropdownRef = useRef(null);
 
+  // This function will now work correctly
   const handleMyTransactionClick = () => {
     navigate("/dashboard/mytransactions");
   };
+  
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      console.log("Screen width:", window.innerWidth, "isMobile:", window.innerWidth <= 768);
+    };
+  
+    // Initial check
+    handleResize();
+    
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   const handlClick = () => {
     navigate("/");
   };
+
   useEffect(() => {
     inputRefs.current = inputRefs.current.slice(0, 6);
 
@@ -114,7 +133,9 @@ const DashboardHomeHeader = ({ title, icon }) => {
     }
   };
 
+  // This function will now work correctly
   const onLogout = () => {
+    setShowDropdown(false); // Close the dropdown before logging out
     localStorage.clear();
     window.location.reload();
   };
@@ -178,7 +199,10 @@ const DashboardHomeHeader = ({ title, icon }) => {
     setShowDropdown(!showDropdown);
   };
 
+  // This function will now work correctly
   const handleAccountSettings = () => {
+    console.log("vdsvds")
+
     navigate("/dashboard/profile");
   };
 
@@ -248,6 +272,102 @@ const DashboardHomeHeader = ({ title, icon }) => {
     setLoading(false);
   };
 
+  // Create a dropdown menu component
+
+  const ProfileDropdownMobile = () => {
+    return (
+      <div className={styles.dropdown}>
+        <div className={styles.content}>
+          <div className={styles.userInfo}>
+            {/* <div className={styles.userDetails}>
+              <p className={styles.greeting} style={{fontFamily:'"Roboto",sans-serif'}}>Hello,</p>
+              <h5 className={styles.userName}>{userData?.userName || "User"}</h5>
+            </div> */}
+          </div>
+
+          <div className={styles.menu}>
+            {/* Each menu item uses direct onClick handler binding */}
+            <div
+              className={styles.menuItem}
+              onTouchStart={() => handleAccountSettings()}
+            >
+              <div className={styles.menuIcon}>
+                <span className="material-icons">account_circle</span>
+              </div>
+              <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Profile</span>
+            </div>
+
+            <div
+              className={styles.menuItem}
+              onTouchStart={() => handleMyTransactionClick()}
+            >
+              <div className={styles.menuIcon}>
+                <span className="material-icons">history</span>
+              </div>
+              <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Payments History</span>
+            </div>
+
+            <div
+              className={styles.logout}
+              onTouchStart={() => onLogout()}
+            >
+              <div className={styles.menuIcon}>
+                <span className="material-icons" style={{ color: "#EF4444" }}>exit_to_app</span>
+              </div>
+              <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Logout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+  const ProfileDropdown = () => {
+    return (
+      <div className={styles.dropdown}>
+        <div className={styles.content}>
+          <div className={styles.userInfo}>
+            {/* <div className={styles.userDetails}>
+              <p className={styles.greeting} style={{fontFamily:'"Roboto",sans-serif'}}>Hello,</p>
+              <h5 className={styles.userName}>{userData?.userName || "User"}</h5>
+            </div> */}
+          </div>
+
+          <div className={styles.menu}>
+            {/* Each menu item uses direct onClick handler binding */}
+            <div
+              className={styles.menuItem}
+              onClick={() => handleAccountSettings()}
+            >
+              <div className={styles.menuIcon}>
+                <span className="material-icons">account_circle</span>
+              </div>
+              <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Profile</span>
+            </div>
+
+            <div
+              className={styles.menuItem}
+              onClick={() => handleMyTransactionClick()}
+            >
+              <div className={styles.menuIcon}>
+                <span className="material-icons">history</span>
+              </div>
+              <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Payments History</span>
+            </div>
+
+            <div
+              className={styles.logout}
+              onClick={() => onLogout()}
+            >
+              <div className={styles.menuIcon}>
+                <span className="material-icons" style={{ color: "#EF4444" }}>exit_to_app</span>
+              </div>
+              <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Logout</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
   return (
     <div className={styles.HomeHeader}>
       <div className={styles.HeaderContainer}>
@@ -268,7 +388,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
             <div className={styles.HeaderActions}>
 
               <span className={styles.wallet}>
-                <img src={wallet}  />
+                <img src={wallet} alt="Wallet" />
               </span>
               <span className={styles.wallet_balance}>
                 ₹{walletData && walletData.wallet_balance
@@ -290,84 +410,10 @@ const DashboardHomeHeader = ({ title, icon }) => {
                   />
                 </div>
 
-                {/* Profile Dropdown */}
-                {showDropdown && (
-         <div className={styles.dropdown}>
-         <div className={styles.content}>
-           <div className={styles.userInfo}>
-             {/* <div className={styles.avatar}>
-               <span className={styles.initial}>U</span>
-             </div> */}
-             <div className={styles.userDetails}>
-               <p className={styles.greeting} style={{fontFamily:'"Roboto",sans-serif'}}>Hello,</p>
-               <h5 className={styles.userName}>{userData?.userName || "User"}</h5>
-             </div>
-           </div>
-           
-           {/* <div className={styles.statsWrapper}>
-             <div className={styles.stat}>
-               <span className="material-icons {styles.statIcon}">attach_money</span>
-               <div className={styles.statInfo}>
-                 <p className={styles.statLabel}>Balance</p>
-                 <h6 className={styles.statValue}>₹12,850</h6>
-               </div>
-             </div>
-             <div className={styles.stat}>
-               <span className="material-icons {styles.statIcon}">diamond</span>
-               <div className={styles.statInfo}>
-                 <p className={styles.statLabel}>Points</p>
-                 <h6 className={styles.statValue}>850</h6>
-               </div>
-             </div>
-           </div> */}
-       
-           {/* Menu Items */}
-           <div className={styles.menu}>
-             {/* Account Settings */}
-             <div className={styles.menuItem} onClick={() => handleAccountSettings()}>
-               <div className={styles.menuIcon}>
-               <span class="material-icons">
-account_circle
-</span>
 
-
-               </div>
-               <span className={styles.menuTitle} style={{fontFamily:'"Roboto",sans-serif'}}>Profile</span>
-               {/* <span className="material-icons {styles.chevron}">chevron_right</span> */}
-             </div>
-       
-             {/* Payments History */}
-             <div className={styles.menuItem} onClick={() => handleMyTransactionClick()}>
-               <div className={styles.menuIcon}>
-               <span class="material-icons">history</span>
-
-               </div>
-               <span className={styles.menuTitle} style={{fontFamily:'"Roboto",sans-serif'}}>Payments History</span>
-               {/* <span className="material-icons {styles.chevron}">chevron_right</span> */}
-             </div>
-             
-             {/* <div className={styles.menuItem}>
-               <div className={styles.menuIcon}>
-                 <span className="material-icons">{styles.helpOutline}</span>
-               </div>
-               <span className={styles.menuTitle}>Help & Support</span>
-               <span className="material-icons {styles.chevron}">chevron_right</span>
-             </div>
-              */}
-             <div className={styles.logout} onClick={() => onLogout()}>
-               <div className={styles.menuIcon}>
-               <span class="material-icons" style={{color: "#EF4444"}}>exit_to_app</span>
-
-
-               </div>
-               <span className={styles.menuTitle} style={{fontFamily:'"Roboto",sans-serif'}}>Logout</span>
-             </div>
-           </div>
-         </div>
-       </div>
-       
-          
-                )}
+                {showDropdown && isMobile &&
+                  ReactDOM.createPortal(<ProfileDropdownMobile />, document.body)}
+                {showDropdown && !isMobile && <ProfileDropdown />}
               </div>
             </div>
           </div>
