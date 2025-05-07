@@ -54,7 +54,7 @@ export const TextField = ({
     <div className={styles.TextInput}>
       <div className={styles.TextInputWithLabel}>
         <div className={styles.TextLabel} style={{ fontFamily: '"Roboto",sans-serif' }}> {label}
-        <span className={styles.requiredAsterisk}>*</span></div>
+          <span className={styles.requiredAsterisk}>*</span></div>
         <input
           type={type ? type : "text"}
           className={styles.TextFieldInput}
@@ -78,9 +78,23 @@ function AddressDetail({ setStepReload }) {
   const [addressProofType, setAddressProofType] = useState("");
   const [documentNumber, setDocumentNumber] = useState("");
   const [proofState, setProofState] = useState("");
-
+  const [selectedOption, setSelectedOption] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
   const isFormValid = file && addressProofType && documentNumber;
 
+  const options = [
+    { value: 'aadhaar_card', label: 'Aadhaar Card' },
+    { value: 'passport', label: 'Passport' },
+    { value: 'voter_id', label: 'Voter ID' },
+  ];
+
+  const handleSelect = (option) => {
+    setSelectedOption(option.value);
+    console.log(option)
+    setAddressProofType(option.value);
+    setIsOpen(false);
+  };
+  
   const handleClick = (event) => {
     imageRef.current.click();
   };
@@ -167,36 +181,35 @@ function AddressDetail({ setStepReload }) {
                 ]}
                 required
               /> */}
-              <div className={styles.formGroup} >
-                <label htmlFor="addressProofType" className={styles.formLabel} style={{ fontFamily: '"Roboto",sans-serif' }}>
-                  Address Proof Document Type<span className={styles.requiredAsterisk}>*</span>
-
-                  {/* <span className={styles.required}>*</span> */}
+              <div className={styles.formGroup}>
+                <label htmlFor="addressProofType" className={styles.formLabel}>
+                  Address Proof Document Type <span className={styles.requiredAsterisk}>*</span>
                 </label>
-                <select
-                  id="addressProofType"
-                  className={styles.formControl}
-                  value={addressProofType}
-                  onChange={(e) => setAddressProofType(e.target.value)}
-                  required
-                  style={{
-                    fontFamily: '"Roboto",sans-serif', color: "#344054"
-                  }}
-                >
-                  {/* <option value="">-- Select Document Type --</option> */}
-                  <option value="aadhaar_card" style={{
-                    fontFamily: '"Roboto",sans-serif', color: "#344054"
 
-                  }}>Aaddhar Card</option>
-                  <option value="passport" style={{
-                    fontFamily: '"Roboto",sans-serif', color: "#344054"
+                <div className={styles.dropdownContainer}>
+                  <div
+                    className={styles.dropdownHeader}
+                    onClick={() => setIsOpen(!isOpen)}
+                  >
+                    {options.find(o => o.value === selectedOption)?.label || 'Select Document Type'}
+                    <span className={styles.arrow}>{isOpen ? '▲' : '▼'}</span>
+                  </div>
 
-                  }}>Passport</option>
-                  <option value="voter_id" style={{
-                    fontFamily: '"Roboto",sans-serif', color: "#344054"
-
-                  }}>Voter ID</option>
-                </select>
+                  {isOpen && (
+                    <div className={styles.dropdownList}>
+                      {options.map((option) => (
+                        <div
+                          key={option.value}
+                          className={styles.dropdownItem}
+                          onClick={() => handleSelect(option)}
+                          
+                        >
+                          {option.label}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
               </div>
 
               <TextField
@@ -207,7 +220,7 @@ function AddressDetail({ setStepReload }) {
                 maxLength={documentMaxLengths[addressProofType] || 20}
                 required
               />
-              
+
             </div>
             {/* <div className={styles.InputRow}>
               <TextField

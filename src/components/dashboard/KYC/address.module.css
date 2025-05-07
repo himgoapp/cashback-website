@@ -154,10 +154,11 @@
   
   .formLabel {
 	display: block;
-	margin-bottom: 0.5rem;
+	margin-bottom: 0.3rem;
 	font-weight: 500;
 	font-size: 14px;
 	color: #344054;
+	font-family: "Roboto",sans-serif;
 
   }
   
@@ -390,6 +391,47 @@ select.form-select {
 	background-color: white;
 	border: 0;
 }
+.dropdownContainer {
+	position: relative;
+	font-family: 'Roboto', sans-serif;
+	width: 400px;
+  }
+  
+  .dropdownHeader {
+	border: 1px solid #ccc;
+	padding: 10px;
+	background: #fff;
+	cursor: pointer;
+	color: #344054;
+	font-family: 'Roboto', sans-serif !important;
+	border-radius: 4px;
+  }
+  
+  .arrow {
+	float: right;
+  }
+  
+  .dropdownList {
+	position: absolute;
+	width: 100%;
+	border: 1px solid #ccc;
+	background: #fff;
+	z-index: 10;
+	border-radius: 4px;
+	font-family: 'Roboto', sans-serif !important;
+
+  }
+  
+  .dropdownItem {
+	padding: 10px;
+	font-family: 'Roboto', sans-serif !important;
+	cursor: pointer;
+  }
+  
+  .dropdownItem:hover {
+	background-color: #f0f0f0;
+  }
+  
 @media only screen and (max-width: 768px) {
 	.InputRow {
 		flex-direction: column;
@@ -397,5 +439,8 @@ select.form-select {
 	}
 	.TextInput .TextInputWithLabel {
 		height: auto;
+	}
+	.dropdownContainer{
+		width: 310px;
 	}
 }

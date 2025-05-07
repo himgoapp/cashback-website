@@ -15,20 +15,25 @@
   padding: 0 0 40px;
 }
 
-
 /* Enhanced Premium Tabs with subtle 3D effect */
 .tabsContainer {
   display: flex;
   margin-bottom: 36px;
-  /* border-bottom: 1px solid rgba(229, 233, 240, 0.8); */
   position: relative;
   padding: 0 24px;
   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,250,252,0.9) 100%);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  overflow-x: auto; /* Allow horizontal scrolling on small screens */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
+}
+
+.tabsContainer::-webkit-scrollbar {
+  display: none; /* Hide scrollbar for Chrome/Safari/Edge */
 }
 
 .tab {
-  padding: 22px 32px;
+  padding: 22px 24px; /* Reduced horizontal padding */
   font-weight: 500;
   font-size: 15px;
   color: #64748b;
@@ -38,9 +43,11 @@
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   letter-spacing: 0.4px;
- font-family: "Futura";
+  font-family: "Futura", sans-serif;
   opacity: 0.85;
   overflow: hidden;
+  white-space: nowrap; /* Prevent text wrapping */
+  flex-shrink: 0; /* Prevent tab shrinking */
 }
 
 .tab:hover {
@@ -59,7 +66,6 @@
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
   transform: translateX(-50%);
-  
 }
 
 .tab:hover::before {
@@ -68,7 +74,7 @@
 }
 
 .activeTab {
-  padding: 22px 32px;
+  padding: 22px 24px; /* Reduced horizontal padding */
   font-weight: 600;
   font-size: 15px;
   color: #0f172a;
@@ -77,8 +83,10 @@
   cursor: pointer;
   position: relative;
   letter-spacing: 0.4px;
-  font-family: "Futura";
+  font-family: "Futura", sans-serif;
   overflow: hidden;
+  white-space: nowrap; /* Prevent text wrapping */
+  flex-shrink: 0; /* Prevent tab shrinking */
 }
 
 .activeTab::after {
@@ -115,21 +123,9 @@
   color: #1e293b;
   position: relative;
   padding-left: 18px;
-  font-family: "Futura";
+  font-family: "Futura", sans-serif;
   letter-spacing: 0.4px;
 }
-
-/* .kycSectionTitle::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 5px;
-  height: 18px;
-  background: linear-gradient(to bottom, #0052cc, #1a75ff);
-  border-radius: 6px;
-} */
 
 .row {
   display: flex;
@@ -174,7 +170,7 @@
   letter-spacing: 0.4px;
   position: relative;
   padding-bottom: 16px;
- font-family: "Futura";
+  font-family: "Futura", sans-serif;
 }
 
 .sectionTitle::after {
@@ -218,18 +214,23 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 10px; /* Add gap for when elements wrap */
 }
 
 .infoColumn {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  flex: 1; /* Take available space */
+  min-width: 0; /* Allow shrinking below content size */
 }
 
 .infoRow {
   display: flex;
   align-items: center;
   gap: 10px;
+  flex-wrap: wrap; /* Allow wrapping on very small screens */
 }
 
 /* Premium Field Boxes with glass morphism effect */
@@ -246,6 +247,7 @@
     0 2px 6px rgba(0, 0, 0, 0.02),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
   background: white;
+  margin-top: 5px;
   backdrop-filter: blur(15px);
 }
 
@@ -277,28 +279,28 @@
 }
 
 .floatingLabel {
-    position: absolute;
-    top: -12px;
-    left: 18px;
-    font-size: 13px;
-    color: #4b5563;
-    background: white;
-    padding: 0 10px;
-    font-family: "Roboto", sans-serif;
-    font-weight: 500;
-    z-index: 1;
-    border-radius: 16px;
-
-    letter-spacing: 0.4px;
-  }
+  position: absolute;
+  top: -12px;
+  left: 18px;
+  font-size: 13px;
+  color: #4b5563;
+  background: white;
+  padding: 0 10px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  z-index: 1;
+  border-radius: 16px;
+  letter-spacing: 0.4px;
+}
   
 .fieldValue {
   font-size: 16px;
   font-weight: 500;
   color: #1e293b;
- font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   letter-spacing: 0.3px;
   position: relative;
+  word-break: break-word; /* Allow breaking long words */
 }
 
 /* Enhanced Status Indicators with improved animations */
@@ -311,12 +313,13 @@
   font-size: 13px;
   font-weight: 600;
   display: flex;
- font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   align-items: center;
   gap: 10px;
   letter-spacing: 0.3px;
   position: relative;
   z-index: 1;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
 .verifiedStatus::before {
@@ -326,47 +329,14 @@
   background-color: #059669;
   border-radius: 50%;
   box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.2);
-  /* animation: pulse 3s infinite cubic-bezier(0.16, 1, 0.3, 1); */
+  flex-shrink: 0; /* Prevent dot from shrinking */
 }
-
-@keyframes pulse {
-  0% {
-    box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.4);
-  }
-  70% {
-    box-shadow: 0 0 0 10px rgba(5, 150, 105, 0);
-  }
-  100% {
-    box-shadow: 0 0 0 0 rgba(5, 150, 105, 0);
-  }
-}
-
-/* .notVerifiedStatus {
-  color: #e11d48;
-  font-size: 13px;
-  font-weight: 600;
-  display: flex;
- font-family: "Roboto",sans-serif;
-  align-items: center;
-  gap: 10px;
-  letter-spacing: 0.3px;
-  position: relative;
-  z-index: 1;
-}
-
-.notVerifiedStatus::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  background-color: #e11d48;
-  border-radius: 50%;
-  box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.2);
-} */
 
 .verifiedIcon {
   color: #059669;
   display: flex;
   align-items: center;
+  flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 /* Premium Icons with better visual appearance */
@@ -406,6 +376,7 @@
   position: relative;
   z-index: 1;
   overflow: hidden;
+  flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 .editButton::after {
@@ -455,7 +426,7 @@
   font-weight: 600;
   border: none;
   display: flex;
-  font-family: "Futura";
+  font-family: "Futura", sans-serif;
   align-items: center;
   justify-content: center;
   min-width: 140px;
@@ -465,10 +436,12 @@
     0 8px 20px rgba(0, 82, 204, 0.3),
     0 3px 6px rgba(0, 0, 0, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  max-width: 350px;
+  max-width: 170px;
   letter-spacing: 0.4px;
   position: relative;
   overflow: hidden;
+  width: 100%; /* Take full width on mobile */
+  margin: 0 auto; /* Center the button */
 }
 
 .verifyButton::before {
@@ -532,7 +505,7 @@
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   background-color: #f8fafc;
   letter-spacing: 0.3px;
- font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   box-shadow: 
     0 4px 12px rgba(0, 0, 0, 0.03),
     inset 0 2px 4px rgba(0, 0, 0, 0.02);
@@ -553,6 +526,7 @@
   gap: 18px;
   max-width: 400px;
   margin-top: 18px;
+  flex-wrap: wrap; /* Allow wrapping on small screens */
 }
 
 .cancelButton {
@@ -566,10 +540,13 @@
   cursor: pointer;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   letter-spacing: 0.4px;
- font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   box-shadow: 
     0 4px 10px rgba(0, 0, 0, 0.03),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  flex: 1; /* Take available space */
+  min-width: 120px; /* Minimum width */
+  text-align: center; /* Center text */
 }
 
 .cancelButton:hover {
@@ -596,10 +573,10 @@
   font-weight: 600;
   border: none;
   display: flex;
- font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
   align-items: center;
   justify-content: center;
-  min-width: 100px;
+  min-width: 120px; /* Minimum width */
   cursor: pointer;
   transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow: 
@@ -608,6 +585,8 @@
   letter-spacing: 0.4px;
   position: relative;
   overflow: hidden;
+  flex: 1; /* Take available space */
+  text-align: center; /* Center text */
 }
 
 .saveButton::before {
@@ -684,6 +663,7 @@
   gap: 12px;
   max-width: 320px;
   margin: 0 auto 30px;
+  flex-wrap: wrap; /* Allow wrapping on very small screens */
 }
 
 .otpInput {
@@ -724,6 +704,7 @@
   z-index: 1000;
   backdrop-filter: blur(10px);
   animation: fadeModalBg 0.5s ease-out;
+  padding: 20px; /* Add padding for small screens */
 }
 
 @keyframes fadeModalBg {
@@ -766,7 +747,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 32px;
+  padding: 28px 24px; /* Reduce horizontal padding on small screens */
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
   background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(248,250,252,0.9) 100%);
 }
@@ -777,7 +758,7 @@
   color: #0f172a;
   margin: 0;
   letter-spacing: 0.4px;
- font-family: "Roboto",sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 .closeButton {
@@ -795,6 +776,7 @@
   box-shadow: 
     0 4px 10px rgba(0, 0, 0, 0.04),
     inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 .closeButton:hover {
@@ -812,10 +794,33 @@
 }
 
 .modalBody {
-  padding: 32px;
+  padding: 24px; /* Reduce padding on mobile */
 }
 
 .modalFooter {
   display: flex;
   justify-content: flex-end;
-  padding: 28px 32px;}
+  padding: 24px; /* Reduce padding on mobile */
+  flex-wrap: wrap; /* Allow wrapping on small screens */
+  gap: 16px; /* Add gap for when buttons wrap */
+}
+
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  .container {
+    border-radius: 16px; 
+    width:100%; 
+
+  }
+  
+  .content {
+    padding: 12px 16px; /* Reduce padding */
+  }
+  .verifyButton{
+    max-width: 350px;
+  }
+  .row {
+    padding: 0 16px; /* Reduce padding */
+    gap: 16px; /* Reduce gap */
+  }
+}
