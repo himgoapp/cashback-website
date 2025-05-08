@@ -91,7 +91,7 @@ const NewPoker = ({ setGetInfos }) => {
                         width: '24px',
                         height: '20px', viewBox: '0 0 24 24'
                       }} />
-                      <div>{product.label}</div>
+                      <div style={{fontFamily:'"Roboto",sans-serif'}}>{product.label}</div>
                     </div>
                     <div>
                       <svg

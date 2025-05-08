@@ -7,10 +7,10 @@ import {
   getUserInfo
 } from "../../../servicefile/authservice";
 import { userProfileEdit } from "../../../servicefile/dashboardservice";
-import styles from "./userProfile.module.css";
 import { Modal, Button, Form } from "react-bootstrap";
 import { RakebackLogo } from "../../common/logo/logo";
 import Loading from "../../common/Loading/Loading";
+import styles from "./userProfile.module.css";
 
 const UserProfile = () => {
   // Get userData from context
@@ -25,7 +25,6 @@ const UserProfile = () => {
   const [userName, setUserName] = useState("");
   const [countdown, setCountdown] = useState(0);
   const [userKyc, setUserKyc] = useState(null);
-  const [activeTab, setActiveTab] = useState("personal");
 
   const inputRefs = useRef([]);
 
@@ -78,11 +77,9 @@ const UserProfile = () => {
       const res = await getUserInfo();
       if (res.success) {
         setUserData(res.userInfo.user);
-
       } else {
         alert(res.message || "Failed to get user info");
       }
-
       setLoading(false);
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -90,17 +87,16 @@ const UserProfile = () => {
       setLoading(false);
     }
   };
+
   const getUserKycData = async () => {
     try {
       setLoading(true);
       const res = await getUserInfo();
       if (res.success) {
         setUserKyc(res.userInfo.userKyc);
-
       } else {
         alert(res.message || "Failed to get user info");
       }
-
       setLoading(false);
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -108,9 +104,11 @@ const UserProfile = () => {
       setLoading(false);
     }
   };
+
   useEffect(() => {
     getUserKycData();
   }, []);
+  
   // Save profile changes to backend
   const handleSaveProfile = async () => {
     try {
@@ -233,186 +231,156 @@ const UserProfile = () => {
 
   return (
     <div className={styles.container}>
-      {/* Premium Tabs with Indicator Animation */}
-      <div className={styles.tabsContainer}>
-        {/* <button
-          onClick={() => setActiveTab("personal")}
-          className={activeTab === "personal" ? styles.activeTab : styles.tab}
-        >
-          Personal Details
-        </button> */}
+      <div className={styles.content}>
+        {/* Personal Information Section */}
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>Personal Information</h3>
+          
+          <div className={styles.row}>
+            {/* Full Name Field */}
+            <div className={styles.fieldContainer}>
+          
+                <div className={styles.fieldBox}>
+                  <label className={styles.floatingLabel}>Full Name</label>
+                  <div className={styles.fieldBoxContent}>
+                    <span className={styles.fieldValue}>
+                      {userData?.userName || "User"}
+                    </span>
+                    <button 
+                      className={styles.editButton}
+                      onClick={() => setEditName(true)}
+                    >
+                      <i className="fas fa-pen"></i>
+                    </button>
+                  </div>
+                </div>
+            </div>
+            <div className={styles.fieldContainer}>
+              <div className={styles.fieldBox}>
+                <label className={styles.floatingLabel}>Email</label>
+                <div className={styles.fieldBoxContent}>
+                  <div className={styles.infoColumn}>
+                    <div className={styles.infoRow}>
+                      <span className={styles.fieldValue}>{userData?.email || "N/A"}</span>
+                     
+                    </div>
+                  </div>
+                  {!userData?.emailVerifystatus && (
+                    <button
+                      className={styles.verifyButton}
+                      onClick={() => {
+                        sendEmailOtp(userData.email);
+                        setEmail(userData.email);
+                      }}
+                      disabled={loading}
+                    >
+                      {loading ? <Spinner size="sm" /> : "Verify Email"}
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
 
-        {/* <button
-          onClick={() => setActiveTab("kyc")}
-          className={activeTab === "kyc" ? styles.activeTab : styles.tab}
-        >
-          KYC Details
-        </button> */}
+            {/* Phone Number Field */}
+            <div className={styles.fieldContainer}>
+              <div className={styles.fieldBox}>
+                <label className={styles.floatingLabel}>Mobile Number</label>
+                <div className={styles.fieldBoxContent}>
+                  <div className={styles.infoColumn}>
+                    <div className={styles.infoRow}>
+                      <span className={styles.fieldValue}>
+                        {userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}
+                      </span>
+                      {userData?.phoneNumberVerified && (
+                        <div className={styles.verifiedStatus}>
+                          <div className={styles.verifiedIcon}>
+                            <i className="fas fa-check-circle"></i>
+                          </div>
+                          Verified
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* KYC Information Section */}
+        <div className={styles.section}>
+          <h3 className={styles.sectionTitle}>KYC Information</h3>
+
+          {/* PAN Card Details */}
+          <div className={styles.kycPanel}>
+            <h4 className={styles.kycSectionTitle}>PAN Card Details</h4>
+            <div className={styles.row}>
+              <div className={styles.fieldBox}>
+                <label className={styles.floatingLabel}>PAN Number</label>
+                <div className={styles.fieldBoxContent}>
+                  <span className={styles.fieldValue}>
+                    {userKyc?.panCardNo || "Not Submitted"}
+                  </span>
+                  {userKyc?.panCardVerified && (
+                    <div className={styles.verifiedStatus}>
+                      <div className={styles.verifiedIcon}>
+                        <i className="fas fa-check-circle"></i>
+                      </div>
+                      Verified
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Address Details */}
+          <div className={styles.kycPanel}>
+            <h4 className={styles.kycSectionTitle}>Address Details</h4>
+            <div className={styles.row}>
+              <div className={styles.fieldBox}>
+                <label className={styles.floatingLabel}>Address Proof Document</label>
+                <div className={styles.fieldValue}>
+                  {userKyc?.addressProofType === "voter_id"
+                    ? "Voter ID"
+                    : userKyc?.addressProofType === "aadhaar_card"
+                      ? "Aadhaar Card"
+                      : userKyc?.addressProofType === "passport"
+                        ? "Passport"
+                        : "Not Provided"}
+                </div>
+              </div>
+              <div className={styles.fieldBox}>
+                <label className={styles.floatingLabel}>Document Number</label>
+                <div className={styles.fieldValue}>
+                  {userKyc?.addressProofDocumentNumber || "Not Provided"}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bank Details */}
+          <div className={styles.kycPanel}>
+            <h4 className={styles.kycSectionTitle}>Bank Details</h4>
+            <div className={styles.row}>
+              <div className={styles.fieldBox}>
+                <label className={styles.floatingLabel}>Bank Name</label>
+                <div className={styles.fieldValue}>
+                  {userKyc?.bank_id?.bank_name || "Not Provided"}
+                </div>
+              </div>
+              <div className={styles.fieldBox}>
+                <label className={styles.floatingLabel}>Account Number</label>
+                <div className={styles.fieldValue}>
+                  {userKyc?.bank_id?.account_number || "Not Provided"}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
-        <>
-          <div className={styles.content}>
-            <div className={styles.section}>
-              <h3 className={styles.sectionTitle}>Personal Information</h3>
-              {/* Full Name Field */}
-              <div className={styles.fieldContainer}>
-                {editName ? (
-                  <div className={styles.editContainer}>
-                    <input
-                      type="text"
-                      className={styles.textInput}
-                      value={userName}
-                      onChange={(e) => setUserName(e.target.value)}
-                      placeholder="Enter your full name"
-                    />
-                    <div className={styles.buttonGroup}>
-                      <button
-                        className={styles.cancelButton}
-                        onClick={() => {
-                          setEditName(false);
-                          setUserName(userData?.userName || "");
-                        }}
-                      >
-                        Cancel
-                      </button>
-                      <button
-                        className={styles.saveButton}
-                        onClick={handleSaveProfile}
-                        disabled={loading || !userName.trim()}
-                      >
-                        {loading ? <Spinner size="sm" /> : "Save"}
-                      </button>
-                    </div>
-                  </div>
-                ) : (
-                  <div className={styles.fieldBox}>
-                    <label className={styles.floatingLabel}>Full name</label>
-                    <div className={styles.fieldBoxContent}>
-                      <span className={styles.fieldValue}>
-                        {userData?.userName || "User"}
-                      </span>
-                    </div>
-                  </div>
-                )}
-              </div>
-
-              <div className={styles.fieldContainer}>
-                <div className={styles.fieldBox}>
-                  <label className={styles.floatingLabel}>Email</label>
-                  <div className={styles.fieldBoxContent}>
-                    <div className={styles.infoColumn}>
-                      <div className={styles.infoRow}>
-                        <span className={styles.fieldValue}>{userData?.email || "N/A"}</span>
-                      </div>
-                      <div className={styles.statusContainer}>
-                        {userData?.emailVerifystatus ? (
-                          <span className={styles.verifiedStatus}>
-                            Verified
-                          </span>
-                        ) : (
-                          <span className={styles.notVerifiedStatus}></span>
-                        )}
-                      </div>
-                    </div>
-                    {!userData?.emailVerifystatus && (
-                      <button
-                        className={styles.verifyButton}
-                        onClick={() => {
-                          sendEmailOtp(userData.email);
-                          setEmail(userData.email);
-                        }}
-                        disabled={loading}
-                      >
-                        {loading ? <Spinner size="sm" /> : "Verify Email"}
-                      </button>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <div className={styles.fieldContainer}>
-                <div className={styles.fieldBox}>
-                  <label className={styles.floatingLabel}>Mobile Number</label>
-                  <div className={styles.fieldBoxContent}>
-                    <div className={styles.infoColumn}>
-                      <div className={styles.infoRow}>
-                        <span className={styles.fieldValue}>
-                          {userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className={styles.content}>
-            <div className={styles.section}>
-              <h3 className={styles.sectionTitle}>KYC Information</h3>
-
-              <h4 className={styles.kycSectionTitle}>PAN Card Details</h4>
-<div className={styles.row}>
-  <div className={styles.fieldBox}>
-    <label className={styles.floatingLabel}>PAN Number</label>
-    
-    <div className={styles.fieldBoxContent}>
-      <span className={styles.fieldValue}>
-        {userKyc?.panCardNo || "Not Submitted"}
-      </span>
-    </div>
-  </div>
-
-  {/* <div className={styles.fieldBox}>
-    <label className={styles.floatingLabel}>PAN Card Status</label>
-    <div className={styles.fieldBoxContent}>
-      <span className={styles.fieldValue}>
-        {userKyc?.panStatus || "Not Provided"}
-      </span>
-    </div>
-  </div> */}
-</div>
-
-
-              <h4 className={styles.kycSectionTitle}>Address Details</h4>
-              <div className={styles.row}>
-                <div className={styles.fieldBox}>
-                  <label className={styles.floatingLabel}>Address Proof Document</label>
-                  <div className={styles.fieldValue}>
-                    {userKyc?.addressProofType === "voter_id"
-                      ? "Voter ID"
-                      : userKyc?.addressProofType === "aadhaar_card"
-                        ? "Aadhaar Card"
-                        : userKyc?.addressProofType === "passport"
-                          ? "Passport"
-                          : "Not Provided"}
-                  </div>
-                </div>
-                <div className={styles.fieldBox}>
-                  <label className={styles.floatingLabel}>Document Number</label>
-                  <div className={styles.fieldValue}>
-                    {userKyc?.addressProofDocumentNumber || "Not Provided"}
-                  </div>
-                </div>
-              </div>
-              <h4 className={styles.kycSectionTitle}>Bank Details</h4>
-              <div className={styles.row}>
-                <div className={styles.fieldBox}>
-                  <label className={styles.floatingLabel}>Bank Name</label>
-                  <div className={styles.fieldValue}>
-                    {userKyc?.bank_id?.bank_name || "Not Provided"}
-                  </div>
-                </div>
-                <div className={styles.fieldBox}>
-                  <label className={styles.floatingLabel}>Account Number</label>
-                  <div className={styles.fieldValue}>
-                    {userKyc?.bank_id?.account_number || "Not Provided"}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </>
-      {/* )} */}
+      {/* OTP Verification Modal */}
       <Modal
         show={verifyModal}
         onHide={handleClose}
@@ -424,13 +392,6 @@ const UserProfile = () => {
           boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
         }}
       >
-        {/* <div style={{ 
-          background: "linear-gradient(135deg, #0052cc 0%, #283593 100%)",
-          borderTopLeftRadius: "16px",
-          borderTopRightRadius: "16px",
-          height: "8px"
-        }}></div> */}
-        
         <Modal.Header
           closeButton
           className="border-0 pb-0 pt-4"
@@ -465,7 +426,7 @@ const UserProfile = () => {
               margin: "0 auto", 
               fontFamily:'"Roboto",sans-serif'
             }}>
-              Enter OTP sent to your existing email and mobile number
+             We've sent a 6-digit code to your email. Enter it below to continue.
             </p>
           </div>
 
