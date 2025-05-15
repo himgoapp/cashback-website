@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import styles from "../../description/popup/signin.module.css";
+import styles from "./kycPopup.module.css";
 // import TextInput from "../../common/textInput/textInput";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { UserContext } from "../../../App";
@@ -21,8 +21,7 @@ const KycPopup = ({ setKycPop }) => {
 					}
 				>
 					<div className={styles.PopupSigninContent} style={{ width: "100%" }}>
-						{/* logo */}
-						{!mobile && (
+						{/* {!mobile && (
 							<div
 								style={{
 									display: "flex",
@@ -32,18 +31,16 @@ const KycPopup = ({ setKycPop }) => {
 							>
 								{rakelogo}
 							</div>
-						)}
-						{/* logo end */}
+						)} */}
 						<div className={styles.PopupSigninText}>
-							<div className={styles.Head} style={{ fontFamily: "Futura" }}>Check your Kyc</div>
-							<div className={styles.Subhead} style={{ fontFamily: '"Roboto",sans-serif' }}>
+							<div className={styles.Head}>KYC Required:</div>
+							<div className={styles.Subhead} >
 								Please complete your kyc to access the withdraw!
 							</div>
 						</div>
 						<div
-							className='Alert'
+							className={styles.important_message}
 							style={{
-								width: "100%",
 								height: "100%",
 								paddingLeft: 16,
 								paddingRight: 16,
@@ -114,15 +111,15 @@ const KycPopup = ({ setKycPop }) => {
 										}}
 									>
 										For Withdraw facility you need to complete your kyc. once it
-										will be approved by the RakeBack team. You will be able to
+										will be approved by the Rakebackk team. You will be able to
 										create withdraw transactions!
 									</div>
 								</div>
 							</div>
 						</div>
-						<div
+						{/* <div
 							className={styles.btn_action}
-							style={{ width: "100%" }}
+							style={{marginTop:"10px" }}
 							onClick={() => setKycPop(false)}
 						>
 							<Navbtn
@@ -131,7 +128,7 @@ const KycPopup = ({ setKycPop }) => {
 								size={"small"}
 								showIcon={false}
 							/>
-						</div>
+						</div> */}
 						{/* input form end */}
 					</div>
 				</div>

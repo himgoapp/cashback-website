@@ -1,312 +1,154 @@
-.PopupWithOpacity {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1050;
-    min-width: 320px;
-  }
-  .logo_font{
+.popupOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popupContainer {
+  background-color: white;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+ .logo_font{
     font-family: "HP Simplified H", Arial, sans-serif;
   }
-  .opacityDiv {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1040; /* Ensure this is below the modal content */
-    opacity: 0.36;
-    background: #000;
-  }
-  /* Wrapper for form group */
-  .formGroup {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: 20px;
-  }
-  
-  /* Label styles */
-  .putAmountLabel {
-    font-size: 16px;
-    font-weight: 600;
-    color: var(--gray-600, var(--text-secondary, #475467));
-  font-family: "Futura" !important;
-    margin-bottom: 8px;
-    transition: color 0.3s ease;
-  }
-  
-  /* Input field styling */
-  .amountInput {
-    width: 100%;
-    padding: 15px;
-    font-size: 18px;
-    color: #333;
-    border-radius: 10px;
-    border: 2px solid #ddd;
-    outline: none;
-    transition: all 0.3s ease;
-    background-color: #f9f9f9;
-  }
-  
-  /* Hover and focus effects */
-  .amountInput:hover,
-  .amountInput:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
-  }
-  
-  /* Placeholder styling */
-  .amountInput::placeholder {
-    color: #aaa;
-    opacity: 1;
-  }
-  
-  /* Animation effect for input focus */
-  .amountInput:focus::placeholder {
-    opacity: 0.7;
-  }
-  
-  .PopupSigninWrapper {
-    position: relative;
-    display: flex;
-    width: 100%;
-    max-width: 34.675rem;
-    align-items: center;
-    z-index: 1051; /* Ensure this is above the overlay */
-  }
-  
-  .PopupSigninWrapperTwo {
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    width: 53rem;
-    align-items: center;
-    height: 30rem;
-    z-index: 1051; /* Ensure this is above the overlay */
-  }
-  
-  .PopupSigininContainer {
-    display: flex;
-    height: 100%;
-    padding: 3rem 2.5rem;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-    flex: 1 0 0;
-    border-radius: 0.75rem;
-    background: #0252cc;
-    background-repeat: no-repeat;
-    background-size: auto 400px;
-    background-position: center;
-  }
-  .PopupSigininContainerWithdraw {
-    display: flex;
-    height: 100%;
-    padding: 3rem 2.5rem;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-    flex: 1 0 0;
-    border-radius: 0.75rem;
-    background: white;
-  }
-  
-  .PopupSigninContent {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1.5rem;
-    height: 49vh;
-  }
-  
-  /* .PopupSigninText {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.625rem;
-      align-self: stretch;
-  } */
-  
-  .Head {
-    color: black;
-    font-family: "Futura";
-    font-size: 1.875rem;
-    font-style: normal;
-    font-weight: 700;
-    margin-top: 10px;
-    text-align: center;
-    line-height: 2.375rem; /* 126.667% */
-  }
+.popupHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #f0f0f0;
+}
 
-  .Subhead1 {
-    color: black;
-  
-    /* Text md/Regular */
-    font-family: "Roboto", sans-serif;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 1.5rem; /* 150% */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.closeIcon {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.closeIcon:hover {
+  background-color: #f5f5f5;
+}
+
+.popupContent {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.withdrawTitle {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+  font-family: "Futura";
+  text-align: center;
+  color: #000;
+}
+
+.balanceText {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+.totalAmount{
+  font-weight: 600;
+  color: #000;
+  font-family: "Futura";
+}
+.inputContainer {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.amountInput {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #E5E7EB;
+  border-radius: 8px;
+  font-family: "Roboto", sans-serif;
+  background: #E5E7EB;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.amountInput:focus {
+  border-color: #0052CC;
+}
+
+.errorMessage {
+  color: #e53935;
+  font-size: 14px;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  padding: 0;
+}
+
+.continueButton {
+  background-color: #2563EB;
+  color: white;
+  border: none;
+  border-radius: 24px;
+  padding: 12px;
+  font-size: 16px;
+  font-family: "Futura";
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  width: 100%;
+  margin-top: 8px;
+}
+
+.continueButton:hover {
+  background-color: #1E40AF;
+}
+
+.continueButton:active {
+  background-color: #1E3A8A;
+}
+/* Hide number input arrows */
+.amountInput::-webkit-outer-spin-button,
+.amountInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.amountInput[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+@media (max-width: 480px) {
+  .popupContainer {
+    width: 95%;
+    height: auto;
+    max-width: none;
   }
-  .otp_resend {
-    color: white;
-    display: flex;
-    justify-content: center;
-    font-size: 14px;
-  }
-  .otp_resend_1 {
-    color: white;
-    cursor: pointer;
-    margin-left: 5px;
-    font-size: 14px;
-  }
-  .alert_message {
-    color: red;
-  }
-  .popup_signin_action {
-    display: flex;
-    flex-direction: column;
-    align-items: left;
-    gap: 1.5rem;
-    align-self: stretch;
-    border-radius: 0.75rem;
-  }
-  
-  .input_label {
-    color: var(--gray-700, #344054);
-    font-family: Inter;
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.25rem;
-    margin-bottom: -1rem; /* margin */
-    width: 100%;
-    text-align: start;
-  }
-  
-  .PopupImageContainer img {
-    width: 100%;
-  }
-  .rakelogo_container {
-    position: absolute;
-    top: 1.5rem;
-    left: 3%;
-  }
-  .otp_button {
-    background: #ffbf00;
-    color: #000;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 8px 20px;
-    border-radius: 30px;
-  }
-  .otp_button:hover {
-    color: black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background: white;
-    transform: scale(1.05);
-  }
-  .submit_button {
-    background: #ffbf00;
-    color: #000;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 8px 20px;
-    border-radius: 30px;
-  }
-  .submit_button:hover {
-    color: black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    background: white;
-    transform: scale(1.05);
-  }
-  @media only screen and (max-width: 425px) {
-    .PopupWithOpacity {
-      bottom: 0;
-      align-items: center;
-      justify-content: center;
-    }
-  
-    .opacityDiv {
-      width: 100vw;
-      height: 100vh;
-      bottom: 0;
-    }
-    .PopupSigininContainer {
-      width: 390px;
-    }
-  
-    .PopupSigininContainer {
-      border-top-right-radius: 0.75rem;
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      height: 500px;
-      padding: 1.5rem 1.125rem;
-  
-  }
-  
-    .PopupImageContainer {
-      display: none;
-    }
-  
-    .Head {
-      font-size: 1.75rem;
-    }
-  
-    .Subhead {
-      font-size: 1rem;
-    }
-  .PopupSigninWrapper{
-    width: 370px;
-  }
-    .PopupSigninWrapperTwo {
-      grid-template-columns: 1fr;
-    }
-  }
-  :where([autocomplete="one-time-code"]) {
-    --otp-digits: 6;
-    --otp-ls: 3ch;
-    --otp-gap: 1.25;
-  
-    /* private consts */
-    --_otp-bgsz: calc(var(--otp-ls) + 1ch);
-    --_otp-digit: 0;
-  
-    all: unset;
-    background: linear-gradient(
-        90deg,
-        var(--otp-bg, #d8eeff) calc(var(--otp-gap) * var(--otp-ls)),
-        transparent 0
-      ),
-      linear-gradient(
-        90deg,
-        var(--otp-bg, #d8eeff) calc(var(--otp-gap) * var(--otp-ls)),
-        transparent 0
-      );
-    background-position: calc(var(--_otp-digit) * var(--_otp-bgsz)) 0, 0 0;
-    background-repeat: no-repeat, repeat-x;
-    background-size: var(--_otp-bgsz) 100%;
-    caret-color: var(--otp-cc, #222);
-    caret-shape: block;
-    clip-path: inset(0% calc(var(--otp-ls) / 2) 0% 0%);
-    font-family: ui-monospace, monospace;
-    font-size: var(--otp-fz, 1.7em);
-    inline-size: calc(var(--otp-digits) * var(--_otp-bgsz));
-    letter-spacing: var(--otp-ls);
-    padding-block: var(--otp-pb, 1ch);
-    padding-inline-start: calc(((var(--otp-ls) - 1ch) / 2) * var(--otp-gap));
-  }
+}

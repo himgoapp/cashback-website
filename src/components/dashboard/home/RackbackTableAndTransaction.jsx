@@ -57,7 +57,7 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
                         return (
                           <span className={`${styles[className]} ${styles.status_wrapper}`}>
                             <span className={styles.status_icon}>{icon}</span>
-                            <span className={styles.status_text}>{getStatusLabel(transaction.status)}</span>
+                            <span className={styles.status_text}>{getStatusLabel(transaction.status === "Aborted"? "Rejected":transaction.status)}</span>
                           </span>
                         );
                       })()}

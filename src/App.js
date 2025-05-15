@@ -39,10 +39,17 @@ function App() {
   const [loginTab, setLoginTab] = useState(false);
   const [mobile, setMobile] = useState(true);
 
+   
   useEffect(() => {
     setMobile(window.innerWidth <= 500);
   }, []);
 
+   const updateWalletBalance = (newBalance) => {
+    setWalletData(prev => ({
+      ...prev,
+      wallet_balance: newBalance
+    }));
+  };
   return (
     <>
       <ToastContainer />
@@ -71,6 +78,7 @@ function App() {
           setWalletData,
           userKyc,
           setUserKyc,
+          updateWalletBalance ,
         }}
       >
         <Router>

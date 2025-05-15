@@ -59,7 +59,7 @@ const PokerCard = ({ status, color, item }) => {
             <div className={styles.StatusBadge} style={statusBaseColor(status)}>
               <div className={styles.StatusIndicator}> {getStatusIcon(status)}</div>
               <span className={styles.StatusText}>
-    {status}
+    {status === "Aborted" ? "Rejected" : status}
   </span>
             </div>
           </div>

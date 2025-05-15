@@ -58,16 +58,16 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const handleMyTransactionClick = () => {
     navigate("/dashboard/mytransactions");
   };
-  
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
       console.log("Screen width:", window.innerWidth, "isMobile:", window.innerWidth <= 768);
     };
-  
+
     // Initial check
     handleResize();
-    
+
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -396,8 +396,9 @@ const DashboardHomeHeader = ({ title, icon }) => {
                   : "0.00"}
               </span>
 
+
               <div className={styles.HeaderNavBtn} ref={dropdownRef}>
-                <div 
+                <div
                 // onClick={() => handleProfileClick()}
                 >
                   <img
@@ -412,7 +413,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
                   />
                 </div>
 
-{/* 
+                {/* 
                 {showDropdown && isMobile &&
                   ReactDOM.createPortal(<ProfileDropdownMobile />, document.body)}
                 {showDropdown && !isMobile && <ProfileDropdown />} */}

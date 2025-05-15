@@ -7,15 +7,12 @@ import {
   getUserInfo
 } from "../../../servicefile/authservice";
 import { userProfileEdit } from "../../../servicefile/dashboardservice";
-import { Modal, Button, Form } from "react-bootstrap";
-import { RakebackLogo } from "../../common/logo/logo";
-import Loading from "../../common/Loading/Loading";
+import { Modal, Form } from "react-bootstrap";
+import { CheckCircle, AlertCircle } from "lucide-react";
 import styles from "./userProfile.module.css";
 
 const UserProfile = () => {
-  // Get userData from context
   const { userData, setUserData } = useContext(UserContext);
-  // States for various functionalities
   const [verifyModal, setVerifyModal] = useState(false);
   const [email, setEmail] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
@@ -28,17 +25,15 @@ const UserProfile = () => {
 
   const inputRefs = useRef([]);
 
-  // Initialize data from userData
   useEffect(() => {
     inputRefs.current = inputRefs.current.slice(0, 6);
 
     if (userData) {
-      setUserName(userData.userName || "");
-      setEmail(userData.email || "");
+      setUserName(userData?.userName || "");
+      setEmail(userData?.email || "");
     }
   }, [userData]);
 
-  // Load user profile image
   useEffect(() => {
     if (userData && userData.userImg) {
       setSelectedImage(userData.userImg);
@@ -47,7 +42,6 @@ const UserProfile = () => {
     }
   }, [userData]);
 
-  // Auto-focus first input when OTP modal opens
   useEffect(() => {
     if (verifyModal && inputRefs.current[0]) {
       setTimeout(() => {
@@ -56,7 +50,6 @@ const UserProfile = () => {
     }
   }, [verifyModal]);
 
-  // Countdown timer for resend button
   useEffect(() => {
     let timer;
     if (countdown > 0) {
@@ -70,7 +63,6 @@ const UserProfile = () => {
     };
   }, [countdown]);
 
-  // Function to refresh user data
   const getUserData = async () => {
     try {
       setLoading(true);
@@ -108,31 +100,7 @@ const UserProfile = () => {
   useEffect(() => {
     getUserKycData();
   }, []);
-  
-  // Save profile changes to backend
-  const handleSaveProfile = async () => {
-    try {
-      setLoading(true);
-      const response = await userProfileEdit(
-        userData._id,
-        userName,
-        userData.address || ""
-      );
 
-      if (response.success) {
-        setUserData(prev => ({
-          ...prev,
-          userName: userName
-        }));
-        setEditName(false);
-      }
-      setLoading(false);
-    } catch (error) {
-      console.error("Error updating profile:", error);
-      alert("An error occurred while updating the profile");
-      setLoading(false);
-    }
-  };
 
   const sendEmailOtp = async (emailToVerify) => {
     setLoading(true);
@@ -140,15 +108,13 @@ const UserProfile = () => {
     if (emailToVerify && emailRegex.test(emailToVerify)) {
       let data = await sendEmailOtpAPI(emailToVerify);
       setVerifyModal(true);
-      setCountdown(60); // Start 60-second countdown for resend button
+      setCountdown(60); 
       setLoading(false);
     } else {
-      // toast.warn("Please enter a valid email address!");
       setLoading(false);
     }
   };
 
-  // Verify email OTP
   const verifyEmailOtp = async () => {
     try {
       setLoading(true);
@@ -164,7 +130,7 @@ const UserProfile = () => {
       if (data && data.message === "Email verified!") {
         setOtpValues(["", "", "", "", "", ""]);
         setVerifyModal(false);
-        await getUserData(); // Refresh user data to update email verification status
+        await getUserData(); 
       }
       setLoading(false);
     } catch (error) {
@@ -178,13 +144,11 @@ const UserProfile = () => {
   };
 
   const handleOtpChange = (index, value) => {
-    // Only accept digits
     if (/^\d*$/.test(value)) {
       const newOtpValues = [...otpValues];
       newOtpValues[index] = value;
       setOtpValues(newOtpValues);
 
-      // Auto-focus to next input if current input is filled
       if (value !== "" && index < 5) {
         inputRefs.current[index + 1].focus();
       }
@@ -192,13 +156,11 @@ const UserProfile = () => {
   };
 
   const handleKeyDown = (index, e) => {
-    // Navigate between inputs with arrow keys
     if (e.key === "ArrowRight" && index < 5) {
       inputRefs.current[index + 1].focus();
     } else if (e.key === "ArrowLeft" && index > 0) {
       inputRefs.current[index - 1].focus();
     }
-    // Move to previous input on backspace if current is empty
     else if (e.key === "Backspace" && index > 0 && otpValues[index] === "") {
       inputRefs.current[index - 1].focus();
     }
@@ -218,249 +180,186 @@ const UserProfile = () => {
       }
       setOtpValues(newOtpValues);
 
-      // Focus on the appropriate input after paste
       const focusIndex = Math.min(numericData.length, 5);
       inputRefs.current[focusIndex].focus();
     }
   };
 
-  // Spinner component
   const Spinner = ({ size }) => (
     <div className={size === "sm" ? styles.spinnerSmall : styles.spinner}></div>
   );
 
   return (
-    <div className={styles.container}>
-      <div className={styles.content}>
-        {/* Personal Information Section */}
-        <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>Personal Information</h3>
-          
-          <div className={styles.row}>
-            {/* Full Name Field */}
-            <div className={styles.fieldContainer}>
-          
-                <div className={styles.fieldBox}>
-                  <label className={styles.floatingLabel}>Full Name</label>
-                  <div className={styles.fieldBoxContent}>
-                    <span className={styles.fieldValue}>
-                      {userData?.userName || "User"}
-                    </span>
-                    <button 
-                      className={styles.editButton}
-                      onClick={() => setEditName(true)}
-                    >
-                      <i className="fas fa-pen"></i>
-                    </button>
-                  </div>
-                </div>
-            </div>
-            <div className={styles.fieldContainer}>
-              <div className={styles.fieldBox}>
-                <label className={styles.floatingLabel}>Email</label>
-                <div className={styles.fieldBoxContent}>
-                  <div className={styles.infoColumn}>
-                    <div className={styles.infoRow}>
-                      <span className={styles.fieldValue}>{userData?.email || "N/A"}</span>
-                     
-                    </div>
-                  </div>
-                  {!userData?.emailVerifystatus && (
-                    <button
-                      className={styles.verifyButton}
-                      onClick={() => {
-                        sendEmailOtp(userData.email);
-                        setEmail(userData.email);
-                      }}
-                      disabled={loading}
-                    >
-                      {loading ? <Spinner size="sm" /> : "Verify Email"}
-                    </button>
-                  )}
-                </div>
+<div className={styles.container}>
+      <div className={styles.contentWrapper}>
+        <div className={styles.headerSection}>
+          {!userData?.emailVerifystatus && (
+            <div className={styles.alertBox}>
+              <div className={styles.alertIcon}>
+                <AlertCircle size={20} />
               </div>
-            </div>
-
-            {/* Phone Number Field */}
-            <div className={styles.fieldContainer}>
-              <div className={styles.fieldBox}>
-                <label className={styles.floatingLabel}>Mobile Number</label>
-                <div className={styles.fieldBoxContent}>
-                  <div className={styles.infoColumn}>
-                    <div className={styles.infoRow}>
-                      <span className={styles.fieldValue}>
-                        {userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}
-                      </span>
-                      {userData?.phoneNumberVerified && (
-                        <div className={styles.verifiedStatus}>
-                          <div className={styles.verifiedIcon}>
-                            <i className="fas fa-check-circle"></i>
-                          </div>
-                          Verified
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </div>
+              <div className={styles.alertContent}>
+                <p className={styles.alertTitle}>Verify your email</p>
+                <p className={styles.alertText}>Please verify your email address to unlock all features.
+                   <button
+                className={styles.alertButton}
+                onClick={() => {
+                  sendEmailOtp(userData.email);
+                  setEmail(userData.email);
+                }}
+                disabled={loading}
+              >
+                {loading ? <Spinner size="sm" /> : "Verify email"}
+              </button>
+              </p>
               </div>
+              {/* <button
+                className={styles.alertButton}
+                onClick={() => {
+                  sendEmailOtp(userData.email);
+                  setEmail(userData.email);
+                }}
+                disabled={loading}
+              >
+                {loading ? <Spinner size="sm" /> : "Verify email"}
+              </button> */}
             </div>
-          </div>
+          )}
         </div>
 
-        {/* KYC Information Section */}
-        <div className={styles.section}>
-          <h3 className={styles.sectionTitle}>KYC Information</h3>
+        <div className={styles.columnsContainer}>
+          <div className={styles.column}>
+            <h2 className={styles.sectionTitle}>Personal Information</h2>
+            <div className={styles.formGroup}>
+              <div className={styles.formField}>
+                <label className={styles.fieldLabel}>Email</label>
+                <div className={styles.fieldBox}>
+                  <div className={styles.fieldContent}>
+                    <span className={styles.fieldText}>{userData?.email || "N/A"}</span>
+                   
+                  </div>
+                </div>
+              </div>
 
-          {/* PAN Card Details */}
-          <div className={styles.kycPanel}>
-            <h4 className={styles.kycSectionTitle}>PAN Card Details</h4>
-            <div className={styles.row}>
-              <div className={styles.fieldBox}>
-                <label className={styles.floatingLabel}>PAN Number</label>
-                <div className={styles.fieldBoxContent}>
-                  <span className={styles.fieldValue}>
-                    {userKyc?.panCardNo || "Not Submitted"}
-                  </span>
-                  {userKyc?.panCardVerified && (
-                    <div className={styles.verifiedStatus}>
-                      <div className={styles.verifiedIcon}>
-                        <i className="fas fa-check-circle"></i>
-                      </div>
-                      Verified
+              <div className={styles.formField}>
+                <label className={styles.fieldLabel}>Full Name</label>
+                <div className={styles.fieldBox}>
+                  <span className={styles.fieldText}>{userData?.userName || "User"}</span>
+                </div>
+              </div>
+
+              <div className={styles.formField}>
+                <label className={styles.fieldLabel}>Mobile Number</label>
+                <div className={styles.fieldBox}>
+                  <div className={styles.fieldContent}>
+                    <span className={styles.fieldText}>
+                      {userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}
+                    </span>
+                    {userData?.phoneNumberVerified && (
+                      <span className={styles.badgeGreen}>
+                        <CheckCircle size={12} className={styles.checkIcon} /> Verified
+                      </span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.column}>
+            <h2 className={styles.sectionTitle}>KYC Information</h2>
+            <div className={styles.kycContainer}>
+              <div className={styles.kycSection}>
+                <h3 className={styles.kycSectionHeading}>PAN DETAILS</h3>
+                <div className={styles.kycDetailItem}>
+                  <div className={styles.kycDetailLabel}>PAN Number</div>
+                  <div className={styles.kycDetailValue}>
+                    {userKyc?.panCardNo || "Not Provided"}
+                  </div>
+                </div>
+                <div className={styles.kycDivider}></div>
+              </div>
+
+              <div className={styles.kycSection}>
+                <h3 className={styles.kycSectionHeading}>Address Details</h3>
+                <div className={styles.kycDetailRow}>
+                  <div className={styles.kycDetailItem}>
+                    <div className={styles.kycDetailLabel}>Address Proof Document</div>
+                    <div className={styles.kycDetailValue}>
+                      {userKyc?.addressProofType === "voter_id"
+                        ? "Voter ID"
+                        : userKyc?.addressProofType === "aadhaar_card"
+                          ? "Aadhaar Card"
+                          : userKyc?.addressProofType === "passport"
+                            ? "Passport"
+                            : "Not Provided"}
                     </div>
-                  )}
+                  </div>
+                  <div className={styles.kycDetailItem}>
+                    <div className={styles.kycDetailLabel}>Document Number</div>
+                    <div className={styles.kycDetailValue}>
+                      {userKyc?.addressProofDocumentNumber || "Not Provided"}
+                    </div>
+                  </div>
                 </div>
+                <div className={styles.kycDivider}></div>
               </div>
-            </div>
-          </div>
 
-          {/* Address Details */}
-          <div className={styles.kycPanel}>
-            <h4 className={styles.kycSectionTitle}>Address Details</h4>
-            <div className={styles.row}>
-              <div className={styles.fieldBox}>
-                <label className={styles.floatingLabel}>Address Proof Document</label>
-                <div className={styles.fieldValue}>
-                  {userKyc?.addressProofType === "voter_id"
-                    ? "Voter ID"
-                    : userKyc?.addressProofType === "aadhaar_card"
-                      ? "Aadhaar Card"
-                      : userKyc?.addressProofType === "passport"
-                        ? "Passport"
-                        : "Not Provided"}
+              <div className={styles.kycSection}>
+                <h3 className={styles.kycSectionHeading}>Bank Details</h3>
+                <div className={styles.kycDetailRow}>
+                  <div className={styles.kycDetailItem}>
+                    <div className={styles.kycDetailLabel}>Bank Name</div>
+                    <div className={styles.kycDetailValue}>
+                      {userKyc?.bank_id?.bank_name || "Not Provided"}
+                    </div>
+                  </div>
+                  <div className={styles.kycDetailItem}>
+                    <div className={styles.kycDetailLabel}>Account Number</div>
+                    <div className={styles.kycDetailValue}>
+                      {userKyc?.bank_id?.account_number || "Not Provided"}
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div className={styles.fieldBox}>
-                <label className={styles.floatingLabel}>Document Number</label>
-                <div className={styles.fieldValue}>
-                  {userKyc?.addressProofDocumentNumber || "Not Provided"}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Bank Details */}
-          <div className={styles.kycPanel}>
-            <h4 className={styles.kycSectionTitle}>Bank Details</h4>
-            <div className={styles.row}>
-              <div className={styles.fieldBox}>
-                <label className={styles.floatingLabel}>Bank Name</label>
-                <div className={styles.fieldValue}>
-                  {userKyc?.bank_id?.bank_name || "Not Provided"}
-                </div>
-              </div>
-              <div className={styles.fieldBox}>
-                <label className={styles.floatingLabel}>Account Number</label>
-                <div className={styles.fieldValue}>
-                  {userKyc?.bank_id?.account_number || "Not Provided"}
-                </div>
+                <div className={styles.kycDivider}></div>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* OTP Verification Modal */}
       <Modal
         show={verifyModal}
         onHide={handleClose}
         backdrop="static"
         centered
-        size="md"
-        className="fade"
-        style={{
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
-        }}
+     
       >
         <Modal.Header
           closeButton
-          className="border-0 pb-0 pt-4"
-          style={{
-            background: "#ffffff",
-          }}
+          className={styles.modalHeader}
         >
-          <Modal.Title className="w-100 text-center">
-            <h2 className="fw-bold" style={{ 
-              fontSize: "30px", 
-              color: "#0052cc", 
-              letterSpacing: "-0.5px",
-              marginBottom: "5px",
-              fontFamily:"Futura"
-            }}>Enter OTP</h2>
+          <Modal.Title className={styles.modalTitle}>
+            <h2 className={styles.modalHeading}>ENTER OTP</h2>
           </Modal.Title>
         </Modal.Header>
 
         <Modal.Body
-          style={{
-            paddingTop: "10px",
-            paddingBottom: "25px",
-            background: "#ffffff"
-          }}
+          className={styles.modalBody}
         >
-          <div className="text-center mb-4">
-            <p style={{ 
-              fontSize: "16px", 
-              color: "#455a64",
-              fontWeight: "400",
-              maxWidth: "280px",
-              margin: "0 auto", 
-              fontFamily:'"Roboto",sans-serif'
-            }}>
-             We've sent a 6-digit code to your email. Enter it below to continue.
+          <div className={styles.modalText}>
+            <p className={styles.otpMessage}>
+              Enter the 6-digit code we emailed you.
             </p>
           </div>
 
-          <div className="px-4 mb-5">
-            <div
-              className="d-flex justify-content-between gap-2"
-              style={{
-                maxWidth: "320px",
-                margin: "0 auto",
-              }}
-            >
+          <div className={styles.otpContainer}>
+            <div className={styles.otpInputGroup}>
               {[0, 1, 2, 3, 4, 5].map((index) => (
-                <div
-                  key={index}
-                  className="position-relative"
-                  style={{ flex: "1" }}
-                >
+                <div key={index} className={styles.otpInputWrapper}>
                   <Form.Control
                     ref={(el) => (inputRefs.current[index] = el)}
-                    className="text-center"
-                    style={{
-                      height: "40px",
-                      width:"40px",
-                      fontSize: "22px",
-                      padding: "0",
-                      borderRadius: "12px",
-                      border: index === 0 ? "2px solid #e0e0e0" : "2px solid #e0e0e0",
-                      boxShadow: otpValues[index]
-                        ? "0 4px 14px rgba(57, 73, 171, 0.15), 0 0 0 2px rgba(57, 73, 171, 0.1)"
-                        : "0 2px 10px rgba(0, 0, 0, 0.03)",
-                      backgroundColor: "#ffffff",
-                      transition: "all 0.3s ease",
-                       fontFamily:'"Roboto",sans-serif'
-                    }}
+                    className={styles.otpInput}
                     value={otpValues[index]}
                     maxLength={1}
                     onChange={(e) => handleOtpChange(index, e.target.value)}
@@ -474,82 +373,48 @@ const UserProfile = () => {
             </div>
           </div>
 
-          <div className="text-center mb-4">
-            <div className="d-flex align-items-center justify-content-center">
-              <p className="mb-0" style={{ fontSize: "14px", color: "#546e7a", fontFamily:'"Roboto",sans-serif' }}>
+          <div className={styles.resendSection}>
+            <div className={styles.resendContainer}>
+              <p className={styles.resendText}>
                 Haven't received the OTP?
               </p>
               {countdown > 0 ? (
-                <span className="ms-2" style={{ color: "#3949ab", fontSize: "14px", fontWeight: "500" , fontFamily:'Futura'}}>
-                  Resend in <span className="fw-bold">{countdown}s</span>
+                <span className={styles.countdownText}>
+                  Resend in <span className={styles.countdownNumber}>{countdown}s</span>
                 </span>
               ) : (
-                <Button
-                  variant="link"
+                <button
                   onClick={() => {
                     sendEmailOtp(email);
                   }}
-                  style={{
-                    color: "#0052cc",
-                    textDecoration: "none",
-                    fontWeight: "600",
-                    padding: "4px 8px",
-                     fontFamily:'Futura',
-                    fontSize: "14px",
-                  }}
-                  className="ms-2 p-0"
+                  className={styles.resendButton}
                   disabled={loading}
                 >
                   Resend
-                </Button>
+                </button>
               )}
             </div>
           </div>
         </Modal.Body>
 
         <Modal.Footer
-          className="border-0 justify-content-center p-4 pt-0 pb-5"
-          style={{
-            background: "#ffffff",
-            borderBottomLeftRadius: "16px",
-            borderBottomRightRadius: "16px",
-          }}
+          className={styles.modalFooter}
         >
-          <Button
-            variant="primary"
+          <button
             onClick={verifyEmailOtp}
-            style={{
-              background: otpValues.join("").length < 6 
-                ? "#f5f5f5" 
-                : "linear-gradient(135deg, #0052cc 0%, #0052cc 100%)",
-              color: otpValues.join("").length < 6 ? "#9e9e9e" : "white",
-              border: "none",
-              width: "100%",
-              padding: "16px",
-              fontWeight: "600",
-              fontSize: "17px",
-              borderRadius: "14px",
-              transition: "all 0.3s ease",
-              boxShadow: otpValues.join("").length < 6 
-                ? "none" 
-                : "0 10px 20px rgba(57, 73, 171, 0.25), 0 6px 6px rgba(57, 73, 171, 0.1)",
-              position: "relative",
-              overflow: "hidden",
-            }}
+            className={`${styles.submitButton} ${otpValues.join("").length < 6 ? styles.buttonDisabled : ""
+              }`}
             disabled={otpValues.join("").length < 6 || loading}
-            className="position-relative"
           >
             {loading ? (
-              <span className="d-flex align-items-center justify-content-center">
-                <Loading size="sm" animation="border" />
-                <span className="ms-2">Verifying...</span>
+              <span className={styles.loadingContainer}>
+                <Spinner size="sm" />
+                <span className={styles.loadingText}>Verifying...</span>
               </span>
             ) : (
-              <span className="d-flex align-items-center justify-content-center">
-                Continue
-              </span>
+              <span>Continue</span>
             )}
-          </Button>
+          </button>
         </Modal.Footer>
       </Modal>
     </div>

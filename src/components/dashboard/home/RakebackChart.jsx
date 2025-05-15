@@ -30,12 +30,23 @@ ChartJS.register(
 );
 
 const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
-  const { userWallet } = dashboardInfo;
   const navigate = useNavigate();
+  const [userWallet, setUserWallet] = useState(dashboardInfo.userWallet);
   const [showWithdraw, setShowWithdraw] = useState(false);
   const [kycPop, setKycPop] = useState(false);
   const [chartHeight, setChartHeight] = useState("60vh");
   const [selectedFilter, setSelectedFilter] = useState("thisWeek");
+
+  useEffect(() => {
+    setUserWallet(dashboardInfo.userWallet);
+  }, [dashboardInfo]);
+
+  const handleBalanceUpdate = (newBalance) => {
+    setUserWallet(prevWallet => ({
+      ...prevWallet,
+      wallet_balance: newBalance
+    }));
+  };
 
   const validatetokenAndRedirect = () => {
     navigate("/offer-and-deals");
@@ -68,7 +79,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
 
   const validGraphData = getDataForFilter();
 
-  const labels=  validGraphData.map((data) => {
+  const labels = validGraphData.map((data) => {
     if (selectedFilter === "thisWeek") {
       return data.date
         ? new Date(data.date).toLocaleDateString("en-US", { weekday: "short" })
@@ -80,9 +91,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
       return typeof data.month === "number" ? monthNames[data.month] : data.month;
     }
     return "";
-  })
-  
-  
+  });
 
   const chartData = {
     labels,
@@ -150,6 +159,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
         <WithdrawPopUp
           setShowWithdraw={setShowWithdraw}
           maxAmount={userWallet.wallet_balance}
+          onBalanceUpdate={handleBalanceUpdate}
         />
       )}
       {kycPop && <KycPopup setKycPop={setKycPop} />}
@@ -257,7 +267,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
         </div>
       </div>
 
-      <RakebackTable labels={labels} dashboardInfo={dashboardInfo} />
+      <RakebackTable labels={labels} dashboardInfo={{...dashboardInfo, userWallet}} />
     </>
   );
 };

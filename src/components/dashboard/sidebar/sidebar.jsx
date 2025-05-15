@@ -82,7 +82,18 @@ const Sidebar = ({ active }) => {
             })}
 
             {/* Logout Option */}
-            <div
+        
+          </div>
+        </div>
+
+        <div className={styles.Footer}>
+            {/* <div className={styles.TextAndSupportingText}>
+              {data?.userName || "Not filled!"}
+              <button className={styles.Button} onClick={onLogout}>
+                <img src={logout} className={styles.logout_icon} alt="Logout" />
+              </button>
+            </div> */}
+                <div
               className={styles.NavItemBase}
               onClick={()=>onLogout()} 
               style={{cursor:"pointer" }}
@@ -96,18 +107,6 @@ const Sidebar = ({ active }) => {
                 <div className={styles.Text}>Logout</div>
               </div>
             </div>
-          </div>
-        </div>
-
-        <div className={styles.Footer}>
-          <div className={styles.AvatarLabelGroup}>
-            {/* <div className={styles.TextAndSupportingText}>
-              {data?.userName || "Not filled!"}
-              <button className={styles.Button} onClick={onLogout}>
-                <img src={logout} className={styles.logout_icon} alt="Logout" />
-              </button>
-            </div> */}
-          </div>
         </div>
 
         {isMobile && (

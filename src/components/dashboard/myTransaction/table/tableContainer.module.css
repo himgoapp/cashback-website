@@ -35,7 +35,7 @@
 }
 
 .tableTitle {
-		font-family: "Roboto", sans-serif;
+	font-family: "Roboto", sans-serif;
 	font-size: 22px;
 	font-weight: 600;
 	color: var(--premium-dark);
@@ -423,13 +423,31 @@
 }
 
 .receiptHeader {
-	padding: 28px;
 	border-bottom: 1px solid var(--premium-border);
 	display: flex;
-	justify-content: space-between;
+	justify-content: center;
 	align-items: center;
+	align-items: center;
+	position: relative;
+	padding: 28px;
 	background: linear-gradient(to right, rgba(58, 90, 120, 0.02), rgba(58, 90, 120, 0.08));
+
 }
+
+.closeIcon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 30px;
+	font-weight: bold;
+	background: transparent;
+	border: none;
+	cursor: pointer;
+	color: #666;
+	padding: 8px;
+	transition: color 0.2s ease;
+}
+
 
 .receiptTitle {
 	margin: 0;
@@ -452,10 +470,6 @@
 	padding: 24px 28px;
 }
 
-.receiptSection {
-	margin-bottom: 20px;
-}
-
 .receiptSection h3 {
 	font-size: 15px;
 	color: var(--premium-neutral);
@@ -472,9 +486,10 @@
 	padding: 12px 0;
 	border-bottom: 1px dashed rgba(226, 232, 240, 0.7);
 }
-
-.receiptRow:last-child {
-	border-bottom: none;
+.columnHeader {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
 }
 
 .receiptLabel {
@@ -501,7 +516,7 @@
 }
 
 .amountSection {
-	background: linear-gradient(to right, rgba(58, 90, 120, 0.03), rgba(58, 90, 120, 0.08));
+	/* background: linear-gradient(to right, rgba(58, 90, 120, 0.03), rgba(58, 90, 120, 0.08)); */
 	margin: 20px -28px -24px;
 	padding: 20px 28px;
 	display: flex;
@@ -633,6 +648,7 @@ tbody tr:last-child td {
 }
 
 @media screen and (max-width: 768px) {
+
 	.tableHeader,
 	.paginationContainer {
 		flex-direction: column;

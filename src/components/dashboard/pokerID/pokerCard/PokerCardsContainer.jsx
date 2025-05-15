@@ -125,7 +125,7 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
     <div className={styles.PokerCardsContainer}>
       <div className={styles.TabContent}>
       <div className={styles.TabFilters}>
-  {["View all", "Approved", "Pending", "Aborted"].map((label, index) => {
+  {["View all", "Approved", "Pending", "Rejected"].map((label, index) => {
     const tabIndex = index + 1;
     const isActive = activeTab === tabIndex;
 

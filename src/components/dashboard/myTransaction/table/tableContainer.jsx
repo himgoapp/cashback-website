@@ -33,7 +33,7 @@ const NoDataComponent = () => (
       <line x1="9" y1="15" x2="15" y2="15"></line>
     </svg>
     <h3 className={styles.noDataTitle}>No Transactions Found</h3>
-    <p className={styles.noDataText} style={{fontFamily:'"Roboto",sans-serif'}}>There are no transactions to display at this time.</p>
+    <p className={styles.noDataText} style={{ fontFamily: '"Roboto",sans-serif' }}>There are no transactions to display at this time.</p>
   </div>
 );
 
@@ -99,7 +99,7 @@ const customStyles = {
       borderRadius: '12px',
       overflow: 'hidden',
       boxShadow: '0 8px 30px rgba(0, 0, 0, 0.06)',
-      
+
     },
   },
   headRow: {
@@ -110,7 +110,7 @@ const customStyles = {
       fontWeight: '600',
       color: '#3a5a78',
       minHeight: '56px',
-   
+
     },
   },
   headCells: {
@@ -280,6 +280,12 @@ const TableContainer = ({ transactionType }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const [flow, setFlow] = useState(false);
   const shouldShowTDS = transactions.some(row => row.typeOfTransaction !== "Deposit");
+  const shouldShowStatus = transactions.some(row => row.typeOfTransaction === "Withdrawal");
+  const shouldShowPartner = transactions.some(row => row.typeOfTransaction === "Deposit");
+  const shouldShowUpdatedAt = transactions.some(row => row.typeOfTransaction === "Withdrawal");
+
+
+
 
   const getTransactions = async (page, checkValue) => {
     if (!userData || !userData._id) return;
@@ -356,12 +362,12 @@ const TableContainer = ({ transactionType }) => {
       cell: row => (
         <div className={styles.transactionCell}>
           <span className={styles.transactionId}>{row.transaction_hash.substring(0, 8)}...</span>
-          <div className={styles.transactionFull} >{row.transaction_hash}</div>
+          <div className={styles.transactionFull} style={{ fontFamily: '"Roboto",sans-serif' }}>{row.transaction_hash}</div>
         </div>
       ),
     },
     {
-      name: "Date & Time",
+      name: "Created At",
       selector: row => row.createdAt,
       sortable: false,
       cell: row => (
@@ -371,6 +377,22 @@ const TableContainer = ({ transactionType }) => {
         </div>
       ),
     },
+    ...(shouldShowUpdatedAt ? [{
+      name: "Updated At",
+      selector: row => row.updatedAt,
+      sortable: false,
+      cell: row => (
+        <div className={styles.dateTimeCell}>
+          <div className={styles.date}>
+            {moment(row.updatedAt).format("DD MMM YYYY")}
+          </div>
+          <div className={styles.time}>
+            {moment(row.updatedAt).format("h:mm A")}
+          </div>
+        </div>
+      ),
+    },
+    ] : []),
     ...(shouldShowTDS ? [{
       name: "TDS",
       selector: row => row.rackbackcut,
@@ -378,8 +400,18 @@ const TableContainer = ({ transactionType }) => {
       right: true,
       cell: row =>
         row.typeOfTransaction === "Deposit"
-          ? <span className={styles.zeroAmount} style={{fontFamily:'"Roboto",sans-serif'}}>₹0.00</span>
-          : <span className={styles.tdsAmount} style={{fontFamily:'"Roboto",sans-serif'}} >{formatCurrency(row.rackbackcut)}</span>
+          ? <span className={styles.zeroAmount} style={{ fontFamily: '"Roboto",sans-serif' }}>₹0.00</span>
+          : <span className={styles.tdsAmount} style={{ fontFamily: '"Roboto",sans-serif' }} >{formatCurrency(row.rackbackcut)}</span>
+    }] : []),
+    ...(shouldShowPartner ? [{
+      name: "Site Name",
+      selector: row => row.rackbackcut,
+      sortable: false,
+      right: true,
+      cell: row =>
+        row.typeOfTransaction === "Deposit"
+          ? <span style={{ fontFamily: '"Roboto",sans-serif', fontWeight: "600" }}>{row.partner}</span>
+          : ""
     }] : []),
 
     {
@@ -388,12 +420,12 @@ const TableContainer = ({ transactionType }) => {
       sortable: false,
       right: true,
       cell: row => (
-        <span className={row.typeOfTransaction === "Deposit" ? styles.creditAmount : styles.debitAmount} style={{fontFamily:'"Roboto",sans-serif'}}>
+        <span className={row.typeOfTransaction === "Deposit" ? styles.creditAmount : styles.debitAmount} style={{ fontFamily: '"Roboto",sans-serif' }}>
           {formatCurrency(row.actualAmount)}
         </span>
       ),
     },
-    {
+    ...(shouldShowStatus ? [{
       name: "Status",
       selector: row => row.status,
       sortable: false,
@@ -409,13 +441,13 @@ const TableContainer = ({ transactionType }) => {
             }}
           >
             <span className={styles.statusIcon}>{statusInfo.icon}</span>
-            <span style={{fontFamily:'"Roboto",sans-serif'}}>{row.status}</span>
+            <span style={{ fontFamily: '"Roboto",sans-serif' }}>{row.status === "Aborted" ? "Rejected" :row.status}</span>
           </div>
         );
       },
-    },
+    }] : []),
     {
-      name: "Actions",
+      name: "Details",
       button: true,
       cell: row => (
         <button
@@ -468,8 +500,8 @@ const TableContainer = ({ transactionType }) => {
           <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
             <div className={styles.receiptContainer}>
               <div className={styles.receiptHeader}>
-                <h3 className={styles.receiptTitle}>Transaction Receipt</h3>
-                <div className={styles.statusHeader}>
+                <h3 className={styles.receiptTitle}>Transaction Detail</h3>
+                {/* <div className={styles.statusHeader}>
                   <div
                     className={styles.statusBadgeLarge}
                     style={{
@@ -481,24 +513,37 @@ const TableContainer = ({ transactionType }) => {
                     <span className={styles.statusIconLarge}>{getStatusInfo(selectedTransaction.status).icon}</span>
                     <span style={{fontFamily:'"Roboto",sans-serif'}}>{selectedTransaction.status}</span>
                   </div>
-                </div>
+                </div> */}
+                <button
+                  className={styles.closeIcon}
+                  onClick={handleCloseModal}
+                  aria-label="Close modal"
+                >
+                  &times;
+                </button>
               </div>
 
               <div className={styles.receiptBody}>
                 <div className={styles.receiptSection}>
-                  <h3>Transaction Details</h3>
                   <div className={styles.receiptRow}>
                     <span className={styles.receiptLabel}>Transaction ID</span>
                     <span className={styles.receiptValue}>{selectedTransaction.transaction_hash}</span>
                   </div>
 
                   <div className={styles.receiptRow}>
-                    <span className={styles.receiptLabel}>Date & Time</span>
+                    <span className={styles.receiptLabel}>Created At</span>
                     <span className={styles.receiptValue}>
                       {moment(selectedTransaction.createdAt).format("DD MMM YYYY, h:mm A")}
                     </span>
                   </div>
-
+                  {selectedTransaction.typeOfTransaction !== "Deposit" && (
+                    <div className={styles.receiptRow}>
+                      <span className={styles.receiptLabel}>Updated At</span>
+                      <span className={styles.receiptValue}>
+                        {moment(selectedTransaction.updatedAt).format("DD MMM YYYY, h:mm A")}
+                      </span>
+                    </div>
+                  )}
                   <div className={styles.receiptRow}>
                     <span className={styles.receiptLabel}>Transaction Type</span>
                     <span className={styles.receiptValue}>{selectedTransaction.typeOfTransaction}</span>
@@ -511,9 +556,6 @@ const TableContainer = ({ transactionType }) => {
                     </div>
                   )}
                 </div>
-
-                <div className={styles.receiptDivider}></div>
-
                 <div className={styles.receiptSection}>
                   {selectedTransaction.typeOfTransaction !== "Deposit" && (
                     <div className={styles.receiptRow}>
@@ -523,7 +565,14 @@ const TableContainer = ({ transactionType }) => {
                       </span>
                     </div>
                   )}
-
+                  {selectedTransaction.typeOfTransaction !== "Withdrawal" && (
+                    <div className={styles.receiptRow}>
+                      <span className={styles.receiptLabel}>Site Name</span>
+                      <span className={styles.receiptValue}>
+                        {selectedTransaction.partner}
+                      </span>
+                    </div>
+                  )}
                   <div className={styles.amountSection}>
                     <span className={styles.amountLabel}>Total Amount</span>
                     <span className={`${styles.amountValue} ${selectedTransaction.typeOfTransaction === "Deposit" ? styles.credit : styles.debit}`}>
@@ -532,15 +581,6 @@ const TableContainer = ({ transactionType }) => {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className={styles.modalActions}>
-              <button
-                className={styles.closeButton}
-                onClick={handleCloseModal}
-                aria-label="Close modal"
-              >
-                Close
-              </button>
             </div>
           </div>
         </div>

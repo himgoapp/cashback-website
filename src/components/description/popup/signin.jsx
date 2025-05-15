@@ -11,6 +11,7 @@ const FullPageSignin = () => {
   const [showOtpPart, setShowOtpPart] = useState(false);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [resendTimer, setResendTimer] = useState(0);
   const otpInputRefs = useRef([]);
@@ -148,129 +149,150 @@ const FullPageSignin = () => {
     setShowOtpPart(false);
     setOtp(["", "", "", "", "", ""]);
   };
+  const handleChange = (e) => {
+    const value = e.target.value;
 
+    // Allow only digits
+    if (/^\d*$/.test(value)) {
+      // Check first digit
+      if (value.length === 1 && !/^[6-9]$/.test(value)) {
+        setError("Enter your valid number");
+        return;
+      }
+
+      setPhoneNumber(value);
+
+      // Validate after 10 digits
+      if (value.length === 10 && !/^[6-9]\d{9}$/.test(value)) {
+        setError("Enter your valid number");
+      } else {
+        setError("");
+      }
+    }
+  };
   return (
-    <>   
-    <Navbar page="login" />
-     <div className={styles.fullPageContainer}>
-      <div className={styles.authCard}>
-        <div className={styles.backButtonContainer}>
-          <button
-            className={styles.backButton}
-            onClick={() => navigate(-1)}
-            aria-label="Go back"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </div>
+    <>
+      <Navbar page="login" />
+      <div className={styles.fullPageContainer}>
+        <div className={styles.authCard}>
+          <div className={styles.backButtonContainer}>
+            <button
+              className={styles.backButton}
+              onClick={() => navigate(-1)}
+              aria-label="Go back"
+            >
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
 
-        {!showOtpPart ? (
-          <div className={styles.formSection}>
-            <h1 className={styles.title}>Login or signup</h1>
-            <p className={styles.subtitle}>We will send an OTP to verify</p>
-            
-            <form onSubmit={handlePhoneSubmit} className={styles.form}>
-              <div className={styles.inputField}>
-                <input
-                autoFocus
-                  type="tel"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  maxLength={10}
-                  value={phoneNumber}
-                  onChange={(e) => {
-                    const value = e.target.value;
-                    if (/^\d*$/.test(value)) {
-                      setPhoneNumber(value);
-                    }
-                  }}
-                  required
-                  style={{fontFamily:'"Roboto",sans-serif'}}
-                />
-                <label style={{fontFamily:'"Roboto",sans-serif'}}>Enter mobile number</label>
+          {!showOtpPart ? (
+            <div className={styles.formSection}>
+              <h1 className={styles.title}>Login or signup</h1>
+              <p className={styles.subtitle}>We will send an OTP to verify</p>
+
+              <form onSubmit={handlePhoneSubmit} className={styles.form}>
+                <div className={styles.inputField}>
+                  <input
+                    autoFocus
+                    type="tel"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    maxLength={10}
+                    value={phoneNumber}
+                    onChange={handleChange}
+                    required
+                    style={{ fontFamily: '"Roboto", sans-serif' }}
+                    className={`${styles.number_label} ${error ? styles.invalidInput : ""}`}
+                  />
+                  <label style={{ fontFamily: '"Roboto", sans-serif' }}
+                    className={`${styles.number_label} ${error ? styles.invalidInputLabel : ""}`}>
+                    Enter mobile number
+                  </label>
+                  {error && <p style={{ color: "red", fontSize: "14px", marginTop: "5px", fontFamily: '"Roboto",sans-serif' }}>{error}</p>}
+                </div>
+
+
+                <button
+                  type="submit"
+                  className={styles.primaryButton}
+                  disabled={loading || !phoneNumber || phoneNumber.length !== 10}
+                >
+                  {loading ? (
+                    <span className={styles.loadingSpinner}></span>
+                  ) : (
+                    "Continue"
+                  )}
+                </button>
+              </form>
+            </div>
+          ) : (
+            <div className={styles.formSection}>
+              <h1 className={styles.title}>Enter OTP</h1>
+              <p className={styles.subtitle}>
+                OTP sent to {phoneNumber.slice(0, 2)}•••••{phoneNumber.slice(-2)}
+                <button
+                  className={styles.editButton}
+                  onClick={editNumber}
+                >
+                  Edit Number
+                </button>
+              </p>
+
+              <div className={styles.otpContainer}>
+                {otp.map((digit, index) => (
+                  <input
+                    key={index}
+                    ref={otpInputRefs.current[index]}
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    maxLength={1}
+                    value={digit}
+                    onChange={(e) => handleOtpChange(e, index)}
+                    onKeyDown={(e) => handleKeyDown(e, index)}
+                    onPaste={index === 0 ? handlePaste : null}
+                    className={styles.otpInput}
+                    autoFocus={index === 0 && showOtpPart}
+                    style={{ fontFamily: '"Roboto",sans-serif', fontWeight: "400" }}
+                  />
+                ))}
               </div>
-              
+
+              <div className={styles.resendContainer}>
+                <p>
+                  Haven't received the OTP?{' '}
+                  {resendTimer > 0 ? (
+                    <span style={{ fontFamily: '"Roboto",sans-serif', fontWeight: "400" }}>Resend in <span className={styles.timer} style={{ fontFamily: '"Roboto",sans-serif' }}>{resendTimer}s</span></span>
+                  ) : (
+                    <button
+                      className={styles.resendButton}
+                      onClick={sendOtp}
+                    >
+                      Resend
+                    </button>
+                  )}
+                </p>
+              </div>
+
               <button
-                type="submit"
                 className={styles.primaryButton}
-                disabled={loading || !phoneNumber || phoneNumber.length !== 10}
+                onClick={verifyOtp}
+                disabled={loading || otp.join("").length !== 6}
               >
                 {loading ? (
                   <span className={styles.loadingSpinner}></span>
                 ) : (
-                  "Continue"
+                  "Verify OTP"
                 )}
               </button>
-            </form>
-          </div>
-        ) : (
-          <div className={styles.formSection}>
-            <h1 className={styles.title}>Enter OTP</h1>
-            <p className={styles.subtitle}>
-              OTP sent to {phoneNumber.slice(0, 2)}•••••{phoneNumber.slice(-2)}
-              <button
-                className={styles.editButton}
-                onClick={editNumber}
-              >
-                Edit Number
-              </button>
-            </p>
-            
-            <div className={styles.otpContainer}>
-              {otp.map((digit, index) => (
-                <input
-                  key={index}
-                  ref={otpInputRefs.current[index]}
-                  type="text"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  maxLength={1}
-                  value={digit}
-                  onChange={(e) => handleOtpChange(e, index)}
-                  onKeyDown={(e) => handleKeyDown(e, index)}
-                  onPaste={index === 0 ? handlePaste : null}
-                  className={styles.otpInput}
-                  autoFocus={index === 0 && showOtpPart}
-                  style={{fontFamily:'"Roboto",sans-serif',fontWeight:"400"}}
-                />
-              ))}
             </div>
-            
-            <div className={styles.resendContainer}>
-              <p>
-                Haven't received the OTP?{' '}
-                {resendTimer > 0 ? (
-                  <span  style={{fontFamily:'"Roboto",sans-serif',fontWeight:"400"}}>Resend in <span className={styles.timer}  style={{fontFamily:'"Roboto",sans-serif'}}>{resendTimer}s</span></span>
-                ) : (
-                  <button
-                    className={styles.resendButton}
-                    onClick={sendOtp}
-                  >
-                    Resend
-                  </button>
-                )}
-              </p>
-            </div>
-            
-            <button
-              className={styles.primaryButton}
-              onClick={verifyOtp}
-              disabled={loading || otp.join("").length !== 6}
-            >
-              {loading ? (
-                <span className={styles.loadingSpinner}></span>
-              ) : (
-                "Verify OTP"
-              )}
-            </button>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
-    <div
+      <div
         style={{ width: "100%", backgroundColor: "#0052cc" }}
         className="flex_center"
       >

@@ -1,0 +1,23 @@
+
+.PopupWithOpacity{
+  overflow: hidden;
+}
+.Head {
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+font-weight: bold;
+}
+.Subhead{
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+}
+.important_message{
+    margin-top: 10px;
+}
+@media screen and (max-width: 768px) {
+  .important_message{
+   width: 358px;
+   margin-top: 10px;
+  }
+    
+}

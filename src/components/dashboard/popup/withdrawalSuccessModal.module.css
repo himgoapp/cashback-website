@@ -1,0 +1,106 @@
+/* withdrawalSuccess.module.css */
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modalContainer {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 360px;
+  padding: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logoContainer {
+  margin-bottom: 10px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  color: #0052cc;
+}
+
+.successIcon {
+  background-color: #2ecc71;
+  color: white;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.successTitle {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 16px;
+}
+
+.messageText {
+  color: #666;
+  text-align: center;
+  font-size: 14px;
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+
+.amountText {
+  font-weight: bold;
+}
+
+.hoursText {
+  color: #2ecc71;
+  font-weight: bold;
+}
+
+.closeButton {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.closeButton:hover {
+  background-color: #27ae60;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

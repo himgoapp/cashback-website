@@ -127,6 +127,19 @@
   border: none;
   border-radius: 100px;
 }
+.number_label{
+  font-family: "Roboto",sans-serif;
+}
+
+.invalidInput {
+  border: 1.5px solid red !important;
+  outline: none;
+  color: red !important;
+}
+.invalidInputLabel {
+  outline: none;
+  color: red !important;
+}
 
 /* Primary Button */
 .primaryButton {

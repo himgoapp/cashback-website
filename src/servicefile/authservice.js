@@ -97,6 +97,7 @@ export const signUpFxn = async (phoneNumber, email, userName) => {
 		email,
 		userName,
 		role: "user",
+		emailVerifystatus: true
 	};
 
 	try {

@@ -60,6 +60,19 @@
   letter-spacing: -1px;
   text-align: center;
 }
+.email_label{
+  font-family: "Roboto",sans-serif;
+}
+
+.invalidInput {
+  border: 1.5px solid red !important;
+  outline: none;
+  color: red !important;
+}
+.invalidInputLabel {
+  outline: none;
+  color: red !important;
+}
 
 .subtitle {
   font-size: 17px;
@@ -90,10 +103,17 @@
   pointer-events: none;
   background-color: transparent;
   left: 15px;
-  transform: translateY(1rem);
+ transform: translateY(-51%) translateX(-10px) scale(0.8);
+   background-color: #fff;
+  padding: 0px 8px;
+  color: #0052cc;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 100px;
   transition: all 0.3s ease;
-  font-weight: 500;
 }
+
 
 .inputField input {
   padding: 12px 16px;
