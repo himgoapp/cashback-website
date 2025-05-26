@@ -7,185 +7,200 @@ import { toast } from "react-toastify";
 import { UserContext } from "../../../App";
 
 function BankAccDetails({ setStepReload, userKyc }) {
-	const { userData } = useContext(UserContext);
-	const [account_number, setAccountNumber] = useState("");
-	const [bank_name, setBankName] = useState("");
-	const [ifsc_code, setIfscCode] = useState("");
-	const [validate, setValidate] = useState("");
-	const [error, setError] = useState("");
+  const { userData } = useContext(UserContext);
+  const [account_number, setAccountNumber] = useState("");
+  const [bank_name, setBankName] = useState("");
+  const [ifsc_code, setIfscCode] = useState("");
+  const [validate, setValidate] = useState("");
+  const [error, setError] = useState("");
 
-	const isRejected = userKyc?.bankDetailsUploadStatus === "Rejected";
-	const isAlreadyUploadedOrApproved = ["Uploaded", "Approved"].includes(
-		userKyc?.bankDetailsUploadStatus
-	);
+  const isRejected = userKyc?.bankDetailsUploadStatus === "Rejected";
+  const isAlreadyUploadedOrApproved = ["Uploaded", "Approved"].includes(
+    userKyc?.bankDetailsUploadStatus
+  );
 
-	const isFormValid =
-		account_number &&
-		bank_name &&
-		ifsc_code &&
-		validate &&
-		account_number === validate;
+  const isFormValid =
+    account_number &&
+    bank_name &&
+    ifsc_code &&
+    validate &&
+    account_number === validate;
 
-	const addBankDetailsData = async () => {
-		if (!userData || !userData._id) return;
+  const addBankDetailsData = async () => {
+    if (!userData || !userData._id) return;
+    if (!account_number || !bank_name || !ifsc_code || !validate) {
+      return;
+    }
+    if (account_number !== validate) {
+      setError("Account numbers do not match");
+      return;
+    }
 
-		if (!isRejected) {
-			return;
-		}
+    const res = await addBankDetails(
+      userData._id,
+      account_number,
+      bank_name,
+      ifsc_code
+    );
 
-		if (!account_number || !bank_name || !ifsc_code || !validate) {
-			return;
-		}
+    if (res && res.message === "Bank Saved Successfully!") {
+      localStorage.setItem("transactionInfo", "true");
+      setStepReload(true);
+    }
+  };
 
-		if (account_number !== validate) {
-			setError("Account numbers do not match");
-			return;
-		}
+  return (
+    <div className={styles.AddressDetailsContainer}>
+      <div className={styles.Text} style={{ fontFamily: "Futura" }}>
+        Bank Account Details
+      </div>
+      <div className={styles.AddressDetailsForm}>
+        <div className={styles.AddressDetailsContent}>
+          <div className={styles.InputRow}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                flex: "1 0 0",
+              }}
+            >
+              <TextField
+                label="Account Number"
+                placeholder="*********************"
+                type="password"
+                value={account_number}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (/^\d*$/.test(value) && value.length <= 18) {
+                    setAccountNumber(value);
 
-		const res = await addBankDetails(
-			userData._id,
-			account_number,
-			bank_name,
-			ifsc_code
-		);
+                    if (validate && validate.length > 0) {
+                      const verifyLength = validate.length;
+                      const newAccountPrefix = value.substring(0, verifyLength);
 
-		if (res && res.message === "Bank Saved Successfully!") {
-			localStorage.setItem("transactionInfo", "true");
-			setStepReload(true);
-		}
-	};
+                      if (validate !== newAccountPrefix) {
+                        setError("Account numbers do not match");
+                      } else {
+                        setError("");
+                      }
+                    }
+                  }
+                }}
+                inputProps={{
+                  minLength: 9,
+                  maxLength: 18,
+                  inputMode: "numeric",
+                  pattern: "[0-9]*",
+                }}
+                required
+              />
+            </div>
 
-	return (
-		<div className={styles.AddressDetailsContainer}>
-			<div className={styles.Text} style={{ fontFamily: "Futura" }}>
-				Bank Account Details
-			</div>
-			<div className={styles.AddressDetailsForm}>
-				<div className={styles.AddressDetailsContent}>
-					<div className={styles.InputRow}>
-						<div style={{ display: "flex", flexDirection: "column", flex: "1 0 0" }}>
-							<TextField
-								label="Account Number"
-								placeholder="*********************"
-								type="password"
-								value={account_number}
-								onChange={(e) => {
-									const value = e.target.value;
-									if (/^\d*$/.test(value) && value.length <= 18) {
-										setAccountNumber(value);
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                flex: "1 0 0",
+              }}
+            >
+              <TextField
+                label="Verify Account Number"
+                placeholder="83832993803748"
+                type="text"
+                value={validate}
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (/^\d*$/.test(value) && value.length <= 18) {
+                    setValidate(value);
 
-										if (validate && validate.length > 0) {
-											const verifyLength = validate.length;
-											const newAccountPrefix = value.substring(0, verifyLength);
+                    const currentLength = value.length;
+                    const accountNumberPrefix = account_number.substring(
+                      0,
+                      currentLength
+                    );
 
-											if (validate !== newAccountPrefix) {
-												setError("Account numbers do not match");
-											} else {
-												setError("");
-											}
-										}
-									}
-								}}
-								inputProps={{
-									minLength: 9,
-									maxLength: 18,
-									inputMode: "numeric",
-									pattern: "[0-9]*",
-								}}
-								required
-							/>
-						</div>
+                    if (value && currentLength > 0) {
+                      if (value !== accountNumberPrefix) {
+                        setError("Account numbers do not match");
+                      } else {
+                        setError("");
+                      }
+                    } else {
+                      setError("");
+                    }
+                  }
+                }}
+                inputProps={{
+                  minLength: 9,
+                  maxLength: 18,
+                  inputMode: "numeric",
+                  pattern: "[0-9]*",
+                }}
+                required
+              />
+              {error && (
+                <div
+                  className={styles.errorText}
+                  style={{ color: "red", marginTop: "4px", fontSize: "12px" }}
+                >
+                  {error}
+                </div>
+              )}
+            </div>
+          </div>
 
-						<div style={{ display: "flex", flexDirection: "column", flex: "1 0 0" }}>
-							<TextField
-								label="Verify Account Number"
-								placeholder="83832993803748"
-								type="text"
-								value={validate}
-								onChange={(e) => {
-									const value = e.target.value;
-									if (/^\d*$/.test(value) && value.length <= 18) {
-										setValidate(value);
+          <div className={styles.InputRow}>
+            <TextField
+              label="Bank Name"
+              placeholder="ICICI Bank"
+              value={bank_name}
+              setValue={setBankName}
+              required
+            />
+            <TextField
+              label="IFSC Code"
+              placeholder="ICICI22881"
+              value={ifsc_code}
+              setValue={setIfscCode}
+              required
+            />
+          </div>
+        </div>
 
-										const currentLength = value.length;
-										const accountNumberPrefix = account_number.substring(0, currentLength);
+        <div className={styles.FormFooter}>
+          <div className={styles.Divider}></div>
+          <div className={styles.Content}>
+            {/* {isAlreadyUploadedOrApproved && (
+              <p
+                style={{
+                  color: "#888",
+                  fontSize: "14px",
+                  marginBottom: "10px",
+                }}
+              >
+                Bank details have already been submitted.
+              </p>
+            )} */}
 
-										if (value && currentLength > 0) {
-											if (value !== accountNumberPrefix) {
-												setError("Account numbers do not match");
-											} else {
-												setError("");
-											}
-										} else {
-											setError("");
-										}
-									}
-								}}
-								inputProps={{
-									minLength: 9,
-									maxLength: 18,
-									inputMode: "numeric",
-									pattern: "[0-9]*",
-								}}
-								required
-							/>
-							{error && (
-								<div
-									className={styles.errorText}
-									style={{ color: "red", marginTop: "4px", fontSize: "12px" }}
-								>
-									{error}
-								</div>
-							)}
-						</div>
-					</div>
-
-					<div className={styles.InputRow}>
-						<TextField
-							label="Bank Name"
-							placeholder="ICICI Bank"
-							value={bank_name}
-							setValue={setBankName}
-							required
-						/>
-						<TextField
-							label="IFSC Code"
-							placeholder="ICICI22881"
-							value={ifsc_code}
-							setValue={setIfscCode}
-							required
-						/>
-					</div>
-				</div>
-
-				<div className={styles.FormFooter}>
-					<div className={styles.Divider}></div>
-					<div className={styles.Content}>
-						{isAlreadyUploadedOrApproved && (
-							<p style={{ color: "#888", fontSize: "14px", marginBottom: "10px" }}>
-								Bank details have already been submitted.
-							</p>
-						)}
-
-						<div
-							className={styles.Actions}
-							onClick={() => {
-								addBankDetailsData();
-							}}
-						>
-							<Navbtn
-								text="Submit"
-								variant="primary"
-								size="small"
-								showIcon={false}
-								disabled={!isFormValid || isAlreadyUploadedOrApproved}
-							/>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	);
+            <div
+              className={styles.Actions}
+              onClick={() => {
+                addBankDetailsData();
+              }}
+            >
+              <Navbtn
+                text="Submit"
+                variant="primary"
+                size="small"
+                showIcon={false}
+                disabled={!isFormValid}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default BankAccDetails;

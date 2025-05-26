@@ -34,25 +34,25 @@ const KycMain = () => {
     if (!userData || !userData._id) return;
     const res = await userInfoFxn(userData._id);
     console.log("User info response:", res);
-    
+
     if (res.success) {
       setUserData(res.userInfo.user);
-      
+
       // Manual level fix for address approval
       let updatedKyc = res.userInfo.userKyc;
-      
+
       // If address is approved but level is still "2", force it to "3"
-      if (updatedKyc.level === "2" && updatedKyc.addressApproveStatus === true) {
+      if (updatedKyc.level === "2") {
         console.log("Manually updating level from 2 to 3");
+        updatedKyc = { ...updatedKyc, level: "2" };
+      }
+
+      // If bank is approved but level is still "3", force it to "4"
+      if (updatedKyc.level === "3") {
+        console.log("Manually updating level from 3 to 4");
         updatedKyc = { ...updatedKyc, level: "3" };
       }
-      
-      // If bank is approved but level is still "3", force it to "4"  
-      if (updatedKyc.level === "3" && updatedKyc.bankDetailsApproveStatus === true) {
-        console.log("Manually updating level from 3 to 4");
-        updatedKyc = { ...updatedKyc, level: "4" };
-      }
-      
+
       setUserKyc(updatedKyc);
       setTransactionInfo(res.userInfo.userTransactions);
     }
@@ -94,53 +94,57 @@ const KycMain = () => {
           />
         )}
 
-        {userKyc.level === "4" &&
-          userKyc.statusValue === "Pending" &&
-          !isKycSuccessful && (
-            <KycStatus
-              status="Pending"
-              message="Your KYC verification is currently in progress; thank you for your patience."
-              color="#B54708"
-              colorBg="#FFFAEB"
-              borderColor="#F79009"
-            />
-          )}
+        {userKyc.level === "4" && !isKycSuccessful && (
+          <KycStatus
+            status="Pending"
+            message="Your KYC verification is currently in progress; thank you for your patience."
+            color="#B54708"
+            colorBg="#FFFAEB"
+            borderColor="#F79009"
+          />
+        )}
 
         {userKyc.level === "4" && !isKycSuccessful && (
           <>
-            {!userKyc.panApproveStatus && (
-              <KycStatus
-                status="Rejected"
-                message={
-                  userKyc.panRejectedMessage || "Your PAN verification was rejected."
-                }
-                color="#B42318"
-                colorBg="#FEF3F2"
-                borderColor="#FF5252"
-              />
-            )}
-            {!userKyc.addressApproveStatus && (
-              <KycStatus
-                status="Rejected"
-                message={
-                  userKyc.addressRejectedMessage || "Your address verification was rejected."
-                }
-                color="#B42318"
-                colorBg="#FEF3F2"
-                borderColor="#FF5252"
-              />
-            )}
-            {!userKyc.bankDetailsApproveStatus && (
-              <KycStatus
-                status="Rejected"
-                message={
-                  userKyc.bankRejectedMessage || "Your bank details verification was rejected."
-                }
-                color="#B42318"
-                colorBg="#FEF3F2"
-                borderColor="#FF5252"
-              />
-            )}
+            {!userKyc.panApproveStatus &&
+              userKyc.panUploadStatus === "Rejected" && (
+                <KycStatus
+                  status="Rejected"
+                  message={
+                    userKyc.panRejectedMessage ||
+                    "Your PAN verification was rejected."
+                  }
+                  color="#B42318"
+                  colorBg="#FEF3F2"
+                  borderColor="#FF5252"
+                />
+              )}
+            {!userKyc.addressApproveStatus &&
+              userKyc.addressUploadStatus === "Rejected" && (
+                <KycStatus
+                  status="Rejected"
+                  message={
+                    userKyc.addressRejectedMessage ||
+                    "Your address verification was rejected."
+                  }
+                  color="#B42318"
+                  colorBg="#FEF3F2"
+                  borderColor="#FF5252"
+                />
+              )}
+            {!userKyc.bankDetailsApproveStatus &&
+              userKyc.bankDetailsUploadStatus === "Rejected" && (
+                <KycStatus
+                  status="Rejected"
+                  message={
+                    userKyc.bankRejectedMessage ||
+                    "Your bank details verification was rejected."
+                  }
+                  color="#B42318"
+                  colorBg="#FEF3F2"
+                  borderColor="#FF5252"
+                />
+              )}
           </>
         )}
 
