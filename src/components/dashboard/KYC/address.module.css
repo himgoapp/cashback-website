@@ -195,7 +195,12 @@ select.form-select {
 	max-width: 400px;
 	margin-top: 10px;
   }
-  
+  .errorText {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  font-family: "Roboto",sans-serif;
+  }
 .SelectInput {
 	display: flex;
 	flex-direction: column;
@@ -345,7 +350,7 @@ select.form-select {
 }
 
 .Content {
-	align-self: stretch;
+	/* align-self: stretch; */
 	padding-left: 1.5rem;
 	padding-right: 1.5rem;
 	justify-content: flex-end;

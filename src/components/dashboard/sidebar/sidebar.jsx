@@ -26,7 +26,6 @@ const Sidebar = ({ active }) => {
     } else {
       setShowSidebar(true);
     }
-    console.log("Active index: ", active);
 
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);

@@ -4,7 +4,6 @@ import styles from "./address.module.css";
 import { addAddressProof } from "../../../servicefile/kycservice";
 import { toast } from "react-toastify";
 import { UserContext } from "../../../App";
-import { color } from "framer-motion";
 
 const SelectField = ({ label, options, placeholder, currentValue, setValue }) => {
   return (
@@ -25,9 +24,6 @@ const SelectField = ({ label, options, placeholder, currentValue, setValue }) =>
               </option>
             ))}
           </select>
-          {/* <div className={styles.DropdownIcon}>
-            <div className={styles.Icon}>{dropdownIcon}</div>
-          </div> */}
         </div>
       </div>
     </div>
@@ -48,7 +44,6 @@ export const TextField = ({
   setValue,
   type,
   ...props
-
 }) => {
   return (
     <div className={styles.TextInput}>
@@ -68,10 +63,12 @@ export const TextField = ({
     </div>
   );
 };
+
 function AddressDetail({ setStepReload }) {
   const { userData, userKyc } = useContext(UserContext);
   const imageRef = useRef(null);
   const [file, handleFile] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -90,7 +87,6 @@ function AddressDetail({ setStepReload }) {
 
   const handleSelect = (option) => {
     setSelectedOption(option.value);
-    console.log(option)
     setAddressProofType(option.value);
     setIsOpen(false);
   };
@@ -105,27 +101,53 @@ function AddressDetail({ setStepReload }) {
   };
 
   const addAddressData = async () => {
-    if (!userData || !userData._id) return;
+    if (!userData || !userData._id) {
+      toast.error("User data not found!");
+      return;
+    }
 
-    if (
-      !file ||
+    if (!file || !addressProofType || !documentNumber) {
+      toast.error("All fields are required for saving address information!");
+      return;
+    }
 
-      !addressProofType ||
-      !documentNumber
-    ) {
-      // toast.error(`All fields are required for saving address information!`);
-    } else {
+    setIsSubmitting(true);
+    
+    try {
+      console.log("Submitting address data:", {
+        userId: userData._id,
+        addressProofType,
+        documentNumber,
+        fileName: file.name
+      });
+
       const res = await addAddressProof(
         userData._id,
         file,
         addressProofType,
         documentNumber,
       );
+
+      console.log("Address submission response:", res);
+
       if (res && res.message === "success") {
         localStorage.setItem("transactionInfo", "true");
-        // toast.success(`Address information saved!`);
-        setStepReload(true);
+        
+        if (res.reponse && res.reponse.addressApproveStatus === true) {
+          
+          setTimeout(() => {
+            setStepReload(true);
+          }, 2000);
+        } else {
+          setTimeout(() => {
+            setStepReload(true);
+          }, 1000);
+        }
+      } else {
       }
+    } catch (error) {
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -133,12 +155,14 @@ function AddressDetail({ setStepReload }) {
     if (userKyc) {
       if (userKyc.firstName) setFirstName(userKyc.firstName);
       if (userKyc.lastName) setLastName(userKyc.lastName);
-      if (userKyc.addressProofType)
+      if (userKyc.addressProofType) {
         setAddressProofType(userKyc.addressProofType);
+        setSelectedOption(userKyc.addressProofType);
+      }
       if (userKyc.documentNumber) setDocumentNumber(userKyc.documentNumber);
       if (userKyc.proofState) setProofState(userKyc.proofState);
     }
-  }, []);
+  }, [userKyc]);
 
   return (
     <>
@@ -147,40 +171,6 @@ function AddressDetail({ setStepReload }) {
         <div className={styles.AddressDetailsForm}>
           <div className={styles.AddressDetailsContent}>
             <div className={styles.InputRow}>
-              {/* <TextField
-                label="First name"
-                placeholder="Olivia"
-                currentValue={firstName}
-                setValue={setFirstName}
-                required
-              />
-              <TextField
-                label="Last name"
-                placeholder="Rhye"
-                currentValue={lastName}
-                setValue={setLastName}
-                required
-              /> */}
-            </div>
-            <div className={styles.InputRow}>
-              {/* <SelectField
-								label='Address Proof Document Type'
-								placeholder='Address Proof'
-								currentValue={addressProofType}
-								setValue={setAddressProofType}
-							/> */}
-              {/* <SelectField
-                label="Address Proof Document Type"
-                // placeholder="Address Proof..."
-                currentValue={addressProofType}
-                setValue={setAddressProofType}
-                options={[
-                  { value: "aadhaar_card", label: "Aaddhar Card" },
-                  { value: "passport", label: "Passport" },
-                  { value: "voter_id", label: "Voter ID" },
-                ]}
-                required
-              /> */}
               <div className={styles.formGroup}>
                 <label htmlFor="addressProofType" className={styles.formLabel}>
                   Address Proof Document Type <span className={styles.requiredAsterisk}>*</span>
@@ -202,7 +192,6 @@ function AddressDetail({ setStepReload }) {
                           key={option.value}
                           className={styles.dropdownItem}
                           onClick={() => handleSelect(option)}
-                          
                         >
                           {option.label}
                         </div>
@@ -214,30 +203,13 @@ function AddressDetail({ setStepReload }) {
 
               <TextField
                 label="Address Proof Document Number"
-                // placeholder="GSVD73YB3B"
                 currentValue={documentNumber}
                 setValue={setDocumentNumber}
                 maxLength={documentMaxLengths[addressProofType] || 20}
                 required
               />
-
             </div>
-            {/* <div className={styles.InputRow}>
-              <TextField
-                label="State"
-                placeholder="Bihar"
-                currentValue={proofState}
-                setValue={setProofState}
-                onInput={(e) => {
-                  // allow only alphabets
-                  let regex = /^[a-zA-Z\s]*$/;
-                  if (!regex.test(e.target.value)) {
-                    e.target.value = e.target.value.slice(0, -1);
-                  }
-                }}
-                required
-              />
-            </div> */}
+
             <div className={styles.UploadArea}>
               <div className={styles.UploadLabel}>
                 Upload Address Proof Document<span className={styles.requiredAsterisk}>*</span>
@@ -270,7 +242,6 @@ function AddressDetail({ setStepReload }) {
                             cursor: "pointer",
                             borderRadius: "10px",
                             fontWeight: "500"
-
                           }}
                           onClickNav={() => {
                             handleClick();
@@ -298,27 +269,13 @@ function AddressDetail({ setStepReload }) {
             <div className={styles.Divider}></div>
             <div className={styles.Content}>
               <div className={styles.Actions}>
-                {/* <Navbtn
-									text='Save changes'
-									variant={"primary"}
-									size={"small"}
-									showIcon={false}
-									onClickNav={() => {
-										addAddressData();
-									}}
-								/> */}
                 <button
                   className={`primary_button ${styles.btn_container}`}
-                  onClick={() => { addAddressData(); }}
-                  disabled={!isFormValid}
-                  style={{
-                    background: !isFormValid ? "#ccc" : "#0052cc",
-                    cursor: !isFormValid ? "not-allowed" : "pointer"
-                  }}
+                  onClick={addAddressData}
+                  disabled={!isFormValid || isSubmitting}
                 >
-                  Save changes
+                  {isSubmitting ? 'Submitting...' : 'Submit'}
                 </button>
-
               </div>
             </div>
           </div>
@@ -329,23 +286,7 @@ function AddressDetail({ setStepReload }) {
 }
 
 export default AddressDetail;
-const dropdownIcon = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="20"
-    height="20"
-    viewBox="0 0 20 20"
-    fill="none"
-  >
-    <path
-      d="M5 7.5L10 12.5L15 7.5"
-      stroke="#667085"
-      strokeWidth="1.66667"
-      strokeLinecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
-);
+
 const uploadSVG = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -360,7 +301,7 @@ const uploadSVG = (
         stroke="#475467"
         strokeWidth="1.66667"
         strokeLinecap="round"
-        stroke-linejoin="round"
+        strokeLinejoin="round"
       />
     </g>
     <defs>

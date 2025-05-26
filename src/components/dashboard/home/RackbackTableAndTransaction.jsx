@@ -37,40 +37,47 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
               </tr>
             </thead>
             <tbody>
-              {dashboardInfo.transactionsInfo.map((transaction, index) => {
-                const arrow = getTransactionArrowAndStyle(
-                  transaction.typeOfTransaction
-                );
+              {dashboardInfo.transactionsInfo
+                .filter(transaction => transaction.typeOfTransaction === "Deposit")
+                .map((transaction, index) => {
+                  const arrow = getTransactionArrowAndStyle(transaction.typeOfTransaction);
 
-                return (
-                  <tr key={index} className={styles.transaction_row}>
-                    <td className={styles.transaction_type}>
-                      <span className={styles.transaction_arrow}>{arrow}</span>
-                      <span className={styles.typeOfTransaction_trans}>{transaction.typeOfTransaction}</span>
-                    </td>
-                    <td className={styles.amount}>
-                      ₹{transaction.actualAmount}
-                    </td>
-                    <td className={styles.status}>
-                      {(() => {
-                        const { className, icon } = getStatusClass(transaction.status);
-                        return (
-                          <span className={`${styles[className]} ${styles.status_wrapper}`}>
-                            <span className={styles.status_icon}>{icon}</span>
-                            <span className={styles.status_text}>{getStatusLabel(transaction.status === "Aborted"? "Rejected":transaction.status)}</span>
-                          </span>
-                        );
-                      })()}
-                    </td>
-                    <td className={styles.date}>
-                      {new Date(transaction.createdAt).toLocaleDateString(
-                        "en-GB"
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
+                  return (
+                    <tr key={index} className={styles.transaction_row}>
+                      <td className={styles.transaction_type}>
+                        <span className={styles.transaction_arrow}>{arrow}</span>
+                        <span className={styles.typeOfTransaction_trans}>
+                          {transaction.typeOfTransaction}
+                        </span>
+                      </td>
+                      <td className={styles.amount}>₹{transaction.actualAmount}</td>
+                      <td className={styles.status}>
+                        {(() => {
+                          const { className, icon } = getStatusClass(transaction.status);
+                          return (
+                            <span
+                              className={`${styles[className]} ${styles.status_wrapper}`}
+                            >
+                              <span className={styles.status_icon}>{icon}</span>
+                              <span className={styles.status_text}>
+                                {getStatusLabel(
+                                  transaction.status === "Aborted"
+                                    ? "Rejected"
+                                    : transaction.status
+                                )}
+                              </span>
+                            </span>
+                          );
+                        })()}
+                      </td>
+                      <td className={styles.date}>
+                        {new Date(transaction.createdAt).toLocaleDateString("en-GB")}
+                      </td>
+                    </tr>
+                  );
+                })}
             </tbody>
+
           </table>
         )}
       </div>

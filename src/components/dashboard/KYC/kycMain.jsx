@@ -7,14 +7,11 @@ import BankAccDetails from "./bankDetails";
 import KycStatus from "./kycStatus";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardMain from "../../../layout/dashboardMain";
-import KycStatusPage from "./kycStatusPage";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
-import { Steps } from "primereact/steps";
 import { UserContext } from "../../../App";
 import { useNavigate } from "react-router-dom";
 import { KYCIcon } from "../../../utils/dashboardMainHeadersIcon";
 import Navbtn from "../../common/button/navbtn/navbtn";
-import { color } from "framer-motion";
 
 const KycMain = () => {
   const [setReload, setStepReload] = useState(false);
@@ -32,24 +29,49 @@ const KycMain = () => {
   const validatetokenAndRedirect = () => {
     navigate("/dashboard");
   };
+
   const getAllUserInfo = async () => {
     if (!userData || !userData._id) return;
     const res = await userInfoFxn(userData._id);
+    console.log("User info response:", res);
+    
     if (res.success) {
       setUserData(res.userInfo.user);
-      setUserKyc(res.userInfo.userKyc);
+      
+      // Manual level fix for address approval
+      let updatedKyc = res.userInfo.userKyc;
+      
+      // If address is approved but level is still "2", force it to "3"
+      if (updatedKyc.level === "2" && updatedKyc.addressApproveStatus === true) {
+        console.log("Manually updating level from 2 to 3");
+        updatedKyc = { ...updatedKyc, level: "3" };
+      }
+      
+      // If bank is approved but level is still "3", force it to "4"  
+      if (updatedKyc.level === "3" && updatedKyc.bankDetailsApproveStatus === true) {
+        console.log("Manually updating level from 3 to 4");
+        updatedKyc = { ...updatedKyc, level: "4" };
+      }
+      
+      setUserKyc(updatedKyc);
       setTransactionInfo(res.userInfo.userTransactions);
     }
     setStepReload(false);
   };
 
   useEffect(() => {
+    console.log("Current KYC state:", userKyc);
     if (setReload) {
       getAllUserInfo();
     }
   }, [setReload]);
 
   if (!userData || !walletData || !userKyc) return null;
+
+  const isKycSuccessful =
+    userKyc.panApproveStatus &&
+    userKyc.addressApproveStatus &&
+    userKyc.bankDetailsApproveStatus;
 
   return (
     <DashboardMainTopBottom styles={{ width: "100%" }}>
@@ -60,16 +82,8 @@ const KycMain = () => {
             activeIndex={userKyc.level ? parseInt(userKyc.level) : 1}
           />
         )}
-        {userKyc.level === "4" && userKyc.statusValue === "Pending" && (
-          <KycStatus
-            status="Pending"
-            message="Your KYC verification is currently in progress; thank you for your patience."
-            color="#B54708"
-            colorBg="#FFFAEB"
-            borderColor="#F79009"
-          />
-        )}
-        {userKyc.level === "4" && userKyc.statusValue === "Approved" && (
+
+        {userKyc.level === "4" && isKycSuccessful && (
           <KycStatus
             status="Successful"
             message="Your KYC verification has been successfully completed; you now have full access to all features."
@@ -79,7 +93,57 @@ const KycMain = () => {
             retry={true}
           />
         )}
-      
+
+        {userKyc.level === "4" &&
+          userKyc.statusValue === "Pending" &&
+          !isKycSuccessful && (
+            <KycStatus
+              status="Pending"
+              message="Your KYC verification is currently in progress; thank you for your patience."
+              color="#B54708"
+              colorBg="#FFFAEB"
+              borderColor="#F79009"
+            />
+          )}
+
+        {userKyc.level === "4" && !isKycSuccessful && (
+          <>
+            {!userKyc.panApproveStatus && (
+              <KycStatus
+                status="Rejected"
+                message={
+                  userKyc.panRejectedMessage || "Your PAN verification was rejected."
+                }
+                color="#B42318"
+                colorBg="#FEF3F2"
+                borderColor="#FF5252"
+              />
+            )}
+            {!userKyc.addressApproveStatus && (
+              <KycStatus
+                status="Rejected"
+                message={
+                  userKyc.addressRejectedMessage || "Your address verification was rejected."
+                }
+                color="#B42318"
+                colorBg="#FEF3F2"
+                borderColor="#FF5252"
+              />
+            )}
+            {!userKyc.bankDetailsApproveStatus && (
+              <KycStatus
+                status="Rejected"
+                message={
+                  userKyc.bankRejectedMessage || "Your bank details verification was rejected."
+                }
+                color="#B42318"
+                colorBg="#FEF3F2"
+                borderColor="#FF5252"
+              />
+            )}
+          </>
+        )}
+
         {userKyc.level === "1" && userKyc.statusValue === "Rejected" && (
           <KycStatus
             status="Rejected"
@@ -89,6 +153,7 @@ const KycMain = () => {
             borderColor="#FF5252"
           />
         )}
+
         {userKyc && userKyc.level === "1" ? (
           <PanCard setStepReload={setStepReload} userKyc={userKyc} />
         ) : userKyc && userKyc.level === "2" ? (
@@ -96,7 +161,8 @@ const KycMain = () => {
         ) : userKyc && userKyc.level === "3" ? (
           <BankAccDetails setStepReload={setStepReload} userKyc={userKyc} />
         ) : null}
-        {userKyc.level === "4" && userKyc.statusValue === "Approved" && (
+
+        {userKyc.level === "4" && isKycSuccessful && (
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Navbtn
               text="Go to Home"
@@ -108,22 +174,16 @@ const KycMain = () => {
                 borderRadius: "6px",
               }}
               variant="filled"
-              onClick={() => validatetokenAndRedirect()}
+              onClick={validatetokenAndRedirect}
             />
           </div>
         )}
+
         {userKyc.level === "4" && userKyc.statusValue === "Failed" && (
           <div style={{ display: "flex", justifyContent: "center" }}>
             <Navbtn
-              text="Go to Home"
+              text="Retry KYC Form"
               isSuccess={true}
-              // style={{
-              //   color: "white",
-              //   background: "#0052cc",
-              //   padding: "10px",
-              //   fontWeight: "bold",
-              //   borderRadius: "6px",
-              // }}
               variant="filled"
               setData={() => {
                 setUserKyc({ ...userKyc, level: "1" });
@@ -131,27 +191,6 @@ const KycMain = () => {
             />
           </div>
         )}
-
-        {/* {userKyc.level === "4" && userKyc.statusValue === "Approved" && (
-					<KycStatusPage
-						isSuccess={true}
-						label='Your KYC verification was Successful'
-						btnText='Go to Home'
-						setData={() =>  {navigate("/dashboard")}}
-					
-					/>
-				)} 
-
-				{userKyc.level === "4" && userKyc.statusValue === "Failed" && (
-					<KycStatusPage
-						isSuccess={false}
-						label='Your KYC verification was unsuccessful'
-						btnText='Retry KYC Form'
-						setData={() => {
-							setUserKyc({ ...userKyc, level: "1" });
-						}}
-					/>
-				)} */}
       </DashboardMain>
     </DashboardMainTopBottom>
   );

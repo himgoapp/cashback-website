@@ -62,7 +62,6 @@ const DashboardHomeHeader = ({ title, icon }) => {
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
-      console.log("Screen width:", window.innerWidth, "isMobile:", window.innerWidth <= 768);
     };
 
     // Initial check

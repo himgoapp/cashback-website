@@ -75,25 +75,12 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 				<div className={styles.AddressDetailsForm}>
 					<div className={styles.AddressDetailsContent}>
 						<div className={styles.InputRow}>
-							{/* <TextField
-								label='PAN Card Number'
-								placeholder='GSVD73YB3B'
-								currentValue={panCardNo}
-								setValue={setPanCardNo}
-								maxLength={10}
-								onInput={(e) => {
-									e.target.value = e.target.value.toUpperCase();
-									if (e.target.value.length > 10) {
-										e.target.value = e.target.value.slice(0, 10);
-									}
-								}}
-							/> */}
 							<TextField
 								label="PAN Card Number"
 								placeholder="ABCDE1234F"
 								variant="outlined"
 								fullWidth
-								inputMode={inputMode} // Auto-switch Keyboard Mode
+								inputMode={inputMode} 
 								autoCapitalize="characters"
 
 								autoCorrect="off"
@@ -104,7 +91,7 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 								}}
 								value={panCardNo}
 								onChange={handleChange}
-								onFocus={() => setInputMode("text")} // Ensure Alphabet Keyboard on Focus
+								onFocus={() => setInputMode("text")} 
 							/>
 
 						</div>
@@ -119,7 +106,7 @@ function PanCard({ userKyc, setLevel, setStepReload }) {
 								}}
 							>
 								<Navbtn
-									text='Save changes'
+									text='Submit'
 									variant={"primary"}
 									size={"small"}
 									showIcon={false}
