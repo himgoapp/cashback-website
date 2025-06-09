@@ -188,7 +188,8 @@
 	line-height: 1.125rem; /* 150% */
 }
 .btn_container{
-	font-size: 1rem;
+	font-size: 16px;
+	padding: 12px 24px;
 }
 /* Optional: Customizing dropdown appearance */
 select.form-select {
@@ -436,7 +437,7 @@ select.form-select {
   .dropdownItem:hover {
 	background-color: #f0f0f0;
   }
-  
+
 @media only screen and (max-width: 768px) {
 	.InputRow {
 		flex-direction: column;

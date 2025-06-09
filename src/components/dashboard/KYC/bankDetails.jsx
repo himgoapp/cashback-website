@@ -5,7 +5,7 @@ import { TextField } from "./address";
 import { addBankDetails } from "../../../servicefile/kycservice";
 import { toast } from "react-toastify";
 import { UserContext } from "../../../App";
-
+import Loading from "../../common/Loading/Loading";
 function BankAccDetails({ setStepReload, userKyc }) {
   const { userData } = useContext(UserContext);
   const [account_number, setAccountNumber] = useState("");
@@ -13,6 +13,7 @@ function BankAccDetails({ setStepReload, userKyc }) {
   const [ifsc_code, setIfscCode] = useState("");
   const [validate, setValidate] = useState("");
   const [error, setError] = useState("");
+const [loading, setLoading] = useState(false);
 
   const isRejected = userKyc?.bankDetailsUploadStatus === "Rejected";
   const isAlreadyUploadedOrApproved = ["Uploaded", "Approved"].includes(
@@ -35,7 +36,8 @@ function BankAccDetails({ setStepReload, userKyc }) {
       setError("Account numbers do not match");
       return;
     }
-
+ try {
+    setLoading(true);
     const res = await addBankDetails(
       userData._id,
       account_number,
@@ -47,7 +49,16 @@ function BankAccDetails({ setStepReload, userKyc }) {
       localStorage.setItem("transactionInfo", "true");
       setStepReload(true);
     }
+    else {
+      toast.error(res?.message || "Something went wrong");
+    }
+  } catch (error) {
+    toast.error("Failed to submit bank details");
+  } finally {
+    setLoading(false); // Stop loading
+  }
   };
+if (loading) return <Loading />;
 
   return (
     <div className={styles.AddressDetailsContainer}>
@@ -74,16 +85,20 @@ function BankAccDetails({ setStepReload, userKyc }) {
                   if (/^\d*$/.test(value) && value.length <= 18) {
                     setAccountNumber(value);
 
+                    // Reset error while typing
                     if (validate && validate.length > 0) {
-                      const verifyLength = validate.length;
-                      const newAccountPrefix = value.substring(0, verifyLength);
-
-                      if (validate !== newAccountPrefix) {
-                        setError("Account numbers do not match");
-                      } else {
-                        setError("");
-                      }
+                      const newAccountPrefix = value.substring(0, validate.length);
+                      setError(validate !== newAccountPrefix ? "Account numbers do not match" : "");
                     }
+                  }
+                }}
+                onBlur={() => {
+                  if (account_number.length < 9) {
+                    setError("Account number must be at least 9 digits");
+                  } else if (validate && account_number !== validate) {
+                    setError("Account numbers do not match");
+                  } else {
+                    setError("");
                   }
                 }}
                 inputProps={{
@@ -94,6 +109,7 @@ function BankAccDetails({ setStepReload, userKyc }) {
                 }}
                 required
               />
+
             </div>
 
             <div
@@ -103,41 +119,42 @@ function BankAccDetails({ setStepReload, userKyc }) {
                 flex: "1 0 0",
               }}
             >
-              <TextField
-                label="Verify Account Number"
-                placeholder="83832993803748"
-                type="text"
-                value={validate}
-                onChange={(e) => {
-                  const value = e.target.value;
-                  if (/^\d*$/.test(value) && value.length <= 18) {
-                    setValidate(value);
+             <TextField
+  label="Verify Account Number"
+  placeholder="83832993803748"
+  type="text"
+  value={validate}
+  onChange={(e) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value) && value.length <= 18) {
+      setValidate(value);
 
-                    const currentLength = value.length;
-                    const accountNumberPrefix = account_number.substring(
-                      0,
-                      currentLength
-                    );
+      const accountPrefix = account_number.substring(0, value.length);
+      if (value !== accountPrefix) {
+        setError("Account numbers do not match");
+      } else {
+        setError("");
+      }
+    }
+  }}
+  onBlur={() => {
+    if (validate.length < 9) {
+      setError("Please re-enter the full account number");
+    } else if (validate !== account_number) {
+      setError("Account numbers do not match");
+    } else {
+      setError("");
+    }
+  }}
+  inputProps={{
+    minLength: 9,
+    maxLength: 18,
+    inputMode: "numeric",
+    pattern: "[0-9]*",
+  }}
+  required
+/>
 
-                    if (value && currentLength > 0) {
-                      if (value !== accountNumberPrefix) {
-                        setError("Account numbers do not match");
-                      } else {
-                        setError("");
-                      }
-                    } else {
-                      setError("");
-                    }
-                  }
-                }}
-                inputProps={{
-                  minLength: 9,
-                  maxLength: 18,
-                  inputMode: "numeric",
-                  pattern: "[0-9]*",
-                }}
-                required
-              />
               {error && (
                 <div
                   className={styles.errorText}

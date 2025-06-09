@@ -38,16 +38,13 @@ const KycMain = () => {
     if (res.success) {
       setUserData(res.userInfo.user);
 
-      // Manual level fix for address approval
       let updatedKyc = res.userInfo.userKyc;
 
-      // If address is approved but level is still "2", force it to "3"
       if (updatedKyc.level === "2") {
         console.log("Manually updating level from 2 to 3");
         updatedKyc = { ...updatedKyc, level: "2" };
       }
 
-      // If bank is approved but level is still "3", force it to "4"
       if (updatedKyc.level === "3") {
         console.log("Manually updating level from 3 to 4");
         updatedKyc = { ...updatedKyc, level: "3" };
@@ -60,7 +57,6 @@ const KycMain = () => {
   };
 
   useEffect(() => {
-    console.log("Current KYC state:", userKyc);
     if (setReload) {
       getAllUserInfo();
     }

@@ -4,6 +4,7 @@ import styles from "./address.module.css";
 import { addAddressProof } from "../../../servicefile/kycservice";
 import { toast } from "react-toastify";
 import { UserContext } from "../../../App";
+import Loading from "../../common/Loading/Loading";
 
 const SelectField = ({ label, options, placeholder, currentValue, setValue }) => {
   return (
@@ -130,28 +131,26 @@ function AddressDetail({ setStepReload }) {
 
       console.log("Address submission response:", res);
 
-      if (res && res.message === "success") {
-        localStorage.setItem("transactionInfo", "true");
-        
-        if (res.reponse && res.reponse.addressApproveStatus === true) {
-          
-          setTimeout(() => {
-            setStepReload(true);
-          }, 2000);
-        } else {
-          setTimeout(() => {
-            setStepReload(true);
-          }, 1000);
-        }
-      } else {
-      }
+   if (res && res.message === "success") {
+  localStorage.setItem("transactionInfo", "true");
+
+  const delay = res.reponse?.addressApproveStatus === true ? 2000 : 1000;
+
+  setTimeout(() => {
+    setStepReload(true);
+    setIsSubmitting(false); // stop loading **after** changing step
+  }, delay);
+} else {
+  setIsSubmitting(false); // in case of failure
+}
+
     } catch (error) {
     } finally {
-      setIsSubmitting(false);
+      // setIsSubmitting(false);
     }
   };
 
-  useEffect(() => {
+ useEffect(() => {
     if (userKyc) {
       if (userKyc.firstName) setFirstName(userKyc.firstName);
       if (userKyc.lastName) setLastName(userKyc.lastName);
@@ -163,6 +162,7 @@ function AddressDetail({ setStepReload }) {
       if (userKyc.proofState) setProofState(userKyc.proofState);
     }
   }, [userKyc]);
+if (isSubmitting) return <Loading />;
 
   return (
     <>
@@ -280,7 +280,10 @@ function AddressDetail({ setStepReload }) {
             </div>
           </div>
         </div>
+        
       </div>
+
+
     </>
   );
 }
