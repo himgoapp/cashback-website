@@ -646,9 +646,17 @@ tbody tr:hover {
 tbody tr:last-child td {
 	border-bottom: none;
 }
-
+.no_partner{
+	width: 60%;
+	text-align: center;
+}
 @media screen and (max-width: 768px) {
-
+.no_partner{
+	text-align: center;
+}
+.partner{
+	text-align: right;
+}
 	.tableHeader,
 	.paginationContainer {
 		flex-direction: column;

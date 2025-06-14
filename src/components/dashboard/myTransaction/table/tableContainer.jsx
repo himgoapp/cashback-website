@@ -279,9 +279,10 @@ const TableContainer = ({ transactionType }) => {
   const [perPage, setPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [flow, setFlow] = useState(false);
-  const shouldShowTDS = transactions.some(row => row.typeOfTransaction !== "Deposit");
+  const shouldShowTDS = transactions.some(row => row.typeOfTransaction === "Withdrawal");
   const shouldShowStatus = transactions.some(row => row.typeOfTransaction === "Withdrawal");
   const shouldShowPartner = transactions.some(row => row.typeOfTransaction === "Deposit");
+  const shouldShowType = transactions.some(row => row.typeOfTransaction === "Deposit" || row.typeOfTransaction === "Deduct");
   const shouldShowUpdatedAt = transactions.some(row => row.typeOfTransaction === "Withdrawal");
 
 
@@ -357,12 +358,12 @@ const TableContainer = ({ transactionType }) => {
   const columns = [
     {
       name: "Transaction ID",
-      selector: row => row.transaction_hash,
+      selector: row => row._id,
       sortable: false,
       cell: row => (
         <div className={styles.transactionCell}>
-          <span className={styles.transactionId}>{row.transaction_hash.substring(0, 8)}...</span>
-          <div className={styles.transactionFull} style={{ fontFamily: '"Roboto",sans-serif' }}>{row.transaction_hash}</div>
+          <span className={styles.transactionId}>{row._id.substring(0, 8)}...</span>
+          <div className={styles.transactionFull} style={{ fontFamily: '"Roboto",sans-serif' }}>{row._id}</div>
         </div>
       ),
     },
@@ -410,7 +411,17 @@ const TableContainer = ({ transactionType }) => {
       right: true,
       cell: row =>
         row.typeOfTransaction === "Deposit"
-          ? <span style={{ fontFamily: '"Roboto",sans-serif', fontWeight: "600" }}>{row.partner}</span>
+          ? <span style={{ fontFamily: '"Roboto",sans-serif', fontWeight: "600" }} className={styles.partner}>{row.partner}</span>
+          : <span style={{fontWeight:"bold"}} className={styles.no_partner}>-</span>
+    }] : []),
+      ...(shouldShowType ? [{
+      name: "Type",
+      selector: row => row.rackbackcut,
+      sortable: false,
+      right: true,
+      cell: row =>
+        row.typeOfTransaction === "Deposit" || row.typeOfTransaction === "Deduct"
+          ? <span style={{ fontFamily: '"Roboto",sans-serif', fontWeight: "600" }}>{row.typeOfTransaction === "Deposit" ? "Credit" : "Debit"}</span>
           : ""
     }] : []),
 
@@ -422,6 +433,17 @@ const TableContainer = ({ transactionType }) => {
       cell: row => (
         <span className={row.typeOfTransaction === "Deposit" ? styles.creditAmount : styles.debitAmount} style={{ fontFamily: '"Roboto",sans-serif' }}>
           {formatCurrency(row.actualAmount)}
+        </span>
+      ),
+    },
+      {
+      name: "Balance",
+      selector: row => row.latestBalance,
+      sortable: false,
+      right: true,
+      cell: row => (
+        <span className={styles.creditAmount} style={{ fontFamily: '"Roboto",sans-serif' }}>
+          {formatCurrency(row.latestBalance)}
         </span>
       ),
     },
@@ -440,7 +462,7 @@ const TableContainer = ({ transactionType }) => {
               borderColor: statusInfo.borderColor,
             }}
           >
-            <span className={styles.statusIcon}>{statusInfo.icon}</span>
+            {/* <span className={styles.statusIcon}>{statusInfo.icon}</span> */}
             <span style={{ fontFamily: '"Roboto",sans-serif' }}>{row.status === "Aborted" ? "Rejected" :row.status}</span>
           </div>
         );
@@ -527,7 +549,7 @@ const TableContainer = ({ transactionType }) => {
                 <div className={styles.receiptSection}>
                   <div className={styles.receiptRow}>
                     <span className={styles.receiptLabel}>Transaction ID</span>
-                    <span className={styles.receiptValue}>{selectedTransaction.transaction_hash}</span>
+                    <span className={styles.receiptValue}>{selectedTransaction._id}</span>
                   </div>
 
                   <div className={styles.receiptRow}>
@@ -536,7 +558,7 @@ const TableContainer = ({ transactionType }) => {
                       {moment(selectedTransaction.createdAt).format("DD MMM YYYY, h:mm A")}
                     </span>
                   </div>
-                  {selectedTransaction.typeOfTransaction !== "Deposit" && (
+                  {selectedTransaction.typeOfTransaction === "Withdrawal" && (
                     <div className={styles.receiptRow}>
                       <span className={styles.receiptLabel}>Updated At</span>
                       <span className={styles.receiptValue}>
@@ -545,8 +567,8 @@ const TableContainer = ({ transactionType }) => {
                     </div>
                   )}
                   <div className={styles.receiptRow}>
-                    <span className={styles.receiptLabel}>Transaction Type</span>
-                    <span className={styles.receiptValue}>{selectedTransaction.typeOfTransaction}</span>
+                    <span className={styles.receiptLabel}>Type</span>
+                    <span className={styles.receiptValue}>{selectedTransaction.typeOfTransaction === "Deposit" ? "Credit" :selectedTransaction.typeOfTransaction === "Deduct" ? "Debit" :selectedTransaction.typeOfTransaction}</span>
                   </div>
 
                   {selectedTransaction.typeOfTransaction === "Withdrawal" && selectedTransaction.status === "Approved" && (
@@ -557,7 +579,7 @@ const TableContainer = ({ transactionType }) => {
                   )}
                 </div>
                 <div className={styles.receiptSection}>
-                  {selectedTransaction.typeOfTransaction !== "Deposit" && (
+                  {selectedTransaction.typeOfTransaction === "Withdrawal" && (
                     <div className={styles.receiptRow}>
                       <span className={styles.receiptLabel}>TDS Amount</span>
                       <span className={styles.receiptValue}>
@@ -565,11 +587,19 @@ const TableContainer = ({ transactionType }) => {
                       </span>
                     </div>
                   )}
-                  {selectedTransaction.typeOfTransaction !== "Withdrawal" && (
+                  {selectedTransaction.typeOfTransaction === "Deposit" && (
                     <div className={styles.receiptRow}>
                       <span className={styles.receiptLabel}>Site Name</span>
                       <span className={styles.receiptValue}>
                         {selectedTransaction.partner}
+                      </span>
+                    </div>
+                  )}
+                    {selectedTransaction.typeOfTransaction !== "Withdrawal" && (
+                    <div className={styles.receiptRow}>
+                      <span className={styles.receiptLabel}>Note</span>
+                      <span className={styles.receiptValue}>
+                        {selectedTransaction.note}
                       </span>
                     </div>
                   )}

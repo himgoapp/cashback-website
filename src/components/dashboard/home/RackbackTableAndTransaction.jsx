@@ -22,23 +22,33 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
   //   }, [dashboardInfo])
 
   // console.log(allTransactions,"56--")
+  
+ const formatCurrency = (amount) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 2
+    }).format(amount).replace(/^(\D+)/, '₹');
+  };
+
   return (
     <div className={styles.rakeback_container}>
       <div className={styles.transactions_container}>
-        <font className={styles.transaction_heading}>Latest Transactions</font>
+        <font className={styles.transaction_heading}>My Earnings</font>
         {dashboardInfo?.transactionsInfo?.length > 0 && (
           <table className={styles.transaction_table}>
             <thead>
               <tr>
                 <th>Type</th>
                 <th>Amount</th>
-                <th>Status</th>
+                <th>Balance</th>
+                {/* <th>Status</th> */}
                 <th>Date</th>
               </tr>
             </thead>
             <tbody>
               {dashboardInfo.transactionsInfo
-                .filter(transaction => transaction.typeOfTransaction === "Deposit")
+                .filter(transaction => transaction.typeOfTransaction === "Deposit" || transaction.typeOfTransaction === "Deduct")
                 .map((transaction, index) => {
                   const arrow = getTransactionArrowAndStyle(transaction.typeOfTransaction);
 
@@ -47,11 +57,12 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
                       <td className={styles.transaction_type}>
                         <span className={styles.transaction_arrow}>{arrow}</span>
                         <span className={styles.typeOfTransaction_trans}>
-                          {transaction.typeOfTransaction}
+                          {transaction.typeOfTransaction === "Deposit" ? "Credit" : "Debit"}
                         </span>
                       </td>
-                      <td className={styles.amount}>₹{transaction.actualAmount}</td>
-                      <td className={styles.status}>
+                      <td className={styles.amount}>{formatCurrency(transaction.actualAmount)}</td>
+                       <td className={styles.amount}>{formatCurrency(transaction.latestBalance)}</td>
+                      {/* <td className={styles.status}>
                         {(() => {
                           const { className, icon } = getStatusClass(transaction.status);
                           return (
@@ -69,7 +80,7 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
                             </span>
                           );
                         })()}
-                      </td>
+                      </td> */}
                       <td className={styles.date}>
                         {new Date(transaction.createdAt).toLocaleDateString("en-GB")}
                       </td>

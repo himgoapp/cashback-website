@@ -153,9 +153,9 @@
     padding: 18px;
   }
 }
-.transaction_table{
+/* .transaction_table{
   margin-left: -10px;
-}
+} */
 .status-successful,
 .status-pending,
 .status-aborted {

@@ -110,7 +110,7 @@ const KycTDCstatus = () => {
           <div className={statusStyle.StatusIcon}>{percentIcon}</div>
           <div className={statusStyle.HeadText}>
             <div className={statusStyle.HeadLabel}>
-              5% TDS will be applicable to all the users
+              2% TDS will be applicable to all the users
             </div>
           </div>
         </div>
