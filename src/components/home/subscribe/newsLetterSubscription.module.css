@@ -1,0 +1,282 @@
+.container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  background-size: cover;
+  background-repeat: no-repeat;
+background-position: -100px 0 0 0;
+}
+.decorativeBackground {
+  position: absolute;
+  left: 0;
+  top: -50px;
+  z-index:-9999;
+  pointer-events: none;
+}
+
+.decorativeLines {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.line {
+  width: 1px;
+  height: 80px;
+  background: rgba(255, 255, 255, 0.3);
+  margin: 0 8px;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+.line:nth-child(2) {
+  animation-delay: 0.5s;
+  height: 60px;
+}
+
+.line:nth-child(3) {
+  animation-delay: 1s;
+  height: 70px;
+}
+
+.line:nth-child(4) {
+  animation-delay: 1.5s;
+  height: 50px;
+}
+
+@keyframes float {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-10px);
+  }
+}
+
+.card {
+  background: #FF4053;
+  padding: 60px 32px 40px;
+  position: relative;
+  margin-top: 20px;
+  z-index: -2;
+
+    background-image: url('../../../assets/Logos_and_illustration/subscriberBackground.svg');
+
+}
+
+.chipContainer {
+  position: absolute;
+  top: -50px; 
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.chip {
+  width: 110px;
+  height: 108px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+
+.chipIcon {
+  color: white;
+  z-index: 1;
+}
+
+.content {
+  text-align: center;
+  margin-top: 20px;
+}
+
+
+.subtitle {
+  font-size: 32px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 16px 0;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 14px;
+  color: #fff;
+  line-height: 1.5;
+  margin: 0 0 24px 0;
+  margin-left: auto;
+  max-width: 320px;
+  margin-right: auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fafafa;
+  border: 2px solid #e5e5e5;
+  border-radius: 12px;
+  height: 49px;
+  width: 332px;
+padding-left: 5px;
+  transition: all 0.3s ease;
+}
+
+.inputContainer:focus-within {
+  background: white;
+  box-shadow: 0 0 0 3px rgba(255, 64, 83, 0.1);
+}
+
+.emailInput {
+  flex: 1;
+  padding: 8px 8px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  outline: none;
+  color: #606060;
+}
+
+.emailInput::placeholder {
+  color: #999;
+}
+
+.submitButton {
+  background: #606060;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 4px;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #606060;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 64, 83, 0.3);
+}
+
+.submitButton:active {
+  transform: translateY(0);
+}
+
+.submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.submitButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.submitButton:active::before {
+  width: 200px;
+  height: 200px;
+}
+
+@media (min-width: 768px) {
+  .background {
+    /* max-width: 480px; */
+  }
+  
+  .card {
+    padding: 48px 48px 48px;
+    margin-top: 60px;
+  }
+  
+  .chipContainer {
+    top: -50px;
+  }
+  
+  .chip {
+    width: 140px;
+    height: 140px;
+  }
+  
+  .chipIcon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .title {
+    font-size: 18px;
+  }
+  
+  .subtitle {
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .description {
+    font-size: 16px;
+    max-width: 320px;
+    margin-bottom: 40px;
+  }
+  
+  .emailInput {
+    padding: 8px 8px;
+    font-size: 16px;
+  }
+  
+  .submitButton {
+    padding: 8px 8px;
+    font-size: 16px;
+    border-radius: 10px;
+    margin: 6px;
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1024px) {
+
+  .container {
+   width: 100%;
+
+  }
+ .chipContainer{
+  top: -120px;
+ }
+  .subtitle {
+    font-size: 42px;
+  }
+  
+  .description {
+    font-size: 17px;
+    max-width: 500px;
+  }
+  
+  .submitButton {
+    padding: 8px 16px;
+  }
+}

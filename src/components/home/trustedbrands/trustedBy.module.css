@@ -1,0 +1,220 @@
+.container {
+  position: relative;
+
+  padding: 2rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+    border-bottom: 25px solid #F6F6F6; 
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 380px;
+  width: 100%;
+  padding: 0 24px;
+  text-align: center;
+}
+
+.headerSection {
+  margin-bottom: 1rem;
+}
+
+.trustLabel {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff4053;
+  line-height: 120%;
+  margin-bottom: -2px;
+text-align: left;
+}
+
+.mainTitle {
+  width: 360px;
+  font-size: 28px;
+  font-weight: 700;
+  color: #000000;
+text-align: left;
+
+
+}
+
+.description {
+  font-size: 16px;
+  color: #606060;
+  line-height: 24px;
+  width: 360px;
+  font-weight: 400;
+text-align: left;
+
+}
+
+.carouselContainer {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.carouselTrack {
+  display: flex;
+  gap: 1rem;
+  animation: scroll 40s linear infinite;
+  width: fit-content;
+}
+
+.carouselTrack:hover {
+  animation-play-state: paused;
+}
+.carouselContainer::before,
+.carouselContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.carouselContainer::before {
+  left: 0;
+  background: linear-gradient(to right, white 0%, transparent 100%);
+}
+
+.carouselContainer::after {
+  right: 0;
+  background: linear-gradient(to left, white 0%, transparent 100%);
+}
+
+.partnerCard {
+  background: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  gap: 0.2rem;
+  transition: all 0.3s ease;
+  min-width: 160px; 
+  flex-shrink: 0;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.partnerIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.partnerName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #00000066;
+  margin-right: 12px;
+  text-align: center;
+  white-space: nowrap;
+  
+}
+.trustedRightIcon {
+  position: absolute;
+  top: 3px;
+  right: 30px;
+  width: 40px;
+  height: 121px;
+  z-index: 3;
+  pointer-events: none;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.08));
+}
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px) rotate(45deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(45deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+  
+  .mainTitle {
+    font-size: 28px;
+  }
+  
+  .partnerCard {
+    min-width: 90px;
+  }
+  
+  .crossIcon {
+    top: 10%;
+    right: 8%;
+  }
+  
+  .pokerChip {
+    top: 15%;
+    right: 3%;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .chipInner {
+    width: 16px;
+    height: 16px;
+  }
+
+  .carouselTrack {
+    gap: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .mainTitle {
+    font-size: 1.625rem;
+  }
+  
+  .description {
+    font-size: 16px;
+  }
+
+  .partnerCard {
+    min-width: 80px;
+    padding: 0.875rem 0.5rem;
+  }
+
+  .partnerName {
+    font-size: 0.8rem;
+  }
+   .trustedRightIcon {
+    width: 57px;
+  height: 121px;
+    top: 4px;
+    right: 0px;
+  }
+}
+

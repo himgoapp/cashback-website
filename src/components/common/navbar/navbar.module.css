@@ -151,9 +151,13 @@ margin-left: -10px;
     .logo_container_pc{
         margin-left: 5px;
     }
+    .navbar_container{
+        justify-content: unset;
+    }
     .navbar_container .burger_menu {
         display: flex;
-        margin-left: 170px;
+        margin-left: 15px;
+        margin-right: 15px;
     }
 }
 

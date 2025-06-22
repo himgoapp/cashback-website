@@ -3,6 +3,7 @@ import styles from "./navbar.module.css";
 import Navbtn from "../button/navbtn/navbtn";
 import { Link, useNavigate } from "react-router-dom";
 import Logo from "../logo/logo";
+import Logo_Red from "../../../assets/Logos_and_illustration/Logo_Red.svg";
 import { UserContext } from "../../../App";
 import { CrossIcon } from "../../../assets/vectors";
 import Reveal from "../reveal/Reveal";
@@ -20,29 +21,7 @@ const Navbar = ({ page }) => {
     <>
       <div className={styles.container_max}>
         <div className={styles.navbar_container}>
-          <a href="/" className={styles.logo_container_pc}>
-            <Logo />
-          </a>
-          <div className={styles.navbar_link_container}>
-            {page === "home" && homePageMenu}
-            {page === "login" && homePageMenu}
-            {page === "offer" && offersAndDealsPageMenu}
-            {page === "welcome" && homePageMenu}
-            {userData ? (
-              dashboardMenu
-            ) : (
-              <div className={styles.btn_link_container}>
-                <button
-                  className={styles.signin_button}
-                  onClick={()=>handleSignInClick()}
-                >
-                  SignUp/Login
-                </button>
-              </div>
-            )}
-          </div>
-
-          <button
+            <button
             className={styles.burger_menu}
             onClick={() => {
               setShowMenu(!showMenu);
@@ -66,6 +45,31 @@ const Navbar = ({ page }) => {
               </svg>
             </div>
           </button>
+          <a href="/" className={styles.logo_container_pc}>
+            <Logo />
+          {/* <img src={Logo_Red}/> */}
+          </a>
+          <div className={styles.navbar_link_container}>
+            {page === "home" && homePageMenu}
+            {page === "login" && homePageMenu}
+            {page === "offer" && offersAndDealsPageMenu}
+            {page === "welcome" && homePageMenu}
+            {userData ? (
+              dashboardMenu
+            ) : (
+              <div className={styles.btn_link_container}>
+                <button
+                  className={styles.signin_button}
+                  onClick={()=>handleSignInClick()}
+                >
+                  SignUp/Login
+                </button>
+              </div>
+            )}
+            
+          </div>
+
+        
           {showMenu && (
             <div className={styles.link_mobile_container}>
               <div className={styles.link_mobile_header}>
