@@ -25,9 +25,9 @@ const FeaturedBlogs = () => {
             let type = activeTab === 'All' ? undefined : activeTab;
             const response = await getBlogs(type, 1);
             if (response && response.blogsList) {
-                // Limit to maximum 3 blogs
                 const limitedBlogs = response.blogsList.slice(0, 3);
                 setBlogs(limitedBlogs);
+
             } else {
                 setBlogs([]);
             }
@@ -117,8 +117,8 @@ const FeaturedBlogs = () => {
                         <div className={styles.mainContent}>
                             <span className={styles.category}>{blogs[0].type || 'Blog'}</span>
                             <h3 className={styles.mainTitle}>
-                                {blogs[0]?.title?.length > 30
-                                    ? blogs[0].title.slice(0, 30) + "..."
+                                {blogs[0]?.title?.length > 20
+                                    ? blogs[0].title.slice(0, 20) + "..."
                                     : blogs[0]?.title}
 
                             </h3>
@@ -157,13 +157,7 @@ const FeaturedBlogs = () => {
             ) : (
                 <div className={styles.blogGrid}>
                     <div className={styles.mainPost}style={{height:"120px"}}>
-                        {/* <div className={styles.imageContainer}>
-                            <img
-                                src={featuredBlogMain}
-                                alt="No blogs available"
-                                className={styles.mainImage}
-                            />
-                        </div> */}
+                     
                         <div className={styles.mainContent} >
                             <span className={styles.category}>No Content</span>
                             <h3 className={styles.mainTitle}>No blogs available</h3>

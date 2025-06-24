@@ -1,6 +1,7 @@
 .customFooter {
   background-color: #252525;
   color: #ffffff;
+  width: 430px;
   padding: 30px 28px 30px;
   height: 920px;
 }
@@ -13,7 +14,6 @@
   gap: 25px;
 }
 
-/* Brand Section */
 .brandSection {
   text-align: left;
 }
@@ -40,7 +40,8 @@
 .brandTagline {
   color: #808080;
   margin: 8px 0 32px 0;
-  font-size: 18px;
+  font-size: 20px;
+  line-height: 24px;
   text-align: left;
 }
 
@@ -69,6 +70,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+  width: 360px;
 }
 
 .footerSection {
@@ -79,7 +81,7 @@
   color: #FF4053;
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 18px;
+  margin-bottom: 32px;
   text-align: left;
 }
 
@@ -91,7 +93,7 @@
 }
 
 .sectionLinks li {
-  margin-bottom: 18px;
+  margin-bottom: 24px;
 
 }
 
@@ -99,7 +101,8 @@
   color: #808080;
   text-decoration: none;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 22px;
   transition: color 0.3s ease;
   text-align: left;
 }
@@ -116,7 +119,7 @@
 
 .copyrightText p {
   color: #808080;
-  font-size: 14px;
+  font-size: 12px;
   margin: 18px 0;
   font-weight: 400;
   text-align: left;

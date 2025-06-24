@@ -38,10 +38,8 @@ const TopOffers = () => {
       if (data && data.VendorsList && Array.isArray(data.VendorsList)) {
         setProducts(data.VendorsList);
       } else {
-        console.error("Invalid product data format", data);
       }
     } catch (error) {
-      console.error("Error fetching products:", error);
     }
   };
 

@@ -1,7 +1,7 @@
 .faqContainer {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 30px 30px;
+  padding: 48px 48px;
   background-color: #ffffff;
   font-family: Arial, sans-serif;
   display: flex;
@@ -14,8 +14,8 @@ margin-bottom: 40px;
 }
 .bgDecoration {
   position: absolute;
-  top: 45px;
-  left: 320px;
+  top: 60px;
+  left: 350px;
   right: 0;
   bottom: 0;
   pointer-events: none;
@@ -23,22 +23,20 @@ margin-bottom: 40px;
 }
 .faqContent {
   margin: 0 auto;
-  width: 100%;
+width: 360px;
 
 }
 
 .headerSection {
   text-align: center;
-  margin-bottom: 30px;
 }
 
 .mainTitle {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
-  color: #333333;
-  height: 61px;
-  margin-bottom: 24px;
+  color: #000000;
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .redText {
@@ -46,26 +44,28 @@ margin-bottom: 40px;
 }
 
 .subtitle {
-  color: #666666;
+  color: #606060;
   font-size: 16px;
+line-height: 24px;
   margin: 0;
-  height: 12px;
+  margin-bottom: 24px;
   text-align: left;
 
 }
 
-/* Search Section */
 .searchContainer {
-  margin-bottom: 30px;
+  margin-bottom: 48px;
+  width: 361px;
 }
 
 .searchWrapper {
+  width: 361px;
+  height: 48px;
   position: relative;
   background-color: #ffffff;
   border-radius: 8px;
   padding: 0;
    border: 0.6px solid #ff4053;
-  width: 100%;
   box-sizing: border-box;
 }
 
@@ -75,16 +75,17 @@ margin-bottom: 40px;
   top: 50%;
   transform: translateY(-50%);
   color: #ff4053;
+  margin-right: 5px;
 }
 
 .searchInput {
-  width: 100%;
-  padding: 15px 15px 15px 45px;
+
+  padding: 15px 35px 0px 50px;
   border: none;
   border-radius: 8px;
   background-color: #ffffff;
-  font-size: 14px;
-  color: #333333;
+  font-size: 12px;
+  color: #757575;
   outline: none;
   box-sizing: border-box;
 }
@@ -95,17 +96,16 @@ margin-bottom: 40px;
 
 .faqList {
   margin-bottom: 24px;
-  width: 100%;
 }
 
 
 .faqItem {
+  width: 360px !important;
   border: 1px solid #D9D9D9;
   border-radius: 8px;
   margin-bottom: 24px;
   overflow: hidden;
   background-color: #ffffff;
-  width: 100%;
   box-sizing: border-box;
   min-height: auto;
   display: flex;
@@ -113,13 +113,17 @@ margin-bottom: 40px;
 }
 
 .faqQuestion {
+  position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 16px;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding:  20px;
+  padding-right: 48px; 
   cursor: pointer;
+  width: 360px;
   transition: background-color 0.2s ease;
 }
+
 
 .faqItemActive {
   border: 1.5px solid #FFAFB8;
@@ -127,27 +131,33 @@ margin-bottom: 40px;
   
 }
 .faqItemActive .faqQuestion {
- padding-bottom: 10px;
+ padding-bottom: 12px;
+ height: auto;
 }
 .questionText {
   color: #000000;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   flex: 1;
   text-align: left;
 }
-
+.faqItemActive .toggleButton{ 
+right: 8px
+}
 .toggleButton {
+  position: absolute;
+  top: 16px;
+  right: 12px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 5px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background-color 0.2s ease;
+  z-index: 2;
 }
+
 
 .faqAnswer {
   padding: 0 20px 20px 20px;
@@ -155,31 +165,36 @@ margin-bottom: 40px;
 }
 
 .answerText {
-  color: #666666;
-  font-size: 14px;
-  line-height: 1.5;
+  color: #757575;
+  font-size: 12px;
+  line-height: 140%;
   font-weight: 400;
   margin: 0;
   text-align: left;
+  width: 291px;
+
 }
 
 .moreQuestionsContainer {
   text-align: center;
   border: 0.5px solid #ff4053;
   border-radius: 8px;
+  width: 361px;
+  height: 48px;
+
 }
 
 .moreQuestionsButton {
   background-color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 15px 30px;
-  height: 48px;
+  padding: 0px 22px;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: 700;
+  margin-top: 12px;
   color: #ff4053;
+  line-height: 22px;
   cursor: pointer;
-  transition: background-color 0.2s ease;
   width: 100%;
 }
 
@@ -187,7 +202,7 @@ margin-bottom: 40px;
   display: flex;
   gap: 18px;
   justify-content: center;
-  margin: 22px 0 10px 0;
+  margin: 24px 0 16px 0;
 }
 
 .actionButton {
@@ -200,7 +215,7 @@ margin-bottom: 40px;
   color: #ff4053;
   font-weight: 300;
   height: 52px;
-  width: 160px;
+  width: 171px;
   font-size: 14px;
   padding: 11px 0px;
   cursor: pointer;
@@ -234,11 +249,11 @@ margin-bottom: 40px;
   }
 
   .headerSection {
-    margin-bottom: 40px;
+    margin-bottom: 28px;
   }
 
   .mainTitle {
-    font-size: 36px;
+    font-size: 28px;
   }
 
   .subtitle {
@@ -251,7 +266,7 @@ margin-bottom: 40px;
 
   .faqList {
     display: grid;
-    gap: 15px;
+    gap: 12px;
   }
 
   .faqItem {

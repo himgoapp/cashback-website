@@ -50,7 +50,7 @@ const NewsletterSubscription = () => {
           <h1 className={styles.subtitle}>Subscribe to our Newsletter</h1>
 
           <p className={styles.description}>
-            Join thousands of poker players staying ahead with tips, offers, and platform updates. No spam, just pure value.
+            Join thousands of poker players staying<br></br> ahead with tips, offers, and platform updates.<br></br> No spam, just pure value.
           </p>
 
           <form onSubmit={handleCreate} className={styles.form}>

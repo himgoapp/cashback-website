@@ -34,7 +34,9 @@ const HeroSection = () => {
                     </p>
 
                     <div className={styles.buttonContainer}>
-                        <button className={styles.primaryButton} onClick={()=>handleDealsClick()}>Get Best Deals Now {rightArrowIcon}</button>
+                        <button className={styles.primaryButton} 
+                        // onClick={()=>handleDealsClick()}
+                        >Get Best Deals Now {rightArrowIcon}</button>
                         <button className={styles.secondaryButton}>Learn How it Works</button>
                     </div>
                 </div>
@@ -80,7 +82,7 @@ const HeroSection = () => {
 
 export default HeroSection;
 
-const rightArrowIcon = <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+const rightArrowIcon = <svg width="9.8" height="9.8" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M6.36523 1.69421L11.3998 6.49996L6.36523 11.3057" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M11.3995 6.5L1.59961 6.5" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

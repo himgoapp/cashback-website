@@ -1,28 +1,29 @@
 .container {
   position: relative;
-  max-width: 100%;
   margin: 0 auto;
   padding: 40px 26px;
-  overflow: hidden;
-    border-bottom: 25px solid #F6F6F6; 
-
+border-bottom: 25px solid #F6F6F6; 
+width: 100%;
 }
 
 
 .content {
   position: relative;
   z-index: 1;
-  max-width: 400px;
-  margin: 0 auto;
 }
 
 .header {
   text-align: left;
   margin-bottom: 32px;
 }
-
+.bgDecoration img {
+  max-width: 100%;
+  margin-left: 10px;
+  height: auto;
+  display: block;
+}
 .title {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 700;
   color: #1a1a1a;
   margin: 0 0 12px 0;
@@ -38,14 +39,17 @@
   color: #606060;
   margin: 0;
   line-height: 150%;
-  margin-left: auto;
+  margin-left: 0;
   margin-right: auto;
+  width: 308px;
 }
 
 .featuresList {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
 }
 
 .featureCard {
@@ -63,7 +67,7 @@
 .bgDecoration {
   position: absolute;
   top: 30px;
-  left: 320px;
+  left: 340px;
   right: 0;
   bottom: 0;
   pointer-events: none;
@@ -72,15 +76,15 @@
 
 .redCard {
   background: #FFEBEF;
-  box-shadow: 0 4px 20px rgba(231, 76, 60, 0.1);
-  width: 340px;
+  width: 358px;
+  height: 127px;
 }
 
 .whiteCard {
   background: #F5F5F5;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   backdrop-filter: blur(10px);
-  width: 310px;
+  width: 358px;
+  height: 117px;
 }
 
 
@@ -114,18 +118,23 @@
 
 .redCard .featureTitle {
   color:#ff4053;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 100%;
 }
 
 .featureDescription {
-  font-size: 11px;
+  font-size: 12px;
   color: #606060;
   margin: 0;
+  width: 240px;
   line-height: 140%;
 }
 
 .redCard .featureDescription {
   color: black;
   font-weight: 500;
+  line-height: 150%;
   font-size: 12px;
 }
 

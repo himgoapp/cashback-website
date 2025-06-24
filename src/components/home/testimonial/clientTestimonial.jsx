@@ -35,6 +35,30 @@ const ClientTestimonial = () => {
     name: "Brian Clark",
     position: "VP of Marketing at Snapchat",
     avatar: "BC"
+  },
+  {
+    id: 4,
+    quote: "Revitalized my work approach",
+    description: "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis sit phasellus mollis mauris pulvinar lobortis nibh lacinia pellentesque tortor volutpat cursus molestie bibendum.",
+    name: "Brian Clark",
+    position: "VP of Marketing at Snapchat",
+    avatar: "BC"
+  },
+  {
+    id: 5,
+    quote: "Revitalized my work approach",
+    description: "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis sit phasellus mollis mauris pulvinar lobortis nibh lacinia pellentesque tortor volutpat cursus molestie bibendum.",
+    name: "Brian Clark",
+    position: "VP of Marketing at Snapchat",
+    avatar: "BC"
+  },
+  {
+    id: 6,
+    quote: "Revitalized my work approach",
+    description: "Lorem ipsum dolor sit amet consectetur adipiscing elit mattis sit phasellus mollis mauris pulvinar lobortis nibh lacinia pellentesque tortor volutpat cursus molestie bibendum.",
+    name: "Brian Clark",
+    position: "VP of Marketing at Snapchat",
+    avatar: "BC"
   }
 ];
 
@@ -87,6 +111,9 @@ const ClientTestimonial = () => {
                       {index === 0 && <img src={VectorTestimonial} className={styles.bgDecoration2}/>} 
                       {index === 1 && <img src={FaqSectionHeart} className={styles.bgDecoration3} style={{position:"absolute" ,marginLeft:"247px",marginTop:"-210px"}} />} 
                       {index === 2 && <img src={ChooseUsRightLayer} className={styles.bgDecoration4} style={{position:"absolute",marginLeft:"260px",marginTop:"-190px"}}/>} 
+                       {index === 3 && <img src={VectorTestimonial} className={styles.bgDecoration2}/>} 
+                      {index === 4 && <img src={FaqSectionHeart} className={styles.bgDecoration3} style={{position:"absolute" ,marginLeft:"247px",marginTop:"-210px"}} />} 
+                      {index === 5 && <img src={ChooseUsRightLayer} className={styles.bgDecoration4} style={{position:"absolute",marginLeft:"260px",marginTop:"-190px"}}/>} 
                     </>
                   )}
                   <div className={styles.avatarIconWrapper}>

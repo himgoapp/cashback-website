@@ -1,4 +1,4 @@
-import React, { useState,useEffect,useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './whyChooseUs.module.css';
 import ChooseUsFirst from "../../../assets/Logos_and_illustration/ChooseUsFirst.svg"
 import ChooseUsSecond from "../../../assets/Logos_and_illustration/ChooseUsSecond.svg"
@@ -10,28 +10,28 @@ import ChooseUsRightLayer from "../../../assets/Logos_and_illustration/ChooseUsR
 const WhyChooseUs = () => {
   const [activeCard, setActiveCard] = useState(1);
   const cardRefs = useRef([]);
-  
+
   const features = [
     {
       id: 1,
       title: 'Timely Payouts',
       description: 'We ensure your cash back reaches you on time-consistent, accurate, & right on schedule every single week.',
-      icon: ChooseFirst,
-      activeIcon: ChooseUsFirst,
+      icon: <img src={ChooseFirst} alt="Sign up icon" style={{ width: "46.76px", height: "44.98px" }} />,
+      activeIcon: <img src={ChooseUsFirst} alt="Sign up icon" style={{ width: "46.76px", height: "44.98px" }} />,
     },
     {
       id: 2,
       title: 'Reliable Customer Service',
       description: 'Our support team is available via chat & email to resolve your concerns and help you get the most from your offers.',
-      icon: ChooseSecond,
-      activeIcon: ChooseUsSecond,
+      icon: <img src={ChooseSecond} alt="Sign up icon" style={{ width: "37px", height: "35px" }} />,
+      activeIcon: <img src={ChooseUsSecond} alt="Sign up icon" style={{ width: "37px", height: "35px" }} />,
     },
     {
       id: 3,
       title: 'Fair and Transparent Deals',
       description: 'No fine print. No confusion. Just clear, honest, published terms that ensure you know exactly what you\'re getting.',
-      icon: ChooseThird,
-      activeIcon: ChooseUsThird,
+      icon: <img src={ChooseThird} alt="Sign up icon" style={{ width: "38.39px", height: "38.39px" }} />,
+      activeIcon: <img src={ChooseUsThird} alt="Sign up icon" style={{ width: "38.39px", height: "38.39px" }} />,
     }
   ];
 
@@ -53,13 +53,13 @@ const WhyChooseUs = () => {
       });
       setActiveCard(features[activeIdx].id);
     }
-  
+
     if (window.innerWidth < 768) {
       window.addEventListener('scroll', handleScroll, { passive: true });
       handleScroll();
       return () => window.removeEventListener('scroll', handleScroll);
     } else {
-   
+
       const observer = new window.IntersectionObserver(
         (entries) => {
           let maxRatio = 0;
@@ -83,9 +83,9 @@ const WhyChooseUs = () => {
       return () => observer.disconnect();
     }
   }, [features.length]);
-;
+  ;
   return (
-  <div className={styles.container}>
+    <div className={styles.container}>
       <div className={styles.bgDecoration}>
         <img src={ChooseUsRightLayer} alt="" />
       </div>
@@ -110,16 +110,33 @@ const WhyChooseUs = () => {
               >
                 <div className={styles.iconContainer}>
                   <div className={styles.icon}>
-                    {iconToUse && <img src={iconToUse} width={38} height={38} alt="" />}
+                    {iconToUse}
                   </div>
                 </div>
                 <div className={styles.featureContent}>
-                  <h3 className={styles.featureTitle}>{feature.title}</h3>
+                  <h3 className={styles.featureTitle}>
+                    {
+                      (() => {
+                        const words = feature.title.split(' ');
+                        if (words.length <= 2) {
+                          return <>
+                            {words[0]} {words[1]}
+                          </>;
+                        }
+                        return <>
+                          {words.slice(0, 2).join(' ')}<br />
+                          {words.slice(2).join(' ')}
+                        </>;
+                      })()
+                    }
+                  </h3>
+
                   <p className={styles.featureDescription}>{feature.description}</p>
                 </div>
               </div>
             );
           })}
+
         </div>
       </div>
     </div>
