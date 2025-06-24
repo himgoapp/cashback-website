@@ -2,7 +2,7 @@
   background-color: #252525;
   color: #ffffff;
   width: 430px;
-  padding: 30px 28px 30px;
+  padding: 36px 28px 30px;
   height: 920px;
 }
 
@@ -11,7 +11,7 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 28px;
 }
 
 .brandSection {
