@@ -1,4 +1,5 @@
 import "./App.css";
+import "../src/assets/Style/style.css";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/homepage";
@@ -22,6 +23,15 @@ import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TermsConditions from "./components/common/footer/termsConditions";
 import Profile from "./components/dashboard/profile/profile";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+import 'slick-carousel/slick/slick.js';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
+
 export const UserContext = createContext();
 
 function App() {

@@ -1,70 +1,116 @@
-import React from "react";
-import styles from "./banner.module.css";
-import bannerimg from "../../../assets/bannerimg.png";
-import layer1 from "../../../assets/Layer_1.png";
-import { Link } from "react-router-dom";
-import Reveal from "../../common/reveal/Reveal";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-
-const animationVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, delay: 0.65 },
-  },
-};
+import React from 'react';
+import {  useNavigate } from "react-router-dom";
+import heroSectionBanner from '../../../assets/Logos_and_illustration/heroSectionBanner.svg'; 
+import Layer1 from '../../../assets/Logos_and_illustration/Layer_1.svg';
+import Layer2 from '../../../assets/Logos_and_illustration/Layer_02.svg';
+import chipBannerRight from '../../../assets/Logos_and_illustration/chipHeroBannerRight.svg';
+import chipBannerLeft from '../../../assets/Logos_and_illustration/coinrightbanner.svg';
+import starRightHeroBanner from '../../../assets/Logos_and_illustration/StarRightHeroBanner.svg';
+import pokerCardheroBanner from '../../../assets/Logos_and_illustration/pokerCardheroBanner.svg';
+import starTopHeroBanner from '../../../assets/Logos_and_illustration/starTopHeroBanner.svg';
 
 const Banner = () => {
-  const navigate = useNavigate();
-  const validatetokenAndRedirect = () => {
+      const navigate = useNavigate();
+
+       const handleDealsClick = () => {
     navigate("/offer-and-deals");
   };
 
-  return (
-    <div className={` ${styles.banner_container}`}>
-      <div className={styles.header_container}>
-        <Reveal>
-          <div className={styles.header_text_container}>
-          <div className={styles.head}>
-  Your ultimate destination for <span style={{color:"#ffbf00",fontWeight:"700",fontFamily:"Futura"}}>cashback</span> rewards
-</div>
+    return (
+        <>
+        <div className="container-fluid RakeBackBanner">
+            <div className="container">
+                <div className="row">
+                    <div class="col-lg-1">
+                    </div>
+                    <div class="col-lg-5 col-md-12 d-flex align-items-center">
+                        <div className="content">
+                            <h1 className="title">
+                                <span className="highlight">India's #1 Trusted</span><br />
+                                <span className="lineBreak">Rakeback Platform</span>
+                            </h1>
 
-            <div className={styles.sub_head}>
-              We're your ticket to turning every poker hand into cold, hard
-              cash.
+                            <p className="subtitle">
+                                <span className="highlightPercentage">Get up to 40% rakeback</span> when you play on India's top poker platforms.
+                            </p>
+                            <p className="description">
+                                No hidden terms. No delays. Just pure rewards.
+                            </p>
+
+                            <div className="buttonContainer">
+                                <button className="primaryButton"
+                                // onClick={()=>handleDealsClick()}
+                                >Get Best Deals Now {rightArrowIcon}</button>
+                                <button className="secondaryButton">Learn How it Works</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-1">
+                    </div>
+                    <div class="col-lg-5 col-md-12">
+                        <div className="videoContainer">
+                            <img
+                                src={chipBannerLeft}
+                                alt="chip"
+                                className="chipIcon"
+                            />
+                            <img
+                                src={chipBannerRight}
+                                alt="chip right"
+                                className="chipBannerRight"
+                            />
+                            <img
+                                src={pokerCardheroBanner}
+                                alt="star right"
+                                className="pokerCardheroBanner"
+                            />
+                            <img
+                                src={starTopHeroBanner}
+                                alt="star right"
+                                className="starTopHeroBanner"
+                            />
+                            <img src={heroSectionBanner} className="BannerIcon" alt="hero banner" />
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
-          </div>
-          <button
-            className={`primary_button ${styles.btn_container}`}
-            onClick={() => validatetokenAndRedirect()}
-          >
-            {" "}
-            Get started
-          </button>
-        </Reveal>
-      </div>
+        </div>
+        {/* <div className={styles.container}>
+            <div className={styles.innerWrapper}>
+                   <div className={styles.bottomSpace}></div>
+                <div className={styles.content}>
+                    <h1 className={styles.title}>
+                        <span className={styles.highlight} >India's #1 Trusted</span><br />
+                        <span className={styles.lineBreak}>Rakeback Platform</span>
+                    </h1>
 
-      <div className={styles.image}>
-        <Reveal variants={animationVariants}>
-          <img src={bannerimg} alt="" width={640} height={500} />{" "}
-        </Reveal>
-      </div>
+                    <p className={styles.subtitle}>
+                        <span className={styles.highlightPercentage}>Get up to 40% rakeback</span> when you play on India's top poker platforms.
+                    </p>
+                    <p className={styles.description}>
+                        No hidden terms. No delays. Just pure rewards.
+                    </p>
 
-      <div className={`${styles.layer} ${styles.layer_1}`}>
-        <Reveal variants={animationVariants}>
-          <img src={layer1} alt="" width={260} height={320} />
-        </Reveal>
-      </div>
+                    <div className={styles.buttonContainer}>
+                        <button className={styles.primaryButton} 
+                        // onClick={()=>handleDealsClick()}
+                        >Get Best Deals Now {rightArrowIcon}</button>
+                        <button className={styles.secondaryButton}>Learn How it Works</button>
+                    </div>
+                </div>
 
-      <div className={`${styles.layer} ${styles.layer_2}`}>
-        <Reveal variants={animationVariants}>
-          <img src={layer1} alt="" width={260} height={320} />
-        </Reveal>
-      </div>
-    </div>
-  );
+                
+                
+            </div>
+        </div> */}
+        </>
+    );
 };
 
 export default Banner;
+
+const rightArrowIcon = <svg width="9.8" height="9.8" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.36523 1.69421L11.3998 6.49996L6.36523 11.3057" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M11.3995 6.5L1.59961 6.5" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -3,6 +3,8 @@ import { Plus, Users, Shield, Star, Zap, Award, Target, Trophy } from 'lucide-re
 import styles from './trustedBy.module.css';
 import { getPokerSiteImage } from "../../../helperFxns/colorCode";
 import trustedRightIcon from '../../../assets/Logos_and_illustration/trustedRightIcon.svg';
+import TrustedupperIcon from '../../../assets/Logos_and_illustration/TrustedupperIcon.svg';
+import TrusteddownIcon from '../../../assets/Logos_and_illustration/TrusteddownIcon.svg';
 const TrustSection = () => {
   const users = [
     { name: "Junglee Poker" },
@@ -26,7 +28,7 @@ const TrustSection = () => {
     "A23poker": "https://www.a23.com/",
     "PokerCircle": "https://www.pokercircle.com/",
     "PokerDangal": "https://www.pokerdangal.com/",
-    "Natural8": "https://www.natural8.com/",
+    "Natural8": "https://www.natural8.com/", 
     "Pocket52": "https://www.pocket52.com/",
     "Adda52": "https://www.adda52.com/",
     "ACRpoker": "https://www.americascardroom.eu/",
@@ -35,13 +37,75 @@ const TrustSection = () => {
   };
 
   return (
-    <div className={styles.container}>
- <img
-      src={trustedRightIcon}
-      alt="Poker Chip"
-      className={styles.trustedRightIcon}
-      draggable={false}
-    />
+    <>
+      <div className="container-fluid RakebackTrustedPoker">
+        <div className="container">
+          <div className="row">
+              <div className="col-lg-12 text-center">
+                <h1 className="title">
+                  Trusted by <span className="titleAccent">Thousands of Poker Players Across India</span>
+                </h1>
+                <p className="description"> our partnership with renowned poker platform ensure you always get the best rakeback offers securly and reliably</p>
+              </div>              
+          </div>
+          <div classsName="row">
+            <div className="col-lg-12 ">
+              <img src={TrusteddownIcon} className="TrustedupperIcon"/>
+              <div className="carouselContainer">
+                <div className="carouselTrack">
+                  {users.map((user, index) => (
+                    <a
+                      key={`first-${index}`}
+                      className="partnerCard"
+                      href={pokerSites[user.name]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="partnerIcon">
+                        <img
+                          src={getPokerSiteImage(user.name)}
+                          alt={user.name}
+                          className="partnerLogoImg"
+                        />
+                      </div>
+                      <span className="partnerName">{user.name}</span>
+                    </a>
+                  ))}
+                  {users.map((user, index) => (
+                    <a
+                      key={`second-${index}`}
+                      className={styles.partnerCard}
+                      href={pokerSites[user.name]}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className={styles.partnerIcon}>
+                        <img
+                          src={getPokerSiteImage(user.name)}
+                          alt={user.name}
+                          className={styles.partnerLogoImg}
+                        />
+                      </div>
+                      <span className={styles.partnerName}>{user.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <img src={TrusteddownIcon} className="TrusteddownIcon"/>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    {/* <div className={styles.container}>
+    <img
+          src={trustedRightIcon}
+          alt="Poker Chip"
+          className={styles.trustedRightIcon}
+          draggable={false}
+        />
       <div className={styles.content}>
         <div className={styles.headerSection}>
           <h1 className={styles.trustLabel}>Trusted by</h1>
@@ -96,7 +160,8 @@ const TrustSection = () => {
           </div>
         </div>
       </div>
-    </div>
+    </div> */}
+    </>
   );
 };
 

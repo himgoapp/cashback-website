@@ -1,8 +1,7 @@
 import React,{useState,useEffect} from "react";
-import styles from "./homepage.module.css";
 import Navbar from "../components/common/navbar/navbar";
 import Banner from "../components/home/banner/banner";
-import HeroSection from "../components/home/banner/heroSection";
+import TopRakeBackOffers from "../components/home/offers/topRakeBackOffers";
 import TopOffers from "../components/home/offers/topOffers";
 import TrustSection from "../components/home/trustedbrands/trustedBy"
 import HowGetStarted from "../components/home/getStarted/howGetStarted";
@@ -39,16 +38,21 @@ const Homepage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <div className={styles.homepage_container}>
+    <div>
       <Meta
         title="Best Poker Rakeback Site India | Win Real Money "
         description="Top Poker Rakeback and Cashback Site in India | Play Online Poker Games in India with Your Choice of Poker Website and Win Real Money 2025."
         link="https://rakebackk.com"
       />
-      {/* <Navbar page="home" /> */}
-      <NewNavbar />
+
+      {/*---Latest Code--*/}
+      <Navbar page="home" />
+      
       <MainContainer>
-        {/* <Banner /> */}
+        <Banner/>
+        <TopRakeBackOffers></TopRakeBackOffers>
+        <TrustSection/>
+        <HowGetStarted/>
         {/* <AboutUs /> */}
         {/* <TrustedBrands /> */}
         {/* <Deals /> */}
@@ -57,14 +61,15 @@ const Homepage = () => {
         {/* <FAQ /> */}
   {/* <JoinRakeback /> */}
         {/* <ScrollToTopButton /> */}
-        <HeroSection/>
-        <TopOffers/>
-        <TrustSection/>
-        <HowGetStarted/>
+        
+
+        {/* <TopOffers/> */}
+        
+        
         <FeaturedBlogs/>
         <WhyChooseUs/>
         <ClientTestimonial/>
-        <FaqSection/>
+        {/*<FaqSection/>*/}
         <NewsletterSubscription/>
         <NewFooter/>
       
