@@ -34,58 +34,108 @@ const NewsletterSubscription = () => {
 };
 
   return (
-    <div className={styles.container}>
-      <img
-        src={subscriberBackgroundTop}
-        className={styles.decorativeBackground}
-      />
-      <div className={styles.card}>
-        <div className={styles.chipContainer}>
-          <div className={styles.chip}>
-            <img src={pokerchip} />
+    <>
+      <div className="container-fluid RakebackNewsletter">
+          <div className='container'>
+              <div className='row'>
+                  <div className="col-lg-8 text-left GetStartedhead">
+                      <h1 className="title">
+                            Subscribe to our <br/> Newsletter 
+                      </h1>
+                      <p className="subtitle">
+                         Join thousands of poker players staying  ahead with tips, offers, and platform updates. No spam, just pure value.
+                      </p>  
+                  </div>
+                  <div className='col-lg-4 d-flex align-items-center'>
+                      <form onSubmit={handleCreate} className="form">
+                          <div className="inputContainer">
+                            <input
+                              type="email"
+                              value={email}
+                              onChange={(e) => setEmail(e.target.value)}
+                              placeholder="Enter your email address"
+                              className="emailInput"
+                              required
+                              pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                              disabled={isSuccess}
+                            />
+                            {isSuccess ? (
+                              <img
+                                src={SuccessSubscribe}
+                                alt="Subscribed Successfully"
+                                style={{ width: '36px', height: '36px' }}
+                              />
+                            ) : (
+                              <button
+                                type="submit"
+                                className="submitButton"
+                                disabled={isSubmitting}
+                              >
+                                {isSubmitting ? 'Submitting...' : 'Get in touch'}
+                              </button>
+                            )}
+
+                          </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+
+      {/* <div className={styles.container}>
+        <img
+          src={subscriberBackgroundTop}
+          className={styles.decorativeBackground}
+        />
+        <div className={styles.card}>
+          <div className={styles.chipContainer}>
+            <div className={styles.chip}>
+              <img src={pokerchip} />
+            </div>
+          </div>
+
+          <div className={styles.content}>
+            <h1 className={styles.subtitle}>Subscribe to our Newsletter</h1>
+
+            <p className={styles.description}>
+              Join thousands of poker players staying<br></br> ahead with tips, offers, and platform updates.<br></br> No spam, just pure value.
+            </p>
+
+            <form onSubmit={handleCreate} className={styles.form}>
+              <div className={styles.inputContainer}>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  className={styles.emailInput}
+                  required
+                  pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                  disabled={isSuccess}
+                />
+                {isSuccess ? (
+                  <img
+                    src={SuccessSubscribe}
+                    alt="Subscribed Successfully"
+                    style={{ width: '36px', height: '36px' }}
+                  />
+                ) : (
+                  <button
+                    type="submit"
+                    className={styles.submitButton}
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Submitting...' : 'Get in touch'}
+                  </button>
+                )}
+
+              </div>
+            </form>
           </div>
         </div>
-
-        <div className={styles.content}>
-          <h1 className={styles.subtitle}>Subscribe to our Newsletter</h1>
-
-          <p className={styles.description}>
-            Join thousands of poker players staying<br></br> ahead with tips, offers, and platform updates.<br></br> No spam, just pure value.
-          </p>
-
-          <form onSubmit={handleCreate} className={styles.form}>
-            <div className={styles.inputContainer}>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email address"
-                className={styles.emailInput}
-                required
-                pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
-                disabled={isSuccess}
-              />
-              {isSuccess ? (
-                <img
-                  src={SuccessSubscribe}
-                  alt="Subscribed Successfully"
-                  style={{ width: '36px', height: '36px' }}
-                />
-              ) : (
-                <button
-                  type="submit"
-                  className={styles.submitButton}
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting ? 'Submitting...' : 'Get in touch'}
-                </button>
-              )}
-
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+      </div> */}
+    </>
   );
 };
 

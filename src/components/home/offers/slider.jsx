@@ -35,7 +35,7 @@ const CenterSlider = () => {
   };
 
   return (
-    <div className="center-slider customslider" style={{ padding: "40px" }}>
+    <div className="center-slider slider customslider" style={{ padding: "40px" }}>
       <Slider {...settings}>
         <div>
             <div className="slide-item">

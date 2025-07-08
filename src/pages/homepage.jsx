@@ -53,25 +53,24 @@ const Homepage = () => {
         <TopRakeBackOffers></TopRakeBackOffers>
         <TrustSection/>
         <HowGetStarted/>
+        <FeaturedBlogs/>
+        <WhyChooseUs/>
+        <ClientTestimonial/>
+        <FaqSection/>
+        <NewsletterSubscription/>
+        <NewFooter/>
         {/* <AboutUs /> */}
         {/* <TrustedBrands /> */}
         {/* <Deals /> */}
         {/* <Getstarted /> */}
         {/* <Featured /> */}
         {/* <FAQ /> */}
-  {/* <JoinRakeback /> */}
+        {/* <JoinRakeback /> */}
         {/* <ScrollToTopButton /> */}
-        
-
         {/* <TopOffers/> */}
+        {/* <FaqSection/> */}
         
         
-        <FeaturedBlogs/>
-        <WhyChooseUs/>
-        <ClientTestimonial/>
-        {/*<FaqSection/>*/}
-        <NewsletterSubscription/>
-        <NewFooter/>
       
       </MainContainer>
 

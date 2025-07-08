@@ -16,22 +16,22 @@ const WhyChooseUs = () => {
       id: 1,
       title: 'Timely Payouts',
       description: 'We ensure your cash back reaches you on time-consistent, accurate, & right on schedule every single week.',
-      icon: <img src={ChooseFirst} alt="Sign up icon" style={{ width: "46.76px", height: "44.98px" }} />,
-      activeIcon: <img src={ChooseUsFirst} alt="Sign up icon" style={{ width: "46.76px", height: "44.98px" }} />,
+      icon: <img src={ChooseFirst} alt="Sign up icon" style={{ width: "68.29px", height: "65.67px" }} />,
+      activeIcon: <img src={ChooseUsFirst} alt="Sign up icon" style={{ width: "68.29px", height: "65.67px" }} />,
     },
     {
       id: 2,
       title: 'Reliable Customer Service',
       description: 'Our support team is available via chat & email to resolve your concerns and help you get the most from your offers.',
-      icon: <img src={ChooseSecond} alt="Sign up icon" style={{ width: "37px", height: "35px" }} />,
-      activeIcon: <img src={ChooseUsSecond} alt="Sign up icon" style={{ width: "37px", height: "35px" }} />,
+      icon: <img src={ChooseSecond} alt="Sign up icon" style={{ width: "60.78px", height: "57.04px" }} />,
+      activeIcon: <img src={ChooseUsSecond} alt="Sign up icon" style={{ width: "60.78px", height: "57.04px" }} />,
     },
     {
       id: 3,
       title: 'Fair and Transparent Deals',
       description: 'No fine print. No confusion. Just clear, honest, published terms that ensure you know exactly what you\'re getting.',
-      icon: <img src={ChooseThird} alt="Sign up icon" style={{ width: "38.39px", height: "38.39px" }} />,
-      activeIcon: <img src={ChooseUsThird} alt="Sign up icon" style={{ width: "38.39px", height: "38.39px" }} />,
+      icon: <img src={ChooseThird} alt="Sign up icon" style={{ width: "62.57px", height: "62.57px" }} />,
+      activeIcon: <img src={ChooseUsThird} alt="Sign up icon" style={{ width: "62.57px", height: "62.57px" }} />,
     }
   ];
 
@@ -83,63 +83,151 @@ const WhyChooseUs = () => {
       return () => observer.disconnect();
     }
   }, [features.length]);
+
+  function highlightCenterCard() {
+    const cards = document.querySelectorAll('.card');
+    const centerY = window.innerHeight / 2;
+
+    let closestCard = null;
+    let closestDistance = Infinity;
+
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      const cardCenterY = rect.top + rect.height / 2;
+      const distanceToCenter = Math.abs(cardCenterY - centerY);
+
+      if (distanceToCenter < closestDistance) {
+        closestDistance = distanceToCenter;
+        closestCard = card;
+      }
+    });
+
+    cards.forEach(card => card.classList.remove('focused'));
+    if (closestCard) closestCard.classList.add('focused');
+  }
+
+  window.addEventListener('scroll', highlightCenterCard);
+  window.addEventListener('resize', highlightCenterCard);
+  window.addEventListener('load', highlightCenterCard);
+
   ;
   return (
-    <div className={styles.container}>
-      <div className={styles.bgDecoration}>
-        <img src={ChooseUsRightLayer} alt="" />
-      </div>
-      <div className={styles.content}>
-        <div className={styles.header}>
-          <h2 className={styles.title}>
-            Why <span className={styles.highlight}>Choose</span> Us
-          </h2>
-          <p className={styles.subtitle}>
-            With Rakeback, it's not just about<br /> playing, it's about earning more every<br /> time you do.
-          </p>
-        </div>
-        <div className={styles.featuresList}>
-          {features.map((feature, idx) => {
-            const isActive = activeCard === feature.id;
-            const iconToUse = isActive ? feature.activeIcon : feature.icon;
-            return (
-              <div
-                key={feature.id}
-                ref={el => (cardRefs.current[idx] = el)}
-                className={`${styles.featureCard} ${isActive ? styles.redCard : styles.whiteCard}`}
-              >
-                <div className={styles.iconContainer}>
-                  <div className={styles.icon}>
-                    {iconToUse}
-                  </div>
-                </div>
-                <div className={styles.featureContent}>
-                  <h3 className={styles.featureTitle}>
-                    {
-                      (() => {
-                        const words = feature.title.split(' ');
-                        if (words.length <= 2) {
-                          return <>
-                            {words[0]} {words[1]}
-                          </>;
-                        }
-                        return <>
-                          {words.slice(0, 2).join(' ')}<br />
-                          {words.slice(2).join(' ')}
-                        </>;
-                      })()
-                    }
-                  </h3>
-
-                  <p className={styles.featureDescription}>{feature.description}</p>
-                </div>
+    <>
+      <div className="container-fluid RakebackWhyChooseUS RakebackSpace">
+        <div className="container">
+          <div className="row">
+              <div className="col-lg-5 text-left GetStartedhead">
+                    <h1 className="title">
+                          Why <span className="highlight">Choose</span> Us
+                    </h1>
+                    <p className="subtitle">
+                        With Rakebackk, it's not just about playing,  it's about earning more every time you do. 
+                    </p>    
               </div>
-            );
-          })}
+              <div className='col-lg-7'>
+                  <div class="container-cards featuresList">
+                    {features.map((feature, idx) => {
+                        const isActive = activeCard === feature.id;
+                        const iconToUse = isActive ? feature.activeIcon : feature.icon;
+                        return (
+                          <div
+                            key={feature.id}
+                            ref={el => (cardRefs.current[idx] = el)}
+                            className="card"
+                          >
+                            <div className="iconContainer">
+                                <div className="icon">
+                                    {iconToUse}
+                                </div>
+                            </div>
+                            <div className="featureContent">
+                              <h3 className="featureTitle">
+                                {
+                                  (() => {
+                                    const words = feature.title.split(' ');
+                                    if (words.length <= 2) {
+                                      return <>
+                                        {words[0]} {words[1]}
+                                      </>;
+                                    }
+                                    return <>
+                                      {words.slice(0, 2).join(' ')}<br />
+                                      {words.slice(2).join(' ')}
+                                    </>;
+                                  })()
+                                }
+                              </h3>
 
+                              <p className="featureDescription">{feature.description}</p>
+                            </div>
+                          </div>
+                        );
+                      })}
+                  </div>
+              </div>
+          </div>
         </div>
       </div>
-    </div>
+
+
+
+
+        {/* <div className={styles.container}>
+          <div className={styles.bgDecoration}>
+            <img src={ChooseUsRightLayer} alt="" />
+          </div>
+          <div className={styles.content}>
+            <div className={styles.header}>
+              <h2 className={styles.title}>
+                Why <span className={styles.highlight}>Choose</span> Us
+              </h2>
+              <p className={styles.subtitle}>
+                With Rakeback, it's not just about<br /> playing, it's about earning more every<br /> time you do.
+              </p>
+            </div>
+            <div className={styles.featuresList}>
+              {features.map((feature, idx) => {
+                const isActive = activeCard === feature.id;
+                const iconToUse = isActive ? feature.activeIcon : feature.icon;
+                return (
+                  <div
+                    key={feature.id}
+                    ref={el => (cardRefs.current[idx] = el)}
+                    className={`${styles.featureCard} ${isActive ? styles.redCard : styles.whiteCard}`}
+                  >
+                    <div className={styles.iconContainer}>
+                      <div className={styles.icon}>
+                        {iconToUse}
+                      </div>
+                    </div>
+                    <div className={styles.featureContent}>
+                      <h3 className={styles.featureTitle}>
+                        {
+                          (() => {
+                            const words = feature.title.split(' ');
+                            if (words.length <= 2) {
+                              return <>
+                                {words[0]} {words[1]}
+                              </>;
+                            }
+                            return <>
+                              {words.slice(0, 2).join(' ')}<br />
+                              {words.slice(2).join(' ')}
+                            </>;
+                          })()
+                        }
+                      </h3>
+
+                      <p className={styles.featureDescription}>{feature.description}</p>
+                    </div>
+                  </div>
+                );
+              })}
+
+            </div>
+          </div>
+        </div> */}
+    </>
   );
 };
 

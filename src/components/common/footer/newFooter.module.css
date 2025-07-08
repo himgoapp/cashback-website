@@ -66,13 +66,6 @@
   background-color: #808080;
 }
 
-.footerLinksContainer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-  width: 360px;
-}
-
 .footerSection {
   margin-bottom: 15px;
 }

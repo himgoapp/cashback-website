@@ -18,16 +18,21 @@ div#root {
     background: #f6f6f6;
 }
 
+.RakebackSpace {
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+
 /*Header Css start*/
 .RakebackHeader {
     background: #FBFBFB;
     border-bottom: 1px solid #0000001A;
-    padding: 10px 0;
+    padding: 20px 0;
 }
 .RakebackHeader ul.navbar-nav li.nav-item a.nav-link {
     color: #000;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 15px;
+    font-weight: 500;
 }
 .RakebackHeader ul.navbar-nav li.nav-item a.nav-link.active {
     color: #FF4053;
@@ -35,6 +40,7 @@ div#root {
 .RakebackHeader ul.navbar-nav li.nav-item {
     text-align: left;
     margin-right: 20px;
+    margin-top: 4px;
 }
 .RakebackHeader button.signin_button {
     width: 163px;
@@ -104,7 +110,7 @@ div#root {
     border: none;
     border-radius: 8px;
     padding: 14px 24px;
-    height: 58px;
+    height: 52px;
     font-size: 20px;
     line-height: 20px;
     font-weight: 800;
@@ -119,7 +125,7 @@ div#root {
     font-size: 16px;
     line-height: 22px;
     width: 288px;
-    height: 58px;
+    height: 52px;
     font-weight: 600;
     cursor: pointer;
     background: #ffffff !important;
@@ -203,8 +209,10 @@ div#root {
 /*Top Rakeback Offers Css Start*/
 .RakeBackTopOffers {
     padding: 90px 0;
-    background: #fff;
+    background: url(../topofferbg.svg);
     margin: 20px 0;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
 }
 .RakeBackTopOffers .title {
     font-size: 36px;
@@ -407,8 +415,7 @@ p.GetProfitdes {
     position: relative;
 }
 .RakebackTrustedPoker .carouselTrack {
-    display: flex
-;
+    display: flex;
     gap: 1rem;
     animation: scroll 40s linear infinite;
     width: fit-content;
@@ -451,8 +458,7 @@ p.GetProfitdes {
     width: 52px;
     height: 52px;
     border-radius: 12px;
-    display: flex
-;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -541,9 +547,9 @@ p.GetProfitdes {
 }
 .GetStartedCard .stepNumber {
     position: absolute;
-    top: -42px;
+    top: -58px;
     right: 30px;
-    font-size: 80px;
+    font-size: 110px;
     font-weight: 800;
     color: #FF4053;
 }
@@ -748,9 +754,10 @@ p.GetProfitdes {
     gap: 16px;
     flex: 1;
 }
-.BlogHeading{
+.BlogHeading {
     font-size: 36px;
-     margin-bottom: 28px;
+    margin-bottom: 28px;
+    font-weight: 700;
 }
 .RakebackFeaturedBlog .sidePost {
     border: 0.6px solid #848484;
@@ -821,3 +828,589 @@ p.GetProfitdes {
 }
 
 /*Rakeback Featured Blog  Css ENd*/
+
+/*Rakeback Why Choose Us  Css Start*/
+.RakebackWhyChooseUS {
+    background: #fff;
+    margin-bottom: 20px;
+}
+.RakebackWhyChooseUS .GetStartedhead .subtitle {
+    max-width: 340px;
+    margin: 0 0 20px;
+}
+.RakebackWhyChooseUS .GetStartedhead {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.container-cards.featuresList .card {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    padding: 36px 32px;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+    flex-direction: row;
+    background-color: #F5F5F5;
+    margin-bottom: 36px;
+}
+.container-cards.featuresList .card.focused {
+    background-color: #FFEBEF;
+    color: white;
+    border-color: #000;
+}
+.container-cards.featuresList .card.focused .featureTitle {
+    color: #FF4053;
+}
+
+.container-cards.featuresList .featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  justify-content: center;
+  align-items: center;
+}
+.container-cards.featuresList .iconContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    width: 97px;
+    height: 97px;
+}
+
+.container-cards.featuresList .featureContent {
+  flex: 1;
+}
+.container-cards.featuresList .featureTitle {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000000;
+    margin: 0 0 12px 0;
+    width: 100%;
+    line-height: 1.3;
+}
+.container-cards.featuresList .featureDescription {
+  font-size: 16px;
+  color: #606060;
+  margin: 0;
+  width: 100%;
+  line-height: 140%;
+}
+/*Rakeback Why Choose Us  Css End*/
+
+/*Rakeback clients have to say  Css Start*/
+.RakebackClientTest.RakebackSpace {
+    background: #fff;
+    margin-bottom: 20px;
+    padding-bottom: 92px;
+}
+.RakebackClientTest .GetStartedhead .subtitle {
+    max-width: 100%;
+    margin: 0;
+}
+.ClientSlider .slide-item {
+    border: none;
+}
+.ClientSlider .testimonialCard {
+  flex: 0 0 100%;
+  margin: 0 auto;
+  border-radius: 8px;
+  padding: 40px;
+  border: 0.5px solid rgba(255, 64, 83, 0.5);
+  height: 357px;
+  margin-bottom: 40px;
+  width: 344px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow:
+    0px 4px 4px -4px rgba(12, 12, 13, 0.05),
+    0px 16px 16px -8px rgba(12, 12, 13, 0.1) ;
+    position: relative;
+    overflow: hidden;
+
+}
+.ClientSlider .avatarIconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.ClientSlider .avatarIconBg {
+  background: #ffe6ea;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ClientSlider .avatarIcon {
+  width: 17px;
+  height: 18px;
+  display: block;
+}
+.ClientSlider .quoteContainer {
+  margin-bottom: 16px;
+  text-align: center;
+}
+.ClientSlider .quote {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.ClientSlider .description {
+  font-size: 12px;
+  color: #606060;
+  line-height: 140%;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.ClientSlider .authorInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.ClientSlider .avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.ClientSlider .authorDetails {
+  text-align: center;
+}
+
+.ClientSlider .authorName {
+  font-size: 16px;
+  font-weight: 600;
+  color: #606060;
+  margin: 0 0 2px 0;
+  line-height: 1.2;
+}
+.ClientSlider .authorPosition {
+    font-size: 12px;
+    color: #CBCBCB;
+    margin: 0;
+    line-height: 22px;
+}
+.bgDecoration2 {
+  position: absolute;
+  top: 25px;
+  left: 259px;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+
+
+
+.slider  .slick-dots li {
+    width: auto ;
+    height: auto;
+    margin: 0 6px;
+}
+.slider .slick-dots li button{
+    width: auto;
+    height: auto;
+}
+.slider .slick-dots li button:before {
+    width: 11px;
+    height: 11px;
+    content: '';
+    opacity: .25;
+    border: 1px solid #919191;
+    border-radius: 50%;
+}
+.slider .slick-dots li.slick-active button:before {
+    opacity: 1;
+    width: 28px;
+    border-radius: 22px;
+    background: #FF4053;
+    border-color: #FF4053;
+}
+.slider .slick-dots li.slick-active button {
+    width: 28px;
+}
+.ClientSlider.slider .slick-dots {
+    bottom: -38px;
+}
+/*Rakeback clients have to say  Css End*/
+
+
+/*Rakeback FAQ  Css Start*/
+.RakebackFAQ {
+    background-color: #fff;
+    margin-bottom: 20px;
+}
+.RakebackFAQ .GetStartedhead .title {
+    line-height: 36px;
+}
+.RakebackFAQ .GetStartedhead {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.RakebackFAQ .GetStartedhead .subtitle {
+    max-width: 100%;
+    margin: 15px 0 0px;
+}
+.RakebackFAQ .moreQuestionsActions {
+    display: flex
+;
+    gap: 20px;
+    justify-content: center;
+    margin: 48px 0 0;
+    flex-direction: column;
+}
+.RakebackFAQ .actionButton {
+    display: flex;
+    align-items: center;
+    border: 0.5px solid #F6F6F6;
+    border-radius: 12px;
+    background: #F6F6F6;
+    color: #000;
+    font-weight: 300;
+    height: 56px;
+    width: 306px;
+    font-size: 16px;
+    padding: 0px 20px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+}
+.arrowIcon {
+    position: absolute;
+    right: 20px;
+}
+.RakebackFAQ .toggleButton img.toggleIcon {
+    filter: grayscale(1);
+}
+.RakebackFAQ .faqItemActive .faqQuestion .toggleButton img.toggleIcon {
+    filter: unset;
+}
+.RakebackFAQ .actionIcon {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-right: 24px;
+}
+.RakebackFAQ .faqList {
+  margin-bottom: 24px;
+}
+.RakebackFAQ .faqQuestion {
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 24px 20px;
+    padding-right: 48px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.2s ease;
+}
+
+.RakebackFAQ .faqItemActive {
+    border: 0.6px solid #FFAFB8;
+    background: #FFF5F6;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+.RakebackFAQ .faqItemActive .faqQuestion {
+ padding-bottom: 12px;
+ height: auto;
+}
+.RakebackFAQ .questionText {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 600;
+  flex: 1;
+  text-align: left;
+}
+.RakebackFAQ .faqItemActive .toggleButton{ 
+right: 8px
+}
+.RakebackFAQ .toggleButton {
+  position: absolute;
+  top: 24px;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.RakebackFAQ  .faqItem {
+  width: 100% !important;
+  border: 1px solid #D9D9D9;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.RakebackFAQ .faqAnswer {
+    padding: 0 44px 24px 20px;
+    animation: slideDown 0.3s ease-out;
+}
+.RakebackFAQ .answerText {
+    color: #000000;
+    font-size: 12px;
+    line-height: 140%;
+    font-weight: 400;
+    margin: 0;
+    text-align: left;
+    width: 100%;
+}
+.RakebackFAQ .moreQuestionsContainer {    
+    width: 100%;    
+}
+.RakebackFAQ .moreQuestionsButton {
+  background: #F6F6F6;
+  text-align: center;
+  height: 56px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 12px;
+  color: #000;
+  line-height: 22px;
+  cursor: pointer;
+  width: 100%;
+}
+/*Rakeback FAQ  Css End*/
+
+/*Rakeback newsletter  Css start*/
+.RakebackNewsletter{
+    padding-top: 54px;
+    padding-bottom: 54px;
+    background: url(../newsletterbg.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.RakebackNewsletter .GetStartedhead .title {
+    font-size: 36px;
+    color: #fff;
+    line-height: 36px;
+}
+.RakebackNewsletter .GetStartedhead .subtitle {
+    color: #fff;
+    max-width: 630px;
+    margin: 9px 0 0px;
+}
+.RakebackNewsletter .GetStartedhead {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0;
+}
+.RakebackNewsletter .form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.RakebackNewsletter .inputContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: #fafafa;
+    border: 1px solid #F1F3F7;
+    border-radius: 8px;
+    height: 56px;
+    width: 400px;
+    padding-left: 5px;
+    transition: all 0.3s ease;
+    padding-right: 5px;
+}
+.RakebackNewsletter .inputContainer:focus-within {
+  background: white;
+  box-shadow: 0 0 0 3px rgba(255, 64, 83, 0.1);
+}
+
+.RakebackNewsletter .emailInput {
+  flex: 1;
+  padding: 8px 8px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  outline: none;
+  color: #606060;
+}
+
+.RakebackNewsletter .emailInput::placeholder {
+  color: #999;
+  font-size: 12px;
+}
+
+.RakebackNewsletter .submitButton {
+  background: #606060;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin: 4px;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.RakebackNewsletter .submitButton:hover:not(:disabled) {
+  background: #606060;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(255, 64, 83, 0.3);
+}
+
+.RakebackNewsletter .submitButton:active {
+  transform: translateY(0);
+}
+
+.RakebackNewsletter .submitButton:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.RakebackNewsletter .submitButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.RakebackNewsletter .submitButton:active::before {
+  width: 200px;
+  height: 200px;
+}
+/*Rakeback newsletter  Css end*/
+
+/*Rakeback footer  Css start*/
+.customFooter {
+    background-color: #252525;
+    color: #ffffff;
+    padding-top: 72px;
+    padding-bottom: 72px;
+}
+.customFooter .brandSection {
+  text-align: left;
+}
+.customFooter .brandLogo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 18px;
+}
+.customFooter .brandTagline {
+    color: #808080;
+    margin: 20px 0 32px 0;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: left;
+}
+.customFooter .socialIcons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 18px;
+}
+.customFooter .socialLink {
+  color: #808080;
+  transition: color 0.3s ease;
+}
+.customFooter .footerSection {
+  margin-bottom: 15px;
+}
+.customFooter .sectionTitle {
+    color: #FF4053;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.customFooter .sectionLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.customFooter .sectionLinks li {
+  margin-bottom: 24px;
+
+}
+
+.customFooter .footerLink {
+  color: #808080;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 22px;
+  transition: color 0.3s ease;
+  text-align: left;
+}
+.copyrightText {
+    padding: 24px 0 0;
+    text-align: center;
+    border-top: 1px solid #808080;
+    color: #808080;
+    margin-top: 72px !important;
+}
+.copyrightText p a {
+    color: #808080;
+}
+
+/*Rakeback footer  Css end*/
+
+
+
+
+.navbar-toggler {
+    padding: 0.25rem 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    background-color: #000;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: box-shadow 0.15s ease-in-out;
+}
