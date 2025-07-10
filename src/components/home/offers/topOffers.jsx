@@ -5,6 +5,7 @@ import offerImage from "../../../assets/Logos_and_illustration/offerImage.png"
 import offerStar from "../../../assets/Logos_and_illustration/offerStar.svg"
 import { getVendors } from '../../../servicefile/partnerservice';
 
+
 const TopOffers = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [products, setProducts] = useState([]);

@@ -70,7 +70,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount, onBalanceUpdate  }) => {
 		<div className={styles.popupOverlay}>
 			<div className={styles.popupContainer}>
 				<div className={styles.popupHeader}>
-					<div className={styles.logo}>
+					{/* <div className={styles.logo}>
 						<div
 							style={{
 								display: "flex",
@@ -81,45 +81,70 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount, onBalanceUpdate  }) => {
 						>
 							{rakelogo}
 						</div>
-					</div>
+					</div> */}
 					<div className={styles.closeIcon} onClick={() => setShowWithdraw(false)}>
 						{closeIcon}
 					</div>
 				</div>
 
 				<div className={styles.popupContent}>
-					<h2 className={styles.withdrawTitle}>Withdraw</h2>
-					<p className={styles.balanceText}>Balance: <span className={styles.totalAmount}>₹{maxAmount ? maxAmount.toLocaleString() : "0.00"}</span></p>
+					<div>
+						<h2 className={styles.withdrawTitle}>Withdraw</h2>
+						<p className={styles.balanceText}>Wallet  balance <span className={styles.totalAmount}>₹{maxAmount ? maxAmount.toLocaleString() : "0.00"}</span></p>
 
-					<div className={styles.inputContainer}>
-						<input
-							type="number"
-							value={amount}
-							onChange={(e) => {
-								const val = e.target.value;
-								setAmount(val);
+						<div className={styles.inputContainer}>
+							<input
+								type="number"
+								value={amount}
+								onChange={(e) => {
+									const val = e.target.value;
+									setAmount(val);
 
-								const numVal = parseInt(val);
-							if (numVal > maxAmount) {
-									setError("Amount entered cannot be more than your wallet balance.");
-								} else {
-									setError(""); // clear error when valid
-								}
-							}}
-							placeholder="Min amount: ₹100"
-							className={styles.amountInput}
-							autoFocus
-						/>
+									const numVal = parseInt(val);
+								if (numVal > maxAmount) {
+										setError("Amount entered cannot be more than your wallet balance.");
+									} else {
+										setError(""); // clear error when valid
+									}
+								}}
+								placeholder="Min amount: ₹100"
+								className={styles.amountInput}
+								autoFocus
+							/>
+							<p style={{ color: "#848484", fontSize: "16px", margin: "12px 0 32px 0"}}> <svg style={{marginRight: "9px"}} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M7.64258 0.283691C11.863 0.283955 15.2842 3.70582 15.2842 7.92627C15.2842 12.1467 11.863 15.5686 7.64258 15.5688C3.42197 15.5688 0 12.1469 0 7.92627C0 3.70566 3.42197 0.283691 7.64258 0.283691ZM6.72559 10.6167V12.2671H8.43652V10.6167H6.72559ZM6.84766 3.34131V9.479H8.31445V3.34131H6.84766Z" fill="#848484"/>
+							</svg>Please enter a withdrawal amount</p>
+
+							<p style={{ color: "#FF4053", fontSize: "16px", margin: "12px 0 32px 0"}}> <svg style={{marginRight: "9px"}} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M7.64258 0.283691C11.863 0.283955 15.2842 3.70582 15.2842 7.92627C15.2842 12.1467 11.863 15.5686 7.64258 15.5688C3.42197 15.5688 0 12.1469 0 7.92627C0 3.70566 3.42197 0.283691 7.64258 0.283691ZM6.72559 10.6167V12.2671H8.43652V10.6167H6.72559ZM6.84766 3.34131V9.479H8.31445V3.34131H6.84766Z" fill="#FF4053"/>
+							</svg>Amount exceed wallet balance</p>
+
+							
+						</div>
+
+						{error && <p className={styles.errorMessage}>{error}</p>}
+
+						<button
+							className={styles.continueButton}
+							onClick={withdrawfxn}
+						>
+							Withdraw
+						</button>
+					</div>
+					<div className={styles.WithdrawalSuccessful}>
+						<svg width="177" height="87" viewBox="0 0 177 87" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path d="M154.5 72L164.5 81" stroke="#28A745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M161.5 44.501L174.949 44.8391" stroke="#28A745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M152.5 16L167.5 2" stroke="#28A745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M21.9492 72L11.9492 81" stroke="#28A745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M14.9493 44.501L1.49996 44.8391" stroke="#28A745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M23.9492 16L8.94922 2" stroke="#28A745" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+							<path d="M76.2545 87L69.6909 76.0286L57.2545 73.2857L58.4636 60.6L50 51L58.4636 41.4L57.2545 28.7143L69.6909 25.9714L76.2545 15L88 19.9714L99.7455 15L106.309 25.9714L118.745 28.7143L117.536 41.4L126 51L117.536 60.6L118.745 73.2857L106.309 76.0286L99.7455 87L88 82.0286L76.2545 87ZM84.3727 63.1714L103.891 43.8L99.0545 38.8286L84.3727 53.4L76.9455 46.2L72.1091 51L84.3727 63.1714Z" fill="#28A745"/>
+						</svg>		
+						<h2 className={styles.withdrawTitle}>Withdrawal <br/> Successful</h2>	
+						<p>Amount will be credited within 12 hours.</p>	
 					</div>
 
-					{error && <p className={styles.errorMessage}>{error}</p>}
-
-					<button
-						className={styles.continueButton}
-						onClick={withdrawfxn}
-					>
-						Continue
-					</button>
 				</div>
 			</div>
 		</div>
@@ -139,7 +164,7 @@ const closeIcon = (
 	>
 		<path
 			d='M18 6L6 18M6 6L18 18'
-			stroke='black'
+			stroke='#848484'
 			strokeWidth='2'
 			strokeLinecap='round'
 			stroke-linejoin='round'

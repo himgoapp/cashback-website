@@ -5,7 +5,8 @@ import offerImage from "../../../assets/Logos_and_illustration/offerImage.png"
 import offerStar from "../../../assets/Logos_and_illustration/offerStar.svg"
 import { getVendors } from '../../../servicefile/partnerservice';
 import  SimpleSlider  from './slider';
-
+import OfferSignup from '../../offerAndDeal/signup/signup';
+import OfferSlider from './Slidernew.jsx';
 
 const topRakeBackOffers = () => {
 
@@ -23,6 +24,7 @@ const topRakeBackOffers = () => {
                       </p>
                     </div>
                     <div className="col-lg-12">
+                      {/* <OfferSlider></OfferSlider> */}
                       <SimpleSlider/>
                     </div>
                 </div>

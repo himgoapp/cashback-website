@@ -31,7 +31,7 @@
 		"react-tabs": "^6.1.0",
 		"react-toastify": "^10.0.5",
 		"slick-carousel": "^1.8.1",
-		"swiper": "^11.1.9",
+		"swiper": "^11.2.10",
 		"web-vitals": "^2.1.4"
 	},
 	"scripts": {

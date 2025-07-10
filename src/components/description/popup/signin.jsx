@@ -5,6 +5,7 @@ import { UserContext } from "../../../App";
 import styles from "./signin.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
+import { color } from "framer-motion";
 const FullPageSignin = () => {
   const { setUserData, setShowWelcomePopup } = useContext(UserContext);
   const navigate = useNavigate();
@@ -153,10 +154,10 @@ const FullPageSignin = () => {
     const value = e.target.value;
 
     // Allow only digits
-    if (/^\d*$/.test(value)) {
+    if (/^\d*$/.test(value)) { 
       // Check first digit
       if (value.length === 1 && !/^[6-9]$/.test(value)) {
-        setError("Enter your valid number");
+        setError("Please enter a valid number");
         return;
       }
 
@@ -164,7 +165,7 @@ const FullPageSignin = () => {
 
       // Validate after 10 digits
       if (value.length === 10 && !/^[6-9]\d{9}$/.test(value)) {
-        setError("Enter your valid number");
+        setError("Please enter a valid number");
       } else {
         setError("");
       }
@@ -175,7 +176,7 @@ const FullPageSignin = () => {
       <Navbar page="login" />
       <div className={styles.fullPageContainer}>
         <div className={styles.authCard}>
-          <div className={styles.backButtonContainer}>
+          {/* <div className={styles.backButtonContainer}>
             <button
               className={styles.backButton}
               onClick={() => navigate(-1)}
@@ -186,7 +187,7 @@ const FullPageSignin = () => {
                 <path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </button>
-          </div>
+          </div> */}
 
           {!showOtpPart ? (
             <div className={styles.formSection}>
@@ -195,23 +196,26 @@ const FullPageSignin = () => {
 
               <form onSubmit={handlePhoneSubmit} className={styles.form}>
                 <div className={styles.inputField}>
+                  <span className={styles.CountryCode}>+91</span>
                   <input
                     autoFocus
                     type="tel"
                     inputMode="numeric"
+                    placeholder="Enter mobile number"
                     pattern="[0-9]*"
                     maxLength={10}
                     value={phoneNumber}
                     onChange={handleChange}
                     required
-                    style={{ fontFamily: '"Roboto", sans-serif' }}
                     className={`${styles.number_label} ${error ? styles.invalidInput : ""}`}
                   />
-                  <label style={{ fontFamily: '"Roboto", sans-serif' }}
+                  {/* <label style={{ fontFamily: '"Roboto", sans-serif' }}
                     className={`${styles.number_label} ${error ? styles.invalidInputLabel : ""}`}>
                     Enter mobile number
-                  </label>
-                  {error && <p style={{ color: "red", fontSize: "14px", marginTop: "5px", fontFamily: '"Roboto",sans-serif' }}>{error}</p>}
+                  </label> */}
+                  {error && <p style={{ color: "red", fontSize: "16px", margin: "32px 0"}}><svg style={{marginRight: "9px"}} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.64258 0.283691C11.863 0.283955 15.2842 3.70582 15.2842 7.92627C15.2842 12.1467 11.863 15.5686 7.64258 15.5688C3.42197 15.5688 0 12.1469 0 7.92627C0 3.70566 3.42197 0.283691 7.64258 0.283691ZM6.72559 10.6167V12.2671H8.43652V10.6167H6.72559ZM6.84766 3.34131V9.479H8.31445V3.34131H6.84766Z" fill="#FF4053"/>
+</svg> {error}</p>}
                 </div>
 
 
@@ -226,13 +230,14 @@ const FullPageSignin = () => {
                     "Continue"
                   )}
                 </button>
+                <p className={styles.enterMobiletext}>Please enter 10 digit mobile number</p>
               </form>
             </div>
           ) : (
             <div className={styles.formSection}>
-              <h1 className={styles.title}>Enter OTP</h1>
+              <h1 className={styles.title}>Verify OTP</h1>
               <p className={styles.subtitle}>
-                OTP sent to {phoneNumber.slice(0, 2)}•••••{phoneNumber.slice(-2)}
+                One Time Password (OTP) has been sent to {phoneNumber.slice(0, 2)}•••••{phoneNumber.slice(-2)}
                 <button
                   className={styles.editButton}
                   onClick={editNumber}
@@ -256,16 +261,17 @@ const FullPageSignin = () => {
                     onPaste={index === 0 ? handlePaste : null}
                     className={styles.otpInput}
                     autoFocus={index === 0 && showOtpPart}
-                    style={{ fontFamily: '"Roboto",sans-serif', fontWeight: "400" }}
+                    style={{   fontWeight: "400" }}
                   />
                 ))}
               </div>
 
               <div className={styles.resendContainer}>
                 <p>
-                  Haven't received the OTP?{' '}
+                  {' '}
                   {resendTimer > 0 ? (
-                    <span style={{ fontFamily: '"Roboto",sans-serif', fontWeight: "400" }}>Resend in <span className={styles.timer} style={{ fontFamily: '"Roboto",sans-serif' }}>{resendTimer}s</span></span>
+                    // <span style={{   fontWeight: "400" }}>Resend in <span className={styles.timer} style={{  }}>{resendTimer}s</span></span>
+                    <span style={{   fontWeight: "400" }}>Resend OTP in <span className={styles.timer} style={{  }}>{resendTimer}s</span></span>
                   ) : (
                     <button
                       className={styles.resendButton}
@@ -285,19 +291,20 @@ const FullPageSignin = () => {
                 {loading ? (
                   <span className={styles.loadingSpinner}></span>
                 ) : (
-                  "Verify OTP"
+                  "Proceed"
                 )}
               </button>
+              <p style={{ fontsize: "12px", color: "#606060"}} className="text-center m-0">I agree to receive critical messages such as OTP, booking details on WhatsApp.</p>
             </div>
           )}
         </div>
       </div>
-      <div
+      {/* <div
         style={{ width: "100%", backgroundColor: "#0052cc" }}
         className="flex_center"
       >
         <Footer />
-      </div>
+      </div> */}
     </>
   );
 };

@@ -8,6 +8,9 @@ import backgroundImg from "../../../assets/DASHBOARDILLUSTRATIONN.png";
 import RakebackTable from "./RackbackTableAndTransaction";
 import { useNavigate } from "react-router-dom";
 import events from "../../../assets/events.jpg";
+import Hotdeal from '../../../assets/HotDealICon.svg';
+import ACRPoker from '../../../assets/ACRPoker.png';
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -18,6 +21,8 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
+import LastTransactions from "./lastTransaction";
+import { BarChart } from "lucide-react";
 
 ChartJS.register(
   CategoryScale,
@@ -292,23 +297,33 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
 
   // Withdrawal container component extracted for reuse
   const WithdrawalContainer = () => (
+    <>
+    <div className={styles.wallet_balance_head}>Your Balance</div>
     <div className={styles.withdrawal_container}>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 26 26"
-        fill="none"
-        className={styles.withdraw_icon}
-      >
-        <path
-          d="M17.1667 8.83358V5.18843C17.1667 4.32204 17.1667 3.88884 16.9842 3.62262C16.8247 3.39002 16.5778 3.23202 16.2997 3.18471C15.9815 3.13056 15.5882 3.31209 14.8016 3.67517L5.56147 7.93982C4.8599 8.26363 4.50912 8.42553 4.25219 8.67662C4.02506 8.8986 3.85168 9.16957 3.74532 9.46882C3.625 9.80732 3.625 10.1937 3.625 10.9664V16.1252M17.6875 15.6044H17.6979M3.625 12.1669L3.625 19.0419C3.625 20.2087 3.625 20.7921 3.85207 21.2377C4.05181 21.6297 4.37052 21.9484 4.76252 22.1482C5.20817 22.3752 5.79156 22.3752 6.95833 22.3752H19.0417C20.2084 22.3752 20.7918 22.3752 21.2375 22.1482C21.6295 21.9484 21.9482 21.6297 22.1479 21.2377C22.375 20.7921 22.375 20.2087 22.375 19.0419V12.1669M17.6875 15.6044H17.6979"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          stroke="currentColor"
-        />
+      
+    <svg width="72" height="73" viewBox="0 0 72 73" fill="none" className={styles.withdraw_icon} xmlns="http://www.w3.org/2000/svg">
+      <g clip-path="url(#clip0_4323_17943)">
+      <path d="M60.3797 10.7246H7.15505C3.33574 10.7246 0.228516 13.8318 0.228516 17.6513V18.5908C0.228516 22.4101 3.33574 25.5174 7.15505 25.5174H60.3799C60.9604 25.5174 61.4307 25.047 61.4307 24.4666V11.7754C61.4306 11.1949 60.9603 10.7246 60.3797 10.7246Z" fill="#7C3D1E"/>
+      <path d="M0.515386 15.6836C0.329682 16.3082 0.228516 16.9686 0.228516 17.6528V18.5924C0.228516 22.4117 3.33574 25.5189 7.15505 25.5189H60.3799C60.9604 25.5189 61.4307 25.0486 61.4307 24.4681V20.6371H7.15505C4.01526 20.637 1.3651 18.5474 0.515386 15.6836Z" fill="#68321A"/>
+      <path d="M33.7206 7.4939L29.7286 3.50203C29.3184 3.09177 28.653 3.09177 28.2424 3.50203L8.02065 23.7238C7.72008 24.0245 7.63023 24.4763 7.79302 24.8691C7.95553 25.2619 8.33896 25.5178 8.76388 25.5178H16.7478C17.0264 25.5178 17.2937 25.4072 17.4909 25.2101L33.7208 8.98023C33.9178 8.78307 34.0285 8.5159 34.0285 8.23714C34.0285 7.95837 33.9177 7.6912 33.7206 7.4939Z" fill="#78AA17"/>
+      <path d="M11.0605 20.6836L8.02065 23.7235C7.72008 24.0242 7.63023 24.4759 7.79302 24.8687C7.95553 25.2615 8.33896 25.5175 8.76388 25.5175H16.7478C17.0264 25.5175 17.2937 25.4068 17.4909 25.2098L22.0169 20.6837L11.0605 20.6836Z" fill="#6D8915"/>
+      <path d="M57.9347 23.7238L37.713 3.50203C37.3025 3.09177 36.6372 3.09177 36.2267 3.50203L16.005 23.7238C15.7045 24.0245 15.6146 24.4763 15.7774 24.8691C15.9399 25.2619 16.3233 25.5178 16.7483 25.5178H57.1918C57.6168 25.5178 58 25.2619 58.1627 24.8691C58.3251 24.4763 58.2352 24.0244 57.9347 23.7238Z" fill="#8ACC19"/>
+      <path d="M16.005 23.7235C15.7045 24.0242 15.6146 24.4759 15.7774 24.8687C15.9399 25.2615 16.3233 25.5175 16.7483 25.5175H57.1918C57.6168 25.5175 58 25.2615 58.1627 24.8687C58.3253 24.4759 58.2355 24.0242 57.9351 23.7235L54.8952 20.6836H19.0449L16.005 23.7235Z" fill="#78A017"/>
+      <path d="M51.9594 23.7234L40.7324 12.4962C40.5352 12.2991 40.2679 12.1885 39.9893 12.1885C39.7106 12.1885 39.4435 12.2991 39.2462 12.4962C38.6424 13.1001 37.8398 13.4327 36.9857 13.4327C36.1318 13.4327 35.3291 13.1002 34.7253 12.4963C34.5282 12.2991 34.2609 12.1885 33.9822 12.1885C33.7034 12.1885 33.4362 12.2991 33.2391 12.4962L22.0119 23.7234C21.7113 24.0241 21.6214 24.4758 21.7842 24.8686C21.9467 25.2614 22.3302 25.5174 22.7551 25.5174H51.2165C51.6414 25.5174 52.0248 25.2614 52.1873 24.8686C52.3498 24.4758 52.2599 24.0239 51.9594 23.7234Z" fill="#78A017"/>
+      <path d="M22.0119 23.7235C21.7113 24.0242 21.6214 24.4759 21.7842 24.8687C21.9467 25.2615 22.3302 25.5175 22.7551 25.5175H51.2165C51.6414 25.5175 52.0248 25.2615 52.1873 24.8687C52.35 24.4759 52.2601 24.0242 51.9597 23.7235L48.9198 20.6836H25.0516L22.0119 23.7235Z" fill="#6D8915"/>
+      <path d="M66.9094 23.4161H16.9159H7.62483H5.91115C2.89349 23.4161 0.425259 21.0688 0.229633 18.1006C0.229494 18.1076 0.228516 18.1146 0.228516 18.122V18.1221V62.3236C0.228516 66.402 3.54646 69.72 7.62483 69.72H66.9095C67.49 69.72 67.9603 69.2496 67.9603 68.6692V24.4669C67.9603 23.8866 67.4898 23.4161 66.9094 23.4161Z" fill="#AA5D24"/>
+      <path d="M67.9606 41.4658H56.6499C52.4254 41.4658 48.9883 44.9027 48.9883 49.1275C48.9883 53.352 52.4251 56.7891 56.6499 56.7891H67.9606V41.4658Z" fill="#7C3D1E"/>
+      <path d="M68.6184 38.7676H56.649C52.4244 38.7676 48.9873 42.2044 48.9873 46.4292C48.9873 50.6538 52.4242 54.0909 56.649 54.0909H68.6184C70.3567 54.0909 71.7709 52.6767 71.7709 50.9384V41.9202C71.7709 40.1817 70.3567 38.7676 68.6184 38.7676Z" fill="#F99608"/>
+      <path d="M57.5391 43.001C55.6491 43.001 54.1113 44.5389 54.1113 46.4289C54.1113 48.3189 55.6491 49.8567 57.5391 49.8567C59.4291 49.8567 60.967 48.3189 60.967 46.4289C60.967 44.5389 59.4291 43.001 57.5391 43.001Z" fill="#FFD039"/>
+      </g>
+      <defs>
+      <clipPath id="clip0_4323_17943">
+      <rect width="71.543" height="71.543" fill="white" transform="translate(0.228516 0.685547)"/>
+      </clipPath>
+      </defs>
       </svg>
 
-      <div className={styles.wallet_balance_head}>Your Balance</div>
+      
 
       <div className={styles.wallet_balance}>
         ₹
@@ -324,6 +339,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
         Withdraw
       </button>
     </div>
+    </>
   );
 
   // Function to get display name for filter
@@ -435,7 +451,8 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                 Rakeback Earning and Percentage - {getFilterDisplayName(selectedFilter)}
               </div>
               <div className={styles.chart_container}>
-                <Line data={chartData} options={chartOptions} />
+                {/* <Line data={chartData} options={chartOptions} /> */}
+                <BarChart data={chartData} options={chartOptions}></BarChart>
               </div>
             </div>
           </>
@@ -449,7 +466,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
               maxWidth: "70%",
               height: chartHeight,
             }}>
-              <div className={styles.dashboard_card} style={{ backgroundImage: `url(${backgroundImg})` }}>
+              {/* <div className={styles.dashboard_card} style={{ backgroundImage: `url(${backgroundImg})` }}>
                 <div>
                   <div className={styles.dashboard_explore}>Explore with Rakebackk</div>
                   <div className={styles.explore}>
@@ -459,16 +476,70 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                     </button>
                   </div>
                 </div>
-              </div>
-
+              </div> */}
+{/* 
               <div className={styles.chart_heading}>
                 Rakeback Earning and Percentage - {getFilterDisplayName(selectedFilter)}
+              </div> */}
+              <div className={styles.chart_heading}>
+                Your Game Insights
               </div>
 
               <div className={styles.chart_container}>
                 <Line data={chartData} options={chartOptions} />
               </div>
+
+              <div className="HottestDeals">
+                <div className={styles.wallet_balance_head}>Hottest Deals 
+                  <img src={Hotdeal} style={{ marginLeft: 9 }}/>
+                </div>
+                <div className="HottestDealschild">
+                    <div className="deal-card ">
+                      <div className="deal-image" >
+                        <img src={ACRPoker} />
+                      </div>
+                      <div className="HottestDealsDesc">
+                        <div className="card-subtitle">Pokerbazzi</div>
+                        <div className="card-title">Experience the Serenity of Ja...</div>
+                        <button className="deal-button mt-2 w-100">Claim Now!</button>
+                      </div>
+                  </div>
+                  <div className="deal-card ">
+                      <div className="deal-image" >
+                        <img src={ACRPoker} />
+                      </div>
+                      <div className="HottestDealsDesc">
+                        <div className="card-subtitle">Pokerbazzi</div>
+                        <div className="card-title">Experience the Serenity of Ja...</div>
+                        <button className="deal-button mt-2 w-100">Claim Now!</button>
+                      </div>
+                  </div>
+                  <div className="deal-card ">
+                      <div className="deal-image" >
+                        <img src={ACRPoker} />
+                      </div>
+                      <div className="HottestDealsDesc">
+                        <div className="card-subtitle">Pokerbazzi</div>
+                        <div className="card-title">Experience the Serenity of Ja...</div>
+                        <button className="deal-button mt-2 w-100">Claim Now!</button>
+                      </div>
+                  </div>
+                  <div className="deal-card ">
+                      <div className="deal-image" >
+                        <img src={ACRPoker} />
+                      </div>
+                      <div className="HottestDealsDesc">
+                        <div className="card-subtitle">Pokerbazzi</div>
+                        <div className="card-title">Experience the Serenity of Ja...</div>
+                        <button className="deal-button mt-2 w-100">Claim Now!</button>
+                      </div>
+                  </div>
+              </div>
             </div>
+
+            <LastTransactions/>
+
+          </div>
 
             {/* Right sidebar section */}
             <div
@@ -482,21 +553,21 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
               }}
             >
               {/* Filter Container */}
-              <FiltersComponent />
+              {/* <FiltersComponent /> */}
 
               {/* Withdrawal container */}
               <WithdrawalContainer />
 
               {/* Events container */}
-              <div className={styles.events_container}>
-                <img src={events} alt="Events" />
+              <div className={styles.events_container }>
+                {/* <img src={events} alt="Events" /> */}
               </div>
             </div>
           </>
         )}
       </div>
 
-      <RakebackTable labels={labels} dashboardInfo={{ ...dashboardInfo, userWallet }} />
+      {/* <RakebackTable labels={labels} dashboardInfo={{ ...dashboardInfo, userWallet }} /> */}
     </>
   );
 };

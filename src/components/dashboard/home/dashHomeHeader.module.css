@@ -6,26 +6,27 @@
 	gap: 1.5rem;
 	/* 24px / 16px */
 	display: inline-flex;
+	
 }
-
+.ActiveBell{
+	display:none
+}
 .HeaderContainer {
 	align-self: stretch;
-	/* 69px / 16px */
-	padding-left: 2rem;
-	/* 32px / 16px */
-	padding-right: 2rem;
-	/* 32px / 16px */
-	flex-direction: column;
-	justify-content: flex-start;
-	align-items: flex-start;
-	gap: 1.5rem;
-	/* 24px / 16px */
-	display: flex;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.5rem;
+    display: flex;
+    height: 100px;
+    background: #fff;
 }
 
 .header_text_gap {
-	margin-left: 12px;
-	font-family: "Futura";
+    font-size: 24px;
+    font-weight: 500;
 }
 
 .HeaderContent {
@@ -58,13 +59,17 @@
 	/* 4px / 16px */
 	display: inline-flex;
 }
-
+.dropdown-menu {
+	width: 300px;
+}
+.notification-item {
+	white-space: normal;
+}
 .HeaderHead {
 	align-self: stretch;
 	color: #101828;
 	font-size: 2rem;
 	/* 24px / 16px */
-	font-family: "Futura";
 	font-weight: 600;
 	line-height: 2.375rem;
 	/* 38px / 16px */
@@ -79,17 +84,17 @@
 	display: flex;
 }
 
-.HeaderNavBtn {
-	width: 4rem;
-	height: 4rem;
-	border-radius: 50%;
-	overflow: hidden;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	cursor: pointer;
-	border: 2px solid #0052cc;
-}
+/* .HeaderNavBtn {
+	width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: #f5f7fa;
+} */
 
 
 .HeaderBtnIcon {
@@ -111,7 +116,6 @@
 	color: #475467;
 	font-size: 1.125rem;
 	/* 18px / 16px */
-	font-family: "Inter";
 	font-weight: 500;
 	line-height: 1.75rem;
 	/* 28px / 16px */
@@ -206,7 +210,6 @@
 	background: #ffffff;
 	border-radius: 24px;
 	border: 1px solid #E2E8F0;
-	font-family: 'Poppins', sans-serif;
 	box-shadow: 0px 20px 40px rgba(0, 0, 0, 0.08), 
 				0px 8px 16px rgba(78, 99, 141, 0.06),
 				0px 0px 1px rgba(40, 41, 61, 0.04);
@@ -278,7 +281,6 @@
   .userName {
 	margin: 2px 0 0;
 	font-size: 18px;
-	font-family: "Futura";
 	font-weight: 600;
 	color: #1E293B;
 	letter-spacing: 0.2px;
@@ -439,14 +441,29 @@
 }
  
 .wallet {
-	width: 44px;
-	height: 44px;
+	    width: 136px;
+    height: 50px;
+    background: #F5F7FA;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 	
   }
+.wallet img {
+    width: 44px;
+    height: 44px;
+    object-fit: none;
+    background: #FFFFFF;
+    border-radius: 100%;
+    object-position: center;
+}
   .wallet_balance{
-	font-weight: bold;
-	margin-left: -5px;
-	margin-right: 10px;
+	font-weight: 600;
+    font-size: 19px;
+    color: #FF4053;
+    margin-left: 14px;
+margin-right: 10px;
   }
  
 @media only screen and (max-width: 1024px) {

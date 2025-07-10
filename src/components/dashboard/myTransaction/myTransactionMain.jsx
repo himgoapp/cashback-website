@@ -43,6 +43,44 @@ const MyTransactionMain = () => {
             <div className={styles.TabFilters}>
               <div
                 className={styles.TabButton}
+                style={activeTab("AllTransactions", transactionType)}
+                onClick={() => setTransactionType("AllTransactions")}
+              >
+                <div
+                  className={styles.TabText}
+
+                >
+
+                  <div className="d-flex align-items-center">
+                    <span className="me-2">
+                      <GradientWithdrawalIcon size={24} />
+                    </span>
+                    <span style={{  }}>All Transactions </span>
+                  </div>
+                </div>
+              </div>
+
+               <div
+                className={styles.TabButton}
+                style={activeTab("Credit", transactionType)}
+                onClick={() => setTransactionType("Credit")}
+              >
+                <div
+                  className={styles.TabText}
+
+                >
+
+                  <div className="d-flex align-items-center">
+                    <span className="me-2">
+                      <GradientWithdrawalIcon size={24} />
+                    </span>
+                    <span style={{  }}>Credit </span>
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className={styles.TabButton}
                 style={activeTab("Withdrawal", transactionType)}
                 onClick={() => setTransactionType("Withdrawal")}
               >
@@ -52,13 +90,36 @@ const MyTransactionMain = () => {
                 >
 
                   <div className="d-flex align-items-center">
-                  <span className="me-2">
-          <GradientWithdrawalIcon size={24} />
-        </span>
-        <span style={{fontFamily:"Futura"}}>Withdrawals</span>
+                    <span className="me-2">
+                      <GradientWithdrawalIcon size={24} />
+                    </span>
+                    <span style={{  }}>Withdrawals </span>
                   </div>
                 </div>
               </div>
+
+              
+
+               <div
+                className={styles.TabButton}
+                style={activeTab("TDS", transactionType)}
+                onClick={() => setTransactionType("TDS")}
+              >
+                <div
+                  className={styles.TabText}
+
+                >
+
+                  <div className="d-flex align-items-center">
+                    <span className="me-2">
+                      <GradientWithdrawalIcon size={24} />
+                    </span>
+                    <span style={{  }}>TDS </span>
+                  </div>
+                </div>
+              </div>
+
+{/*               
               <div
                 className={styles.TabButton}
                 style={activeTab("Deposit", transactionType)}
@@ -69,15 +130,15 @@ const MyTransactionMain = () => {
 
                 >
                   <div className="d-flex align-items-center">
-                  <span className="me-2">
-          <GradientDepositIcon size={24} />
-        </span>
-        <span style={{fontFamily:"Futura"}}>My Earnings</span>
+                    <span className="me-2">
+                      <GradientDepositIcon size={24} />
+                    </span>
+                    <span style={{  }}>My Earnings</span>
                   </div>
 
 
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

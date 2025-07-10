@@ -1,16 +1,14 @@
 /* Define CSS classes */
 .SidebarNavigation {
   width: 100%;
-  max-width: 19rem;
-  height: 100vh;
-  /* background: #0052cc; */
-  background: #0052cc;
-  display: inline-flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
+    max-width: 250px;
+    height: 100vh;
+    background: #FFFFFF;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: sticky;
+    top: 0;
 }
 
 .Content {
@@ -24,15 +22,11 @@
 
 .Nav {
   align-self: stretch;
-  /* height: 22rem;  352px / 16px */
-  padding-top: 2rem;
-  /* 32px / 16px */
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 1.5rem;
-  /* 24px / 16px */
-  display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
+    display: flex;
 }
 
 .Header {
@@ -47,26 +41,24 @@
 }
 
 .LogoContainer {
-  width: 8.11rem;
-  height: 2.5rem;
-  position: relative;
-  padding-left: 1.5rem;
-  padding-right: 1.25rem;
-  margin-left: -40px;
+      width: 250px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .logo_font{
   font-family: "HP Simplified H", Arial, sans-serif;
+  color: #FF4053;
 }
 .Navigation {
-  width: 100%;
-  align-self: stretch;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 0.25rem;
+    width: 100%;
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 .NavItemBase:hover {
   border-bottom: none;
@@ -74,28 +66,42 @@
 }
 
 .NavItemBase {
-  display: flex;
-  align-self: stretch;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 1rem;
-  border-radius: 2rem;
-  width: 100%;
-  text-decoration: none;
+display: flex;
+    padding: 0 0 0 40px;
+    width: 100%;
+    text-decoration: none;
+    height: 60px;
+    position: relative;
 }
-.NavItemBase.active,
-.NavItemBase:hover {
-  background: #003fb8;
+.NavItemBase.active:before,
+.NavItemBase:hover:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 60px;
+    background: #FF4053;
+    z-index: 999;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
-
+.NavItemBase.active .Text , .NavItemBase:hover .Text {
+  color: #FF4053;
+}
+.NavItemBase.active .BarChart01 svg , .NavItemBase:hover .BarChart01 svg{
+  fill: #FF4053;
+}
+.NavItemBase.active .BarChart01 svg path, .NavItemBase:hover  .BarChart01 svg path{
+  fill: #FF4053;
+}
 .ItemContent {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 0.75rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 16px;
 }
 
 .BarChart01 {
@@ -107,7 +113,6 @@
 .Text {
   color: white;
   font-size: 1rem;
-  font-family: "Futura" !important;
   font-weight: 600;
   line-height: 1.5rem;
 }
@@ -126,7 +131,25 @@
   display: flex;
   gap: 2.9375rem;
 }
-
+.FollowUS{
+border-top: 1px solid #EAEAEA;
+border-bottom: 1px solid #EAEAEA;
+    padding: 45px;
+    padding-bottom: 13px;
+}
+.FollowUS h2 {
+    font-size: 18px;
+    color: #848484;
+    text-align: center;
+    margin-bottom: 36px;
+}
+.FollowUS div {
+    
+}
+.FollowUS div svg {
+   margin-bottom: 32px;
+    width: 50%;
+}
 .AvatarLabelGroup {
   display: flex;
   gap: 0.75rem;
@@ -139,17 +162,15 @@
 }
 
 .Text {
-  color: white;
-  font-size: 0.875rem;
-  font-family: "Inter";
-  font-weight: 600;
-  line-height: 1.25rem;
+  color: #848484;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.25rem;
 }
 
 .SupportingText {
   color: #f5f5f5;
   font-size: 0.875rem;
-  font-family: "Inter";
   font-weight: 400;
   line-height: 1.25rem;
 }
@@ -196,7 +217,6 @@
   gap: 8rem;
   color: white;
   font-weight: bold;
-  font-family: "ProximaNovaA-Medium", sans-serif;
 }
 
 .Placeholder {

@@ -59,7 +59,7 @@ const WelcomePage = () => {
 
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       if (!emailRegex.test(email)) {
-        setError("Please enter a valid email address");
+        setError("Please enter a valid email");
         return;
       }
 
@@ -192,7 +192,7 @@ const WelcomePage = () => {
 
       <div className={styles.fullPageContainer}>
         <div className={styles.authCard}>
-          <div className={styles.backButtonContainer}>
+          {/* <div className={styles.backButtonContainer}>
             <button onClick={handleBack} className={styles.backButton}>
               <svg
                 width="24"
@@ -210,19 +210,19 @@ const WelcomePage = () => {
                 />
               </svg>
             </button>
-          </div>
+          </div> */}
 
           <div className={styles.formSection}>
             <h1 className={styles.title}>
               {step === 1
-                ? "Enter your email"
+                ? "Personal Details"
                 : step === 2
                   ? "Enter the OTP"
                   : "What's your name"}
             </h1>
             <p className={styles.subtitle}>
               {step === 1
-                ? "For additional security"
+                ? "Enter valid details"
                 : step === 2
                   ? "Enter the 6-digit code we emailed you."
                   : "Please enter your full name"}
@@ -233,8 +233,22 @@ const WelcomePage = () => {
                 <div className={styles.inputField}>
                   <input
                     autoFocus
+                    type="text"
+                    id="text"
+                    placeholder="Full Name"
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (error) setError(""); 
+                    }}
+
+                   className={`${styles.email_label} ${error ? styles.invalidInput : ""}`}
+                    required
+                  />
+                  <input
+                    autoFocus
                     type="email"
                     id="email"
+                    placeholder="Email Address"
                     value={email}
                     onChange={(e) => {
                       setEmail(e.target.value);
@@ -244,8 +258,10 @@ const WelcomePage = () => {
                    className={`${styles.email_label} ${error ? styles.invalidInput : ""}`}
                     required
                   />
-                  <label htmlFor="email" className={`${styles.email_label} ${error ? styles.invalidInputLabel : ""}`}>Enter email</label>
-                  {error && <p style={{ color: "red", fontSize: "14px", marginTop: "5px", fontFamily: '"Roboto",sans-serif' }}>{error}</p>}
+                  {/* <label htmlFor="email" className={`${styles.email_label} ${error ? styles.invalidInputLabel : ""}`}>Enter email</label> */}
+                  {error && <p style={{ color: "red", fontSize: "16px", margin: "32px 0"}}> <svg style={{marginRight: "9px"}} width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.64258 0.283691C11.863 0.283955 15.2842 3.70582 15.2842 7.92627C15.2842 12.1467 11.863 15.5686 7.64258 15.5688C3.42197 15.5688 0 12.1469 0 7.92627C0 3.70566 3.42197 0.283691 7.64258 0.283691ZM6.72559 10.6167V12.2671H8.43652V10.6167H6.72559ZM6.84766 3.34131V9.479H8.31445V3.34131H6.84766Z" fill="#FF4053"/>
+</svg>  {error}</p>}
                 </div>
               )}
 
@@ -280,9 +296,9 @@ const WelcomePage = () => {
                     value={userName}
                     onChange={(e) => setUserName(e.target.value)}
                     required
-                    style={{ fontFamily: '"Roboto", sans-serif' }}
+                    style={{ marginBottom: "0px" }}
                   />
-                  <label htmlFor="name">Enter Name</label>
+                  {/* <label htmlFor="name">Enter Name</label> */}
                 </div>
               )}
 
@@ -294,19 +310,20 @@ const WelcomePage = () => {
                 {isLoading ? (
                   <div className={styles.loadingSpinner}></div>
                 ) : (
-                  "Continue"
+                  "Proceed"
                 )}
               </button>
+              <p style={{ fontsize: "12px", color: "#606060"}} className="text-center m-0">I agree to receive critical messages such as OTP, booking details on WhatsApp.</p>
             </div>
           </div>
         </div>
       </div>
 
-      <div className={styles.footerWrapper}>
+      {/* <div className={styles.footerWrapper}>
         <div style={{ backgroundColor: "#0052cc", width: "100%" }}>
           <Footer />
         </div>
-      </div>
+      </div> */}
     </>
   );
 };

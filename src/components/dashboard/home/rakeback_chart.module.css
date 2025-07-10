@@ -42,15 +42,14 @@
 }
 
 .withdrawal_button {
-  margin-top: 10px;
-  background: #003fb8;
-  color: #ffbf00;
-  padding: 10px 30px;
-  border-radius: 30px;
-  font-size: 16px;
-  cursor: pointer;
-  font-family: "Futura";
-  font-weight: bold;
+ background: #FF4053;
+    color: #fff;
+    border-radius: 33px;
+    font-size: 22px;
+    cursor: pointer;
+    font-weight: 500;
+    width: 100%;
+    height: 68px;
 }
 
 .filter_container {
@@ -64,7 +63,6 @@
 
 .filter_heading {
   font-size: 16px;
-  font-family: "Futura";
   font-weight: 600;
   color: #28282c;
   margin-bottom: 10px;
@@ -76,15 +74,14 @@
   color: #28282c;
   font-size: 14px;
   gap: 14px;
-  font-family: "Roboto", sans-serif;
 }
 
-.chart_heading {
+.chart_heading, .wallet_balance_head {
+  margin-top:0px;
   font-size: 20px;
   font-weight: bold;
-  margin-top: 20px;
   color: black;
-  font-family: "Futura";
+  margin-bottom: 12px;
 }
 
 .explore {
@@ -99,7 +96,6 @@
   padding: 5px 10px;
   text-align: center;
   border-radius: 30px;
-  font-family: "Futura";
   font-size: 16px;
   cursor: pointer;
   font-weight: bold;
@@ -132,19 +128,16 @@
 .dashboard_greeting {
   font-size: 14px;
   opacity: 0.8;
-  font-family: "Roboto", sans-serif;
 }
 
 .dashboard_username {
   font-size: 16px;
   font-weight: bold;
-  font-family: "Roboto", sans-serif;
   margin-top: 5px;
 }
 
 .dashboard_explore {
   font-size: 22px;
-  font-family: "Futura";
   font-weight: bold;
   margin-top: 5px;
 }
@@ -179,44 +172,37 @@
   color: black;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
+  Background: #ff4053;
+  margin-top: 30px;
 }
 
 .wallet_balance {
-  font-size: 24px;
-  font-weight: bold;
-  font-family: "Roboto", sans-serif;
-  margin: 5px 0;
-  margin-top: 10px;
-}
-
-.wallet_balance_head {
-  font-size: 14px;
-  font-family: "Roboto", sans-serif;
-  margin-top: 10px;
+     font-size: 44px;
+    font-weight: bold;
+    width: 100%;
+    color: #ff4053;
+    text-align: center;
 }
 
 .withdrawal_container_inner {
   margin-top: 20px;
 }
 
-.withdraw_icon {
-  width: 38px;
-  height: 38px;
-  stroke: white;
-}
+
 
 .withdrawal_container {
-  width: 100%;
-  max-width: 300px;
-  border-radius: 16px;
-  background-color: #0052cc;
-  height: 240px;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #fff;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 300px;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    padding: 20px 34px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    box-shadow: 0px 0px 6px 2px #ffa9bb;
+    border: 1px solid #FF4053;
+    gap: 42px;
 }
 
 /* Date Filter Styles */
@@ -235,7 +221,6 @@
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   font-size: 12px;
-  font-family: "Roboto", sans-serif;
   color: #555;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -261,7 +246,6 @@
   border: 1px solid #e0e0e0;
   border-radius: 6px;
   background-color: #f9f9f9;
-  font-family: "Roboto", sans-serif;
   font-size: 14px;
   cursor: pointer;
   color: #333;
@@ -305,7 +289,6 @@
 
 .date_label {
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
   color: #555;
 }
 
@@ -315,7 +298,6 @@
   border: 1px solid #e0e0e0;
   border-radius: 4px;
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
 }
 
 .apply_button {

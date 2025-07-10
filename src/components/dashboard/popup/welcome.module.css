@@ -1,21 +1,22 @@
 
+
 .fullPageContainer {
   display: flex;
-  align-items: center;
   justify-content: center;
-  padding: 20px;
-  margin-bottom: 30vh;
+  padding: 80px 20px;
+  background: url('../../../assets/LoginBG.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+    height: calc(100vh - 105px);
 }
 
+/* Main Card */
 .authCard {
-  width: 100%;
-  max-width: 480px;
-  padding: 40px;
-  border-radius: 20px;
-  position: relative;
-  z-index: 10;
+    width: 100%;
+    max-width: 528px;
+    padding: 44px 60px;
+    position: relative;
 }
-
 
 
 /* Back button styling with enhanced interaction */
@@ -45,21 +46,21 @@
 /* Form section styling with improved typography */
 .formSection {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+    flex-direction: column;
+    align-items: baseline;
 }
 
 .title {
-  font-size: 42px;
-  font-weight: 700;
-  font-family: "Futura", sans-serif;
-  margin-bottom: 16px;
-  background: linear-gradient(135deg, black, black);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  letter-spacing: -1px;
-  text-align: center;
+  font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #000;
+    text-align: left;
+    width: 100%;
 }
+
+
+
 .email_label{
   font-family: "Roboto",sans-serif;
 }
@@ -73,117 +74,90 @@
   outline: none;
   color: red !important;
 }
-
 .subtitle {
-  font-size: 17px;
-  color: #555;
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 36px;
-  line-height: 1.6;
-  text-align: center;
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 16px;
+    color: #000;
+    margin-bottom: 48px;
+    line-height: 24px;
+    text-align: left;
+    max-width: 100%;
+    letter-spacing: 0.15px;
+    width: 100%;
 }
-
 .form {
   width: 100%;
 }
 
-/* Input field styling with elegant focus states */
 .inputField {
   position: relative;
-  margin-bottom: 28px;
   width: 100%;
 }
-
-.inputField label {
-  position: absolute;
-  color: #666;
-  pointer-events: none;
-  background-color: transparent;
-  left: 15px;
- transform: translateY(-51%) translateX(-10px) scale(0.8);
-   background-color: #fff;
-  padding: 0px 8px;
-  color: #0052cc;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  border: none;
-  border-radius: 100px;
-  transition: all 0.3s ease;
+.inputField input[type="text"] {
+  margin-bottom: 32px;
 }
-
-
 .inputField input {
-  padding: 12px 16px;
-  font-size: 1rem;
-  border-radius: 12px;
-  border: solid 1.5px #e0e0e0;
-  letter-spacing: 0.5px;
-  width: 100%;
-  height: 60px;
-  transition: all 0.3s ease;
-  background-color: #f9fafc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02) inset;
+      padding: 16px 22px;
+    font-size: 1rem;
+    border: solid 1px #D3D3D3;
+    letter-spacing: 0.5px;
+    width: 100%;
+    height: 68px;
+    transition: all 0.3s ease;
+    background-color: #FAFAFA;
+    border-radius: 8px;
 }
-
-.inputField input:focus,
-.inputField input:valid {
+.inputField input:focus-visible {
+    outline: none !important;
+}
+.invalidInput {
+  border: 1.5px solid red !important;
   outline: none;
-  border: solid 1.5px #0052cc;
-  background-color: #fff;
-  box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.08);
+  color: red !important;
 }
-
-.inputField input:focus ~ label,
-.inputField input:valid ~ label {
-  transform: translateY(-51%) translateX(-10px) scale(0.8);
-  background-color: #fff;
-  padding: 0px 8px;
-  color: #0052cc;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  border: none;
-  border-radius: 100px;
+.invalidInputLabel {
+  outline: none;
+  color: red !important;
 }
-
+.enterMobiletext{
+  font-size: 12px;
+  margin:0px;
+}
 .primaryButton {
-  width: 100%;
-  height: 60px;
-  background: linear-gradient(135deg, #0052cc, #0069ff);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 600;
-  font-family: "Roboto", sans-serif;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  letter-spacing: 0.5px;
-  box-shadow: 0 4px 12px rgba(0, 82, 204, 0.25);
+    width: 100%;
+    height: 68px;
+    background: #FF4053;
+    color: white;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 0.15px;
+    box-shadow: 0 4px 12px rgb(255 64 83 / 31%);
+    margin: 32px 0;
 }
-
+/* 
 .primaryButton:hover:not(:disabled) {
-  background: linear-gradient(135deg, #004099, #0052cc);
+  background: linear-gradient(135deg, #ffb5bd, #f9c0c5);
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 82, 204, 0.35);
 }
 
 .primaryButton:active:not(:disabled) {
   transform: translateY(1px);
-  box-shadow: 0 2px 8px rgba(0, 82, 204, 0.2);
+  box-shadow: 0 2px 8px #f9c0c5;
 }
 
 .primaryButton:disabled {
-  background: linear-gradient(135deg, #b3c7e6, #c9d6ea);
-  color: rgba(255, 255, 255, 0.7);
-  cursor: not-allowed;
-  box-shadow: none;
-}
+ background: linear-gradient(135deg, #ffb5bd, #f9c0c5);
+    color: rgba(255, 255, 255, 0.7);
+    cursor: not-allowed;
+    box-shadow: none;
+} */
+
 
 /* Loading spinner with improved animation */
 .loadingSpinner {
@@ -212,46 +186,41 @@
 }
 
 .otpInput {
-  width: 56px;
-  height: 60px;
-  text-align: center;
-  font-size: 22px;
-  font-weight: 600;
-  border: 1.5px solid #e0e0e0;
-  border-radius: 12px;
-  outline: none;
-  transition: all 0.3s ease;
-  background-color: #f9fafc;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02) inset;
-}
-
-.otpInput:focus {
-  border-color: #0052cc;
-  background-color: #fff;
-  box-shadow: 0 0 0 4px rgba(0, 82, 204, 0.08);
+  width: 58px;
+    height: 58px;
+    text-align: center;
+    font-size: 37.29px;
+    font-weight: 600;
+    border: 1.04px solid #ff4053;
+    border-radius: 5.18px;
+    outline: none;
+    transition: all 0.3s ease;
+    background-color: #FAFAFA;
 }
 
 .resendContainer {
-  margin-bottom: 28px;
   text-align: center;
   width: 100%;
-  font-size: 15px;
-  color: #666;
+  font-size: 16px;
+  color: #555;
+}
+.resendContainer p {
+  margin:0px;
+  color: #FF4053;
 }
 
 .resendButton {
   background: none;
   border: none;
-  color: #0052cc;
+  color: #FF4053;
   font-weight: 600;
   cursor: pointer;
-  padding: 5px;
-  transition: all 0.3s ease;
+  transition: all 0.2s;
   position: relative;
 }
 
 .resendButton:hover {
-  color: #004099;
+  color: #FF4053;
 }
 
 .resendButton:after {
@@ -261,7 +230,23 @@
   height: 2px;
   bottom: 0;
   left: 50%;
-  background-color: #0052cc;
+  background-color: #FF4053;
+  transition: all 0.3s ease;
+}
+
+.resendButton:hover:after {
+  width: 100%;
+  left: 0;
+}
+
+.resendButton:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #FF4053;
   transition: all 0.3s ease;
 }
 
@@ -271,24 +256,26 @@
 }
 
 .timer {
-  color: #0052cc;
+  color: #FF4053;
   font-weight: 600;
 }
 
 .editButton {
-  background: none;
-  border: none;
-  color: #0052cc;
-  font-weight: 600;
-  cursor: pointer;
-  margin-left: 8px;
-  padding: 5px;
-  position: relative;
-  transition: all 0.3s ease;
+      background: none;
+    border: none;
+    color: #ff4053;
+    font-weight: 400;
+    cursor: pointer;
+    margin-left: 4px;
+    padding: 0px;
+    position: relative;
+    transition: all 0.2s;
+    font-size: 16px;
+    text-decoration: underline;
 }
 
 .editButton:hover {
-  color: #004099;
+  color: #ff4053;
 }
 
 .editButton:after {
@@ -298,7 +285,7 @@
   height: 2px;
   bottom: 0;
   left: 50%;
-  background-color: #0052cc;
+  background-color: #ff4053;
   transition: all 0.3s ease;
 }
 
@@ -306,7 +293,6 @@
   width: 100%;
   left: 0;
 }
-
 /* Disabled navbar and footer styling with improved overlay */
 .navbarWrapper, 
 .footerWrapper {
