@@ -24,8 +24,7 @@ const HomeMain = ({ data }) => {
       if (data && data.graphData) {
         setGraphData(data.graphData);
       }
-    } catch (error) {
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
