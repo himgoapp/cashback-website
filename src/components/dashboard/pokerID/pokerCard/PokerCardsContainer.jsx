@@ -124,24 +124,24 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
   return (
     <div className={styles.PokerCardsContainer}>
       <div className={styles.TabContent}>
-      <div className={styles.TabFilters}>
-  {["View all", "Approved", "Pending", "Rejected"].map((label, index) => {
-    const tabIndex = index + 1;
-    const isActive = activeTab === tabIndex;
+            <div className={styles.TabFilters}>
+                {["View all", "Approved", "Pending", "Rejected"].map((label, index) => {
+                  const tabIndex = index + 1;
+                  const isActive = activeTab === tabIndex;
 
-    return (
-      <button
-        key={label}
-        className={`${styles.TabButton} ${isActive ? styles.Active : ""}`}
-        onClick={() => setTab(tabIndex)}
-      >
-        {getIcon(label) && <span className={styles.TabIcon}>{getIcon(label)}</span>}
-        {label}
-        <span className={styles.Underline}></span>
-      </button>
-    );
-  })}
-</div>
+                  return (
+                    <button
+                      key={label}
+                      className={`${styles.TabButton} ${isActive ? styles.Active : ""}`}
+                      onClick={() => setTab(tabIndex)}
+                    >
+                      {/* {getIcon(label) && <span className={styles.TabIcon}>{getIcon(label)}</span>} */}
+                      {label}
+                      <span className={styles.Underline}></span>
+                    </button>
+                  );
+                })}
+              </div>
 
       </div>
       <div

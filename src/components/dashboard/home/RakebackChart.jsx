@@ -216,7 +216,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
         data: validGraphData.map((data) => data.total),
         borderColor: "#0052cc",
         borderWidth: 3,
-        pointBackgroundColor: "#0052cc",
+        pointBackgroundColor: "red",
         pointBorderColor: "#fff",
         pointRadius: 6,
         pointHoverRadius: 8,
@@ -317,7 +317,6 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
               display: "block",
               marginBottom: "5px",
               fontWeight: "500",
-              fontFamily: '"Roboto,sans-serif',
             }}
           >
             From Date:
@@ -332,7 +331,6 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
               padding: "8px",
               borderRadius: "5px",
               border: "1px solid #ccc",
-              fontFamily: '"Roboto,sans-serif',
             }}
           />
         </div>
@@ -343,7 +341,6 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
               display: "block",
               marginBottom: "5px",
               fontWeight: "500",
-              fontFamily: '"Roboto,sans-serif',
             }}
           >
             To Date:
@@ -358,7 +355,6 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
               padding: "8px",
               borderRadius: "5px",
               border: "1px solid #ccc",
-              fontFamily: '"Roboto,sans-serif',
             }}
           />
         </div>
@@ -637,6 +633,20 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
               <div className={styles.chart_heading}>Your Game Insights</div>
 
               <div className={styles.chart_container}>
+                  <div className={styles.ChartHeaderButton}>
+                      <button className={styles.active}>
+                          <span></span>
+                          3M
+                      </button>
+                      <button>
+                          <span></span>
+                          6M
+                      </button>
+                      <button>
+                          <span></span>
+                          9M
+                      </button>
+                  </div>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart
                     width={500}
@@ -648,21 +658,24 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                       left: 20,
                       bottom: 5,
                     }}
-                    barSize={20}
+                    barSize={28}
+                    radius={{ top: 10, bottom: 10, left: 10, right: 10  }}
                   >
                     <XAxis
                       dataKey="name"
                       scale="point"
                       padding={{ left: 10, right: 10 }}
+                      radius={{ top: 10, bottom: 10, left: 10, right: 10  }}
                     />
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <CartesianGrid strokeDasharray="3 3" />
+                    <CartesianGrid strokeDasharray="0"  />
                     <Bar
                       dataKey="pv"
-                      fill="#8884d8"
-                      background={{ fill: "#eee" }}
+                      fill="#ff4053"
+                      background={{ fill: "#F2F2F2" }}
+                      radius={[10, 10, 10, 10]}
                     />
                   </BarChart>
                 </ResponsiveContainer>

@@ -7,6 +7,8 @@ import PokerCardsContainer from "./pokerCard/PokerCardsContainer";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
 import { PokerIcon } from "../../../utils/dashboardMainHeadersIcon";
+import styles from "./pokerID.module.css";
+
 const PokerIDMain = () => {
 	const [getInfos, setGetInfos] = useState(false);
 	const { walletData } = useContext(UserContext);
@@ -15,9 +17,12 @@ const PokerIDMain = () => {
 		<DashboardMainTopBottom>
 			<DashboardHomeHeader data={walletData} title='Poker ID' icon={PokerIcon} />
 			<DashboardMain>
-				<NewPoker setGetInfos={setGetInfos} />
-				<PokerCardsContainer getInfos={getInfos} setGetInfos={setGetInfos}  />
+				<div className={styles.MainPokerIdContainer}>
+					<NewPoker setGetInfos={setGetInfos} />
+					<PokerCardsContainer getInfos={getInfos} setGetInfos={setGetInfos}  />
+				</div>
 			</DashboardMain>
+			
 		</DashboardMainTopBottom>
 	);
 };

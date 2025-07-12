@@ -8,6 +8,16 @@
 	background-position-x: -35px ;
 
 }
+.SectionHeading{
+    margin-top: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #343C6A;
+}
+.activeTab{
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
 /* TabContent */
 .TabContent {
 	align-self: stretch;
@@ -34,12 +44,12 @@
 
 /* TabButton */
 .TabButton {
-	padding: 0.25rem 0.0625rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	gap: 0.5rem;
-	cursor: pointer;
+	padding: 0 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 37px;
+    cursor: pointer;
 }
 .HeadLabel{
 	font-family: "Futura";

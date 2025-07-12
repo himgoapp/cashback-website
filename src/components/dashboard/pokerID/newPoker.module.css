@@ -4,6 +4,9 @@
   justify-content: flex-start;
   align-items: flex-start;
 }
+.PokerMainContainer{
+  padding: 10px;
+}
 
 .NewPokerContent {
   width: 100%;

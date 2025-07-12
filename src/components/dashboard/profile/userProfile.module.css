@@ -1,9 +1,11 @@
 .container {
-  width: 100%;
-  max-width: 1024px;
-  margin: 0 auto;
-  border-radius: 16px;
-  overflow: hidden;
+     width: 100%;
+    max-width: 100%;
+    margin: 0;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #fff;
+    padding: 33px 56px;
 }
 
 .headerSection {
@@ -45,14 +47,12 @@
 
 .alertTitle {
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   color: #9a3412;
 }
 
 .alertText {
   font-size: 12px;
-  font-family: "Roboto", sans-serif;
   color: #c2410c;
   margin-top: 4px;
 }
@@ -64,7 +64,6 @@
   border-radius: 8px;
   padding: 6px 16px;
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
   font-weight: 500;
   margin-left: 10px;
   transition: background-color 0.2s;
@@ -75,64 +74,87 @@
 }
 
 .columnsContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  margin-top: -33px;
+ display: flex;
+    flex-direction: column;
 }
 
 .column {
-  border: 1px solid lightgray;
-  height: fit-content;
-  padding: 24px 30px;
-  border-radius: 8px;
-  margin-top: 40px; /* Add space for the heading outside the box */
-  position: relative; /* For absolute positioning of the heading */
+    height: fit-content;
+    padding: 24px 0px;
+    position: relative;
+    display: flex;
+    border-bottom: 1px solid #E0E0E0;
+}
+.headerSection{
+  width: 100%;
+    margin: 0;
 }
 
 @media (min-width: 768px) {
-  .columnsContainer {
-    flex-direction: row;
-  }
+  
 }
 
 .column {
   width: 100%;
 }
 
-@media (min-width: 768px) {
-  .column {
-    width: 50%;
-  }
-}
 
 /* Move section titles outside and above the boxes */
 .sectionTitle {
-  font-size: 20px;
-  font-weight: 600;
-  color: #1f2937;
-  font-family: "Futura";
-  position: absolute;
-  top: -40px;
-  left: 0;
+font-size: 16px;
+    font-weight: 600;
+    color: #FF4053;
+    margin: 0;
+    min-width: 217px;
+    padding-top: 16px;
 }
-
+.SectionHeading{
+    margin-top: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    border-bottom: 1px solid #E0E0E0;
+    padding-bottom: 10px;
+}
 .formGroup {
-  display: flex;
-  flex-direction: column;
+display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.EditProfileButton{
+ width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    border: 1px solid #FF4053;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.VerifyNowButton{
+height: 32px;
+    background: #FF4053;
+    border-radius: 8px;
+    padding: 0 16px;
+    color: #fff;
+    font-size: 12px;
+
 }
 
 .formField {
-  margin-bottom: 16px;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    gap: 20px;
 }
 
 .fieldLabel {
-  display: block;
-  font-size: 14px;
-  font-family: "Roboto",sans-serif;
-  font-weight: 500;
-  color: #6b7280;
-  margin-bottom: 4px;
+display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    min-width: 192px;
 }
 
 .fieldBox {
@@ -150,8 +172,9 @@
 }
 
 .fieldText {
-  color: #1f2937;
-  font-family: "Roboto",sans-serif;
+color: #1f2937;
+    font-size: 16px;
+    font-weight: 600;
 }
 
 .badgeYellow {
@@ -161,7 +184,6 @@
   font-size: 12px;
   background-color: #fef9c3;
   color: #854d0e;
-  font-family: "Roboto",sans-serif;
   border-radius: 4px;
 }
 
@@ -170,7 +192,6 @@
   align-items: center;
   margin-left: 8px;
   padding: 2px 8px;
-  font-family: "Roboto",sans-serif;
   font-size: 12px;
   background-color: #dcfce7;
   color: #166534;
@@ -211,7 +232,6 @@
   color: white;
   font-size: 14px;
   font-weight: 500;
-  font-family: "Roboto",sans-serif;
   border: none;
   border-radius: 8px;
   transition: background-color 0.2s;
@@ -231,7 +251,6 @@
   background-color: white;
   color: #4b5563;
   font-size: 14px;
-  font-family: "Roboto",sans-serif;
   font-weight: 500;
   border: 1px solid #e5e7eb;
   border-radius: 8px;
@@ -259,47 +278,45 @@
 /* KYC Information Styles */
 
 .kycContainer {
-  background-color: white;
-  border-radius: 8px;
-  overflow: hidden;
+background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    width: 100%;
 }
 
 .kycSection {
-  padding: 16px 0;
+ padding: 16px;
+ gap: 20px;
 }
 
 .kycSectionHeading {
   font-size: 14px;
   font-weight: 600;
   color: #1f2937;
-  font-family: "Futura";
   margin-bottom: 16px;
 }
 
 .kycDetailRow {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
+    display: flex
+;
 }
 
 .kycDetailItem {
-  flex: 1 1 45%; /* 2 columns with space between */
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 16px;
+    display: flex;
+    flex-direction: row;
 }
 .kycDetailLabel {
-  font-size: 14px;
-  color: #6b7280;
-  font-family: "Roboto", sans-serif;
-  margin-bottom: 4px;
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6b7280;
+    min-width: 192px;
 }
 
 .kycDetailValue {
   font-size: 14px;
   color: #1f2937;
   font-weight: 500;
-  font-family: "Roboto", sans-serif;
 }
 
 .kycDivider {
@@ -339,7 +356,6 @@
 .otpMessage {
   font-size: 14px;
   color: #6b7280;
-  font-family: "Roboto",sans-serif;
   max-width: 320px;
   margin: 0 auto;
 }
@@ -368,7 +384,6 @@
   padding: 0;
   text-align: center;
   border-radius: 8px;
-  font-family: "Roboto", sans-serif;
   border: 1px solid #e0e0e0;
   transition: all 0.3s ease;
 }
@@ -393,7 +408,6 @@
 .resendText {
   margin: 0;
   font-size: 14px;
-  font-family: "Roboto",sans-serif;
   color: #6b7280;
 }
 

@@ -11,6 +11,8 @@ import { TransactionsIcon } from "../../../utils/dashboardMainHeadersIcon";
 import backgroundImg from "../../../assets/transback.svg"
 import depositt from "../../../assets/depositt.svg"
 import withdrawal from "../../../assets/withdrawal.svg"
+import TransactionsTable from "../myTransaction/table/myTransactionTable"
+
 const MyTransactionMain = () => {
   const { userData, walletData, userKyc } = useContext(UserContext);
   const [transactionType, setTransactionType] = useState("Withdrawal");
@@ -19,7 +21,7 @@ const MyTransactionMain = () => {
 
   const activeTab = (type, transactionType) => {
     if (type === transactionType) {
-      return { borderBottom: "0.125rem #0052cc solid" };
+      return { borderBottom: "3px #FF4053 solid", color: "#FF4053" };
     } else {
       return {};
     }
@@ -39,6 +41,8 @@ const MyTransactionMain = () => {
             backgroundImage: `url(${backgroundImg})` }}>
 
           </div> */}
+          <div className={styles.SectionHeading}>Recent Transactions
+        </div>
           <div className={styles.TabContent}>
             <div className={styles.TabFilters}>
               <div
@@ -52,9 +56,9 @@ const MyTransactionMain = () => {
                 >
 
                   <div className="d-flex align-items-center">
-                    <span className="me-2">
+                    {/* <span className="me-2">
                       <GradientWithdrawalIcon size={24} />
-                    </span>
+                    </span> */}
                     <span style={{  }}>All Transactions </span>
                   </div>
                 </div>
@@ -71,9 +75,9 @@ const MyTransactionMain = () => {
                 >
 
                   <div className="d-flex align-items-center">
-                    <span className="me-2">
+                    {/* <span className="me-2">
                       <GradientWithdrawalIcon size={24} />
-                    </span>
+                    </span> */}
                     <span style={{  }}>Credit </span>
                   </div>
                 </div>
@@ -90,9 +94,9 @@ const MyTransactionMain = () => {
                 >
 
                   <div className="d-flex align-items-center">
-                    <span className="me-2">
+                    {/* <span className="me-2">
                       <GradientWithdrawalIcon size={24} />
-                    </span>
+                    </span> */}
                     <span style={{  }}>Withdrawals </span>
                   </div>
                 </div>
@@ -111,9 +115,9 @@ const MyTransactionMain = () => {
                 >
 
                   <div className="d-flex align-items-center">
-                    <span className="me-2">
+                    {/* <span className="me-2">
                       <GradientWithdrawalIcon size={24} />
-                    </span>
+                    </span> */}
                     <span style={{  }}>TDS </span>
                   </div>
                 </div>
@@ -146,6 +150,7 @@ const MyTransactionMain = () => {
           {transactionType !== "Deposit" && <KycTDCstatus />}
           {transactionType === "Deposit" && <DepositMessage />}
 
+          <TransactionsTable></TransactionsTable>
           <TableContainer transactionType={transactionType} />
         </DashboardMain>
       </DashboardMainTopBottom>
@@ -161,10 +166,10 @@ const KycTDCstatus = () => {
       <div
         className={statusStyle.StatusContent}
         style={{
-          borderTop: `1px solid #3968EB`,
-          borderRight: `1px solid #3968EB`,
-          borderBottom: `1px solid #3968EB`,
-          borderLeft: `5px solid #3968EB`,
+          borderTop: `1px solid #FF4053`,
+          borderRight: `1px solid #FF4053`,
+          borderBottom: `1px solid #FF4053`,
+          borderLeft: `5px solid #FF4053`,
         }}
       >
         <div className={statusStyle.StatusHead}>
@@ -185,10 +190,10 @@ const DepositMessage = () => {
       <div
         className={statusStyle.StatusContent}
         style={{
-          borderTop: `1px solid #3968EB`,
-          borderRight: `1px solid #3968EB`,
-          borderBottom: `1px solid #3968EB`,
-          borderLeft: `5px solid #3968EB`,
+          borderTop: `1px solid #FF4053`,
+          borderRight: `1px solid #FF4053`,
+          borderBottom: `1px solid #FF4053`,
+          borderLeft: `5px solid #FF4053`,
         }}
       >
         <div className={statusStyle.StatusHead}>

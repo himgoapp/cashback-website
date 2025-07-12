@@ -1,0 +1,10 @@
+
+.MainPokerIdContainer {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+    padding: 32px 36px;
+    background: #ffff;
+    border-radius: 40px;
+}
