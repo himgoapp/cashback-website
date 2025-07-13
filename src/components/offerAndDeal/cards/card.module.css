@@ -1,20 +1,21 @@
 .cardContainer {
-  position: relative;
-  width: 90%;
-  max-width: 1000px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
-  display: flex;
-  align-items: center;
-  padding: 24px;
-  margin: 35px auto;
-  border: none;
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  position: relative;
-  overflow: hidden;
+position: relative;
+    width: 100%;
+    background: #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #848484;
 }
-
+.ClientSayDesc{
+  display: flex
+;
+    align-items: center;
+    justify-content: center;
+}
 .cardContainer::before {
   content: '';
   position: absolute;
@@ -23,6 +24,7 @@
   width: 100%;
   height: 4px;
   background: linear-gradient(90deg, #FFD700, #FFA500);
+  display: none;
 }
 
 .cardContainer:hover {
@@ -38,26 +40,22 @@
   color: #fff;
   font-weight: 700;
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
   padding: 6px 12px;
   border-radius: 30px;
   box-shadow: 0 4px 12px rgba(255, 165, 0, 0.3);
   z-index: 2;
+  display: none;
 }
 
 .logoContainer {
-  flex: 0 0 120px;
-  height: 120px;
-  background: #fff;
-  border-radius: 15px;
-  padding: 15px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  overflow: hidden;
-  margin-right: 10px;
+    width: 201px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    min-width: 201px;
 }
 
 .logoContainer::after {
@@ -68,24 +66,42 @@
   width: 100%;
   height: 30%;
   background: linear-gradient(0deg, rgba(255, 215, 0, 0.1), transparent);
+  display: none;
 }
 
 .logoContainer img {
-  width: 90%;
-  height: 90%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+    width: 90%;
+    height: 90%;
+    transition: transform 0.3s ease;
 }
+.productTitleDesc{
+  font-size: 14px;
+  font-weight: bold;
+}
+.productTitleDesc span{
+  font-size: 12px;
+  font-weight: 500;
+  color: #A8A8A8;
+}
+
 
 .cardContainer:hover .logoContainer img {
   transform: scale(1.08);
 }
 
 .contentSection {
-  flex: 1;
-  padding: 0 20px;
+      padding: 49px 58px;
+    background: #F6F6F6;
 }
+.buttonSectionClient{
+ display: flex
+;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    padding: 30px;
 
+}
 .offerBadge {
   background: linear-gradient(135deg, #FFD700, #FF8C00);
   color: #fff;
@@ -94,19 +110,17 @@
   border-radius: 30px;
   display: inline-block;
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   box-shadow: 0 4px 10px rgba(255, 165, 0, 0.3);
 }
 
 .productTitle {
-  font-size: 22px;
-  font-family: "Futura";
-  font-weight: 800;
-  margin: 12px 0 8px;
-  color: #222;
-  letter-spacing: -0.5px;
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0px 0 2px;
+    color: #000;
+    letter-spacing: -0.5px;
 }
 
 .offerBonusRack {
@@ -123,7 +137,6 @@
   border-radius: 10px;
   padding: 7px 14px;
   font-size: 13px;
-  font-family: "Roboto", sans-serif;
   box-shadow: 0 3px 6px rgba(0, 82, 204, 0.1);
 }
 
@@ -131,7 +144,6 @@
   display: flex;
   align-items: center;
   font-size: 14px;
-  font-family: "Roboto", sans-serif;
   color: #00b894;
   font-weight: 600;
   margin: 10px 0;
@@ -149,12 +161,10 @@
   border-radius: 50%;
   margin-right: 8px;
   font-size: 12px;
-  font-family: "Roboto", sans-serif;
 }
 
 .description {
   font-size: 15px;
-  font-family: "Roboto", sans-serif;
   color: #555;
   line-height: 1.6;
   margin-bottom: 15px;
@@ -175,7 +185,6 @@ button.reviewButton {
   border: none;
   border-radius: 12px;
   font-size: 16px;
-  font-family: "Roboto", sans-serif;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;

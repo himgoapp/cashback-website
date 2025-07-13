@@ -5,13 +5,17 @@ import OfferCardContainer from "./cards/cardContainer";
 import OfferSignup from "./signup/signup";
 import { UserContext } from "../../App";
 
+
+
 const OfferAndDeal = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const { userData } = useContext(UserContext);
 
   return (
+    <div className="col-lg-12">
     <div className={`${styles.offer_and_deals_wrapper_main}`}>
       <div className={`${styles.offer_and_deals_wrapper} container_max`}>
+        
         <OfferHeader
           setSearchTerm={(searchTerm) => setSearchTerm(searchTerm)}
           searchTerm={searchTerm}
@@ -20,6 +24,7 @@ const OfferAndDeal = () => {
         <OfferCardContainer searchTerm={searchTerm} />
       </div>
       {!userData && <OfferSignup />}
+    </div>
     </div>
   );
 };

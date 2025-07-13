@@ -1,10 +1,8 @@
 .offer_and_deals_wrapper {
 	display: flex;
-	flex-direction: column;
-	gap: 4rem;
-	position: relative;
-	/* padding-block: 7rem; */
-	/* overflow: hidden; */
+    flex-direction: column;
+    gap: 48px;
+    position: relative;
 
 }
 

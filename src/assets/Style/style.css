@@ -211,7 +211,7 @@ div#root {
     padding: 90px 0;
     background: url(../topofferbg.svg);
     margin: 20px 0;
-    background-size: 100% 100%;
+    background-size: cover;
     background-repeat: no-repeat;
 }
 .RakeBackTopOffers .title {
@@ -1415,6 +1415,16 @@ right: 8px
     transition: box-shadow 0.15s ease-in-out;
 }
 
+/*Rakeback Deals page Css Start*/
+
+.Dealsclientssay{
+     background: #fff;
+}
+
+
+
+
+/*Rakeback Deals page Css End*/
 
 /* ----------------------------  Rakeback Dashboard  Css Start ----------------------------*/
 
@@ -1602,3 +1612,5 @@ right: 8px
 .LastTransactionTable table.table thead tr th:last-child, .LastTransactionTable table.table tbody tr td:last-child {
     padding-right: 24px;
 } */
+
+
