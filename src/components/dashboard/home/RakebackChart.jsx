@@ -633,20 +633,20 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
               <div className={styles.chart_heading}>Your Game Insights</div>
 
               <div className={styles.chart_container}>
-                  <div className={styles.ChartHeaderButton}>
-                      <button className={styles.active}>
-                          <span></span>
-                          3M
-                      </button>
-                      <button>
-                          <span></span>
-                          6M
-                      </button>
-                      <button>
-                          <span></span>
-                          9M
-                      </button>
-                  </div>
+                <div className={styles.ChartHeaderButton}>
+                  <button className={styles.active}>
+                    <span></span>
+                    3M
+                  </button>
+                  <button>
+                    <span></span>
+                    6M
+                  </button>
+                  <button>
+                    <span></span>
+                    9M
+                  </button>
+                </div>
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart
                     width={500}
@@ -659,18 +659,18 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                       bottom: 5,
                     }}
                     barSize={28}
-                    radius={{ top: 10, bottom: 10, left: 10, right: 10  }}
+                    radius={{ top: 10, bottom: 10, left: 10, right: 10 }}
                   >
                     <XAxis
                       dataKey="name"
                       scale="point"
                       padding={{ left: 10, right: 10 }}
-                      radius={{ top: 10, bottom: 10, left: 10, right: 10  }}
+                      radius={{ top: 10, bottom: 10, left: 10, right: 10 }}
                     />
                     <YAxis />
                     <Tooltip />
                     <Legend />
-                    <CartesianGrid strokeDasharray="0"  />
+                    <CartesianGrid strokeDasharray="0" />
                     <Bar
                       dataKey="pv"
                       fill="#ff4053"
@@ -768,9 +768,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
               <WithdrawalContainer />
 
               {/* Events container */}
-              <div className={styles.events_container}>
-                {/* <img src={events} alt="Events" /> */}
-              </div>
+              <div className={styles.events_container}></div>
             </div>
           </>
         )}

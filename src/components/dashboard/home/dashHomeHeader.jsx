@@ -6,7 +6,7 @@ import avater1 from "../../../assets/avater1.svg";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
 import { Modal, Button, Form } from "react-bootstrap";
-import ReactDOM from 'react-dom';
+import ReactDOM from "react-dom";
 
 import {
   sendEmailOtpAPI,
@@ -19,7 +19,7 @@ import { RakebackLogo } from "../../common/logo/logo";
 import Loading from "../../common/Loading/Loading";
 import { useNavigate } from "react-router-dom";
 import wallet from "../../../assets/walletIconDB.svg";
-import  '../../../assets/Style/style.css'
+import "../../../assets/Style/style.css";
 
 import {
   PokerIcon,
@@ -43,8 +43,12 @@ const DashboardHomeHeader = ({ title, icon }) => {
   const [verifyModal, setVerifyModal] = useState(false);
   const [otp, setOtp] = useState("");
   const [email, setEmail] = useState("");
-  const { setShowSidebar, showNotifications, setShowNotifications, walletData } =
-    useContext(UserContext);
+  const {
+    setShowSidebar,
+    showNotifications,
+    setShowNotifications,
+    walletData,
+  } = useContext(UserContext);
   const [selectedImage, setSelectedImage] = useState(null);
   const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
   const [loading, setLoading] = useState(false);
@@ -69,8 +73,8 @@ const DashboardHomeHeader = ({ title, icon }) => {
     // Initial check
     handleResize();
 
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handlClick = () => {
@@ -202,7 +206,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
 
   // This function will now work correctly
   const handleAccountSettings = () => {
-    console.log("vdsvds")
+    console.log("vdsvds");
 
     navigate("/dashboard/profile");
   };
@@ -376,477 +380,181 @@ const DashboardHomeHeader = ({ title, icon }) => {
           <div className={styles.HeaderContentWrapper}>
             <div className={styles.HeaderTexts}>
               <div className={styles.HeaderHead}>
-                {/* <span>{icon}</span>
-                <span className={styles.header_text_gap}>{title}</span> */}
-                <span className={styles.header_text_gap}>Hi Prashad!</span>
-                
+                <span className={styles.header_text_gap}>Hi {userName}!</span>
               </div>
             </div>
             <div className={styles.MenuAndLogo}>
               <div className={styles.Menu} onClick={() => setShowSidebar(true)}>
                 {menuIcon}
               </div>
-              <div className={styles.Logo} onClick={() => handlClick()}>{logoIcon}</div>
+              <div className={styles.Logo} onClick={() => handlClick()}>
+                {logoIcon}
+              </div>
             </div>
             <div className={styles.HeaderActions}>
-
               <span className={styles.wallet}>
                 <img src={wallet} alt="Wallet" />
-                  <span className={styles.wallet_balance}>
-                  ₹{walletData && walletData.wallet_balance
-                    ? walletData.wallet_balance.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+                <span className={styles.wallet_balance}>
+                  ₹
+                  {walletData && walletData.wallet_balance
+                    ? walletData.wallet_balance.toLocaleString("en-IN", {
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 2,
+                      })
                     : "0.00"}
                 </span>
               </span>
-              
 
               <div className={styles.HeaderNavBtn} ref={dropdownRef}>
-                  {/* Notification Bell Icon  */}
-                  <div className="dropdown">
-                    <button
-                      className="btn NotificationButton btn-outline-secondary position-relative"
-                      type="button"
-                      data-bs-toggle="dropdown"
-                      aria-expanded="false"
+                {/* Notification Bell Icon  */}
+                <div className="dropdown">
+                  <button
+                    className="btn NotificationButton btn-outline-secondary position-relative"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <svg
+                      width="25"
+                      height="25"
+                      viewBox="0 0 72 72"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <svg width="25" height="25" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <g filter="url(#filter0_d_4680_21250)">
-                        <circle cx="36" cy="34" r="20" fill="none" fill-opacity="0.7"/>
-                        <path d="M36.0196 24.9102C32.7096 24.9102 30.0196 27.6002 30.0196 30.9102V33.8002C30.0196 34.4102 29.7596 35.3402 29.4496 35.8602L28.2996 37.7702C27.5896 38.9502 28.0796 40.2602 29.3796 40.7002C33.6896 42.1402 38.3396 42.1402 42.6496 40.7002C43.8596 40.3002 44.3896 38.8702 43.7296 37.7702L42.5796 35.8602C42.2796 35.3402 42.0196 34.4102 42.0196 33.8002V30.9102C42.0196 27.6102 39.3196 24.9102 36.0196 24.9102Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round"/>
-                        <path d="M37.8699 25.1995C37.5599 25.1095 37.2399 25.0395 36.9099 24.9995C35.9499 24.8795 35.0299 24.9495 34.1699 25.1995C34.4599 24.4595 35.1799 23.9395 36.0199 23.9395C36.8599 23.9395 37.5799 24.4595 37.8699 25.1995Z" stroke="black" stroke-width="1.5" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"/>
-                        <path d="M39.0195 41.0605C39.0195 42.7105 37.6695 44.0605 36.0195 44.0605C35.1995 44.0605 34.4395 43.7205 33.8995 43.1805C33.3595 42.6405 33.0195 41.8805 33.0195 41.0605" stroke="black" stroke-width="1.5" stroke-miterlimit="10"/>
-                        </g>
-                        <defs>
-                        <filter id="filter0_d_4680_21250" x="0" y="0" width="72" height="72" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-                        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
-                        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
-                        <feOffset dy="2"/>
-                        <feGaussianBlur stdDeviation="8"/>
-                        <feComposite in2="hardAlpha" operator="out"/>
-                        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"/>
-                        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_4680_21250"/>
-                        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_4680_21250" result="shape"/>
+                      <g filter="url(#filter0_d_4680_21250)">
+                        <circle
+                          cx="36"
+                          cy="34"
+                          r="20"
+                          fill="none"
+                          fill-opacity="0.7"
+                        />
+                        <path
+                          d="M36.0196 24.9102C32.7096 24.9102 30.0196 27.6002 30.0196 30.9102V33.8002C30.0196 34.4102 29.7596 35.3402 29.4496 35.8602L28.2996 37.7702C27.5896 38.9502 28.0796 40.2602 29.3796 40.7002C33.6896 42.1402 38.3396 42.1402 42.6496 40.7002C43.8596 40.3002 44.3896 38.8702 43.7296 37.7702L42.5796 35.8602C42.2796 35.3402 42.0196 34.4102 42.0196 33.8002V30.9102C42.0196 27.6102 39.3196 24.9102 36.0196 24.9102Z"
+                          stroke="black"
+                          stroke-width="1.5"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                        />
+                        <path
+                          d="M37.8699 25.1995C37.5599 25.1095 37.2399 25.0395 36.9099 24.9995C35.9499 24.8795 35.0299 24.9495 34.1699 25.1995C34.4599 24.4595 35.1799 23.9395 36.0199 23.9395C36.8599 23.9395 37.5799 24.4595 37.8699 25.1995Z"
+                          stroke="black"
+                          stroke-width="1.5"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                        <path
+                          d="M39.0195 41.0605C39.0195 42.7105 37.6695 44.0605 36.0195 44.0605C35.1995 44.0605 34.4395 43.7205 33.8995 43.1805C33.3595 42.6405 33.0195 41.8805 33.0195 41.0605"
+                          stroke="black"
+                          stroke-width="1.5"
+                          stroke-miterlimit="10"
+                        />
+                      </g>
+                      <defs>
+                        <filter
+                          id="filter0_d_4680_21250"
+                          x="0"
+                          y="0"
+                          width="72"
+                          height="72"
+                          filterUnits="userSpaceOnUse"
+                          color-interpolation-filters="sRGB"
+                        >
+                          <feFlood
+                            flood-opacity="0"
+                            result="BackgroundImageFix"
+                          />
+                          <feColorMatrix
+                            in="SourceAlpha"
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
+                            result="hardAlpha"
+                          />
+                          <feOffset dy="2" />
+                          <feGaussianBlur stdDeviation="8" />
+                          <feComposite in2="hardAlpha" operator="out" />
+                          <feColorMatrix
+                            type="matrix"
+                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.04 0"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in2="BackgroundImageFix"
+                            result="effect1_dropShadow_4680_21250"
+                          />
+                          <feBlend
+                            mode="normal"
+                            in="SourceGraphic"
+                            in2="effect1_dropShadow_4680_21250"
+                            result="shape"
+                          />
                         </filter>
-                        </defs>
-                      </svg>
+                      </defs>
+                    </svg>
 
-                      <svg className={styles.ActiveBell} width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.4424 25C9.28937 25 7.53613 23.2479 7.53613 21.0938C7.53613 20.6625 7.88613 20.3125 8.31738 20.3125C8.74863 20.3125 9.09863 20.6625 9.09863 21.0938C9.09863 22.3866 10.1507 23.4375 11.4424 23.4375C12.734 23.4375 13.7861 22.3866 13.7861 21.0938C13.7861 20.6625 14.1361 20.3125 14.5674 20.3125C14.9986 20.3125 15.3486 20.6625 15.3486 21.0938C15.3486 23.2479 13.5956 25 11.4424 25Z" fill="#FE5C73"/>
-                        <path d="M20.0357 21.875H2.84824C1.84307 21.875 1.02539 21.0573 1.02539 20.0521C1.02539 19.5187 1.25771 19.0136 1.66283 18.6666C1.68896 18.6438 1.717 18.623 1.74618 18.6041C3.2753 17.2697 4.15039 15.35 4.15039 13.3228V10.4166C4.15039 6.39591 7.42226 3.125 11.442 3.125C11.6087 3.125 11.7889 3.12805 11.9556 3.15628C12.3816 3.22704 12.6692 3.63026 12.5982 4.05521C12.5275 4.48017 12.117 4.7678 11.6993 4.69685C11.6159 4.6833 11.5244 4.6875 11.442 4.6875C8.28381 4.6875 5.71289 7.25727 5.71289 10.4166V13.3228C5.71289 15.8396 4.60968 18.2209 2.68898 19.8551C2.67334 19.8677 2.6598 19.8792 2.64301 19.8906C2.61497 19.9261 2.58789 19.9802 2.58789 20.0521C2.58789 20.1937 2.70672 20.3125 2.84824 20.3125H20.0357C20.1775 20.3125 20.2963 20.1937 20.2963 20.0521C20.2963 19.9791 20.2692 19.9261 20.24 19.8906C20.2244 19.8792 20.2108 19.8677 20.1952 19.8551C18.2734 18.2198 17.1713 15.8396 17.1713 13.3228V12.1876C17.1713 11.7563 17.5213 11.4063 17.9525 11.4063C18.3838 11.4063 18.7338 11.7563 18.7338 12.1876V13.3228C18.7338 15.3511 19.6098 17.2718 21.1411 18.6073C21.1691 18.626 21.1962 18.6459 21.2212 18.6678C21.6265 19.0136 21.8588 19.5187 21.8588 20.0521C21.8588 21.0573 21.0411 21.875 20.0357 21.875Z" fill="#FE5C73"/>
-                        <path d="M18.7338 10.4166C15.8619 10.4166 13.5254 8.08029 13.5254 5.2084C13.5254 2.3365 15.8619 0 18.7338 0C21.6057 0 23.942 2.3365 23.942 5.2084C23.942 8.08029 21.6057 10.4166 18.7338 10.4166ZM18.7338 1.5625C16.7233 1.5625 15.0879 3.19786 15.0879 5.2084C15.0879 7.21874 16.7233 8.8541 18.7338 8.8541C20.7441 8.8541 22.3795 7.21874 22.3795 5.2084C22.3795 3.19786 20.7441 1.5625 18.7338 1.5625Z" fill="#FE5C73"/>
-                      </svg>
+                    <svg
+                      className={styles.ActiveBell}
+                      width="25"
+                      height="25"
+                      viewBox="0 0 25 25"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M11.4424 25C9.28937 25 7.53613 23.2479 7.53613 21.0938C7.53613 20.6625 7.88613 20.3125 8.31738 20.3125C8.74863 20.3125 9.09863 20.6625 9.09863 21.0938C9.09863 22.3866 10.1507 23.4375 11.4424 23.4375C12.734 23.4375 13.7861 22.3866 13.7861 21.0938C13.7861 20.6625 14.1361 20.3125 14.5674 20.3125C14.9986 20.3125 15.3486 20.6625 15.3486 21.0938C15.3486 23.2479 13.5956 25 11.4424 25Z"
+                        fill="#FE5C73"
+                      />
+                      <path
+                        d="M20.0357 21.875H2.84824C1.84307 21.875 1.02539 21.0573 1.02539 20.0521C1.02539 19.5187 1.25771 19.0136 1.66283 18.6666C1.68896 18.6438 1.717 18.623 1.74618 18.6041C3.2753 17.2697 4.15039 15.35 4.15039 13.3228V10.4166C4.15039 6.39591 7.42226 3.125 11.442 3.125C11.6087 3.125 11.7889 3.12805 11.9556 3.15628C12.3816 3.22704 12.6692 3.63026 12.5982 4.05521C12.5275 4.48017 12.117 4.7678 11.6993 4.69685C11.6159 4.6833 11.5244 4.6875 11.442 4.6875C8.28381 4.6875 5.71289 7.25727 5.71289 10.4166V13.3228C5.71289 15.8396 4.60968 18.2209 2.68898 19.8551C2.67334 19.8677 2.6598 19.8792 2.64301 19.8906C2.61497 19.9261 2.58789 19.9802 2.58789 20.0521C2.58789 20.1937 2.70672 20.3125 2.84824 20.3125H20.0357C20.1775 20.3125 20.2963 20.1937 20.2963 20.0521C20.2963 19.9791 20.2692 19.9261 20.24 19.8906C20.2244 19.8792 20.2108 19.8677 20.1952 19.8551C18.2734 18.2198 17.1713 15.8396 17.1713 13.3228V12.1876C17.1713 11.7563 17.5213 11.4063 17.9525 11.4063C18.3838 11.4063 18.7338 11.7563 18.7338 12.1876V13.3228C18.7338 15.3511 19.6098 17.2718 21.1411 18.6073C21.1691 18.626 21.1962 18.6459 21.2212 18.6678C21.6265 19.0136 21.8588 19.5187 21.8588 20.0521C21.8588 21.0573 21.0411 21.875 20.0357 21.875Z"
+                        fill="#FE5C73"
+                      />
+                      <path
+                        d="M18.7338 10.4166C15.8619 10.4166 13.5254 8.08029 13.5254 5.2084C13.5254 2.3365 15.8619 0 18.7338 0C21.6057 0 23.942 2.3365 23.942 5.2084C23.942 8.08029 21.6057 10.4166 18.7338 10.4166ZM18.7338 1.5625C16.7233 1.5625 15.0879 3.19786 15.0879 5.2084C15.0879 7.21874 16.7233 8.8541 18.7338 8.8541C20.7441 8.8541 22.3795 7.21874 22.3795 5.2084C22.3795 3.19786 20.7441 1.5625 18.7338 1.5625Z"
+                        fill="#FE5C73"
+                      />
+                    </svg>
 
-
-                        {/* <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    {/* <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                           3
                           <span className="visually-hidden">unread notifications</span>
                         </span> */}
-                    </button>
+                  </button>
 
-                    <ul className="dropdown-menu dropdown-menu-end mt-2">
-                      <li><h6 className="dropdown-header">Notifications</h6></li>
-                      <li><a className="dropdown-item notification-item" href="#">🔔 You have a new message</a></li>
-                      <li><a className="dropdown-item notification-item" href="#">✅ Your report was approved</a></li>
-                      <li><a className="dropdown-item notification-item" href="#">⚙️ System update scheduled</a></li>
-                      <li><hr className="dropdown-divider" /></li>
-                      <li><a className="dropdown-item text-center" href="#">View All</a></li>
-                    </ul>
-                  </div>
-
-                {/* <div
-                // onClick={() => handleProfileClick()}
-                >
-                  <img
-                    src={avater1}
-                    alt="Profile"
-                    className="rounded-circle"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                </div> */}
-
-                {/* 
-                {showDropdown && isMobile &&
-                  ReactDOM.createPortal(<ProfileDropdownMobile />, document.body)}
-                {showDropdown && !isMobile && <ProfileDropdown />} */}
+                  <ul className="dropdown-menu dropdown-menu-end mt-2">
+                    <li>
+                      <h6 className="dropdown-header">Notifications</h6>
+                    </li>
+                    <li>
+                      <a className="dropdown-item notification-item" href="#">
+                        🔔 You have a new message
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item notification-item" href="#">
+                        ✅ Your report was approved
+                      </a>
+                    </li>
+                    <li>
+                      <a className="dropdown-item notification-item" href="#">
+                        ⚙️ System update scheduled
+                      </a>
+                    </li>
+                    <li>
+                      <hr className="dropdown-divider" />
+                    </li>
+                    <li>
+                      <a className="dropdown-item text-center" href="#">
+                        View All
+                      </a>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Premium Account Settings Modal */}
-      <Modal
-        show={showAccountSettings}
-        onHide={handleCloseAccountSettings}
-        backdrop="static"
-        centered
-        animation={false}
-        dialogClassName={styles.premiumModal}
-      >
-        <Modal.Header
-          closeButton
-          className="border-0"
-          style={{
-            background: "linear-gradient(90deg, #0052cc 0%, #007bff 100%)",
-            color: "white",
-            textAlign: "center",
-          }}
-        >
-          <Modal.Title
-            className="w-100 fw-bold"
-            style={{ fontFamily: "Roboto, sans-serif" }}
-          >
-            Profile
-          </Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body>
-          <div className="d-flex justify-content-center align-items-center mb-3">
-            <div className="position-relative">
-              <img
-                src={avater1}
-                alt="Profile"
-                className="rounded-circle"
-                style={{
-                  width: "80px",
-                  height: "80px",
-                  objectFit: "cover",
-                  border: "3px solid #0052cc",
-                  boxShadow: "0 4px 12px rgba(0, 82, 204, 0.4)",
-                }}
-              />
-            </div>
-          </div>
-
-          <Form className="mt-2">
-            <div className="d-flex justify-content-center mb-3">
-              {editMode ? (
-                <Form.Control
-                  type="text"
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                  className="w-50 text-center"
-                />
-              ) : (
-                <span
-                  className="text-center fw-semibold fs-5"
-                  style={{ fontFamily: "Roboto, sans-serif" }}
-                >
-                  {userName}
-                </span>
-              )}
-            </div>
-
-            <div className={styles.customDivider} />
-
-            {/* Email Section */}
-            <div className="d-flex justify-content-between align-items-center mb-2">
-              <Form.Label
-                className="fw-bold"
-                style={{ fontFamily: "Roboto, sans-serif" }}
-              >
-                Email
-              </Form.Label>
-              <div className="text-end">
-                <div className="d-flex align-items-center justify-content-end gap-2">
-                  <span style={{ fontFamily: "Roboto, sans-serif" }}>
-                    {userData?.email || "N/A"}
-                  </span>
-                  {userData?.emailVerifystatus && (
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <circle cx="8" cy="8" r="7" fill="#28a745" />
-                      <path
-                        d="M5.5 8L7 9.5L10.5 6"
-                        stroke="white"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
-                  )}
-                </div>
-                <div
-                  className={
-                    userData?.emailVerifystatus
-                      ? "text-success d-flex align-items-center justify-content-end"
-                      : "text-danger"
-                  }
-                  style={{ fontSize: "12px", fontFamily: "Roboto, sans-serif" }}
-                >
-                  {userData?.emailVerifystatus ? "Verified" : "Not verified"}
-                </div>
-
-                {!userData?.emailVerifystatus && (
-                  <Button
-                    size="sm"
-                    variant="primary"
-                    className="rounded-pill px-3 mt-1"
-                    style={{
-                      fontWeight: "bold",
-                      fontFamily: "Roboto, sans-serif",
-                      background:
-                        "linear-gradient(90deg, #0052cc 0%, #007bff 100%)",
-                      border: "none",
-                      boxShadow: "0 2px 4px rgba(0, 82, 204, 0.3)",
-                    }}
-                    onClick={() => {
-                      sendEmailOtp(userData.email);
-                      setEmail(userData.email);
-                    }}
-                  >
-                    {loading ? (
-                      <Loading size="sm" animation="border" />
-                    ) : (
-                      "Verify Email"
-                    )}
-                  </Button>
-                )}
-              </div>
-            </div>
-
-            <div className={styles.customDivider} />
-
-            {/* Phone */}
-            <div className="d-flex justify-content-between align-items-center mb-2">
-              <Form.Label
-                className="fw-bold"
-                style={{ fontFamily: "Roboto, sans-serif" }}
-              >
-                Mobile Number
-              </Form.Label>
-              <div className="text-end">
-                <div className="d-flex align-items-center justify-content-end gap-2">
-                  <span style={{ fontFamily: "Roboto, sans-serif" }}>
-                    {userData?.phoneNumber ? `+${userData.phoneNumber}` : "N/A"}
-                  </span>
-                  <svg
-                    width="16"
-                    height="16"
-                    viewBox="0 0 16 16"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <circle cx="8" cy="8" r="7" fill="#28a745" />
-                    <path
-                      d="M5.5 8L7 9.5L10.5 6"
-                      stroke="white"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                </div>
-                <div
-                  className="text-success d-flex align-items-center justify-content-end"
-                  style={{ fontSize: "12px", fontFamily: "Roboto, sans-serif" }}
-                >
-                  Verified
-                </div>
-              </div>
-            </div>
-
-            <div className={styles.customDivider} />
-          </Form>
-        </Modal.Body>
-      </Modal>
-
-      {/* Premium Email Verification OTP Modal */}
-      <Modal
-        show={verifyModal}
-        onHide={handleClose}
-        backdrop="static"
-        centered
-        size="md"
-        className="fade"
-      >
-        <Modal.Header
-          closeButton
-          className="border-0 pb-0"
-          style={{
-            borderTopLeftRadius: "12px",
-            borderTopRightRadius: "12px",
-          }}
-        >
-          <Modal.Title className="w-100 text-center d-flex justify-content-center align-items-center">
-            <RakebackLogo />
-          </Modal.Title>
-        </Modal.Header>
-
-        <Modal.Body
-          style={{
-            paddingTop: "10px",
-            paddingBottom: "30px",
-          }}
-        >
-          <div className="text-center mb-4 position-relative">
-            <div className="position-relative d-inline-block">
-              <div
-                style={{
-                  position: "absolute",
-                  width: "70px",
-                  height: "60px",
-                  borderRadius: "50%",
-                  background:
-                    "linear-gradient(90deg, rgba(0,82,204,0.1) 0%, rgba(0,123,255,0.1) 100%)",
-                  top: "-12px",
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                  zIndex: 0,
-                }}
-              ></div>
-              <span
-                className="material-icons"
-                style={{
-                  fontSize: "36px",
-                  color: "#0052cc",
-                  position: "relative",
-                  zIndex: 1,
-                }}
-              >
-                mark_email_read
-              </span>
-            </div>
-            <h3
-              className="mt-3 mb-2 fw-bold"
-              style={{ color: "#0A2540", fontSize: "24px" }}
-            >
-              Verify Your Email
-            </h3>
-            <p className="text-muted mb-1" style={{ fontSize: "14px" }}>
-              We've sent a verification code to
-            </p>
-            <p className="fw-bold mb-0" style={{ color: "#0052cc" }}>
-              {email}
-            </p>
-          </div>
-
-          <div className="px-3 mb-4">
-            <div
-              className="d-flex justify-content-between gap-2"
-              style={{
-                maxWidth: "320px",
-                margin: "0 auto",
-              }}
-            >
-              {[0, 1, 2, 3, 4, 5].map((index) => (
-                <div
-                  key={index}
-                  className="position-relative"
-                  style={{ flex: "1" }}
-                >
-                  <Form.Control
-                    ref={(el) => (inputRefs.current[index] = el)}
-                    className="text-center fw-bold"
-                    style={{
-                      height: "54px",
-                      fontSize: "20px",
-                      padding: "0",
-                      borderRadius: "8px",
-                      border: "1px solid #d0d5dd",
-                      boxShadow: otpValues[index]
-                        ? "0 1px 2px rgba(16, 24, 40, 0.05), 0 0 0 4px rgba(0, 82, 204, 0.1)"
-                        : "0 1px 2px rgba(16, 24, 40, 0.05)",
-                      backgroundColor: "#fff",
-                      transition: "all 0.2s ease",
-                    }}
-                    value={otpValues[index]}
-                    maxLength={1}
-                    onChange={(e) => handleOtpChange(index, e.target.value)}
-                    onKeyDown={(e) => handleKeyDown(index, e)}
-                    onPaste={index === 0 ? handlePaste : null}
-                    autoComplete="off"
-                    inputMode="numeric"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="text-center mb-4">
-            <p className="text-muted mb-1" style={{ fontSize: "14px" }}>
-              Didn't receive code?
-            </p>
-            {countdown > 0 ? (
-              <p style={{ color: "#0052cc", fontSize: "14px" }}>
-                Resend code in <span className="fw-bold">{countdown}s</span>
-              </p>
-            ) : (
-              <Button
-                variant="link"
-                onClick={() => {
-                  sendEmailOtp(email);
-                }}
-                style={{
-                  color: "#0052cc",
-                  textDecoration: "none",
-                  fontWeight: "600",
-                  padding: "4px 12px",
-                  fontSize: "14px",
-                  transition: "all 0.2s ease",
-                }}
-                className="rounded-pill"
-                disabled={loading}
-              >
-                Resend Code
-              </Button>
-            )}
-          </div>
-        </Modal.Body>
-
-        <Modal.Footer
-          className="border-0 justify-content-center p-4"
-          style={{
-            borderBottomLeftRadius: "12px",
-            borderBottomRightRadius: "12px",
-          }}
-        >
-          <Button
-            variant="primary"
-            onClick={verifyEmailOtp}
-            style={{
-              background: "linear-gradient(90deg, #0052cc 0%, #007bff 100%)",
-              color: "white",
-              border: "none",
-              width: "100%",
-              padding: "12px",
-              fontWeight: "600",
-              fontSize: "16px",
-              borderRadius: "8px",
-              boxShadow: "0 2px 6px rgba(0, 82, 204, 0.3)",
-              transition: "all 0.2s ease",
-            }}
-            disabled={otpValues.join("").length < 6 || loading}
-            className="position-relative"
-          >
-            {loading ? (
-              <span className="d-flex align-items-center justify-content-center">
-                <Loading size="sm" animation="border" />
-                <span className="ms-2">Verifying...</span>
-              </span>
-            ) : (
-              <span className="d-flex align-items-center justify-content-center">
-                Verify Email
-                <span
-                  className="material-icons ms-2"
-                  style={{ fontSize: "18px" }}
-                >
-                  arrow_forward
-                </span>
-              </span>
-            )}
-          </Button>
-        </Modal.Footer>
-      </Modal>
     </div>
   );
 };

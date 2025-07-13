@@ -9,6 +9,7 @@ import OfferAndDealsContainer from "./pages/offerAndDealsPage";
 import DescriptionPage from "./pages/descriptionPage";
 import DashboardHome from "./components/dashboard/home/home";
 import PokerID from "./components/dashboard/pokerID/pokerID";
+import DealsContainer from "./components/dashboard/deals/dealspage";
 import VerifyAccount from "./components/dashboard/veryfyAccount/verifyAccount";
 import KYC from "./components/dashboard/KYC/kyc";
 import Trsnsactions from "./components/dashboard/myTransaction/myTransaction";
@@ -16,7 +17,7 @@ import { ProtectedRoute, NotProtectedRoute } from "./helperFxns/protectedRoute";
 import LatestNews from "./components/home/latestnews/LatestNews";
 import BlogDetail from "./components/home/latestnews/NewsArticle";
 import FaqContainer from "./components/home/FAQ/FaqContainer";
-import WelcomePage from "./components/dashboard/popup/welcome"
+import WelcomePage from "./components/dashboard/popup/welcome";
 import FullPageSignin from "./components/description/popup/signin";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -26,11 +27,10 @@ import Profile from "./components/dashboard/profile/profile";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import 'slick-carousel/slick/slick.js';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
-
+import "slick-carousel/slick/slick.js";
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 export const UserContext = createContext();
 
@@ -49,15 +49,14 @@ function App() {
   const [loginTab, setLoginTab] = useState(false);
   const [mobile, setMobile] = useState(true);
 
-   
   useEffect(() => {
     setMobile(window.innerWidth <= 500);
   }, []);
 
-   const updateWalletBalance = (newBalance) => {
-    setWalletData(prev => ({
+  const updateWalletBalance = (newBalance) => {
+    setWalletData((prev) => ({
       ...prev,
-      wallet_balance: newBalance
+      wallet_balance: newBalance,
     }));
   };
   return (
@@ -88,7 +87,7 @@ function App() {
           setWalletData,
           userKyc,
           setUserKyc,
-          updateWalletBalance ,
+          updateWalletBalance,
         }}
       >
         <Router>
@@ -105,7 +104,7 @@ function App() {
               path="/welcome"
               element={
                 <ProtectedRoute>
-                  <WelcomePage  />
+                  <WelcomePage />
                 </ProtectedRoute>
               }
             />
@@ -146,6 +145,15 @@ function App() {
             />
 
             <Route
+              path="/dashboard/deals"
+              element={
+                <ProtectedRoute>
+                  <DealsContainer />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
               path="/dashboard/verify-account"
               element={
                 <ProtectedRoute>
@@ -171,7 +179,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-             <Route
+            <Route
               path="/dashboard/profile"
               element={
                 <ProtectedRoute>
@@ -209,8 +217,8 @@ function App() {
               path="/login"
               element={
                 <NotProtectedRoute>
-                  <FullPageSignin/>
-                  </NotProtectedRoute>
+                  <FullPageSignin />
+                </NotProtectedRoute>
               }
             />
             <Route
@@ -219,7 +227,7 @@ function App() {
                 <h1 className="text-center text-danger pt-5">Not Found</h1>
               }
             />
-              <Route
+            <Route
               path="/terms-and-conditions"
               element={
                 <NotProtectedRoute>

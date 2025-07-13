@@ -45,7 +45,6 @@ const HomeMain = ({ data }) => {
             graphData={graphData} // ✅ Passing graphData
           />
         )}
-        {/* <RackbackTableAndTransaction dashboardInfo={dashboardInfo} /> */}
       </DashboardMain>
     </DashboardMainTopBottom>
   );
