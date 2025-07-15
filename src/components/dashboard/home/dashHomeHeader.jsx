@@ -1,69 +1,24 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import styles from "./dashHomeHeader.module.css";
-import bellIcon from "../../../assets/header_nav_btn2.png";
-import profileicon from "../../../assets/profileicon.svg";
-import avater1 from "../../../assets/avater1.svg";
 import { UserContext } from "../../../App";
-import Navbtn from "../../common/button/navbtn/navbtn";
-import { Modal, Button, Form } from "react-bootstrap";
-import ReactDOM from "react-dom";
-
-import {
-  sendEmailOtpAPI,
-  loginVerify,
-  verifyEmailOtpAPI,
-  getUserInfo,
-} from "../../../servicefile/authservice";
-import { toast } from "react-toastify";
-import { RakebackLogo } from "../../common/logo/logo";
-import Loading from "../../common/Loading/Loading";
 import { useNavigate } from "react-router-dom";
 import wallet from "../../../assets/walletIconDB.svg";
 import "../../../assets/Style/style.css";
 
-import {
-  PokerIcon,
-  TransactionsIcon,
-  KYCIcon,
-  HomeIcon,
-  closeIcon,
-  logo,
-} from "../../../utils/sideBarIcon";
-import editIcon from "../../../assets/editIcon.png";
-import {
-  userProfileEdit,
-  addProfileImage,
-} from "../../../servicefile/dashboardservice";
-
-const DashboardHomeHeader = ({ title, icon }) => {
+const DashboardHomeHeader = () => {
   const navigate = useNavigate();
-  const { userData, setUserData } = useContext(UserContext);
-  const [showDropdown, setShowDropdown] = useState(false);
-  const [showAccountSettings, setShowAccountSettings] = useState(false);
-  const [verifyModal, setVerifyModal] = useState(false);
-  const [otp, setOtp] = useState("");
-  const [email, setEmail] = useState("");
+  const { userData } = useContext(UserContext);
+
   const {
     setShowSidebar,
     showNotifications,
     setShowNotifications,
     walletData,
   } = useContext(UserContext);
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [otpValues, setOtpValues] = useState(["", "", "", "", "", ""]);
-  const [loading, setLoading] = useState(false);
-  const [editName, setEditName] = useState(false);
-  const [userName, setUserName] = useState("");
-  const [editMode, setEditMode] = useState(false);
-  const [countdown, setCountdown] = useState(0);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
-  const inputRefs = useRef([]);
-  const dropdownRef = useRef(null);
 
-  // This function will now work correctly
-  const handleMyTransactionClick = () => {
-    navigate("/dashboard/mytransactions");
-  };
+  const [userName, setUserName] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -82,297 +37,23 @@ const DashboardHomeHeader = ({ title, icon }) => {
   };
 
   useEffect(() => {
-    inputRefs.current = inputRefs.current.slice(0, 6);
-
     if (userData) {
       setUserName(userData.userName || "");
-      setEmail(userData.email || "");
-    }
-
-    // Handle outside click to close dropdown
-    function handleClickOutside(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setShowDropdown(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [userData]);
-
-  // Auto-focus first input when modal opens
-  useEffect(() => {
-    if (verifyModal && inputRefs.current[0]) {
-      setTimeout(() => {
-        inputRefs.current[0].focus();
-      }, 300);
-    }
-  }, [verifyModal]);
-
-  // Countdown timer for resend button
-  useEffect(() => {
-    let timer;
-    if (countdown > 0) {
-      timer = setInterval(() => {
-        setCountdown((prevCount) => prevCount - 1);
-      }, 1000);
-    }
-
-    return () => {
-      if (timer) clearInterval(timer);
-    };
-  }, [countdown]);
-
-  const handleOtpChange = (index, value) => {
-    // Only accept digits
-    if (/^\d*$/.test(value)) {
-      const newOtpValues = [...otpValues];
-      newOtpValues[index] = value;
-      setOtpValues(newOtpValues);
-
-      // Auto-focus to next input if current input is filled
-      if (value !== "" && index < 5) {
-        inputRefs.current[index + 1].focus();
-      }
-    }
-  };
-
-  // This function will now work correctly
-  const onLogout = () => {
-    setShowDropdown(false); // Close the dropdown before logging out
-    localStorage.clear();
-    window.location.reload();
-  };
-
-  const handleKeyDown = (index, e) => {
-    // Navigate between inputs with arrow keys
-    if (e.key === "ArrowRight" && index < 5) {
-      inputRefs.current[index + 1].focus();
-    } else if (e.key === "ArrowLeft" && index > 0) {
-      inputRefs.current[index - 1].focus();
-    }
-    // Move to previous input on backspace if current is empty
-    else if (e.key === "Backspace" && index > 0 && otpValues[index] === "") {
-      inputRefs.current[index - 1].focus();
-    }
-  };
-
-  useEffect(() => {
-    const savedImage = localStorage.getItem("profileImage");
-    if (userData && userData.userImg) {
-      setSelectedImage(userData.userImg);
-    } else {
-      setSelectedImage(avater1);
     }
   }, [userData]);
 
-  const handlePaste = (e) => {
-    e.preventDefault();
-    const pastedData = e.clipboardData.getData("text");
-    const numericData = pastedData.replace(/[^\d]/g, "").substring(0, 6);
-
-    if (numericData) {
-      const newOtpValues = [...otpValues];
-      for (let i = 0; i < numericData.length; i++) {
-        if (i < 6) {
-          newOtpValues[i] = numericData[i];
-        }
-      }
-      setOtpValues(newOtpValues);
-
-      // Focus on the appropriate input after paste
-      const focusIndex = Math.min(numericData.length, 5);
-      inputRefs.current[focusIndex].focus();
-    }
-  };
-
-  const getUserData = async () => {
-    const res = await getUserInfo();
-    if (res.success) {
-      setUserData(res.userInfo.user);
-      setLoading(false);
-    }
-  };
-
-  const handleClose = () => {
-    setVerifyModal(false);
-    setOtpValues(["", "", "", "", "", ""]);
-  };
-
-  // const handleProfileClick = () => {
-  //   setShowDropdown(!showDropdown);
-  // };
-
-  // This function will now work correctly
-  const handleAccountSettings = () => {
-    console.log("vdsvds");
-
-    navigate("/dashboard/profile");
-  };
-
-  const handleCloseAccountSettings = () => {
-    setShowAccountSettings(false);
-  };
-
-  const handleSaveProfile = async () => {
-    try {
-      const response = await userProfileEdit(
-        userData._id,
-        userName,
-        userData.address || ""
-      );
-
-      if (response.success) {
-        // toast.success("Profile updated successfully!");
-        setUserData((prev) => ({
-          ...prev,
-          userName: userName,
-        }));
-        setEditName(false);
-      } else {
-        toast.error(response.message);
-      }
-    } catch (error) {
-      // toast.error("An error occurred while updating the profile.");
-    }
-  };
-
-  const sendEmailOtp = async (emailToVerify) => {
-    setLoading(true);
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (emailToVerify && emailRegex.test(emailToVerify)) {
-      let data = await sendEmailOtpAPI(emailToVerify);
-      setVerifyModal(true);
-      setCountdown(60); // Start 60-second countdown for resend button
-      setLoading(false);
-      setShowAccountSettings(false);
+  const formatWalletBalance = (amount) => {
+    if (amount >= 100000) {
+      // Convert to Lacs (1 Lac = 100,000)
+      return (amount / 100000).toFixed(2).replace(/\.00$/, "") + " L";
+    } else if (amount >= 1000) {
+      // Format with commas for thousands
+      return amount.toLocaleString("en-IN");
     } else {
-      // toast.warn("Please enter a valid email address!");
-      setLoading(false);
+      return amount.toString();
     }
   };
 
-  const verifyEmailOtp = async () => {
-    setLoading(true);
-    const combinedOtp = otpValues.join("");
-    if (combinedOtp.length !== 6) {
-      setLoading(false);
-      return;
-    }
-
-    try {
-      const data = await verifyEmailOtpAPI(email, combinedOtp);
-      if (data?.message === "Email verified!") {
-        setOtpValues(["", "", "", "", "", ""]);
-        setVerifyModal(false);
-        getUserData();
-        // toast.success("Email verified successfully!");
-      } else {
-        // toast.error("OTP verification failed.");
-      }
-    } catch (error) {
-      // toast.error("An error occurred during verification.");
-    }
-    setLoading(false);
-  };
-
-  // Create a dropdown menu component
-
-  // const ProfileDropdownMobile = () => {
-  //   return (
-  //     <div className={styles.dropdown}>
-  //       <div className={styles.content}>
-  //         <div className={styles.userInfo}>
-  //           {/* <div className={styles.userDetails}>
-  //             <p className={styles.greeting} style={{fontFamily:'"Roboto",sans-serif'}}>Hello,</p>
-  //             <h5 className={styles.userName}>{userData?.userName || "User"}</h5>
-  //           </div> */}
-  //         </div>
-
-  //         <div className={styles.menu}>
-  //           {/* Each menu item uses direct onClick handler binding */}
-  //           <div
-  //             className={styles.menuItem}
-  //             onTouchStart={() => handleAccountSettings()}
-  //           >
-  //             <div className={styles.menuIcon}>
-  //               <span className="material-icons">account_circle</span>
-  //             </div>
-  //             <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Profile</span>
-  //           </div>
-
-  //           <div
-  //             className={styles.menuItem}
-  //             onTouchStart={() => handleMyTransactionClick()}
-  //           >
-  //             <div className={styles.menuIcon}>
-  //               <span className="material-icons">history</span>
-  //             </div>
-  //             <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Payments History</span>
-  //           </div>
-
-  //           <div
-  //             className={styles.logout}
-  //             onTouchStart={() => onLogout()}
-  //           >
-  //             <div className={styles.menuIcon}>
-  //               <span className="material-icons" style={{ color: "#EF4444" }}>exit_to_app</span>
-  //             </div>
-  //             <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Logout</span>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // };
-  // const ProfileDropdown = () => {
-  //   return (
-  //     <div className={styles.dropdown}>
-  //       <div className={styles.content}>
-  //         <div className={styles.userInfo}>
-  //           {/* <div className={styles.userDetails}>
-  //             <p className={styles.greeting} style={{fontFamily:'"Roboto",sans-serif'}}>Hello,</p>
-  //             <h5 className={styles.userName}>{userData?.userName || "User"}</h5>
-  //           </div> */}
-  //         </div>
-
-  //         <div className={styles.menu}>
-  //           {/* Each menu item uses direct onClick handler binding */}
-  //           <div
-  //             className={styles.menuItem}
-  //             onClick={() => handleAccountSettings()}
-  //           >
-  //             <div className={styles.menuIcon}>
-  //               <span className="material-icons">account_circle</span>
-  //             </div>
-  //             <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Profile</span>
-  //           </div>
-
-  //           <div
-  //             className={styles.menuItem}
-  //             onClick={() => handleMyTransactionClick()}
-  //           >
-  //             <div className={styles.menuIcon}>
-  //               <span className="material-icons">history</span>
-  //             </div>
-  //             <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Payments History</span>
-  //           </div>
-
-  //           <div
-  //             className={styles.logout}
-  //             onClick={() => onLogout()}
-  //           >
-  //             <div className={styles.menuIcon}>
-  //               <span className="material-icons" style={{ color: "#EF4444" }}>exit_to_app</span>
-  //             </div>
-  //             <span className={styles.menuTitle} style={{ fontFamily: '"Roboto",sans-serif' }}>Logout</span>
-  //           </div>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   );
-  // };
   return (
     <div className={styles.HomeHeader}>
       <div className={styles.HeaderContainer}>
@@ -397,10 +78,7 @@ const DashboardHomeHeader = ({ title, icon }) => {
                 <span className={styles.wallet_balance}>
                   ₹
                   {walletData && walletData.wallet_balance
-                    ? walletData.wallet_balance.toLocaleString("en-IN", {
-                        minimumFractionDigits: 2,
-                        maximumFractionDigits: 2,
-                      })
+                    ? formatWalletBalance(walletData.wallet_balance)
                     : "0.00"}
                 </span>
               </span>

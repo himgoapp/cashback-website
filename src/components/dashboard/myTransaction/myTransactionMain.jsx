@@ -8,10 +8,10 @@ import statusStyle from "../KYC/kycStatus.module.css";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
 import { TransactionsIcon } from "../../../utils/dashboardMainHeadersIcon";
-import backgroundImg from "../../../assets/transback.svg"
-import depositt from "../../../assets/depositt.svg"
-import withdrawal from "../../../assets/withdrawal.svg"
-import TransactionsTable from "../myTransaction/table/myTransactionTable"
+import backgroundImg from "../../../assets/transback.svg";
+import depositt from "../../../assets/depositt.svg";
+import withdrawal from "../../../assets/withdrawal.svg";
+import TransactionsTable from "../myTransaction/table/myTransactionTable";
 
 const MyTransactionMain = () => {
   const { userData, walletData, userKyc } = useContext(UserContext);
@@ -35,14 +35,8 @@ const MyTransactionMain = () => {
           data={walletData}
           icon={TransactionsIcon}
         />
-
         <DashboardMain>
-          {/* <div className={styles.transactions_header} style={{
-            backgroundImage: `url(${backgroundImg})` }}>
-
-          </div> */}
-          <div className={styles.SectionHeading}>Recent Transactions
-        </div>
+          <div className={styles.SectionHeading}>Recent Transactions</div>
           <div className={styles.TabContent}>
             <div className={styles.TabFilters}>
               <div
@@ -50,108 +44,61 @@ const MyTransactionMain = () => {
                 style={activeTab("AllTransactions", transactionType)}
                 onClick={() => setTransactionType("AllTransactions")}
               >
-                <div
-                  className={styles.TabText}
-
-                >
-
+                <div className={styles.TabText}>
                   <div className="d-flex align-items-center">
                     {/* <span className="me-2">
                       <GradientWithdrawalIcon size={24} />
                     </span> */}
-                    <span style={{  }}>All Transactions </span>
+                    <span style={{}}>All Transactions </span>
                   </div>
                 </div>
               </div>
 
-               <div
+              <div
                 className={styles.TabButton}
                 style={activeTab("Credit", transactionType)}
                 onClick={() => setTransactionType("Credit")}
               >
-                <div
-                  className={styles.TabText}
-
-                >
-
+                <div className={styles.TabText}>
                   <div className="d-flex align-items-center">
                     {/* <span className="me-2">
                       <GradientWithdrawalIcon size={24} />
                     </span> */}
-                    <span style={{  }}>Credit </span>
+                    <span style={{}}>Credit </span>
                   </div>
                 </div>
               </div>
-
               <div
                 className={styles.TabButton}
                 style={activeTab("Withdrawal", transactionType)}
                 onClick={() => setTransactionType("Withdrawal")}
               >
-                <div
-                  className={styles.TabText}
-
-                >
-
+                <div className={styles.TabText}>
                   <div className="d-flex align-items-center">
-                    {/* <span className="me-2">
-                      <GradientWithdrawalIcon size={24} />
-                    </span> */}
-                    <span style={{  }}>Withdrawals </span>
+                    <span style={{}}>Withdrawals </span>
                   </div>
                 </div>
               </div>
-
-              
-
-               <div
+              <div
                 className={styles.TabButton}
                 style={activeTab("TDS", transactionType)}
                 onClick={() => setTransactionType("TDS")}
               >
-                <div
-                  className={styles.TabText}
-
-                >
-
+                <div className={styles.TabText}>
                   <div className="d-flex align-items-center">
-                    {/* <span className="me-2">
-                      <GradientWithdrawalIcon size={24} />
-                    </span> */}
-                    <span style={{  }}>TDS </span>
+                    <span style={{}}>TDS </span>
                   </div>
                 </div>
               </div>
-
-{/*               
-              <div
-                className={styles.TabButton}
-                style={activeTab("Deposit", transactionType)}
-                onClick={() => setTransactionType("Deposit")}
-              >
-                <div
-                  className={styles.TabText}
-
-                >
-                  <div className="d-flex align-items-center">
-                    <span className="me-2">
-                      <GradientDepositIcon size={24} />
-                    </span>
-                    <span style={{  }}>My Earnings</span>
-                  </div>
-
-
-                </div>
-              </div> */}
             </div>
           </div>
 
           {/* Conditionally render KycTDCstatus based on transactionType */}
-          {transactionType !== "Deposit" && <KycTDCstatus />}
-          {transactionType === "Deposit" && <DepositMessage />}
+          {/* {transactionType !== "Deposit" && <KycTDCstatus />}
+          {transactionType === "Deposit" && <DepositMessage />} */}
 
-          <TransactionsTable></TransactionsTable>
-          <TableContainer transactionType={transactionType} />
+          <TransactionsTable transactionType={transactionType} />
+          {/* <TableContainer transactionType={transactionType} /> */}
         </DashboardMain>
       </DashboardMainTopBottom>
     </div>
@@ -200,7 +147,7 @@ const DepositMessage = () => {
           <div className={statusStyle.StatusIcon}>{percentIcon}</div>
           <div className={statusStyle.HeadText}>
             <div className={statusStyle.HeadLabel}>
-            Rakeback earning – keep playing, keep earning!
+              Rakeback earning – keep playing, keep earning!
             </div>
           </div>
         </div>
@@ -233,7 +180,7 @@ const percentIcon = (
     </defs>
   </svg>
 );
-const  GradientWithdrawalIcon = ({ className = "", size = 24 }) => {
+const GradientWithdrawalIcon = ({ className = "", size = 24 }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -243,7 +190,13 @@ const  GradientWithdrawalIcon = ({ className = "", size = 24 }) => {
       className={`${className}`}
     >
       <defs>
-        <linearGradient id="withdrawalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient
+          id="withdrawalGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
           <stop offset="0%" stopColor="#FF5252" />
           <stop offset="100%" stopColor="#FF1744" />
         </linearGradient>
@@ -276,7 +229,13 @@ const GradientDepositIcon = ({ className = "", size = 24 }) => {
       className={`${className}`}
     >
       <defs>
-        <linearGradient id="depositGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <linearGradient
+          id="depositGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
           <stop offset="0%" stopColor="#4CAF50" />
           <stop offset="100%" stopColor="#2E7D32" />
         </linearGradient>

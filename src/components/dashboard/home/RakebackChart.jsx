@@ -20,29 +20,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-
-// import {
-//   Chart as ChartJS,
-//   CategoryScale,
-//   LinearScale,
-//   PointElement,
-//   LineElement,
-//   Title,
-//   Tooltip,
-//   Legend,
-// } from "chart.js";
 import LastTransactions from "./lastTransaction";
-// import { BarChart } from "lucide-react";
-
-// ChartJS.register(
-//   CategoryScale,
-//   LinearScale,
-//   PointElement,
-//   LineElement,
-//   Title,
-//   Tooltip,
-//   Legend
-// );
 
 const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
   const navigate = useNavigate();
@@ -55,52 +33,24 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [isMobile, setIsMobile] = useState(false);
-  const [activeFilter, setActiveFilter] = useState("thisWeek");
+  const [activeFilter, setActiveFilter] = useState("3M");
+  const [data, setData] = useState([]);
   const [customDateData, setCustomDateData] = useState([]);
   const today = new Date().toISOString().split("T")[0];
-
-  const data = [
-    {
-      name: "January",
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
-    },
-    {
-      name: "February",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: "March",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: "April",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "May",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "June",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-  ];
 
   useEffect(() => {
     setUserWallet(dashboardInfo.userWallet);
   }, [dashboardInfo]);
+
+  useEffect(() => {
+    if (activeFilter === "3M") {
+      setData(graphData.last3months);
+    } else if (activeFilter === "6M") {
+      setData(graphData.last6months);
+    } else if (activeFilter === "9M") {
+      setData(graphData.last9months);
+    }
+  }, [activeFilter]);
 
   const handleBalanceUpdate = (newBalance) => {
     setUserWallet((prevWallet) => ({
@@ -159,98 +109,6 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
 
     setCustomDateData(mockCustomData);
     setShowDateFilter(false);
-  };
-
-  const getDataForFilter = () => {
-    switch (selectedFilter) {
-      case "thisMonth":
-        return graphData.lastMonthData || [];
-      case "thisYear":
-        return graphData.thisYearData || [];
-      case "customDate":
-        return customDateData || [];
-      default:
-        return [];
-    }
-  };
-
-  const validGraphData = getDataForFilter();
-
-  const labels = validGraphData.map((data) => {
-    if (selectedFilter === "thisMonth") {
-      return `${data.week}`;
-    } else if (selectedFilter === "thisYear") {
-      const monthNames = [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ];
-      return typeof data.month === "number"
-        ? monthNames[data.month]
-        : data.month;
-    } else if (selectedFilter === "customDate") {
-      return data.date
-        ? new Date(data.date).toLocaleDateString("en-US", {
-            day: "numeric",
-            month: "short",
-          })
-        : "";
-    }
-    return "";
-  });
-
-  const chartData = {
-    labels,
-    datasets: [
-      {
-        label: `Rakeback Earned (₹)`,
-        data: validGraphData.map((data) => data.total),
-        borderColor: "#0052cc",
-        borderWidth: 3,
-        pointBackgroundColor: "red",
-        pointBorderColor: "#fff",
-        pointRadius: 6,
-        pointHoverRadius: 8,
-        fill: true,
-        tension: 0.4,
-      },
-    ],
-  };
-
-  const chartOptions = {
-    responsive: true,
-    maintainAspectRatio: false,
-    scales: {
-      x: {
-        ticks: {
-          maxRotation: 0,
-          minRotation: 0,
-          autoSkip: false,
-          font: { size: 12 },
-          callback: function (value, index, values) {
-            const label = this.getLabelForValue(value);
-            return label.length > 15 ? label.substring(0, 12) + "..." : label;
-          },
-        },
-      },
-      y: {
-        beginAtZero: true,
-        suggestedMin: 0,
-        ticks: {
-          beginAtZero: true,
-          precision: 0,
-        },
-      },
-    },
   };
 
   useEffect(() => {
@@ -458,8 +316,8 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
           ₹
           {userWallet.wallet_balance
             ? userWallet.wallet_balance.toLocaleString("en-IN", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0,
               })
             : "0.00"}
         </div>
@@ -615,34 +473,28 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                 height: chartHeight,
               }}
             >
-              {/* <div className={styles.dashboard_card} style={{ backgroundImage: `url(${backgroundImg})` }}>
-                <div>
-                  <div className={styles.dashboard_explore}>Explore with Rakebackk</div>
-                  <div className={styles.explore}>
-                    <button onClick={validatetokenAndRedirect}>
-                      Explore
-                      <Arrow />
-                    </button>
-                  </div>
-                </div>
-              </div> */}
-              {/* 
-              <div className={styles.chart_heading}>
-                Rakeback Earning and Percentage - {getFilterDisplayName(selectedFilter)}
-              </div> */}
               <div className={styles.chart_heading}>Your Game Insights</div>
 
               <div className={styles.chart_container}>
                 <div className={styles.ChartHeaderButton}>
-                  <button className={styles.active}>
+                  <button
+                    className={activeFilter === "3M" ? styles.active : ""}
+                    onClick={() => setActiveFilter("3M")}
+                  >
                     <span></span>
                     3M
                   </button>
-                  <button>
+                  <button
+                    className={activeFilter === "6M" ? styles.active : ""}
+                    onClick={() => setActiveFilter("6M")}
+                  >
                     <span></span>
                     6M
                   </button>
-                  <button>
+                  <button
+                    className={activeFilter === "9M" ? styles.active : ""}
+                    onClick={() => setActiveFilter("9M")}
+                  >
                     <span></span>
                     9M
                   </button>
@@ -650,12 +502,12 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart
                     width={500}
-                    height={300}
+                    height={350}
                     data={data}
                     margin={{
                       top: 5,
                       right: 30,
-                      left: 20,
+                      left: 30,
                       bottom: 5,
                     }}
                     barSize={28}
@@ -664,7 +516,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                     <XAxis
                       dataKey="name"
                       scale="point"
-                      padding={{ left: 10, right: 10 }}
+                      padding={{ left: 12, right: 12 }}
                       radius={{ top: 10, bottom: 10, left: 10, right: 10 }}
                     />
                     <YAxis />
@@ -672,7 +524,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                     <Legend />
                     <CartesianGrid strokeDasharray="0" />
                     <Bar
-                      dataKey="pv"
+                      dataKey="Total"
                       fill="#ff4053"
                       background={{ fill: "#F2F2F2" }}
                       radius={[10, 10, 10, 10]}
@@ -747,7 +599,9 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                 </div>
               </div>
 
-              <LastTransactions />
+              <LastTransactions
+                transactionsInfo={dashboardInfo.transactionsInfo}
+              />
             </div>
 
             {/* Right sidebar section */}
@@ -761,9 +615,6 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                 gap: "20px",
               }}
             >
-              {/* Filter Container */}
-              {/* <FiltersComponent /> */}
-
               {/* Withdrawal container */}
               <WithdrawalContainer />
 
@@ -773,15 +624,11 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
           </>
         )}
       </div>
-
-      {/* <RakebackTable labels={labels} dashboardInfo={{ ...dashboardInfo, userWallet }} /> */}
     </>
   );
 };
-
 export default RakebackChart;
 
-// Calendar Icon Component
 const CalendarIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
