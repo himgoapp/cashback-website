@@ -18,12 +18,12 @@ const Banner = () => {
 
     return (
         <>
-        <div className="container-fluid RakeBackBanner">
+        <div className="container-fluid RakeBackBanner RakeBackBannerMobile">
             <div className="container">
-                <div className="row">
-                    <div class="col-lg-1">
+                <div className="row mobilerow">
+                    <div className="col-lg-1 m">
                     </div>
-                    <div class="col-lg-5 col-md-12 d-flex align-items-center">
+                    <div className="col-lg-5 col-md-12 d-flex align-items-center">
                         <div className="content">
                             <h1 className="title">
                                 <span className="highlight">India's #1 Trusted</span><br />
@@ -45,9 +45,9 @@ const Banner = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-1">
+                    <div className="col-lg-1">
                     </div>
-                    <div class="col-lg-5 col-md-12">
+                    <div className="col-lg-5 col-md-12">
                         <div className="videoContainer">
                             <img
                                 src={chipBannerLeft}

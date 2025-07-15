@@ -7,6 +7,7 @@ import * as serviceWorkerRegistration from "./serviceWorkerRegistration"; // Imp
 import "primereact/resources/themes/lara-light-cyan/theme.css";
 import { HelmetProvider } from "react-helmet-async";
 
+import "../src/assets/Style/responsive.css"
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
