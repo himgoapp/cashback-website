@@ -22,18 +22,31 @@ const EyeIcon = () => (
   </svg>
 );
 
-
-
 const NoDataComponent = () => (
   <div className={styles.noData}>
-    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className={styles.noDataIcon}>
+    <svg
+      width="40"
+      height="40"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={styles.noDataIcon}
+    >
       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
       <polyline points="14 2 14 8 20 8"></polyline>
       <line x1="12" y1="18" x2="12" y2="12"></line>
       <line x1="9" y1="15" x2="15" y2="15"></line>
     </svg>
     <h3 className={styles.noDataTitle}>No Transactions Found</h3>
-    <p className={styles.noDataText} style={{ fontFamily: '"Roboto",sans-serif' }}>There are no transactions to display at this time.</p>
+    <p
+      className={styles.noDataText}
+      style={{ fontFamily: '"Roboto",sans-serif' }}
+    >
+      There are no transactions to display at this time.
+    </p>
   </div>
 );
 
@@ -45,11 +58,20 @@ const getStatusInfo = (status) => {
         color: "#027a48",
         borderColor: "rgba(12, 110, 88, 0.2)",
         icon: (
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
             <polyline points="22 4 12 14.01 9 11.01"></polyline>
           </svg>
-        )
+        ),
       };
     case "pending":
       return {
@@ -57,12 +79,21 @@ const getStatusInfo = (status) => {
         color: "#b26a00",
         borderColor: "rgba(219, 168, 88, 0.2)",
         icon: (
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="12" y1="6" x2="12" y2="12"></line>
             <line x1="12" y1="16" x2="12.01" y2="16"></line>
           </svg>
-        )
+        ),
       };
     case "aborted":
       return {
@@ -70,12 +101,21 @@ const getStatusInfo = (status) => {
         color: "#b00020",
         borderColor: "rgba(164, 48, 48, 0.2)",
         icon: (
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="15" y1="9" x2="9" y2="15"></line>
             <line x1="9" y1="9" x2="15" y2="15"></line>
           </svg>
-        )
+        ),
       };
     default:
       return {
@@ -83,12 +123,21 @@ const getStatusInfo = (status) => {
         color: "#64748b",
         borderColor: "#e2e8f0",
         icon: (
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="12" y1="16" x2="12" y2="12"></line>
             <line x1="12" y1="8" x2="12.01" y2="8"></line>
           </svg>
-        )
+        ),
       };
   }
 };
@@ -96,69 +145,72 @@ const getStatusInfo = (status) => {
 const customStyles = {
   table: {
     style: {
-      borderRadius: '12px',
-      overflow: 'hidden',
-      boxShadow: '0 8px 30px rgba(0, 0, 0, 0.06)',
-
+      borderRadius: "12px",
+      overflow: "hidden",
+      boxShadow: "0 8px 30px rgba(0, 0, 0, 0.06)",
     },
   },
   headRow: {
     style: {
-      backgroundColor: '#f8f9fc',
-      borderBottom: '1px solid #edf2f7',
-      fontSize: '14px',
-      fontWeight: '600',
-      color: '#3a5a78',
-      minHeight: '56px',
-
+      backgroundColor: "#f8f9fc",
+      borderBottom: "1px solid #edf2f7",
+      fontSize: "14px",
+      fontWeight: "600",
+      color: "#3a5a78",
+      minHeight: "56px",
     },
   },
   headCells: {
     style: {
-      paddingLeft: '16px',
-      paddingRight: '16px',
-      fontSize: '13px',
-      letterSpacing: '0.5px',
-      textTransform: 'uppercase',
+      paddingLeft: "16px",
+      paddingRight: "16px",
+      fontSize: "13px",
+      letterSpacing: "0.5px",
+      textTransform: "uppercase",
       fontFamily: "Roboto, sans-serif !important",
-
     },
   },
   rows: {
     style: {
-      fontSize: '14px',
-      fontWeight: '400',
-      color: '#1e293b',
-      backgroundColor: '#ffffff',
-      minHeight: '64px',
-      '&:not(:last-of-type)': {
-        borderBottomStyle: 'solid',
-        borderBottomWidth: '1px',
-        borderBottomColor: '#edf2f7',
+      fontSize: "14px",
+      fontWeight: "400",
+      color: "#1e293b",
+      backgroundColor: "#ffffff",
+      minHeight: "64px",
+      "&:not(:last-of-type)": {
+        borderBottomStyle: "solid",
+        borderBottomWidth: "1px",
+        borderBottomColor: "#edf2f7",
       },
-      '&:hover': {
-        backgroundColor: 'rgba(58, 90, 120, 0.02)',
-        transition: 'all 0.2s ease',
-        transform: 'translateX(4px)',
+      "&:hover": {
+        backgroundColor: "rgba(58, 90, 120, 0.02)",
+        transition: "all 0.2s ease",
+        transform: "translateX(4px)",
       },
     },
   },
   cells: {
     style: {
-      paddingLeft: '16px',
-      paddingRight: '16px',
+      paddingLeft: "16px",
+      paddingRight: "16px",
     },
   },
   pagination: {
     style: {
-      borderTop: '1px solid #edf2f7',
-      backgroundColor: '#ffffff',
-      padding: '16px',
+      borderTop: "1px solid #edf2f7",
+      backgroundColor: "#ffffff",
+      padding: "16px",
     },
   },
 };
 
-const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPerPage, currentPage }) => {
+const CustomPagination = ({
+  rowsPerPage,
+  rowCount,
+  onChangePage,
+  onChangeRowsPerPage,
+  currentPage,
+}) => {
   const totalPages = Math.ceil(rowCount / rowsPerPage);
   const lastIndex = currentPage * rowsPerPage;
   const firstIndex = lastIndex - rowsPerPage + 1;
@@ -178,7 +230,9 @@ const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPer
     pageNumbers.push(
       <button
         key={i}
-        className={`${styles.pageButton} ${currentPage === i ? styles.activePageButton : ''}`}
+        className={`${styles.pageButton} ${
+          currentPage === i ? styles.activePageButton : ""
+        }`}
         onClick={() => onChangePage(i)}
       >
         {i}
@@ -189,7 +243,8 @@ const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPer
   return (
     <div className={styles.paginationContainer}>
       <div className={styles.paginationInfo}>
-        Showing {rowCount > 0 ? firstIndex : 0} to {Math.min(lastIndex, rowCount)} of {rowCount} entries
+        Showing {rowCount > 0 ? firstIndex : 0} to{" "}
+        {Math.min(lastIndex, rowCount)} of {rowCount} entries
       </div>
 
       <div className={styles.paginationControls}>
@@ -225,7 +280,9 @@ const CustomPagination = ({ rowsPerPage, rowCount, onChangePage, onChangeRowsPer
 
         {endPage < totalPages && (
           <>
-            {endPage < totalPages - 1 && <span className={styles.ellipsis}>...</span>}
+            {endPage < totalPages - 1 && (
+              <span className={styles.ellipsis}>...</span>
+            )}
             <button
               className={styles.pageButton}
               onClick={() => onChangePage(totalPages)}
@@ -279,14 +336,22 @@ const TableContainer = ({ transactionType }) => {
   const [perPage, setPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
   const [flow, setFlow] = useState(false);
-  const shouldShowTDS = transactions.some(row => row.typeOfTransaction === "Withdrawal");
-  const shouldShowStatus = transactions.some(row => row.typeOfTransaction === "Withdrawal");
-  const shouldShowPartner = transactions.some(row => row.typeOfTransaction === "Deposit");
-  const shouldShowType = transactions.some(row => row.typeOfTransaction === "Deposit" || row.typeOfTransaction === "Deduct");
-  const shouldShowUpdatedAt = transactions.some(row => row.typeOfTransaction === "Withdrawal");
-
-
-
+  const shouldShowTDS = transactions.some(
+    (row) => row.typeOfTransaction === "Withdrawal"
+  );
+  const shouldShowStatus = transactions.some(
+    (row) => row.typeOfTransaction === "Withdrawal"
+  );
+  const shouldShowPartner = transactions.some(
+    (row) => row.typeOfTransaction === "Deposit"
+  );
+  const shouldShowType = transactions.some(
+    (row) =>
+      row.typeOfTransaction === "Deposit" || row.typeOfTransaction === "Deduct"
+  );
+  const shouldShowUpdatedAt = transactions.some(
+    (row) => row.typeOfTransaction === "Withdrawal"
+  );
 
   const getTransactions = async (page, checkValue) => {
     if (!userData || !userData._id) return;
@@ -341,14 +406,14 @@ const TableContainer = ({ transactionType }) => {
     setSelectedTransaction(null);
   };
 
-
-
   const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-IN', {
-      style: 'currency',
-      currency: 'INR',
-      minimumFractionDigits: 2
-    }).format(amount).replace(/^(\D+)/, '₹');
+    return new Intl.NumberFormat("en-IN", {
+      style: "currency",
+      currency: "INR",
+      minimumFractionDigits: 2,
+    })
+      .format(amount)
+      .replace(/^(\D+)/, "₹");
   };
 
   const renderTooltip = (text) => {
@@ -358,120 +423,199 @@ const TableContainer = ({ transactionType }) => {
   const columns = [
     {
       name: "Transaction ID",
-      selector: row => row._id,
+      selector: (row) => row._id,
       sortable: false,
-      cell: row => (
+      cell: (row) => (
         <div className={styles.transactionCell}>
-          <span className={styles.transactionId}>{row._id.substring(0, 8)}...</span>
-          <div className={styles.transactionFull} style={{ fontFamily: '"Roboto",sans-serif' }}>{row._id}</div>
+          <span className={styles.transactionId}>
+            {row._id.substring(0, 8)}...
+          </span>
+          <div
+            className={styles.transactionFull}
+            style={{ fontFamily: '"Roboto",sans-serif' }}
+          >
+            {row._id}
+          </div>
         </div>
       ),
     },
     {
       name: "Created At",
-      selector: row => row.createdAt,
+      selector: (row) => row.createdAt,
       sortable: false,
-      cell: row => (
-        <div className={styles.dateTimeCell}>
-          <div className={styles.date}>{moment(row.createdAt).format("DD MMM YYYY")}</div>
-          <div className={styles.time}>{moment(row.createdAt).format("h:mm A")}</div>
-        </div>
-      ),
-    },
-    ...(shouldShowUpdatedAt ? [{
-      name: "Updated At",
-      selector: row => row.updatedAt,
-      sortable: false,
-      cell: row => (
+      cell: (row) => (
         <div className={styles.dateTimeCell}>
           <div className={styles.date}>
-            {moment(row.updatedAt).format("DD MMM YYYY")}
+            {moment(row.createdAt).format("DD MMM YYYY")}
           </div>
           <div className={styles.time}>
-            {moment(row.updatedAt).format("h:mm A")}
+            {moment(row.createdAt).format("h:mm A")}
           </div>
         </div>
       ),
     },
-    ] : []),
-    ...(shouldShowTDS ? [{
-      name: "TDS",
-      selector: row => row.rackbackcut,
-      sortable: false,
-      right: true,
-      cell: row =>
-        row.typeOfTransaction === "Deposit"
-          ? <span className={styles.zeroAmount} style={{ fontFamily: '"Roboto",sans-serif' }}>₹0.00</span>
-          : <span className={styles.tdsAmount} style={{ fontFamily: '"Roboto",sans-serif' }} >{formatCurrency(row.rackbackcut)}</span>
-    }] : []),
-    ...(shouldShowPartner ? [{
-      name: "Site Name",
-      selector: row => row.rackbackcut,
-      sortable: false,
-      right: true,
-      cell: row =>
-        row.typeOfTransaction === "Deposit"
-          ? <span style={{ fontFamily: '"Roboto",sans-serif', fontWeight: "600" }} className={styles.partner}>{row.partner}</span>
-          : <span style={{fontWeight:"bold"}} className={styles.no_partner}>-</span>
-    }] : []),
-      ...(shouldShowType ? [{
-      name: "Type",
-      selector: row => row.rackbackcut,
-      sortable: false,
-      right: true,
-      cell: row =>
-        row.typeOfTransaction === "Deposit" || row.typeOfTransaction === "Deduct"
-          ? <span style={{ fontFamily: '"Roboto",sans-serif', fontWeight: "600" }}>{row.typeOfTransaction === "Deposit" ? "Credit" : "Debit"}</span>
-          : ""
-    }] : []),
+    ...(shouldShowUpdatedAt
+      ? [
+          {
+            name: "Updated At",
+            selector: (row) => row.updatedAt,
+            sortable: false,
+            cell: (row) => (
+              <div className={styles.dateTimeCell}>
+                <div className={styles.date}>
+                  {moment(row.updatedAt).format("DD MMM YYYY")}
+                </div>
+                <div className={styles.time}>
+                  {moment(row.updatedAt).format("h:mm A")}
+                </div>
+              </div>
+            ),
+          },
+        ]
+      : []),
+    ...(shouldShowTDS
+      ? [
+          {
+            name: "TDS",
+            selector: (row) => row.rackbackcut,
+            sortable: false,
+            right: true,
+            cell: (row) =>
+              row.typeOfTransaction === "Deposit" ? (
+                <span
+                  className={styles.zeroAmount}
+                  style={{ fontFamily: '"Roboto",sans-serif' }}
+                >
+                  ₹0.00
+                </span>
+              ) : (
+                <span
+                  className={styles.tdsAmount}
+                  style={{ fontFamily: '"Roboto",sans-serif' }}
+                >
+                  {formatCurrency(row.rackbackcut)}
+                </span>
+              ),
+          },
+        ]
+      : []),
+    ...(shouldShowPartner
+      ? [
+          {
+            name: "Site Name",
+            selector: (row) => row.rackbackcut,
+            sortable: false,
+            right: true,
+            cell: (row) =>
+              row.typeOfTransaction === "Deposit" ? (
+                <span
+                  style={{
+                    fontFamily: '"Roboto",sans-serif',
+                    fontWeight: "600",
+                  }}
+                  className={styles.partner}
+                >
+                  {row.partner}
+                </span>
+              ) : (
+                <span
+                  style={{ fontWeight: "bold" }}
+                  className={styles.no_partner}
+                >
+                  -
+                </span>
+              ),
+          },
+        ]
+      : []),
+    ...(shouldShowType
+      ? [
+          {
+            name: "Type",
+            selector: (row) => row.rackbackcut,
+            sortable: false,
+            right: true,
+            cell: (row) =>
+              row.typeOfTransaction === "Deposit" ||
+              row.typeOfTransaction === "Deduct" ? (
+                <span
+                  style={{
+                    fontFamily: '"Roboto",sans-serif',
+                    fontWeight: "600",
+                  }}
+                >
+                  {row.typeOfTransaction === "Deposit" ? "Credit" : "Debit"}
+                </span>
+              ) : (
+                ""
+              ),
+          },
+        ]
+      : []),
 
     {
       name: "Amount",
-      selector: row => row.actualAmount,
+      selector: (row) => row.actualAmount,
       sortable: false,
       right: true,
-      cell: row => (
-        <span className={row.typeOfTransaction === "Deposit" ? styles.creditAmount : styles.debitAmount} style={{ fontFamily: '"Roboto",sans-serif' }}>
+      cell: (row) => (
+        <span
+          className={
+            row.typeOfTransaction === "Deposit"
+              ? styles.creditAmount
+              : styles.debitAmount
+          }
+          style={{ fontFamily: '"Roboto",sans-serif' }}
+        >
           {formatCurrency(row.actualAmount)}
         </span>
       ),
     },
-      {
+    {
       name: "Balance",
-      selector: row => row.latestBalance,
+      selector: (row) => row.latestBalance,
       sortable: false,
       right: true,
-      cell: row => (
-        <span className={styles.creditAmount} style={{ fontFamily: '"Roboto",sans-serif' }}>
+      cell: (row) => (
+        <span
+          className={styles.creditAmount}
+          style={{ fontFamily: '"Roboto",sans-serif' }}
+        >
           {formatCurrency(row.latestBalance)}
         </span>
       ),
     },
-    ...(shouldShowStatus ? [{
-      name: "Status",
-      selector: row => row.status,
-      sortable: false,
-      cell: row => {
-        const statusInfo = getStatusInfo(row.status);
-        return (
-          <div
-            className={styles.statusBadge}
-            style={{
-              backgroundColor: statusInfo.backgroundColor,
-              color: statusInfo.color,
-              borderColor: statusInfo.borderColor,
-            }}
-          >
-            {/* <span className={styles.statusIcon}>{statusInfo.icon}</span> */}
-            <span style={{ fontFamily: '"Roboto",sans-serif' }}>{row.status === "Aborted" ? "Rejected" :row.status}</span>
-          </div>
-        );
-      },
-    }] : []),
+    ...(shouldShowStatus
+      ? [
+          {
+            name: "Status",
+            selector: (row) => row.status,
+            sortable: false,
+            cell: (row) => {
+              const statusInfo = getStatusInfo(row.status);
+              return (
+                <div
+                  className={styles.statusBadge}
+                  style={{
+                    backgroundColor: statusInfo.backgroundColor,
+                    color: statusInfo.color,
+                    borderColor: statusInfo.borderColor,
+                  }}
+                >
+                  {/* <span className={styles.statusIcon}>{statusInfo.icon}</span> */}
+                  <span style={{ fontFamily: '"Roboto",sans-serif' }}>
+                    {row.status === "Aborted" ? "Rejected" : row.status}
+                  </span>
+                </div>
+              );
+            },
+          },
+        ]
+      : []),
     {
       name: "Details",
       button: true,
-      cell: row => (
+      cell: (row) => (
         <button
           className={styles.actionButton}
           onClick={() => handleOpenModal(row)}
@@ -486,12 +630,6 @@ const TableContainer = ({ transactionType }) => {
 
   return (
     <div className={styles.tableContainerWrapper}>
-      {/* <div className={styles.tableHeader}>
-        <h2 className={styles.tableTitle}>{transactionType} Transactions</h2>
-        <div className={styles.tableStats}>
-          <span>Total: {totalRows} transactions</span>
-        </div>
-      </div> */}
       <DataTable
         columns={columns}
         data={transactions}
@@ -516,26 +654,15 @@ const TableContainer = ({ transactionType }) => {
         )}
       />
 
-
       {open && selectedTransaction && (
         <div className={styles.modalBackdrop} onClick={handleCloseModal}>
-          <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+          <div
+            className={styles.modalContent}
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className={styles.receiptContainer}>
               <div className={styles.receiptHeader}>
                 <h3 className={styles.receiptTitle}>Transaction Detail</h3>
-                {/* <div className={styles.statusHeader}>
-                  <div
-                    className={styles.statusBadgeLarge}
-                    style={{
-                      backgroundColor: getStatusInfo(selectedTransaction.status).backgroundColor,
-                      color: getStatusInfo(selectedTransaction.status).color,
-                      borderColor: getStatusInfo(selectedTransaction.status).borderColor,
-                    }}
-                  >
-                    <span className={styles.statusIconLarge}>{getStatusInfo(selectedTransaction.status).icon}</span>
-                    <span style={{fontFamily:'"Roboto",sans-serif'}}>{selectedTransaction.status}</span>
-                  </div>
-                </div> */}
                 <button
                   className={styles.closeIcon}
                   onClick={handleCloseModal}
@@ -549,34 +676,49 @@ const TableContainer = ({ transactionType }) => {
                 <div className={styles.receiptSection}>
                   <div className={styles.receiptRow}>
                     <span className={styles.receiptLabel}>Transaction ID</span>
-                    <span className={styles.receiptValue}>{selectedTransaction._id}</span>
+                    <span className={styles.receiptValue}>
+                      {selectedTransaction._id}
+                    </span>
                   </div>
 
                   <div className={styles.receiptRow}>
                     <span className={styles.receiptLabel}>Created At</span>
                     <span className={styles.receiptValue}>
-                      {moment(selectedTransaction.createdAt).format("DD MMM YYYY, h:mm A")}
+                      {moment(selectedTransaction.createdAt).format(
+                        "DD MMM YYYY, h:mm A"
+                      )}
                     </span>
                   </div>
                   {selectedTransaction.typeOfTransaction === "Withdrawal" && (
                     <div className={styles.receiptRow}>
                       <span className={styles.receiptLabel}>Updated At</span>
                       <span className={styles.receiptValue}>
-                        {moment(selectedTransaction.updatedAt).format("DD MMM YYYY, h:mm A")}
+                        {moment(selectedTransaction.updatedAt).format(
+                          "DD MMM YYYY, h:mm A"
+                        )}
                       </span>
                     </div>
                   )}
                   <div className={styles.receiptRow}>
                     <span className={styles.receiptLabel}>Type</span>
-                    <span className={styles.receiptValue}>{selectedTransaction.typeOfTransaction === "Deposit" ? "Credit" :selectedTransaction.typeOfTransaction === "Deduct" ? "Debit" :selectedTransaction.typeOfTransaction}</span>
+                    <span className={styles.receiptValue}>
+                      {selectedTransaction.typeOfTransaction === "Deposit"
+                        ? "Credit"
+                        : selectedTransaction.typeOfTransaction === "Deduct"
+                        ? "Debit"
+                        : selectedTransaction.typeOfTransaction}
+                    </span>
                   </div>
 
-                  {selectedTransaction.typeOfTransaction === "Withdrawal" && selectedTransaction.status === "Approved" && (
-                    <div className={styles.receiptRow}>
-                      <span className={styles.receiptLabel}>UTR</span>
-                      <span className={styles.receiptValue}>{selectedTransaction.utr}</span>
-                    </div>
-                  )}
+                  {selectedTransaction.typeOfTransaction === "Withdrawal" &&
+                    selectedTransaction.status === "Approved" && (
+                      <div className={styles.receiptRow}>
+                        <span className={styles.receiptLabel}>UTR</span>
+                        <span className={styles.receiptValue}>
+                          {selectedTransaction.utr}
+                        </span>
+                      </div>
+                    )}
                 </div>
                 <div className={styles.receiptSection}>
                   {selectedTransaction.typeOfTransaction === "Withdrawal" && (
@@ -595,7 +737,7 @@ const TableContainer = ({ transactionType }) => {
                       </span>
                     </div>
                   )}
-                    {selectedTransaction.typeOfTransaction !== "Withdrawal" && (
+                  {selectedTransaction.typeOfTransaction !== "Withdrawal" && (
                     <div className={styles.receiptRow}>
                       <span className={styles.receiptLabel}>Note</span>
                       <span className={styles.receiptValue}>
@@ -605,7 +747,13 @@ const TableContainer = ({ transactionType }) => {
                   )}
                   <div className={styles.amountSection}>
                     <span className={styles.amountLabel}>Total Amount</span>
-                    <span className={`${styles.amountValue} ${selectedTransaction.typeOfTransaction === "Deposit" ? styles.credit : styles.debit}`}>
+                    <span
+                      className={`${styles.amountValue} ${
+                        selectedTransaction.typeOfTransaction === "Deposit"
+                          ? styles.credit
+                          : styles.debit
+                      }`}
+                    >
                       {formatCurrency(selectedTransaction.actualAmount)}
                     </span>
                   </div>
