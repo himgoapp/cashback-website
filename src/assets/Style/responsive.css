@@ -1,0 +1,104 @@
+@media only screen and (max-width: 991px) {
+.RakeBackBannerMobile .col-lg-1 {
+    display: none;
+}
+.mobilerow {
+    flex-direction: column-reverse;
+}
+.RakeBackBanner .videoContainer {
+    text-align: center;
+}
+.RakeBackBanner .chipIcon {
+    left: 0;
+}
+.RakeBackBanner .pokerCardheroBanner {
+    right: 0;
+}
+}
+@media only screen and (max-width: 575px) {
+.navbar-brand {
+    width: 153px;
+}
+.navbar-brand svg {
+    width: 100%;
+}
+.RakebackHeader button.signin_button {
+    width: 130px;
+}
+.RakebackHeader button.signin_button svg.bi.bi-arrow-right {
+    display: none;
+}
+.RakebackHeader {
+    padding: 0;
+}
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+.RakeBackBanner .pokerCardheroBanner {
+    top: -50px;
+    width: 53px;
+    height: 126px;
+    z-index: 1;
+    right: -20px;
+}
+.RakeBackBanner .chipIcon {
+        bottom: 70px;
+        width: 71px;
+        height: 163px;
+        z-index: 2;
+        opacity: 0.5;
+        left: -50px;
+    }
+.RakeBackBanner .videoContainer img.BannerIcon {
+    width: 280px;
+    height: 341px;
+    z-index: 3;
+}
+.RakeBackBanner .chipBannerRight {
+    width: 39px;
+    height: 114px;
+    z-index: 3;
+    bottom: 0px;
+}
+.RakeBackBanner .title {
+    font-size: 36px;
+    line-height: 120%;
+}
+.RakeBackBanner .description, .RakeBackBanner .subtitle{
+    font-size: 16px;
+}
+.RakeBackBanner .buttonContainer button {
+    width: 100%;
+}
+.RakeBackTopOffers {
+    padding: 48px 0;
+}
+.RakeBackTopOffers .title, .RakebackTrustedPoker .title, .GetStartedhead .title , .GetStartedhead .title{
+    font-size: 28px;
+    text-align: left;
+    margin-bottom: 14px;
+}
+.RakeBackTopOffers .subtitle, .RakebackTrustedPoker .description, .GetStartedhead .subtitle, .GetStartedhead .subtitle  {
+    font-size: 16px;
+    text-align: left;
+    margin-top: 0px;
+}
+.center-slider.slider.customslider {
+    padding: 0 !important;
+}
+.customslider .slick-track {
+    height: 530px !important;
+}
+.slick-dots {
+    bottom: -20px;
+}
+.RakebackTrustedPoker .carouselContainer {
+    margin: 0 0;
+    padding: 20px 0;
+}
+.RakebackTrustedPoker {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+}

@@ -618,7 +618,9 @@ p.GetProfitdes {
 }
 
 .RakebackFeaturedBlog .tabsContainer {
-  margin-bottom: 24px;
+      margin-bottom: 44px;
+    border-bottom: 1px solid #D8D8D8;
+    padding-bottom: 34px;
 }
 .RakebackFeaturedBlog .tabsWrapper {
     display: flex;
@@ -628,6 +630,7 @@ p.GetProfitdes {
     -ms-overflow-style: none;
     width: 100%;
     border: none;
+    justify-content: flex-end;
 }
 .RakebackFeaturedBlog .tabsWrapper::-webkit-scrollbar {
   display: none;
@@ -1425,6 +1428,80 @@ right: 8px
 
 
 /*Rakeback Deals page Css End*/
+
+
+/*Rakeback faqcontainer page Css start*/
+.faqcontainer
+ {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin: 20px 0;
+    background: #fff;
+}
+.faqcontainer .moreQuestionsActionsFAQ {
+    display: flex
+;
+    gap: 60px;
+    justify-content: center;
+    margin: 48px 0 0;
+    flex-direction: row;
+}
+span.ChatSmallDes {
+    font-size: 16px;
+    font-weight: 300;
+}
+.faqcontainer .actionButton {
+    display: flex
+;
+    align-items: flex-start;
+    border: 1px solid #848484;
+    border-radius: 12px;
+    background: #fff;
+    color: #000;
+    font-weight: 700;
+    width: 306px;
+    font-size: 20px;
+    padding: 32px 24px;
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 16px;
+}
+.moreQuestionsActionsFAQ.GetINtouch .actionButton {
+    padding: 14px 20px 28px;
+}
+.faqcontainer .actionButton:hover {
+    border: 1px solid #FF4053;
+    
+}
+.GetINtouchBtn {
+    padding: 9px 16px;
+    background: #FF4053;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.faqcontainer .actionIcon {
+    font-size: 14px;
+    display: flex
+;
+    align-items: center;
+    margin-right: 24px;
+}
+.faqcontainer .arrowIcon {
+    position: absolute;
+    right: 20px;
+}
+.GetINtouchHed {
+    margin-top: 40px;
+}
+/*Rakeback faqcontainer page Css End*/
+
 
 /* ----------------------------  Rakeback Dashboard  Css Start ----------------------------*/
 

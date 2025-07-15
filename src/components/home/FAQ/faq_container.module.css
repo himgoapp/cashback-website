@@ -4,11 +4,8 @@
 }
 
 .hero_section {
-  background: linear-gradient(135deg, #0052cc 0%, #0052cc 100%);
-  padding: 4rem 2rem;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
+    text-align: center;
+    position: relative;
 }
 
 .hero_section::before {
@@ -20,6 +17,7 @@
   bottom: 0;
   background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
   z-index: 0;
+  display: none;
 }
 
 .hero_content {
@@ -30,32 +28,32 @@
 }
 
 .hero_title {
-  color: white;
-  font-family: "Futura";
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02rem;
-  text-transform: uppercase;
-  margin: 0 0 1rem;
-  text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+color: #000;
+    font-weight: 700;
+    line-height: 1.2;
+    text-transform: uppercase;
+    margin: 0 0 40px;
+    font-size: 37.7px;
 }
 
+.GetINtouchHedhero_title{
+color: #000;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 40px 0 36px;
+    font-size: 37.24px;
+    text-align: left;}
+
 .hero_subtitle {
-  color: white;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.25rem;
-  font-weight: 400;
-  line-height: 1.8rem;
-  letter-spacing: -0.02rem;
-  margin: 0;
+    color: #000000;
+    font-size: 8px;
+    font-weight: 400;
 }
 
 .main_container {
-  display: flex;
-  justify-content: center;
-  background: #f8fafc;
-  /* padding: 2rem 0 4rem; */
+display: flex
+;
+    justify-content: center;
 }
 
 .faq_container {
@@ -65,19 +63,14 @@
 }
 
 .tabs_container {
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  max-width: 100%;
-  margin: 0 auto;
-  margin-bottom: 3rem;
-  transition: opacity 0.3s ease;
-  scrollbar-width: thin;
-  scrollbar-color: #0052cc #f0f0f0;
+padding: 40px 0;
+    display: flex
+;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 40px;
+    border-bottom: 1px solid #848484;
 }
 
 .tabs_container.fade {
@@ -86,118 +79,102 @@
 
 /* Tabs Wrapper */
 .tabs {
-  display: flex;
-  gap: 10px;
+    display: flex
+;
+    gap: 17px;
+    flex-wrap: wrap;
 }
 
 .tab_box {
-  background: white;
-  border-radius: 12px;
-  padding: 15px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  width: 140px;
-  height: auto;
-  cursor: pointer;
-  flex: 0 0 auto;
-  overflow: hidden;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  border: 1px solid rgba(0, 0, 0, 0.05);
+border-radius: 8px;
+    padding: 12px;
+    display: flex
+;
+    flex-direction: column;
+    width: 112px;
+    cursor: pointer;
+    text-align: left;
 }
 
 .tab {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+    width: 100%;
+    display: flex
+;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 10px;
 }
 
 .tab_icon {
-  margin-bottom: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: rgba(0, 82, 204, 0.1);
-  transition: all 0.3s ease;
+width: 40px;
+    height: 40px;
 }
 
 .tab_icon_img {
-  transition: transform 0.3s ease;
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 100%;
 }
 
 .tab_title {
-  font-size: 12px;
-  font-weight: 600;
-  color: #0052cc;
-  max-width: 90%;
-  text-align: center;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  white-space: normal;
-  font-family: "Futura";
-  transition: color 0.3s ease;
+font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    max-width: 90%;
+    text-align: left;
+    word-break: break-word;
 }
 
 .tab_box:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  background: #fff;
+    border: 1px solid #FF4053;
 }
 
 .tab_box:hover .tab_icon_img {
-  transform: scale(1.1);
+   color:#FF4053;
+}
+.tab_box:hover .tab_title {
+   color:#FF4053;
 }
 
 .active_box {
-  background: linear-gradient(to bottom, #ffcd45, #ffbf00);
-  box-shadow: 0 8px 20px rgba(255, 191, 0, 0.3);
+    background: #fff;
+    border: 1px solid #FF4053;
 }
 
 .active_box .tab_icon {
-  background: rgba(255, 255, 255, 0.2);
+  color:#FF4053;
 }
 
 .active_box .tab_title {
-  color: #333;
+  color: #FF4053;
   font-weight: 700;
 }
 
 /* FAQ Items */
 .faq_item_container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 85%;
-  max-width: 900px;
-  margin: 0 auto;
-  margin-bottom: 4rem;
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .faq_item {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  margin-bottom: 16px;
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  overflow: hidden;
+width: 100%;
+    display: flex
+;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 21px;
+    border-radius: 16px;
+    background-color: #f7f7f7;
+    margin-bottom: 16px;
+    border: 1px solid #f7f7f7;
+    overflow: hidden;
 }
 
 .faq_item:hover {
@@ -206,9 +183,8 @@
 }
 
 .faq_item.open {
-  background-color: #fff;
-  box-shadow: 0 10px 24px rgba(0, 82, 204, 0.12);
-  border-left: 4px solid #0052cc;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0, 82, 204, 0.12);
 }
 
 .item_content {
@@ -226,7 +202,6 @@
 
 .question {
   color: #2c3e50;
-  font-family: "Futura";
   font-size: 18px;
   font-weight: 600;
   line-height: 1.7rem;
@@ -236,13 +211,13 @@
 }
 
 .question_number {
-  color: #0052cc;
+  color: #000;
   font-weight: 700;
   margin-right: 8px;
 }
 
 .faq_item.open .question {
-  color: #0052cc;
+      color: #000;
 }
 
 .ans {
@@ -251,7 +226,6 @@
   overflow: hidden;
   transition: all 0.3s ease;
   color: #4a5568;
-  font-family: "Roboto", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.6;
@@ -260,11 +234,16 @@
 }
 
 .ans_visible {
-  height: auto;
-  opacity: 1;
-  margin-top: 1rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.05);
+    margin-top: 1rem;
+    
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    color: #606060;
+    opacity: 1;
+    height: 100%;
+    padding: 0;
+    width: 100%;
+    padding-top: 1rem;
 }
 
 .faq_icon {
@@ -275,33 +254,24 @@
 }
 
 .icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: rgba(0, 82, 204, 0.1);
-  color: #0052cc;
-  cursor: pointer;
-  transition: all 0.3s ease;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    cursor: pointer;
 }
 
-.icon:hover {
-  background-color: rgba(0, 82, 204, 0.2);
-  transform: scale(1.1);
-}
 
 .icon_active {
-  background-color: rgba(231, 76, 60, 0.1);
-  color: #e74c3c;
+  color: #000;
 }
 
 .no_faq {
   padding: 2rem;
   text-align: center;
   color: #666;
-  font-family: "Roboto", sans-serif;
   font-size: 1.2rem;
   background: rgba(0, 0, 0, 0.02);
   border-radius: 12px;
