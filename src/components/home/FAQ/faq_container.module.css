@@ -185,6 +185,7 @@ width: 100%;
 .faq_item.open {
     background-color: #fff;
     box-shadow: 0 2px 8px rgba(0, 82, 204, 0.12);
+    border-color: #FF4053;
 }
 
 .item_content {

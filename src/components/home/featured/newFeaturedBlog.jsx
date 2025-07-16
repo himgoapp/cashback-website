@@ -116,7 +116,7 @@ const FeaturedBlogs = () => {
                                 <div className="row">
                                     <div className="col-lg-12">
                                         <div className="row">
-                                            <div className="col-lg-12">
+                                            <div className="col-lg-12 position-relative">
                                                 <h1 className='BlogHeading'>Latest articles</h1>
                                             </div>
                                             <div className="col-lg-12 blogGrid">

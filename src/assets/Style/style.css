@@ -759,8 +759,12 @@ p.GetProfitdes {
 }
 .BlogHeading {
     font-size: 36px;
-    margin-bottom: 28px;
+    margin-bottom: 0;
     font-weight: 700;
+    position: absolute;
+    z-index: 99999;
+    top: -121px;
+    left: 10px;
 }
 .RakebackFeaturedBlog .sidePost {
     border: 0.6px solid #848484;
@@ -1657,7 +1661,7 @@ span.ChatSmallDes {
     justify-content: flex-end;
 }
 
-    .pagination a {
+    .pagination button{
       text-decoration: none;
       color: #888;
       padding: 8px 14px;
@@ -1665,9 +1669,10 @@ span.ChatSmallDes {
       font-weight: 500;
       font-size: 14px;
       transition: background 0.2s, color 0.2s;
+      background: transparent;
     }
 
-    .pagination a:hover {
+    .pagination button:hover {
       background-color: #eee;
     }
 
@@ -1689,5 +1694,187 @@ span.ChatSmallDes {
 .LastTransactionTable table.table thead tr th:last-child, .LastTransactionTable table.table tbody tr td:last-child {
     padding-right: 24px;
 } */
+.HottestDealsDashboard {
+    margin: 0;
+}
+.HottestDealsDashboard .wallet_balance_head {
+    font-size: 20px;
+    color: #333B69;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+.HottestDealsDashboard .HottestDealschild {
+    padding: 26px;
+    background: #fff;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 11px;
+}
+.PromotionsandOffers {
+    margin: 0;
+}
+.PromotionsandOffers .HottestDealschild {
+    padding: 26px;
+    flex-direction: column;
+    gap: 20px;
+}
+.PromotionsandOffers .wallet_balance_head {
+    font-size: 22px;
+    color: #343C6A;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+.PromotionsandOffers .deal-card {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border: none;
+        gap: 23px;
+}
+.PromotionsandOffers .deal-image {
+    width: 215px;
+    height: 154px;
+    min-width: 215px;
+}
+.PromotionsandOffers .deal-image img {
+    width: 100%;
+    height: 100%;
+}
+.PromotionsandOffers .HottestDealsDesc {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+    padding: 10px 0;
+    justify-content: space-between;
+}
+.PromotionsandOffers .card-title {
+    margin-bottom: 0.5rem;
+    font-size: 24px;
+    font-weight: 700;
+}
+.PromotionsandOffers .card-subtitle {
+    margin-top: -0.25rem;
+    margin-bottom: 0;
+    font-size: 23px;
+    color: #6D6265;
+    font-weight: 500;
+}
+.PromotionsandOffers .card-subtitle strong {
+    color: #FF4053;
+}
+
+.PokerIdDB.nav-tabs .nav-link {
+    margin-bottom: -1px;
+    background: none;
+    border: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding: 4px 10px;
+    font-size: 20px;
+    color: #000000;
+}
+.PokerIdDB.nav-tabs .nav-link.active, .PokerIdDB.nav-tabs .nav-item.show .nav-link {
+    color: #FF4053;
+    border-bottom: 3px solid #FF4053;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    font-weight: 800;
+}
+.PokerIdDBDesc {
+    width: 100%;
+}
+
+.PokerIdDB {
+    border-bottom: 1px solid #EBEEF2 !important;
+    width: 100%;
+}
+
+.PokerIdDBDesc .tab-pane {
+    width: 100%;
+    padding: 40px;
+    background: #FFF6F7;
+    border-radius: 16px;
+}
+.PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"] {
+    background: #FFF6F7;
+    border: 1px solid #FF4053;
+    position: relative;
+    overflow: hidden;
+}
+.PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"]:before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: -34px;
+    width: 298px;
+    height: 100%;    
+    background-size: 100% 100% !important;
+    transform: scale(1.7);
+    background: url(../PokerRed.svg);
+
+}
+.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"] {
+    background: #F1FFF4;
+    border: 1px solid #28A745;
+    position: relative;
+    overflow: hidden;
+}
+.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"] .formControl button {
+    background: #28A745;
+}
+.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:before {
+    content: '';
+    position: absolute;
+    top: 18px;
+    right: -34px;
+    width: 298px;
+    height: 100%;    
+    background-size: 100% 100% !important;
+    transform: scale(1.7);
+    background: url(../PokerGreen.svg);
+}
+
+.PokerIdDBDesc .form-container {
+    flex-direction: column;
+    width: 70%;
+    gap: 20px;
+}
+.formControl {
+    gap: 20px;
+}
+.formControl .InputDB {
+    width: 284px;
+    height: 52px;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    border: none;
+    font-size: 16px;
+    color: #848484;
+    padding: 0 15px;
+    min-width: 284px;
+    max-width: 284px;
+    box-shadow: 1px 1px 12px #d0d0d0;
+}
+.formControl:focus , .formControl .form-control:focus, .formControl .form-select:focus {
+    border: none ;
+    outline: 0;
+    box-shadow: 1px 1px 12px #d0d0d0;
+}
+.formControl button {
+    padding: 0px 40px;
+    background: #FF4053;
+    height: 52px;
+    color: #fff;
+    border-radius: 8px;
+}
+.PokerIdDB.nav-tabs .nav-link.active[data-bs-target="#retag"], .PokerIdDB.nav-tabs .nav-item.show .nav-link[data-bs-target="#retag"]{
+     color: #28a745;
+    border-bottom: 3px solid #28a745;
+}
+
+
+   
 
 

@@ -122,7 +122,66 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
   
 
   return (
-    <div className={styles.PokerCardsContainer}>
+      <div className={styles.PokerCardsContainer}>
+        
+         <ul className="nav nav-tabs mb-4 PokerIdDB" id="pokerTab" role="tablist">
+            <li className="nav-item" role="presentation">
+              <button className="nav-link active" id="add-tab" data-bs-toggle="tab" data-bs-target="#add" type="button" role="tab" aria-selected="true">
+                Add New Poker ID
+              </button>
+            </li>
+            <li className="nav-item" role="presentation">
+              <button className="nav-link" id="retag-tab" data-bs-toggle="tab" data-bs-target="#retag" type="button" role="tab" aria-selected="false">
+                Retag Poker ID
+              </button>
+            </li>
+          </ul>
+
+          
+          <div className="tab-content PokerIdDBDesc" id="pokerTabContent">
+            
+            <div className="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="add-tab">
+                <div className="form-container d-flex  justify-content-start">
+                    <div className="formControl  d-flex">
+                      <select className="form-select InputDB" required>
+                        <option selected disabled>Select Poker Sites</option>
+                        <option>ACR Poker</option>
+                        <option>WPT Global</option>
+                        <option>GG Poker</option>
+                      </select>
+                      <input type="text" className="form-control InputDB" placeholder="Username" required />
+                    </div>
+                    <div className="formControl d-flex ">
+                      <input type="text" className="form-control InputDB" placeholder="Enter Account ID*" required />
+                      <button type="submit" className="btn btn-pink">Submit</button>
+                    </div>
+                </div>
+              </div>            
+              <div className="tab-pane fade" id="retag" role="tabpanel" aria-labelledby="retag-tab">
+                <div className="form-container d-flex  justify-content-start">
+                      <div className="formControl  d-flex">
+                        <select className="form-select InputDB" required>
+                          <option selected disabled>Select Poker Sites</option>
+                          <option>ACR Poker</option>
+                          <option>WPT Global</option>
+                          <option>GG Poker</option>
+                        </select>
+                      </div>
+                      <div className="formControl d-flex ">
+                        <input type="text" className="form-control InputDB" placeholder="Enter Account ID*" required />
+                        <button type="submit" className="btn btn-pink">Submit</button>
+                      </div>
+                </div>
+            </div>
+          </div>
+
+
+
+
+
+
+
+
       <div className={styles.TabContent}>
             <div className={styles.TabFilters}>
                 {["View all", "Approved", "Pending", "Rejected"].map((label, index) => {

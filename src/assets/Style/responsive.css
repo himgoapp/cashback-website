@@ -14,8 +14,42 @@
 .RakeBackBanner .pokerCardheroBanner {
     right: 0;
 }
+.BlogHeading {
+    display: none;
 }
+.RakebackFeaturedBlog .tabsWrapper {
+        gap: 0;
+        overflow-x: scroll;
+    }
+.RakebackFeaturedBlog .tabsWrapper div {
+    border: none;
+    background: none;
+    border-radius: 0;
+    font-size: 16px;
+    flex: 1;
+    border-bottom: 1px solid #848484;
+}
+.RakebackFeaturedBlog .sidePost {
+    width: 95%;
+    padding: 10px 10px;
+    margin: 20px auto 0;
+}
+.GetStartedCard {
+    margin-bottom: 24px;
+}
+.RakebackFAQ .moreQuestionsActions {
+    flex-direction: row;
+}
+.RakebackFAQ .actionButton {
+    width: 100%;
+}
+
+
+}
+
+
 @media only screen and (max-width: 575px) {
+
 .navbar-brand {
     width: 153px;
 }
@@ -101,4 +135,149 @@
     padding-top: 48px;
     padding-bottom: 48px;
 }
+.GetStartedCard .stepNumber {
+        position: unset;
+        margin-right: 20px;
+}
+.GetStartedCard .card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 20px;
+}
+.GetStartedhead {
+    margin-bottom: 28px;
+}
+.joinButton {
+    margin-top: 16px;
+}
+.RakebackFeaturedBlog .tabsWrapper div {
+        font-size: 12px;
+        padding: 0 2px;
+}
+.RakebackFeaturedBlog .tabsWrapper .activeTab {
+    color: #FF4053;
+    border: none;
+    background-color: transparent;
+    font-weight: 800;
+    border-bottom: 3px solid #FF4053;
+}
+.RakebackFAQ .actionButton {
+    font-size: 12px;
+}
+.RakebackFeaturedBlog .exploreButton {
+    width: 100%;
+    font-size: 16px;
+}
+.RakebackNewsletter .inputContainer {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.GetStartedCard .stepTitle {
+    font-size: 20px;
+}
+.GetStartedCard .stepDetails {
+    font-size: 12px;
+}
+.GetStartedCard .iconContainer img {
+    width: 59px !important;
+    height: 59px !important;
+}
+.RakebackFeaturedBlog .mainPost {
+    height: 100%;
+}
+.RakebackFeaturedBlog .category {
+    font-size: 10px;
+}
+.RakebackFeaturedBlog .imageContainer {
+    height: 188px;
+}
+.RakebackFeaturedBlog .mainTitle {
+    font-size: 17px;
+}
+.RakebackFeaturedBlog .description {
+    font-size: 12px;
+}
+.RakebackFeaturedBlog .sideContent {
+    padding: 10px 13px;
+}
+.container-cards.featuresList .card {
+    padding: 20px 16px;
+    margin-bottom: 24px;
+    gap: 20px;
+}
+.container-cards.featuresList .iconContainer {
+    width: 66px;
+    height: 66px;
+}
+.container-cards.featuresList .iconContainer .icon img {
+    width: 37px;
+    height: 37px;
+}
+.container-cards.featuresList .featureTitle {
+    font-size: 20px;
+}
+.container-cards.featuresList .featureDescription {
+    font-size: 12px;
+}
+.RakebackSpace {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+.RakebackFAQ .actionButton {
+    padding: 0px 10px;
+}
+.RakebackFAQ .actionIcon {
+    margin-right: 8px;
+}
+.arrowIcon {
+    right: 10px;
+}
+.RakebackFAQ .faqAnswer {
+    padding: 0 20px 24px 20px;
+}
+.RakebackFAQ .moreQuestionsButton {
+    font-size: 16px;
+}
+.RakebackNewsletter .GetStartedhead .title {
+    line-height: 46px;
+    text-align: center;
+}
+.RakebackNewsletter .GetStartedhead .subtitle {
+    max-width: 100%;
+    margin: 9px 0 0px;
+    text-align: center;
+    font-size: 12px;
+}
+.RakebackNewsletter .form {
+    width: 100%;
+}
+.customFooter {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+.customFooter .brandSection {
+    padding-bottom: 40px;
+    border-bottom: 1px solid #808080;
+    margin-bottom: 40px;
+}
+.footerLinksContainer {
+    width: 50%;
+}
+.copyrightText {
+    margin-top: 40px !important;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
 }

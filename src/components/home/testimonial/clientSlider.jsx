@@ -21,8 +21,8 @@ const ClientSlider = () => {
         settings: {
           arrows: false,
           centerMode: true,
-          centerPadding: "40px",
-          slidesToShow: 3,
+          centerPadding: "0px",
+          slidesToShow: 1,
         },
       },
       {
@@ -30,7 +30,7 @@ const ClientSlider = () => {
         settings: {
           arrows: false,
           centerMode: true,
-          centerPadding: "40px",
+          centerPadding: "0px",
           slidesToShow: 1,
         },
       },

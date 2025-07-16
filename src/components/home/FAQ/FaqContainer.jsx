@@ -16,6 +16,13 @@ import Meta from "../../../Meta";
 import NewFooter from "../../common/footer/newFooter";
 import NewsletterSubscription from "../subscribe/newsLetterSubscription";
 
+import Account from "../../../assets/FAQ/AccountFAQ.svg"
+import KYC from "../../../assets/FAQ/kycFAQ.svg"
+import TDS from "../../../assets/FAQ/TDSFAQ.svg"
+import Withdrawals from "../../../assets/FAQ/WithdrawalsFAQ.svg"
+import IDTagging from "../../../assets/FAQ/IDFAQ.svg"
+import ContactUs from "../../../assets/FAQ/ContactFAQ.svg"
+
 const faqData = {
   legal: [
     {
@@ -237,14 +244,12 @@ const faqData = {
 };
 
 const tabs = [
-  { id: "legal", title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: legal },
-  { id: "rakeback", title: "RAKEBACK.COM", icon: rakeback },
-  { id: "account", title: "MY ACCOUNT", icon: myaccount },
-  { id: "banking", title: "BANKING", icon: bank },
-  { id: "responsible", title: "RESPONSIBLE GAMING", icon: responsible },
-  { id: "unfair", title: "UNFAIR GAMEPLAY", icon: unfair },
-  { id: "promotions", title: "PROMOTIONS", icon: promotions },
-  { id: "refunds", title: "REFUNDS & WINNINGS", icon: rewards },
+  { id: "legal", title: "Account", icon: Account },
+  { id: "rakeback", title: "KYC", icon: KYC },
+  { id: "banking", title: "TDS", icon: TDS },
+  { id: "responsible", title: "Withdrawals", icon: Withdrawals },
+  { id: "unfair", title: "ID Tagging", icon: IDTagging },
+  { id: "promotions", title: "Contact Us", icon: ContactUs },
 ];
 
 const FaqContainer = () => {
@@ -319,7 +324,7 @@ const FaqContainer = () => {
                                         className={styles.tab_icon_img}
                                       />
                                     </div>
-                                    <div className={styles.tab_title}>{tab.title}</div>
+                                    <div className={styles.tab_title}>{tab.title} </div>
                                     <div className={styles.hero_subtitle}>
                                       KYC procedures, required documents
                                     </div> 
