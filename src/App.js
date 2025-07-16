@@ -19,11 +19,15 @@ import BlogDetail from "./components/home/latestnews/NewsArticle";
 import FaqContainer from "./components/home/FAQ/FaqContainer";
 import WelcomePage from "./components/dashboard/popup/welcome";
 import FullPageSignin from "./components/description/popup/signin";
+import ContactUSPage from "./pages/ContactUsPage";
+import RetagPage from "./pages/retagPage";
+
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TermsConditions from "./components/common/footer/termsConditions";
 import Profile from "./components/dashboard/profile/profile";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -32,7 +36,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-import "../src/assets/Style/responsive.css"
+import "../src/assets/Style/responsive.css";
 
 export const UserContext = createContext();
 
@@ -115,6 +119,23 @@ function App() {
               element={
                 <NotProtectedRoute>
                   <OfferAndDealsContainer />
+                </NotProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/contact-us"
+              element={
+                <NotProtectedRoute>
+                  <ContactUSPage />
+                </NotProtectedRoute>
+              }
+            />
+            <Route
+              path="/retag"
+              element={
+                <NotProtectedRoute>
+                  <RetagPage />
                 </NotProtectedRoute>
               }
             />
