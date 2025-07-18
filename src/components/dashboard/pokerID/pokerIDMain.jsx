@@ -18,7 +18,7 @@ const PokerIDMain = () => {
 			<DashboardHomeHeader data={walletData} title='Poker ID' icon={PokerIcon} />
 			<DashboardMain>
 				<div className={styles.MainPokerIdContainer}>
-					<NewPoker setGetInfos={setGetInfos} />
+					{/* <NewPoker setGetInfos={setGetInfos} /> */}
 					<PokerCardsContainer getInfos={getInfos} setGetInfos={setGetInfos}  />
 				</div>
 			</DashboardMain>

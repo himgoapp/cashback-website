@@ -1,3 +1,8 @@
+@media only screen and (max-width: 1100px) {
+.RakebackNewsletter .inputContainer {
+    width: 100%;
+}
+}
 @media only screen and (max-width: 991px) {
 .RakeBackBannerMobile .col-lg-1 {
     display: none;
@@ -43,6 +48,16 @@
 .RakebackFAQ .actionButton {
     width: 100%;
 }
+.faqcontainer {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+.faqcontainer .moreQuestionsActionsFAQ {
+    gap: 30px;
+    margin: 30px 0 0;
+}
+
+
 
 
 }

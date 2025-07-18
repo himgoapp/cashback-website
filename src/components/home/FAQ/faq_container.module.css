@@ -325,11 +325,18 @@ width: 100%;
   .tabs_container {
     padding: 15px;
   }
+  .tab_title {
+    font-size: 14px;
+  }
+   .hero_subtitle {
+    font-size: 8px;
+  }
 }
 
 @media only screen and (max-width: 768px) {
   .hero_section {
-    padding: 3rem 1rem;
+           padding: 0;
+        text-align: left;
   }
 
   .hero_title {
@@ -337,7 +344,7 @@ width: 100%;
   }
 
   .faq_item_container {
-    width: 90%;
+    width: 100%;
   }
 
   .tabs_container {
@@ -348,6 +355,7 @@ width: 100%;
     width: 120px;
     padding: 12px 8px;
   }
+  
 }
 
 @media only screen and (max-width: 480px) {
@@ -355,14 +363,12 @@ width: 100%;
     font-size: 1.8rem;
   }
 
-  .hero_subtitle {
-    font-size: 1rem;
-  }
+ 
   
   .tab_box {
-    width: 120px;
-    height: 120px;
-    padding: 10px 5px;
+width: 120px;
+        height: auto;
+        padding: 10px 5px;
   }
   
   .tab_icon {
@@ -370,9 +376,7 @@ width: 100%;
     height: 40px;
   }
   
-  .tab_title {
-    font-size: 10px;
-  }
+  
   
   .faq_item_container {
     width: 95%;

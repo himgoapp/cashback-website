@@ -869,7 +869,7 @@ p.GetProfitdes {
 .container-cards.featuresList .card.focused {
     background-color: #FFEBEF;
     color: white;
-    border-color: #000;
+    border-color: #ff4053;
 }
 .container-cards.featuresList .card.focused .featureTitle {
     color: #FF4053;
@@ -1764,7 +1764,9 @@ span.ChatSmallDes {
 .PromotionsandOffers .card-subtitle strong {
     color: #FF4053;
 }
-
+.PokerIdDB.nav-tabs li.nav-item {
+    margin-right: 37px;
+}
 .PokerIdDB.nav-tabs .nav-link {
     margin-bottom: -1px;
     background: none;
@@ -1874,7 +1876,166 @@ span.ChatSmallDes {
     border-bottom: 3px solid #28a745;
 }
 
-
+.ContactUS {
+    padding-top: 80px;
+    padding-bottom: 80px;
+    margin: 20px 0;
+    background: url(../topofferbg.svg);
+    background-size: contain;
+}
+.ContactUSHeading {
+    margin-bottom: 50px;
+}
    
+.ContactUSHeading h1 {
+    margin-bottom: 20px;
+    font-size: 40px;
+    color: #FF4053;
+    font-weight: 800;
+}
+.ContactUSHeading p {
+    font-size: 18px;
+    color: #717171;
+    margin: 0;
+}
+.Contactform {
+    box-shadow: 0px 0px 20px #ececec;
+    padding: 10px 0px 10px 10px;
+    border-radius: 10px;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+}
+.ContactInfoleft {
+    padding: 30px 20px;
+    background: #FF4053;
+    width: 40%;
+    border-radius: 10px;
+    color: #fff;
+    min-height: 647px;
+    position: relative;
+    min-width: 435px;
+    overflow: hidden;
+}
+.ContactInfoleft h1 {
+    font-size: 28px;
+}
+.ContactInfoleft p {
+    font-size: 18px;
+    margin: 0;
+}
+.ContactInfoleft ul {
+    margin: 50px 0;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    list-style: none;
+    gap: 50px;
+}
+.ContactInfoleft ul li a {
+    display: flex;
+    gap: 30px;
+    flex-direction: row;
+    align-items: anchor-center;
+    color: #fff;
+    text-decoration: none;
+}
+.ContactInfoleft .socialIcons {
+    display: flex;
+    gap: 14px;
+    flex-direction: row;
+}
+.ContactInfoleft .socialIcons a.socialLink svg path {
+    stroke: #fff;
+    fill: #fff;
+}
+.formsection {
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.formsection .form-control, .form-check-input {
+    border: none;
+    border-bottom: 1px solid #ccc;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.formsection  .form-control:focus {
+    border-bottom: 2px solid #ff4053;
+    outline: none;
+    box-shadow: none;
+}
+.formsection  label.form-label.fw-bold {
+    width: 100%;
+    margin: 0 0 10px;
+}
+.formsection .form-check-input:checked {
+    background-color: #ff4053;
+    border-color: #ff4053;
+    box-shadow: none;
+}
+.formsection .form-check-label {
+    font-size: 12px;
+}
+.formsection .btn-submit {
+    background-color: #ff4053;
+    color: white;
+    padding: 10px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(255, 64, 83, 0.4);
+    border: none;
+    width: 192px;
+    height: 50px;
+    font-size: 16px;
+}
+.formsection .btn-submit:hover {
+    background-color: #e6344a;
+}
+.formsection .form-check-inline {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+}
+.formsection .form-section {
+    max-width: 700px;
+    margin: auto;
+    padding: 2rem;
+    background: #fff;
+}
+.formsection .form-check-inline .form-check-input {
+    margin-top: 0;
+}
+.FormRadio {
+    display: flex;
+    gap: 40px;
+}
+
+.ContactInfoleft:before {
+    content: '';
+    width: 358px;
+    height: 358px;
+    bottom: -32%;
+    right: 14%;
+    background: url(../PokerRed.svg);
+    position: absolute;
+    filter: grayscale(1);
+        opacity: 0.4;
+}
+
+.RetagPage .ContactInfoleft h1 {
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+.RetagPage  .formsection .btn-submit {
+    width: 100%;
+}
+
+
+
+
 
 
