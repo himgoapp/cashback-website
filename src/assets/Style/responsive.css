@@ -2,7 +2,22 @@
 .RakebackNewsletter .inputContainer {
     width: 100%;
 }
+
 }
+@media only screen and (max-width: 1024px) {
+.sidebar_CloseSidebar {
+        display: flex;
+        padding: 0.5rem;
+        justify-content: center;
+        align-items: center;
+        gap: 0.5rem;
+        position: absolute;
+        right: -2.5rem;
+        top: 0.75rem;
+        border-radius: 0.5rem;
+    }
+}
+
 @media only screen and (max-width: 991px) {
 .RakeBackBannerMobile .col-lg-1 {
     display: none;
@@ -56,8 +71,40 @@
     gap: 30px;
     margin: 30px 0 0;
 }
-
-
+.KYCDB .form-row {
+    flex-direction: column;
+}
+.KYCDB .accordion-item
+ {
+    padding: 18px;
+}
+.KYCDB .step-Hed {
+    font-size: 16px;
+}
+.KYCDB .step-number {
+    width: 26px;
+    height: 26px;
+    font-size: 12px;
+}
+.KYCDB .step-header .step-info svg {
+    width: 16px;
+    height: 16px;
+}
+.KYCDB .form-control {
+    border-radius: 9.82px;
+    font-size: 12px;
+    height: 40px;
+    padding: 0 16px;
+}
+.KYCDB .accordion-body {
+    padding: 30px 20px 28px 49px;
+}
+.KYCDB .btn-pink {
+    border-radius: 9.82px;
+    height: 32px;
+    font-size: 12px;
+    width: 90px;
+}
 
 
 }

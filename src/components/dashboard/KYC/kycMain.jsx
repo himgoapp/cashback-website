@@ -73,124 +73,101 @@ const KycMain = () => {
     <DashboardMainTopBottom styles={{ width: "100%" }}>
       <DashboardHomeHeader title="KYC" data={walletData} icon={KYCIcon} />
       <DashboardMain>
-        {userKyc.level !== "4" && (
-          <KycProgress
-            activeIndex={userKyc.level ? parseInt(userKyc.level) : 1}
-          />
-        )}
+          <div className="kyc-container KYCDB">
+              <h5 className="fw-bold KYCheading ">Know Your Customer</h5>
 
-        {userKyc.level === "4" && isKycSuccessful && (
-          <KycStatus
-            status="Successful"
-            message="Your KYC verification has been successfully completed; you now have full access to all features."
-            color="#027A48"
-            colorBg="#ECFDF3"
-            borderColor="#11C15B"
-            retry={true}
-          />
-        )}
+              <div className="accordion" id="kycAccordion">
 
-        {userKyc.level === "4" && !isKycSuccessful && (
-          <KycStatus
-            status="Pending"
-            message="Your KYC verification is currently in progress; thank you for your patience."
-            color="#B54708"
-            colorBg="#FFFAEB"
-            borderColor="#F79009"
-          />
-        )}
+                {/* Step 1: PAN  */}
+                <div className="accordion-item">
+                  <h2 className="accordion-header">
+                    <button className="accordion-button d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePan" aria-expanded="true">
+                      <div className="step-header">
+                        <div className="step-info">
+                          <div className="step-number">1</div>
+                          <div className="step-Hed">PAN</div>
+                          <div className="verifyIcon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect width="24" height="24" rx="12" fill="#28A745"/>
+                              <path d="M18 7.5L9.75 15.75L6 12" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </div>
+                          <div className="RejectIcon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect width="24" height="24" rx="12" fill="#FF0000" fill-opacity="0.99"/>
+                              <path d="M16 8L8 16M8 8L16 16" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                              </svg>
+                          </div>
+                          <i className="bi bi-check-circle-fill check-icon"></i>
+                        </div>
+                        <i className="bi bi-chevron-down ms-auto"></i>
+                      </div>
+                    </button>
+                  </h2>
+                  <div id="collapsePan" className="accordion-collapse collapse show">
+                    <div className="accordion-body">
+                      <div className="form-row mb-3">
+                        <input type="text" className="form-control  " placeholder="Name as per PAN" />
+                        <input type="text" className="form-control  " placeholder="PAN" />
+                      </div>
+                      <button className="btn btn-pink">Verify</button>
+                    </div>
+                  </div>
+                </div>
 
-        {userKyc.level === "4" && !isKycSuccessful && (
-          <>
-            {!userKyc.panApproveStatus &&
-              userKyc.panUploadStatus === "Rejected" && (
-                <KycStatus
-                  status="Rejected"
-                  message={
-                    userKyc.panRejectedMessage ||
-                    "Your PAN verification was rejected."
-                  }
-                  color="#B42318"
-                  colorBg="#FEF3F2"
-                  borderColor="#FF5252"
-                />
-              )}
-            {!userKyc.addressApproveStatus &&
-              userKyc.addressUploadStatus === "Rejected" && (
-                <KycStatus
-                  status="Rejected"
-                  message={
-                    userKyc.addressRejectedMessage ||
-                    "Your address verification was rejected."
-                  }
-                  color="#B42318"
-                  colorBg="#FEF3F2"
-                  borderColor="#FF5252"
-                />
-              )}
-            {!userKyc.bankDetailsApproveStatus &&
-              userKyc.bankDetailsUploadStatus === "Rejected" && (
-                <KycStatus
-                  status="Rejected"
-                  message={
-                    userKyc.bankRejectedMessage ||
-                    "Your bank details verification was rejected."
-                  }
-                  color="#B42318"
-                  colorBg="#FEF3F2"
-                  borderColor="#FF5252"
-                />
-              )}
-          </>
-        )}
+                {/* Step 2: AADHAAR */}
+                <div className="accordion-item">
+                  <h2 className="accordion-header">
+                    <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAadhaar">
+                      <div className="step-header">
+                        <div className="step-info">
+                          <div className="step-number">2</div>
+                          <div className="step-Hed">AADHAAR</div>
+                          <i className="bi bi-check-circle-fill check-icon"></i>
+                        </div>
+                        <i className="bi bi-chevron-down ms-auto"></i>
+                      </div>
+                    </button>
+                  </h2>
+                  <div id="collapseAadhaar" className="accordion-collapse collapse">
+                    <div className="accordion-body">
+                      <div className="form-row mb-3">
+                        <input type="text" className="form-control  " placeholder="AADHAAR Number" />
+                      </div>
+                      <button className="btn btn-pink">Verify</button>
+                    </div>
+                  </div>
+                </div>
 
-        {userKyc.level === "1" && userKyc.statusValue === "Rejected" && (
-          <KycStatus
-            status="Rejected"
-            message={userKyc.rejectedMessage}
-            color="#B42318"
-            colorBg="#FEF3F2"
-            borderColor="#FF5252"
-          />
-        )}
+                {/*  Step 3: Bank Details  */}
+                <div className="accordion-item">
+                  <h2 className="accordion-header">
+                    <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBank">
+                      <div className="step-header">
+                        <div className="step-info">
+                          <div className="step-number">3</div>
+                          <div className="step-Hed">Bank details</div>
+                        </div>
+                        <i className="bi bi-chevron-down ms-auto"></i>
+                      </div>
+                    </button>
+                  </h2>
+                  <div id="collapseBank" className="accordion-collapse collapse show">
+                    <div className="accordion-body">
+                      <div className="form-row mb-3">
+                        <input type="text" className="form-control  " placeholder="Full Name" />
+                        <input type="text" className="form-control  " placeholder="Account Number" />
+                      </div>
+                      <div className="form-row mb-3">
+                        <input type="text" className="form-control" placeholder="IFSC Code" />
+                      </div>
+                      <button className="btn btn-pink">Verify</button>
+                    </div>
+                  </div>
+                </div>
 
-        {userKyc && userKyc.level === "1" ? (
-          <PanCard setStepReload={setStepReload} userKyc={userKyc} />
-        ) : userKyc && userKyc.level === "2" ? (
-          <AddressDetail setStepReload={setStepReload} userKyc={userKyc} />
-        ) : userKyc && userKyc.level === "3" ? (
-          <BankAccDetails setStepReload={setStepReload} userKyc={userKyc} />
-        ) : null}
-
-        {userKyc.level === "4" && isKycSuccessful && (
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Navbtn
-              text="Go to Home"
-              isSuccess={false}
-              style={{
-                color: "white",
-                padding: "10px",
-                fontWeight: "bold",
-                borderRadius: "6px",
-              }}
-              variant="filled"
-              onClick={validatetokenAndRedirect}
-            />
-          </div>
-        )}
-
-        {userKyc.level === "4" && userKyc.statusValue === "Failed" && (
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <Navbtn
-              text="Retry KYC Form"
-              isSuccess={true}
-              variant="filled"
-              setData={() => {
-                setUserKyc({ ...userKyc, level: "1" });
-              }}
-            />
-          </div>
-        )}
+              </div>
+            </div>
       </DashboardMain>
     </DashboardMainTopBottom>
   );
