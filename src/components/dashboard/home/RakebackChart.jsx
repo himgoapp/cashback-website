@@ -27,7 +27,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
   const [userWallet, setUserWallet] = useState(dashboardInfo.userWallet);
   const [showWithdraw, setShowWithdraw] = useState(false);
   const [kycPop, setKycPop] = useState(false);
-  const [chartHeight, setChartHeight] = useState("60vh");
+  // const [chartHeight, setChartHeight] = useState("60vh");
   const [selectedFilter, setSelectedFilter] = useState("thisMonth");
   const [showDateFilter, setShowDateFilter] = useState(false);
   const [startDate, setStartDate] = useState("");
@@ -115,17 +115,9 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
     const handleResize = () => {
       const mobile = window.innerWidth <= 768;
       setIsMobile(mobile);
-
-      if (mobile) {
-        setChartHeight("300px");
-      } else {
-        setChartHeight("330px");
-      }
     };
-
     window.addEventListener("resize", handleResize);
     handleResize();
-
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
@@ -411,218 +403,170 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
           onBalanceUpdate={handleBalanceUpdate}
         />
       )}
+
       {kycPop && <KycPopup setKycPop={setKycPop} />}
 
-      <div
-        className={`${styles.main_container} ${
-          isMobile ? styles.mobile_order_container : ""
-        }`}
-      >
-        {isMobile ? (
-          <>
-            <div className={styles.mobile_first}>
-              <div
-                className={styles.dashboard_card}
-                style={{ backgroundImage: `url(${backgroundImg})` }}
-              >
-                <div>
-                  <div className={styles.dashboard_explore}>
-                    Explore with Rakebackk
+      <div className={styles.main_container}>
+        <>
+          {isMobile && <WithdrawalContainer />}
+          {/* Main chart and dashboard section */}
+          <div
+            style={{
+              flex: 1,
+              minWidth: "300px",
+              maxWidth: "70%",
+              height: "100%",
+            }}
+          >
+            <div className={styles.chart_heading}>Your Game Insights</div>
+
+            <div className={styles.chart_container}>
+              <div className={styles.ChartHeaderButton}>
+                <button
+                  className={activeFilter === "3M" ? styles.active : ""}
+                  onClick={() => setActiveFilter("3M")}
+                >
+                  <span></span>
+                  3M
+                </button>
+                <button
+                  className={activeFilter === "6M" ? styles.active : ""}
+                  onClick={() => setActiveFilter("6M")}
+                >
+                  <span></span>
+                  6M
+                </button>
+                <button
+                  className={activeFilter === "9M" ? styles.active : ""}
+                  onClick={() => setActiveFilter("9M")}
+                >
+                  <span></span>
+                  9M
+                </button>
+              </div>
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  width={500}
+                  height={350}
+                  data={data}
+                  margin={{
+                    top: 5,
+                    right: 30,
+                    left: 30,
+                    bottom: 5,
+                  }}
+                  barSize={28}
+                  radius={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                >
+                  <XAxis
+                    dataKey="name"
+                    scale="point"
+                    padding={{ left: 12, right: 12 }}
+                    radius={{ top: 10, bottom: 10, left: 10, right: 10 }}
+                  />
+                  <YAxis />
+                  <Tooltip />
+                  <Legend />
+                  <CartesianGrid strokeDasharray="0" />
+                  <Bar
+                    dataKey="Total"
+                    fill="#ff4053"
+                    background={{ fill: "#F2F2F2" }}
+                    radius={[10, 10, 10, 10]}
+                  />
+                </BarChart>
+              </ResponsiveContainer>
+              {/* <Line data={chartData} options={chartOptions} /> */}
+            </div>
+
+            <div className="HottestDeals">
+              <div className={styles.wallet_balance_head}>
+                Hottest Deals
+                <img src={Hotdeal} style={{ marginLeft: 9 }} />
+              </div>
+              <div className="HottestDealschild">
+                <div className="deal-card ">
+                  <div className="deal-image">
+                    <img src={ACRPoker} />
                   </div>
-                  <div className={styles.explore}>
-                    <button onClick={validatetokenAndRedirect}>
-                      Explore
-                      <Arrow />
+                  <div className="HottestDealsDesc">
+                    <div className="card-subtitle">Pokerbazzi</div>
+                    <div className="card-title">
+                      Experience the Serenity of Ja...
+                    </div>
+                    <button className="deal-button mt-2 w-100">
+                      Claim Now!
+                    </button>
+                  </div>
+                </div>
+                <div className="deal-card ">
+                  <div className="deal-image">
+                    <img src={ACRPoker} />
+                  </div>
+                  <div className="HottestDealsDesc">
+                    <div className="card-subtitle">Pokerbazzi</div>
+                    <div className="card-title">
+                      Experience the Serenity of Ja...
+                    </div>
+                    <button className="deal-button mt-2 w-100">
+                      Claim Now!
+                    </button>
+                  </div>
+                </div>
+                <div className="deal-card ">
+                  <div className="deal-image">
+                    <img src={ACRPoker} />
+                  </div>
+                  <div className="HottestDealsDesc">
+                    <div className="card-subtitle">Pokerbazzi</div>
+                    <div className="card-title">
+                      Experience the Serenity of Ja...
+                    </div>
+                    <button className="deal-button mt-2 w-100">
+                      Claim Now!
+                    </button>
+                  </div>
+                </div>
+                <div className="deal-card ">
+                  <div className="deal-image">
+                    <img src={ACRPoker} />
+                  </div>
+                  <div className="HottestDealsDesc">
+                    <div className="card-subtitle">Pokerbazzi</div>
+                    <div className="card-title">
+                      Experience the Serenity of Ja...
+                    </div>
+                    <button className="deal-button mt-2 w-100">
+                      Claim Now!
                     </button>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* 2. Withdrawal container */}
-            <div className={styles.mobile_second}>
-              <WithdrawalContainer />
-            </div>
+            <LastTransactions
+              transactionsInfo={dashboardInfo.transactionsInfo}
+            />
+          </div>
 
-            {/* 3. Filter container */}
-            <div className={styles.mobile_third}>
-              <FiltersComponent />
-            </div>
+          {/* Right sidebar section */}
+          <div
+            className={styles.filter_main_container}
+            style={{
+              width: "100%",
+              maxWidth: "300px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "20px",
+            }}
+          >
+            {/* Withdrawal container */}
+            {!isMobile && <WithdrawalContainer />}
 
-            {/* 4. Graph */}
-            <div className={styles.mobile_fourth}>
-              <div className={styles.chart_heading}>
-                Rakeback Earning and Percentage -{" "}
-                {getFilterDisplayName(selectedFilter)}
-              </div>
-              <div className={styles.chart_container}>
-                {/* <Line data={chartData} options={chartOptions} /> */}
-                {/* <BarChart data={chartData} options={chartOptions}></BarChart> */}
-              </div>
-            </div>
-          </>
-        ) : (
-          // Desktop layout
-          <>
-            {/* Main chart and dashboard section */}
-            <div
-              style={{
-                flex: 1,
-                minWidth: "300px",
-                maxWidth: "70%",
-                height: "100%",
-              }}
-            >
-              <div className={styles.chart_heading}>Your Game Insights</div>
-
-              <div className={styles.chart_container}>
-                <div className={styles.ChartHeaderButton}>
-                  <button
-                    className={activeFilter === "3M" ? styles.active : ""}
-                    onClick={() => setActiveFilter("3M")}
-                  >
-                    <span></span>
-                    3M
-                  </button>
-                  <button
-                    className={activeFilter === "6M" ? styles.active : ""}
-                    onClick={() => setActiveFilter("6M")}
-                  >
-                    <span></span>
-                    6M
-                  </button>
-                  <button
-                    className={activeFilter === "9M" ? styles.active : ""}
-                    onClick={() => setActiveFilter("9M")}
-                  >
-                    <span></span>
-                    9M
-                  </button>
-                </div>
-                <ResponsiveContainer width="100%" height="100%">
-                  <BarChart
-                    width={500}
-                    height={350}
-                    data={data}
-                    margin={{
-                      top: 5,
-                      right: 30,
-                      left: 30,
-                      bottom: 5,
-                    }}
-                    barSize={28}
-                    radius={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                  >
-                    <XAxis
-                      dataKey="name"
-                      scale="point"
-                      padding={{ left: 12, right: 12 }}
-                      radius={{ top: 10, bottom: 10, left: 10, right: 10 }}
-                    />
-                    <YAxis />
-                    <Tooltip />
-                    <Legend />
-                    <CartesianGrid strokeDasharray="0" />
-                    <Bar
-                      dataKey="Total"
-                      fill="#ff4053"
-                      background={{ fill: "#F2F2F2" }}
-                      radius={[10, 10, 10, 10]}
-                    />
-                  </BarChart>
-                </ResponsiveContainer>
-                {/* <Line data={chartData} options={chartOptions} /> */}
-              </div>
-
-              <div className="HottestDeals">
-                <div className={styles.wallet_balance_head}>
-                  Hottest Deals
-                  <img src={Hotdeal} style={{ marginLeft: 9 }} />
-                </div>
-                <div className="HottestDealschild">
-                  <div className="deal-card ">
-                    <div className="deal-image">
-                      <img src={ACRPoker} />
-                    </div>
-                    <div className="HottestDealsDesc">
-                      <div className="card-subtitle">Pokerbazzi</div>
-                      <div className="card-title">
-                        Experience the Serenity of Ja...
-                      </div>
-                      <button className="deal-button mt-2 w-100">
-                        Claim Now!
-                      </button>
-                    </div>
-                  </div>
-                  <div className="deal-card ">
-                    <div className="deal-image">
-                      <img src={ACRPoker} />
-                    </div>
-                    <div className="HottestDealsDesc">
-                      <div className="card-subtitle">Pokerbazzi</div>
-                      <div className="card-title">
-                        Experience the Serenity of Ja...
-                      </div>
-                      <button className="deal-button mt-2 w-100">
-                        Claim Now!
-                      </button>
-                    </div>
-                  </div>
-                  <div className="deal-card ">
-                    <div className="deal-image">
-                      <img src={ACRPoker} />
-                    </div>
-                    <div className="HottestDealsDesc">
-                      <div className="card-subtitle">Pokerbazzi</div>
-                      <div className="card-title">
-                        Experience the Serenity of Ja...
-                      </div>
-                      <button className="deal-button mt-2 w-100">
-                        Claim Now!
-                      </button>
-                    </div>
-                  </div>
-                  <div className="deal-card ">
-                    <div className="deal-image">
-                      <img src={ACRPoker} />
-                    </div>
-                    <div className="HottestDealsDesc">
-                      <div className="card-subtitle">Pokerbazzi</div>
-                      <div className="card-title">
-                        Experience the Serenity of Ja...
-                      </div>
-                      <button className="deal-button mt-2 w-100">
-                        Claim Now!
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <LastTransactions
-                transactionsInfo={dashboardInfo.transactionsInfo}
-              />
-            </div>
-
-            {/* Right sidebar section */}
-            <div
-              className={styles.filter_main_container}
-              style={{
-                width: "100%",
-                maxWidth: "300px",
-                display: "flex",
-                flexDirection: "column",
-                gap: "20px",
-              }}
-            >
-              {/* Withdrawal container */}
-              <WithdrawalContainer />
-
-              {/* Events container */}
-              <div className={styles.events_container}></div>
-            </div>
-          </>
-        )}
+            {/* Events container */}
+            <div className={styles.events_container}></div>
+          </div>
+        </>
       </div>
     </>
   );
