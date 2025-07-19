@@ -86,6 +86,11 @@ display: flex
   max-height: 420px;
 } */
 
+@media (max-width: 1199px) {
+  .CardsRow {
+    gap: 0;
+}
+}
 @media (max-width: 768px) {
   .TabFilters {
     gap: 0.5rem;
@@ -94,6 +99,7 @@ display: flex
   .CardsRow {
     flex-direction: row;
   }
+
 }
 
 @media (max-width: 480px) {

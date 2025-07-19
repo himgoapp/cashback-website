@@ -222,7 +222,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
           style={{
             width: "100%",
             padding: "10px",
-            backgroundColor: "#0052cc",
+            backgroundColor: "#ff4053",
             color: "white",
             border: "none",
             borderRadius: "5px",
@@ -240,7 +240,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
   // Withdrawal container component extracted for reuse
   const WithdrawalContainer = () => (
     <>
-      <div className={styles.wallet_balance_head}>Your Balance</div>
+      <div className={styles.wallet_balance_head}>Your Balance </div>
       <div className={styles.withdrawal_container}>
         <svg
           width="72"
@@ -470,7 +470,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                 flex: 1,
                 minWidth: "300px",
                 maxWidth: "70%",
-                height: chartHeight,
+                height: "100%",
               }}
             >
               <div className={styles.chart_heading}>Your Game Insights</div>

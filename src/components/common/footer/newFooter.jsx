@@ -7,7 +7,7 @@ const NewFooter = () => {
       <footer className='container-fluid customFooter'>
           <div className='container'>
             <div className='row'>
-                <div className='col-lg-4 col-md-12'>
+                <div className='col-lg-4 col-md-12 col-sm-12'>
                     <div className="brandSection">
                       <div className="brandLogo">
                         <img src={RakeBackLogoWhite} width={197} height={57} />
@@ -37,9 +37,9 @@ const NewFooter = () => {
                       </div>
                     </div>
                 </div>
-                <div className='col-lg-4 col-md-12'>
+                <div className='col-lg-4 col-md-6  col-sm-12'>
                     <div className='row'>
-                        <div className='col-lg-6 col-lg-6 col-md-4 col-sm-6 footerLinksContainer'>
+                        <div className='col-lg-6 col-lg-6 col-md-6 col-sm-12  footerLinksContainer'>
                             <div className="footerSection">
                               <h3 className="sectionTitle">About us</h3>
                               <ul className="sectionLinks">
@@ -51,7 +51,7 @@ const NewFooter = () => {
                               </ul>
                             </div>
                         </div>
-                        <div className='col-lg-6 col-lg-6 col-md-4 col-sm-6 footerLinksContainer'>
+                        <div className='col-lg-6 col-lg-6 col-md-6 col-sm-12 footerLinksContainer'>
                             <div className="footerSection">
                               <h3 className="sectionTitle">Services</h3>
                               <ul className="sectionLinks">
@@ -65,9 +65,9 @@ const NewFooter = () => {
                         </div>
                     </div>
                 </div>
-                <div className='col-lg-4  col-md-12'>
+                <div className='col-lg-4  col-md-6 col-sm-12'>
                     <div className='row'>
-                        <div className='col-lg-6 col-lg-6 col-md-4 col-sm-6 footerLinksContainer'>
+                        <div className='col-lg-6 col-lg-6 col-md-6 col-sm-12 footerLinksContainer'>
                             <div className="footerSection">
                               <h3 className="sectionTitle">Portfolio</h3>
                               <ul className="sectionLinks">
@@ -79,7 +79,7 @@ const NewFooter = () => {
                               </ul>
                             </div>
                         </div>
-                        <div className='col-lg-6 col-lg-6 col-md-4 col-sm-6 footerLinksContainer'>
+                        <div className='col-lg-6 col-lg-6 col-md-6 col-sm-12  footerLinksContainer'>
                             <div className="footerSection">
                               <h3 className="sectionTitle">Contact us</h3>
                               <ul className="sectionLinks">

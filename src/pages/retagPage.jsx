@@ -35,12 +35,17 @@ const RetagPage = () => {
                                   <p className="RetagDesc"><b>Please note: </b><br/>This process can take up to 2-5 working days to complete so please be patient with us while we work on it. We will email you with details when we have them. 
 If it turns out your account is already tracked/tagged to another affiliate, it will normally be because of a cookie placed on your computer (as a result of clicking a banner/advert for that poker room some time ago). The affiliate you are tagged to is almost certainly NOT a rakeback affiliate and the room will not tell us who it is sorry!</p>
                               </div>
-                              <div class="col-md-12 mb-3 mt-3">
-                                <select  class="form-control" >
-                                    <option>Select Poker Room</option>
-                                    <option>Select Poker Room</option>
-                                    <option>Select Poker Room</option>
-                                </select>
+                              <div class="col-md-12 mb-3 mt-3 ">
+                                <div className="form-container ">
+                                    <div  className="formControl">
+                                          <select  class="form-control form-select" >
+                                            <option selected>Select Poker Room</option>
+                                            <option>Select Poker Room</option>
+                                            <option>Select Poker Room</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                
                               </div>
                               <div className="col-lg-12 mb-3 text-center">Before we can handle your retag request, please login to your RakeTheRake account or register below.</div>
                             </div>

@@ -1,24 +1,220 @@
-@media only screen and (max-width: 1100px) {
+@media only screen and (max-width: 1199px) {
 .RakebackNewsletter .inputContainer {
     width: 100%;
 }
+.HottestDeals.HottestDealsDashboard {
+    margin-bottom: 30px;
+}
+.GetStartedCard .card {
+    height: 100%;
+}
+.formsection {
+    padding: 30px;
+}
+.PokerCardsContainer_CardItem__Mw8nG {
+    flex-basis: unset;
+    margin-bottom: 20px;
+    width: 32%;
+}
+.pokerCard_DateContainer__wXxoP {
+    text-align: right;
+}
+.pokerCard_PokerCard__ovT04 {
+    padding: 26px 24px;
+}
+.dashboardMain_dashboard_container__YEqgc {
+    gap: 0;
+    padding: 0 1rem;
+}
+.LastTransactionTable.table-responsive table.table.align-middle tr th {
+    font-size: 15px !important;
+}
+.LastTransactionTable.table-responsive table.table.align-middle tr td {
+    font-size: 15px !important;
+}
+.LastTransactionTable.table-responsive table.table.align-middle tr td .d-flex.align-items-center span.rounded-circle.d-flex.justify-content-center.align-items-center.border{
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+}
+
+
+
+
 
 }
 @media only screen and (max-width: 1024px) {
 .sidebar_CloseSidebar {
-        display: flex;
-        padding: 0.5rem;
-        justify-content: center;
-        align-items: center;
-        gap: 0.5rem;
-        position: absolute;
-        right: -2.5rem;
-        top: 0.75rem;
-        border-radius: 0.5rem;
-    }
+    display: flex;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    right: -2.5rem;
+    top: 0.75rem;
+    border-radius: 0.5rem;
+}
+.Contactform {
+    flex-direction: column;
+}
+.ContactInfoleft {
+    padding: 24px 0;
+    min-height: 100%;
+    min-width: 100%;
+    text-align: center;
+}
+.ContactInfoleft ul
+ {
+    margin: 36px 0;
+    gap: 36px;
+}
+.ContactInfoleft ul li a {
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.ContactInfoleft .socialIcons {
+    gap: 17px;
+    justify-content: center;
+}
+.ContactInfoleft:before {
+    content: '';
+    width: 358px;
+    height: 358px;
+    bottom: 50%;
+    right: -50%;
+    background: url(../PokerRed.svg);
+    position: absolute;
+    filter: grayscale(1);
+    opacity: 0.4;
+    transform: translate(-80%, 50%);
+            z-index: 1;
+}
+.ContactInfoleft:after {
+    content: '';
+    width: 358px;
+    height: 358px;
+    bottom: 50%;
+    left: 10%;
+    background: url(../PokerRed.svg);
+    position: absolute;
+    filter: grayscale(1);
+    opacity: 0.4;
+    transform: translate(-80%, 50%);
+            z-index: 1;
+}
+.formsection .col-md-6 {
+    margin-bottom: 20px;
+}
+.formsection .row.mb-4 {
+    margin-bottom: 0px !important;
+}
+.formsection .form-label
+ {
+    margin-bottom: 0.5rem;
+    font-size: 12px;
+    color: #000;
+    width: 100%;
+    font-weight: 600;
+}
+.formsection input.form-control
+ {
+    padding: 10px 0;
+}
+.FormRadio {
+    flex-wrap: wrap;
+    gap: 0;
+}
+.formsection .form-check-inline {
+    margin: 0 0 10px;
+    width: 50%;
+}
+.formsection .btn-submit {
+    width: 100%;
+}
+.Contactform {
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+}
+ .HottestDealschild {
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+        padding: 12px;
+} 
+.deal-card
+ {
+    width: calc(33% - 10px);
+}  
+.deal-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+.deal-button {
+    font-size: 12px;
+}
+.card-title {
+    font-size: 12px;
+}
+
 }
 
 @media only screen and (max-width: 991px) {
+
+.PokerCardsContainer_CardsRow__MIgsp {
+    justify-content: space-between;
+    gap: 0;
+}
+.container-fluid.ContactUS.RetagPage .ContactInfoleft{
+    padding: 24px;
+}
+.formsection {
+    padding: 30px 0;
+}
+.ContactInfoleft:before {
+    width: 250px;
+    height: 250px;
+    bottom: -40px;
+    right: -50px;
+    transform: unset;
+}
+.ContactInfoleft:after {
+    content: '';
+    width: 250px;
+    height: 250px;
+    bottom: -40px;
+    left: -50px;
+    transform: unset;
+}
+
+button.navbar-toggler {
+background: url(../Logos_and_illustration/Menu.svg);
+ background-size: 24px 24px;
+        background-repeat: no-repeat;
+        background-position: center;
+        position: absolute;
+        left: 6px;
+        top: 20px;
+}
+.navbar-brand {
+    position: relative;
+    left: 50px;
+}
+.RakebackFeaturedBlog .tabsContainer {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+.RakebackWhyChooseUS .GetStartedhead {
+    text-align: center;
+}
+.RakebackWhyChooseUS .GetStartedhead .subtitle {
+    max-width: 100%;
+}
 .RakeBackBannerMobile .col-lg-1 {
     display: none;
 }
@@ -50,12 +246,12 @@
     border-bottom: 1px solid #848484;
 }
 .RakebackFeaturedBlog .sidePost {
-    width: 95%;
+    width: 97%;
     padding: 10px 10px;
     margin: 20px auto 0;
 }
 .GetStartedCard {
-    margin-bottom: 24px;
+    margin-bottom: 44px;
 }
 .RakebackFAQ .moreQuestionsActions {
     flex-direction: row;
@@ -105,32 +301,288 @@
     font-size: 12px;
     width: 90px;
 }
-
-
+.customFooter {
+    padding-top: 48px;
+    padding-bottom: 48px;
 }
-
-
-@media only screen and (max-width: 575px) {
-
-.navbar-brand {
-    width: 153px;
+.customFooter .brandSection {
+    padding-bottom: 40px;
+    border-bottom: 1px solid #808080;
+    margin-bottom: 40px;
 }
-.navbar-brand svg {
+.footerLinksContainer {
+    width: 50%;
+}
+.RakebackNewsletter .form {
+    margin-top: 30px;
     width: 100%;
 }
-.RakebackHeader button.signin_button {
-    width: 130px;
+.RakebackNewsletter .GetStartedhead {
+    text-align: center;
 }
-.RakebackHeader button.signin_button svg.bi.bi-arrow-right {
-    display: none;
+.RakebackNewsletter .GetStartedhead .subtitle {
+    max-width: 100%;
 }
-.RakebackHeader {
-    padding: 0;
+.navbar-toggler:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: none;
 }
+.RetagPage .ContactInfoleft h1, .ContactInfoleft p
+ {
+    z-index: 9;
+    position: relative;
+}
+.PokerIdDBDesc .form-container .formControl.d-flex {
+    flex-direction: column;
+    justify-content: center;
+}
+.formControl .InputDB {
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+}
+.PokerIdDBDesc .form-container {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"]:before {
+    content: '';
+    width: 240px;
+    height: 240px;
+    bottom: 50%;
+    right: -322px;
+    background: url(../PokerRed.svg);
+    position: absolute;
+    filter: unset;
+    opacity: 1;
+    transform: translate(-80%, 50%);
+    z-index: 1;
+    top: unset;
+}
+.PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"]:after {
+    content: '';
+    width: 240px;
+    height: 240px;
+    bottom: 50%;
+    left: 10%;
+    background: url(../PokerRed.svg);
+    background-size: 100% 100% !important;
+    position: absolute;
+    filter: unset;
+    opacity: 1;
+    transform: translate(-80%, 50%);
+    z-index: 1;
+    top: unset;
+}
+
+.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:before {
+    content: '';
+    width: 240px;
+    height: 240px;
+    bottom: 50%;
+    right: -322px;
+    background: url(../PokerGreen.svg);
+    position: absolute;
+    filter: unset;
+    opacity: 1;
+    transform: translate(-80%, 50%);
+    z-index: 1;
+    top: unset;
+}
+.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:after {
+    content: '';
+    width: 240px;
+    height: 240px;
+    bottom: 50%;
+    left: 10%;
+    background: url(../PokerGreen.svg);
+    background-size: 100% 100% !important;
+    position: absolute;
+    filter: unset;
+    opacity: 1;
+    transform: translate(-80%, 50%);
+    z-index: 1;
+    top: unset;
+}
+.PromotionsandOffers .deal-card {
+    flex-direction: column;
+    gap: 10px;
+}
+.PromotionsandOffers .deal-image {
+    width: 100%;
+    height: 184px;
+    min-width: 100%;
+}
+.PromotionsandOffers .card-title
+ {
+    font-size: 20px;
+}
+.PromotionsandOffers .card-subtitle {
+    font-size: 16px;
+}
+.myTransactionMain_SectionHeading__Asx\+A {
+    margin-bottom: 20px;
+}
+.LastTransactionSection.TransactionTableDB
+ {
+    margin-top: 30px;
+}
+.LastTransactionTable .table thead tr th, .LastTransactionTable .table tbody tr td
+ {
+    padding: 10px 10px;
+}
+.dropdown-menu.show {
+    display: block;
+    background: #fff !important;
+    z-index: 99999999 !important;
+}
+
+}
+
+
+@media only screen and (max-width: 768px) {
+    .RakebackHeader {
+    padding: 15px 0;
+}
+    button.navbar-toggler {
+        top: 14px;
+    }
+    .navbar-brand {
+         width: 153px;
+        left: 43px;
+    }
+    .navbar-brand svg {
+    width: 100%;
+}
+
 .navbar {
     padding-top: 0;
     padding-bottom: 0;
 }
+.ContactUS {
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+.PokerCardsContainer_CardItem__Mw8nG {
+        margin-bottom: 20px;
+        width: 48%;
+    }
+.pokerCard_CardContent__xoZKU {
+        padding: 1rem 0 0;
+    }
+.pokerCard_Head__vDoFy
+ {
+    font-size: 12px;
+    font-weight: 800;
+}    
+.pokerCard_PokerCard__ovT04 {
+    padding: 15px 14px;
+}
+.pokerCard_ImageWrapper__Rfq0T {
+    width: 42px;
+    height: 42px;
+}    
+.pokerCard_FooterContent__2U0hu {
+    padding: 0.875rem 14px  0rem;
+}
+.pokerCard_StatusContainer__zraqe {
+    top: -2px;
+    right: 7px;
+}
+.pokerCard_StatusBadge__1QgRj span {
+    font-size: 8px;
+}
+.pokerCard_StatusIndicator__9miHg svg {
+    width: 10px;
+    height: 10px;
+}
+.PokerCardsContainer_TabButton__MxDKR {
+    font-size: 14px;
+}
+.pokerID_MainPokerIdContainer__SJvaL {
+    gap: 0;
+    padding: 15px 15px;
+    background: transparent;
+    border-radius: 40px;
+}
+.PokerIdDB.nav-tabs .nav-link.active, .PokerIdDB.nav-tabs .nav-item.show .nav-link {
+    background: transparent;
+    font-size: 16px;
+}
+.PokerCardsContainer_PokerCardsContainer__59o8u ul#pokerTab {
+    margin: 0 !important;
+}
+.PokerIdDBDesc .tab-pane {
+    width: 100%;
+    padding: 36px 28px;
+ }
+.PokerIdDB.nav-tabs .nav-link {
+    font-size: 16px;
+}
+.userProfile_column__7yuiv {
+    flex-direction: column;
+}
+.userProfile_fieldLabel__aXiP6 {
+    font-size: 12px;
+    min-width: 112px;
+}
+.userProfile_container__JFHoK {
+    padding: 20px;
+}
+
+.userProfile_fieldText__jVAo6 {
+    font-size: 12px;
+}
+
+
+
+}
+
+@media only screen and (max-width: 575px) {
+    .dropdown .NotificationButton {
+    width: 40px;
+    height: 40px;
+}
+.userProfile_kycDetailLabel__OPY7a {
+    font-size: 12px;
+    min-width: 122px;
+}
+.userProfile_kycSection__6Ti8e {
+    padding: 16px 0;
+}
+.userProfile_kycDetailValue__xhxO9 {
+    font-size: 12px;
+}
+.dropdown .NotificationButton svg {
+    width: 100%;
+    height: 100%;
+    scale: unset;
+}
+.RakebackTrustedPoker .titleAccent {
+    display: flex;
+}
+button.navbar-toggler {
+    top: 14px;
+    padding-left: 0;
+    padding-right: 0;
+}
+.pokerCard_FooterContent__2U0hu {
+        padding: 0.875rem 0px 0rem;
+    }
+.navbar-brand {
+        left: 28px;
+    }
+.RakebackHeader button.signin_button {
+    width: 100%;
+    padding: 0 20px;
+}
+.RakebackHeader button.signin_button svg.bi.bi-arrow-right {
+    display: none;
+}
+
+
 .RakeBackBanner .pokerCardheroBanner {
     top: -50px;
     width: 53px;
@@ -151,6 +603,7 @@
     height: 341px;
     z-index: 3;
 }
+
 .RakeBackBanner .chipBannerRight {
     width: 39px;
     height: 114px;
@@ -196,11 +649,86 @@
 .RakebackTrustedPoker {
     padding-top: 48px;
     padding-bottom: 48px;
+    position: relative;
 }
-.GetStartedCard .stepNumber {
+.RakebackTrustedPoker:before {
+    content: '';
+    position: absolute;
+    top: 30px;
+    right: 10px;
+    width: 57px;
+    height: 121px;
+    background: url(../TrustedHomepage.svg);
+}
+.ContactInfoleft:before {
+    width: 150px;
+    height: 150px;
+    bottom: 10px;
+    right: -60px;
+    transform: unset;
+    background-size: contain;
+}
+.ContactInfoleft:after {
+    content: '';
+    width: 150px;
+    height: 150px;
+    bottom: 10px;
+    left: -60px;
+    transform: unset;
+    background-size: contain;
+}
+span.ChatSmallDes {
+    display: none;
+}
+.faqcontainer .actionButton {
+    flex-direction: row;
+    padding: 20px 10px;
+    align-items: center;
+    font-size: 12px;
+    justify-content: flex-start;
+    gap: 10px;
+}
+.faqcontainer .actionIcon {
+    margin-right: 0;
+}
+.faqcontainer .arrowIcon {
+    right: 0;
+    top: 23px;
+}
+.faq_container .GetINtouchHedhero .title
+ {
+    display: none;
+}
+
+
+.moreQuestionsActionsFAQ.GetINtouch span.ChatSmallDes {
+    display: block;
+    font-size: 12px;
+}
+.faqcontainer  .moreQuestionsActionsFAQ.GetINtouch .actionButton {
+    flex-direction: column;
+    padding: 20px;
+    align-items: flex-start;
+    font-size: 17px;
+    justify-content: flex-start;
+}
+.faqcontainer .moreQuestionsActionsFAQ.GetINtouch .actionIcon {
+    margin-right: 0;
+}
+.faqcontainer .moreQuestionsActionsFAQ.GetINtouch .arrowIcon {
+    right: 5px;
+    top: 23px;
+}
+
+
+
+.GetStartedCard .stepNumber
+ {
         position: unset;
         margin-right: 20px;
-}
+        font-size: 80px;
+        min-width: 45px;
+    }
 .GetStartedCard .card {
         display: flex;
         flex-direction: row;
@@ -315,26 +843,50 @@
 .RakebackNewsletter .form {
     width: 100%;
 }
-.customFooter {
-    padding-top: 48px;
-    padding-bottom: 48px;
-}
-.customFooter .brandSection {
-    padding-bottom: 40px;
-    border-bottom: 1px solid #808080;
-    margin-bottom: 40px;
-}
-.footerLinksContainer {
-    width: 50%;
-}
+
 .copyrightText {
     margin-top: 40px !important;
     font-size: 12px;
 }
-
-
-
-
+.RakebackNewsletter {
+    position: relative;
+    margin-top: 160px;
+}
+.RakebackNewsletter {
+    position: relative;
+    margin-top: 122px;
+    padding-top: 100px;
+}
+.RakebackNewsletter:before {
+    content: '';
+    position: absolute;
+    top: 0;       
+    width: 123px;
+    height: 122px;
+    background-size: contain !important;
+    background-position: center;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background-repeat: no-repeat !important;
+    background: url(../NewsletterIcon.svg);
+     z-index: 2;
+}
+.RakebackNewsletter:after {
+    content: '';
+    position: absolute;
+    top: -60px;
+    width: 100%;
+    height: 122px;
+    background-size: contain !important;
+    background-position: center;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background-color: #fff;
+    background-repeat: no-repeat !important;
+    background-image: url(../newsletterbackground.svg);
+    z-index: 1;
+        opacity: 0.5;
+}
 
 
 

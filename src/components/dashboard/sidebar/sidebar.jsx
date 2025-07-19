@@ -18,20 +18,20 @@ import logout from "../../../assets/logout.svg";
 const Sidebar = ({ active }) => {
   const { showSidebar, setShowSidebar, userData } = useContext(UserContext);
   const [data, setData] = useState({});
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
   useEffect(() => {
     setData(userData && userData.phoneNumber ? userData : {});
 
-    if (window.innerWidth < 768) {
+    if (window.innerWidth < 1024) {
       setShowSidebar(false);
     } else {
       setShowSidebar(true);
     }
 
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768);
-      if (window.innerWidth >= 768) {
+      setIsMobile(window.innerWidth < 1024);
+      if (window.innerWidth >= 1024) {
         setShowSidebar(true);
       }
     };

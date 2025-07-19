@@ -12,9 +12,9 @@ const CenterSlider = () => {
     slidesToShow: 3,
     autoplay: false,
     dots: true,
-    responsive: [
-      {
-        breakpoint: 768,
+    responsive: [+
+        {
+        breakpoint: 991,
         settings: {
           arrows: false,
           centerMode: true,
@@ -23,11 +23,20 @@ const CenterSlider = () => {
         },
       },
       {
-        breakpoint: 480,
+        breakpoint: 768,
         settings: {
           arrows: false,
           centerMode: true,
           centerPadding: "40px",
+          slidesToShow: 1,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          arrows: false,
+          centerMode: true,
+          centerPadding: "0px",
           slidesToShow: 1,
         },
       },

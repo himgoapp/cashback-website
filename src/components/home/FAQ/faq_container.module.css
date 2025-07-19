@@ -42,7 +42,8 @@ color: #000;
     line-height: 1.2;
     margin: 40px 0 36px;
     font-size: 37.24px;
-    text-align: left;}
+    text-align: left;
+  }
 
 .hero_subtitle {
     color: #000000;
@@ -358,6 +359,13 @@ width: 100%;
   
 }
 
+
+@media only screen and (max-width: 480px) {
+.GetINtouchHedhero_title{
+  display: none;
+  }
+
+}
 @media only screen and (max-width: 480px) {
   .hero_title {
     font-size: 1.8rem;
