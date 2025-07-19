@@ -443,6 +443,44 @@ background: url(../Logos_and_illustration/Menu.svg);
 
 
 @media only screen and (max-width: 768px) {
+.rakeback_chart_wallet_balance__nV-NK {
+    font-size: 33px;
+}
+.DesktopVIew{
+    display: none;
+}
+.MobileView{
+    display: block;
+    width: 100%;
+}
+
+.MobileView .rakeback_chart_withdrawal_container__vh81U {
+    display: flex
+;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+        padding: 30px;
+}
+.MobileViewDesc {
+    display: flex
+;
+    flex-direction: column;
+    gap: 20px;
+}
+.rakeback_chart_withdrawal_button__zHX8l {
+
+    font-size: 12px;
+    height: 36px;
+}
+.rakeback_chart_events_container__fJFAI {
+    width: 100%;
+    max-width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    gap: 20px;
+}
     .RakebackHeader {
     padding: 15px 0;
 }
@@ -888,10 +926,49 @@ span.ChatSmallDes {
         opacity: 0.5;
 }
 
+.pokerCard_DateValue__DZzo9 {
+    font-size: 12px;
+}
+.pokerCard_Id__T0ewt {
+    font-size: 12px;
+}
+    .LastTransactionTable.table-responsive table.table.align-middle tr th {
+        width: 230px !important;
+        min-width: 179px !important;
+    }
+.myTransactionMain_TabContent__SqHKX {
+        width: 100%;
+        overflow: scroll;
+    }
 
 
+}
 
+@media only screen and (max-width: 480px) {
 
+.PokerIdDBDesc .form-container {
+        width: 100%;
+    }
+    .PokerIdDB.nav-tabs li.nav-item {
+    margin-right: 15px;
+}
+.PokerIdDB.nav-tabs .nav-link, .PokerIdDB.nav-tabs .nav-link.active, .PokerIdDB.nav-tabs .nav-item.show .nav-link {
+        font-size: 14px;
+    }
+    .KYCDB .step-info {
+    gap: 14px;
+}
+    .KYCDB .accordion-body {
+        padding: 30px 20px 28px 39px;
+    }
+ .MobileView   .rakeback_chart_withdraw_icon__cOhWP {
+        width: 62px;
+        height: 62px;
+    }
 
+.MobileView .rakeback_chart_withdrawal_container__vh81U {
 
+        gap: 30px;
+        padding: 30px 20px;
+    }
 }

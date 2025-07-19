@@ -1861,7 +1861,9 @@ span.ChatSmallDes {
     transform: scale(1.7);
     background: url(../PokerGreen.svg);
 }
-
+.MobileView{
+    display: none;
+}
 .PokerIdDBDesc .form-container {
     flex-direction: column;
     width: 70%;
