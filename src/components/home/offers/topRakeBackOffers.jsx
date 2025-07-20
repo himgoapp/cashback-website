@@ -1,37 +1,38 @@
-import React, { useState, useEffect } from 'react';
-import { Star, Check } from 'lucide-react';
-import styles from './topOffers.module.css';
-import offerImage from "../../../assets/Logos_and_illustration/offerImage.png"
-import offerStar from "../../../assets/Logos_and_illustration/offerStar.svg"
-import { getVendors } from '../../../servicefile/partnerservice';
-import  SimpleSlider  from './slider';
-import OfferSignup from '../../offerAndDeal/signup/signup';
-import OfferSlider from './Slidernew.jsx';
+import React, { useState, useEffect } from "react";
+import { Star, Check } from "lucide-react";
+import styles from "./topOffers.module.css";
+import offerImage from "../../../assets/Logos_and_illustration/offerImage.png";
+import offerStar from "../../../assets/Logos_and_illustration/offerStar.svg";
+import { getVendors } from "../../../servicefile/partnerservice";
+import SimpleSlider from "./slider";
+import OfferSignup from "../../offerAndDeal/signup/signup";
+import OfferSlider from "./Slidernew.jsx";
+import CarouselSlider from "../deals/CarouselSlider.jsx";
 
 const topRakeBackOffers = () => {
-
   return (
-        <>
-          <div className="container-fluid RakeBackTopOffers">
-            <div className="container">
-                <div className="row">
-                    <div className="col-lg-12 text-center">
-                      <h1 className="title">
-                        Top Rakeback <span className="titleAccent">Offers</span>
-                      </h1>
-                      <p className="subtitle">
-                        Get unbeatable rakeback deals from India's most trusted poker sites.
-                      </p>
-                    </div>
-                    <div className="col-lg-12">
-                      {/* <OfferSlider></OfferSlider> */}
-                      <SimpleSlider/>
-                    </div>
-                </div>
-              </div>
+    <>
+      <div className="container-fluid RakeBackTopOffers">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-12 text-center">
+              <h1 className="title">
+                Top Rakeback <span className="titleAccent">Offers</span>
+              </h1>
+              <p className="subtitle">
+                Get unbeatable rakeback deals from India's most trusted poker
+                sites.
+              </p>
+            </div>
+            <div className="col-lg-12">
+              <CarouselSlider />
+              {/* <OfferSlider></OfferSlider> */}
+              {/* <SimpleSlider/> */}
+            </div>
           </div>
-
-        </>
+        </div>
+      </div>
+    </>
   );
 };
 
