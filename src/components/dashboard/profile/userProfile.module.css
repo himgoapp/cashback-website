@@ -90,8 +90,7 @@
   margin: 0;
 }
 
-@media (min-width: 768px) {
-}
+
 
 .column {
   width: 100%;
@@ -738,22 +737,29 @@
 
 /* Responsive (Mobile) */
 @media only screen and (max-width: 768px) {
-    .userProfile .container {
+     .container {
         padding: 20px;
     }
-        .userProfile .column {
+         .column {
         flex-direction: column;
     }
-      .userProfile .fieldLabel {
+       .fieldLabel {
         font-size: 12px;
         min-width: 112px;
     }
-        .userProfile .fieldText{
+       .fieldText , .kycDetailValue{
         font-size: 12px;
     }
+    .sectionTitle {
+    padding-top: 0;
+}
+.kycDetailLabel {
+    font-size: 12px;
+    min-width: 112px;
+}
 }
 @media only screen and (max-width: 575px) {
-.dashboardMain .userProfile .formField{
+ .formField{
     padding: 16px 0;
 }
 }
@@ -774,4 +780,10 @@
     margin-bottom: 20vh;
     padding: 16px;
   }
+  
+}
+@media only screen and (max-width: 420px) {
+.formField {
+    gap: 8px;
+}
 }

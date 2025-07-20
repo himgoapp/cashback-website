@@ -2248,7 +2248,9 @@ span.ChatSmallDes {
 .KYCDB .accordion-body {
     padding: 30px 20px 28px 60px;
 }
-
+ .dropdown-menu.NavbarDropdown {
+    z-index: 999999999 !important;
+}
  .dropdown-menu.NavbarDropdown.show {
     display: block;
     max-width: 480px;
@@ -2257,6 +2259,7 @@ span.ChatSmallDes {
     display: flex;
     flex-direction: column;
     border: none;
+    z-index: 999999999 !important;
 }
  .dropdown-menu.NavbarDropdown.show li {
     display: flex;
