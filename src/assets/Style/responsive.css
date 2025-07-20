@@ -1,50 +1,50 @@
 @media only screen and (max-width: 1199px) {
-.RakebackNewsletter .inputContainer {
+  .RakebackNewsletter .inputContainer {
     width: 100%;
-}
-.HottestDeals.HottestDealsDashboard {
+  }
+  .HottestDeals.HottestDealsDashboard {
     margin-bottom: 30px;
-}
-.GetStartedCard .card {
+  }
+  .GetStartedCard .card {
     height: 100%;
-}
-.formsection {
+  }
+  .formsection {
     padding: 30px;
-}
-.PokerCardsContainer_CardItem__Mw8nG {
+  }
+  .PokerCardsContainer_CardItem__Mw8nG {
     flex-basis: unset;
     margin-bottom: 20px;
     width: 32%;
-}
-.pokerCard_DateContainer__wXxoP {
+  }
+  .pokerCard_DateContainer__wXxoP {
     text-align: right;
-}
-.pokerCard_PokerCard__ovT04 {
+  }
+  .pokerCard_PokerCard__ovT04 {
     padding: 26px 24px;
-}
-.dashboardMain_dashboard_container__YEqgc {
+  }
+  .dashboardMain_dashboard_container__YEqgc {
     gap: 0;
     padding: 0 1rem;
-}
-.LastTransactionTable.table-responsive table.table.align-middle tr th {
+  }
+  .LastTransactionTable.table-responsive table.table.align-middle tr th {
     font-size: 15px !important;
-}
-.LastTransactionTable.table-responsive table.table.align-middle tr td {
+  }
+  .LastTransactionTable.table-responsive table.table.align-middle tr td {
     font-size: 15px !important;
-}
-.LastTransactionTable.table-responsive table.table.align-middle tr td .d-flex.align-items-center span.rounded-circle.d-flex.justify-content-center.align-items-center.border{
+  }
+  .LastTransactionTable.table-responsive
+    table.table.align-middle
+    tr
+    td
+    .d-flex.align-items-center
+    span.rounded-circle.d-flex.justify-content-center.align-items-center.border {
     width: 24px;
     height: 24px;
     font-size: 14px;
-}
-
-
-
-
-
+  }
 }
 @media only screen and (max-width: 1024px) {
-.sidebar_CloseSidebar {
+  .sidebar_CloseSidebar {
     display: flex;
     padding: 0.5rem;
     justify-content: center;
@@ -54,34 +54,33 @@
     right: -2.5rem;
     top: 0.75rem;
     border-radius: 0.5rem;
-}
-.Contactform {
+  }
+  .Contactform {
     flex-direction: column;
-}
-.ContactInfoleft {
+  }
+  .ContactInfoleft {
     padding: 24px 0;
     min-height: 100%;
     min-width: 100%;
     text-align: center;
-}
-.ContactInfoleft ul
- {
+  }
+  .ContactInfoleft ul {
     margin: 36px 0;
     gap: 36px;
-}
-.ContactInfoleft ul li a {
+  }
+  .ContactInfoleft ul li a {
     text-align: center;
     justify-content: center;
     flex-direction: column;
     gap: 12px;
-}
+  }
 
-.ContactInfoleft .socialIcons {
+  .ContactInfoleft .socialIcons {
     gap: 17px;
     justify-content: center;
-}
-.ContactInfoleft:before {
-    content: '';
+  }
+  .ContactInfoleft:before {
+    content: "";
     width: 358px;
     height: 358px;
     bottom: 50%;
@@ -91,10 +90,10 @@
     filter: grayscale(1);
     opacity: 0.4;
     transform: translate(-80%, 50%);
-            z-index: 1;
-}
-.ContactInfoleft:after {
-    content: '';
+    z-index: 1;
+  }
+  .ContactInfoleft:after {
+    content: "";
     width: 358px;
     height: 358px;
     bottom: 50%;
@@ -104,251 +103,245 @@
     filter: grayscale(1);
     opacity: 0.4;
     transform: translate(-80%, 50%);
-            z-index: 1;
-}
-.formsection .col-md-6 {
+    z-index: 1;
+  }
+  .formsection .col-md-6 {
     margin-bottom: 20px;
-}
-.formsection .row.mb-4 {
+  }
+  .formsection .row.mb-4 {
     margin-bottom: 0px !important;
-}
-.formsection .form-label
- {
+  }
+  .formsection .form-label {
     margin-bottom: 0.5rem;
     font-size: 12px;
     color: #000;
     width: 100%;
     font-weight: 600;
-}
-.formsection input.form-control
- {
+  }
+  .formsection input.form-control {
     padding: 10px 0;
-}
-.FormRadio {
+  }
+  .FormRadio {
     flex-wrap: wrap;
     gap: 0;
-}
-.formsection .form-check-inline {
+  }
+  .formsection .form-check-inline {
     margin: 0 0 10px;
     width: 50%;
-}
-.formsection .btn-submit {
+  }
+  .formsection .btn-submit {
     width: 100%;
-}
-.Contactform {
+  }
+  .Contactform {
     padding: 0;
     background: transparent;
     box-shadow: none;
-}
- .HottestDealschild {
+  }
+  .HottestDealschild {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
-        padding: 12px;
-} 
-.deal-card
- {
+    padding: 12px;
+  }
+  .deal-card {
     width: calc(33% - 10px);
-}  
-.deal-card img {
+  }
+  .deal-card img {
     width: 100%;
     height: 100%;
     object-fit: fill;
-}
-.deal-button {
+  }
+  .deal-button {
     font-size: 12px;
-}
-.card-title {
+  }
+  .card-title {
     font-size: 12px;
-}
-
+  }
 }
 
 @media only screen and (max-width: 991px) {
-
-.PokerCardsContainer_CardsRow__MIgsp {
+  .PokerCardsContainer_CardsRow__MIgsp {
     justify-content: space-between;
     gap: 0;
-}
-.container-fluid.ContactUS.RetagPage .ContactInfoleft{
+  }
+  .container-fluid.ContactUS.RetagPage .ContactInfoleft {
     padding: 24px;
-}
-.formsection {
+  }
+  .formsection {
     padding: 30px 0;
-}
-.ContactInfoleft:before {
+  }
+  .ContactInfoleft:before {
     width: 250px;
     height: 250px;
     bottom: -40px;
     right: -50px;
     transform: unset;
-}
-.ContactInfoleft:after {
-    content: '';
+  }
+  .ContactInfoleft:after {
+    content: "";
     width: 250px;
     height: 250px;
     bottom: -40px;
     left: -50px;
     transform: unset;
-}
+  }
 
-button.navbar-toggler {
-background: url(../Logos_and_illustration/Menu.svg);
- background-size: 24px 24px;
-        background-repeat: no-repeat;
-        background-position: center;
-        position: absolute;
-        left: 6px;
-        top: 20px;
-}
-.navbar-brand {
+  button.navbar-toggler {
+    background: url(../Logos_and_illustration/Menu.svg);
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    left: 6px;
+    top: 20px;
+  }
+  .navbar-brand {
     position: relative;
     left: 50px;
-}
-.RakebackFeaturedBlog .tabsContainer {
+  }
+  .RakebackFeaturedBlog .tabsContainer {
     border-bottom: 0;
     padding-bottom: 0;
-}
-.RakebackWhyChooseUS .GetStartedhead {
+  }
+  .RakebackWhyChooseUS .GetStartedhead {
     text-align: center;
-}
-.RakebackWhyChooseUS .GetStartedhead .subtitle {
+  }
+  .RakebackWhyChooseUS .GetStartedhead .subtitle {
     max-width: 100%;
-}
-.RakeBackBannerMobile .col-lg-1 {
+  }
+  .RakeBackBannerMobile .col-lg-1 {
     display: none;
-}
-.mobilerow {
+  }
+  .mobilerow {
     flex-direction: column-reverse;
-}
-.RakeBackBanner .videoContainer {
+  }
+  .RakeBackBanner .videoContainer {
     text-align: center;
-}
-.RakeBackBanner .chipIcon {
+  }
+  .RakeBackBanner .chipIcon {
     left: 0;
-}
-.RakeBackBanner .pokerCardheroBanner {
+  }
+  .RakeBackBanner .pokerCardheroBanner {
     right: 0;
-}
-.BlogHeading {
+  }
+  .BlogHeading {
     display: none;
-}
-.RakebackFeaturedBlog .tabsWrapper {
-        gap: 0;
-        overflow-x: scroll;
-    }
-.RakebackFeaturedBlog .tabsWrapper div {
+  }
+  .RakebackFeaturedBlog .tabsWrapper {
+    gap: 0;
+    overflow-x: scroll;
+  }
+  .RakebackFeaturedBlog .tabsWrapper div {
     border: none;
     background: none;
     border-radius: 0;
     font-size: 16px;
     flex: 1;
     border-bottom: 1px solid #848484;
-}
-.RakebackFeaturedBlog .sidePost {
+  }
+  .RakebackFeaturedBlog .sidePost {
     width: 97%;
     padding: 10px 10px;
     margin: 20px auto 0;
-}
-.GetStartedCard {
+  }
+  .GetStartedCard {
     margin-bottom: 44px;
-}
-.RakebackFAQ .moreQuestionsActions {
+  }
+  .RakebackFAQ .moreQuestionsActions {
     flex-direction: row;
-}
-.RakebackFAQ .actionButton {
+  }
+  .RakebackFAQ .actionButton {
     width: 100%;
-}
-.faqcontainer {
+  }
+  .faqcontainer {
     padding-top: 48px;
     padding-bottom: 48px;
-}
-.faqcontainer .moreQuestionsActionsFAQ {
+  }
+  .faqcontainer .moreQuestionsActionsFAQ {
     gap: 30px;
     margin: 30px 0 0;
-}
-.KYCDB .form-row {
+  }
+  .KYCDB .form-row {
     flex-direction: column;
-}
-.KYCDB .accordion-item
- {
+  }
+  .KYCDB .accordion-item {
     padding: 18px;
-}
-.KYCDB .step-Hed {
+  }
+  .KYCDB .step-Hed {
     font-size: 16px;
-}
-.KYCDB .step-number {
+  }
+  .KYCDB .step-number {
     width: 26px;
     height: 26px;
     font-size: 12px;
-}
-.KYCDB .step-header .step-info svg {
+  }
+  .KYCDB .step-header .step-info svg {
     width: 16px;
     height: 16px;
-}
-.KYCDB .form-control {
+  }
+  .KYCDB .form-control {
     border-radius: 9.82px;
     font-size: 12px;
     height: 40px;
     padding: 0 16px;
-}
-.KYCDB .accordion-body {
+  }
+  .KYCDB .accordion-body {
     padding: 30px 20px 28px 49px;
-}
-.KYCDB .btn-pink {
+  }
+  .KYCDB .btn-pink {
     border-radius: 9.82px;
     height: 32px;
     font-size: 12px;
     width: 90px;
-}
-.customFooter {
+  }
+  .customFooter {
     padding-top: 48px;
     padding-bottom: 48px;
-}
-.customFooter .brandSection {
+  }
+  .customFooter .brandSection {
     padding-bottom: 40px;
     border-bottom: 1px solid #808080;
     margin-bottom: 40px;
-}
-.footerLinksContainer {
+  }
+  .footerLinksContainer {
     width: 50%;
-}
-.RakebackNewsletter .form {
+  }
+  .RakebackNewsletter .form {
     margin-top: 30px;
     width: 100%;
-}
-.RakebackNewsletter .GetStartedhead {
+  }
+  .RakebackNewsletter .GetStartedhead {
     text-align: center;
-}
-.RakebackNewsletter .GetStartedhead .subtitle {
+  }
+  .RakebackNewsletter .GetStartedhead .subtitle {
     max-width: 100%;
-}
-.navbar-toggler:focus {
+  }
+  .navbar-toggler:focus {
     text-decoration: none;
     outline: 0;
     box-shadow: none;
-}
-.RetagPage .ContactInfoleft h1, .ContactInfoleft p
- {
+  }
+  .RetagPage .ContactInfoleft h1,
+  .ContactInfoleft p {
     z-index: 9;
     position: relative;
-}
-.PokerIdDBDesc .form-container .formControl.d-flex {
+  }
+  .PokerIdDBDesc .form-container .formControl.d-flex {
     flex-direction: column;
     justify-content: center;
-}
-.formControl .InputDB {
+  }
+  .formControl .InputDB {
     width: 100%;
     min-width: 100%;
     max-width: 100%;
-}
-.PokerIdDBDesc .form-container {
+  }
+  .PokerIdDBDesc .form-container {
     width: 60%;
     margin: 0 auto;
-}
+  }
 
-.PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"]:before {
-    content: '';
+  .PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"]:before {
+    content: "";
     width: 240px;
     height: 240px;
     bottom: 50%;
@@ -360,9 +353,9 @@ background: url(../Logos_and_illustration/Menu.svg);
     transform: translate(-80%, 50%);
     z-index: 1;
     top: unset;
-}
-.PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"]:after {
-    content: '';
+  }
+  .PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"]:after {
+    content: "";
     width: 240px;
     height: 240px;
     bottom: 50%;
@@ -375,10 +368,10 @@ background: url(../Logos_and_illustration/Menu.svg);
     transform: translate(-80%, 50%);
     z-index: 1;
     top: unset;
-}
+  }
 
-.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:before {
-    content: '';
+  .PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:before {
+    content: "";
     width: 240px;
     height: 240px;
     bottom: 50%;
@@ -390,9 +383,9 @@ background: url(../Logos_and_illustration/Menu.svg);
     transform: translate(-80%, 50%);
     z-index: 1;
     top: unset;
-}
-.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:after {
-    content: '';
+  }
+  .PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:after {
+    content: "";
     width: 240px;
     height: 240px;
     bottom: 50%;
@@ -405,500 +398,501 @@ background: url(../Logos_and_illustration/Menu.svg);
     transform: translate(-80%, 50%);
     z-index: 1;
     top: unset;
-}
-.PromotionsandOffers .deal-card {
+  }
+  .PromotionsandOffers .deal-card {
     flex-direction: column;
     gap: 10px;
-}
-.PromotionsandOffers .deal-image {
+  }
+  .PromotionsandOffers .deal-image {
     width: 100%;
     height: 184px;
     min-width: 100%;
-}
-.PromotionsandOffers .card-title
- {
+  }
+  .PromotionsandOffers .card-title {
     font-size: 20px;
-}
-.PromotionsandOffers .card-subtitle {
+  }
+  .PromotionsandOffers .card-subtitle {
     font-size: 16px;
-}
-.myTransactionMain_SectionHeading__Asx\+A {
+  }
+  .myTransactionMain_SectionHeading__Asx\+A {
     margin-bottom: 20px;
-}
-.LastTransactionSection.TransactionTableDB
- {
+  }
+  .LastTransactionSection.TransactionTableDB {
     margin-top: 30px;
-}
-.LastTransactionTable .table thead tr th, .LastTransactionTable .table tbody tr td
- {
+  }
+  .LastTransactionTable .table thead tr th,
+  .LastTransactionTable .table tbody tr td {
     padding: 10px 10px;
-}
-.dropdown-menu.show {
+  }
+  .dropdown-menu.show {
     display: block;
     background: #fff !important;
     z-index: 99999999 !important;
+  }
 }
-
-}
-
 
 @media only screen and (max-width: 768px) {
-.rakeback_chart_wallet_balance__nV-NK {
+  .rakeback_chart_wallet_balance__nV-NK {
     font-size: 33px;
-}
-.DesktopVIew{
+  }
+  .DesktopVIew {
     display: none;
-}
-.MobileView{
+  }
+  .MobileView {
     display: block;
     width: 100%;
-}
+  }
 
-.MobileView .rakeback_chart_withdrawal_container__vh81U {
-    display: flex
-;
+  .MobileView .rakeback_chart_withdrawal_container__vh81U {
+    display: flex;
     width: 100%;
     flex-direction: row;
     justify-content: center;
     gap: 40px;
-        padding: 30px;
-}
-.MobileViewDesc {
-    display: flex
-;
+    padding: 30px;
+  }
+  .MobileViewDesc {
+    display: flex;
     flex-direction: column;
     gap: 20px;
-}
-.rakeback_chart_withdrawal_button__zHX8l {
-
+  }
+  .rakeback_chart_withdrawal_button__zHX8l {
     font-size: 12px;
     height: 36px;
-}
-.rakeback_chart_events_container__fJFAI {
+  }
+  .rakeback_chart_events_container__fJFAI {
     width: 100%;
     max-width: 100%;
     height: 100px;
     margin-top: 20px;
     gap: 20px;
-}
-    .RakebackHeader {
+  }
+  .RakebackHeader {
     padding: 15px 0;
-}
-    button.navbar-toggler {
-        top: 14px;
-    }
-    .navbar-brand {
-         width: 153px;
-        left: 43px;
-    }
-    .navbar-brand svg {
+  }
+  button.navbar-toggler {
+    top: 14px;
+  }
+  .navbar-brand {
+    width: 153px;
+    left: 43px;
+  }
+  .navbar-brand svg {
     width: 100%;
-}
+  }
 
-.navbar {
+  .navbar {
     padding-top: 0;
     padding-bottom: 0;
-}
-.ContactUS {
+  }
+  .ContactUS {
     padding-top: 48px;
     padding-bottom: 48px;
-}
-.PokerCardsContainer_CardItem__Mw8nG {
-        margin-bottom: 20px;
-        width: 48%;
-    }
-.pokerCard_CardContent__xoZKU {
-        padding: 1rem 0 0;
-    }
-.pokerCard_Head__vDoFy
- {
+  }
+  .PokerCardsContainer_CardItem__Mw8nG {
+    margin-bottom: 20px;
+    width: 48%;
+  }
+  .pokerCard_CardContent__xoZKU {
+    padding: 1rem 0 0;
+  }
+  .pokerCard_Head__vDoFy {
     font-size: 12px;
     font-weight: 800;
-}    
-.pokerCard_PokerCard__ovT04 {
+  }
+  .pokerCard_PokerCard__ovT04 {
     padding: 15px 14px;
-}
-.pokerCard_ImageWrapper__Rfq0T {
+  }
+  .pokerCard_ImageWrapper__Rfq0T {
     width: 42px;
     height: 42px;
-}    
-.pokerCard_FooterContent__2U0hu {
-    padding: 0.875rem 14px  0rem;
-}
-.pokerCard_StatusContainer__zraqe {
+  }
+  .pokerCard_FooterContent__2U0hu {
+    padding: 0.875rem 14px 0rem;
+  }
+  .pokerCard_StatusContainer__zraqe {
     top: -2px;
     right: 7px;
-}
-.pokerCard_StatusBadge__1QgRj span {
+  }
+  .pokerCard_StatusBadge__1QgRj span {
     font-size: 8px;
-}
-.pokerCard_StatusIndicator__9miHg svg {
+  }
+  .pokerCard_StatusIndicator__9miHg svg {
     width: 10px;
     height: 10px;
-}
-.PokerCardsContainer_TabButton__MxDKR {
+  }
+  .PokerCardsContainer_TabButton__MxDKR {
     font-size: 14px;
-}
-.pokerID_MainPokerIdContainer__SJvaL {
+  }
+  .pokerID_MainPokerIdContainer__SJvaL {
     gap: 0;
     padding: 15px 15px;
     background: transparent;
     border-radius: 40px;
-}
-.PokerIdDB.nav-tabs .nav-link.active, .PokerIdDB.nav-tabs .nav-item.show .nav-link {
+  }
+  .PokerIdDB.nav-tabs .nav-link.active,
+  .PokerIdDB.nav-tabs .nav-item.show .nav-link {
     background: transparent;
     font-size: 16px;
-}
-.PokerCardsContainer_PokerCardsContainer__59o8u ul#pokerTab {
+  }
+  .PokerCardsContainer_PokerCardsContainer__59o8u ul#pokerTab {
     margin: 0 !important;
-}
-.PokerIdDBDesc .tab-pane {
+  }
+  .PokerIdDBDesc .tab-pane {
     width: 100%;
     padding: 36px 28px;
- }
-.PokerIdDB.nav-tabs .nav-link {
+  }
+  .PokerIdDB.nav-tabs .nav-link {
     font-size: 16px;
-}
-.userProfile_column__7yuiv {
+  }
+  .userProfile_column__7yuiv {
     flex-direction: column;
-}
-.userProfile_fieldLabel__aXiP6 {
+  }
+  .userProfile_fieldLabel__aXiP6 {
     font-size: 12px;
     min-width: 112px;
-}
-.userProfile_container__JFHoK {
+  }
+  .userProfile_container__JFHoK {
     padding: 20px;
-}
+  }
 
-.userProfile_fieldText__jVAo6 {
+  .userProfile_fieldText__jVAo6 {
     font-size: 12px;
-}
-
-
-
+  }
 }
 
 @media only screen and (max-width: 575px) {
-    .dropdown .NotificationButton {
+  .MobileView {
+    display: block;
+    width: 100%;
+  }
+
+  .MobileViewDesc {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .dropdown .NotificationButton {
     width: 40px;
     height: 40px;
-}
-.userProfile_kycDetailLabel__OPY7a {
+  }
+  .userProfile_kycDetailLabel__OPY7a {
     font-size: 12px;
     min-width: 122px;
-}
-.userProfile_kycSection__6Ti8e {
+  }
+  .userProfile_kycSection__6Ti8e {
     padding: 16px 0;
-}
-.userProfile_kycDetailValue__xhxO9 {
+  }
+  .userProfile_kycDetailValue__xhxO9 {
     font-size: 12px;
-}
-.dropdown .NotificationButton svg {
+  }
+  .dropdown .NotificationButton svg {
     width: 100%;
     height: 100%;
     scale: unset;
-}
-.RakebackTrustedPoker .titleAccent {
+  }
+  .RakebackTrustedPoker .titleAccent {
     display: flex;
-}
-button.navbar-toggler {
+  }
+  button.navbar-toggler {
     top: 14px;
     padding-left: 0;
     padding-right: 0;
-}
-.pokerCard_FooterContent__2U0hu {
-        padding: 0.875rem 0px 0rem;
-    }
-.navbar-brand {
-        left: 28px;
-    }
-.RakebackHeader button.signin_button {
+  }
+  .pokerCard_FooterContent__2U0hu {
+    padding: 0.875rem 0px 0rem;
+  }
+  .navbar-brand {
+    left: 28px;
+  }
+  .RakebackHeader button.signin_button {
     width: 100%;
     padding: 0 20px;
-}
-.RakebackHeader button.signin_button svg.bi.bi-arrow-right {
+  }
+  .RakebackHeader button.signin_button svg.bi.bi-arrow-right {
     display: none;
-}
+  }
 
-
-.RakeBackBanner .pokerCardheroBanner {
+  .RakeBackBanner .pokerCardheroBanner {
     top: -50px;
     width: 53px;
     height: 126px;
     z-index: 1;
     right: -20px;
-}
-.RakeBackBanner .chipIcon {
-        bottom: 70px;
-        width: 71px;
-        height: 163px;
-        z-index: 2;
-        opacity: 0.5;
-        left: -50px;
-    }
-.RakeBackBanner .videoContainer img.BannerIcon {
+  }
+  .RakeBackBanner .chipIcon {
+    bottom: 70px;
+    width: 71px;
+    height: 163px;
+    z-index: 2;
+    opacity: 0.5;
+    left: -50px;
+  }
+  .RakeBackBanner .videoContainer img.BannerIcon {
     width: 280px;
     height: 341px;
     z-index: 3;
-}
+  }
 
-.RakeBackBanner .chipBannerRight {
+  .RakeBackBanner .chipBannerRight {
     width: 39px;
     height: 114px;
     z-index: 3;
     bottom: 0px;
-}
-.RakeBackBanner .title {
+  }
+  .RakeBackBanner .title {
     font-size: 36px;
     line-height: 120%;
-}
-.RakeBackBanner .description, .RakeBackBanner .subtitle{
+  }
+  .RakeBackBanner .description,
+  .RakeBackBanner .subtitle {
     font-size: 16px;
-}
-.RakeBackBanner .buttonContainer button {
+  }
+  .RakeBackBanner .buttonContainer button {
     width: 100%;
-}
-.RakeBackTopOffers {
+  }
+  .RakeBackTopOffers {
     padding: 48px 0;
-}
-.RakeBackTopOffers .title, .RakebackTrustedPoker .title, .GetStartedhead .title , .GetStartedhead .title{
+  }
+  .RakeBackTopOffers .title,
+  .RakebackTrustedPoker .title,
+  .GetStartedhead .title,
+  .GetStartedhead .title {
     font-size: 28px;
     text-align: left;
     margin-bottom: 14px;
-}
-.RakeBackTopOffers .subtitle, .RakebackTrustedPoker .description, .GetStartedhead .subtitle, .GetStartedhead .subtitle  {
+  }
+  .RakeBackTopOffers .subtitle,
+  .RakebackTrustedPoker .description,
+  .GetStartedhead .subtitle,
+  .GetStartedhead .subtitle {
     font-size: 16px;
     text-align: left;
     margin-top: 0px;
-}
-.center-slider.slider.customslider {
+  }
+  .center-slider.slider.customslider {
     padding: 0 !important;
-}
-.customslider .slick-track {
+  }
+  .customslider .slick-track {
     height: 530px !important;
-}
-.slick-dots {
+  }
+  .slick-dots {
     bottom: -20px;
-}
-.RakebackTrustedPoker .carouselContainer {
+  }
+  .RakebackTrustedPoker .carouselContainer {
     margin: 0 0;
     padding: 20px 0;
-}
-.RakebackTrustedPoker {
+  }
+  .RakebackTrustedPoker {
     padding-top: 48px;
     padding-bottom: 48px;
     position: relative;
-}
-.RakebackTrustedPoker:before {
-    content: '';
+  }
+  .RakebackTrustedPoker:before {
+    content: "";
     position: absolute;
     top: 30px;
     right: 10px;
     width: 57px;
     height: 121px;
     background: url(../TrustedHomepage.svg);
-}
-.ContactInfoleft:before {
+  }
+  .ContactInfoleft:before {
     width: 150px;
     height: 150px;
     bottom: 10px;
     right: -60px;
     transform: unset;
     background-size: contain;
-}
-.ContactInfoleft:after {
-    content: '';
+  }
+  .ContactInfoleft:after {
+    content: "";
     width: 150px;
     height: 150px;
     bottom: 10px;
     left: -60px;
     transform: unset;
     background-size: contain;
-}
-span.ChatSmallDes {
+  }
+  span.ChatSmallDes {
     display: none;
-}
-.faqcontainer .actionButton {
+  }
+  .faqcontainer .actionButton {
     flex-direction: row;
     padding: 20px 10px;
     align-items: center;
     font-size: 12px;
     justify-content: flex-start;
     gap: 10px;
-}
-.faqcontainer .actionIcon {
+  }
+  .faqcontainer .actionIcon {
     margin-right: 0;
-}
-.faqcontainer .arrowIcon {
+  }
+  .faqcontainer .arrowIcon {
     right: 0;
     top: 23px;
-}
-.faq_container .GetINtouchHedhero .title
- {
+  }
+  .faq_container .GetINtouchHedhero .title {
     display: none;
-}
+  }
 
-
-.moreQuestionsActionsFAQ.GetINtouch span.ChatSmallDes {
+  .moreQuestionsActionsFAQ.GetINtouch span.ChatSmallDes {
     display: block;
     font-size: 12px;
-}
-.faqcontainer  .moreQuestionsActionsFAQ.GetINtouch .actionButton {
+  }
+  .faqcontainer .moreQuestionsActionsFAQ.GetINtouch .actionButton {
     flex-direction: column;
     padding: 20px;
     align-items: flex-start;
     font-size: 17px;
     justify-content: flex-start;
-}
-.faqcontainer .moreQuestionsActionsFAQ.GetINtouch .actionIcon {
+  }
+  .faqcontainer .moreQuestionsActionsFAQ.GetINtouch .actionIcon {
     margin-right: 0;
-}
-.faqcontainer .moreQuestionsActionsFAQ.GetINtouch .arrowIcon {
+  }
+  .faqcontainer .moreQuestionsActionsFAQ.GetINtouch .arrowIcon {
     right: 5px;
     top: 23px;
-}
+  }
 
-
-
-.GetStartedCard .stepNumber
- {
-        position: unset;
-        margin-right: 20px;
-        font-size: 80px;
-        min-width: 45px;
-    }
-.GetStartedCard .card {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 20px;
-}
-.GetStartedhead {
+  .GetStartedCard .stepNumber {
+    position: unset;
+    margin-right: 20px;
+    font-size: 80px;
+    min-width: 45px;
+  }
+  .GetStartedCard .card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20px;
+  }
+  .GetStartedhead {
     margin-bottom: 28px;
-}
-.joinButton {
+  }
+  .joinButton {
     margin-top: 16px;
-}
-.RakebackFeaturedBlog .tabsWrapper div {
-        font-size: 12px;
-        padding: 0 2px;
-}
-.RakebackFeaturedBlog .tabsWrapper .activeTab {
-    color: #FF4053;
+  }
+  .RakebackFeaturedBlog .tabsWrapper div {
+    font-size: 12px;
+    padding: 0 2px;
+  }
+  .RakebackFeaturedBlog .tabsWrapper .activeTab {
+    color: #ff4053;
     border: none;
     background-color: transparent;
     font-weight: 800;
-    border-bottom: 3px solid #FF4053;
-}
-.RakebackFAQ .actionButton {
+    border-bottom: 3px solid #ff4053;
+  }
+  .RakebackFAQ .actionButton {
     font-size: 12px;
-}
-.RakebackFeaturedBlog .exploreButton {
+  }
+  .RakebackFeaturedBlog .exploreButton {
     width: 100%;
     font-size: 16px;
-}
-.RakebackNewsletter .inputContainer {
+  }
+  .RakebackNewsletter .inputContainer {
     width: 100%;
     margin-top: 20px;
-}
+  }
 
-.GetStartedCard .stepTitle {
+  .GetStartedCard .stepTitle {
     font-size: 20px;
-}
-.GetStartedCard .stepDetails {
+  }
+  .GetStartedCard .stepDetails {
     font-size: 12px;
-}
-.GetStartedCard .iconContainer img {
+  }
+  .GetStartedCard .iconContainer img {
     width: 59px !important;
     height: 59px !important;
-}
-.RakebackFeaturedBlog .mainPost {
+  }
+  .RakebackFeaturedBlog .mainPost {
     height: 100%;
-}
-.RakebackFeaturedBlog .category {
+  }
+  .RakebackFeaturedBlog .category {
     font-size: 10px;
-}
-.RakebackFeaturedBlog .imageContainer {
+  }
+  .RakebackFeaturedBlog .imageContainer {
     height: 188px;
-}
-.RakebackFeaturedBlog .mainTitle {
+  }
+  .RakebackFeaturedBlog .mainTitle {
     font-size: 17px;
-}
-.RakebackFeaturedBlog .description {
+  }
+  .RakebackFeaturedBlog .description {
     font-size: 12px;
-}
-.RakebackFeaturedBlog .sideContent {
+  }
+  .RakebackFeaturedBlog .sideContent {
     padding: 10px 13px;
-}
-.container-cards.featuresList .card {
+  }
+  .container-cards.featuresList .card {
     padding: 20px 16px;
     margin-bottom: 24px;
     gap: 20px;
-}
-.container-cards.featuresList .iconContainer {
+  }
+  .container-cards.featuresList .iconContainer {
     width: 66px;
     height: 66px;
-}
-.container-cards.featuresList .iconContainer .icon img {
+  }
+  .container-cards.featuresList .iconContainer .icon img {
     width: 37px;
     height: 37px;
-}
-.container-cards.featuresList .featureTitle {
+  }
+  .container-cards.featuresList .featureTitle {
     font-size: 20px;
-}
-.container-cards.featuresList .featureDescription {
+  }
+  .container-cards.featuresList .featureDescription {
     font-size: 12px;
-}
-.RakebackSpace {
+  }
+  .RakebackSpace {
     padding-top: 48px;
     padding-bottom: 48px;
-}
-.RakebackFAQ .actionButton {
+  }
+  .RakebackFAQ .actionButton {
     padding: 0px 10px;
-}
-.RakebackFAQ .actionIcon {
+  }
+  .RakebackFAQ .actionIcon {
     margin-right: 8px;
-}
-.arrowIcon {
+  }
+  .arrowIcon {
     right: 10px;
-}
-.RakebackFAQ .faqAnswer {
+  }
+  .RakebackFAQ .faqAnswer {
     padding: 0 20px 24px 20px;
-}
-.RakebackFAQ .moreQuestionsButton {
+  }
+  .RakebackFAQ .moreQuestionsButton {
     font-size: 16px;
-}
-.RakebackNewsletter .GetStartedhead .title {
+  }
+  .RakebackNewsletter .GetStartedhead .title {
     line-height: 46px;
     text-align: center;
-}
-.RakebackNewsletter .GetStartedhead .subtitle {
+  }
+  .RakebackNewsletter .GetStartedhead .subtitle {
     max-width: 100%;
     margin: 9px 0 0px;
     text-align: center;
     font-size: 12px;
-}
-.RakebackNewsletter .form {
+  }
+  .RakebackNewsletter .form {
     width: 100%;
-}
+  }
 
-.copyrightText {
+  .copyrightText {
     margin-top: 40px !important;
     font-size: 12px;
-}
-.RakebackNewsletter {
+  }
+  .RakebackNewsletter {
     position: relative;
     margin-top: 160px;
-}
-.RakebackNewsletter {
+  }
+  .RakebackNewsletter {
     position: relative;
     margin-top: 122px;
     padding-top: 100px;
-}
-.RakebackNewsletter:before {
-    content: '';
+  }
+  .RakebackNewsletter:before {
+    content: "";
     position: absolute;
-    top: 0;       
+    top: 0;
     width: 123px;
     height: 122px;
     background-size: contain !important;
@@ -907,10 +901,10 @@ span.ChatSmallDes {
     transform: translate(50%, -50%);
     background-repeat: no-repeat !important;
     background: url(../NewsletterIcon.svg);
-     z-index: 2;
-}
-.RakebackNewsletter:after {
-    content: '';
+    z-index: 2;
+  }
+  .RakebackNewsletter:after {
+    content: "";
     position: absolute;
     top: -60px;
     width: 100%;
@@ -923,74 +917,70 @@ span.ChatSmallDes {
     background-repeat: no-repeat !important;
     background-image: url(../newsletterbackground.svg);
     z-index: 1;
-        opacity: 0.5;
-}
+    opacity: 0.5;
+  }
 
-.pokerCard_DateValue__DZzo9 {
+  .pokerCard_DateValue__DZzo9 {
     font-size: 12px;
-}
-.pokerCard_Id__T0ewt {
+  }
+  .pokerCard_Id__T0ewt {
     font-size: 12px;
-}
-    .LastTransactionTable.table-responsive table.table.align-middle tr th {
-        width: 230px !important;
-        min-width: 179px !important;
-    }
-.myTransactionMain_TabContent__SqHKX {
-        width: 100%;
-        overflow: scroll;
-    }
-.RakebackFeaturedBlog .sidePost {
+  }
+  .LastTransactionTable.table-responsive table.table.align-middle tr th {
+    width: 230px !important;
+    min-width: 179px !important;
+  }
+  .myTransactionMain_TabContent__SqHKX {
+    width: 100%;
+    overflow: scroll;
+  }
+  .RakebackFeaturedBlog .sidePost {
     gap: 10px;
-}
-.sideImageContainer {
+  }
+  .sideImageContainer {
     width: 130px;
     height: 130px;
-}
-.RakebackFeaturedBlog .mainContent {
+  }
+  .RakebackFeaturedBlog .mainContent {
     gap: 8px;
-}
+  }
 
-  .RakebackFeaturedBlog  .GetStartedhead {
-        margin-bottom: 20px;
-    }
-.RakebackFeaturedBlog .tabsContainer {
+  .RakebackFeaturedBlog .GetStartedhead {
+    margin-bottom: 20px;
+  }
+  .RakebackFeaturedBlog .tabsContainer {
     margin-bottom: 24px;
-}
-.HottestDealsDashboard .HottestDealschild {
+  }
+  .HottestDealsDashboard .HottestDealschild {
     padding: 16px;
-}
-
-
-
-
+  }
 }
 
 @media only screen and (max-width: 480px) {
-
-.PokerIdDBDesc .form-container {
-        width: 100%;
-    }
-    .PokerIdDB.nav-tabs li.nav-item {
+  .PokerIdDBDesc .form-container {
+    width: 100%;
+  }
+  .PokerIdDB.nav-tabs li.nav-item {
     margin-right: 15px;
-}
-.PokerIdDB.nav-tabs .nav-link, .PokerIdDB.nav-tabs .nav-link.active, .PokerIdDB.nav-tabs .nav-item.show .nav-link {
-        font-size: 14px;
-    }
-    .KYCDB .step-info {
+  }
+  .PokerIdDB.nav-tabs .nav-link,
+  .PokerIdDB.nav-tabs .nav-link.active,
+  .PokerIdDB.nav-tabs .nav-item.show .nav-link {
+    font-size: 14px;
+  }
+  .KYCDB .step-info {
     gap: 14px;
-}
-    .KYCDB .accordion-body {
-        padding: 30px 20px 28px 39px;
-    }
- .MobileView   .rakeback_chart_withdraw_icon__cOhWP {
-        width: 62px;
-        height: 62px;
-    }
+  }
+  .KYCDB .accordion-body {
+    padding: 30px 20px 28px 39px;
+  }
+  .MobileView .rakeback_chart_withdraw_icon__cOhWP {
+    width: 62px;
+    height: 62px;
+  }
 
-.MobileView .rakeback_chart_withdrawal_container__vh81U {
-
-        gap: 30px;
-        padding: 30px 20px;
-    }
+  .MobileView .rakeback_chart_withdrawal_container__vh81U {
+    gap: 30px;
+    padding: 30px 20px;
+  }
 }
