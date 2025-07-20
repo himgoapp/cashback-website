@@ -940,6 +940,28 @@ span.ChatSmallDes {
         width: 100%;
         overflow: scroll;
     }
+.RakebackFeaturedBlog .sidePost {
+    gap: 10px;
+}
+.sideImageContainer {
+    width: 130px;
+    height: 130px;
+}
+.RakebackFeaturedBlog .mainContent {
+    gap: 8px;
+}
+
+  .RakebackFeaturedBlog  .GetStartedhead {
+        margin-bottom: 20px;
+    }
+.RakebackFeaturedBlog .tabsContainer {
+    margin-bottom: 24px;
+}
+.HottestDealsDashboard .HottestDealschild {
+    padding: 16px;
+}
+
+
 
 
 }
