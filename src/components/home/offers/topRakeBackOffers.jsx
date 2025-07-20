@@ -7,7 +7,8 @@ import { getVendors } from "../../../servicefile/partnerservice";
 import SimpleSlider from "./slider";
 import OfferSignup from "../../offerAndDeal/signup/signup";
 import OfferSlider from "./Slidernew.jsx";
-import CarouselSlider from "../deals/CarouselSlider.jsx";
+import SwiperMain from "../demo-vite/main.js";
+// import CarouselSlider from "../deals/CarouselSlider.jsx";
 
 const topRakeBackOffers = () => {
   return (
@@ -25,9 +26,10 @@ const topRakeBackOffers = () => {
               </p>
             </div>
             <div className="col-lg-12">
-              <CarouselSlider />
+              <SwiperMain />
+              {/* <CarouselSlider /> */}
               {/* <OfferSlider></OfferSlider> */}
-              {/* <SimpleSlider/> */}
+              {/* <SimpleSlider /> */}
             </div>
           </div>
         </div>
