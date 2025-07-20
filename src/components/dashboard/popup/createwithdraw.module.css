@@ -153,6 +153,42 @@
   -moz-appearance: textfield; /* Firefox */
 }
 
+
+
+@media (max-width: 575px) {
+.popupContent {
+  padding: 30px;
+    display: flex;
+    flex-direction: column;
+}
+.continueButton {
+    font-size: 14px;
+    height: 48px;
+}
+.amountInput {
+  font-size: 14px;
+  height: 48px;
+}
+.inputContainer p{
+     font-size: 14px !important;
+}
+.inputContainer p svg{
+    width: 14px;
+    height: 14px;
+    margin-bottom: 4px;
+}
+
+.withdrawTitle {
+  font-size: 30px;
+  margin: 0 0 28px;
+}
+
+
+
+}
+
+
+
 @media (max-width: 480px) {
   .popupContainer {
     width: 95%;

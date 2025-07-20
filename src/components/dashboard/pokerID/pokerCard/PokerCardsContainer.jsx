@@ -124,7 +124,7 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
   return (
       <div className={styles.PokerCardsContainer}>
         
-         <ul className="nav nav-tabs mb-4 PokerIdDB" id="pokerTab" role="tablist">
+         <ul className="nav nav-tabs mb-2 PokerIdDB" id="pokerTab" role="tablist">
             <li className="nav-item" role="presentation">
               <button className="nav-link active" id="add-tab" data-bs-toggle="tab" data-bs-target="#add" type="button" role="tab" aria-selected="true">
                 Add New Poker ID

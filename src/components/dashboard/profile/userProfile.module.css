@@ -737,6 +737,26 @@
 }
 
 /* Responsive (Mobile) */
+@media only screen and (max-width: 768px) {
+    .userProfile .container {
+        padding: 20px;
+    }
+        .userProfile .column {
+        flex-direction: column;
+    }
+      .userProfile .fieldLabel {
+        font-size: 12px;
+        min-width: 112px;
+    }
+        .userProfile .fieldText{
+        font-size: 12px;
+    }
+}
+@media only screen and (max-width: 575px) {
+.dashboardMain .userProfile .formField{
+    padding: 16px 0;
+}
+}
 @media only screen and (max-width: 480px) {
   .authCard {
     padding: 30px 24px;

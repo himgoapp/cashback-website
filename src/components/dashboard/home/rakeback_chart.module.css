@@ -212,7 +212,7 @@
 }
 
 .wallet_balance {
-  font-size: 44px;
+  font-size: 34px;
   font-weight: bold;
   width: 100%;
   color: #ff4053;
@@ -265,9 +265,9 @@
 }
 
 .filter_option_active {
-  background-color: #0052cc;
+  background-color: #ff4053;
   color: white;
-  border-color: #0052cc;
+  border-color: #ff4053;
 }
 
 .date_select_button {
@@ -354,7 +354,7 @@
 }
 
 .apply_button:hover {
-  background-color: #003fb8;
+  background-color: #ff4053;
 }
 
 /* Mobile styles */
@@ -362,6 +362,11 @@
   .main_container {
     flex-direction: column;
     width: 100%;
+  }
+  .withdrawal_button {
+   font-size: 12px;
+        height: 36px;
+    padding: 8px 20px;
   }
 
   /* Mobile layout ordering */
@@ -549,7 +554,7 @@
 .date_popup_content button {
   width: 100%;
   padding: 10px 0;
-  background-color: #0052cc;
+  background-color: #ff4053;
   color: black;
   border: none;
   border-radius: 6px;
@@ -559,7 +564,7 @@
 }
 
 .date_popup_content button:hover {
-  background-color: #003d99;
+  background-color: #ff4053;
 }
 
 @media (max-width: 575px) {
@@ -599,13 +604,9 @@
   }
 
   .wallet_balance {
-    font-size: 22px;
+    font-size: 33px;
   }
 
-  .withdrawal_button {
-    font-size: 14px;
-    padding: 8px 20px;
-  }
 
   .chart_heading {
     font-size: 16px;

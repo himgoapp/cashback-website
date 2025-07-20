@@ -68,16 +68,15 @@ position: relative;
 }
 
 .CardsRow {
-display: flex
-;
+display: flex;
     flex-wrap: wrap;
-    gap: 34px;
+    gap: 14px;
     width: 100%;
     justify-content: space-between;
 }
 
 .CardItem {
-  flex-basis: calc(33.333% - 34px);
+  flex: 0 0 32%;
 }
 
 
@@ -91,6 +90,13 @@ display: flex
     gap: 0;
 }
 }
+
+@media only screen and (max-width: 991px) {
+    .PokerCardsContainer .CardsRow {
+        justify-content: space-between;
+        gap: 0;
+    }
+}
 @media (max-width: 768px) {
   .TabFilters {
     gap: 0.5rem;
@@ -99,6 +105,47 @@ display: flex
   .CardsRow {
     flex-direction: row;
   }
+
+
+  .PokerCardsContainer .CardItem {
+    margin-bottom: 20px;
+    width: 48%;
+  }
+  .pokerCard .CardContent {
+    padding: 1rem 0 0;
+  }
+  .pokerCard .Head {
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .pokerCard .PokerCard {
+    padding: 15px 14px;
+  }
+  .pokerCard .ImageWrapper {
+    width: 42px;
+    height: 42px;
+  }
+  .pokerCard .FooterContent {
+    padding: 0.875rem 14px 0rem;
+  }
+  .pokerCard .StatusContainer {
+    top: -2px;
+    right: 7px;
+  }
+  .pokerCard .StatusBadge span {
+    font-size: 8px;
+  }
+  .pokerCard .StatusIndicator svg {
+    width: 10px;
+    height: 10px;
+  }
+  .PokerCardsContainer .TabButton {
+    font-size: 14px;
+  }
+  .PokerCardsContainer .PokerCardsContainer ul#pokerTab {
+    margin: 0 !important;
+  }
+
 
 }
 

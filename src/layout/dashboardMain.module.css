@@ -6,9 +6,9 @@
 	padding: 0 2rem;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1199px) {
 	.dashboard_container {
-		padding: 0 1rem;
+		padding: 0 1rem 1rem;
 		/* z-index: -1; */
 	}
 }

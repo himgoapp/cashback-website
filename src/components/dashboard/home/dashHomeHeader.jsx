@@ -199,30 +199,36 @@ const DashboardHomeHeader = () => {
                         </span> */}
                   </button>
 
-                  <ul className="dropdown-menu dropdown-menu-end mt-2">
+                  <ul className="dropdown-menu NavbarDropdown dropdown-menu-end mt-2">
                     <li>
                       <h6 className="dropdown-header">Notifications</h6>
                     </li>
                     <li>
                       <a className="dropdown-item notification-item" href="#">
-                        🔔 You have a new message
+                          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae orci ac nulla commodo feugiat</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. </p>
+                          <span>30min ago</span>
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item notification-item" href="#">
-                        ✅ Your report was approved
+                          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae orci ac nulla commodo feugiat</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. </p>
+                          <span>30min ago</span>
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item notification-item" href="#">
-                        ⚙️ System update scheduled
+                          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae orci ac nulla commodo feugiat</h3>
+                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. </p>
+                          <span>30min ago</span>
                       </a>
                     </li>
                     <li>
                       <hr className="dropdown-divider" />
                     </li>
                     <li>
-                      <a className="dropdown-item text-center" href="#">
+                      <a className="dropdown-item  ViewAllBtn text-center" href="#">
                         View All
                       </a>
                     </li>
