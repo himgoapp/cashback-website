@@ -64,18 +64,34 @@ const Carousel = () => {
         sideSlides: 2,
       },
       grabCursor: true,
-      loop: true,
-      loopAdditionalSlides: 1,
+      loop: false,
+      loopAdditionalSlides: 2,
       slidesPerView: "auto",
       navigation: {
         nextEl: ".swiper-button-next",
         prevEl: ".swiper-button-prev",
       },
       pagination: {
+        clickable: true,
         el: ".swiper-pagination",
       },
       autoplay: {
-        delay: 3000,
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 40,
+        },
+        1024: {
+          slidesPerView: 5,
+          spaceBetween: 50,
+        },
       },
     });
   }, []);
