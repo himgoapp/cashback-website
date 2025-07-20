@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import styles from './whyChooseUs.module.css';
 import ChooseUsFirst from "../../../assets/Logos_and_illustration/ChooseUsFirst.svg"
-import ChooseUsSecond from "../../../assets/Logos_and_illustration/ChooseUsSecond.svg"
+import BeliableCustomerServiceicon from "../../../assets/BeliableCustomerServiceicon.svg"
+import RedReliableCustomerServiceicon from "../../../assets/RedFairandransparentDeals.svg"
+import BFairandTransparentDeals from "../../../assets/BFairandTransparentDeals.svg"
+import RedFairandransparentDeals from "../../../assets/RedFairandransparentDeals.svg"
 import ChooseUsThird from "../../../assets/Logos_and_illustration/ChooseUsThird.svg"
-import ChooseFirst from "../../../assets/Logos_and_illustration/ChooseFirst.svg"
-import ChooseSecond from "../../../assets/Logos_and_illustration/ChooseSecond.svg"
+import BTimelyPayouts from "../../../assets/Logos_and_illustration/BTimelyPayouts.svg"
+import RedTimelyPayoutIcon from "../../../assets/RedTimelyPayoutIcon.svg"
 import ChooseThird from "../../../assets/Logos_and_illustration/ChooseThird.svg"
 import ChooseUsRightLayer from "../../../assets/Logos_and_illustration/ChooseUsRightLayer.svg"
 const WhyChooseUs = () => {
@@ -16,22 +19,22 @@ const WhyChooseUs = () => {
       id: 1,
       title: 'Timely Payouts',
       description: 'We ensure your cash back reaches you on time-consistent, accurate, & right on schedule every single week.',
-      icon: <img src={ChooseFirst} alt="Sign up icon" style={{ width: "68.29px", height: "65.67px" }} />,
-      activeIcon: <img src={ChooseUsFirst} alt="Sign up icon" style={{ width: "68.29px", height: "65.67px" }} />,
+      icon: <img src={BTimelyPayouts} alt="Sign up icon" style={{ width: "68.29px", height: "65.67px" }} />,
+      activeIcon: <img src={RedTimelyPayoutIcon} alt="Sign up icon" style={{ width: "68.29px", height: "65.67px" }} />,
     },
     {
       id: 2,
       title: 'Reliable Customer Service',
       description: 'Our support team is available via chat & email to resolve your concerns and help you get the most from your offers.',
-      icon: <img src={ChooseSecond} alt="Sign up icon" style={{ width: "60.78px", height: "57.04px" }} />,
-      activeIcon: <img src={ChooseUsSecond} alt="Sign up icon" style={{ width: "60.78px", height: "57.04px" }} />,
+      icon: <img src={BeliableCustomerServiceicon} alt="Sign up icon" style={{ width: "60.78px", height: "57.04px" }} />,
+      activeIcon: <img src={RedReliableCustomerServiceicon} alt="Sign up icon" style={{ width: "60.78px", height: "57.04px" }} />,
     },
     {
       id: 3,
       title: 'Fair and Transparent Deals',
       description: 'No fine print. No confusion. Just clear, honest, published terms that ensure you know exactly what you\'re getting.',
-      icon: <img src={ChooseThird} alt="Sign up icon" style={{ width: "62.57px", height: "62.57px" }} />,
-      activeIcon: <img src={ChooseUsThird} alt="Sign up icon" style={{ width: "62.57px", height: "62.57px" }} />,
+      icon: <img src={BFairandTransparentDeals} alt="Sign up icon" style={{ width: "62.57px", height: "62.57px" }} />,
+      activeIcon: <img src={RedFairandransparentDeals} alt="Sign up icon" style={{ width: "62.57px", height: "62.57px" }} />,
     }
   ];
 

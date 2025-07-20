@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import styles from './newFeatredBlog.module.css';
 import featuredBlogMain from "../../../assets/Logos_and_illustration/featuredBlogMain.webp"
 import sideImage from "../../../assets/Logos_and_illustration/sideImage.png"
+import Men from "../../../assets/Logos_and_illustration/men.jpg"
+import FeaturedCardImage from "../../../assets/Logos_and_illustration/FeaturedCardImage.svg"
+
 import { getBlogs } from "../../../servicefile/blogservice";
 
 const FeaturedBlogs = () => {
@@ -25,7 +28,7 @@ const FeaturedBlogs = () => {
             let type = activeTab === 'Latest' ? undefined : activeTab;
             const response = await getBlogs(type, 1);
             if (response && response.blogsList) {
-                const limitedBlogs = response.blogsList.slice(0, 4);
+                const limitedBlogs = response.blogsList.slice(0, 5);
                 setBlogs(limitedBlogs);
 
             } else {
@@ -125,10 +128,12 @@ const FeaturedBlogs = () => {
                                                         <div className="mainPost" onClick={() => handleBlogClick(blogs[0])}>                                        
                                                             <div className="imageContainer">
                                                                 <img
-                                                                    src={blogs[0].imageUrl || featuredBlogMain}
+                                                                    // src={blogs[0].imageUrl || featuredBlogMain}
+                                                                    src={FeaturedCardImage}
                                                                     alt={blogs[0].title}
                                                                     className="mainImage"
                                                                 />
+                                                                
                                                             </div>
                                                             <div className="mainContent">
                                                                 <span className="category">{blogs[0].type || 'Blog'}</span>
@@ -143,13 +148,25 @@ const FeaturedBlogs = () => {
                                                                         ? blogs[0].subheading.slice(0, 90) + "..."
                                                                         : blogs[0]?.subheading}
                                                                 </p>
+                                                                <div className='AutherINfo'>
+                                                                    <div className='AutherImg'>
+                                                                        <img
+                                                                            src={Men}
+                                                                            alt={blogs[0].title}
+                                                                            className="mainImage"
+                                                                        />
+                                                                    </div>
+                                                                    <h3>By Gabie Sheber</h3>
+                                                                    <span>.</span>
+                                                                    <p>Mar. 28, 2020</p>
+                                                                </div>
                                                             </div>
                                                         </div>
 
                                                     </div>
                                                     <div className='col-lg-6 '>
                                                         <div className="row">
-                                                            {blogs.slice(1, 4).map((blog, index) => (
+                                                            {blogs.slice(1, 5).map((blog, index) => (
                                                                 <div
                                                                     key={blog._id}
                                                                     className="sidePost col-lg-12"
@@ -169,6 +186,19 @@ const FeaturedBlogs = () => {
                                                                         ? blog.title.slice(0, 50) + "..."
                                                                         : blog.title}
                                                                         </p>
+                                                                        <div className='AutherINfo'>
+                                                                            {/* <div className='AutherImg'>
+                                                                                <img
+                                                                                    src={Men}
+                                                                                    alt={blogs[0].title}
+                                                                                    className="mainImage"
+                                                                                />
+                                                                            </div> */}
+                                                                            <h3>By Gabie Sheber</h3>
+                                                                            <span>.</span>
+                                                                            <p>Mar. 28, 2020</p>
+                                                                        </div>
+
                                                                     </div>
                                                                 </div>
                                                             ))}
