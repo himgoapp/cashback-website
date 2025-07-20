@@ -90,8 +90,6 @@
   margin: 0;
 }
 
-
-
 .column {
   width: 100%;
 }
@@ -297,11 +295,10 @@
 }
 
 .kycDetailItem {
-  display: flex
-;
-    flex-direction: row;
-    width: 100%;
-    gap: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap: 20px;
 }
 .kycDetailLabel {
   display: block;
@@ -737,31 +734,45 @@
 
 /* Responsive (Mobile) */
 @media only screen and (max-width: 768px) {
-     .container {
-        padding: 20px;
-    }
-         .column {
-        flex-direction: column;
-    }
-       .fieldLabel {
-        font-size: 12px;
-        min-width: 112px;
-    }
-       .fieldText , .kycDetailValue{
-        font-size: 12px;
-    }
-    .sectionTitle {
-    padding-top: 0;
-}
-.kycDetailLabel {
+  .container {
+    padding: 20px;
+  }
+  .column {
+    flex-direction: column;
+  }
+  .fieldLabel {
     font-size: 12px;
     min-width: 112px;
+  }
+  .fieldText,
+  .kycDetailValue {
+    font-size: 12px;
+  }
+  .sectionTitle {
+    padding-top: 0;
+  }
+  .kycDetailLabel {
+    font-size: 12px;
+    min-width: 112px;
+  }
 }
-}
+
 @media only screen and (max-width: 575px) {
- .formField{
+  .EditProfileButton {
+    min-width: 40px;
+  }
+
+  .VerifyNowButton {
+    min-width: 100px;
+  }
+
+  .container {
+    padding: 20px;
+    overflow-x: scroll;
+  }
+  .formField {
     padding: 16px 0;
-}
+  }
 }
 @media only screen and (max-width: 480px) {
   .authCard {
@@ -780,10 +791,9 @@
     margin-bottom: 20vh;
     padding: 16px;
   }
-  
 }
 @media only screen and (max-width: 420px) {
-.formField {
+  .formField {
     gap: 8px;
-}
+  }
 }
