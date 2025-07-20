@@ -370,10 +370,11 @@ ul.SliderList li svg {
     width:132px;
 height: 32px;
 }
-button.Pokerbazzi25 {
+button.Pokerbazzi25
+ {
     background: #F0F0F0;
     border-radius: 4.26px;
-    border: 1px solid #989898;
+    border: 1px dashed #989898;
     font-size: 10.23px;
     display: flex;
     flex-direction: column;

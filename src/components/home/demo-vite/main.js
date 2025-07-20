@@ -65,7 +65,7 @@ const Carousel = () => {
       },
       grabCursor: true,
       loop: false,
-      loopAdditionalSlides: 2,
+      // loopAdditionalSlides: 4,
       slidesPerView: "auto",
       navigation: {
         nextEl: ".swiper-button-next",
@@ -76,23 +76,17 @@ const Carousel = () => {
         el: ".swiper-pagination",
       },
       autoplay: {
-        delay: 5000,
+        delay: 9000,
         disableOnInteraction: false,
       },
-      breakpoints: {
-        640: {
-          slidesPerView: 2,
-          spaceBetween: 20,
-        },
-        768: {
-          slidesPerView: 4,
-          spaceBetween: 40,
-        },
-        1024: {
-          slidesPerView: 5,
-          spaceBetween: 50,
-        },
-      },
+      // breakpoints: {
+      //   640: {
+      //     slidesPerView: 1,
+      //   },
+      //   768: {
+      //     slidesPerView: 1,
+      //   }
+      // },
     });
   }, []);
 
@@ -199,8 +193,8 @@ const Carousel = () => {
           ))}
         </div>
 
-        <div className="swiper-button-prev"></div>
-        <div className="swiper-button-next"></div>
+        {/* <div className="swiper-button-prev"></div>
+        <div className="swiper-button-next"></div> */}
         <div className="swiper-pagination"></div>
       </div>
     </div>
