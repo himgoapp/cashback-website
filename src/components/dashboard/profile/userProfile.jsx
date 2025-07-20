@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { UserContext } from "../../../App";
 import avater1 from "../../../assets/avater1.svg";
 import {
@@ -13,6 +14,7 @@ import styles from "./userProfile.module.css";
 
 const UserProfile = () => {
   const { userData, setUserData } = useContext(UserContext);
+  const navigate = useNavigate();
   const [verifyModal, setVerifyModal] = useState(false);
   const [email, setEmail] = useState("");
   const [selectedImage, setSelectedImage] = useState(null);
@@ -320,56 +322,66 @@ const UserProfile = () => {
                 <div className={styles.kycDetailItem}>
                   <div className={styles.kycDetailLabel}>PAN</div>
                   <div className={styles.kycDetailValue}>
-                    {userKyc?.panCardNo || "Not Provided"}
+                    {userKyc && userKyc.panCardNo ? (
+                      userKyc.panCardNo
+                    ) : (
+                      <button
+                        className={styles.VerifyNowButton}
+                        onClick={() => {
+                          navigate("/dashboard/kyc");
+                        }}
+                      >
+                        Verify Now
+                      </button>
+                    )}
                   </div>
                 </div>
-                {/* <div className={styles.kycDivider}></div> */}
               </div>
 
               <div className={styles.kycSection}>
                 <div className={styles.kycDetailRow}>
                   <div className={styles.kycDetailItem}>
-                    <div className={styles.kycDetailLabel}>PAN</div>
-                    {/* <div className={styles.kycDetailItem}>
-                      {userKyc?.addressProofType === "voter_id"
-                        ? "Voter ID"
-                        : userKyc?.addressProofType === "aadhaar_card"
-                          ? "Aadhaar Card"
-                          : userKyc?.addressProofType === "passport"
-                            ? "Passport"
-                            : "Not Provided"}
-                    </div> */}
+                    <div className={styles.kycDetailLabel}>Aadhaar</div>
                     <div className={styles.kycDetailValue}>
-                      {userKyc?.addressProofDocumentNumber || "Not Provided"}
+                      {userKyc && userKyc.addressProofDocumentNumber ? (
+                        userKyc.addressProofDocumentNumber
+                      ) : (
+                        <button
+                          className={styles.VerifyNowButton}
+                          onClick={() => {
+                            navigate("/dashboard/kyc");
+                          }}
+                        >
+                          Verify Now
+                        </button>
+                      )}
                     </div>
                   </div>
-                  {/* <div className={styles.kycDetailItem}>
-                    <div className={styles.kycDetailValue}>
-                      {userKyc?.addressProofDocumentNumber || "Not Provided"}
-                    </div>
-                  </div> */}
                 </div>
-                {/* <div className={styles.kycDivider}></div> */}
               </div>
 
               <div className={styles.kycSection}>
                 <div className={styles.kycDetailRow}>
                   <div className={styles.kycDetailItem}>
                     <div className={styles.kycDetailLabel}>Account Number</div>
-                    {/* <div className={styles.kycDetailValue}>
-                      {userKyc?.bank_id?.bank_name || "Not Provided"}
-                    </div> */}
                     <div className={styles.kycDetailValue}>
-                      {userKyc?.bank_id?.account_number || "Not Provided"}
+                      {userKyc &&
+                      userKyc.bank_id &&
+                      userKyc.bank_id.account_number ? (
+                        userKyc.bank_id.account_number
+                      ) : (
+                        <button
+                          className={styles.VerifyNowButton}
+                          onClick={() => {
+                            navigate("/dashboard/kyc");
+                          }}
+                        >
+                          Verify Now
+                        </button>
+                      )}
                     </div>
                   </div>
-                  {/* <div className={styles.kycDetailItem}>
-                    <div className={styles.kycDetailValue}>
-                      {userKyc?.bank_id?.account_number || "Not Provided"}
-                    </div>
-                  </div> */}
                 </div>
-                {/* <div className={styles.kycDivider}></div> */}
               </div>
             </div>
           </div>
@@ -499,25 +511,6 @@ const UserProfile = () => {
             </p>
           </div>
         </Modal.Body>
-
-        {/* <Modal.Footer className={styles.modalFooter}>
-          <button
-            onClick={verifyEmailOtp}
-            className={`${styles.submitButton} ${
-              otpValues.join("").length < 6 ? styles.buttonDisabled : ""
-            }`}
-            disabled={otpValues.join("").length < 6 || loading}
-          >
-            {loading ? (
-              <span className={styles.loadingContainer}>
-                <Spinner size="sm" />
-                <span className={styles.loadingText}>Verifying...</span>
-              </span>
-            ) : (
-              <span>Continue</span>
-            )}
-          </button>
-        </Modal.Footer> */}
       </Modal>
     </div>
   );
