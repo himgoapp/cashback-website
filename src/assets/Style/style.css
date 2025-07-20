@@ -111,6 +111,13 @@ div#root {
     width: 100%;
     text-align: left;
 }
+.KYCDB .form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #ff4053;
+    outline: 0;
+    box-shadow: 0 0 14px 1.25rem rgb(255 64 83 / 1%);
+}
 .RakeBackBanner .buttonContainer {
     display: flex;
     flex-direction: column;
