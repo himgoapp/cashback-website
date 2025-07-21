@@ -308,10 +308,83 @@
     transform: translateY(0);
   }
 }
-
+.MobileSubtitle {
+  display: none;
+}
+.LogoIcon{
+  display: none;
+}
 /* Responsive (Mobile) */
+@media only screen and (max-width: 575px) {
+.fullPageContainer {
+  padding: 72px 40px;
+  height: 100vh;
+  background: #fff
+}
+.authCard {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+}
+ .subtitle {
+  display: none;
+}
+.MobileSubtitle{
+      display: block;
+      font-size: 20px;
+      color: #000;
+      margin-bottom: 68px;
+      line-height: 24px;
+      text-align: left;
+      max-width: 100%;
+      letter-spacing: 0.15px;
+      width: 100%;
+      text-align: center;
+}
+.formSection{
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+  display: none;
+}
+.LogoIcon{
+  display: block;
+}
+.primaryButton {
+    margin: 24px 0;
+    height: 60px;
+}
+.inputField input {
+    height: 60px;
+}
+.CountryCode {
+    height: 60px;
+}
+.enterMobiletext {
+    font-size: 10px;
+    text-align: center;
+}
+.formSectionOTP .title{
+  display: block;
+          text-align: center;
+}
+.formSectionOTP .subtitle {
+    display: block;
+    text-align: center;
+    max-width: 250px;
+}
+.otpContainer {
+    gap: 12px;
+    justify-content: space-between;
+    margin-bottom: 17px;
+}
+}
 @media only screen and (max-width: 480px) {
-  .authCard {
+  /* .authCard {
     padding: 30px 24px;
   }
 
@@ -326,5 +399,5 @@
   .fullPageContainer {
     margin-bottom: 20vh;
     padding: 16px;
-  }
+  } */
 }

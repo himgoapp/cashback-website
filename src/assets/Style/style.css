@@ -2265,6 +2265,15 @@ span.ChatSmallDes {
     display: flex;
     width: 100%;
 }
+.MobileViewLogin img.BannerIcon {
+    display: none;
+}
+.MobileViewLogin .LogoIcon{
+    display: none;
+}
+.MobileViewLogin .videoContainer {
+    display: none;
+}
 .NavbarDropdown .dropdown-item {
     white-space: break-spaces;
     padding: 24px;

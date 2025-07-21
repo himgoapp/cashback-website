@@ -5,6 +5,18 @@ import { UserContext } from "../../../App";
 import styles from "./signin.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
+import Layer1 from '../../../assets/Logos_and_illustration/Layer_1.svg';
+import Layer2 from '../../../assets/Logos_and_illustration/Layer_02.svg';
+import chipBannerRight from '../../../assets/Logos_and_illustration/chipHeroBannerRight.svg';
+import chipBannerLeft from '../../../assets/Logos_and_illustration/coinrightbanner.svg';
+import starRightHeroBanner from '../../../assets/Logos_and_illustration/StarRightHeroBanner.svg';
+import pokerCardheroBanner from '../../../assets/Logos_and_illustration/pokerCardheroBanner.svg';
+import starTopHeroBanner from '../../../assets/Logos_and_illustration/starTopHeroBanner.svg';
+
+import heroSectionBanner from '../../../assets/Logos_and_illustration/heroSectionBanner.svg';
+
+import Logo from '../../../assets/Logos_and_illustration/Logo_Red.svg';
+ 
 import { color } from "framer-motion";
 const FullPageSignin = () => {
   const { setUserData, setShowWelcomePopup } = useContext(UserContext);
@@ -173,6 +185,7 @@ const FullPageSignin = () => {
   };
   return (
     <>
+    <div className="MobileViewLogin">
       <Navbar page="login" />
       <div className={styles.fullPageContainer}>
         <div className={styles.authCard}>
@@ -191,9 +204,33 @@ const FullPageSignin = () => {
 
           {!showOtpPart ? (
             <div className={styles.formSection}>
+                <div className="videoContainer">
+                    <img
+                        src={chipBannerLeft}
+                        alt="chip"
+                        className="chipIcon"
+                    />
+                    <img
+                        src={chipBannerRight}
+                        alt="chip right"
+                        className="chipBannerRight"
+                    />
+                    <img
+                        src={pokerCardheroBanner}
+                        alt="star right"
+                        className="pokerCardheroBanner"
+                    />
+                    <img
+                        src={starTopHeroBanner}
+                        alt="star right"
+                        className="starTopHeroBanner"
+                    />
+                    <img src={heroSectionBanner} className="BannerIcon BannerIcon" alt="hero banner" />
+                </div>
+              <img src={Logo} class="LogoIcon" alt="hero banner"></img>
               <h1 className={styles.title}>Login or signup</h1>
               <p className={styles.subtitle}>We will send an OTP to verify</p>
-
+              <p className={styles.MobileSubtitle}>Make Poker More Profitable</p>
               <form onSubmit={handlePhoneSubmit} className={styles.form}>
                 <div className={styles.inputField}>
                   <span className={styles.CountryCode}>+91</span>
@@ -234,7 +271,7 @@ const FullPageSignin = () => {
               </form>
             </div>
           ) : (
-            <div className={styles.formSection}>
+            <div className={`${styles.formSection} ${styles.formSectionOTP}`}>
               <h1 className={styles.title}>Verify OTP</h1>
               <p className={styles.subtitle}>
                 One Time Password (OTP) has been sent to {phoneNumber.slice(0, 2)}•••••{phoneNumber.slice(-2)}
@@ -305,6 +342,7 @@ const FullPageSignin = () => {
       >
         <Footer />
       </div> */}
+      </div>
     </>
   );
 };
