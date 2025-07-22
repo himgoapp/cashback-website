@@ -38,23 +38,22 @@ const LatestNews = ({ userData }) => {
   }, [activeTab, page]);
 
   const typeColors = {
-    Blog: "#3a63e3", 
-    Promotions: "#00c6bb", 
-    Guides: "#ff6b6b", 
+    Blog: "#3a63e3",
+    Promotions: "#00c6bb",
+    Guides: "#ff6b6b",
     Interviews: "#7c5cf5",
-    "MTT Series": "#38b47e", 
-    "Live Poker": "#5271ff", 
-    "Latest News": "#e6a919", 
+    "MTT Series": "#38b47e",
+    "Live Poker": "#5271ff",
+    "Latest News": "#e6a919",
   };
 
-  
   const formatDate = (dateString) => {
-    const options = { 
-      month: 'short', 
-      day: 'numeric', 
-      year: 'numeric' 
+    const options = {
+      month: "short",
+      day: "numeric",
+      year: "numeric",
     };
-    return new Date(dateString).toLocaleDateString('en-US', options);
+    return new Date(dateString).toLocaleDateString("en-US", options);
   };
 
   return (
@@ -65,7 +64,8 @@ const LatestNews = ({ userData }) => {
         link="https://www.rakebackk.com/latest-news"
       />
       <Navbar page="home" />
-      <Reveal>
+      News
+      {/* <Reveal>
         <div className={styles.latest_news}>
           <div className={styles.header_container}>Online Poker News</div>
 
@@ -147,7 +147,7 @@ const LatestNews = ({ userData }) => {
 
                 <div className={styles.rightSidebar}>
                   {/* <RightSidebar /> */}
-                  <div className={styles.important_post}>
+      {/* <div className={styles.important_post}>
                     <h2 className={styles.important_post_heading}>Important Posts</h2>
                     <ul className={styles.post_list}>
                       {currentArticles.length > 0
@@ -184,8 +184,8 @@ const LatestNews = ({ userData }) => {
           style={{ width: "100%", backgroundColor: "#0052cc" }}
         >
           <Footer />
-        </div>
-      </Reveal>
+        </div> */}
+      {/* </Reveal>  */}
     </>
   );
 };

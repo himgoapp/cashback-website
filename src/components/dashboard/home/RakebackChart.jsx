@@ -495,7 +495,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
         />
       )}
 
-      {kycPop && <KycPopup setKycPop={setKycPop} />}
+      {/* {kycPop && <KycPopup setKycPop={setKycPop} />} */}
 
       <div className={styles.main_container}>
         <>

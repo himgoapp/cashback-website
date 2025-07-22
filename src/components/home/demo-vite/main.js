@@ -76,17 +76,9 @@ const Carousel = () => {
         el: ".swiper-pagination",
       },
       autoplay: {
-        delay: 9000,
+        delay: 6000,
         disableOnInteraction: false,
       },
-      // breakpoints: {
-      //   640: {
-      //     slidesPerView: 1,
-      //   },
-      //   768: {
-      //     slidesPerView: 1,
-      //   }
-      // },
     });
   }, []);
 

@@ -1,33 +1,33 @@
-import React,{useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import Navbar from "../components/common/navbar/navbar";
 import Banner from "../components/home/banner/banner";
 import TopRakeBackOffers from "../components/home/offers/topRakeBackOffers";
-import TopOffers from "../components/home/offers/topOffers";
-import TrustSection from "../components/home/trustedbrands/trustedBy"
+// import TopOffers from "../components/home/offers/topOffers";
+import TrustSection from "../components/home/trustedbrands/trustedBy";
 import HowGetStarted from "../components/home/getStarted/howGetStarted";
-import FeaturedBlogs from "../components/home/featured/newFeaturedBlog"
-import WhyChooseUs from "../components/home/whychooseus/whyChooseUs"
-import ClientTestimonial from "../components/home/testimonial/clientTestimonial"
-import FaqSection from "../components/home/FAQ/newFaqSection"
-import AboutUs from "../components/home/aboutus/aboutUs";
-import Deals from "../components/home/deals/deals";
-import Getstarted from "../components/home/getStarted/getstarted";
-import Featured from "../components/home/featured/featured";
-import FAQ from "../components/home/FAQ/faq";
-import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
-import Footer from "../components/common/footer/footer";
+import FeaturedBlogs from "../components/home/featured/newFeaturedBlog";
+import WhyChooseUs from "../components/home/whychooseus/whyChooseUs";
+import ClientTestimonial from "../components/home/testimonial/clientTestimonial";
+import FaqSection from "../components/home/FAQ/newFaqSection";
+// import AboutUs from "../components/home/aboutus/aboutUs";
+// import Deals from "../components/home/deals/deals";
+// import Getstarted from "../components/home/getStarted/getstarted";
+// import Featured from "../components/home/featured/featured";
+// import FAQ from "../components/home/FAQ/faq";
+// import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
+// import Footer from "../components/common/footer/footer";
 import MainContainer from "../layout/mainContainer";
-import ScrollToTopButton from "./ScrollToTopButton ";
-import TrustedBrands from "../components/home/trustedbrands/trustedBrands";
+// import ScrollToTopButton from "./ScrollToTopButton ";
+// import TrustedBrands from "../components/home/trustedbrands/trustedBrands";
 import Meta from "../Meta";
 import NewsletterSubscription from "../components/home/subscribe/newsLetterSubscription";
-import MobileView from "../assets/MobileView.png"
-import ContactUsModal from "./ContactUsModal"
-import Desktop from "../assets/Desktop.png"
-import NewNavbar from "../components/common/navbar/newNavbar";
-import NewFooter from "../components/common/footer/newFooter"
+// import MobileView from "../assets/MobileView.png";
+// import ContactUsModal from "./ContactUsModal";
+// import Desktop from "../assets/Desktop.png";
+// import NewNavbar from "../components/common/navbar/newNavbar";
+import NewFooter from "../components/common/footer/newFooter";
 const Homepage = () => {
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -44,54 +44,20 @@ const Homepage = () => {
         description="Top Poker Rakeback and Cashback Site in India | Play Online Poker Games in India with Your Choice of Poker Website and Win Real Money 2025."
         link="https://rakebackk.com"
       />
-
-      {/*---Latest Code--*/}
       <Navbar page="home" />
-      
       <MainContainer>
-        <Banner/>
+        <Banner />
         <TopRakeBackOffers></TopRakeBackOffers>
-        <TrustSection/>
-        <HowGetStarted/>
-        <FeaturedBlogs/>
-        <WhyChooseUs/>
-        <ClientTestimonial/>
-        <FaqSection/>
-        <NewsletterSubscription/>
-        <NewFooter/>
-        {/* <AboutUs /> */}
-        {/* <TrustedBrands /> */}
-        {/* <Deals /> */}
-        {/* <Getstarted /> */}
-        {/* <Featured /> */}
-        {/* <FAQ /> */}
-        {/* <JoinRakeback /> */}
-        {/* <ScrollToTopButton /> */}
-        {/* <TopOffers/> */}
-        {/* <FaqSection/> */}
-        
-        
-      
+        <TrustSection />
+        <HowGetStarted />
+        <FeaturedBlogs />
+        <WhyChooseUs />
+        <ClientTestimonial />
+        <FaqSection />
+        <NewsletterSubscription />
+        <NewFooter />
       </MainContainer>
-
-      {/* <div
-        style={{ width: "100%", backgroundColor: "#0052cc" }}
-        className="flex_center"
-      >
-        <Footer />
-      </div> */}
-     {/* <div className={styles.contact_button}>
-        <button className={styles.contact} onClick={() => setShowModal(true)}>
-          CONTACT US
-        </button>
-      </div>
-      <ContactUsModal show={showModal} handleClose={() => setShowModal(false)} />
-
-      <img
-      src={isMobile ? MobileView : Desktop}
-      className={isMobile ? styles.coming_soon_mobile : styles.coming_soon}
-    /> */}
-</div>
+    </div>
   );
 };
 

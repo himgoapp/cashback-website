@@ -25,7 +25,8 @@ const NewArticle = () => {
     try {
       let id = blogId.substring(blogId.lastIndexOf("-") + 1);
       const blogData = await getBlogById(id);
-      const fetchedBlog = blogData?.data?.product?.[0] || blogData?.product?.[0];
+      const fetchedBlog =
+        blogData?.data?.product?.[0] || blogData?.product?.[0];
 
       if (fetchedBlog) {
         setBlog(fetchedBlog);
@@ -62,7 +63,7 @@ const NewArticle = () => {
   useEffect(() => {
     if (blog && headingsRef.current.length > 0) {
       const refs = {};
-      headingsRef.current.forEach(section => {
+      headingsRef.current.forEach((section) => {
         const element = document.getElementById(section.id);
         if (element) {
           refs[section.id] = element;
@@ -82,13 +83,13 @@ const NewArticle = () => {
     const observerOptions = {
       root: null,
       rootMargin: "-100px 0px -70% 0px",
-      threshold: 0
+      threshold: 0,
     };
 
     const observerCallback = (entries) => {
       const visibleSections = entries
-        .filter(entry => entry.isIntersecting)
-        .map(entry => entry.target.id);
+        .filter((entry) => entry.isIntersecting)
+        .map((entry) => entry.target.id);
 
       if (visibleSections.length > 0) {
         setActiveSection(visibleSections[0]);
@@ -97,7 +98,7 @@ const NewArticle = () => {
         let closestSection = null;
         let closestDistance = Infinity;
 
-        headingsRef.current.forEach(section => {
+        headingsRef.current.forEach((section) => {
           const element = document.getElementById(section.id);
           if (element) {
             const distance = Math.abs(element.offsetTop - scrollPosition);
@@ -114,9 +115,12 @@ const NewArticle = () => {
       }
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
-    headingsRef.current.forEach(section => {
+    headingsRef.current.forEach((section) => {
       const element = document.getElementById(section.id);
       if (element) {
         observer.observe(element);
@@ -138,14 +142,16 @@ const NewArticle = () => {
     const activeItem = tocRef.current.querySelector(`.${styles.active}`);
     if (!activeItem) return;
 
-    const activeIndex = headingsRef.current.findIndex(item => item.id === activeSection);
+    const activeIndex = headingsRef.current.findIndex(
+      (item) => item.id === activeSection
+    );
     if (activeIndex === -1) return;
 
     const position = activeItem.offsetTop + activeItem.offsetHeight / 2;
 
-    const tocList = tocRef.current.querySelector('ul');
+    const tocList = tocRef.current.querySelector("ul");
     if (tocList) {
-      tocList.style.setProperty('--active-section-bottom', `${position}px`);
+      tocList.style.setProperty("--active-section-bottom", `${position}px`);
     }
   };
 
@@ -172,8 +178,7 @@ const NewArticle = () => {
       const cleanTitle = p1.replace(/<[^>]+>/g, "");
       const sectionId = `section-${index}`;
       headingsRef.current.push({ id: sectionId, title: cleanTitle });
-      return `<h2 id="${sectionId}" class="${styles.sectionHeading}">${cleanTitle}</h2>`; 
-
+      return `<h2 id="${sectionId}" class="${styles.sectionHeading}">${cleanTitle}</h2>`;
     }
   );
 
@@ -192,7 +197,7 @@ const NewArticle = () => {
       const offsetTop = element.offsetTop - 100;
       window.scrollTo({
         top: offsetTop,
-        behavior: "smooth"
+        behavior: "smooth",
       });
       setActiveSection(sectionId);
 
@@ -210,7 +215,8 @@ const NewArticle = () => {
         link={`https://www.rakebackk.com/news/${blogId}`}
       />
       <Navbar page="home" />
-      <Reveal>
+      Inner Article
+      {/* <Reveal>
         <div className={styles.blogDetail}>
           <div className={styles.breadcrumb}>
             <span
@@ -287,7 +293,7 @@ const NewArticle = () => {
 
             <div className={styles.rightSidebar}>
               {/* <RightSidebar /> */}
-              <div className={styles.important_post}>
+      {/* <div className={styles.important_post}>
                 <h2 className={styles.important_post_heading}>
                   Related Articles
                 </h2>
@@ -341,8 +347,9 @@ const NewArticle = () => {
           style={{ width: "100%", backgroundColor: "#0052cc" }}
         >
           <Footer />
-        </div>
-      </Reveal>
+        </div> */}
+      {/* </Reveal> */}
+      //{" "}
     </div>
   );
 };
