@@ -186,6 +186,7 @@ const WelcomePage = () => {
 
   return (
     <>
+    <div className="MobileViewLogin">
       <div className={styles.navbarWrapper}>
         <Navbar page="welcome" />
       </div>
@@ -215,7 +216,7 @@ const WelcomePage = () => {
           <div className={styles.formSection}>
             <h1 className={styles.title}>
               {step === 1
-                ? "Personal Details"
+                ? "Let’s Get Started "
                 : step === 2
                   ? "Enter the OTP"
                   : "What's your name"}
@@ -313,7 +314,7 @@ const WelcomePage = () => {
                   "Proceed"
                 )}
               </button>
-              <p style={{ fontsize: "12px", color: "#606060"}} className="text-center m-0">I agree to receive critical messages such as OTP, booking details on WhatsApp.</p>
+              <p style={{ fontsize: "12px", color: "#000"}} className="text-center m-0 OTPBottomText">I agree to receive critical messages such as OTP, booking details on WhatsApp.</p>
             </div>
           </div>
         </div>
@@ -324,6 +325,7 @@ const WelcomePage = () => {
           <Footer />
         </div>
       </div> */}
+      </div>
     </>
   );
 };

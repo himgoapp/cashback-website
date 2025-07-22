@@ -215,8 +215,8 @@ const FullPageSignin = () => {
 
             {!showOtpPart ? (
               <div className={styles.formSection}>
-                {!hideImage && (
-                  <div className="videoContainer">
+                  <div className ={hideImage ? "videoContainerhide" : "videoContainermain"}>
+                  <div className ="videoContainer">
                     <img src={chipBannerLeft} alt="chip" className="chipIcon" />
                     <img
                       src={chipBannerRight}
@@ -239,13 +239,14 @@ const FullPageSignin = () => {
                       alt="hero banner"
                     />
                   </div>
-                )}
+                
                 <img src={Logo} class="LogoIcon" alt="hero banner"></img>
                 <h1 className={styles.title}>Login or signup</h1>
                 <p className={styles.subtitle}>We will send an OTP to verify</p>
                 <p className={styles.MobileSubtitle}>
                   Make Poker More Profitable
                 </p>
+                </div>
                 <form onSubmit={handlePhoneSubmit} className={styles.form}>
                   <div className={styles.inputField}>
                     <span className={styles.CountryCode}>+91</span>

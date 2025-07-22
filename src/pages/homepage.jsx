@@ -38,7 +38,7 @@ const Homepage = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
   return (
-    <div>
+    <div className="MobileHomepage">
       <Meta
         title="Best Poker Rakeback Site India | Win Real Money "
         description="Top Poker Rakeback and Cashback Site in India | Play Online Poker Games in India with Your Choice of Poker Website and Win Real Money 2025."

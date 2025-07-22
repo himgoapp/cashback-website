@@ -635,33 +635,38 @@
     display: none;
   }
 
-  .RakeBackBanner .pokerCardheroBanner {
-    top: -50px;
-    width: 53px;
-    height: 126px;
-    z-index: 1;
-    right: -20px;
-  }
-  .RakeBackBanner .chipIcon {
-    bottom: 70px;
-    width: 71px;
-    height: 163px;
-    z-index: 2;
-    opacity: 0.5;
-    left: -50px;
-  }
+    .RakeBackBannerMobile .pokerCardheroBanner {
+        top: -20px;
+        width: 53px;
+        height: 126px;
+        z-index: 1;
+        right: -50px;
+    }
+    .RakeBackBannerMobile .chipIcon {
+        bottom: 70px;
+        width: 71px;
+        height: 163px;
+        z-index: 2;
+        opacity: 0.5;
+        left: -66px;
+    }
   .RakeBackBanner .videoContainer img.BannerIcon {
     width: 280px;
     height: 341px;
     z-index: 3;
   }
-
-  .RakeBackBanner .chipBannerRight {
-    width: 39px;
-    height: 114px;
-    z-index: 3;
-    bottom: 0px;
-  }
+.RakeBackBanner .chipBannerRight {
+        width: 39px;
+        height: 114px;
+        z-index: 3;
+        bottom: 0px;
+        right: -30px;
+    }
+    .RakeBackBannerMobile .content {
+    position: relative;
+    top: -40px;
+    z-index: 999;
+}
   .RakeBackBanner .title {
     font-size: 36px;
     line-height: 120%;
@@ -673,17 +678,52 @@
   .RakeBackBanner .buttonContainer button {
     width: 100%;
   }
-  .RakeBackTopOffers {
-    padding: 48px 0;
-  }
-  .RakeBackTopOffers .title,
-  .RakebackTrustedPoker .title,
-  .GetStartedhead .title,
-  .GetStartedhead .title {
-    font-size: 28px;
-    text-align: left;
-    margin-bottom: 14px;
-  }
+.MobileHomepage .RakeBackTopOffers,
+.MobileHomepage .RakebackTrustedPoker,
+.MobileHomepage .RakebackGetStarted,
+.MobileHomepage .RakebackFeaturedBlog,
+.MobileHomepage .RakebackWhyChooseUS,
+.MobileHomepage .RakebackClientTest,
+.MobileHomepage .RakebackFAQ  
+{
+        padding: 48px 36px;
+}
+.MobileHomepage .RakebackClientTest {
+    padding-bottom: 80px;
+}
+.MobileHomepage .RakeBackTopOffers .container,
+.MobileHomepage .RakebackTrustedPoker .container,
+.MobileHomepage .RakebackGetStarted .container,
+.MobileHomepage .RakebackFeaturedBlog .container,
+.MobileHomepage .RakebackWhyChooseUS .container,
+.MobileHomepage .RakebackClientTest .container,
+.MobileHomepage .RakebackFAQ .container  
+{
+        padding: 0px;
+}
+   .MobileHomepage  .swiper-carousel {
+    padding-top: 24px;
+    padding-bottom: 62px;
+}
+  .MobileHomepage .SliderContent {
+    padding: 27px;
+}
+ .MobileHomepage .SliderFooter button {
+    width: 46%;
+    height: 32px;
+}
+.RakebackFAQ.RakebackSpace p.subtitle {
+    margin-top: 0px;
+}
+.RakebackFAQ.RakebackSpace .moreQuestionsActions {  
+    margin: 40px 0 0;
+}
+    .RakeBackTopOffers .title, .RakebackTrustedPoker .title, .GetStartedhead .title, .GetStartedhead .title {
+        font-size: 28px;
+        text-align: left;
+        margin-bottom: 24px;
+    }
+
   .RakeBackTopOffers .subtitle,
   .RakebackTrustedPoker .description,
   .GetStartedhead .subtitle,
@@ -783,22 +823,25 @@
     font-size: 80px;
     min-width: 45px;
   }
-  .GetStartedCard .card {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 20px;
-  }
+    .GetStartedCard .card {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 20px 24px;
+    }
   .GetStartedhead {
     margin-bottom: 28px;
   }
   .joinButton {
     margin-top: 16px;
   }
-  .RakebackFeaturedBlog .tabsWrapper div {
-    font-size: 12px;
-    padding: 0 2px;
-  }
+    .RakebackFeaturedBlog .tabsWrapper div {
+        font-size: 12px;
+        padding: 0 2px 7px;
+        color: #606060;
+       font-weight: 400;
+       border-bottom: 1px solid #D8D8D8;
+    }
   .RakebackFeaturedBlog .tabsWrapper .activeTab {
     color: #ff4053;
     border: none;
@@ -831,26 +874,37 @@
   .RakebackFeaturedBlog .mainPost {
     height: 100%;
   }
-  .RakebackFeaturedBlog .category {
-    font-size: 10px;
-  }
+.RakebackFeaturedBlog .category {
+        font-size: 10px;
+        color: #FF4053;
+        font-weight: bold;
+        font-family: 'Sora';
+    }
   .RakebackFeaturedBlog .imageContainer {
     height: 188px;
   }
-  .RakebackFeaturedBlog .mainTitle {
-    font-size: 17px;
-  }
+    .RakebackFeaturedBlog .mainTitle {
+        font-size: 17.39px;
+        color: #333333;
+        font-weight: 600;
+        font-family: 'Sora';
+    }
   .RakebackFeaturedBlog .description {
     font-size: 12px;
   }
   .RakebackFeaturedBlog .sideContent {
     padding: 10px 13px;
   }
-  .container-cards.featuresList .card {
-    padding: 20px 16px;
-    margin-bottom: 24px;
-    gap: 20px;
-  }
+    .container-cards.featuresList .card {
+        padding: 20px 16px;
+        margin-bottom: 24px;
+        gap: 20px;
+        border: none;
+    }
+    .container-cards.featuresList .card.focused .featureContent p.featureDescription {
+    color: #000 !important;
+    font-weight: 500;
+}
   .container-cards.featuresList .iconContainer {
     width: 66px;
     height: 66px;
@@ -1052,6 +1106,63 @@
     max-width: 350px;
     min-width: 350px;
 }
+.videoContainermain {
+    width: 100%;
+}
+.videoContainerhide img.BannerIcon.BannerIcon,
+.videoContainerhide .chipIcon,
+.videoContainerhide .chipBannerRight
+ {
+    display: none !important;
+}
+.MobileViewLogin .videoContainerhide img.LogoIcon {
+  margin: 0 auto 16px !important;
+}
+.videoContainermain img.LogoIcon {
+    margin: -41px auto 0;
+}
+.MobileViewLogin .videoContainerhide .pokerCardheroBanner {
+        height: 126px;
+        right: -50px;
+        top: -30px;
+        width: 72px;
+        z-index: 1;
+    }
+.OTPBottomText{
+  font-size: 12px;
+}
+.MobileViewLogin {
+    position: relative;
+    overflow: hidden;
+}
+.videoContainerhide {
+    width: 100%;
+}
+
+.RakebackHeader {
+    padding: 3px 0;
+}
+.RakeBackBannerMobile {
+    padding: 20px 48px 17px;
+}
+.RakeBackBannerMobile .container{
+  padding: 0;
+}
+.RakeBackBannerMobile .secondaryButton {
+    color: #000;
+    border: 0px solid #848484;  
+    background: #F6F6F6 !important;
+}
+
+
+
+
+
+
+
+
+
+
 }
 
 @media only screen and (max-width: 480px) {
