@@ -1,12 +1,15 @@
 /*Rakeback Dashboard Footer Css End*/
 .floating-mobile-menu {
-  width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  min-height: 84px;
-  z-index: 111;
-  transition: bottom 2s;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: #fff;
+    min-height: 76px;
+    z-index: 111;
+    transition: bottom 2s;
+    display: flex;
+    align-items: center;
 }
 .floating-mobile-menu__inner-wrapper {
   display: flex;
@@ -14,7 +17,13 @@
   min-height: 84px;
   background-color: var(--second-color);
 }
-
+ul.floating-mobile-menu__list li {
+    text-decoration: none;
+    flex: 1;
+}
+ul.floating-mobile-menu__list li a svg, ul.floating-mobile-menu__list li a img {
+    margin-bottom: 3px;
+}
 .floating-mobile-menu__nav {
   display: flex;
   justify-content: center;
@@ -24,14 +33,16 @@
 }
 
 .floating-mobile-menu__list {
-  width: 100%;
-  display: grid;
-  grid-template-columns: auto 1fr 60px 1fr auto;
-  align-items: center;
-  margin: 0;
-  padding-block: 12px;
+    width: 100%;
+    align-items: center;
+    margin: 0;
+    text-decoration: none;
+    padding: 0;
+    display: flex;
+        list-style: none;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
-
 .floating-mobile-menu__bonuses {
   width: 100%;
   position: absolute;
@@ -49,7 +60,14 @@
   padding: 24px 0;
   margin: 0 auto;
 }
-
+ul.floating-mobile-menu__list li a {
+    font-size: 10px;
+    color: #848484;
+    text-decoration: none;
+}
+.ActiveIconFtr{
+  display: none;
+}
 .floating-mobile-menu__bonuses-item {
   display: flex;
   align-items: center;
