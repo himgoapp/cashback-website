@@ -115,6 +115,37 @@ const FaqSection = () => {
                             <button className="moreQuestionsButton">
                                 More Questions?
                             </button>
+                        </div>
+                        <div className="moreQuestionsActions moreQuestionsActionsMObile ">
+                            <a
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="actionButton"
+                            >
+                                <span className="actionIcon">
+                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                                        <path fill="#25D366" d="M12 2C6.477 2 2 6.477 2 12c0 1.85.504 3.58 1.38 5.07L2 22l5.13-1.35A9.953 9.953 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2Z" />
+                                        <path fill="#fff" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.967-.94 1.166-.173.198-.347.223-.644.075-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.52-.075-.148-.669-1.612-.916-2.21-.242-.58-.487-.5-.669-.51-.173-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.098 3.205 5.077 4.37.71.306 1.263.489 1.695.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347Z" />
+                                    </svg>
+                                </span>
+                                Chat with Us
+                                <svg className='arrowIcon' width="10" height="10" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.36523 1.69421L11.3998 6.49996L6.36523 11.3057" stroke="#848484" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11.3995 6.5L1.59961 6.5" stroke="#848484" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+
+                            </a>
+                            <a
+                                className="actionButton"
+                            >
+                                <span className="actionIcon">
+                                    <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                                        <rect width="20" height="16" x="2" y="4" fill="#fff" stroke="#848484" strokeWidth="1.5" rx="4" />
+                                        <path stroke="#848484" strokeWidth="1.5" d="m4 6 8 7 8-7" />
+                                    </svg>
+                                </span>
+                                Drop a Mail
+                                <svg className='arrowIcon'  width="10" height="10" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M6.36523 1.69421L11.3998 6.49996L6.36523 11.3057" stroke="#848484" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11.3995 6.5L1.59961 6.5" stroke="#848484" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            </a>
                         </div>  
                     </div>
                 </div>

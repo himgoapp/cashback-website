@@ -1502,6 +1502,9 @@ right: 8px
     color: #808080;
     margin-top: 72px !important;
 }
+.copyrightTexMobile{
+    display: none;
+}
 .copyrightText p a {
     color: #808080;
 }
@@ -2198,7 +2201,9 @@ span.ChatSmallDes {
     font-size: 18px;
     width: 134px;
 }
-
+.moreQuestionsActions.moreQuestionsActionsMObile {
+    display: none;
+}
     .KYCDB .btn-pink:hover {
       background-color: #e73448;
     }

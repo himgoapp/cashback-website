@@ -96,8 +96,10 @@ const NewFooter = () => {
             </div>
             <div className='row'>
                 <div className='col-lg-12 copyrightText'>
-                    <p>Copyright © 2025 BRIX Agency | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
-                  
+                    <p>Copyright © 2025 rakebackk | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>                  
+                </div>
+                <div className='col-lg-12 copyrightText copyrightTexMobile'>
+                    <p>Copyright © 2025 rakebackk <br/><br/> | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>                  
                 </div>
             </div>
           </div>
