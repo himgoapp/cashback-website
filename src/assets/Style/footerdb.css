@@ -1,0 +1,66 @@
+/*Rakeback Dashboard Footer Css End*/
+.floating-mobile-menu {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  min-height: 84px;
+  z-index: 111;
+  transition: bottom 2s;
+}
+.floating-mobile-menu__inner-wrapper {
+  display: flex;
+  align-items: center;
+  min-height: 84px;
+  background-color: var(--second-color);
+}
+
+.floating-mobile-menu__nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 390px;
+  margin: 0 auto;
+}
+
+.floating-mobile-menu__list {
+  width: 100%;
+  display: grid;
+  grid-template-columns: auto 1fr 60px 1fr auto;
+  align-items: center;
+  margin: 0;
+  padding-block: 12px;
+}
+
+.floating-mobile-menu__bonuses {
+  width: 100%;
+  position: absolute;
+  left: 50%;
+  bottom: -1000%;
+  transform: translateX(-50%);
+  background-color: var(--third-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: -1;
+  transition: bottom 0.5s linear;
+}
+
+.floating-mobile-menu__bonuses-sub-menu {
+  display: block;
+  padding: 24px 0;
+  margin: 0 auto;
+}
+
+.floating-mobile-menu__bonuses-item {
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 8px;
+  column-gap: 8px;
+  padding: 8.5px 0 8.5px 16px;
+  position: relative;
+}
+
+.floating-mobile-menu__button-bonus {
+  z-index: 10;
+  position: relative;
+  margin-top: 15px;
+}
