@@ -16,7 +16,7 @@ const PokerID = () => {
     <div style={{ display: "flex", flexDirection: "row" }}>
       <Sidebar active={1} />
       <PokerIDMain />
-      {isMobile && <DashboardFooter />}
+      {isMobile && <DashboardFooter active={1} />}
     </div>
   );
 };

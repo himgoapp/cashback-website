@@ -60,18 +60,33 @@ const DashboardHomeHeader = () => {
         <div className={styles.HeaderContent}>
           <div className={styles.HeaderContentWrapper}>
             <div className={styles.HeaderTexts}>
-              <div className={styles.HeaderHead}>
-                <span className={styles.header_text_gap}>Hi {userName}!</span>
-              </div>
+              {!isMobile && (
+                <div className={styles.HeaderHead}>
+                  <span className={styles.header_text_gap}>Hi {userName}!</span>
+                </div>
+              )}
             </div>
+
             <div className={styles.MenuAndLogo}>
-              <div className={styles.Menu} onClick={() => setShowSidebar(true)}>
-                {menuIcon}
-              </div>
-              <div className={styles.Logo} onClick={() => handlClick()}>
-                {logoIcon}
-              </div>
+              {isMobile ? (
+                <div className={styles.HeaderHead}>
+                  <span className={styles.header_text_gap}>Hi {userName}!</span>
+                </div>
+              ) : (
+                <>
+                  <div
+                    className={styles.Menu}
+                    onClick={() => setShowSidebar(true)}
+                  >
+                    {menuIcon}
+                  </div>
+                  <div className={styles.Logo} onClick={() => handlClick()}>
+                    {logoIcon}
+                  </div>
+                </>
+              )}
             </div>
+
             <div className={styles.HeaderActions}>
               <span className={styles.wallet}>
                 <img src={wallet} alt="Wallet" />
@@ -205,30 +220,51 @@ const DashboardHomeHeader = () => {
                     </li>
                     <li>
                       <a className="dropdown-item notification-item" href="#">
-                          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae orci ac nulla commodo feugiat</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. </p>
-                          <span>30min ago</span>
+                        <h3>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Pellentesque vitae orci ac nulla commodo feugiat
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Integer nec odio.{" "}
+                        </p>
+                        <span>30min ago</span>
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item notification-item" href="#">
-                          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae orci ac nulla commodo feugiat</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. </p>
-                          <span>30min ago</span>
+                        <h3>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Pellentesque vitae orci ac nulla commodo feugiat
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Integer nec odio.{" "}
+                        </p>
+                        <span>30min ago</span>
                       </a>
                     </li>
                     <li>
                       <a className="dropdown-item notification-item" href="#">
-                          <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae orci ac nulla commodo feugiat</h3>
-                          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. </p>
-                          <span>30min ago</span>
+                        <h3>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Pellentesque vitae orci ac nulla commodo feugiat
+                        </h3>
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing
+                          elit. Integer nec odio.{" "}
+                        </p>
+                        <span>30min ago</span>
                       </a>
                     </li>
                     <li>
                       <hr className="dropdown-divider" />
                     </li>
                     <li>
-                      <a className="dropdown-item  ViewAllBtn text-center" href="#">
+                      <a
+                        className="dropdown-item  ViewAllBtn text-center"
+                        href="#"
+                      >
                         View All
                       </a>
                     </li>

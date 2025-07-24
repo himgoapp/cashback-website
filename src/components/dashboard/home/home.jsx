@@ -29,7 +29,7 @@ const DashboardHome = () => {
     >
       <Sidebar active={0} />
       <HomeMain data={userData} />
-      {isMobile && <DashboardFooter />}
+      {isMobile && <DashboardFooter active={0} />}
     </div>
   );
 };
