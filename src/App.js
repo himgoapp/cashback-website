@@ -37,6 +37,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import "../src/assets/Style/responsive.css";
+import MobileView from "./components/dashboard/mobileSidebar/Mobilepageview";
 
 export const UserContext = createContext();
 
@@ -210,6 +211,15 @@ function App() {
               element={
                 <ProtectedRoute>
                   <Profile />
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/dashboard/more"
+              element={
+                <ProtectedRoute>
+                  <MobileView />
                 </ProtectedRoute>
               }
             />

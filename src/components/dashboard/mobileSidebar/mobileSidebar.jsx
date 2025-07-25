@@ -19,7 +19,7 @@ const MobileSideBar = ({ active }) => {
   const { showMobileSideBar, setShowMobileSideBar, userData } =
     useContext(UserContext);
   const [data, setData] = useState({});
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 575);
 
   useEffect(() => {
     setData(userData && userData.phoneNumber ? userData : {});
@@ -33,9 +33,11 @@ const MobileSideBar = ({ active }) => {
   return (
     <div
       className={styles.SidebarNavigation}
-      style={{
-        display: showMobileSideBar || !isMobile ? "inline-flex" : "none",
-      }}
+      style={
+        {
+          // display: showMobileSideBar || !isMobile ? "inline-flex" : "none",
+        }
+      }
     >
       <div className={styles.Content}>
         <div className={styles.Nav}>

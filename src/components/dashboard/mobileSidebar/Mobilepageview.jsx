@@ -1,15 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import Sidebar from "../sidebar/sidebar";
-import HomeMain from "./homemain";
-import { userInfoFxn } from "../../../servicefile/dashboardservice";
+import MobileMain from "./mobileMain";
 import { UserContext } from "../../../App";
 import DashboardFooter from "../Foooter/footer";
-import MobileSideBar from "../mobileSidebar/mobileSidebar";
 
-const DashboardHome = () => {
+const MobileView = () => {
   const { userData } = useContext(UserContext);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
-
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 575);
@@ -17,7 +13,6 @@ const DashboardHome = () => {
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
-  // const [data, setData] = useState({});
 
   return (
     <div
@@ -28,11 +23,10 @@ const DashboardHome = () => {
         position: "relative",
       }}
     >
-      <Sidebar active={0} />
-      <HomeMain data={userData} />
+      <MobileMain data={userData} />
       {isMobile && <DashboardFooter active={0} />}
     </div>
   );
 };
 
-export default DashboardHome;
+export default MobileView;

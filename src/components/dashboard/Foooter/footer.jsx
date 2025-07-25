@@ -127,9 +127,10 @@ const DashboardFooter = ({ active }) => {
                 alignItems: "center",
               }}
               aria-label="Rules"
-              onClick={() => {
-                setShowMobileSideBar(!showMobileSideBar);
-              }}
+              // onClick={() => {
+              //   setShowMobileSideBar(!showMobileSideBar);
+              // }}
+              href="/dashboard/more"
               // href=""
             >
               <svg
