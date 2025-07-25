@@ -15,14 +15,7 @@ const MobileView = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        width: "100%",
-        position: "relative",
-      }}
-    >
+    <div >
       <MobileMain data={userData} />
       {isMobile && <DashboardFooter active={0} />}
     </div>

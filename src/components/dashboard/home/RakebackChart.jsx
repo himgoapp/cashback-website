@@ -321,7 +321,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
         </div>
       </div>
       <div className="MobileView">
-        <div className={styles.wallet_balance_head}>Your Balance </div>
+        <div className={styles.wallet_balance_head}>Wallet Balance </div>
         <div className={styles.withdrawal_container}>
           <svg
             width="72"

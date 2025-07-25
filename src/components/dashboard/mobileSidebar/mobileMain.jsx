@@ -31,12 +31,7 @@ const MobileMain = ({ data }) => {
   }, []);
 
   return (
-    <DashboardMainTopBottom>
-      <DashboardHomeHeader title="More" icon={HomeIcon} />
-      <DashboardMain>
         <MobileSideBar />
-      </DashboardMain>
-    </DashboardMainTopBottom>
   );
 };
 

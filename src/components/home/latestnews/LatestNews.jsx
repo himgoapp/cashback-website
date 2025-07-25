@@ -9,7 +9,10 @@ import Meta from "../../../Meta";
 import RightSidebar from "./RightSidebar";
 import Reveal from "../../common/reveal/Reveal";
 import featuredBlogMain from "../../../assets/Logos_and_illustration/featuredBlogMain.webp"
+import Promotion from "../../../assets/Promotion.jpg"
 
+import OfferPokerIcon from "../../../assets/OfferPokerIcon.svg"
+ 
 
 
 
@@ -120,86 +123,201 @@ const LatestNews = ({ userData }) => {
                 </div>
             </div>
 
+              <div className=" LatestNewsDsg">
+                <div  className="LatestNewsDsgIMg">
+                    <img src={Promotion} className="" />
+                </div>
+                <div  className="LatestNewsDsgTxt">
+                    <p className="small">Experience the Serenity of Japan's Traditional Country...</p>
+                    <p className="LatestNewsDsgTxtDec"><span>NEWS</span> • May 1, 2023</p>
+                </div> 
+              </div>
+             <div className=" LatestNewsDsg">
+                <div  className="LatestNewsDsgIMg">
+                    <img src={Promotion} className="" />
+                </div>
+                <div  className="LatestNewsDsgTxt">
+                    <p className="small">Experience the Serenity of Japan's Traditional Country...</p>
+                    <p className="LatestNewsDsgTxtDec"><span>NEWS</span> • May 1, 2023</p>
+                </div> 
+              </div>
+          </section>
+
+
+          <section id="promotions"  className="latestnews">
+            <div className="mb-3">
+                <div className="mainPost">
+                    <div className="imageContainer">
+                        <img
+                            src={featuredBlogMain}
+                            alt="Featured blog post"
+                            className="mainImage"
+                        />
+                    </div>
+                    <div className="mainContent">
+                        <span className="category">PROMOTION <span>6/23/2025</span></span>
+                        <h3 className="mainTitle">Talk it out with audio, Talk it out in with audio, Talk it out with audio...</h3>
+                        <p className="description">
+                            Use audio to have live conversations with other collaborators directly in your Figma & FigJam files. ...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
             <div className="row mb-3">
               <div className="col-6 mb-2">
-                <img src="https://via.placeholder.com/150" className="img-fluid rounded" />
-                <p className="text-muted small mb-1">NEWS • May 1, 2023</p>
-                <p className="small">Experience the Serenity of Japan's Traditional Country...</p>
+                <img src={Promotion} className="img-fluid rounded" />
+                <p className="small">Experience the Serenity of Japan's Traditional Country.</p>
               </div>
               <div className="col-6 mb-2">
-                <img src="https://via.placeholder.com/150" className="img-fluid rounded" />
-                <p className="text-muted small mb-1">NEWS • May 1, 2023</p>
-                <p className="small">Experience the Serenity of Japan's Traditional Country...</p>
+                <img src={Promotion} className="img-fluid rounded" />
+                <p className="small">Experience the Serenity of Japan's Traditional Country.</p>
+              </div>
+            </div>
+            <div className="row mb-3">
+              <div className="col-6 mb-2">
+                <img src={Promotion} className="img-fluid rounded" />
+                <p className="small">Experience the Serenity of Japan's Traditional Country.</p>
+              </div>
+              <div className="col-6 mb-2">
+                <img src={Promotion} className="img-fluid rounded" />
+                <p className="small">Experience the Serenity of Japan's Traditional Country.</p>
               </div>
             </div>
           </section>
 
-          <section id="promotions">
-            <div className="mb-3">
-              <img src="https://via.placeholder.com/300x150" className="img-fluid rounded" />
-              <p className="text-muted small mb-1">PROMOTION • 6/23/2025</p>
-              <p className="fw-bold">Talk it out with audio, Talk it out in with audio...</p>
-            </div>
+          
 
-            <div className="row row-cols-2 g-2 mb-3">
-              <div className="col">
-                <img src="https://via.placeholder.com/150" className="img-fluid rounded" />
-              </div>
-              <div className="col">
-                <img src="https://via.placeholder.com/150" className="img-fluid rounded" />
-              </div>
-              <div className="col">
-                <img src="https://via.placeholder.com/150" className="img-fluid rounded" />
-              </div>
-              <div className="col">
-                <img src="https://via.placeholder.com/150" className="img-fluid rounded" />
-              </div>
-            </div>
-          </section>
-
-          <section id="strategies">
+          <section id="strategies" className="OffersForU">
             <div className="d-flex justify-content-between align-items-center mb-2">
               <h6 className="mb-0">Offers For You</h6>
-              <a href="#" className="text-danger small">See More</a>
+              <a href="#" className="text-danger small seeMOre">See More</a>
             </div>
-
-            <div className="mb-3">
-              <div className="d-flex justify-content-between align-items-center border p-2 rounded mb-2">
-                <div>
-                  <p className="mb-1 fw-bold small">Experience the Serenity of Japan's Traditional Countryside</p>
-                  <small className="text-muted">POKERAZZI®</small>
+            <div className="OfferDelfrU">
+             <div className=" OffersForUchd LatestNewsDsg">
+                <div  className="LatestNewsDsgIMg">
+                    <img src={Promotion} className="" />
                 </div>
-                <button className="offer-button">Claim Now!</button>
+                <div  className="LatestNewsDsgTxt">
+                    <p className="small">Experience the Serenity of Japan's Traditional Country...</p>
+                      <div class="SliderFooter">
+                        <button class="ClaimNow">Claim Now</button>
+                        <button class="Pokerbazzi25">Pokerbazzi25<span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg></span></button>
+                      </div>              
+                </div> 
+              </div>
+              <div className=" OffersForUchd LatestNewsDsg">
+                <div  className="LatestNewsDsgIMg">
+                    <img src={Promotion} className="" />
+                </div>
+                <div  className="LatestNewsDsgTxt">
+                    <p className="small">Experience the Serenity of Japan's Traditional Country...</p>
+                      <div class="SliderFooter">
+                        <button class="ClaimNow">Claim Now</button>
+                        <button class="Pokerbazzi25">Pokerbazzi25<span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg></span></button>
+                      </div>              
+                </div> 
+              </div>
+              <div className=" OffersForUchd LatestNewsDsg">
+                <div  className="LatestNewsDsgIMg">
+                    <img src={Promotion} className="" />
+                </div>
+                <div  className="LatestNewsDsgTxt">
+                    <p className="small">Experience the Serenity of Japan's Traditional Country...</p>
+                      <div class="SliderFooter">
+                        <button class="ClaimNow">Claim Now</button>
+                        <button class="Pokerbazzi25">Pokerbazzi25<span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg></span></button>
+                      </div>              
+                </div> 
               </div>
             </div>
           </section>
 
-          <section id="blogs">
-            <div className="row mb-3">
-              <div className="col-6">
-                <div className="border p-2 rounded">
-                  <p className="small">The Pros and Cons of Remote Work</p>
-                  <span className="badge bg-secondary">BLOG</span>
+          <section id="blogs" className="OffersForU OffersForUsecnd mt-4">
+            <div className="d-flex justify-content-between align-items-center mb-2">
+              <h6 className="mb-0">Offers For You</h6>
+              <a href="#" className="text-danger small seeMOre">See More</a>
+            </div>
+            <div className="OffersForUsecnddiv">
+                <div className=" OffersForUsecnddivCard">
+                  <div  className="LatestNewsDsgIMg">
+                    <img src={Promotion} className="" />
+                  </div>
+                  <div className="cardOfferSecond">
+                    <p className="small">The Pros and Cons of Remote Work</p>
+                    <span className="">BLOG</span>
+                  </div>
                 </div>
-              </div>
-              <div className="col-6">
-                <div className="border p-2 rounded">
-                  <p className="small">The Pros and Cons of Remote Work</p>
-                  <span className="badge bg-secondary">NEWS</span>
+                <div className=" OffersForUsecnddivCard">
+                  <div  className="LatestNewsDsgIMg">
+                    <img src={Promotion} className="" />
+                  </div>
+                  <div className="cardOfferSecond">
+                    <p className="small">The Pros and Cons of Remote Work</p>
+                    <span className="">BLOG</span>
+                  </div>                  
                 </div>
-              </div>
             </div>
 
-            <div className="mb-5">
-              <div className="d-grid gap-2">
-                <button className="btn btn-dark text-start">Poker 52 - Bet $4 Get $45 in Free Bets</button>
-                <button className="btn btn-dark text-start">Poker 52 - Bet $4 Get $45 in Free Bets</button>
-                <button className="btn btn-dark text-start">Poker 52 - Bet $4 Get $45 in Free Bets</button>
-                <button className="btn btn-primary text-start">ClubWPT - Bet $4 Get $45 in Free Bets</button>
-                <button className="btn btn-danger text-start">Adda52 - Bet $4 Get $45 in Free Bets</button>
+            <div className="mt-4 mb-5">
+              <div className="d-grid gap-2 OfferListCard">
+                <button className="btn btn-dark text-start"> 
+                    <img src={OfferPokerIcon} /> 
+                      <div className="Descptofr">
+                        <p>Bet $4 Get $45 in Free Betsdcvdcddcdcdc</p> 
+                        <span>T&Cs Apply</span>
+                      </div>
+                      <svg width="10" height="19" viewBox="0 0 10 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1.21484L9 9.21484L1 17.2148" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                       </svg>
+                  </button>
+                  <button className="btn btn-dark text-start"> 
+                    <img src={OfferPokerIcon} /> 
+                      <div className="Descptofr">
+                        <p>Bet $4 Get $45 in Free Betsdcvdcddcdcdc</p> 
+                        <span>T&Cs Apply</span>
+                      </div>
+                      <svg width="10" height="19" viewBox="0 0 10 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1.21484L9 9.21484L1 17.2148" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                       </svg>
+                  </button>
+                  <button className="btn btn-dark text-start"> 
+                    <img src={OfferPokerIcon} /> 
+                      <div className="Descptofr">
+                        <p>Bet $4 Get $45 in Free Betsdcvdcddcdcdc</p> 
+                        <span>T&Cs Apply</span>
+                      </div>
+                      <svg width="10" height="19" viewBox="0 0 10 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1.21484L9 9.21484L1 17.2148" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                       </svg>
+                  </button>
+                  <button className="btn  btn-primary text-start"> 
+                    <img src={OfferPokerIcon} /> 
+                      <div className="Descptofr">
+                        <p>Bet $4 Get $45 in Free Betsdcvdcddcdcdc</p> 
+                        <span>T&Cs Apply</span>
+                      </div>
+                      <svg width="10" height="19" viewBox="0 0 10 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1.21484L9 9.21484L1 17.2148" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                       </svg>
+                  </button>
+                  <button className="btn btn-danger text-start"> 
+                    <img src={OfferPokerIcon} /> 
+                      <div className="Descptofr">
+                        <p>Bet $4 Get $45 in Free Betsdcvdcddcdcdc</p> 
+                        <span>T&Cs Apply</span>
+                      </div>
+                      <svg width="10" height="19" viewBox="0 0 10 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1.21484L9 9.21484L1 17.2148" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                       </svg>
+                  </button>
               </div>
             </div>
           </section>
+
+          <div className="AddClass">
+
+          </div>
 
       
           <div className="bottom-nav">

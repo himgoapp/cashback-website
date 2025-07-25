@@ -480,10 +480,7 @@
     flex-direction: column;
     gap: 20px;
   }
-  .rakeback_chart_withdrawal_button__zHX8l {
-    font-size: 12px;
-    height: 36px;
-  }
+ 
   .rakeback_chart_events_container__fJFAI {
     width: 100%;
     max-width: 100%;
@@ -588,7 +585,8 @@
 @media only screen and (max-width: 575px) {
 /*-- BLog Dashboard --*/
 .BlogDashboard.container-fluid {
-    padding: 32px 36px 40px;
+    padding: 32px 36px 130px;
+    background: #FFFFFF !important;
 }
 .BlogDashboard .nav-pills .nav-link {
     border: 1px solid #E4E4E4;
@@ -603,6 +601,10 @@
     flex-wrap: nowrap;
     overflow: scroll;
     gap: 8px;
+}
+.HottestDealsDesc .card-subtitle {
+    font-size: 8px;
+    color: #9D9D9D;
 }
 .BlogDashboard .nav-link.active {  
   background-color: #f44336;
@@ -626,6 +628,10 @@
   display: flex;
   justify-content: space-around;
   padding: 10px 0;
+}
+.LastTransactionTable {
+    border-radius: 16px;
+    padding: 24px 16px;
 }
 .latestBLog{
   background: url(../Logos_and_illustration/LatestblogDashboard.svg);
@@ -663,7 +669,109 @@
 }
 
 
+.MobilesideBar {
+    padding: 26px;
+}
+    .profile-card, .menu-box {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 20px 24px;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+    }
+    .profile-card svg.RakebackIcon {
+    position: absolute;
+    top: 11px;
+    right: 70px;
+}
+    .profile-card .Profiletext
+ {
+    width: 100%;
+}
+.menu-box{
+  margin-bottom: 12px;
+}
 
+    .profile-icon {
+        width: 50px !important;
+        height: 50px !important;
+        background-color: #FF4053;
+        color: #fff;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        min-width: 50px !important;
+    }
+        .profile-icon img{
+            filter: brightness(41);
+    }
+    .menu-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        width: 100%;
+        justify-content: space-between;
+    }
+.menu-left img {
+    min-width: 24px;
+    height: 24px;
+    width: 24px;
+}
+.social-icons i {
+  font-size: 20px;
+  margin: 0 8px;
+  color: #999;
+  cursor: pointer;
+}
+.NAvbarText {
+    width: 100%;
+    margin-left: 20px;
+}
+.text-danger{
+  color: #FF4053 !important;
+}
+.NAvbarText .fw-semibold {
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+}
+.NAvbarText small.text-muted {
+    color: #848484  !important;
+    font-size: 10px;
+}
+.small {
+    font-size: 12px;
+    color: #000000 !important;
+}
+.small.smlDesc {
+        font-size: 10px;
+        color: #848484 !important;
+    }
+.SocialIconBlog {
+    padding: 24px 0;
+}
+.SocialIconBlog  small {
+    font-size: 18px;
+    color: #B1B1B1;
+    margin-bottom: 24px;
+    width: 100%;
+    display: flex;
+}
+.SocialIconBlog div {
+    display: flex
+;
+    gap: 32px;
+    flex-direction: row;
+}
+.SocialIconBlog div a svg {
+    width: 31px;
+    height: 31px;
+}
 /*-- BLog Dashboard --*/
 
 
@@ -1166,6 +1274,7 @@
   .LastTransactionTable.table-responsive table.table.align-middle tr th {
     width: 230px !important;
     min-width: 179px !important;
+    padding-top: 0;
   }
   .myTransactionMain_TabContent__SqHKX {
     width: 100%;
@@ -1301,15 +1410,7 @@
   .KYCDB .accordion-body {
     padding: 30px 20px 28px 39px;
   }
-  .MobileView .rakeback_chart_withdraw_icon__cOhWP {
-    width: 62px;
-    height: 62px;
-  }
-
-  .MobileView .rakeback_chart_withdrawal_container__vh81U {
-    gap: 30px;
-    padding: 30px 20px;
-  }
+  
 .NavbarDropdown .dropdown-item {
     padding: 14px;
 }

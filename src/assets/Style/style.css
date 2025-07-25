@@ -1737,11 +1737,196 @@ span.ChatSmallDes {
 .HeadingSec div {
     margin-bottom: 0;
 }
-.LastTransactionTable {
+/* .LastTransactionTable {
     background: #fff;
     border-radius: 24px;
     box-shadow: 0px 0px 10px #d7d7d7;
     padding: 24px;
+} */
+.LastTransactionTable {
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+}
+.LastTransactionTable table.table.align-middle{
+    background: #fff;
+    border-radius: 24px;
+    /* box-shadow: 0px 0px 10px #d7d7d7; */
+    padding: 24px;
+}
+.btn-check:focus + .btn, .btn:focus {
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(255 64 83 / 10%) !important;
+}
+.btn:hover {
+    color: #fff !important;
+}
+.mainContent .description {
+    font-size: 12px;
+    color: #333333;
+}
+.mainPost .mainContent {
+    padding: 20px 0;
+}
+.mainPost .mainContent span.category {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+    color: #FF4053;
+    font-weight: bold;
+}
+.mainPost .mainContent span.category span{
+    font-size: 12px;
+    color: #A8A8A8;
+    font-weight: 500;
+}
+.mainPost .mainContent h3.mainTitle {
+    font-size: 20px;
+    color: #333333;
+    font-weight: 500;
+}
+.mainContent .description
+ {
+    font-size: 12px;
+    color: #333333;
+    font-weight: 300;
+    margin: 0;
+}
+section#promotions p.small {
+    font-size: 16px;
+    font-weight: 500;
+    margin: 16px 0;
+}
+.OffersForU h6 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+.LatestNewsDsg {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+a.small.seeMOre {
+    color: #FF4053 !important;
+    text-decoration: none;
+    font-weight: 600;
+}
+.OfferDelfrU {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 12px;
+}
+.OfferDelfrU .OffersForUchd.LatestNewsDsg {
+    padding: 8px;
+    background: #fff;
+    border: 1px solid #D0D0D0;
+    border-radius: 8px;
+    margin: 0;
+    box-shadow: 0px 0px 10px #d9d6d6;
+}
+.OffersForUsecnddiv {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: scroll;
+    flex-direction: row;
+    gap: 24px;
+}
+.OffersForUsecnddivCard .LatestNewsDsgIMg {
+    min-width: 296px;
+    height: 139px;
+}
+.cardOfferSecond {
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.cardOfferSecond p.small {
+    margin: 0;
+    font-size: 24px;
+    line-height: 28px;
+    font-weight: 500;
+}
+.cardOfferSecond span {
+    color: #ff4053;
+    font-weight: bold;
+    font-size: 12px;
+}
+.OfferListCard button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 11px 9px 0px;
+}
+.OfferListCard .Descptofr p
+ {
+    font-size: 12px;
+    margin: 0;
+}
+.Descptofr span {
+    font-size: 8px;
+    margin: 0;
+}
+.AddClass {
+    width: 100%;
+    height: 140px;
+    background: #FF4053;
+    border-radius: 25px;
+}
+.OfferDelfrU .OffersForUchd.LatestNewsDsg .LatestNewsDsgTxt p.small {
+    font-size: 12px;
+    margin: 0;
+    font-weight: 500;
+    color: #231F20 !important;
+}
+.OfferDelfrU .OffersForUchd.LatestNewsDsg .SliderFooter button {
+    width: 48%;
+}
+.OfferDelfrU .OffersForUchd.LatestNewsDsg .SliderFooter {
+    margin-top: 8px;
+}
+.LatestNewsDsgIMg {
+    width: 112px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.LatestNewsDsgIMg img
+ {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.LatestNewsDsgTxt {
+    padding: 0 8px;
+}
+.LatestNewsDsgIMg {
+    min-width: 112px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.LatestNewsDsgTxtDec {
+    margin: 0;
+    font-size: 12px;
+    color: #6D6265;
+}
+.LatestNewsDsgTxtDec span {
+    font-size: 12px;
+    color: #FF4053;
+    font-weight: bold;
+        margin-right: 5px;
+}
+.LatestNewsDsgTxt p.small {
+    font-size: 16px;
+    margin: 0;
 }
 .LastTransactionTable .table > :not(:last-child) > :last-child > *
  {

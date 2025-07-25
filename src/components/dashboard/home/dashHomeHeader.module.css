@@ -528,13 +528,30 @@
     right: -2px;
   }
 }
-@media only screen and (max-width: 480px) {
-  .wallet {
+@media only screen and (max-width: 575px) {
+  /* .wallet {
     display: none;
   }
   .wallet_balance {
     display: none;
+  } */
+   .wallet {
+        width: auto;
+    padding: 4px;
+    height: 40px;
   }
+  .wallet img {   
+    width: 34px;
+    height: 34px;
+  }
+  .wallet_balance {
+        font-size: 12px;
+  }
+  .HeaderNavBtn {
+        width: 40px;
+        height: 40px;
+        margin-top: 0px;
+    }
   .dropdown {
     position: fixed;
     top: 85px;
