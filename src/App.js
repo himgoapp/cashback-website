@@ -42,6 +42,7 @@ export const UserContext = createContext();
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(true);
+  const [showMobileSideBar, setShowMobileSideBar] = useState(false);
   const [showSigninPopup, setShowSigninPopup] = useState(true);
   const [showWelcomePopup, setShowWelcomePopup] = useState(false);
   const [showCheckEmailPopup, setShowCheckEmailPopup] = useState(true);
@@ -72,6 +73,8 @@ function App() {
         value={{
           showSidebar,
           setShowSidebar,
+          showMobileSideBar,
+          setShowMobileSideBar,
           showSigninPopup,
           setShowSigninPopup,
           mobile,

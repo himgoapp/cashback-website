@@ -1,0 +1,303 @@
+/* Define CSS classes */
+.SidebarNavigation {
+  width: 100%;
+  max-width: 250px;
+  height: 100vh;
+  background: #ffffff;
+  display: inline-flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  position: sticky;
+  top: 0;
+}
+
+.Content {
+  width: 100%;
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.Nav {
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1rem;
+  display: flex;
+}
+
+.Header {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  padding-left: 1.5rem;
+  padding-right: 1.25rem;
+}
+
+.LogoContainer {
+  width: 250px;
+  height: 100px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo_font {
+  font-family: "HP Simplified H", Arial, sans-serif;
+  color: #ff4053;
+}
+.Navigation {
+  width: 100%;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+.NavItemBase:hover {
+  border-bottom: none;
+  text-decoration: none;
+}
+
+.NavItemBase {
+  display: flex;
+  padding: 0 0 0 40px;
+  width: 100%;
+  text-decoration: none;
+  height: 60px;
+  position: relative;
+}
+.NavItemBase.active:before,
+.NavItemBase:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 60px;
+  background: #ff4053;
+  z-index: 999;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+.NavItemBase.active .Text,
+.NavItemBase:hover .Text {
+  color: #ff4053;
+}
+.NavItemBase.active .BarChart01 svg,
+.NavItemBase:hover .BarChart01 svg {
+  fill: #ff4053;
+}
+.NavItemBase.active .BarChart01 svg path,
+.NavItemBase:hover .BarChart01 svg path {
+  fill: #ff4053;
+}
+.ItemContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 16px;
+}
+
+.BarChart01 {
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+}
+
+.Text {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5rem;
+}
+
+.Footer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 1.5rem 1rem 2rem;
+  width: 100%;
+  border-top: 0.0625rem solid #4072ff;
+}
+
+.Account {
+  display: flex;
+  gap: 2.9375rem;
+}
+.FollowUS {
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  padding: 45px;
+  padding-bottom: 13px;
+}
+.FollowUS h2 {
+  font-size: 18px;
+  color: #848484;
+  text-align: center;
+  margin-bottom: 36px;
+}
+.FollowUS div {
+}
+.FollowUS div svg {
+  margin-bottom: 32px;
+  width: 50%;
+}
+.AvatarLabelGroup {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.Avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 12.5rem;
+}
+
+.Text {
+  color: #848484;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.25rem;
+}
+
+.SupportingText {
+  color: #f5f5f5;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+}
+.Button {
+  display: flex;
+  cursor: pointer;
+  font-weight: 600;
+  background: none;
+}
+.logout_icon {
+  width: 50px;
+}
+/* .Button:hover {
+	background-color: #003fb8;
+	transform: scale(1.05);
+	color: white;
+  }
+  
+  .Button:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.6); 
+  }
+  
+  .Button:active {
+	transform: scale(0.98);
+	background-color: #212121;
+	color: white;
+  }
+  
+  .ButtonText {
+	font-size: 16px;
+	font-weight: bold;
+  }
+   */
+.LogoutIconContainer {
+  display: flex; /* Ensures the icon remains properly aligned */
+  align-items: center;
+  font-size: 20px; /* Adjust the size of the icon if necessary */
+}
+
+.TextAndSupportingText {
+  display: flex;
+  align-items: center;
+  gap: 8rem;
+  color: white;
+  font-weight: bold;
+}
+
+.Placeholder {
+  width: 1.25rem;
+  height: 1.25rem;
+  position: relative;
+}
+
+.FooterIcon {
+  width: 1.042rem;
+  height: 1.042rem;
+  left: 0.104rem;
+  top: 0.104rem;
+  position: absolute;
+  border: 0.104rem solid #475467;
+}
+
+.CloseSidebar {
+  display: none;
+}
+
+.ImageUploadContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  border-radius: 50%;
+  background-color: white;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.ImageUploadContainer input {
+  display: none;
+}
+.Footer {
+  display: flex;
+  justify-content: space-between; /* Spread out elements */
+  align-items: center;
+}
+
+.LogoutButtonContainer {
+  margin-left: 0; /* Align it to the left */
+}
+
+.AvatarLabelGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: auto; /* Move the AvatarLabelGroup to the left */
+}
+
+@media only screen and (max-width: 1024px) {
+  .SidebarNavigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+  }
+
+  .Content {
+    position: relative;
+  }
+
+  .CloseSidebar {
+    display: flex;
+    padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    position: absolute;
+    right: -2.5rem;
+    top: 0.75rem;
+    border-radius: 0.5rem;
+  }
+
+  .CloseSidebar svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

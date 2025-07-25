@@ -4,14 +4,15 @@ import HomeMain from "./homemain";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
 import DashboardFooter from "../Foooter/footer";
+import MobileSideBar from "../mobileSidebar/mobileSidebar";
 
 const DashboardHome = () => {
   const { userData } = useContext(UserContext);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 575);
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -28,6 +29,7 @@ const DashboardHome = () => {
       }}
     >
       <Sidebar active={0} />
+      {isMobile && <MobileSideBar active={0} />}
       <HomeMain data={userData} />
       {isMobile && <DashboardFooter active={0} />}
     </div>

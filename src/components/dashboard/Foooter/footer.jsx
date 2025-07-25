@@ -4,12 +4,12 @@ import DashboardBlog from "../../../assets/Logos_and_illustration/DashboardBlog.
 import DashboardBlogRED from "../../../assets/Logos_and_illustration/DashboardBlogRED.svg";
 
 const DashboardFooter = ({ active }) => {
-  const { showSidebar, setShowSidebar } = useContext(UserContext);
+  const { showMobileSideBar, setShowMobileSideBar } = useContext(UserContext);
   return (
     <div class="floating-mobile-menu">
       <div class="container">
         <ul class="floating-mobile-menu__list">
-          <li>
+          <li className={active === 0 ? "footerActive" : ""}>
             <a
               style={{
                 display: "flex",
@@ -35,7 +35,7 @@ const DashboardFooter = ({ active }) => {
             </a>
           </li>
 
-          <li>
+          <li className={active === 1 ? "footerActive" : ""}>
             <a
               style={{
                 display: "flex",
@@ -71,7 +71,7 @@ const DashboardFooter = ({ active }) => {
               Poker IDs
             </a>
           </li>
-          <li>
+          <li className={active === 2 ? "footerActive" : ""}>
             <a
               style={{
                 display: "flex",
@@ -119,7 +119,7 @@ const DashboardFooter = ({ active }) => {
             </a>
           </li>
 
-          <li>
+          <li className={showMobileSideBar ? "footerActive" : ""}>
             <a
               style={{
                 display: "flex",
@@ -128,7 +128,7 @@ const DashboardFooter = ({ active }) => {
               }}
               aria-label="Rules"
               onClick={() => {
-                setShowSidebar(!showSidebar);
+                setShowMobileSideBar(!showMobileSideBar);
               }}
               // href=""
             >
