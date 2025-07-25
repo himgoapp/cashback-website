@@ -1508,6 +1508,17 @@ right: 8px
 .copyrightText p a {
     color: #808080;
 }
+.SidebarNavigation {
+  width: 100%;
+    max-width: 250px;
+    height: 100vh;
+    background: #FFFFFF;
+    display: inline-flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: sticky;
+    top: 0;
+}
 
 /*Rakeback footer  Css end*/
 

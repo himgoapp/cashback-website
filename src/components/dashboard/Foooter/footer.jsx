@@ -151,7 +151,7 @@ const DashboardFooter = ({ active }) => {
           </li>
         </ul>
       </div>
-      <div class="floating-mobile-menu__bonuses">
+      {/* <div class="floating-mobile-menu__bonuses">
         <div class="container">
           <div class="floating-mobile-menu__bonuses-sub-menu">
             <p> 1WIN POKER ROOM ACTIVE BONUSES:</p>
@@ -180,7 +180,7 @@ const DashboardFooter = ({ active }) => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -55,6 +55,12 @@
     top: 0.75rem;
     border-radius: 0.5rem;
   }
+    .SidebarNavigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+  }
   .Contactform {
     flex-direction: column;
   }
@@ -441,12 +447,9 @@
 .RakebackHeader button.signin_button:first-child {
     background: transparent;
     color: #ff4053;
-    margin-right: 8px;
 }
-.RakebackHeader button.signin_button:first-child:hover {
-    background: #ff4053;
-    color: #fff;
-}
+
+
 }
 
 @media only screen and (max-width: 768px) {
@@ -587,6 +590,9 @@
     display: block;
     width: 100%;
   }
+  .MobileHomepage header.RakebackHeader nav.container-fluid.navbar.navbar-expand-lg {
+    padding-right: 0;
+}
 .kyc-container.KYCDB {
     background: transparent;
     border-radius: 24px;
