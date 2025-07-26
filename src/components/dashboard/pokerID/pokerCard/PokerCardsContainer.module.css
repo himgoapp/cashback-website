@@ -20,9 +20,9 @@
     border-bottom: 1px solid #EBEEF2;
 }
 .TabButton {
-position: relative;
+    position: relative;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 400;
     border: none;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -33,7 +33,7 @@ position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #718EBF;
+    color: #000000;
     background: transparent;
 }
 
@@ -51,9 +51,11 @@ position: relative;
 }
 .TabButton.Active{
  color: #FF4053;
+ font-weight: 600;
 }
 .TabButton:hover{
  color: #FF4053;
+ font-weight: 600;
 }
 .CardsContent {
  display: flex;
@@ -72,7 +74,8 @@ display: flex;
     flex-wrap: wrap;
     gap: 14px;
     width: 100%;
-    justify-content: space-between;
+     justify-content: flex-start;
+    row-gap: 10px;
 }
 
 .CardItem {

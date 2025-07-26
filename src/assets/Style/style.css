@@ -1754,6 +1754,7 @@ span.ChatSmallDes {
     border-radius: 24px;
     /* box-shadow: 0px 0px 10px #d7d7d7; */
     padding: 24px;
+        overflow: hidden;
 }
 .btn-check:focus + .btn, .btn:focus {
     outline: 0;
@@ -1765,6 +1766,21 @@ span.ChatSmallDes {
 .mainContent .description {
     font-size: 12px;
     color: #333333;
+}
+button.ClaimNow.ClaimNowDNO {
+    height: 31px;
+    font-size: 12px;
+    font-weight: 600;
+}
+button.PromoReviewDNO {
+    font-size: 12px;
+    font-weight: 400;
+    background: transparent;
+    color: #A8A8A8;
+    text-decoration: underline;
+}
+button.Pokerbazzi25.Pokerbazzi25DNO {
+    height: 32px;
 }
 .mainPost .mainContent {
     padding: 20px 0;
@@ -1886,6 +1902,9 @@ a.small.seeMOre {
     font-weight: 500;
     color: #231F20 !important;
 }
+.LastTransactionsContainerDB .LastTransactionSection .wallet_balance_head{
+  color: red;
+}
 .OfferDelfrU .OffersForUchd.LatestNewsDsg .SliderFooter button {
     width: 48%;
 }
@@ -1939,7 +1958,8 @@ a.small.seeMOre {
 }
 .LastTransactionTable .table thead tr th {
     font-size: 16px;
-     color: #718EBF;
+    color: #848484;
+    font-weight: 400;
 }
 .LastTransactionTable .table tbody tr td {
     font-size: 16px;
@@ -1950,7 +1970,7 @@ a.small.seeMOre {
     font-size: 0.65em;
 }
 .LastTransactionTable .table thead tr th, .LastTransactionTable .table tbody tr td {
-    padding: 20px 10px;
+    padding: 24px 28px 24px;
     text-transform: capitalize;
 }
 .pagination {
@@ -2085,6 +2105,7 @@ a.small.seeMOre {
 }
 .PokerIdDBDesc {
     width: 100%;
+    margin-bottom: 40px;
 }
 
 .PokerIdDB {

@@ -4,8 +4,7 @@ import OfferHeader from "./header/header";
 import OfferCardContainer from "./cards/cardContainer";
 import OfferSignup from "./signup/signup";
 import { UserContext } from "../../App";
-
-
+import clientTable from './tableOffer'
 
 const OfferAndDeal = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -22,6 +21,8 @@ const OfferAndDeal = () => {
         />
 
         <OfferCardContainer searchTerm={searchTerm} />
+
+        {/* <ClientTable></ClientTable> */}
       </div>
       {!userData && <OfferSignup />}
     </div>

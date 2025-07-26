@@ -15,6 +15,7 @@ position: relative;
 ;
     align-items: center;
     justify-content: center;
+        width: 100%;
 }
 .cardContainer::before {
   content: '';
@@ -92,6 +93,7 @@ position: relative;
 .contentSection {
       padding: 49px 58px;
     background: #F6F6F6;
+        width: 100%;
 }
 .buttonSectionClient{
  display: flex
@@ -100,6 +102,8 @@ position: relative;
     gap: 20px;
     height: 100%;
     padding: 30px;
+        max-width: 201px;
+    min-width: 201px;
 
 }
 .offerBadge {

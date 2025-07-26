@@ -43,7 +43,7 @@ const CustomPagination = ({
         onClick={() => onChangePage(currentPage - 1)}
         disabled={disabledLesser}
       >
-        &laquo; Previous
+        &lsaquo; Previous
       </button>
       {startPage > 1 && (
         <>
@@ -70,7 +70,7 @@ const CustomPagination = ({
         onClick={() => onChangePage(currentPage + 1)}
         disabled={disabledGreater}
       >
-        Next &raquo;
+        Next &rsaquo;
       </button>
     </div>
 

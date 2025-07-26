@@ -16,12 +16,19 @@ import Meta from "../../../Meta";
 import NewFooter from "../../common/footer/newFooter";
 import NewsletterSubscription from "../subscribe/newsLetterSubscription";
 
-import Account from "../../../assets/FAQ/AccountFAQ.svg"
+import Account from "../../../assets/FAQ/AccountFAQBlack.svg"
 import KYC from "../../../assets/FAQ/kycFAQ.svg"
 import TDS from "../../../assets/FAQ/TDSFAQ.svg"
 import Withdrawals from "../../../assets/FAQ/WithdrawalsFAQ.svg"
 import IDTagging from "../../../assets/FAQ/IDFAQ.svg"
 import ContactUs from "../../../assets/FAQ/ContactFAQ.svg"
+
+import AccountRED from "../../../assets/FAQ/Account_FAQRed.svg"
+import KYCRED from "../../../assets/FAQ/kyc_FAQRed.svg"
+import TDSRED from "../../../assets/FAQ/TDS_FAQRed.svg"
+import WithdrawalsRED from "../../../assets/FAQ/WITHDRAWAL_FAQRed.svg"
+import IDTaggingRED from "../../../assets/FAQ/IDTAG_FAQRed.svg"
+import ContactUsRED from "../../../assets/FAQ/ContactUs_FAQRed.svg"
 
 const faqData = {
   legal: [

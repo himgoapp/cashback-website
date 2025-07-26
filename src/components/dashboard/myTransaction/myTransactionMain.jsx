@@ -21,7 +21,7 @@ const MyTransactionMain = () => {
 
   const activeTab = (type, transactionType) => {
     if (type === transactionType) {
-      return { borderBottom: "3px #FF4053 solid", color: "#FF4053" };
+      return { borderBottom: "3px #FF4053 solid", color: "#FF4053 !important" };
     } else {
       return {};
     }

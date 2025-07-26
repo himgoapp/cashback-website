@@ -428,7 +428,7 @@
   }
   .LastTransactionTable .table thead tr th,
   .LastTransactionTable .table tbody tr td {
-    padding: 10px 10px;
+    padding: 20px;
   }
   .dropdown-menu.show {
     display: block;
@@ -580,6 +580,10 @@
   .userProfile_fieldText__jVAo6 {
     font-size: 12px;
   }
+    .LastTransactionTable.table-responsive table.table.align-middle tr th {
+    width: 230px !important;
+    min-width: 179px !important;
+  }
 }
 
 @media only screen and (max-width: 575px) {
@@ -629,10 +633,7 @@
   justify-content: space-around;
   padding: 10px 0;
 }
-.LastTransactionTable {
-    border-radius: 16px;
-    padding: 24px 16px;
-}
+
 .latestBLog{
   background: url(../Logos_and_illustration/LatestblogDashboard.svg);
   background-repeat: no-repeat;
@@ -652,6 +653,16 @@
  {
     font-size: 12px;
     color: #fff;
+}
+.pagination button {
+    padding: 8px 8px;
+    font-size: 12px;
+}
+.retagName {
+    font-size: 8px;
+}
+.PokerIdDBDesc {
+    margin-bottom: 0px;
 }
 .latestnews h6 {
     font-size: 24px;
@@ -1271,11 +1282,7 @@
   .pokerCard_Id__T0ewt {
     font-size: 12px;
   }
-  .LastTransactionTable.table-responsive table.table.align-middle tr th {
-    width: 230px !important;
-    min-width: 179px !important;
-    padding-top: 0;
-  }
+
   .myTransactionMain_TabContent__SqHKX {
     width: 100%;
     overflow: scroll;

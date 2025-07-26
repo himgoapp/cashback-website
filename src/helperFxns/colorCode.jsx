@@ -32,18 +32,20 @@ export const statusBaseColor = (status) => {
   return status === "Approved"
     ? {
         color: "#027a48",
-        background: "rgba(12, 110, 88, 0.1)",
+        background: "#E4FFF1",
         fontWeight: "bold",
         borderRadius: "20px",
         borderColor: "#027a48",
         padding: "2px 5px",
         fontSize: "13px",
+        borderColor: "#28A745",
         textDecoration: "none",
       }
     : status === "Aborted"
     ? {
         color: "#b00020",
-        background: "rgba(164, 48, 48, 0.1)",
+        background: "#FFECEE",
+        borderColor: "#DC3545",
         fontWeight: "bold",
         borderRadius: "20px",
         padding: "2px 5px",
@@ -52,9 +54,10 @@ export const statusBaseColor = (status) => {
       }
     : {
         color: "#b26a00",
-        background: "rgba(219, 168, 88, 0.1)",
+        background: "#FFF9E7",
         fontWeight: "bold",
         borderRadius: "20px",
+        borderColor: "#FFC107",
         padding: "2px 5px",
         fontSize: "13px",
         textDecoration: "none",
@@ -314,55 +317,26 @@ export const imagePicker = (productName) => {
 export const getStatusIcon = (status) => {
   if (status === "Approved" || status === "Successful") {
     return (
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#027a48"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-        <polyline points="22 4 12 14.01 9 11.01"></polyline>
-      </svg>
+     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+<rect width="16" height="16" rx="8" fill="#28A745"/>
+<path d="M12 5L6.5 10.5L4 8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
     );
   }
   if (status === "Pending") {
     return (
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#b26a00"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="12" y1="6" x2="12" y2="12"></line>
-        <line x1="12" y1="16" x2="12.01" y2="16"></line>
-      </svg>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7.99902 0C12.417 0 15.999 3.58172 15.999 8C15.999 12.4183 12.417 16 7.99902 16C3.58124 15.9997 0 12.4181 0 8C0 3.58188 3.58124 0.000251526 7.99902 0ZM7.03906 10.8164V12.5449H8.83105V10.8164H7.03906ZM7.16699 3.20117V9.62598H8.70312V3.20117H7.16699Z" fill="#FFC107"/>
+</svg>
+
     );
   }
   if (status === "Aborted") {
     return (
-      <svg
-        width="14"
-        height="14"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#b00020"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10"></circle>
-        <line x1="15" y1="9" x2="9" y2="15"></line>
-        <line x1="9" y1="9" x2="15" y2="15"></line>
-      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+<rect width="16" height="16" rx="8" fill="#DC3545"/>
+<path d="M12 4L4 12M4 4L12 12" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
     );
   }
   return null;

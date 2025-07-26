@@ -85,6 +85,8 @@
   margin-bottom: 12px;
 }
 
+
+
 .explore {
   margin-top: 20px;
 }
@@ -356,6 +358,8 @@
 .apply_button:hover {
   background-color: #ff4053;
 }
+
+
 
 /* Mobile styles */
 @media (max-width: 768px) {
