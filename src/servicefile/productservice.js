@@ -36,13 +36,15 @@ export const submitAccountId = async (
 	user_id,
 	productId,
 	referenceId,
-	referralCode
+	referralCode,
+	retag
 ) => {
 	let body = {
 		user_id,
 		productId,
 		referenceId,
 		referralCode,
+		retag
 	};
 
 	try {

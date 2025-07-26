@@ -13,7 +13,7 @@ const PokerCard = ({ status, color, item }) => {
   return (
     <div
       className={styles.PokerCard}
-      // style={{ borderTop: `4px solid ${borderColor}` }}
+    // style={{ borderTop: `4px solid ${borderColor}` }}
     >
       <div className={styles.CardContent}>
         <div className={styles.HeaderAndId}>
@@ -58,6 +58,7 @@ const PokerCard = ({ status, color, item }) => {
             Account ID: <br />{" "}
             <strong>{item && item.referenceId ? item.referenceId : ""}</strong>
           </div>
+          {item && item.retag && <p >RETAG</p>}
           <div className={styles.DateContainer}>
             {item && item.createdAt && (
               <>

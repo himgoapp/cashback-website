@@ -9,56 +9,59 @@ import {
 } from "../../../../servicefile/productservice";
 
 const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
-   const [allProductIds, setAllProductIds] = useState([]);
-    const [productId, setProductId] = useState("");
-    const [product, setProduct] = useState({});
-    const [referenceId, setReferenceId] = useState("");
-    const [referralCode, setReferralCode] = useState("");
-    const [retag, setRetag] = useState(false);
-    const [showPokerMenu, setShowPokerMenu] = useState(false);
-    const [loading, setLoading] = useState(false);
+  const [allProductIds, setAllProductIds] = useState([]);
+  const [productId, setProductId] = useState("");
+  const [product, setProduct] = useState({});
+  const [referenceId, setReferenceId] = useState("");
+  const [referralCode, setReferralCode] = useState("");
+  const [retag, setRetag] = useState(false);
+  const [showPokerMenu, setShowPokerMenu] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [topTab, setTpTab] = useState("Add New Poker ID");
   const [activeTab, setActiveTab] = useState(1);
   const [AllIDs, setAllIds] = useState([]);
   const [tabSelected, setTabSelected] = useState([]);
   const { userData } = useContext(UserContext);
 
-    const getProductsInfo = async () => {
-      const res = await getProductsSimple();
-      let mappedValue = res && res.length > 0 ? res.map((item) => {
-        return { value: item._id, label: item.name };
-      }) : [];
-      setAllProductIds(mappedValue);
-    };
-  
-    const onSubmitFxn = async () => {
-      if (productId && referenceId) {
-        setLoading(true);
-        let data = await submitAccountId(
-          userData._id,
-          productId,
-          referenceId,
-          referralCode
-        );
-        if (data && data.message) {
-          // toast.success(`${data.message}`);
-        } else {
-          // toast.error(`${data.message}`);
-        }
-        setGetInfos(true);
-        setProductId("");
-        setReferenceId("");
-        setReferralCode("");
-        setLoading(false);
+  const getProductsInfo = async () => {
+    const res = await getProductsSimple();
+    let mappedValue = res && res.length > 0 ? res.map((item) => {
+      return { value: item._id, label: item.name };
+    }) : [];
+    setAllProductIds(mappedValue);
+  };
+
+  const onSubmitFxn = async () => {
+    if (productId && referenceId) {
+      setLoading(true);
+      let data = await submitAccountId(
+        userData._id,
+        productId,
+        referenceId,
+        referralCode,
+        retag ? true : false
+      );
+      if (data && data.message) {
+        // toast.success(`${data.message}`);
       } else {
-        // toast.warn("Poker Site and Account id is a required field!");
+        // toast.error(`${data.message}`);
       }
-    };
-  
-    const onPokerIdChange = (poker) => {
-      setProductId(poker.value);
-      setProduct(poker);
-      setShowPokerMenu(false);
-    };
+      setGetInfos(true);
+      setProductId("");
+      setReferenceId("");
+      setReferralCode("");
+      setLoading(false);
+    } else {
+      // toast.warn("Poker Site and Account id is a required field!");
+    }
+  };
+
+  const onPokerIdChange = (value) => {
+    setProductId(value);
+    const poker = allProductIds.find((item) => item.value === value);
+    setProduct(poker);
+    // setShowPokerMenu(false);
+  };
 
   const getTagIdInfo = async () => {
     if (!userData || !userData._id) return;
@@ -70,7 +73,7 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
   };
 
   useEffect(() => {
-      getProductsInfo();
+    getProductsInfo();
     getTagIdInfo();
   }, []);
 
@@ -170,61 +173,92 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
     }
     return null;
   };
-  
+
 
   return (
-      <div className={styles.PokerCardsContainer}>
-        
-         <ul className="nav nav-tabs mb-2 PokerIdDB" id="pokerTab" role="tablist">
-            <li className="nav-item" role="presentation">
-              <button className="nav-link active" id="add-tab" data-bs-toggle="tab" data-bs-target="#add" type="button" role="tab" aria-selected="true">
-                Add New Poker ID 
-              </button>
-            </li>
-            <li className="nav-item" role="presentation">
-              <button className="nav-link" id="retag-tab" data-bs-toggle="tab" data-bs-target="#retag" type="button" role="tab" aria-selected="false">
-                Retag Poker ID
-              </button>
-            </li>
-          </ul>
+    <div className={styles.PokerCardsContainer}>
 
-          
-          <div className="tab-content PokerIdDBDesc" id="pokerTabContent">
-            
-            <div className="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="add-tab">
-                <div className="form-container d-flex  justify-content-start">
-                    <div className="formControl  d-flex">
-                      <select className="form-select InputDB" required>
-                        <option selected disabled>Select Poker Sites</option>
-                        <option>ACR Poker</option>
-                        <option>WPT Global</option>
-                        <option>GG Poker</option>
-                      </select>
-                      <input type="text" className="form-control InputDB" placeholder="Username" required />
-                    </div>
-                    <div className="formControl d-flex ">
-                      <input type="text" className="form-control InputDB" placeholder="Enter Account ID*" required />
-                      <button type="submit" className="btn btn-pink">Submit</button>
-                    </div>
-                </div>
-              </div>            
-              <div className="tab-pane fade" id="retag" role="tabpanel" aria-labelledby="retag-tab">
-                <div className="form-container d-flex  justify-content-start">
-                      <div className="formControl  d-flex">
-                        <select className="form-select InputDB" required>
-                          <option selected disabled>Select Poker Sites</option>
-                          <option>ACR Poker</option>
-                          <option>WPT Global</option>
-                          <option>GG Poker</option>
-                        </select>
-                      </div>
-                      <div className="formControl d-flex ">
-                        <input type="text" className="form-control InputDB" placeholder="Enter Account ID*" required />
-                        <button type="submit" className="btn btn-pink">Submit</button>
-                      </div>
-                </div>
+      <ul className="nav nav-tabs mb-2 PokerIdDB" id="pokerTab" role="tablist">
+        <li className="nav-item" role="presentation">
+          <button className="nav-link active" id="add-tab" data-bs-toggle="tab" data-bs-target="#add" type="button" role="tab" aria-selected="true" onClick={() => setRetag(false)}>
+            Add New Poker ID
+          </button>
+        </li>
+        <li className="nav-item" role="presentation">
+          <button className="nav-link" id="retag-tab" data-bs-toggle="tab" data-bs-target="#retag" type="button" role="tab" aria-selected="false" onClick={() => setRetag(true)}>
+            Retag Poker ID
+          </button>
+        </li>
+      </ul>
+
+
+      <div className="tab-content PokerIdDBDesc" id="pokerTabContent">
+
+        <div className="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="add-tab">
+          <div className="form-container d-flex  justify-content-start">
+            <div className="formControl  d-flex">
+              <select
+                className="form-select InputDB"
+                required
+                value={productId}
+                onChange={(e) => onPokerIdChange(e.target.value)}
+              >
+                <option value="" disabled>
+                  Select Poker Sites
+                </option>
+
+                {allProductIds &&
+                  allProductIds.length > 0 &&
+                  allProductIds.map((item, index) => (
+                    <option key={index} value={item.value}>
+                      {item.label}
+                    </option>
+                  ))}
+              </select>
+              {/* <input type="text" className="form-control InputDB" placeholder="Username" required /> */}
+            </div>
+            <div className="formControl d-flex ">
+              <input type="text" value={referenceId}
+                onChange={(e) => setReferenceId(e.target.value)}
+                className="form-control InputDB" placeholder="Enter Account ID*" required />
+              <button type="submit" className="btn btn-pink" onClick={() => {
+                onSubmitFxn();
+              }} >Submit</button>
             </div>
           </div>
+        </div>
+        <div className="tab-pane fade" id="retag" role="tabpanel" aria-labelledby="retag-tab">
+          <div className="form-container d-flex  justify-content-start">
+            <div className="formControl d-flex">
+              <select
+                className="form-select InputDB"
+                required
+                value={productId}
+                onChange={(e) => onPokerIdChange(e.target.value)}
+              >
+                <option value="" disabled>
+                  Select Poker Sites
+                </option>
+
+                {allProductIds &&
+                  allProductIds.length > 0 &&
+                  allProductIds.map((item, index) => (
+                    <option key={index} value={item.value}>
+                      {item.label}
+                    </option>
+                  ))}
+              </select>
+            </div>
+            <div className="formControl d-flex ">
+              <input type="text" value={referenceId}
+                onChange={(e) => setReferenceId(e.target.value)} className="form-control InputDB" placeholder="Enter Account ID*" required />
+              <button type="submit" className="btn btn-pink" onClick={() => {
+                onSubmitFxn();
+              }} >Submit</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
@@ -234,30 +268,29 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
 
 
       <div className={styles.TabContent}>
-            <div className={styles.TabFilters}>
-                {["View all", "Approved", "Pending", "Rejected"].map((label, index) => {
-                  const tabIndex = index + 1;
-                  const isActive = activeTab === tabIndex;
+        <div className={styles.TabFilters}>
+          {["View all", "Approved", "Pending", "Rejected"].map((label, index) => {
+            const tabIndex = index + 1;
+            const isActive = activeTab === tabIndex;
 
-                  return (
-                    <button
-                      key={label}
-                      className={`${styles.TabButton} ${isActive ? styles.Active : ""}`}
-                      onClick={() => setTab(tabIndex)}
-                    >
-                      {/* {getIcon(label) && <span className={styles.TabIcon}>{getIcon(label)}</span>} */}
-                      {label}
-                      <span className={styles.Underline}></span>
-                    </button>
-                  );
-                })}
-              </div>
+            return (
+              <button
+                key={label}
+                className={`${styles.TabButton} ${isActive ? styles.Active : ""}`}
+                onClick={() => setTab(tabIndex)}
+              >
+                {/* {getIcon(label) && <span className={styles.TabIcon}>{getIcon(label)}</span>} */}
+                {label}
+                <span className={styles.Underline}></span>
+              </button>
+            );
+          })}
+        </div>
 
       </div>
       <div
-        className={`${styles.CardsContent} ${
-          tabSelected.length > 6 ? styles.scrollable : ""
-        }`}
+        className={`${styles.CardsContent} ${tabSelected.length > 6 ? styles.scrollable : ""
+          }`}
       >
         <div className={styles.CardsRow}>
           {tabSelected &&
