@@ -73,7 +73,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
         setShowWithdraw(true);
       }
     } else {
-      setKycPop(true);
+      navigate("/dashboard/kyc");
     }
   };
 
@@ -309,9 +309,9 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
             ₹
             {userWallet.wallet_balance
               ? userWallet.wallet_balance.toLocaleString("en-IN", {
-                  minimumFractionDigits: 0,
-                  maximumFractionDigits: 0,
-                })
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0,
+              })
               : "0.00"}
           </div>
 
@@ -397,9 +397,9 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
               ₹
               {userWallet.wallet_balance
                 ? userWallet.wallet_balance.toLocaleString("en-IN", {
-                    minimumFractionDigits: 0,
-                    maximumFractionDigits: 0,
-                  })
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 0,
+                })
                 : "0.00"}
             </div>
 
@@ -505,17 +505,17 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
             style={
               isMobile
                 ? {
-                    flex: 1,
-                    minWidth: "100%",
-                    maxWidth: "100%",
-                    height: "100%",
-                  }
+                  flex: 1,
+                  minWidth: "100%",
+                  maxWidth: "100%",
+                  height: "100%",
+                }
                 : {
-                    flex: 1,
-                    minWidth: "300px",
-                    maxWidth: "70%",
-                    height: "100%",
-                  }
+                  flex: 1,
+                  minWidth: "300px",
+                  maxWidth: "70%",
+                  height: "100%",
+                }
             }
           >
             <div className={styles.chart_heading}>Your Game Insights</div>
@@ -643,10 +643,11 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                 </div>
               </div>
             </div>
-
-            <LastTransactions
-              transactionsInfo={dashboardInfo.transactionsInfo}
-            />
+            <div className="LastTransactionsContainer">
+              <LastTransactions
+                transactionsInfo={dashboardInfo.transactionsInfo}
+              />
+            </div>
           </div>
 
           {/* Right sidebar section */}

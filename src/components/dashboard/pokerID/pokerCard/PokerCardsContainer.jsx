@@ -3,12 +3,62 @@ import styles from "./PokerCardsContainer.module.css";
 import PokerCard from "./pokerCard";
 import { userAccountIdsInfo } from "../../../../servicefile/pokeridservice";
 import { UserContext } from "../../../../App";
+import {
+  getProductsSimple,
+  submitAccountId,
+} from "../../../../servicefile/productservice";
 
 const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
+   const [allProductIds, setAllProductIds] = useState([]);
+    const [productId, setProductId] = useState("");
+    const [product, setProduct] = useState({});
+    const [referenceId, setReferenceId] = useState("");
+    const [referralCode, setReferralCode] = useState("");
+    const [retag, setRetag] = useState(false);
+    const [showPokerMenu, setShowPokerMenu] = useState(false);
+    const [loading, setLoading] = useState(false);
   const [activeTab, setActiveTab] = useState(1);
   const [AllIDs, setAllIds] = useState([]);
   const [tabSelected, setTabSelected] = useState([]);
   const { userData } = useContext(UserContext);
+
+    const getProductsInfo = async () => {
+      const res = await getProductsSimple();
+      let mappedValue = res && res.length > 0 ? res.map((item) => {
+        return { value: item._id, label: item.name };
+      }) : [];
+      setAllProductIds(mappedValue);
+    };
+  
+    const onSubmitFxn = async () => {
+      if (productId && referenceId) {
+        setLoading(true);
+        let data = await submitAccountId(
+          userData._id,
+          productId,
+          referenceId,
+          referralCode
+        );
+        if (data && data.message) {
+          // toast.success(`${data.message}`);
+        } else {
+          // toast.error(`${data.message}`);
+        }
+        setGetInfos(true);
+        setProductId("");
+        setReferenceId("");
+        setReferralCode("");
+        setLoading(false);
+      } else {
+        // toast.warn("Poker Site and Account id is a required field!");
+      }
+    };
+  
+    const onPokerIdChange = (poker) => {
+      setProductId(poker.value);
+      setProduct(poker);
+      setShowPokerMenu(false);
+    };
 
   const getTagIdInfo = async () => {
     if (!userData || !userData._id) return;
@@ -20,6 +70,7 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
   };
 
   useEffect(() => {
+      getProductsInfo();
     getTagIdInfo();
   }, []);
 
@@ -127,7 +178,7 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
          <ul className="nav nav-tabs mb-2 PokerIdDB" id="pokerTab" role="tablist">
             <li className="nav-item" role="presentation">
               <button className="nav-link active" id="add-tab" data-bs-toggle="tab" data-bs-target="#add" type="button" role="tab" aria-selected="true">
-                Add New Poker ID
+                Add New Poker ID 
               </button>
             </li>
             <li className="nav-item" role="presentation">
