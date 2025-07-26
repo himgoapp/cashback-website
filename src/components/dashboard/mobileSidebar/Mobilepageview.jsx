@@ -17,7 +17,7 @@ const MobileView = () => {
   return (
     <div >
       <MobileMain data={userData} />
-      {isMobile && <DashboardFooter active={0} />}
+      {isMobile && <DashboardFooter />}
     </div>
   );
 };

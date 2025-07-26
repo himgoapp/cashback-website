@@ -104,22 +104,23 @@ const DashboardFooter = ({ active }) => {
             </a>
           </li>
 
-          <li>
+          <li className={active === 3 ? "footerActive" : ""}>
             <a
               style={{
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              aria-label="Casino"
+              aria-label="Blogs"
               href="/latest-news"
             >
-              <img src={DashboardBlog} />
-              <img className="ActiveIconFtr" src={DashboardBlogRED} /> Blogs
+              <img src={DashboardBlog} alt="Blog" />
+              <img className="ActiveIconFtr" src={DashboardBlogRED} alt="Blog Active" />
+              Blogs
             </a>
           </li>
 
-          <li className={showMobileSideBar ? "footerActive" : ""}>
+          <li className={active === 4 ? "footerActive" : ""}>
             <a
               style={{
                 display: "flex",
@@ -131,7 +132,7 @@ const DashboardFooter = ({ active }) => {
               //   setShowMobileSideBar(!showMobileSideBar);
               // }}
               href="/dashboard/more"
-              // href=""
+            // href=""
             >
               <svg
                 width="22"

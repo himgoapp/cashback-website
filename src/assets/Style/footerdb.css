@@ -82,3 +82,20 @@ ul.floating-mobile-menu__list li a {
   position: relative;
   margin-top: 15px;
 }
+
+/*Footer selected */
+
+.floating-mobile-menu__list li a {
+  font-size: 12px;
+  text-align: center;
+  color: #848484;
+  text-decoration: none;
+}
+
+.floating-mobile-menu__list li.footerActive a {
+  color: #ff2c51;
+}
+
+.floating-mobile-menu__list li.footerActive svg path {
+  fill: #ff2c51 !important;
+}
