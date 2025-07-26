@@ -28,7 +28,7 @@ const DashboardHome = () => {
         position: "relative",
       }}
     >
-      <Sidebar active={0} />
+  { <Sidebar active={0} />}
       <HomeMain data={userData} />
       {isMobile && <DashboardFooter active={0} />}
     </div>

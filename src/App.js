@@ -58,7 +58,12 @@ function App() {
   const [mobile, setMobile] = useState(true);
 
   useEffect(() => {
-    setMobile(window.innerWidth <= 500);
+   const handleResize = () => {
+        setMobile(window.innerWidth <= 575);
+        setShowSidebar(false)
+      };
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const updateWalletBalance = (newBalance) => {

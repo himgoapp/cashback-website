@@ -5,6 +5,7 @@ import { UserContext } from "../../../App";
 import LogoutIcon from "../../../assets/logoutIconDB.svg";
 import LogoFavicon from "../../../assets/Logos_and_illustration/LogoFavicon.svg";
 import MoreNavIcon from "../../../assets/Logos_and_illustration/MoreNavIcon.svg";
+import DashboardHomeHeader from "../home/dashHomeHeader";
     
 import {
   PokerIcon,
@@ -36,15 +37,14 @@ const MobileSideBar = ({ active }) => {
   return (
 
     <div className="container MobilesideBar" style={{ maxWidth: '400px' }}>
-      
       {/* Profile Card */}
       <div className="profile-card d-flex align-items-center gap-3">
         <div className="profile-icon">
           <img src={LogoFavicon} />
         </div>
         <div className="Profiletext">
-          <div className="fw-bold text-danger">Prasad</div>
-          <div className="small">9403564040</div>
+          <div className="fw-bold text-danger">{userData?.userName}</div>
+          <div className="small">{userData?.phoneNumber}</div>
           <div className=" small smlDesc">Account summary, Profile Information</div>
         </div>
         <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">

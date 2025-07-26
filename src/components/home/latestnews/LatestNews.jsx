@@ -12,6 +12,7 @@ import featuredBlogMain from "../../../assets/Logos_and_illustration/featuredBlo
 import Promotion from "../../../assets/Promotion.jpg"
 
 import OfferPokerIcon from "../../../assets/OfferPokerIcon.svg"
+import DashboardFooter from "../../dashboard/Foooter/footer";
  
 
 
@@ -24,6 +25,14 @@ const LatestNews = ({ userData }) => {
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
+   const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
+    useEffect(() => {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth <= 575);
+      };
+      window.addEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
   const handleTabs = (type) => {
     setActiveTab(type);
@@ -319,14 +328,8 @@ const LatestNews = ({ userData }) => {
 
           </div>
 
-      
-          <div className="bottom-nav">
-            <div><i className="bi bi-house"></i><br /><small>Dashboard</small></div>
-            <div><i className="bi bi-card-list"></i><br /><small>Poker IDs</small></div>
-            <div><i className="bi bi-gift"></i><br /><small>Deals</small></div>
-            <div><i className="bi bi-newspaper"></i><br /><small>Blogs</small></div>
-            <div><i className="bi bi-list"></i><br /><small>More</small></div>
-          </div>
+      { isMobile &&   <DashboardFooter/>}
+          
     </div>
 
 
