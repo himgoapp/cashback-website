@@ -563,4 +563,13 @@
   .dropdown::before {
     right: 15px;
   }
+ .HomeHeader {
+  width:100%;
+}
+.header_text_red {
+  color:
+#FF4053;
+font-size: 20px;
+font-weight: bold;
+}
 }

@@ -58,7 +58,7 @@ const PokerCard = ({ status, color, item }) => {
             Account ID: <br />{" "}
             <strong>{item && item.referenceId ? item.referenceId : ""}</strong>
           </div>
-          {item && item.retag && <p >RETAG</p>}
+          {item && item.retag && <p className="retagName">RETAG</p>}
           <div className={styles.DateContainer}>
             {item && item.createdAt && (
               <>

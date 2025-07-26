@@ -70,7 +70,7 @@ const DashboardHomeHeader = () => {
             <div className={styles.MenuAndLogo}>
               {isMobile ? (
                 <div className={styles.HeaderHead}>
-                  <span className={styles.header_text_gap}>Hi {userName}!</span>
+                  <span className={styles.header_text_red}>Hi {userName}!</span>
                 </div>
               ) : (
                 <>

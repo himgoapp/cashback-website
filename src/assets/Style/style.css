@@ -2512,6 +2512,16 @@ a.small.seeMOre {
     font-size: 13px;
 }
 
+.MobileHomeContainer .mobileMoreNavbar{
+    width:100%
+}
+
+.retagName{
+    color: #28A745;
+    font-size: 24px;
+    font-weight: bolder;
+margin:0;
+}
 
 
 

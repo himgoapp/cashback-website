@@ -670,7 +670,7 @@
 
 
 .MobilesideBar {
-    padding: 26px;
+    padding: 26px 26px 100px;
 }
     .profile-card, .menu-box {
         background-color: #fff;

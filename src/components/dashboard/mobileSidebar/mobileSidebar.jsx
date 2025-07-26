@@ -39,7 +39,7 @@ const MobileSideBar = ({ active }) => {
 
   return (
     <div className="MobileHomeContainer">
-      <DashboardHomeHeader />
+      <DashboardHomeHeader className="mobileMoreNavbar" />
       <div className="container MobilesideBar" style={{ maxWidth: '400px' }}>
         {/* Profile Card */}
         <div className="profile-card d-flex align-items-center gap-3">

@@ -99,3 +99,11 @@ ul.floating-mobile-menu__list li a {
 .floating-mobile-menu__list li.footerActive svg path {
   fill: #ff2c51 !important;
 }
+
+li.footerActive a img {
+  display: none;
+}
+
+li.footerActive a img.ActiveIconFtr  {
+  display: block;
+}
