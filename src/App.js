@@ -15,6 +15,7 @@ import KYC from "./components/dashboard/KYC/kyc";
 import Trsnsactions from "./components/dashboard/myTransaction/myTransaction";
 import { ProtectedRoute, NotProtectedRoute } from "./helperFxns/protectedRoute";
 import LatestNewsMain from "./components/home/latestnews/LatestNewsMain";
+import BlogMain from "./components/home/latestnews/articlesstructure/blogMain";
 // import LatestNews from "./components/home/latestnews/LatestNews";
 import BlogDetail from "./components/home/latestnews/NewsArticle";
 import FaqContainer from "./components/home/FAQ/FaqContainer";
@@ -59,12 +60,12 @@ function App() {
   const [mobile, setMobile] = useState(true);
 
   useEffect(() => {
-   const handleResize = () => {
-        setMobile(window.innerWidth <= 575);
-        setShowSidebar(false)
-      };
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
+    const handleResize = () => {
+      setMobile(window.innerWidth <= 575);
+      setShowSidebar(false)
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const updateWalletBalance = (newBalance) => {
@@ -247,6 +248,17 @@ function App() {
                 </NotProtectedRoute>
               }
             />
+
+            <Route
+              Route
+              path="/blog/:blogId"
+              element={
+                <NotProtectedRoute>
+                  <BlogMain />
+                </NotProtectedRoute>
+              }
+            />
+
             <Route
               path="/faq/:category?"
               element={

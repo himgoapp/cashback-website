@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styles from "./latest_news.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
@@ -20,6 +20,7 @@ import DashboardHomeHeader from "../../dashboard/home/dashHomeHeader";
 
 
 const LatestNews = ({ userData }) => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("Latest News");
   const [allArticles, setAllArticles] = useState([]);
   const [currentArticles, setCurrentArticles] = useState([]);
@@ -133,8 +134,8 @@ const LatestNews = ({ userData }) => {
             </div>
           </div>
 
-          <div className=" LatestNewsDsg">
-            <div className="LatestNewsDsgIMg">
+          <div className=" LatestNewsDsg" onClick={() => { navigate("/blog/wererewr") }}>
+            <div className="LatestNewsDsgIMg" >
               <img src={Promotion} className="" />
             </div>
             <div className="LatestNewsDsgTxt">
@@ -142,7 +143,7 @@ const LatestNews = ({ userData }) => {
               <p className="LatestNewsDsgTxtDec"><span>NEWS</span> • May 1, 2023</p>
             </div>
           </div>
-          <div className=" LatestNewsDsg">
+          <div className=" LatestNewsDsg" onClick={() => { navigate("/blog/wererewr") }}>
             <div className="LatestNewsDsgIMg">
               <img src={Promotion} className="" />
             </div>
