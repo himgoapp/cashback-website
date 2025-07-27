@@ -14,7 +14,8 @@ import VerifyAccount from "./components/dashboard/veryfyAccount/verifyAccount";
 import KYC from "./components/dashboard/KYC/kyc";
 import Trsnsactions from "./components/dashboard/myTransaction/myTransaction";
 import { ProtectedRoute, NotProtectedRoute } from "./helperFxns/protectedRoute";
-import LatestNews from "./components/home/latestnews/LatestNews";
+import LatestNewsMain from "./components/home/latestnews/LatestNewsMain";
+// import LatestNews from "./components/home/latestnews/LatestNews";
 import BlogDetail from "./components/home/latestnews/NewsArticle";
 import FaqContainer from "./components/home/FAQ/FaqContainer";
 import WelcomePage from "./components/dashboard/popup/welcome";
@@ -233,7 +234,7 @@ function App() {
               path="/latest-news"
               element={
                 <NotProtectedRoute>
-                  <LatestNews />
+                  <LatestNewsMain />
                 </NotProtectedRoute>
               }
             />

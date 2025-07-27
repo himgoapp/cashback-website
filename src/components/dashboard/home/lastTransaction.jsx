@@ -7,7 +7,7 @@ const LastTransactions = ({ transactionsInfo }) => {
     transactionsInfo && transactionsInfo.length > 0 ? transactionsInfo : [];
 
   return (
-    <div className="LastTransactionSection">
+    <div className="LastTransactionSection DashboardTransactionSection">
       <div className="d-flex justify-content-between align-items-center mb-3 HeadingSec">
         <div className={styles.wallet_balance_head}>Last Transaction</div>
         <Link className="SeeMore" to="/dashboard/mytransactions">
@@ -32,11 +32,10 @@ const LastTransactions = ({ transactionsInfo }) => {
                   <div className="d-flex align-items-center gap-3">
                     <span
                       className={`rounded-circle d-flex justify-content-center align-items-center border 
-                      ${
-                        txn.typeOfTransaction === "Deposit"
+                      ${txn.typeOfTransaction === "Deposit"
                           ? "border-success text-success"
                           : "border-danger text-danger"
-                      }`}
+                        }`}
                       style={{ width: 30, height: 30 }}
                     >
                       {txn.typeOfTransaction === "Deposit" ? "↓" : "↑"}
@@ -51,11 +50,10 @@ const LastTransactions = ({ transactionsInfo }) => {
                 </td>
                 <td className="fw-medium">{txn._id}</td>
                 <td
-                  className={`fw-bold ${
-                    txn.typeOfTransaction === "Deposit"
-                      ? "text-success"
-                      : "text-danger"
-                  }`}
+                  className={`fw-bold ${txn.typeOfTransaction === "Deposit"
+                    ? "text-success"
+                    : "text-danger"
+                    }`}
                 >
                   {txn.typeOfTransaction === "Deposit"
                     ? `+₹${txn.actualAmount.toLocaleString()}`

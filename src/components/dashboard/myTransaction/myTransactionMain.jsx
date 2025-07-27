@@ -15,13 +15,13 @@ import TransactionsTable from "../myTransaction/table/myTransactionTable";
 
 const MyTransactionMain = () => {
   const { userData, walletData, userKyc } = useContext(UserContext);
-  const [transactionType, setTransactionType] = useState("Withdrawal");
+  const [transactionType, setTransactionType] = useState("AllTransactions");
 
   if (!userData || !walletData || !userKyc) return null;
 
   const activeTab = (type, transactionType) => {
     if (type === transactionType) {
-      return { borderBottom: "3px #FF4053 solid", color: "#FF4053 !important" };
+      return { borderBottom: "3px #FF4053 solid", color: "#FF4053" };
     } else {
       return {};
     }
@@ -46,10 +46,7 @@ const MyTransactionMain = () => {
               >
                 <div className={styles.TabText}>
                   <div className="d-flex align-items-center">
-                    {/* <span className="me-2">
-                      <GradientWithdrawalIcon size={24} />
-                    </span> */}
-                    <span style={{}}>All Transactions </span>
+                    <span className={transactionType === "AllTransactions" ? styles.transactionActvTb : ""}>All Transactions </span>
                   </div>
                 </div>
               </div>
@@ -61,10 +58,7 @@ const MyTransactionMain = () => {
               >
                 <div className={styles.TabText}>
                   <div className="d-flex align-items-center">
-                    {/* <span className="me-2">
-                      <GradientWithdrawalIcon size={24} />
-                    </span> */}
-                    <span style={{}}>Credit </span>
+                    <span className={transactionType === "Credit" ? styles.transactionActvTb : ""}>Credit </span>
                   </div>
                 </div>
               </div>
@@ -75,7 +69,7 @@ const MyTransactionMain = () => {
               >
                 <div className={styles.TabText}>
                   <div className="d-flex align-items-center">
-                    <span style={{}}>Withdrawals </span>
+                    <span className={transactionType === "Withdrawal" ? styles.transactionActvTb : ""}>Withdrawals </span>
                   </div>
                 </div>
               </div>
@@ -86,19 +80,15 @@ const MyTransactionMain = () => {
               >
                 <div className={styles.TabText}>
                   <div className="d-flex align-items-center">
-                    <span style={{}}>TDS </span>
+                    <span className={transactionType === "TDS" ? styles.transactionActvTb : ""}>TDS </span>
                   </div>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Conditionally render KycTDCstatus based on transactionType */}
-          {/* {transactionType !== "Deposit" && <KycTDCstatus />}
-          {transactionType === "Deposit" && <DepositMessage />} */}
-
           <TransactionsTable transactionType={transactionType} />
-          {/* <TableContainer transactionType={transactionType} /> */}
+
         </DashboardMain>
       </DashboardMainTopBottom>
     </div>

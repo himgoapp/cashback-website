@@ -13,6 +13,7 @@ import Promotion from "../../../assets/Promotion.jpg"
 
 import OfferPokerIcon from "../../../assets/OfferPokerIcon.svg"
 import DashboardFooter from "../../dashboard/Foooter/footer";
+import DashboardHomeHeader from "../../dashboard/home/dashHomeHeader";
 
 
 
@@ -80,7 +81,7 @@ const LatestNews = ({ userData }) => {
         description="Check Today's Latest Poker News in India at Rakebackk."
         link="https://www.rakebackk.com/latest-news"
       />
-      <Navbar page="home" />
+      <DashboardHomeHeader />
 
       {/* Mobile Dashboard design */}
 

@@ -234,7 +234,7 @@ button {
 
 .loader {
   border: 12px solid #e8e6e6; /* Light grey */
-  border-top: 12px solid #0052cc; /* Blue */
+  border-top: 12px solid #ff4053; /* Blue */
   border-radius: 50%;
   width: 100px;
   height: 100px;

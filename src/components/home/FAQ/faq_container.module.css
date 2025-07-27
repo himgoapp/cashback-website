@@ -132,9 +132,19 @@ font-size: 14px;
   background: #fff;
     border: 1px solid #FF4053;
 }
-
-.tab_box:hover .tab_icon_img {
+.tab_icon_imgActive {
+   display: none;
+   width: 100%;
+    height: 100%;
+}
+/* .tab_box:hover .tab_icon_img {
    color:#FF4053;
+} */
+.tab_box:hover .tab_icon_img {
+   display: none;;
+}
+.tab_box:hover .tab_icon_imgActive {
+   display: block;;
 }
 .tab_box:hover .tab_title {
    color:#FF4053;
@@ -144,7 +154,12 @@ font-size: 14px;
     background: #fff;
     border: 1px solid #FF4053;
 }
-
+.active_box .tab_icon_img {
+   display: none;
+}
+.active_box .tab_icon_imgActive {
+   display: block;
+}
 .active_box .tab_icon {
   color:#FF4053;
 }
