@@ -563,6 +563,9 @@
     width: 100%;
     padding: 36px 28px;
   }
+      .LastTransactionSection.TransactionTableDB {
+        margin-top: 0;
+    }
   .PokerIdDB.nav-tabs .nav-link {
     font-size: 16px;
   }
@@ -580,13 +583,18 @@
   .userProfile_fieldText__jVAo6 {
     font-size: 12px;
   }
-    .LastTransactionTable.table-responsive table.table.align-middle tr th {
+.LastTransactionTable.table-responsive table.table.align-middle tr th {
     width: 230px !important;
     min-width: 179px !important;
-  }
+    color: #718EBF;
+}
+  .table-responsive {
+    padding-bottom: 20px;
+}
 }
 
 @media only screen and (max-width: 575px) {
+
 /*-- BLog Dashboard --*/
 .BlogDashboard.container-fluid {
     padding: 32px 36px 130px;

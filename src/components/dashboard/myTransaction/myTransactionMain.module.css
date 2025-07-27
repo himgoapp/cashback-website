@@ -36,6 +36,7 @@
     font-size: 16px;
 }
 
+
 .transactionActvTb{
 color:#FF4053 
 }
@@ -62,5 +63,15 @@ color:#FF4053
 @media only screen and (max-width: 768px) {
 	.TabContent {
 		width: 100%;
+		overflow: scroll;
 	}
+	.TabText {
+    color: #848484;
+    font-size: 12px;
 }
+.SectionHeading{
+    color: #000000;
+}
+
+}
+
