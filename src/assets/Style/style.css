@@ -772,7 +772,7 @@ p.GetProfitdes {
   border-radius: 4px;
 }
 .RakebackFeaturedBlog .mainContent {
-    padding: 20px;
+    padding: 20px !important;
     display: flex;
     flex-direction: column;
     gap: 21px;
@@ -2555,6 +2555,377 @@ margin:0;
     color: #718EBF;
     font-weight: 400;
 }
+
+
+.DesktopLatestNews {
+    padding: 80px 0;
+    background: #fff;
+}
+.HedBlog h2.fw-bold {
+    font-size: 36px;
+    margin: 0;
+    border-right: 2px solid #000;
+    line-height: 36px;
+    padding-right: 30px;
+}
+.HedBlog .text-muted {
+    font-size: 24px;
+    margin: 0;
+    padding-left: 30px;
+    color: #000;
+}
+.HedBlog {
+    margin-bottom: 44px;
+}
+.DesktopLatestNews ul#blogTabs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    row-gap: 16px;
+    background: #F5F5F5;
+    border: 1px solid #E4E4E4;
+    border-radius: 6px;
+    padding: 4px;
+    margin-bottom: 48px !important;
+}
+.DesktopLatestNews ul#blogTabs li.nav-item {
+    flex: 1;
+}
+   .DesktopLatestNews .nav-pills .nav-link.active { background-color: #ff4d4d; }
+   .DesktopLatestNews  .blog-card img { border-radius: 8px; }
+    .DesktopLatestNews .section-title { font-weight: bold; margin-bottom: 5px; }
+   .DesktopLatestNews .sub-title
+ {
+    color: #000;
+    margin-bottom: 44px;
+    font-size: 20px;
+}
+.DesktopLatestNews .card-body h6 {
+    font-size: 16px;
+    font-weight: 400;
+    color: #848484;
+    display: flex;
+    gap: 8px;
+}
+     .DesktopLatestNews .card-body h6 span { 
+        font-size: 16px; font-weight: bold; text-transform: uppercase; color: #ff4d4d;
+     }
+.DesktopLatestNews .newsletter {
+    background: #ff4d4d;
+    color: #fff;
+    padding: 50px 30px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    overflow: hidden;
+      z-index: 1;
+
+}
+.DesktopLatestNews .newsletter:before {
+    background: url(../PokerGreen.svg);
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    filter: grayscale(10);
+    opacity: 0.2;
+    z-index: -1;
+}
+ 
+.DesktopLatestNews .newsletter:after {
+    background: url(../PokerGreen.svg);
+    content: '';
+    position: absolute;
+    bottom: -50%;
+    left: 10px;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    filter: grayscale(10);
+    opacity: 0.2;
+    z-index: -1;
+
+}
+   .DesktopLatestNews  .newsletter input { border-radius: 30px; margin-bottom: 10px; }
+   .DesktopLatestNews  .newsletter button { border-radius: 30px; background: #fff; color: #ff4d4d; font-weight: bold; }
+   .DesktopLatestNews  .pagination .page-item.active .page-link { background-color: #ff4d4d; border-color: #ff4d4d; }
+   .DesktopLatestNews  .pagination .page-link { color: #000; }
+   .DesktopLatestNews  .sidebar .card-header { font-weight: bold; }
+   .DesktopLatestNews  .social-icons img { margin: 0 8px; }
+ .DesktopLatestNews .nav-pills .nav-link {    
+    background: none;
+    border: 0;
+    border-radius: 0.25rem;
+    height: 39px;
+    width: 100% !important;
+    color: #000;
+    font-size: 20px;
+    padding: 0 15px;
+}
+ .DesktopLatestNews .tab-content h4.section-title {
+    font-size: 31px;
+    font-weight: 500;
+    color: #000;
+    margin-bottom: 22px;
+}
+.DesktopLatestNews .card.blog-card.BlogCardFullHeifht img {
+    height: 323px;
+    object-fit: cover;
+}
+.DesktopLatestNews .card.blog-card {
+    border: none;
+}
+
+.DesktopLatestNews .card.blog-card .card-body {
+    padding: 31px 0;
+}
+.DesktopLatestNews .card.blog-card.BlogCardFullHeifht .card-body .card-title {
+    font-size: 32px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+.DesktopLatestNews .card.blog-card .card-title {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #141A28;
+}
+.DesktopLatestNews .BorderBlog {
+    border: 0.6px solid #CDCDCD;
+    margin: 20px 0;
+    width: 100%;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card {
+    border-radius: 8px;
+    background: #fff;
+    padding: 8px;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .card-header {
+    border-radius: 4px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    color: #fff;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+        background: #ff4053;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost {
+    padding: 16px 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    border-bottom: 0.6px solid #CDCDCD;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .sideImageContainer {
+    width: 112px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 4px;
+    overflow: hidden;
+    min-width: 112px;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sideContent {
+    width: 100%;
+}
+
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sideContent .sideDescription {
+    font-size: 16px;
+    color: #231F20;
+    margin: 0 0 6px;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .sideImageContainer img.sideImage {
+    width: 100%;
+    height: 100%;
+}
+.AutherINfo h3 {
+    color: #FF4053;
+    font-weight: 700;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost  .SliderFooter button {
+    width: 48%;
+}
+.card.Offerscard .sidePost {
+    border: 1px solid #D0D0D0;
+    margin: 10px 0;
+    padding: 0;
+    border-bottom: 1px solid #D0D0D0;
+    border-radius: 8px;
+}
+.card.Offerscard .sidePost .OffersForUchd.LatestNewsDsg {
+    margin: 0;
+}
+.newsletter  .form-check-label {
+    color: white;
+    font-size: 16px;
+  }
+  .newsletter  .form-check-input {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+  }
+  .DesktopLatestNews .newsletter input {
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background: transparent;
+    border-color: #fff;
+}
+.DesktopLatestNews .newsletter h5 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 auto;
+    max-width: 200px;
+
+}
+.DesktopLatestNews .newsletter p {
+    font-size: 9.54px;
+    margin: 0;
+}
+.DesktopLatestNews .newsletter input.form-control {
+    height: 36px;
+    border-radius: 6.36px;
+    color: #fff;
+    font-size: 16px;
+}
+.DesktopLatestNews .newsletter input.form-control::placeholder {
+    color: #fff;
+}
+.DesktopLatestNews .newsletter form button.subcrb {
+    border-radius: 6.36px;
+    background: #fff;
+    color: #ff4d4d;
+    font-weight: bold;
+    height: 36px;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+.form-check.CheckboxFormCheck {
+    display: flex
+;
+    text-align: left;
+}
+.DesktopLatestNews .newsletter input {
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-color: #fff;
+    min-width: 16px;
+    height: 16px;
+}
+.DesktopLatestNews .newsletter .form-check-input:focus {
+    border-color: #fff;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(255 77 77);
+}
+.newsletter .form-check.CheckboxFormCheck .form-check-label {
+    color: white;
+    font-size: 9px;
+}
+.SpacedicAdd {
+    width: 100%;
+    height: 176px;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost:last-child {
+    border: none;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost:last-child {
+    border: none;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card.Offerscard  .sidePost:last-child {
+    border: 0.6px solid #CDCDCD;
+}
+
+.SpacedicAdd.SpacedicAddsBAckground {
+    background: #ff4053;
+    height: 356px;
+    border-radius: 4px;
+    margin: 0 0 20px;
+}
+.DesktopLatestNews .SocialIconBlog.BlogSocialIcon {
+    padding: 20px 28px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px #d5cfcf;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.DesktopLatestNews .SocialIconBlog.BlogSocialIcon small {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+.DesktopLatestNews .SocialIconBlog.BlogSocialIcon div {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+
+
+.DesktopLatestNews .custom-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: Arial, sans-serif;
+  margin-top: 30px;
+}
+
+.DesktopLatestNews .page-btn {
+  background: #f9f9f9;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.DesktopLatestNews .page-btn:hover {
+  background: #eee;
+}
+
+.DesktopLatestNews .page-number {
+  text-decoration: none;
+  color: #000;
+  font-weight: 500;
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: 0.3s ease;
+}
+
+.DesktopLatestNews .page-number:hover {
+  background: #f9f9f9;
+}
+
+.DesktopLatestNews .page-number.active {
+    color: #FF4053;
+    border: 0.5px solid #FF4053;
+}
+.DesktopLatestNews .dots {
+  font-size: 18px;
+  color: #555;
+}
+
+
+
+
+
+
 
 
 
