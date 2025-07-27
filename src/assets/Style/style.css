@@ -2520,6 +2520,7 @@ a.small.seeMOre {
     width: 100%;
     border-bottom: 1px solid #e0e0e0;
 }
+
 .NavbarDropdown .dropdown-item.ViewAllBtn {
     padding: 0 0 10px;
     border: none;
@@ -2543,7 +2544,17 @@ a.small.seeMOre {
     font-weight: bolder;
 margin:0;
 }
-
+.LastTransactionSection.DashboardTransactionSection .wallet_balance_head{
+    margin-top: 0px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333B69;
+}
+.DashboardTransactionSection .LastTransactionTable .table thead tr th {
+    font-size: 16px;
+    color: #718EBF;
+    font-weight: 400;
+}
 
 
 
