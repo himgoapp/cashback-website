@@ -2,43 +2,66 @@ import React, { useState, useContext, useEffect, useRef } from "react";
 import styles from "./mobilesidebar.module.css";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../../../App";
-import LogoutIcon from "../../../assets/logoutIconDB.svg";
 import LogoFavicon from "../../../assets/Logos_and_illustration/LogoFavicon.svg";
-import MoreNavIcon from "../../../assets/Logos_and_illustration/MoreNavIcon.svg";
+// import MoreNavIcon from "../../../assets/Logos_and_illustration/MoreNavIcon.svg";
 import DashboardHomeHeader from "../home/dashHomeHeader";
+import { Modal } from "react-bootstrap";
 
 
 import {
-  PokerIcon,
+  // PokerIcon,
   TransactionsIcon,
   KYCIcon,
   HomeIcon,
   closeIcon,
-  DealsIcon,
-  logo,
-  profileIcon,
+  // DealsIcon,
+  // logo,
+  // profileIcon,
+  LogoutIcon
 } from "../../../utils/sideBarIcon";
-import logout from "../../../assets/logout.svg";
 
 const MobileSideBar = ({ active }) => {
   const navigate = useNavigate();
-  const { showMobileSideBar, setShowMobileSideBar, userData } =
-    useContext(UserContext);
+  const { userData } = useContext(UserContext);
 
-  const [data, setData] = useState({});
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  // const [data, setData] = useState({});
+  const [showPop, setShowPop] = useState(false);
+  // const [isMobile, setIsMobile] = useState(window.innerWidth < 575);
 
-  useEffect(() => {
-    setData(userData && userData.phoneNumber ? userData : {});
-  }, [userData]);
+  // useEffect(() => {
+  //   setData(userData && userData.phoneNumber ? userData : {});
+  // }, [userData]);
+
+  const handleClose = () => setShowPop(false);
 
   const onLogout = () => {
+    setShowPop(false);
     localStorage.clear();
     window.location.reload();
   };
 
   return (
     <div className="MobileHomeContainer">
+      <Modal
+        show={showPop}
+        onHide={handleClose}
+        centered
+        contentClassName="logout-modal"
+        backdropClassName="logout-backdrop"
+      >
+        <Modal.Body>
+          <h5 className="modal-title mb-2">Logout</h5>
+          <p className="mb-4">Are you sure you want to logout?</p>
+          <div className="d-flex justify-content-end gap-3">
+            <button className="btn  text-dark" onClick={handleClose}>
+              CANCEL
+            </button>
+            <button className="btn  text-dark" onClick={onLogout}>
+              LOGOUT
+            </button>
+          </div>
+        </Modal.Body>
+      </Modal>
       <DashboardHomeHeader className="mobileMoreNavbar" />
       <div className="container MobilesideBar" style={{ maxWidth: '400px' }}>
         {/* Profile Card */}
@@ -70,18 +93,20 @@ const MobileSideBar = ({ active }) => {
 
         {/* Menu Items */}
         {[
-          { icon: 'bi-file-person', title: 'KYC', subtitle: 'KYC Information', navigate: '/dashboard/kyc' },
-          { icon: 'bi-receipt', title: 'Transactions', subtitle: 'KYC Information', navigate: '/dashboard/mytransactions' },
-          { icon: 'bi-question-circle', title: 'FAQ', subtitle: 'KYC Information', navigate: '/faq' },
-          { icon: 'bi-box-arrow-right', title: 'Logout', subtitle: '' }
+          { icon: KYCIcon, title: 'KYC', subtitle: 'KYC Information', navigate: '/dashboard/kyc' },
+          { icon: TransactionsIcon, title: 'Transactions', subtitle: 'Transaction Information', navigate: '/dashboard/mytransactions' },
+          { icon: HomeIcon, title: 'FAQ', subtitle: 'FAQ Information', navigate: '/faq' },
+          {
+            icon: LogoutIcon, title: 'Logout', subtitle: ''
+          }
         ].map((item, index) => (
           <div key={index} className="menu-box" onClick={() => {
             if (item.title === "Logout") {
-              onLogout();
+              setShowPop(true);
             } else { navigate(item.navigate) }
           }} >
             <div className="menu-left">
-              <img src={MoreNavIcon} />
+              {item.icon}
               <div className="NAvbarText">
                 <div className="fw-semibold">{item.title}</div>
                 {item.subtitle && <small className="text-muted">{item.subtitle}</small>}
