@@ -195,42 +195,32 @@ const faqData = {
       answer:
         "Your ID is under review.It usually takes 24–48 hours.",
     },
-    {
-      question: "How can I check my gambling activity?",
-      answer:
-        "Most platforms offer a 'History' or 'Activity' section, where you can review your betting and gambling patterns. This can help you track your gameplay.",
-    },
-    {
-      question: "What resources are available for problem gambling?",
-      answer:
-        "Many poker sites offer links to organizations that specialize in gambling addiction support. Resources can include hotlines, counseling, and self-help guides.",
-    },
   ],
   contactus: [
     {
-      question: "What is unfair gameplay?",
+      question: "How can I reach Rakebackk support?",
       answer:
-        "Unfair gameplay refers to actions or tactics that violate the rules of the game, such as cheating, using third-party software, or collusion with other players.",
+        "Fill out the form on our Contact Us page or email us at[email here]",
     },
     {
-      question: "How can I report unfair gameplay?",
+      question: "Can I email Rakebackk directly?",
       answer:
-        "If you encounter unfair gameplay, you should report it to the support team of the platform. Most sites provide an option to file a complaint.",
+        "Yes, use live chat or email us at [email here].Support is 24/7.",
     },
     {
-      question: "What happens if I'm caught using unfair methods to play?",
+      question: "Can I contact Rakebackk via social media?",
       answer:
-        "If you're caught using unfair methods, your account may be suspended or permanently banned. Additionally, any winnings earned through unfair means may be forfeited.",
+        "Yes, we’re on Telegram, Facebook, Instagram, LinkedIn, and Twitter(X).",
     },
     {
-      question: "Can I get a refund if I am a victim of unfair gameplay?",
+      question: " What is the typical response time?",
       answer:
-        "Some platforms may offer a refund or adjust the results if you have been affected by unfair gameplay, but this depends on their policies. Contact customer support for assistance.",
+        " We’re available 24/7 and usually reply immediately or within a few minutes.",
     },
     {
-      question: "What steps are taken by platforms to prevent unfair gameplay?",
+      question: "Is live chat support available?",
       answer:
-        "Poker sites implement various security measures, including software monitoring, anti-cheat systems, and player behavior analysis to prevent unfair gameplay.",
+        "Yes, live chat is available on our website for quick help.",
     },
   ],
 };
@@ -240,8 +230,8 @@ const tabs = [
   { id: "kyc", title: "KYC", icon: KYC, activeIcon: KYCRED },
   { id: "TDS", title: "TDS", icon: TDS, activeIcon: TDSRED },
   { id: "withdrawals", title: "Withdrawals", icon: Withdrawals, activeIcon: WithdrawalsRED },
-  { id: "unfair", title: "ID Tagging", icon: IDTagging, activeIcon: IDTaggingRED },
-  { id: "promotions", title: "Contact Us", icon: ContactUs, activeIcon: ContactUsRED },
+  { id: "idTagging", title: "ID Tagging", icon: IDTagging, activeIcon: IDTaggingRED },
+  { id: "contactus", title: "Contact Us", icon: ContactUs, activeIcon: ContactUsRED },
 ];
 
 const FaqContainer = () => {
@@ -253,7 +243,7 @@ const FaqContainer = () => {
 
   useEffect(() => {
     if (!category || !faqData[category]) {
-      navigate("/faq/legal", { replace: true });
+      navigate("/faq/account", { replace: true });
     } else {
       setFaqList(faqData[category]);
     }
@@ -291,9 +281,9 @@ const FaqContainer = () => {
                   <h1 className={styles.hero_title}>Frequently Asked Questions</h1>
                   <div className={styles.MobileFAWhed}>
                     <h1 className={styles.hero_title}>FAQs</h1>
-                     <div className={styles.hero_subtitle}>
-                            How can we help you?
-                      </div>
+                    <div className={styles.hero_subtitle}>
+                      How can we help you?
+                    </div>
                   </div>
                   {/* <div className={styles.hero_subtitle}>
                             Find answers to your most important questions about our platform
