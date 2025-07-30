@@ -74,6 +74,7 @@ function App() {
       wallet_balance: newBalance,
     }));
   };
+
   return (
     <>
       <ToastContainer />
