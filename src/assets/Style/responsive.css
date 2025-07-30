@@ -657,6 +657,17 @@
     color: #fff;
     margin:0px;
 }
+.PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"]:before,
+.PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"]:after,
+.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:before,
+.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:after{
+  display: none;
+}
+.PokerIdDBDesc .form-container {
+        width: 100%;
+        margin: 0 auto;
+    }
+
 .latestBLog small
  {
     font-size: 12px;
@@ -1449,4 +1460,18 @@
 .SliderFooter button {
     width: 48%;
 }
+}
+
+@media only screen and (max-width: 340px) {
+    .navbar-brand svg {
+        width: 80%;
+    }
+    .navbar-toggler-icon {
+    width: 1em;
+    height: 1em;
+}
+button.navbar-toggler {
+        top: 18px;
+        left: 12px;
+    }
 }

@@ -152,6 +152,15 @@ display: flex;
 
 }
 
+@media (max-width: 575px) {
+  .PokerCardsContainer .TabButton {
+    flex: 1;
+  }
+  .PokerCardsContainer .CardItem {
+    flex: unset;
+    width: 48%;
+  }
+}
 @media (max-width: 480px) {
   .TabFilters {
     flex-wrap: nowrap;

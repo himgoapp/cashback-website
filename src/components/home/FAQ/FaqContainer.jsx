@@ -20,7 +20,7 @@ import Account from "../../../assets/FAQ/AccountFAQBlack.svg"
 import KYC from "../../../assets/FAQ/kycFAQ.svg"
 import TDS from "../../../assets/FAQ/TDSFAQ.svg"
 import Withdrawals from "../../../assets/FAQ/WithdrawalsFAQ.svg"
-import IDTagging from "../../../assets/FAQ/IDFAQ.svg"
+import IDTagging from "../../../assets/FAQ/IDTAG_FAQBLack.svg"
 import ContactUs from "../../../assets/FAQ/ContactFAQ.svg"
 
 import AccountRED from "../../../assets/FAQ/Account_FAQRed.svg"
@@ -304,6 +304,12 @@ const FaqContainer = () => {
               <div className={styles.hero_section}>
                 <div className={styles.hero_content}>
                   <h1 className={styles.hero_title}>Frequently Asked Questions</h1>
+                  <div className={styles.MobileFAWhed}>
+                    <h1 className={styles.hero_title}>FAQs</h1>
+                     <div className={styles.hero_subtitle}>
+                            How can we help you?
+                      </div>
+                  </div>
                   {/* <div className={styles.hero_subtitle}>
                             Find answers to your most important questions about our platform
                           </div> */}
