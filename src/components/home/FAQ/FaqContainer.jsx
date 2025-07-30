@@ -31,43 +31,78 @@ import IDTaggingRED from "../../../assets/FAQ/IDTAG_FAQRed.svg"
 import ContactUsRED from "../../../assets/FAQ/ContactUs_FAQRed.svg"
 
 const faqData = {
-  legal: [
+  kyc: [
     {
-      question: "What is the legality of online poker?",
+      question: "What is KYC, and why is it needed on Rakebackk?",
       answer:
-        "Online poker is legal in certain jurisdictions, but it’s essential to check local laws in your region before playing.",
+        "KYC(Know Your Customer) is mandatory to verify your identity.It ensures legal compliance, enables withdrawals, and protects your account.",
     },
     {
-      question: "Can I play poker on my mobile device?",
+      question: "How do I submit my KYC documents?",
       answer:
-        "Yes, many online poker sites offer mobile applications for both iOS and Android devices, allowing you to play on the go.",
+        `First, log in to your account, go to the KYC section, then click "Verify Now" for PAN, Aadhaar, and Bank, and enter the details to complete the verification process.`,
     },
     {
-      question: "Are online poker sites secure?",
+      question: "How can I check the status of my KYC?",
       answer:
-        "Most reputable poker sites use encryption technologies to ensure that your personal and financial information is secure. Always play on licensed and regulated sites.",
+        "In the KYC section, each document(PAN, Aadhaar, Bank) shows its status.A green tick is for approved, and a red cross is for rejected.",
     },
     {
-      question: "What are the system requirements for playing online poker?",
+      question: "Why has my KYC been rejected?",
       answer:
-        "Typically, you need a modern computer or mobile device with an internet connection. Specific requirements can vary by site, so check the platform for more details.",
+        "If your KYC is rejected or pending, check for issues like unclear photo, mismatched details, or incomplete documents.If all seems fine, contact us via email",
     },
     {
-      question: "Can I use third-party software while playing poker?",
+      question: "Why is PAN card required for KYC on Rakebackk?",
       answer:
-        "Most poker sites prohibit the use of third-party software that provides an unfair advantage. Using such software may result in account suspension.",
+        "A PAN card is required to complete your KYC on Rakebackk.",
+    },
+    {
+      question: "Why do you need to submit my Aadhaar card?",
+      answer:
+        "An Aadhaar card is required to complete your KYC on Rakebackk.",
+    },
+    {
+      question: "Is my personal information safe after KYC?",
+      answer:
+        "Yes, your personal information is safe and securely stored after KYC.",
+    },
+    {
+      question: "Can I use someone else’s PAN or Aadhaar for KYC ?",
+      answer:
+        "No, you must use your own PAN and Aadhaar for KYC.",
+    },
+    {
+      question: "Do I need to complete KYC again if I update my bank account?",
+      answer:
+        "Yes, you need to complete KYC again if you update your bank account.",
+    },
+    {
+      question: "How long does KYC verification take on Rakebackk?",
+      answer:
+        "KYC verification on Rakebackk usually takes 24 – 48 hours.",
+    },
+    {
+      question: "Will I get notified when my KYC is approved or rejected?",
+      answer:
+        "Yes, you will be notified when your KYC is approved or rejected.",
+    },
+    {
+      question: "What happens if I don’t complete KYC?",
+      answer:
+        "Without KYC, you can’t receive rakeback payouts, TDS certificates, or make withdrawal.",
     },
   ],
-  rakeback: [
+  TDS: [
     {
-      question: "How does Rakeback.com work?",
+      question: "How much TDS is deducted from my poker winnings while using Rakebackk services?",
       answer:
-        "Rakeback.com connects poker players with the best rakeback deals from various poker sites, allowing them to maximize their earnings through rakeback rewards.",
+        "A TDS of 2% is deducted on your rakeback earnings, as per Section 194H of the Income Tax Act, which applies to commission or brokerage.",
     },
     {
-      question: "Is it safe to sign up for rakeback through Rakeback.com?",
+      question: "When will I receive my TDS certificate if I use Rakebackk?",
       answer:
-        "Yes, Rakeback.com is a trusted platform that partners with regulated poker sites to ensure a safe and legitimate experience for players.",
+        "Rakebackk provides TDS certificates on a quarterly basis.The certificate is shared directly with you by the team via email.",
     },
     {
       question: "How do I know if I'm eligible for rakeback?",
@@ -87,73 +122,78 @@ const faqData = {
   ],
   account: [
     {
-      question: "How can I recover my account if I forget my login details?",
+      question: "How do I create an account on Rakebackk?",
       answer:
-        "Click on 'Forgot Password' and follow the instructions to reset your login credentials. If you need further assistance, contact customer support.",
+        "To create an account on rakebackk.com, enter your mobile number, verify the OTP, and you're logged in instantly.",
     },
     {
-      question: "How do I update my contact information?",
+      question: "How do I verify my email address?",
       answer:
-        "To update your contact information, visit the 'Account Settings' section and modify your email, phone number, or address as needed.",
+        `After you sign in, navigate to the Profile section.Select "Verify Now" next to your email.Open the verification message from your email inbox and follow the instructions to complete the process.`,
     },
     {
-      question: "Can I have multiple accounts on the same platform?",
+      question: "How can I update my registered email or mobile number?",
       answer:
-        "Most poker platforms allow only one account per person. Having multiple accounts can violate the site's terms of service and may result in account suspension.",
+        "Login to your Rakebackk account, go to “Profile Settings,” and choose the option to edit your contact information.Make the changes and save them.",
+    },
+
+  ],
+  withdrawals: [
+    {
+      question: "Why did my withdrawal fail ?",
+      answer:
+        "It might have failed due to wrong bank details, name mismatch, or bank server issues.",
     },
     {
-      question: "How can I deactivate my account?",
+      question: "Why was my withdrawal rejected ?",
       answer:
-        "To deactivate your account, contact customer support. They will guide you through the necessary steps to deactivate your account or request self-exclusion.",
+        "It may be due to incorrect bank details, name mismatch, or server issues.",
     },
     {
-      question: "How do I check my account balance?",
+      question: "What should I do if my withdrawal is still pending?",
       answer:
-        "You can check your account balance by visiting the 'Cashier' or 'Balance' section in your account dashboard. This will show your current funds and available balance.",
+        "Wait 24–48 hours.If it’s still pending, contact support.",
+    },
+    {
+      question: "How can I check my withdrawal status on Rakebackk?",
+      answer:
+        "Bank transfers can take 1–3 business days.If delayed, check your bank details or contact support.",
+    },
+    {
+      question: "What is the minimum amount required to make a withdrawal ?",
+      answer:
+        "₹100 is the minimum amount required for withdrawal.",
+    },
+    {
+      question: " Can I cancel or modify a withdrawal request after placing it?",
+      answer:
+        "Usually not.If still pending, contact support to request changes.",
+    },
+    {
+      question: "How much time does it take to process a withdrawal request?",
+      answer:
+        "Most withdrawals are processed within 12 business hours.",
+    },
+    {
+      question: "Can I change my bank account details before withdrawing ?",
+      answer:
+        "Yes, update your bank details in settings before making a withdrawal..",
     },
   ],
-  banking: [
+  idTagging: [
     {
-      question: "What payment methods can I use to deposit funds?",
+      question: "What is ID Tagging on Rakebackk?",
       answer:
-        "Popular payment methods include credit/debit cards, e-wallets like PayPal, bank transfers, and sometimes cryptocurrencies. Refer to the 'Deposit' section for a full list.",
+        "It links your poker account to Rakebackk to track gameplay and give cashback.",
     },
     {
-      question: "Can I deposit using cryptocurrency?",
-      answer:
-        "Some poker sites accept cryptocurrency deposits, such as Bitcoin or Ethereum. Check the platform's deposit options to confirm if this method is available.",
+      question: "How do I submit my Poker ID for tagging ?",
+      answer: "Log in, go to Poker IDs, choose the site, enter your ID, and click Submit.",
     },
     {
-      question: "How can I change my banking details?",
+      question: "What does ‘Pending’ status mean?",
       answer:
-        "To change your banking details, go to the 'Account Settings' or 'Banking' section. You can update your preferred payment method for deposits and withdrawals.",
-    },
-    {
-      question: "Is there a minimum deposit requirement?",
-      answer:
-        "Most platforms have a minimum deposit amount. Check the 'Deposit' section for the specific minimum deposit threshold.",
-    },
-    {
-      question: "How long does it take for a deposit to appear in my account?",
-      answer:
-        "Deposits are usually processed instantly for e-wallets and credit cards, but bank transfers may take a few business days to be completed.",
-    },
-  ],
-  responsible: [
-    {
-      question: "What should I do if I feel I am gambling too much?",
-      answer:
-        "If you feel you are gambling excessively, seek support from a professional or utilize self-exclusion options available on the platform.",
-    },
-    {
-      question: "Can I set limits on my gameplay?",
-      answer:
-        "Yes, many poker sites allow you to set deposit, loss, and session time limits to help you stay in control of your gambling.",
-    },
-    {
-      question: "What is the self-exclusion process?",
-      answer:
-        "Self-exclusion is a voluntary decision to temporarily or permanently close your account to prevent gambling. You can set it up by contacting customer support or using available tools on the site.",
+        "Your ID is under review.It usually takes 24–48 hours.",
     },
     {
       question: "How can I check my gambling activity?",
@@ -166,7 +206,7 @@ const faqData = {
         "Many poker sites offer links to organizations that specialize in gambling addiction support. Resources can include hotlines, counseling, and self-help guides.",
     },
   ],
-  unfair: [
+  contactus: [
     {
       question: "What is unfair gameplay?",
       answer:
@@ -193,68 +233,13 @@ const faqData = {
         "Poker sites implement various security measures, including software monitoring, anti-cheat systems, and player behavior analysis to prevent unfair gameplay.",
     },
   ],
-  promotions: [
-    {
-      question: "How do I claim rakeback promotions?",
-      answer:
-        "To claim rakeback promotions, you typically need to register through an affiliate link or enter a promo code. After registration, ensure your account is tracked properly to receive your rakeback rewards.",
-    },
-    {
-      question: "Are there any special rakeback promotions for new players?",
-      answer:
-        "Yes, many poker sites offer enhanced rakeback deals or bonuses for new players. These promotions often include higher percentage returns or additional bonuses based on your first deposit or gameplay.",
-    },
-    {
-      question: "Can I combine rakeback promotions with other bonuses?",
-      answer:
-        "It depends on the poker site’s terms and conditions. Some platforms allow you to combine rakeback with other bonuses like welcome bonuses or reload promotions, while others may restrict stacking multiple promotions.",
-    },
-    {
-      question: "How often do rakeback promotions change?",
-      answer:
-        "Rakeback promotions can change frequently, often depending on special events, time of year, or player activity. It's important to keep an eye on the site’s promotions page to stay updated on new deals",
-    },
-    {
-      question:
-        "Do I need to meet specific requirements to qualify for rakeback promotions?",
-      answer:
-        "Yes, there may be specific requirements such as playing a certain number of hands, reaching a minimum deposit amount, or qualifying through an affiliate program. Always review the promotion's terms to ensure eligibility.",
-    },
-  ],
-  refunds: [
-    {
-      question: "How do I claim my winnings?",
-      answer:
-        "To claim your winnings, log into your account, navigate to the 'Winnings' section, and follow the instructions provided. You may be asked to verify your identity before processing the payout.",
-    },
-    {
-      question: "What should I do if I haven't received my winnings?",
-      answer:
-        "If you haven't received your winnings, check your account for any updates or notifications. Ensure your payment method details are up-to-date. If the issue persists, contact customer support for assistance.",
-    },
-    {
-      question: "Can I get a refund if I made a mistake with my bet?",
-      answer:
-        "Refunds are generally not offered for mistaken bets. However, if there's an issue with the bet due to a system error or technical problem, you may be eligible for a refund. Please contact customer support for further assistance.",
-    },
-    {
-      question: "How long does it take to process a refund?",
-      answer:
-        "Refund processing times vary depending on the payment method. Typically, refunds take between 3 to 7 business days to reflect in your account, though this can vary.",
-    },
-    {
-      question: "Can I withdraw my winnings to any payment method?",
-      answer:
-        "Winnings can generally be withdrawn to the payment method you used for deposit, but it may depend on the platform's policies. Please check the available withdrawal options in your account settings.",
-    },
-  ],
 };
 
 const tabs = [
-  { id: "legal", title: "Account", icon: Account, activeIcon: AccountRED },
-  { id: "rakeback", title: "KYC", icon: KYC, activeIcon: KYCRED },
-  { id: "banking", title: "TDS", icon: TDS, activeIcon: TDSRED },
-  { id: "responsible", title: "Withdrawals", icon: Withdrawals, activeIcon: WithdrawalsRED },
+  { id: "account", title: "Account", icon: Account, activeIcon: AccountRED },
+  { id: "kyc", title: "KYC", icon: KYC, activeIcon: KYCRED },
+  { id: "TDS", title: "TDS", icon: TDS, activeIcon: TDSRED },
+  { id: "withdrawals", title: "Withdrawals", icon: Withdrawals, activeIcon: WithdrawalsRED },
   { id: "unfair", title: "ID Tagging", icon: IDTagging, activeIcon: IDTaggingRED },
   { id: "promotions", title: "Contact Us", icon: ContactUs, activeIcon: ContactUsRED },
 ];
