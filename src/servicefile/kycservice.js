@@ -33,14 +33,36 @@ export const getProductsSimple = async () => {
   }
 };
 
-export const addPanCard = async (user_id, panCardNo) => {
+export const addPanCard = async (payload) => {
   let body = {
-    user_id,
-    panCardNo,
+    ...payload,
   };
 
   try {
-    let data = await API.post(`/users/panadd`, {
+    let data = await API.post(`/newkyc/verify-pan`, {
+      ...body,
+    }).then((res) => res.data);
+    return data;
+  } catch (error) {
+    const { response } = error;
+    if (response) {
+      console.error("Error in addPanCard:", response);
+      return {
+        status: false,
+        message: response.data.error || "Something Went Wrong!",
+      };
+    }
+    return { message: "Something Went Wrong!" };
+  }
+};
+
+export const sendAadhaarCardOtp = async (payload) => {
+  let body = {
+    ...payload
+  };
+
+  try {
+    let data = await API.post(`/newkyc/aadhaar-otp`, {
       ...body,
     }).then((res) => res.data);
     return data;
@@ -48,12 +70,40 @@ export const addPanCard = async (user_id, panCardNo) => {
     const { response } = error;
     if (response) {
       return {
-        message: response.data.message || "Something Went Wrong!",
+        status: false,
+        message: response.data.error || "Something Went Wrong!",
       };
     }
-    return { message: "Something Went Wrong!" };
+    return { status: false, message: "Something Went Wrong!" };
   }
-};
+}
+
+export const verifyAadhaarCardOtp = async (payload) => {
+  let body = {
+    ...payload
+  };
+
+  try {
+    let data = await API.post(`/newkyc/submit-aadhaar-otp`, {
+      ...body,
+    }).then((res) => res.data);
+    return data;
+  } catch (error) {
+    const { response } = error;
+    if (response) {
+      return {
+        status: false,
+        message: response.data.error || "Something Went Wrong!",
+      };
+    }
+    return {
+      status: false,
+      message: "Something Went Wrong!"
+    };
+  }
+
+
+}
 
 export const addAddressProof = async (
   user_id,
@@ -87,20 +137,14 @@ export const addAddressProof = async (
 };
 
 export const addBankDetails = async (
-  user_id,
-  account_number,
-  bank_name,
-  ifsc_code
+  payload
 ) => {
   let body = {
-    user_id,
-    account_number,
-    bank_name,
-    ifsc_code,
+    ...payload
   };
 
   try {
-    let data = await API.post(`/banks/create`, {
+    let data = await API.post(`/newkyc/submit-bank-details`, {
       ...body,
     }).then((res) => res.data);
     return data;
@@ -108,10 +152,11 @@ export const addBankDetails = async (
     const { response } = error;
     if (response) {
       return {
-        message: response.data.message || "Something Went Wrong!",
+        status: false,
+        message: response.data.error || "Something Went Wrong!",
       };
     }
-    return { message: "Something Went Wrong!" };
+    return { status: false, message: "Something Went Wrong!" };
   }
 };
 
