@@ -287,15 +287,13 @@ const UserProfile = () => {
                         )}
                       </div>
                     </div>
-
-
                   </div>
 
                   <div className={styles.formField}>
                     <label className={styles.fieldLabel}>Full Name</label>
                     <div className={styles.fieldBox}>
                       <span className={styles.fieldText}>
-                        {userData?.userName || "User"}
+                        {userKyc?.userName || userData?.userName || "User"}
                       </span>
                     </div>
                   </div>
@@ -509,7 +507,7 @@ const UserProfile = () => {
                     <label className={styles.fieldLabel}>Full Name</label>
                     <div className={styles.fieldBox}>
                       <span className={styles.fieldText}>
-                        {userData?.userName || "User"}
+                        {userKyc?.userName || userData?.userName || "User"}
                       </span>
                     </div>
                   </div>

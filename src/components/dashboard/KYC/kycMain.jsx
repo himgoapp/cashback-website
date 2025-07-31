@@ -29,7 +29,6 @@ const KycMain = () => {
   const [aadhaarError, setAadhaarError] = useState("");
 
   // Bank inputs
-  const [bankName, setBankName] = useState("");
   const [accountNumber, setAccountNumber] = useState("");
   const [ifscCode, setIfscCode] = useState("");
   const [bankError, setBankError] = useState("");
@@ -106,7 +105,7 @@ const KycMain = () => {
       const payload = {
         userId: userData._id,
         accountNumber,
-        userName: bankName,
+        userName: userKyc.userName,
         ifsc: ifscCode,
       };
       let res = await addBankDetails(payload);
@@ -233,7 +232,6 @@ const KycMain = () => {
               <div id="collapseBank" className={`accordion-collapse collapse ${step === "bank" ? "show" : ""}`}>
                 <div className="accordion-body">
                   <div className="form-row mb-3">
-                    <input type="text" className="form-control  " placeholder="Full Name" value={bankName} onChange={e => setBankName(e.target.value)} />
                     <input type="text" className="form-control  " placeholder="Account Number" value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
                   </div>
                   <div className="form-row mb-3">
