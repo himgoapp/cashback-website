@@ -12,7 +12,7 @@ import {
 const PokerCard = ({ status, color, item }) => {
   return (
     <div
-      className={styles.PokerCard}
+      className={`${styles.PokerCard} ${item?.retag ? 'retagone' : ''}`}
     // style={{ borderTop: `4px solid ${borderColor}` }}
     >
       <div className={styles.CardContent}>
