@@ -224,8 +224,14 @@ const KycMain = () => {
                     <div className="step-info">
                       <div className="step-number">3</div>
                       <div className="step-Hed">Bank details</div>
+                      {userKyc && userKyc.bank && userKyc.bank.verified && <div className="verifyIcon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <rect width="24" height="24" rx="12" fill="#28A745" />
+                          <path d="M18 7.5L9.75 15.75L6 12" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                      </div>}
                     </div>
-                    <i className="bi bi-chevron-down ms-auto"></i>
+
                   </div>
                 </button>
               </h2>
