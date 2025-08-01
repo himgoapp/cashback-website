@@ -9,13 +9,13 @@
 }
 
 .PokerCard {
-position: relative;
+    position: relative;
     width: 100%;
     background: #ffffff;
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     cursor: pointer;
-    padding: 26px 24px;
+    padding: 28px 28px 28px 94px;
     border: 1px solid #FF4053;
 }
 
@@ -140,11 +140,21 @@ position: relative;
 }
 
 .StatusContainer {
-  display: flex;
+  /* display: flex;
     align-items: center;
     position: absolute;
     top: -12px;
-    right: -13px;
+    right: -13px; */
+        display: flex
+;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    bottom: 0;
+    min-width: 50px;
+    width: 50px;
 }
 
 .StatusBadge {

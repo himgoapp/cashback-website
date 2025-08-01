@@ -15,6 +15,21 @@ const PokerCard = ({ status, color, item }) => {
       className={styles.PokerCard}
     // style={{ borderTop: `4px solid ${borderColor}` }}
     >
+        <div className={styles.StatusContainer}>
+              <div
+                className={styles.StatusBadge}
+                style={statusBaseColor(status)}
+              >
+                <div className={styles.StatusIndicator}>
+                  {" "}
+                  {getStatusIcon(status)}
+                </div>
+                <span className={styles.StatusText}>
+                  {status === "Aborted" ? "Rejected" : status}
+                </span>
+              </div>
+            </div>
+            
       <div className={styles.CardContent}>
         <div className={styles.HeaderAndId}>
           <div className={styles.HeaderAndIdContent}>
@@ -29,20 +44,7 @@ const PokerCard = ({ status, color, item }) => {
                 alt={item?.productId?.name || "Product"}
               />
             </div>
-            <div className={styles.StatusContainer}>
-              <div
-                className={styles.StatusBadge}
-                style={statusBaseColor(status)}
-              >
-                <div className={styles.StatusIndicator}>
-                  {" "}
-                  {getStatusIcon(status)}
-                </div>
-                <span className={styles.StatusText}>
-                  {status === "Aborted" ? "Rejected" : status}
-                </span>
-              </div>
-            </div>
+            
             <div className={styles.HeaderId}>
               <div className={styles.Head}>
                 {item && item.productId ? item.productId.name : ""}

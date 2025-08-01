@@ -2118,9 +2118,15 @@ a.small.seeMOre {
     padding: 40px;
     background: #FFF6F7;
     border-radius: 16px;
+    background: url(../PokerIDbackDB.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+        background-size: 640% 180%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"] {
-    background: #FFF6F7;
+    /* background: #FFF6F7; */
     border: 1px solid #FF4053;
     position: relative;
     overflow: hidden;
@@ -2139,14 +2145,16 @@ a.small.seeMOre {
 
 }
 .PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"] {
-    background: #F1FFF4;
-    border: 1px solid #28A745;
+    /* background: #F1FFF4;
+    border: 1px solid #28A745; */
+    /* background: #FFF6F7; */
+    border: 1px solid #FF4053;
     position: relative;
     overflow: hidden;
 }
-.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"] .formControl button {
+/* .PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"] .formControl button {
     background: #28A745;
-}
+} */
 .PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:before {
     content: '';
     position: absolute;
@@ -2156,7 +2164,8 @@ a.small.seeMOre {
     height: 100%;    
     background-size: 100% 100% !important;
     transform: scale(1.7);
-    background: url(../PokerGreen.svg);
+    /* background: url(../PokerGreen.svg); */
+     background: url(../PokerRed.svg);
 }
 .MobileView{
     display: none;
@@ -2196,10 +2205,10 @@ a.small.seeMOre {
     color: #fff;
     border-radius: 8px;
 }
-.PokerIdDB.nav-tabs .nav-link.active[data-bs-target="#retag"], .PokerIdDB.nav-tabs .nav-item.show .nav-link[data-bs-target="#retag"]{
+/* .PokerIdDB.nav-tabs .nav-link.active[data-bs-target="#retag"], .PokerIdDB.nav-tabs .nav-item.show .nav-link[data-bs-target="#retag"]{
      color: #28a745;
     border-bottom: 3px solid #28a745;
-}
+} */
 
 .ContactUS {
     padding-top: 80px;
