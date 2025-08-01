@@ -1,8 +1,9 @@
 import { useState, useEffect, useContext } from "react";
 import Sidebar from "../sidebar/sidebar";
-import KycMain from "./kycMain";
+import KycMain from "./kycMainDesktop";
 import DashboardFooter from "../Foooter/footer";
 import { UserContext } from "../../../App";
+import KycMobileMain from "./kycMobileMain";
 const KYC = () => {
   const { userData } = useContext(UserContext);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
@@ -17,8 +18,8 @@ const KYC = () => {
 
   return (
     <div style={{ display: "flex", flexDirection: "row", width: "100%" }}>
-      <Sidebar active={2} />
-      <KycMain />
+      {!isMobile && <Sidebar active={2} />}
+      {isMobile ? <KycMobileMain /> : <KycMain />}
       {isMobile && <DashboardFooter active={4} />}
     </div>
   );
