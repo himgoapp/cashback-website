@@ -2118,13 +2118,15 @@ a.small.seeMOre {
     padding: 40px;
     background: #FFF6F7;
     border-radius: 16px;
-    background: url(../PokerIDbackDB.svg);
+    /* background: url(../PokerIDbackDB.svg);
     background-size: cover;
     background-repeat: no-repeat;
         background-size: 640% 180%;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
 }
+
+
 .PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"] {
     /* background: #FFF6F7; */
     border: 1px solid #FF4053;
@@ -2551,7 +2553,23 @@ a.small.seeMOre {
     color: #28A745;
     font-size: 24px;
     font-weight: bolder;
-margin:0;
+    margin: 0;
+    background: url(../RetagRectangle.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background-position: bottom;
+    width: 97.8px;
+    height: 86px;
+    background-size: auto;
+    font-size: 15.49px;
+    display: flex;
+    align-items: end;
+    padding-bottom: 15px;
+    color: #fff;
+    justify-content: center;
+
 }
 .LastTransactionSection.DashboardTransactionSection .wallet_balance_head{
     margin-top: 0px;

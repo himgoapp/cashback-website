@@ -11,17 +11,7 @@
   .formsection {
     padding: 30px;
   }
-  .PokerCardsContainer_CardItem__Mw8nG {
-    flex-basis: unset;
-    margin-bottom: 20px;
-    width: 32%;
-  }
-  .pokerCard_DateContainer__wXxoP {
-    text-align: right;
-  }
-  .pokerCard_PokerCard__ovT04 {
-    padding: 26px 24px;
-  }
+
   .dashboardMain_dashboard_container__YEqgc {
     gap: 0;
     padding: 0 1rem;
@@ -166,10 +156,7 @@
 }
 
 @media only screen and (max-width: 991px) {
-  .PokerCardsContainer_CardsRow__MIgsp {
-    justify-content: space-between;
-    gap: 0;
-  }
+ 
   .container-fluid.ContactUS.RetagPage .ContactInfoleft {
     padding: 24px;
   }
@@ -510,41 +497,7 @@
     padding-top: 48px;
     padding-bottom: 48px;
   }
-  .PokerCardsContainer_CardItem__Mw8nG {
-    margin-bottom: 20px;
-    width: 48%;
-  }
-  .pokerCard_CardContent__xoZKU {
-    padding: 1rem 0 0;
-  }
-  .pokerCard_Head__vDoFy {
-    font-size: 12px;
-    font-weight: 800;
-  }
-  .pokerCard_PokerCard__ovT04 {
-    padding: 15px 14px;
-  }
-  .pokerCard_ImageWrapper__Rfq0T {
-    width: 42px;
-    height: 42px;
-  }
-  .pokerCard_FooterContent__2U0hu {
-    padding: 0.875rem 14px 0rem;
-  }
-  .pokerCard_StatusContainer__zraqe {
-    top: -2px;
-    right: 7px;
-  }
-  .pokerCard_StatusBadge__1QgRj span {
-    font-size: 8px;
-  }
-  .pokerCard_StatusIndicator__9miHg svg {
-    width: 10px;
-    height: 10px;
-  }
-  .PokerCardsContainer_TabButton__MxDKR {
-    font-size: 14px;
-  }
+  
   /* .pokerID_MainPokerIdContainer__SJvaL {
     gap: 0;
     padding: 15px 15px;
@@ -667,7 +620,14 @@
         width: 100%;
         margin: 0 auto;
     }
-
+.retagName {
+    top: -40px;
+    right: 20px;
+    width: 54px;
+    height: 76px;
+    font-size: 12.49px;
+    padding-bottom: 13px;
+}
 .latestBLog small
  {
     font-size: 12px;
@@ -677,9 +637,7 @@
     padding: 8px 8px;
     font-size: 12px;
 }
-.retagName {
-    font-size: 8px;
-}
+
 .PokerIdDBDesc {
     margin-bottom: 0px;
 }
@@ -1144,6 +1102,19 @@
   .container-cards.featuresList .featureDescription {
     font-size: 12px;
   }
+  .PokerIdDBDesc .tab-pane {
+    width: 100%;
+    padding: 40px;
+    background: #FFF6F7;
+    border-radius: 16px;
+    background: url(../PokerIDbackDB.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+        background-size: 540% 130%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
   .RakebackSpace {
     padding-top: 48px;
     padding-bottom: 48px;

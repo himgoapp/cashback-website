@@ -17,14 +17,25 @@
     cursor: pointer;
     padding: 28px 28px 28px 94px;
     border: 1px solid #FF4053;
+    box-shadow: 0px 0px 10px #cacaca;
+}
+.PokerCard.Approved {
+    border: 1px solid #28A745  !important;
+}
+.PokerCard.Rejected  {
+    border: 1px solid #FF4053  !important;
+}
+.PokerCard.Pending  {
+    border: 1px solid #FDDB36  !important;
 }
 
- .PokerCard:hover {
+
+ /* .PokerCard:hover {
   box-shadow: 
     0 20px 30px rgba(0, 0, 0, 0.1),
     0 10px 10px rgba(0, 0, 0, 0.04),
     0 0 0 1px rgba(0, 0, 0, 0.03);
-} 
+}  */
 
 /* .PokerCard:before {
   content: '';
@@ -72,8 +83,8 @@
 
 .ImageWrapper {
     position: relative;
-    width: 75px;
-    height: 74px;
+   width: 298.28px;
+    height: 92px;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -95,6 +106,7 @@
 
 .HeaderId {
   flex: 1;
+      display: none;
 }
 
 .Head {
@@ -113,15 +125,22 @@
 }
 
 .Id {
-    color: #000000;
-    font-size: 0.8125rem;
+       color: #000000;
+    font-size: 16.24px;
     font-weight: 400;
     line-height: 1.3;
+    min-width: 221px;
+    height: 42px;
+    border-radius: 8.12px;
+    background: #F2F2F2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .CardFooter {
   position: relative;
-  margin-top: 0.75rem;
+  margin-top: 0;
 }
 
 .Divider {
@@ -129,6 +148,7 @@
     width: 90%;
     margin: 0 auto;
     background: linear-gradient(90deg, rgba(255, 64, 83, 0) 0%, rgba(255, 64, 83, 1) 50%, rgba(255, 64, 83, 0) 100%);
+        display: none;
 }
 
 .FooterContent {
@@ -145,33 +165,41 @@
     position: absolute;
     top: -12px;
     right: -13px; */
-        display: flex
-;
-    align-items: center;
-    position: absolute;
+        position: absolute;
     top: 0;
     left: 0;
     height: 100%;
     bottom: 0;
     min-width: 50px;
     width: 50px;
+    background: #eee;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
 }
-
+.PokerCard.Approved .StatusContainer {
+    background: #28A745  !important;
+}
+.PokerCard.Rejected .StatusContainer {
+    background: #FF4053  !important;
+}
+.PokerCard.Pending .StatusContainer {
+    background: #FDDB36  !important;
+}
 .StatusBadge {
     display: flex;
     align-items: center;
     padding: 0.375rem 0.75rem;
     border-radius: 9999px;
-    background-color: rgba(255, 65, 108, 0.08);
-    border: 1px solid #DC3545;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
     fill: #FFECEE;
+    transform: rotate(-90deg);
+    background: none !important;
+    box-shadow: none !important;
 }
 
-.StatusBadge:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+
 
 .StatusIndicator {
   /* width: 8px;
@@ -179,33 +207,35 @@
   border-radius: 50%; */
   margin-right: 8px;
   margin-top: -2px;
+  display: none;
   /* background-color: currentColor;
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6); */
 }
 
 .StatusBadge span {
-    color: #1A1A1A;
-    font-size: 12px;
+        color: #fff;
+    font-size: 20px;
     font-weight: 400;
-    letter-spacing: 0.02em;
+        text-transform: uppercase;
 }
 
 .DateContainer {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+      text-align: right;
 }
 
 .DateValue {
-  color: #848484;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: -0.01em;
+  color: #000;
+    font-size: 13.91px;
+    font-weight: 500;
+    letter-spacing: 0;
 }
 
 .TimeValue {
-  color: #848484;
-  font-size: 0.75rem;
+   color: #000;
+    font-size: 13.91px;
   font-weight: 400;
   margin-top: 0.125rem;
 }
@@ -215,35 +245,34 @@
 
 
 /* Responsive Styles */
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1220px) {
   .CardContainer {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
   }
-  
+ .Id { 
+  min-width:auto;
+  padding: 0 10px;
+}
+.PokerCard {
+padding: 28px 28px 28px 74px;
+}
 }
 
 @media only screen and (max-width: 992px) {
-  .CardContainer {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
+  
 }
 
 @media only screen and (max-width: 768px) {
-  .CardContainer {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-    padding: 1.5rem;
-  }
+  
 
-  .CardContent {
-    padding: 1rem;
-  }
-
-  .FooterContent {
-    padding: 0.875rem 1rem;
-  }
+  
+.ImageWrapper {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+ 
+}
 }
 
 @media only screen and (max-width: 576px) {
@@ -253,20 +282,38 @@
     padding: 1rem;
   }
 
-  .CardContent {
-    padding: 0.875rem;
-  }
+.retagName {
+        font-size: 11.74px;
+    }
 
-  .ImageWrapper {
-    width: 44px;
-    height: 44px;
-  }
-
-  .FooterContent {
-    padding: 0.75rem 1rem;
-  }
 
   .StatusBadge {
     padding: 0.25rem 0.625rem;
   }
+  .PokerCard {
+padding: 21px 21px 21px 74px;
+}
+.StatusBadge span {
+    font-size: 14px;
+}
+}
+@media only screen and (max-width: 420px) {
+  .Id , .DateValue, .TimeValue{
+        font-size: 12px;
+    }
+    .ImageWrapper {
+        height: 68px;
+    }
+    .StatusContainer{
+    min-width: 38px;
+    width: 38px;
+}
+.PokerCard {
+        padding: 36px 21px 21px 54px;
+    }
+}
+@media only screen and (max-width: 360px) {
+  .Id , .DateValue, .TimeValue{
+        font-size: 10px;
+    }
 }

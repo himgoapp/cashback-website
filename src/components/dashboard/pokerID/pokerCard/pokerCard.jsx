@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./pokerCard.module.css";
-import pokerCardimg from "../../../../assets/pokercard.png";
+import pokerCardimg from "../../../../assets/CoinPokerPokerID.png";
 import moment from "moment";
 import {
   statusBaseColor,
@@ -12,9 +12,13 @@ import {
 const PokerCard = ({ status, color, item }) => {
   return (
     <div
-      className={`${styles.PokerCard} ${item?.retag ? 'retagone' : ''} ${status === "Aborted" ? 'Rejected' : status}`}
+      // className={`${styles.PokerCard} ${item?.retag ? 'retagone' : ''} ${status === "Aborted" ? 'Rejected' : status}`}
+      className={`${styles.PokerCard} 
+            ${item?.retag ? styles.retagone : ''} 
+            ${status === "Aborted" ? styles.Rejected : styles[status]}`}
     // style={{ borderTop: `4px solid ${borderColor}` }}
     >
+      {item && item.retag && <p className="retagName">RETAG</p>}
       <div className={styles.StatusContainer}>
         <div
           className={styles.StatusBadge}
@@ -35,11 +39,12 @@ const PokerCard = ({ status, color, item }) => {
           <div className={styles.HeaderAndIdContent}>
             <div className={styles.ImageWrapper}>
               <img
-                src={
-                  item && item.productId && item.productId.name
-                    ? imagePicker(item.productId.name)
-                    : pokerCardimg
-                }
+                // src={
+                //   item && item.productId && item.productId.name
+                //     ? imagePicker(item.productId.name)
+                //     : pokerCardimg
+                // }
+                src={ pokerCardimg }
                 className={styles.ProductImage}
                 alt={item?.productId?.name || "Product"}
               />
@@ -57,10 +62,10 @@ const PokerCard = ({ status, color, item }) => {
         <div className={styles.Divider}></div>
         <div className={styles.FooterContent}>
           <div className={styles.Id}>
-            Account ID: <br />{" "}
+            ID - {" "}
             <strong>{item && item.referenceId ? item.referenceId : ""}</strong>
           </div>
-          {item && item.retag && <p className="retagName">RETAG</p>}
+          
           <div className={styles.DateContainer}>
             {item && item.createdAt && (
               <>
