@@ -2477,9 +2477,47 @@ a.small.seeMOre {
     display: flex;
     flex-wrap: nowrap;
     gap: 16px;
+    flex-direction: column;
+    width: 100%;
 }
 .KYCDB .accordion-body {
-    padding: 30px 20px 28px 60px;
+    padding: 30px 40px 28px 60px;
+        display: flex;
+    align-items: center;
+    gap: 100px;
+}
+.NotMatchPan, .Verified {
+    font-size: 16px;
+    font-weight: bold;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.KYCDB .accordion-body .FormIcon {
+    min-width: 157.45px;
+    height: 92.51px;
+}
+.KYCBTNForm {
+    display: flex;
+    align-items: center;
+}
+
+.KYCBTNForm button.formButton {
+    min-width: 111px;
+    height: 45px;
+    font-size: 18px;
+    border-radius: 6px;
+    background: #FF4053;
+    color: #fff;
+    font-weight: bold;
+}
+.VerifiedPan {
+    padding: 20px;
+    background: #F4F4F4;
+    font-size: 20px;
+    color: #FF4053;
+    font-weight: bold;
+    text-align: center;
 }
  .dropdown-menu.NavbarDropdown {
     z-index: 999999999 !important;
