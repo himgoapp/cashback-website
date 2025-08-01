@@ -12,37 +12,45 @@ import wptglobal from "../assets/wptglobal.svg";
 import NATURAL8 from "../assets/NATURAL8.svg";
 import ACRPOKER from "../assets/ACRPOKER.svg";
 import POKERCIRCLE from "../assets/pokercircle (2).svg";
+import CoinPokerPokerCard from "../assets/PokerID/CoinPokerPokerID.png";
+import PokerBazziPokerCard from "../assets/PokerID/PokerBazziPokerID.png"
+import SpartanPokerCard from "../assets/PokerID/SpartanPokerID.png"
+import ACRPokerCard from "../assets/PokerID/ACRPokerID.png"
+import BigCashPokerCard from "../assets/PokerID/BigCashPokerID.png"
+import WPTPokerCard from "../assets/PokerID/WPTPokerID.png"
+import JungleePokerCard from "../assets/PokerID/JungleePokerIDcard.png"
+import PokerDangalCard from "../assets/PokerID/PokerDangalIDcard.png"
 
 export const colorBkg = (name) => {
   return name === "Poker Baazi"
     ? { backgroundColor: "#330099" }
     : name === "MPL"
-    ? { backgroundColor: "#d60f19" }
-    : { backgroundColor: "" };
+      ? { backgroundColor: "#d60f19" }
+      : { backgroundColor: "" };
 };
 export const colorBkgOut = (name) => {
   return name === "Poker Baazi"
     ? { backgroundColor: "#3c2e8e" }
     : name === "MPL"
-    ? { backgroundColor: "#d62027" }
-    : { backgroundColor: "white" };
+      ? { backgroundColor: "#d62027" }
+      : { backgroundColor: "white" };
 };
 
 export const statusBaseColor = (status) => {
   return status === "Approved"
     ? {
-        color: "#027a48",
-        background: "#E4FFF1",
-        fontWeight: "bold",
-        borderRadius: "20px",
-        borderColor: "#027a48",
-        padding: "2px 5px",
-        fontSize: "13px",
-        borderColor: "#28A745",
-        textDecoration: "none",
-      }
+      color: "#027a48",
+      background: "#E4FFF1",
+      fontWeight: "bold",
+      borderRadius: "20px",
+      borderColor: "#027a48",
+      padding: "2px 5px",
+      fontSize: "13px",
+      borderColor: "#28A745",
+      textDecoration: "none",
+    }
     : status === "Aborted"
-    ? {
+      ? {
         color: "#b00020",
         background: "#FFECEE",
         borderColor: "#DC3545",
@@ -52,7 +60,7 @@ export const statusBaseColor = (status) => {
         fontSize: "13px",
         textDecoration: "none",
       }
-    : {
+      : {
         color: "#b26a00",
         background: "#FFF9E7",
         fontWeight: "bold",
@@ -291,52 +299,44 @@ export const getPokerSiteImage = (siteName) => {
 
 export const imagePicker = (productName) => {
   return productName === "Poker Baazi"
-    ? pokerbaazi
+    ? PokerBazziPokerCard
     : productName === "Junglee Poker"
-    ? JUNGLEEPOKER
-    : productName === "MPL"
-    ? mpllogo
-    : productName === "A23poker"
-    ? A23POKER
-    : productName === "PokerCircle"
-    ? pokerbaazi
-    : productName === "PokerDangal"
-    ? POKERDANGAL
-    : productName === "Pocket52"
-    ? pocket52
-    : productName === "Adda52"
-    ? Adda52
-    : productName === "ACRpoker"
-    ? ACRPOKER
-    : productName === "CoinPoker"
-    ? CoinPoker
-    : productName === "WPTglobal"
-    ? wptglobal
-    : JUNGLEEPOKER;
+      ? JungleePokerCard
+      : productName === "PokerDangal"
+        ? PokerDangalCard
+        : productName === "ACRpoker"
+          ? ACRPokerCard
+          : productName === "CoinPoker"
+            ? CoinPokerPokerCard
+            : productName === "WPTglobal"
+              ? WPTPokerCard
+              : productName === "BigCash" ? BigCashPokerCard
+                : productName === "SpartanPoker" ? SpartanPokerCard
+                  : PokerBazziPokerCard;
 };
 export const getStatusIcon = (status) => {
   if (status === "Approved" || status === "Successful") {
     return (
-     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-<rect width="16" height="16" rx="8" fill="#28A745"/>
-<path d="M12 5L6.5 10.5L4 8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <rect width="16" height="16" rx="8" fill="#28A745" />
+        <path d="M12 5L6.5 10.5L4 8" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
     );
   }
   if (status === "Pending") {
     return (
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M7.99902 0C12.417 0 15.999 3.58172 15.999 8C15.999 12.4183 12.417 16 7.99902 16C3.58124 15.9997 0 12.4181 0 8C0 3.58188 3.58124 0.000251526 7.99902 0ZM7.03906 10.8164V12.5449H8.83105V10.8164H7.03906ZM7.16699 3.20117V9.62598H8.70312V3.20117H7.16699Z" fill="#FFC107"/>
-</svg>
+        <path d="M7.99902 0C12.417 0 15.999 3.58172 15.999 8C15.999 12.4183 12.417 16 7.99902 16C3.58124 15.9997 0 12.4181 0 8C0 3.58188 3.58124 0.000251526 7.99902 0ZM7.03906 10.8164V12.5449H8.83105V10.8164H7.03906ZM7.16699 3.20117V9.62598H8.70312V3.20117H7.16699Z" fill="#FFC107" />
+      </svg>
 
     );
   }
   if (status === "Aborted") {
     return (
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-<rect width="16" height="16" rx="8" fill="#DC3545"/>
-<path d="M12 4L4 12M4 4L12 12" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
+        <rect width="16" height="16" rx="8" fill="#DC3545" />
+        <path d="M12 4L4 12M4 4L12 12" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
     );
   }
   return null;

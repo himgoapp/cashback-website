@@ -12,11 +12,9 @@ import {
 const PokerCard = ({ status, color, item }) => {
   return (
     <div
-      // className={`${styles.PokerCard} ${item?.retag ? 'retagone' : ''} ${status === "Aborted" ? 'Rejected' : status}`}
       className={`${styles.PokerCard} 
             ${item?.retag ? styles.retagone : ''} 
             ${status === "Aborted" ? styles.Rejected : styles[status]}`}
-    // style={{ borderTop: `4px solid ${borderColor}` }}
     >
       {item && item.retag && <p className="retagName">RETAG</p>}
       <div className={styles.StatusContainer}>
@@ -39,12 +37,11 @@ const PokerCard = ({ status, color, item }) => {
           <div className={styles.HeaderAndIdContent}>
             <div className={styles.ImageWrapper}>
               <img
-                // src={
-                //   item && item.productId && item.productId.name
-                //     ? imagePicker(item.productId.name)
-                //     : pokerCardimg
-                // }
-                src={ pokerCardimg }
+                src={
+                  item && item.productId && item.productId.name
+                    ? imagePicker(item.productId.name)
+                    : pokerCardimg
+                }
                 className={styles.ProductImage}
                 alt={item?.productId?.name || "Product"}
               />
@@ -65,7 +62,7 @@ const PokerCard = ({ status, color, item }) => {
             ID - {" "}
             <strong>{item && item.referenceId ? item.referenceId : ""}</strong>
           </div>
-          
+
           <div className={styles.DateContainer}>
             {item && item.createdAt && (
               <>
