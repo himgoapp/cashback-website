@@ -64,7 +64,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
   };
 
   const withdrawHit = () => {
-    if (userKyc && userKyc.status === true && userKyc.level === "4") {
+    if (userKyc && userKyc.status && userKyc.status === "VERIFIED") {
       if (userWallet.wallet_balance < 1000) {
         toast.error(
           "Sorry! Your Wallet balance is lower than the withdraw limit!"

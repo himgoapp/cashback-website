@@ -116,6 +116,8 @@ const UserProfile = () => {
     }
   };
 
+  console.log(userKyc, "119---")
+
   const verifyEmailOtp = async () => {
     try {
       setLoading(true);
@@ -285,15 +287,13 @@ const UserProfile = () => {
                         )}
                       </div>
                     </div>
-
-
                   </div>
 
                   <div className={styles.formField}>
                     <label className={styles.fieldLabel}>Full Name</label>
                     <div className={styles.fieldBox}>
                       <span className={styles.fieldText}>
-                        {userData?.userName || "User"}
+                        {userKyc?.userName || userData?.userName || "User"}
                       </span>
                     </div>
                   </div>
@@ -326,8 +326,8 @@ const UserProfile = () => {
                     <div className={styles.kycDetailItem}>
                       <div className={styles.kycDetailLabel}>PAN</div>
                       <div className={styles.kycDetailValue}>
-                        {userKyc && userKyc.panCardNo ? (
-                          userKyc.panCardNo
+                        {userKyc && userKyc.pan && userKyc.pan.verified ? (
+                          userKyc.pan.documentName
                         ) : (
                           <button
                             className={styles.VerifyNowButton}
@@ -347,8 +347,8 @@ const UserProfile = () => {
                       <div className={styles.kycDetailItem}>
                         <div className={styles.kycDetailLabel}>Aadhaar</div>
                         <div className={styles.kycDetailValue}>
-                          {userKyc && userKyc.addressProofDocumentNumber ? (
-                            userKyc.addressProofDocumentNumber
+                          {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified ? (
+                            userKyc.aadhaar.documentName
                           ) : (
                             <button
                               className={styles.VerifyNowButton}
@@ -370,19 +370,18 @@ const UserProfile = () => {
                         <div className={styles.kycDetailLabel}>Account Number</div>
                         <div className={styles.kycDetailValue}>
                           {userKyc &&
-                            userKyc.bank_id &&
-                            userKyc.bank_id.account_number ? (
-                            userKyc.bank_id.account_number
-                          ) : (
-                            <button
-                              className={styles.VerifyNowButton}
-                              onClick={() => {
-                                navigate("/dashboard/kyc");
-                              }}
-                            >
-                              Verify Now
-                            </button>
-                          )}
+                            userKyc.bank && userKyc.bank.verified ? (
+                            userKyc.bank.documentName)
+                            : (
+                              <button
+                                className={styles.VerifyNowButton}
+                                onClick={() => {
+                                  navigate("/dashboard/kyc");
+                                }}
+                              >
+                                Verify Now
+                              </button>
+                            )}
                         </div>
                       </div>
                     </div>
@@ -393,62 +392,6 @@ const UserProfile = () => {
           </div>
 
           <Modal show={verifyModal} onHide={handleClose} backdrop="static" centered>
-            {/* <Modal.Header closeButton className={styles.modalHeader}>
-            <Modal.Title className={styles.modalTitle}>
-              <h2 className={styles.modalHeading}>ENTER OTP</h2>
-            </Modal.Title>
-          </Modal.Header> */}
-
-            {/* <Modal.Body className={styles.modalBody}>
-            <div className={styles.modalText}>
-              <p className={styles.otpMessage}>
-                Enter the 6-digit code we emailed you.
-              </p>
-            </div>
-
-            <div className={styles.otpContainer}>
-              <div className={styles.otpInputGroup}>
-                {[0, 1, 2, 3, 4, 5].map((index) => (
-                  <div key={index} className={styles.otpInputWrapper}>
-                    <Form.Control
-                      ref={(el) => (inputRefs.current[index] = el)}
-                      className={styles.otpInput}
-                      value={otpValues[index]}
-                      maxLength={1}
-                      onChange={(e) => handleOtpChange(index, e.target.value)}
-                      onKeyDown={(e) => handleKeyDown(index, e)}
-                      onPaste={index === 0 ? handlePaste : null}
-                      autoComplete="off"
-                      inputMode="numeric"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className={styles.resendSection}>
-              <div className={styles.resendContainer}>
-                <p className={styles.resendText}>Haven't received the OTP?</p>
-                {countdown > 0 ? (
-                  <span className={styles.countdownText}>
-                    Resend in{" "}
-                    <span className={styles.countdownNumber}>{countdown}s</span>
-                  </span>
-                ) : (
-                  <button
-                    onClick={() => {
-                      sendEmailOtp(email);
-                    }}
-                    className={styles.resendButton}
-                    disabled={loading}
-                  >
-                    Resend
-                  </button>
-                )}
-              </div>
-            </div>
-          </Modal.Body> */}
-
             <Modal.Body>
               <div className={styles.formSection}>
                 <h1 className={styles.title}>Verify OTP</h1>
@@ -475,26 +418,6 @@ const UserProfile = () => {
                     />
                   ))}
                 </div>
-
-                {/* <div className={styles.resendContainer}>
-                <p>
-                  {" "}
-                  {resendTimer > 0 ? (
-                    // <span style={{   fontWeight: "400" }}>Resend in <span className={styles.timer} style={{  }}>{resendTimer}s</span></span>
-                    <span style={{ fontWeight: "400" }}>
-                      Resend OTP in{" "}
-                      <span className={styles.timer} style={{}}>
-                        {resendTimer}s
-                      </span>
-                    </span>
-                  ) : (
-                    <button className={styles.resendButton} onClick={sendOtp}>
-                      Resend
-                    </button>
-                  )}
-                </p>
-              </div> */}
-
                 <button
                   className={styles.primaryButton}
                   onClick={verifyEmailOtp}
@@ -584,7 +507,7 @@ const UserProfile = () => {
                     <label className={styles.fieldLabel}>Full Name</label>
                     <div className={styles.fieldBox}>
                       <span className={styles.fieldText}>
-                        {userData?.userName || "User"}
+                        {userKyc?.userName || userData?.userName || "User"}
                       </span>
                     </div>
                   </div>
@@ -618,8 +541,8 @@ const UserProfile = () => {
                     <div className={styles.kycDetailItem}>
                       <div className={styles.kycDetailLabel}>PAN</div>
                       <div className={styles.kycDetailValue}>
-                        {userKyc && userKyc.panCardNo ? (
-                          userKyc.panCardNo
+                        {userKyc && userKyc.pan && userKyc.pan.verified ? (
+                          userKyc.pan.documentName
                         ) : (
                           <button
                             className={styles.VerifyNowButton}
@@ -639,8 +562,8 @@ const UserProfile = () => {
                       <div className={styles.kycDetailItem}>
                         <div className={styles.kycDetailLabel}>Aadhaar</div>
                         <div className={styles.kycDetailValue}>
-                          {userKyc && userKyc.addressProofDocumentNumber ? (
-                            userKyc.addressProofDocumentNumber
+                          {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified ? (
+                            userKyc.aadhaar.documentName
                           ) : (
                             <button
                               className={styles.VerifyNowButton}
@@ -662,19 +585,18 @@ const UserProfile = () => {
                         <div className={styles.kycDetailLabel}>Account Number</div>
                         <div className={styles.kycDetailValue}>
                           {userKyc &&
-                            userKyc.bank_id &&
-                            userKyc.bank_id.account_number ? (
-                            userKyc.bank_id.account_number
-                          ) : (
-                            <button
-                              className={styles.VerifyNowButton}
-                              onClick={() => {
-                                navigate("/dashboard/kyc");
-                              }}
-                            >
-                              Verify Now
-                            </button>
-                          )}
+                            userKyc.bank && userKyc.bank.verified ? (
+                            userKyc.bank.documentName)
+                            : (
+                              <button
+                                className={styles.VerifyNowButton}
+                                onClick={() => {
+                                  navigate("/dashboard/kyc");
+                                }}
+                              >
+                                Verify Now
+                              </button>
+                            )}
                         </div>
                       </div>
                     </div>
