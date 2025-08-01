@@ -130,7 +130,13 @@ const KycMain = () => {
       <DashboardMain>
         <div className="kyc-container KYCDB">
           <h5 className="fw-bold KYCheading ">Know Your Customer</h5>
-
+          <div className="KYCSuccessMsg">
+              <svg width="74" height="73" viewBox="0 0 74 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="0.5" width="73" height="73" rx="36.5" fill="#28A745"/>
+                <path d="M55.25 22.8125L30.1562 47.9062L18.75 36.5" stroke="white" stroke-width="6.84375" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Your Rakebackk account is KYC verified. Here are your details:
+          </div>
           <div className="accordion" id="kycAccordion">
 
             {/* Step 1: PAN  */}
@@ -217,9 +223,30 @@ const KycMain = () => {
                     <img src={KYCAadhaar} />
                   </div>
                   <div className="form-row ">
-                    <div className="form-row">
-                      <input type="text" className="form-control  " placeholder="Name as per PAN" value={panName} onChange={e => setPanName(e.target.value)} />
-                      <input type="text" className="form-control  " placeholder="PAN" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
+                    <div  className="form-row">
+                      <div className="form-row">
+                        <input type="text" className="form-control  KYCAdhar" placeholder="PRASAD RAVINDRA MANKAR" value={panName} onChange={e => setPanName(e.target.value)} />
+                      </div>
+                      <div class="form-group">
+                        <label className="card_number">Enter AADHAAR number</label>
+                          <div className="AddhaarNumberField">
+                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ _ _ _" maxlength="4" />
+                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ _ _ _ " maxlength="4" />
+                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ _ _ _ " maxlength="4" />
+                            <button className="formButton KYCSendOTP" onClick={handlePanVerify}>Send OTP</button>
+                          </div>
+                      </div>
+                      <div class="form-group">
+                        <label className="card_number">OTP</label>
+                          <div className="AddhaarNumberField OTPNumberField">
+                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_" maxlength="1" />
+                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
+                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
+                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_" maxlength="1" />
+                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
+                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
+                          </div>
+                      </div>
                     </div>
                     <div className="VerifiedPan">
                       2345-2324-5678
@@ -305,9 +332,11 @@ const KycMain = () => {
                   </div>
                   <div className="form-row ">
                     <div className="form-row">
-                      <input type="text" className="form-control  " placeholder="Name as per PAN" value={panName} onChange={e => setPanName(e.target.value)} />
-                      <input type="text" className="form-control  " placeholder="PAN" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
-                      <input type="text" className="form-control  " placeholder="PAN" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
+                        <input type="text" className="form-control  KYCAdhar" placeholder="PRASAD RAVINDRA MANKAR" value={panName} onChange={e => setPanName(e.target.value)} />
+                      </div>
+                    <div className="form-row">
+                      <input type="text" className="form-control  " placeholder="Account Number" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
+                      <input type="text" className="form-control  " placeholder="IFSC Code" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
                     </div>
                     <div className="VerifiedPan">
                       234523245678

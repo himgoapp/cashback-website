@@ -32,6 +32,14 @@
     height: 24px;
     font-size: 14px;
   }
+
+.KYCDB .accordion-body .FormIcon {
+    min-width: 117.45px;
+    height: 100%;
+}
+.KYCDB .accordion-body {
+        gap: 50px;
+    }
 }
 @media only screen and (max-width: 1024px) {
   .sidebar_CloseSidebar {
@@ -153,6 +161,11 @@
   .card-title {
     font-size: 12px;
   }
+.KYCDB .accordion-body .FormIcon img {
+    width: 100%;
+}
+
+
 }
 
 @media only screen and (max-width: 991px) {
@@ -443,6 +456,31 @@
   /* .rakeback_chart_wallet_balance__nV-NK {
     font-size: 33px;
   } */
+  .KYCDB .accordion-body {
+      flex-direction: column;
+      align-items: baseline;
+  }
+.KYCDB .accordion-body .FormIcon {
+        min-width: 116px;
+        height: 86px;
+    }
+  .KYCDB .accordion-body .FormIcon img {
+    width: 100%;
+    height: 100%;
+  }
+   .Verified {
+    width: 100%;
+    justify-content: center;
+}
+.KYCBTNForm.Reverify {
+    width: 100%;
+    justify-content: center;
+}
+.KYCSuccessMsg {
+    font-size: 16px;
+    max-width: 70%;
+    margin: 64px auto 60px;
+}
   .DesktopVIew {
     display: none;
   }
@@ -770,10 +808,81 @@
   .MobileHomepage header.RakebackHeader nav.container-fluid.navbar.navbar-expand-lg {
     padding-right: 0;
 }
-.kyc-container.KYCDB {
-    background: transparent;
-    border-radius: 24px;
+    .kyc-container.KYCDB {
+        background: #fff;
+        border-radius: 24px;
+        padding: 33px 20px 90px;
+        width: 100%;
+    }
+    .KYCSuccessMsg {
+        max-width: 100%;
+    }
+        .KYCDB .accordion-body .FormIcon {
+        min-width: 76px;
+        height: 76px;
+    }
+    .KYCDB .form-control {
+        border-radius: 6px;
+    }
+        .KYCDB .accordion-body {
+        gap: 20px;
+    }
+    .VerifiedPan {
+    padding: 13px;
+    font-size: 14px;
+}
+.KYCBTNForm button.formButton {
+    min-width: auto;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 6px;
+    padding: 0 16px;
+}
+.NotMatchPan {
+    font-size: 14px;
+    gap: 11px;
+    flex-direction: column-reverse;
+    text-align: center;
+}
+ .Verified {
+    font-size: 14px;
+    gap: 11px;
+}
+.FormIconMObile {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+.KYCDB .AddhaarNumberField .form-control {
+    height: 40px;
+    min-width: 59px;
+    width: 59px;
+            padding: 0;
+}
+.AddhaarNumberField {
+    gap: 12px;
+}
+.formButton.KYCSendOTP
+ {
+    min-width: 52px;
+    height: 22px;
+    font-size: 8px;
+    font-weight: bold;
+}
+.AddhaarNumberField.OTPNumberField {
+    gap: 4px;
+}
+.KYCDB .AddhaarNumberField.OTPNumberField .form-control
+ {
+    min-width: 32px;
+    height: 32px;
+    width: 32px;
     padding: 0;
+}
+.NotMatchPan svg, .Verified svg {
+    width: 19px;
+    height: 19px;
 }
   .MobileViewDesc {
     display: flex;
@@ -1386,6 +1495,41 @@
   .dropdown-menu.NavbarDropdown.show {
     max-width: 250px;
     min-width: 250px;
+}
+.KYCDB .accordion-body .FormIcon {
+        min-width: 66px;
+        height: 66px;
+    }
+    .FormIconMObile {
+    gap: 20px;
+}
+.VerifiedPan {
+        padding: 10px;
+        font-size: 10px;
+    }
+    .NotMatchPan {
+        font-size: 11px;
+    }
+    .card_number {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.KYCDB .form-control {
+        font-size: 10px;
+        padding: 0 12px;
+    }
+        .AddhaarNumberField {
+        gap: 4px;
+    }
+    .KYCDB .AddhaarNumberField .form-control {
+        min-width: 52px;
+        width: 52px;
+        font-size: 12px;
+    }
+.KYCDB .accordion-body .FormIcon.FormIconPAN {
+    min-width: 80px;
+    width: 75px;
+    height: 50px;
 }
     .navbar-brand {
         width: 133px;
