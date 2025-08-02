@@ -392,7 +392,7 @@ display: flex ;
 
 .otpInput:focus {
   border-color: #ff4053;
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.25);
+  box-shadow: 0 0 0 2px rgb(252 102 117 / 14%);
   outline: none;
 }
 
@@ -791,9 +791,37 @@ display: flex ;
     font-size: 12px;
     min-width: 112px;
   }
+  .modalPRofile .modal-body {
+    position: relative;
+    padding: 44px 30px;
+}
 }
 
 @media only screen and (max-width: 575px) {
+    .kycDetailLabel{
+    font-size: 12px;
+    min-width: 122px;
+  }
+  .kycSection {
+    padding: 16px 20px 16px 0px;
+  }
+  .kycDetailValue {
+    font-size: 12px;
+  }
+  .kycDetailItem {
+    justify-content: space-between;
+}
+ .ProfileOtpModal .title {
+    font-size: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 0;
+  }
+ .ProfileOtpModal .otpInput {
+    width: 48px;
+    height: 48px;
+    margin-top: 28px;
+  }
   .EditProfileButton {
     min-width: 40px;
   }
@@ -867,14 +895,7 @@ display: flex ;
     padding: 30px 24px;
   }
 
-  .title {
-    font-size: 32px;
-    padding: 0 10px;
-  }
-  .otpInput {
-    width: 50px;
-    height: 50px;
-  }
+  
   .fullPageContainer {
     margin-bottom: 20vh;
     padding: 16px;
