@@ -217,7 +217,7 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
               </select>
               {/* <input type="text" className="form-control InputDB" placeholder="Username" required /> */}
             </div>
-            <div className="formControl  d-flex">
+            {/* <div className="formControl  d-flex">
                   <div className="dropdown PokerIDdropdown">
                       <button className="btn btn-outline-secondary dropdown-toggle" type="button" id="pokerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="https://via.placeholder.com/24/007bff" alt="Poker Icon" />
@@ -248,7 +248,7 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
                       </ul>
                     </div>
               
-            </div>
+            </div> */}
 
             <div className="formControl d-flex ">
               <input type="text" value={referenceId}
