@@ -2130,6 +2130,17 @@ a.small.seeMOre {
     background-position: center; */
 }
 
+.accordion-button:not(.collapsed)::after {
+    transform: rotate(0deg) !important;
+}
+.accordion-button[aria-expanded="true"]::after {
+    transform: rotate(-180deg) !important;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card.Offerscard .sidePost {
+    padding-bottom: 0px;
+    padding: 8px;
+}
+
 
 .PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"] {
     /* background: #FFF6F7; */

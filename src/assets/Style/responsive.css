@@ -1216,12 +1216,12 @@
     padding: 40px;
     background: #FFF6F7;
     border-radius: 16px;
-    background: url(../PokerID/PokerIDbackDB.jpg);
+    /* background: url(../PokerID/PokerIDbackDB.jpg);
     background-size: cover;
     background-repeat: no-repeat;
-        /* background-size: 540% 130%; */
+     background-size: 540% 130%; 
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center; */
 }
 
   .RakebackSpace {
