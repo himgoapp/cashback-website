@@ -15,7 +15,7 @@
     border-radius: 20px;
     overflow: hidden;
     cursor: pointer;
-    padding: 28px 28px 28px 94px;
+    padding: 32px 24px 32px 84px;
     border: 1px solid #FF4053;
     box-shadow: 0px 0px 10px #cacaca;
 }
@@ -83,8 +83,8 @@
 
 .ImageWrapper {
     position: relative;
-   width: 298.28px;
-    height: 92px;
+   width: 100%;
+    height: 100%;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
@@ -96,8 +96,6 @@
 .ProductImage {
      width: 100%;
     height: 100%;
-    object-fit: contain;
-    transition: transform 0.3s ease;
 }
 
 .PokerCard:hover .ProductImage {
@@ -215,7 +213,7 @@
 .StatusBadge span {
         color: #fff;
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
         text-transform: uppercase;
 }
 
@@ -255,7 +253,7 @@
   padding: 0 10px;
 }
 .PokerCard {
-padding: 28px 28px 28px 74px;
+padding: 32px 24px 24px 74px;
 }
 }
 
@@ -291,7 +289,7 @@ padding: 28px 28px 28px 74px;
     padding: 0.25rem 0.625rem;
   }
   .PokerCard {
-padding: 21px 21px 21px 74px;
+padding: 32px 21px 21px 74px; 
 }
 .StatusBadge span {
     font-size: 14px;
@@ -300,9 +298,6 @@ padding: 21px 21px 21px 74px;
 @media only screen and (max-width: 420px) {
   .Id , .DateValue, .TimeValue{
         font-size: 12px;
-    }
-    .ImageWrapper {
-        height: 68px;
     }
     .StatusContainer{
     min-width: 38px;

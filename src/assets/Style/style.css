@@ -2663,7 +2663,7 @@ a.small.seeMOre {
     width:100%
 }
 
-.retagName{
+/* .retagName{
     color: #28A745;
     font-size: 24px;
     font-weight: bolder;
@@ -2684,6 +2684,22 @@ a.small.seeMOre {
     color: #fff;
     justify-content: center;
 
+} */
+ .retagName {
+    background: #000;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 98px;
+    height: 32px;
+    font-size: 15.49px;
+    display: flex;
+    color: #fff;
+    justify-content: center;
+    font-weight: bolder;
+    align-items: center;
+    border-bottom-left-radius: 8px;
+    margin: 0;
 }
 .LastTransactionSection.DashboardTransactionSection .wallet_balance_head{
     margin-top: 0px;

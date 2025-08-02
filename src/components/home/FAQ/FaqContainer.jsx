@@ -275,7 +275,7 @@ const FaqContainer = () => {
       <div className="container-fluid faqcontainer">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-8 col-md-12">
+            <div className="col-lg-9 col-md-12">
               <div className={styles.hero_section}>
                 <div className={styles.hero_content}>
                   <h1 className={styles.hero_title}>Frequently Asked Questions</h1>
