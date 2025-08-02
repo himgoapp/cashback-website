@@ -1449,7 +1449,7 @@
 .MobileViewLogin {
     position: relative;
     overflow: hidden;
-    height: 100%;
+   height: calc(var(--vh, 1vh) * 100);
 }
 .videoContainerhide {
     width: 100%;

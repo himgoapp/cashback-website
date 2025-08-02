@@ -16,9 +16,11 @@ import starTopHeroBanner from "../../../assets/Logos_and_illustration/starTopHer
 import heroSectionBanner from "../../../assets/Logos_and_illustration/heroSectionBanner.svg";
 
 import Logo from "../../../assets/Logos_and_illustration/Logo_Red.svg";
+import useViewportHeight from "../../../helperFxns/signinhelper";
 
 import { color } from "framer-motion";
 const FullPageSignin = () => {
+  useViewportHeight();
   const { setUserData, setShowWelcomePopup } = useContext(UserContext);
   const navigate = useNavigate();
   const [showOtpPart, setShowOtpPart] = useState(false);
@@ -195,205 +197,189 @@ const FullPageSignin = () => {
     }
   };
   return (
-    <>
-      <div className="MobileViewLogin">
-        <Navbar page="login" />
-        <div className={styles.fullPageContainer}>
-          <div className={styles.authCard}>
-            {/* <div className={styles.backButtonContainer}>
-            <button
-              className={styles.backButton}
-              onClick={() => navigate(-1)}
-              aria-label="Go back"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19 12H5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M12 19L5 12L12 5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div> */}
-
-            {!showOtpPart ? (
-              <div className={styles.formSection}>
-                  <div className ={hideImage ? "videoContainerhide" : "videoContainermain"}>
-                  <div className ="videoContainer">
-                    <img src={chipBannerLeft} alt="chip" className="chipIcon" />
-                    <img
-                      src={chipBannerRight}
-                      alt="chip right"
-                      className="chipBannerRight"
-                    />
-                    {/* <img
+    <div className="MobileViewLogin">
+      <Navbar page="login" />
+      <div className={styles.fullPageContainer}>
+        <div className={styles.authCard}>
+          {!showOtpPart ? (
+            <div className={styles.formSection}>
+              <div className={hideImage ? "videoContainerhide" : "videoContainermain"}>
+                <div className="videoContainer">
+                  <img src={chipBannerLeft} alt="chip" className="chipIcon" />
+                  <img
+                    src={chipBannerRight}
+                    alt="chip right"
+                    className="chipBannerRight"
+                  />
+                  {/* <img
                       src={pokerCardheroBanner}
                       alt="star right"
                       className="pokerCardheroBanner"
                     /> */}
-                    <img
-                      src={starTopHeroBanner}
-                      alt="star right"
-                      className="starTopHeroBanner"
-                    />
-                    <img
-                      src={heroSectionBanner}
-                      className="BannerIcon BannerIcon"
-                      alt="hero banner"
-                    />
-                  </div>
-                
+                  <img
+                    src={starTopHeroBanner}
+                    alt="star right"
+                    className="starTopHeroBanner"
+                  />
+                  <img
+                    src={heroSectionBanner}
+                    className="BannerIcon BannerIcon"
+                    alt="hero banner"
+                  />
+                </div>
+
                 <img src={Logo} class="LogoIcon" alt="hero banner"></img>
                 <h1 className={styles.title}>Login or signup</h1>
                 <p className={styles.subtitle}>We will send an OTP to verify</p>
                 <p className={styles.MobileSubtitle}>
                   Make Poker More Profitable
                 </p>
-                </div>
-                <form onSubmit={handlePhoneSubmit} className={styles.form}>
-                  <div className={styles.inputField}>
-                    <span className={styles.CountryCode}>+91</span>
-                    <input
-                      // autoFocus
-                      type="tel"
-                      inputMode="numeric"
-                      placeholder="Enter mobile number"
-                      pattern="[0-9]*"
-                      maxLength={10}
-                      value={phoneNumber}
-                      onChange={handleChange}
-                      onFocus={() => setHideImage(true)}
-                      // onBlur={() => setHideImage(false)}
-                      required
-                      className={`${styles.number_label} ${
-                        error ? styles.invalidInput : ""
+              </div>
+              <form onSubmit={handlePhoneSubmit} className={styles.form}>
+                <div className={styles.inputField}>
+                  <span className={styles.CountryCode}>+91</span>
+                  <input
+                    // autoFocus
+                    type="tel"
+                    inputMode="numeric"
+                    placeholder="Enter mobile number"
+                    pattern="[0-9]*"
+                    maxLength={10}
+                    value={phoneNumber}
+                    onChange={handleChange}
+                    onFocus={() => setHideImage(true)}
+                    // onBlur={() => setHideImage(false)}
+                    required
+                    className={`${styles.number_label} ${error ? styles.invalidInput : ""
                       }`}
-                    />
-                    {/* <label style={{ fontFamily: '"Roboto", sans-serif' }}
+                  />
+                  {/* <label style={{ fontFamily: '"Roboto", sans-serif' }}
                     className={`${styles.number_label} ${error ? styles.invalidInputLabel : ""}`}>
                     Enter mobile number
                   </label> */}
-                    {error && (
-                      <p
-                        style={{
-                          color: "red",
-                          fontSize: "16px",
-                          margin: "32px 0",
-                        }}
+                  {error && (
+                    <p
+                      style={{
+                        color: "red",
+                        fontSize: "16px",
+                        margin: "32px 0",
+                      }}
+                    >
+                      <svg
+                        style={{ marginRight: "9px" }}
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
                       >
-                        <svg
-                          style={{ marginRight: "9px" }}
-                          width="16"
-                          height="16"
-                          viewBox="0 0 16 16"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M7.64258 0.283691C11.863 0.283955 15.2842 3.70582 15.2842 7.92627C15.2842 12.1467 11.863 15.5686 7.64258 15.5688C3.42197 15.5688 0 12.1469 0 7.92627C0 3.70566 3.42197 0.283691 7.64258 0.283691ZM6.72559 10.6167V12.2671H8.43652V10.6167H6.72559ZM6.84766 3.34131V9.479H8.31445V3.34131H6.84766Z"
-                            fill="#FF4053"
-                          />
-                        </svg>{" "}
-                        {error}
-                      </p>
-                    )}
-                  </div>
-
-                  <button
-                    type="submit"
-                    className={styles.primaryButton}
-                    disabled={
-                      loading || !phoneNumber || phoneNumber.length !== 10
-                    }
-                  >
-                    {loading ? (
-                      <span className={styles.loadingSpinner}></span>
-                    ) : (
-                      "Continue"
-                    )}
-                  </button>
-                  <p className={styles.enterMobiletext}>
-                    Please enter 10 digit mobile number
-                  </p>
-                </form>
-              </div>
-            ) : (
-              <div className={`${styles.formSection} ${styles.formSectionOTP}`}>
-                <h1 className={styles.title}>Verify OTP</h1>
-                <p className={styles.subtitle}>
-                  One Time Password (OTP) has been sent to{" "}
-                  {phoneNumber.slice(0, 2)}•••••{phoneNumber.slice(-2)}
-                  <button className={styles.editButton} onClick={editNumber}>
-                    Edit Number
-                  </button>
-                </p>
-
-                <div className={styles.otpContainer}>
-                  {otp.map((digit, index) => (
-                    <input
-                      key={index}
-                      ref={otpInputRefs.current[index]}
-                      type="text"
-                      inputMode="numeric"
-                      pattern="[0-9]*"
-                      maxLength={1}
-                      value={digit}
-                      onChange={(e) => handleOtpChange(e, index)}
-                      onKeyDown={(e) => handleKeyDown(e, index)}
-                      onPaste={index === 0 ? handlePaste : null}
-                      className={styles.otpInput}
-                      autoFocus={index === 0 && showOtpPart}
-                      style={{ fontWeight: "400" }}
-                    />
-                  ))}
-                </div>
-
-                <div className={styles.resendContainer}>
-                  <p>
-                    {" "}
-                    {resendTimer > 0 ? (
-                      // <span style={{   fontWeight: "400" }}>Resend in <span className={styles.timer} style={{  }}>{resendTimer}s</span></span>
-                      <span style={{ fontWeight: "400" }}>
-                        Resend OTP in{" "}
-                        <span className={styles.timer} style={{}}>
-                          {resendTimer}s
-                        </span>
-                      </span>
-                    ) : (
-                      <button className={styles.resendButton} onClick={sendOtp}>
-                        Resend
-                      </button>
-                    )}
-                  </p>
+                        <path
+                          d="M7.64258 0.283691C11.863 0.283955 15.2842 3.70582 15.2842 7.92627C15.2842 12.1467 11.863 15.5686 7.64258 15.5688C3.42197 15.5688 0 12.1469 0 7.92627C0 3.70566 3.42197 0.283691 7.64258 0.283691ZM6.72559 10.6167V12.2671H8.43652V10.6167H6.72559ZM6.84766 3.34131V9.479H8.31445V3.34131H6.84766Z"
+                          fill="#FF4053"
+                        />
+                      </svg>{" "}
+                      {error}
+                    </p>
+                  )}
                 </div>
 
                 <button
+                  type="submit"
                   className={styles.primaryButton}
-                  onClick={verifyOtp}
-                  disabled={loading || otp.join("").length !== 6}
+                  disabled={
+                    loading || !phoneNumber || phoneNumber.length !== 10
+                  }
                 >
                   {loading ? (
                     <span className={styles.loadingSpinner}></span>
                   ) : (
-                    "Proceed"
+                    "Continue"
                   )}
                 </button>
-                <p
-                  style={{ fontsize: "12px", color: "#606060" }}
-                  className="text-center m-0"
-                >
-                  I agree to receive critical messages such as OTP, booking
-                  details on WhatsApp.
+                <p className={styles.enterMobiletext}>
+                  Please enter 10 digit mobile number
+                </p>
+              </form>
+            </div>
+          ) : (
+            <div className={`${styles.formSection} ${styles.formSectionOTP}`}>
+              <h1 className={styles.title}>Verify OTP</h1>
+              <p className={styles.subtitle}>
+                One Time Password (OTP) has been sent to{" "}
+                {phoneNumber.slice(0, 2)}•••••{phoneNumber.slice(-2)}
+                <button className={styles.editButton} onClick={editNumber}>
+                  Edit Number
+                </button>
+              </p>
+
+              <div className={styles.otpContainer}>
+                {otp.map((digit, index) => (
+                  <input
+                    key={index}
+                    ref={otpInputRefs.current[index]}
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    maxLength={1}
+                    value={digit}
+                    onChange={(e) => handleOtpChange(e, index)}
+                    onKeyDown={(e) => handleKeyDown(e, index)}
+                    onPaste={index === 0 ? handlePaste : null}
+                    className={styles.otpInput}
+                    autoFocus={index === 0 && showOtpPart}
+                    style={{ fontWeight: "400" }}
+                  />
+                ))}
+              </div>
+
+              <div className={styles.resendContainer}>
+                <p>
+                  {" "}
+                  {resendTimer > 0 ? (
+                    // <span style={{   fontWeight: "400" }}>Resend in <span className={styles.timer} style={{  }}>{resendTimer}s</span></span>
+                    <span style={{ fontWeight: "400" }}>
+                      Resend OTP in{" "}
+                      <span className={styles.timer} style={{}}>
+                        {resendTimer}s
+                      </span>
+                    </span>
+                  ) : (
+                    <button className={styles.resendButton} onClick={sendOtp}>
+                      Resend
+                    </button>
+                  )}
                 </p>
               </div>
-            )}
-          </div>
+
+              <button
+                className={styles.primaryButton}
+                onClick={verifyOtp}
+                disabled={loading || otp.join("").length !== 6}
+              >
+                {loading ? (
+                  <span className={styles.loadingSpinner}></span>
+                ) : (
+                  "Proceed"
+                )}
+              </button>
+              <p
+                style={{ fontsize: "12px", color: "#606060" }}
+                className="text-center m-0"
+              >
+                I agree to receive critical messages such as OTP, booking
+                details on WhatsApp.
+              </p>
+            </div>
+          )}
         </div>
-        {/* <div
+      </div>
+      {/* <div
         style={{ width: "100%", backgroundColor: "#0052cc" }}
         className="flex_center"
       >
         <Footer />
       </div> */}
-      </div>
-    </>
+    </div>
   );
 };
 
