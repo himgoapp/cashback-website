@@ -159,6 +159,10 @@ const KycMain = () => {
     }
   };
 
+  const formatAadhaar = (str) => {
+    return str.replace(/(.{4})/g, '$1-').replace(/-$/, '');
+  };
+
 
   return (
     <DashboardMainTopBottom styles={{ width: "100%" }}>
@@ -200,7 +204,7 @@ const KycMain = () => {
                   <div className="FormIcon">
                     <img src={KYCPan} />
                   </div>
-                  <div className="form-row ">
+                  <div className={userKyc && userKyc.pan && userKyc.pan.verified ? "form-row VerifiedPanMAindiv" : "form-row"}>
                     {step === 1 && panError.length === 0 && <div className="form-row">
                       <input type="text" className="form-control" placeholder="Name as per PAN" value={panName} onChange={e => setPanName(e.target.value)} />
                       <input type="text" className="form-control" placeholder="PAN" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
@@ -258,7 +262,7 @@ const KycMain = () => {
                   <div className="FormIcon">
                     <img src={KYCAadhaar} />
                   </div>
-                  <div className="form-row ">
+                  <div className={userKyc && userKyc.aadhaar && userKyc.aadhaar.verified ? "form-row VerifiedPanMAindiv" : "form-row"}>
                     <div className="form-row">
                       {step === 2 && <div className="form-row">
                         <input type="text" className="form-control  KYCAdhar" value={userKyc?.userName} disabled={true} />
@@ -314,7 +318,7 @@ const KycMain = () => {
                       )}
                     </div>
                     {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified && userKyc.aadhaar.documentName && <div className="VerifiedPan">
-                      {userKyc.aadhaar.documentName}
+                      {formatAadhaar(userKyc.aadhaar.documentName)}
                     </div>
                     }
 
@@ -397,7 +401,7 @@ const KycMain = () => {
                   <div className="FormIcon">
                     <img src={KYCBank} />
                   </div>
-                  <div className="form-row ">
+                  <div className={userKyc && userKyc.bank && userKyc.bank.verified ? "form-row VerifiedPanMAindiv" : "form-row"}>
                     {step === 3 && <div className="form-row">
                       <input type="text" className="form-control  KYCAdhar" value={userKyc?.userName} disabled={true} />
                     </div>}

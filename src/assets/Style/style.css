@@ -874,6 +874,10 @@ p.GetProfitdes {
     flex-direction: column;
     gap: 11px;
 }
+
+.KYCDB .form-row.VerifiedPanMAindiv {
+  width:auto
+}
 .RakebackFeaturedBlog .sideCategory {
     display: inline-block;
     background: transparent;
@@ -2495,7 +2499,7 @@ a.small.seeMOre {
 }
 .KYCDB .accordion-body .FormIcon {
     min-width: 157.45px;
-    height: 92.51px;
+    /* height: 92.51px; */
 }
 .KYCBTNForm {
     display: flex;
@@ -2553,13 +2557,6 @@ a.small.seeMOre {
     margin-top: unset;
 }
 
-.KYCDB .accordion-body.bank {
-    margin-bottom: 40px;
-}
-
-.KYCDB .accordion-body.aadhaar {
-    margin-bottom: 30px;
-}
 
 .KYCSuccessMsg {
     width: 100%;

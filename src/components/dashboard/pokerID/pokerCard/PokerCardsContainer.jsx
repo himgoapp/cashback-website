@@ -248,6 +248,47 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
                     </option>
                   ))}
               </select>
+              {/* <div className="dropdown">
+                <button
+                  className="btn btn-light dropdown-toggle InputDB"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  {selectedSite ? (
+                    <>
+                      <img
+                        src={selectedSite.icon}
+                        alt={selectedSite.label}
+                        width="20"
+                        className="me-2"
+                      />
+                      {selectedSite.label}
+                    </>
+                  ) : (
+                    "Select Poker Sites"
+                  )}
+                </button>
+
+                <ul className="dropdown-menu">
+                  {pokerSites.map((site) => (
+                    <li key={site.value}>
+                      <button
+                        className="dropdown-item d-flex align-items-center"
+                        onClick={() => handleSelect(site)}
+                      >
+                        <img
+                          src={site.icon}
+                          alt={site.label}
+                          width="20"
+                          className="me-2"
+                        />
+                        {site.label}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div> */}
             </div>
             <div className="formControl d-flex ">
               <input type="text" value={referenceId}
