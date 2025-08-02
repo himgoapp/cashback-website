@@ -202,8 +202,8 @@ const KycMain = () => {
                   </div>
                   <div className="form-row ">
                     {step === 1 && panError.length === 0 && <div className="form-row">
-                      <input type="text" className="form-control  " placeholder="Name as per PAN" value={panName} onChange={e => setPanName(e.target.value)} />
-                      <input type="text" className="form-control  " placeholder="PAN" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
+                      <input type="text" className="form-control" placeholder="Name as per PAN" value={panName} onChange={e => setPanName(e.target.value)} />
+                      <input type="text" className="form-control" placeholder="PAN" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
                     </div>}
                     {userKyc && userKyc.pan && userKyc.pan.verified && userKyc.pan.documentName && <div className="VerifiedPan">
                       {userKyc.pan.documentName}
@@ -254,37 +254,15 @@ const KycMain = () => {
                 </button>
               </h2>
               <div id="collapseAadhaar" className={`accordion-collapse collapse ${step === 2 ? "show" : ""}`}>
-                <div className="accordion-body">
+                <div className="accordion-body aadhaar">
                   <div className="FormIcon">
                     <img src={KYCAadhaar} />
                   </div>
                   <div className="form-row ">
                     <div className="form-row">
-                      <div className="form-row">
+                      {step === 2 && <div className="form-row">
                         <input type="text" className="form-control  KYCAdhar" value={userKyc?.userName} disabled={true} />
-                      </div>
-                      {/* {step === 2 && aadhaarError.length === 0 && <>
-                        <div class="form-group">
-                          <label className="card_number">Enter AADHAAR number</label>
-                          <div className="AddhaarNumberField">
-                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ _ _ _" maxlength="4" />
-                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ _ _ _ " maxlength="4" />
-                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ _ _ _ " maxlength="4" />
-                            <button className="formButton KYCSendOTP" onClick={handleSendAadhaarOtp}>Send OTP</button>
-                          </div>
-                        </div>
-                        <div class="form-group">
-                          <label className="card_number">OTP</label>
-                          <div className="AddhaarNumberField OTPNumberField">
-                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_" maxlength="1" />
-                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
-                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
-                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_" maxlength="1" />
-                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
-                            <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
-                          </div>
-                        </div>
-                      </>} */}
+                      </div>}
                       {step === 2 && aadhaarError.length === 0 && (
                         <>
                           <div className="form-group">
@@ -415,14 +393,14 @@ const KycMain = () => {
               </h2>
               <div id="collapseBank" className={`accordion-collapse collapse ${step === 3 ? "show" : ""}`}>
 
-                <div className="accordion-body">
+                <div className="accordion-body bank">
                   <div className="FormIcon">
                     <img src={KYCBank} />
                   </div>
                   <div className="form-row ">
-                    <div className="form-row">
+                    {step === 3 && <div className="form-row">
                       <input type="text" className="form-control  KYCAdhar" value={userKyc?.userName} disabled={true} />
-                    </div>
+                    </div>}
                     {step === 3 && bankError.length === 0 && <div className="form-row">
                       <input type="text" className="form-control" placeholder="Account Number" value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
                       <input type="text" className="form-control" placeholder="IFSC Code" value={ifscCode} onChange={e => setIfscCode(e.target.value)} />

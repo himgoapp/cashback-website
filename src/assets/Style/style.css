@@ -2552,6 +2552,15 @@ a.small.seeMOre {
     align-items: end;
     margin-top: unset;
 }
+
+.KYCDB .accordion-body.bank {
+    margin-bottom: 40px;
+}
+
+.KYCDB .accordion-body.aadhaar {
+    margin-bottom: 30px;
+}
+
 .KYCSuccessMsg {
     width: 100%;
     display: flex;
@@ -2735,7 +2744,7 @@ a.small.seeMOre {
         font-size: 16px; font-weight: bold; text-transform: uppercase; color: #ff4d4d;
      }
 .DesktopLatestNews .newsletter {
-    background: #ff4d4d;
+    background: #ff4053;
     color: #fff;
     padding: 50px 30px;
     border-radius: 8px;
