@@ -165,6 +165,13 @@
   text-overflow: ellipsis;
 }
 
+.desktopProfile .fieldContent {
+display: flex ;
+    flex-direction: row;
+    gap: 20px;
+}
+
+
 .fieldText {
   color: #1f2937;
   font-size: 16px;
@@ -722,9 +729,31 @@
 /* Show only on mobile screens */
 
 
-
-
-
+.modal {
+    background: #0000005c;
+}
+.modal-content {
+    border: 0px;
+    border-radius: 10px;
+}
+.modal-body {
+    position: relative;
+    padding: 44px 60px;
+}
+.closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 10;
+}
+.modal .title{
+  font-size: 40px;
+  font-weight: bold;
+}
 
 
 @keyframes spin {
@@ -862,3 +891,5 @@
     gap: 8px;
   }
 }
+
+

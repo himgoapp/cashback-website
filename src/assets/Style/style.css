@@ -3268,3 +3268,18 @@ a.small.seeMOre {
 [data-id=zsalesiq], [data-id=zsalesiq] * {
     bottom: 90px !important;
 }
+.ProfilePAgeformrow .form-control {
+    border-radius: 9px;
+    font-size: 15px;
+    height: 32px;
+    border-color: #CECECE;
+    background: #fff;
+    padding: 0 12px;
+}
+.ProfilePAgeformrow .form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #ff4053;
+    outline: 0;
+    box-shadow: none;
+}

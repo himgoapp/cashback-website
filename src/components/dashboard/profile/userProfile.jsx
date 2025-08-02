@@ -238,6 +238,16 @@ const UserProfile = () => {
               <div className={styles.column}>
                 <h2 className={styles.sectionTitle}>Personal Information</h2>
                 <div className={styles.formGroup}>
+
+                  <div className={styles.formField}>
+                    <label className={styles.fieldLabel}>Name</label>
+                    <div className={styles.fieldBox}>
+                      <span className={styles.fieldText}>
+                        {userKyc?.userName || userData?.userName || "User"}
+                      </span>
+                    </div>
+                  </div>
+
                   <div className={styles.formField}>
                     <label className={styles.fieldLabel}>Email</label>
                     <div className={styles.fieldBox}>
@@ -245,6 +255,9 @@ const UserProfile = () => {
                         <span className={styles.fieldText}>
                           {userData?.email || "N/A"}
                         </span>
+                        <div className="ProfilePAgeformrow" >
+                          <input type="email" className="form-control" placeholder="Enter email"  />
+                        </div>
                         {userData?.emailVerifystatus ? (
                           <svg
                             width="21"
@@ -289,14 +302,7 @@ const UserProfile = () => {
                     </div>
                   </div>
 
-                  <div className={styles.formField}>
-                    <label className={styles.fieldLabel}>Full Name</label>
-                    <div className={styles.fieldBox}>
-                      <span className={styles.fieldText}>
-                        {userKyc?.userName || userData?.userName || "User"}
-                      </span>
-                    </div>
-                  </div>
+                  
 
                   <div className={styles.formField}>
                     <label className={styles.fieldLabel}>Mobile Number</label>
@@ -313,6 +319,10 @@ const UserProfile = () => {
                             Verified
                           </span>
                         )}
+
+                        <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+                        <path d="M7.25455 21L5.44091 17.8L2.00455 17L2.33864 13.3L0 10.5L2.33864 7.7L2.00455 4L5.44091 3.2L7.25455 0L10.5 1.45L13.7455 0L15.5591 3.2L18.9955 4L18.6614 7.7L21 10.5L18.6614 13.3L18.9955 17L15.5591 17.8L13.7455 21L10.5 19.55L7.25455 21ZM9.49773 14.05L14.8909 8.4L13.5545 6.95L9.49773 11.2L7.44545 9.1L6.10909 10.5L9.49773 14.05Z" fill="#41D4A8"/>
+                        </svg>
                       </div>
                     </div>
                   </div>
@@ -391,7 +401,77 @@ const UserProfile = () => {
             </div>
           </div>
 
-          <Modal show={verifyModal} onHide={handleClose} backdrop="static" centered>
+            <Modal  className={styles.modal} show={verifyModal} onHide={handleClose} backdrop="static" centered>
+              
+              
+              <button 
+                onClick={handleClose} 
+                className={styles.closeButton}
+                aria-label="Close"
+              >
+                <svg
+                  width="21"
+                  height="21"
+                  viewBox="0 0 21 21"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M7.25455 21L5.44091 17.8L2.00455 17L2.33864 13.3L0 10.5L2.33864 7.7L2.00455 4L5.44091 3.2L7.25455 0L10.5 1.45L13.7455 0L15.5591 3.2L18.9955 4L18.6614 7.7L21 10.5L18.6614 13.3L18.9955 17L15.5591 17.8L13.7455 21L10.5 19.55L7.25455 21ZM9.49773 14.05L14.8909 8.4L13.5545 6.95L9.49773 11.2L7.44545 9.1L6.10909 10.5L9.49773 14.05Z"
+                    fill="#41D4A8"
+                  />
+                </svg>
+              </button>
+
+              <Modal.Body>
+                <div className={styles.formSection}>
+                  <h1 className={styles.title}>Verify OTP</h1>
+                  <p className={styles.subtitle}>
+                    Enter the 6-digit OTP sent to your email
+                  </p>
+
+                  <div className={styles.otpContainer}>
+                    {[0, 1, 2, 3, 4, 5].map((digit, index) => (
+                      <input
+                        key={index}
+                        ref={(el) => (inputRefs.current[index] = el)}
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        maxLength={1}
+                        value={otpValues[index]}
+                        onChange={(e) => handleOtpChange(index, e.target.value)}
+                        onKeyDown={(e) => handleKeyDown(index, e)}
+                        onPaste={index === 0 ? handlePaste : null}
+                        className={styles.otpInput}
+                        style={{ fontWeight: "400" }}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    className={styles.primaryButton}
+                    onClick={verifyEmailOtp}
+                    disabled={otpValues.join("").length < 6 || loading}
+                  >
+                    {loading ? (
+                      <span className={styles.loadingSpinner}></span>
+                    ) : (
+                      "Proceed"
+                    )}
+                  </button>
+
+                  <p
+                    style={{ fontSize: "12px", color: "#606060" }}
+                    className="text-center m-0"
+                  >
+                    I agree to receive critical messages such as OTP, booking details on WhatsApp.
+                  </p>
+                </div>
+              </Modal.Body>
+            </Modal>
+
+          {/* <Modal show={verifyModal} onHide={handleClose} backdrop="static" centered>
             <Modal.Body>
               <div className={styles.formSection}>
                 <h1 className={styles.title}>Verify OTP</h1>
@@ -438,7 +518,7 @@ const UserProfile = () => {
                 </p>
               </div>
             </Modal.Body>
-          </Modal>
+          </Modal> */}
         </div>
       </div>
       {/* Mobile version */}
@@ -450,6 +530,17 @@ const UserProfile = () => {
               <div className={styles.column}>
                 <h2 className={styles.sectionTitle}>Personal Details</h2>
                 <div className={styles.formGroup}>
+
+                   <div className={styles.formField}>
+                    <label className={styles.fieldLabel}>Name</label>
+                    <div className={styles.fieldBox}>
+                      <span className={styles.fieldText}>
+                        {userKyc?.userName || userData?.userName || "User"}
+                      </span>
+                    </div>
+                  </div>
+
+
                   <div className={styles.formField}>
                     <label className={styles.fieldLabel}>Email</label>
                     <div className={styles.fieldBox}>
@@ -503,15 +594,7 @@ const UserProfile = () => {
 
                   </div>
 
-                  <div className={styles.formField}>
-                    <label className={styles.fieldLabel}>Full Name</label>
-                    <div className={styles.fieldBox}>
-                      <span className={styles.fieldText}>
-                        {userKyc?.userName || userData?.userName || "User"}
-                      </span>
-                    </div>
-                  </div>
-
+                 
                   <div className={styles.formField}>
                     <label className={styles.fieldLabel}>Mobile Number</label>
                     <div className={styles.fieldBox}>
@@ -606,7 +689,67 @@ const UserProfile = () => {
             </div>
           </div>
 
+
           <Modal show={verifyModal} onHide={handleClose} backdrop="static" centered>
+  
+             <button 
+                onClick={handleClose} 
+                className={styles.closeButton}
+                aria-label="Close"
+              >
+              X
+              </button>
+
+              <Modal.Body>
+                <div className={styles.formSection}>
+                  <h1 className={styles.title}>Verify OTP</h1>
+                  <p className={styles.subtitle}>
+                    Enter the 6-digit OTP sent to your email
+                  </p>
+
+                  <div className={styles.otpContainer}>
+                    {[0, 1, 2, 3, 4, 5].map((digit, index) => (
+                      <input
+                        key={index}
+                        ref={(el) => (inputRefs.current[index] = el)}
+                        type="text"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        maxLength={1}
+                        value={otpValues[index]}
+                        onChange={(e) => handleOtpChange(index, e.target.value)}
+                        onKeyDown={(e) => handleKeyDown(index, e)}
+                        onPaste={index === 0 ? handlePaste : null}
+                        className={styles.otpInput}
+                        style={{ fontWeight: "400" }}
+                      />
+                    ))}
+                  </div>
+
+                  <button
+                    className={styles.primaryButton}
+                    onClick={verifyEmailOtp}
+                    disabled={otpValues.join("").length < 6 || loading}
+                  >
+                    {loading ? (
+                      <span className={styles.loadingSpinner}></span>
+                    ) : (
+                      "Proceed"
+                    )}
+                  </button>
+
+                  <p
+                    style={{ fontSize: "12px", color: "#606060" }}
+                    className="text-center m-0"
+                  >
+                    I agree to receive critical messages such as OTP, booking details
+                    on WhatsApp.
+                  </p>
+                </div>
+              </Modal.Body>
+            </Modal>
+
+          {/* <Modal show={verifyModal} onHide={handleClose} backdrop="static" centered>
 
 
             <Modal.Body>
@@ -657,7 +800,7 @@ const UserProfile = () => {
                 </p>
               </div>
             </Modal.Body>
-          </Modal>
+          </Modal> */}
         </div>
       </div>
     </>
