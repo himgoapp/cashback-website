@@ -3283,3 +3283,33 @@ a.small.seeMOre {
     outline: 0;
     box-shadow: none;
 }
+
+
+
+.modalPRofile .modal {
+    background: #0000005c;
+}
+.modalPRofile .modal-content {
+    border: 0px;
+    border-radius: 10px;
+}
+.modalPRofile .modal-body {
+    position: relative;
+    padding: 44px 60px;
+}
+.modalPRofile .closeButton {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 10;
+  font-weight: 600;
+}
+
+.fade.modal-backdrop {
+    opacity: 1 !important;
+    background: #0000009e !important;
+}

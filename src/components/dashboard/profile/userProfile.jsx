@@ -401,29 +401,18 @@ const UserProfile = () => {
             </div>
           </div>
 
-            <Modal  className={styles.modal} show={verifyModal} onHide={handleClose} backdrop="static" centered>
-              
+            <Modal  className="modalPRofile" show={verifyModal} onHide={handleClose} backdrop="static" centered>
               
               <button 
                 onClick={handleClose} 
-                className={styles.closeButton}
+                className="closeButton"
                 aria-label="Close"
               >
-                <svg
-                  width="21"
-                  height="21"
-                  viewBox="0 0 21 21"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M7.25455 21L5.44091 17.8L2.00455 17L2.33864 13.3L0 10.5L2.33864 7.7L2.00455 4L5.44091 3.2L7.25455 0L10.5 1.45L13.7455 0L15.5591 3.2L18.9955 4L18.6614 7.7L21 10.5L18.6614 13.3L18.9955 17L15.5591 17.8L13.7455 21L10.5 19.55L7.25455 21ZM9.49773 14.05L14.8909 8.4L13.5545 6.95L9.49773 11.2L7.44545 9.1L6.10909 10.5L9.49773 14.05Z"
-                    fill="#41D4A8"
-                  />
-                </svg>
+              X
               </button>
 
               <Modal.Body>
+                <div className={styles.ProfileOtpModal}>
                 <div className={styles.formSection}>
                   <h1 className={styles.title}>Verify OTP</h1>
                   <p className={styles.subtitle}>
@@ -467,6 +456,7 @@ const UserProfile = () => {
                   >
                     I agree to receive critical messages such as OTP, booking details on WhatsApp.
                   </p>
+                </div>
                 </div>
               </Modal.Body>
             </Modal>
@@ -690,7 +680,7 @@ const UserProfile = () => {
           </div>
 
 
-          <Modal show={verifyModal} onHide={handleClose} backdrop="static" centered>
+          {/* <Modal show={verifyModal} onHide={handleClose} backdrop="static" centered>
   
              <button 
                 onClick={handleClose} 
@@ -747,7 +737,7 @@ const UserProfile = () => {
                   </p>
                 </div>
               </Modal.Body>
-            </Modal>
+            </Modal> */}
 
           {/* <Modal show={verifyModal} onHide={handleClose} backdrop="static" centered>
 
