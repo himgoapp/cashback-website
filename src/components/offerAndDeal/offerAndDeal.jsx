@@ -12,20 +12,16 @@ const OfferAndDeal = () => {
 
   return (
     <div className="col-lg-12">
-    <div className={`${styles.offer_and_deals_wrapper_main}`}>
-      <div className={`${styles.offer_and_deals_wrapper} container_max`}>
-        
-        <OfferHeader
-          setSearchTerm={(searchTerm) => setSearchTerm(searchTerm)}
-          searchTerm={searchTerm}
-        />
+      <div className={`${styles.offer_and_deals_wrapper_main}`}>
+        <div className={`${styles.offer_and_deals_wrapper} container_max`}>
+          <OfferHeader
+            setSearchTerm={(searchTerm) => setSearchTerm(searchTerm)}
+            searchTerm={searchTerm}
+          />
+          <OfferCardContainer searchTerm={searchTerm} />
+        </div>
 
-        <OfferCardContainer searchTerm={searchTerm} />
-
-        {/* <ClientTable></ClientTable> */}
       </div>
-      {!userData && <OfferSignup />}
-    </div>
     </div>
   );
 };
