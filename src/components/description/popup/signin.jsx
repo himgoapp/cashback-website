@@ -223,11 +223,11 @@ const FullPageSignin = () => {
                       alt="chip right"
                       className="chipBannerRight"
                     />
-                    <img
+                    {/* <img
                       src={pokerCardheroBanner}
                       alt="star right"
                       className="pokerCardheroBanner"
-                    />
+                    /> */}
                     <img
                       src={starTopHeroBanner}
                       alt="star right"

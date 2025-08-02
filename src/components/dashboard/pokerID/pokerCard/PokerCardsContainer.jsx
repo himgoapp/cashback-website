@@ -204,7 +204,7 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
                 onChange={(e) => onPokerIdChange(e.target.value)}
               >
                 <option value="" disabled>
-                  Select Poker Sites
+                  Select Poker Sites 
                 </option>
 
                 {allProductIds &&
@@ -217,6 +217,39 @@ const PokerCardsContainer = ({ getInfos, setGetInfos }) => {
               </select>
               {/* <input type="text" className="form-control InputDB" placeholder="Username" required /> */}
             </div>
+            <div className="formControl  d-flex">
+                  <div className="dropdown PokerIDdropdown">
+                      <button className="btn btn-outline-secondary dropdown-toggle" type="button" id="pokerDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="https://via.placeholder.com/24/007bff" alt="Poker Icon" />
+                        Select Poker Site
+                      </button>
+
+                      <ul className="dropdown-menu" aria-labelledby="pokerDropdown">
+                        <li>
+                          <a className="dropdown-item" href="#" data-value="junglee">
+                            <img src="https://via.placeholder.com/24/FF0000" alt="Junglee" /> Junglee Poker 
+                          </a>
+                        </li>
+                        <li>
+                          <a className="dropdown-item" href="#" data-value="baazi">
+                            <img src="https://via.placeholder.com/24/28a745" alt="Poker Baazi" /> Poker Baazi
+                          </a>
+                        </li>
+                        <li>
+                          <a className="dropdown-item" href="#" data-value="bigcash">
+                            <img src="https://via.placeholder.com/24/ffc107" alt="BigCash"  /> BigCash
+                          </a>
+                        </li>
+                        <li>
+                          <a className="dropdown-item" href="#" data-value="spartan">
+                            <img src="https://via.placeholder.com/24/6f42c1" alt="Spartan" /> Spartan
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+              
+            </div>
+
             <div className="formControl d-flex ">
               <input type="text" value={referenceId}
                 onChange={(e) => setReferenceId(e.target.value)}

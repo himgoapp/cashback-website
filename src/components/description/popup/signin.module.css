@@ -318,9 +318,18 @@
 @media only screen and (max-width: 575px) {
 .fullPageContainer {
   padding: 72px 40px;
-  height: 100vh;
-  background: #fff
+  /* height: 100vh; */
+  background: #fff;
+
+  min-height: 100dvh;    
+  min-height: -webkit-fill-available; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 72px 40px;
+  background: #fff;
 }
+
 .authCard {
     width: 100%;
     max-width: 100%;
@@ -346,7 +355,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+            position: relative;
 }
+.formSection:before{
+   position: absolute;
+   content: '';
+   background: url(../../../assets/Logos_and_illustration/pokerCardheroBanner.svg);
+   width: 72px;
+        height: 126px;
+        top: -18px;
+        right: -54px;
+        background-repeat: no-repeat;
+}
+
 
 .title{
   display: none;

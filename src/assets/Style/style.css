@@ -2832,7 +2832,9 @@ a.small.seeMOre {
 .DesktopLatestNews .sidebar.RightsidebarBlog .card {
     border-radius: 8px;
     background: #fff;
-    padding: 8px;
+    padding: 0;
+    border: none;
+    box-shadow: 0px 0px 10px #eeebeb;
 }
 .DesktopLatestNews .sidebar.RightsidebarBlog .card .card-header {
     border-radius: 4px;
@@ -2847,11 +2849,14 @@ a.small.seeMOre {
         background: #ff4053;
 }
 .DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost {
-    padding: 16px 10px;
-    display: flex;
+    display: flex
+;
     flex-direction: row;
     gap: 12px;
     border-bottom: 0.6px solid #CDCDCD;
+    width: calc(100% - 32px);
+    margin: 16px auto 0;
+    padding-bottom: 16px;
 }
 .DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .sideImageContainer {
     width: 112px;
@@ -3216,3 +3221,23 @@ a.small.seeMOre {
 
 
 
+.PokerIDdropdown .dropdown-item img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    border-radius: 50%;
+}
+.PokerIDdropdown .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.PokerIDdropdown .dropdown-toggle img {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+[data-id=zsalesiq], [data-id=zsalesiq] * {
+    bottom: 90px !important;
+}
