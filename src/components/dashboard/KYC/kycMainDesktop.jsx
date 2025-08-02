@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import DashboardHomeHeader from "../home/dashHomeHeader";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardMain from "../../../layout/dashboardMain";
@@ -18,7 +18,7 @@ const KycMain = () => {
     setUserKyc,
   } = useContext(UserContext);
 
-  const [step, setStep] = useState("aadhaar");
+  const [step, setStep] = useState(1);
 
   // PAN inputs
   const [panName, setPanName] = useState("");
@@ -26,8 +26,8 @@ const KycMain = () => {
   const [panError, setPanError] = useState("");
 
   // Aadhaar inputs
-  const [aadhaarNumber, setAadhaarNumber] = useState("");
-  const [aadhaarOtp, setAadhaarOtp] = useState("");
+  const [aadhaarNumber, setAadhaarNumber] = useState(["", "", ""]);
+  const [aadhaarOtp, setAadhaarOtp] = useState(["", "", "", "", "", ""]);
   const [aadhaarRequestId, setAadhaarRequestId] = useState(null);
   const [aadhaarError, setAadhaarError] = useState("");
 
@@ -38,11 +38,45 @@ const KycMain = () => {
 
   useEffect(() => {
     if (userKyc?.pan?.verified) {
-      setStep(userKyc?.aadhaar?.verified ? (userKyc?.bank?.verified ? "done" : "bank") : "aadhaar");
+      setStep(userKyc?.aadhaar?.verified ? (userKyc?.bank?.verified ? 4 : 3) : 2);
     } else {
-      setStep("pan");
+      setStep(1);
     }
   }, [userKyc]);
+
+
+
+  const aadhaarRefs = useRef([]);
+  const otpRefs = useRef([]);
+
+  const handleInputChange = (e, index, type) => {
+    const value = e.target.value.replace(/\D/g, ""); // Remove non-digits
+    if (type === "aadhaar") {
+      const newAadhaar = [...aadhaarNumber];
+      newAadhaar[index] = value;
+      setAadhaarNumber(newAadhaar);
+      if (value.length === 4 && index < 3) {
+        aadhaarRefs.current[index + 1]?.focus();
+      }
+    } else {
+      const newOtp = [...aadhaarOtp];
+      newOtp[index] = value;
+      setAadhaarOtp(newOtp);
+      if (value && index < 5) {
+        otpRefs.current[index + 1]?.focus();
+      }
+    }
+  };
+
+  const handleKeyDown = (e, index, type) => {
+    const value = type === "aadhaar" ? aadhaarNumber : aadhaarOtp;
+    const refs = type === "aadhaar" ? aadhaarRefs : otpRefs;
+
+    if (e.key === "Backspace" && value[index] === "" && index > 0) {
+      refs.current[index - 1]?.focus();
+    }
+  };
+
 
   const handlePanVerify = async () => {
     setPanError("");
@@ -58,7 +92,7 @@ const KycMain = () => {
         setPanError(res.message);
       } else {
         setUserKyc(prev => ({ ...prev, pan: { verified: true, ...res } }));
-        setStep("aadhaar");
+        setStep(2);
       }
     } catch (err) {
       setPanError("PAN verification failed. Please check your details.");
@@ -68,9 +102,11 @@ const KycMain = () => {
   const handleSendAadhaarOtp = async () => {
     setAadhaarError("");
     try {
+
+
       const payload = {
         userId: userData._id,
-        aadhaarNumber,
+        aadhaarNumber: aadhaarNumber.join(""),
       };
       const res = await sendAadhaarCardOtp(payload);
       if (res.status === false) {
@@ -88,14 +124,14 @@ const KycMain = () => {
       const payload = {
         userId: userData._id,
         requestId: aadhaarRequestId,
-        otp: aadhaarOtp,
+        otp: aadhaarOtp.join(""),
       };
       let res = await verifyAadhaarCardOtp(payload);
       if (res.status === false) {
         setAadhaarError(res.message);
       } else {
         setUserKyc(prev => ({ ...prev, aadhaar: { verified: true } }));
-        setStep("bank");
+        setStep(3);
       }
     } catch (err) {
       setAadhaarError("Invalid OTP. Please try again.");
@@ -115,8 +151,8 @@ const KycMain = () => {
       if (res.status == false) {
         setBankError(res.message)
       } else {
-        setUserKyc(prev => ({ ...prev, bank: { verified: true } }));
-        setStep("done");
+        setUserKyc(res.kyc);
+        setStep(4);
       }
     } catch (err) {
       setBankError("Bank verification failed. Please check your details.");
@@ -130,19 +166,19 @@ const KycMain = () => {
       <DashboardMain>
         <div className="kyc-container KYCDB">
           <h5 className="fw-bold KYCheading ">Know Your Customer</h5>
-          <div className="KYCSuccessMsg">
-              <svg width="74" height="73" viewBox="0 0 74 73" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="0.5" width="73" height="73" rx="36.5" fill="#28A745"/>
-                <path d="M55.25 22.8125L30.1562 47.9062L18.75 36.5" stroke="white" stroke-width="6.84375" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Your Rakebackk account is KYC verified. Here are your details:
-          </div>
+          {userKyc && userKyc.status && userKyc.status === "VERIFIED" && <div className="KYCSuccessMsg">
+            <svg width="74" height="73" viewBox="0 0 74 73" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" width="73" height="73" rx="36.5" fill="#28A745" />
+              <path d="M55.25 22.8125L30.1562 47.9062L18.75 36.5" stroke="white" stroke-width="6.84375" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            Your Rakebackk account is KYC verified. Here are your details:
+          </div>}
           <div className="accordion" id="kycAccordion">
 
             {/* Step 1: PAN  */}
             <div className="accordion-item">
               <h2 className="accordion-header">
-                <button className="accordion-button d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePan" aria-expanded={step === "pan"} >
+                <button className="accordion-button d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePan" aria-expanded={step === 1} >
                   <div className="step-header">
                     <div className="step-info">
                       <div className="step-number">1</div>
@@ -159,19 +195,19 @@ const KycMain = () => {
                   </div>
                 </button>
               </h2>
-              <div id="collapsePan" className={`accordion-collapse collapse ${step === "pan" ? "show" : ""}`}>
+              <div id="collapsePan" className={`accordion-collapse collapse ${step === 1 ? "show" : ""}`}>
                 <div className="accordion-body">
                   <div className="FormIcon">
                     <img src={KYCPan} />
                   </div>
                   <div className="form-row ">
-                    {step === "pan" && <div className="form-row">
+                    {step === 1 && panError.length === 0 && <div className="form-row">
                       <input type="text" className="form-control  " placeholder="Name as per PAN" value={panName} onChange={e => setPanName(e.target.value)} />
                       <input type="text" className="form-control  " placeholder="PAN" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
                     </div>}
-                    <div className="VerifiedPan">
-                      {userKyc && userKyc.pan && userKyc.pan.verified && userKyc.pan.documentName}
-                    </div>
+                    {userKyc && userKyc.pan && userKyc.pan.verified && userKyc.pan.documentName && <div className="VerifiedPan">
+                      {userKyc.pan.documentName}
+                    </div>}
                     {panError && panError.length > 0 && <div className="NotMatchPan">
                       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28Z" fill="#DC3545" />
@@ -181,7 +217,7 @@ const KycMain = () => {
                       PAN details did not match
                     </div>}
                   </div>
-                  {step === "pan" && panError.length === 0 && <div className="KYCBTNForm">
+                  {step === 1 && panError.length === 0 && <div className="KYCBTNForm">
                     <button className="formButton" onClick={handlePanVerify}>Verify</button>
                   </div>}
                   {userKyc && userKyc.pan && userKyc.pan.verified && <div className="KYCBTNForm Verified">
@@ -192,7 +228,7 @@ const KycMain = () => {
                     Verified
                   </div>}
                   {panError && panError.length > 0 && <div className="KYCBTNForm Reverify">
-                    <button className="formButton" onClick={handlePanVerify}>Re-Verify</button>
+                    <button className="formButton" onClick={() => setPanError("")}>Re-Verify</button>
                   </div>}
                 </div>
               </div>
@@ -201,7 +237,7 @@ const KycMain = () => {
             {/* Step 2: AADHAAR */}
             <div className="accordion-item">
               <h2 className="accordion-header">
-                <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAadhaar" aria-expanded={step === "aadhaar"}  >
+                <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAadhaar" aria-expanded={step === 2} disabled={step < 2} >
                   <div className="step-header">
                     <div className="step-info">
                       <div className="step-number">2</div>
@@ -217,27 +253,28 @@ const KycMain = () => {
                   </div>
                 </button>
               </h2>
-              <div id="collapseAadhaar" className={`accordion-collapse collapse ${step === "aadhaar" ? "show" : ""}`}>
+              <div id="collapseAadhaar" className={`accordion-collapse collapse ${step === 2 ? "show" : ""}`}>
                 <div className="accordion-body">
                   <div className="FormIcon">
                     <img src={KYCAadhaar} />
                   </div>
                   <div className="form-row ">
-                    <div  className="form-row">
+                    <div className="form-row">
                       <div className="form-row">
-                        <input type="text" className="form-control  KYCAdhar" placeholder="PRASAD RAVINDRA MANKAR" value={panName} onChange={e => setPanName(e.target.value)} />
+                        <input type="text" className="form-control  KYCAdhar" value={userKyc?.userName} disabled={true} />
                       </div>
-                      <div class="form-group">
-                        <label className="card_number">Enter AADHAAR number</label>
+                      {/* {step === 2 && aadhaarError.length === 0 && <>
+                        <div class="form-group">
+                          <label className="card_number">Enter AADHAAR number</label>
                           <div className="AddhaarNumberField">
                             <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ _ _ _" maxlength="4" />
                             <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ _ _ _ " maxlength="4" />
                             <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ _ _ _ " maxlength="4" />
-                            <button className="formButton KYCSendOTP" onClick={handlePanVerify}>Send OTP</button>
+                            <button className="formButton KYCSendOTP" onClick={handleSendAadhaarOtp}>Send OTP</button>
                           </div>
-                      </div>
-                      <div class="form-group">
-                        <label className="card_number">OTP</label>
+                        </div>
+                        <div class="form-group">
+                          <label className="card_number">OTP</label>
                           <div className="AddhaarNumberField OTPNumberField">
                             <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_" maxlength="1" />
                             <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
@@ -246,35 +283,87 @@ const KycMain = () => {
                             <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
                             <input id="card_number" class="form-control" required pattern="(\d{4}\s?){4}" placeholder="_ " maxlength="1" />
                           </div>
-                      </div>
+                        </div>
+                      </>} */}
+                      {step === 2 && aadhaarError.length === 0 && (
+                        <>
+                          <div className="form-group">
+                            <label className="card_number">Enter AADHAAR number</label>
+                            <div className="AddhaarNumberField">
+                              {aadhaarNumber.map((num, index) => (
+                                <input
+                                  key={index}
+                                  type="text"
+                                  inputMode="numeric"
+                                  maxLength="4"
+                                  placeholder="_ _ _ _"
+                                  className="form-control"
+                                  value={num}
+                                  onChange={(e) => handleInputChange(e, index, "aadhaar")}
+                                  onKeyDown={(e) => handleKeyDown(e, index, "aadhaar")}
+                                  ref={(el) => (aadhaarRefs.current[index] = el)}
+                                />
+                              ))}
+                              <button
+                                className="formButton KYCSendOTP"
+                                onClick={handleSendAadhaarOtp}
+                              >
+                                Send OTP
+                              </button>
+                            </div>
+                          </div>
+
+                          <div className="form-group">
+                            <label className="card_number">OTP</label>
+                            <div className="AddhaarNumberField OTPNumberField">
+                              {aadhaarOtp.map((digit, index) => (
+                                <input
+                                  key={index}
+                                  type="text"
+                                  inputMode="numeric"
+                                  maxLength="1"
+                                  placeholder="_"
+                                  className="form-control"
+                                  value={digit}
+                                  onChange={(e) => handleInputChange(e, index, "otp")}
+                                  onKeyDown={(e) => handleKeyDown(e, index, "otp")}
+                                  ref={(el) => (otpRefs.current[index] = el)}
+                                />
+                              ))}
+                            </div>
+                          </div>
+                        </>
+                      )}
                     </div>
-                    <div className="VerifiedPan">
-                      2345-2324-5678
+                    {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified && userKyc.aadhaar.documentName && <div className="VerifiedPan">
+                      {userKyc.aadhaar.documentName}
                     </div>
-                    <div className="NotMatchPan">
+                    }
+
+                    {aadhaarError && aadhaarError.length > 0 && <div className="NotMatchPan">
                       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28Z" fill="#DC3545" />
                         <path d="M8.98438 8.98633L19.3547 19.3567" stroke="white" stroke-width="2.83951" stroke-linecap="round" />
                         <path d="M19.3672 8.98633L8.99682 19.3567" stroke="white" stroke-width="2.83951" stroke-linecap="round" />
                       </svg>
                       Aadhar verification failed
-                    </div>
+                    </div>}
                   </div>
-                  <div className="KYCBTNForm">
-                    <button className="formButton" onClick={handlePanVerify}>Verify</button>
-                    {panError && <div className="text-danger mt-2">{panError}</div>}
-                  </div>
-                  <div className="KYCBTNForm Verified">
+                  {step === 2 && aadhaarError.length === 0 && <div className="KYCBTNForm">
+                    <button className="formButton" onClick={handleVerifyAadhaarOtp}>Verify</button>
+
+                  </div>}
+                  {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified && <div className="KYCBTNForm Verified">
                     <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M16.4062 1.98145C24.7006 1.98145 31.4248 8.70569 31.4248 17C31.4248 25.2943 24.7006 32.0186 16.4062 32.0186C8.11194 32.0186 1.3877 25.2943 1.3877 17C1.3877 8.70569 8.11194 1.98145 16.4062 1.98145Z" fill="#28A745" stroke="white" stroke-width="2.03636" />
                       <path d="M12.9508 22.9997L8.95151 19.0244C8.51983 18.5973 8.51983 17.8778 8.92992 17.4282C9.34001 16.9786 10.0307 16.9786 10.4624 17.4057L10.4839 17.4282L13.7278 20.6166L21.8703 12.2385C22.2804 11.7889 22.9711 11.7889 23.4028 12.216C23.8345 12.6432 23.8345 13.3626 23.4244 13.8123L23.4028 13.8348L14.5048 22.9997C14.0515 23.4493 13.3825 23.4493 12.9508 22.9997Z" fill="white" />
                     </svg>
                     Verified
-                  </div>
-                  <div className="KYCBTNForm Reverify">
-                    <button className="formButton" onClick={handlePanVerify}>Re-Verify</button>
-                    {panError && <div className="text-danger mt-2">{panError}</div>}
-                  </div>
+                  </div>}
+                  {aadhaarError && aadhaarError.length > 0 && <div className="KYCBTNForm Reverify">
+                    <button className="formButton" onClick={() => setAadhaarError("")}>Re-Verify</button>
+
+                  </div>}
                 </div>
 
                 {/* <div className="accordion-body">
@@ -308,7 +397,7 @@ const KycMain = () => {
             {/*  Step 3: Bank Details  */}
             <div className="accordion-item">
               <h2 className="accordion-header">
-                <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBank" aria-expanded={step === "bank"} >
+                <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBank" aria-expanded={step === 3} disabled={step < 3}>
                   <div className="step-header">
                     <div className="step-info">
                       <div className="step-number">3</div>
@@ -324,7 +413,7 @@ const KycMain = () => {
                   </div>
                 </button>
               </h2>
-              <div id="collapseBank" className={`accordion-collapse collapse ${step === "bank" ? "show" : ""}`}>
+              <div id="collapseBank" className={`accordion-collapse collapse ${step === 3 ? "show" : ""}`}>
 
                 <div className="accordion-body">
                   <div className="FormIcon">
@@ -332,51 +421,38 @@ const KycMain = () => {
                   </div>
                   <div className="form-row ">
                     <div className="form-row">
-                        <input type="text" className="form-control  KYCAdhar" placeholder="PRASAD RAVINDRA MANKAR" value={panName} onChange={e => setPanName(e.target.value)} />
-                      </div>
-                    <div className="form-row">
-                      <input type="text" className="form-control  " placeholder="Account Number" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
-                      <input type="text" className="form-control  " placeholder="IFSC Code" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
+                      <input type="text" className="form-control  KYCAdhar" value={userKyc?.userName} disabled={true} />
                     </div>
-                    <div className="VerifiedPan">
-                      234523245678
-                    </div>
-                    <div className="NotMatchPan">
+                    {step === 3 && bankError.length === 0 && <div className="form-row">
+                      <input type="text" className="form-control" placeholder="Account Number" value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
+                      <input type="text" className="form-control" placeholder="IFSC Code" value={ifscCode} onChange={e => setIfscCode(e.target.value)} />
+                    </div>}
+                    {userKyc && userKyc.bank && userKyc.bank.verified && <div className="VerifiedPan">
+                      {userKyc.bank.documentName}
+                    </div>}
+                    {bankError && bankError.length > 0 && <div className="NotMatchPan">
                       <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28Z" fill="#DC3545" />
                         <path d="M8.98438 8.98633L19.3547 19.3567" stroke="white" stroke-width="2.83951" stroke-linecap="round" />
                         <path d="M19.3672 8.98633L8.99682 19.3567" stroke="white" stroke-width="2.83951" stroke-linecap="round" />
                       </svg>
                       Bank details did not match
-                    </div>
+                    </div>}
                   </div>
-                  <div className="KYCBTNForm">
-                    <button className="formButton" onClick={handlePanVerify}>Verify</button>
-                    {panError && <div className="text-danger mt-2">{panError}</div>}
-                  </div>
-                  <div className="KYCBTNForm Verified">
+                  {step === 3 && bankError.length === 0 && <div className="KYCBTNForm">
+                    <button className="formButton" onClick={handleBankVerify}>Verify</button>
+                  </div>}
+                  {userKyc && userKyc.bank && userKyc.bank.verified && <div className="KYCBTNForm Verified">
                     <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M16.4062 1.98145C24.7006 1.98145 31.4248 8.70569 31.4248 17C31.4248 25.2943 24.7006 32.0186 16.4062 32.0186C8.11194 32.0186 1.3877 25.2943 1.3877 17C1.3877 8.70569 8.11194 1.98145 16.4062 1.98145Z" fill="#28A745" stroke="white" stroke-width="2.03636" />
                       <path d="M12.9508 22.9997L8.95151 19.0244C8.51983 18.5973 8.51983 17.8778 8.92992 17.4282C9.34001 16.9786 10.0307 16.9786 10.4624 17.4057L10.4839 17.4282L13.7278 20.6166L21.8703 12.2385C22.2804 11.7889 22.9711 11.7889 23.4028 12.216C23.8345 12.6432 23.8345 13.3626 23.4244 13.8123L23.4028 13.8348L14.5048 22.9997C14.0515 23.4493 13.3825 23.4493 12.9508 22.9997Z" fill="white" />
                     </svg>
                     Verified
-                  </div>
-                  <div className="KYCBTNForm Reverify">
-                    <button className="formButton" onClick={handlePanVerify}>Re-Verify</button>
-                    {panError && <div className="text-danger mt-2">{panError}</div>}
-                  </div>
+                  </div>}
+                  {bankError && bankError.length > 0 && <div className="KYCBTNForm Reverify">
+                    <button className="formButton" onClick={() => setBankError("")}>Re-Verify</button>
+                  </div>}
                 </div>
-
-                {/* <div className="accordion-body">
-                  <div className="form-row mb-3">
-                    <input type="text" className="form-control  " placeholder="Account Number" value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
-                  </div>
-                  <div className="form-row mb-3">
-                    <input type="text" className="form-control" placeholder="IFSC Code" value={ifscCode} onChange={e => setIfscCode(e.target.value)} />
-                  </div>
-                  <button className="btn btn-pink" onClick={handleBankVerify}>Verify</button>
-                  {bankError && <div className="text-danger mt-2">{bankError}</div>}
-                </div> */}
               </div>
             </div>
 

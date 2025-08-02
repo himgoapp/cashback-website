@@ -2548,6 +2548,10 @@ a.small.seeMOre {
     min-width: 89px;
     text-align: center;
 }
+.KYCDB .accordion-body .KYCBTNForm.Reverify,.KYCDB .accordion-body .KYCBTNForm.Verified {
+    align-items: end;
+    margin-top: unset;
+}
 .KYCSuccessMsg {
     width: 100%;
     display: flex;
