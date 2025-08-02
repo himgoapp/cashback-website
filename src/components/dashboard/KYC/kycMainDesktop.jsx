@@ -264,7 +264,7 @@ const KycMain = () => {
                   </div>
                   <div className={userKyc && userKyc.aadhaar && userKyc.aadhaar.verified ? "form-row VerifiedPanMAindiv" : "form-row"}>
                     <div className="form-row">
-                      {step === 2 && <div className="form-row">
+                      {step === 2 && aadhaarError.length === 0 && <div className="form-row">
                         <input type="text" className="form-control  KYCAdhar" value={userKyc?.userName} disabled={true} />
                       </div>}
                       {step === 2 && aadhaarError.length === 0 && (
@@ -402,7 +402,7 @@ const KycMain = () => {
                     <img src={KYCBank} />
                   </div>
                   <div className={userKyc && userKyc.bank && userKyc.bank.verified ? "form-row VerifiedPanMAindiv" : "form-row"}>
-                    {step === 3 && <div className="form-row">
+                    {step === 3 && bankError.length === 0 && <div className="form-row">
                       <input type="text" className="form-control  KYCAdhar" value={userKyc?.userName} disabled={true} />
                     </div>}
                     {step === 3 && bankError.length === 0 && <div className="form-row">
