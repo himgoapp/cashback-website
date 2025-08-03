@@ -604,9 +604,23 @@ const UserProfile = () => {
                     <div className={styles.fieldBox}>
                       <div className={styles.fieldContent}>
                         <span className={styles.fieldText}>
-                          {userData?.phoneNumber
-                            ? `+${userData.phoneNumber}`
-                            : "N/A"}
+                          <>
+                            {userData?.phoneNumber
+                              ? `+${userData.phoneNumber}`
+                              : "N/A"}
+                            < svg
+                              width="21"
+                              height="21"
+                              viewBox="0 0 21 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7.25455 21L5.44091 17.8L2.00455 17L2.33864 13.3L0 10.5L2.33864 7.7L2.00455 4L5.44091 3.2L7.25455 0L10.5 1.45L13.7455 0L15.5591 3.2L18.9955 4L18.6614 7.7L21 10.5L18.6614 13.3L18.9955 17L15.5591 17.8L13.7455 21L10.5 19.55L7.25455 21ZM9.49773 14.05L14.8909 8.4L13.5545 6.95L9.49773 11.2L7.44545 9.1L6.10909 10.5L9.49773 14.05Z"
+                                fill="#41D4A8"
+                              />
+                            </svg>
+                          </>
                           {userData?.phoneNumberVerified && (
                             <span className={styles.badgeGreen}>
                               <CheckCircle size={12} className={styles.checkIcon} />{" "}
@@ -629,7 +643,21 @@ const UserProfile = () => {
                       <div className={styles.kycDetailLabel}>PAN</div>
                       <div className={styles.kycDetailValue}>
                         {userKyc && userKyc.pan && userKyc.pan.verified ? (
-                          userKyc.pan.documentName
+                          <>
+                            {userKyc.pan.documentName}
+                            <svg
+                              width="21"
+                              height="21"
+                              viewBox="0 0 21 21"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M7.25455 21L5.44091 17.8L2.00455 17L2.33864 13.3L0 10.5L2.33864 7.7L2.00455 4L5.44091 3.2L7.25455 0L10.5 1.45L13.7455 0L15.5591 3.2L18.9955 4L18.6614 7.7L21 10.5L18.6614 13.3L18.9955 17L15.5591 17.8L13.7455 21L10.5 19.55L7.25455 21ZM9.49773 14.05L14.8909 8.4L13.5545 6.95L9.49773 11.2L7.44545 9.1L6.10909 10.5L9.49773 14.05Z"
+                                fill="#41D4A8"
+                              />
+                            </svg>
+                          </>
                         ) : (
                           <button
                             className={styles.VerifyNowButton}
@@ -650,7 +678,22 @@ const UserProfile = () => {
                         <div className={styles.kycDetailLabel}>Aadhaar</div>
                         <div className={styles.kycDetailValue}>
                           {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified ? (
-                            userKyc.aadhaar.documentName
+
+                            <>
+                              {userKyc.aadhaar.documentName}
+                              < svg
+                                width="21"
+                                height="21"
+                                viewBox="0 0 21 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M7.25455 21L5.44091 17.8L2.00455 17L2.33864 13.3L0 10.5L2.33864 7.7L2.00455 4L5.44091 3.2L7.25455 0L10.5 1.45L13.7455 0L15.5591 3.2L18.9955 4L18.6614 7.7L21 10.5L18.6614 13.3L18.9955 17L15.5591 17.8L13.7455 21L10.5 19.55L7.25455 21ZM9.49773 14.05L14.8909 8.4L13.5545 6.95L9.49773 11.2L7.44545 9.1L6.10909 10.5L9.49773 14.05Z"
+                                  fill="#41D4A8"
+                                />
+                              </svg>
+                            </>
                           ) : (
                             <button
                               className={styles.VerifyNowButton}
@@ -673,7 +716,21 @@ const UserProfile = () => {
                         <div className={styles.kycDetailValue}>
                           {userKyc &&
                             userKyc.bank && userKyc.bank.verified ? (
-                            userKyc.bank.documentName)
+                            <>
+                              {userKyc.bank.documentName}
+                              < svg
+                                width="21"
+                                height="21"
+                                viewBox="0 0 21 21"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                              >
+                                <path
+                                  d="M7.25455 21L5.44091 17.8L2.00455 17L2.33864 13.3L0 10.5L2.33864 7.7L2.00455 4L5.44091 3.2L7.25455 0L10.5 1.45L13.7455 0L15.5591 3.2L18.9955 4L18.6614 7.7L21 10.5L18.6614 13.3L18.9955 17L15.5591 17.8L13.7455 21L10.5 19.55L7.25455 21ZM9.49773 14.05L14.8909 8.4L13.5545 6.95L9.49773 11.2L7.44545 9.1L6.10909 10.5L9.49773 14.05Z"
+                                  fill="#41D4A8"
+                                />
+                              </svg>
+                            </>)
                             : (
                               <button
                                 className={styles.VerifyNowButton}
