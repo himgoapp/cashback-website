@@ -316,6 +316,12 @@ display: flex ;
   min-width: 192px;
 }
 
+
+.kycMobileviewDetails{
+  width: 100%;
+    flex-direction: column;
+}
+
 .kycDetailValue {
   font-size: 14px;
   color: #1f2937;

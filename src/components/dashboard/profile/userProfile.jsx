@@ -198,42 +198,6 @@ const UserProfile = () => {
         <div className={styles.container}>
           <div className={styles.contentWrapper}>
             <div className={styles.SectionHeading}>Profile</div>
-            {/* <div className={styles.headerSection}>
-            {!userData?.emailVerifystatus && (
-              <div className={styles.alertBox}>
-                <div className={styles.alertIcon}>
-                  <AlertCircle size={20} />
-                </div>
-                <div className={styles.alertContent}>
-                  <p className={styles.alertTitle}>Verify your email</p>
-                  <p className={styles.alertText}>
-                    Please verify your email address to unlock all features.
-                    <button
-                      className={styles.alertButton}
-                      onClick={() => {
-                        sendEmailOtp(userData.email);
-                        setEmail(userData.email);
-                      }}
-                      disabled={loading}
-                    >
-                      {loading ? <Spinner size="sm" /> : "Verify email"}
-                    </button>
-                  </p>
-                </div>
-                {/* <button
-                  className={styles.alertButton}
-                  onClick={() => {
-                    sendEmailOtp(userData.email);
-                    setEmail(userData.email);
-                  }}
-                  disabled={loading}
-                >
-                  {loading ? <Spinner size="sm" /> : "Verify email"}
-                </button> */}
-            {/* </div>
-            )}
-          </div>  */}
-
             <div className={styles.columnsContainer}>
               <div className={styles.column}>
                 <h2 className={styles.sectionTitle}>Personal Information</h2>
@@ -331,8 +295,8 @@ const UserProfile = () => {
 
               <div className={styles.column}>
                 <h2 className={styles.sectionTitle}>KYC Information</h2>
-                <div className={styles.DesktopKYCSection}>
-                      <div className={styles.kycContainer}>
+
+                <div className={styles.kycContainer}>
 
                   <div className={styles.kycSection}>
                     <div className={styles.kycDetailItem}>
@@ -445,127 +409,8 @@ const UserProfile = () => {
                       </div>
                     </div>
                   </div>
-                </div>      
                 </div>
 
-                <div className={styles.MobileKYCSection}>
-                  <div className={styles.kycContainer}>
-
-                  <div className={styles.kycSection}>
-                    
-                    <div className={styles.kycDetailItem}>
-                      <div className={styles.kycDetailLabel}>PAN</div>
-                      <div className={styles.kycDetailValue}>
-                        {userKyc && userKyc.pan && userKyc.pan.verified ? (
-                          <>
-                            {userKyc.pan.documentName}
-                            <svg
-                              width="21"
-                              height="21"
-                              viewBox="0 0 21 21"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="profileKycVerified"
-                            >
-                              <path
-                                d="M7.25455 21L5.44091 17.8L2.00455 17L2.33864 13.3L0 10.5L2.33864 7.7L2.00455 4L5.44091 3.2L7.25455 0L10.5 1.45L13.7455 0L15.5591 3.2L18.9955 4L18.6614 7.7L21 10.5L18.6614 13.3L18.9955 17L15.5591 17.8L13.7455 21L10.5 19.55L7.25455 21ZM9.49773 14.05L14.8909 8.4L13.5545 6.95L9.49773 11.2L7.44545 9.1L6.10909 10.5L9.49773 14.05Z"
-                                fill="#41D4A8"
-                              />
-                            </svg>
-                          </>
-                        ) : (
-                          <button
-                            className={styles.VerifyNowButton}
-                            onClick={() => {
-                              navigate("/dashboard/kyc");
-                            }}
-                          >
-                            Verify Now
-                          </button>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={styles.kycSection}>
-                    <div className={styles.kycDetailRow}>
-                      <div className={styles.kycDetailItem}>
-                        <div className={styles.kycDetailLabel}>Aadhaar</div>
-                        <div className={styles.kycDetailValue}>
-                          {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified ? (
-                            <>
-                              {userKyc.aadhaar.documentName}
-                              <svg
-                                width="21"
-                                height="21"
-                                viewBox="0 0 21 21"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="profileKycVerified"
-                              >
-                                <path
-                                  d="M7.25455 21L5.44091 17.8L2.00455 17L2.33864 13.3L0 10.5L2.33864 7.7L2.00455 4L5.44091 3.2L7.25455 0L10.5 1.45L13.7455 0L15.5591 3.2L18.9955 4L18.6614 7.7L21 10.5L18.6614 13.3L18.9955 17L15.5591 17.8L13.7455 21L10.5 19.55L7.25455 21ZM9.49773 14.05L14.8909 8.4L13.5545 6.95L9.49773 11.2L7.44545 9.1L6.10909 10.5L9.49773 14.05Z"
-                                  fill="#41D4A8"
-                                />
-                              </svg>
-                            </>
-                          ) : (
-                            <button
-                              className={styles.VerifyNowButton}
-                              onClick={() => {
-                                navigate("/dashboard/kyc");
-                              }}
-                            >
-                              Verify Now
-                            </button>
-                          )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className={styles.kycSection}>
-                    <div className={styles.kycDetailRow}>
-                      <div className={styles.kycDetailItem}>
-                        <div className={styles.kycDetailLabel}>Account Number</div>
-                        <div className={styles.kycDetailValue}>
-                          {userKyc &&
-                            userKyc.bank && userKyc.bank.verified ? (
-                            <>
-                              {userKyc.bank.documentName}
-                              < svg
-                                width="21"
-                                height="21"
-                                viewBox="0 0 21 21"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="profileKycVerified"
-                              >
-                                <path
-                                  d="M7.25455 21L5.44091 17.8L2.00455 17L2.33864 13.3L0 10.5L2.33864 7.7L2.00455 4L5.44091 3.2L7.25455 0L10.5 1.45L13.7455 0L15.5591 3.2L18.9955 4L18.6614 7.7L21 10.5L18.6614 13.3L18.9955 17L15.5591 17.8L13.7455 21L10.5 19.55L7.25455 21ZM9.49773 14.05L14.8909 8.4L13.5545 6.95L9.49773 11.2L7.44545 9.1L6.10909 10.5L9.49773 14.05Z"
-                                  fill="#41D4A8"
-                                />
-                              </svg>
-                            </>
-
-                          )
-                            : (
-                              <button
-                                className={styles.VerifyNowButton}
-                                onClick={() => {
-                                  navigate("/dashboard/kyc");
-                                }}
-                              >
-                                Verify Now
-                              </button>
-                            )}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
-                
               </div>
             </div>
           </div>
@@ -780,7 +625,7 @@ const UserProfile = () => {
                 <h2 className={styles.sectionTitle}>KYC Information</h2>
                 <div className={styles.kycContainer}>
                   <div className={styles.kycSection}>
-                    <div className={styles.kycDetailItem}>
+                    <div className={userKyc && userKyc.pan && userKyc.pan.verified ? styles.kycMobileviewDetails : styles.kycDetailItem}>
                       <div className={styles.kycDetailLabel}>PAN</div>
                       <div className={styles.kycDetailValue}>
                         {userKyc && userKyc.pan && userKyc.pan.verified ? (
@@ -801,7 +646,7 @@ const UserProfile = () => {
 
                   <div className={styles.kycSection}>
                     <div className={styles.kycDetailRow}>
-                      <div className={styles.kycDetailItem}>
+                      <div className={userKyc && userKyc.aadhaar && userKyc.aadhaar.verified ? styles.kycMobileviewDetails : styles.kycDetailItem}>
                         <div className={styles.kycDetailLabel}>Aadhaar</div>
                         <div className={styles.kycDetailValue}>
                           {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified ? (
@@ -823,7 +668,7 @@ const UserProfile = () => {
 
                   <div className={styles.kycSection}>
                     <div className={styles.kycDetailRow}>
-                      <div className={styles.kycDetailItem}>
+                      <div className={userKyc && userKyc.bank && userKyc.bank.verified ? styles.kycMobileviewDetails : styles.kycDetailItem}>
                         <div className={styles.kycDetailLabel}>Account Number</div>
                         <div className={styles.kycDetailValue}>
                           {userKyc &&
