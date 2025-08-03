@@ -40,6 +40,53 @@
 .KYCDB .accordion-body {
         gap: 50px;
     }
+  .DesktopLatestNews {
+    padding: 60px 40px;
+}
+.LatestNewsDsgTxt p.small {
+    font-size: 13px;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sideContent .sideDescription
+ {
+    font-size: 13px;
+}
+.DesktopLatestNews .nav-pills .nav-link {
+    font-size: 16px;
+    padding: 0 8px;
+}
+.DesktopLatestNews .tab-content h4.section-title
+ {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+.DesktopLatestNews .sub-title {
+    margin-bottom: 34px;
+    font-size: 16px;
+}
+.DesktopLatestNews .card.blog-card.BlogCardFullHeifht .card-body .card-title {
+    font-size: 22px;
+}
+
+.DesktopLatestNews .card-body h6 , .DesktopLatestNews .card-body h6 span{
+    font-size: 14px;
+}
+.DesktopLatestNews .BorderBlog {
+    margin: 10px 0;
+}
+.LatestNewsDsgIMg {
+    min-width: 82px;
+}
+button.ClaimNow {
+    font-size: 10px;
+}
+button.Pokerbazzi25 {
+    font-size: 8.23px;
+}
+
+.DesktopLatestNews .SocialIconBlog.BlogSocialIcon div {
+    gap: 20px;
+}
+
 }
 @media only screen and (max-width: 1024px) {
   .sidebar_CloseSidebar {
@@ -169,7 +216,40 @@
 }
 
 @media only screen and (max-width: 991px) {
- 
+ .DesktopLatestNews .card.blog-card.BlogCardFullHeifht img {
+    height: 280px;
+}
+   .DesktopLatestNews .sidebar.RightsidebarBlog .card
+ {
+    width: 48%;
+    float: left;
+    margin: 0 1%;
+}
+.SpacedicAdd.SpacedicAddsBAckground {
+    height: 250px;
+    width: 100%;
+    float: left;
+}
+.DesktopLatestNews .newsletter {
+    width: 100%;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card.Offerscard {
+    padding-bottom: 15px;
+}
+.form-check.CheckboxFormCheck {
+  
+    align-items: center;
+}
+.DesktopLatestNews .newsletter input
+ {
+    min-width: 20px;
+    height: 20px;
+}
+.DesktopLatestNews .blog-card img {
+    height: 270px;
+    width: 100%;
+    object-fit: cover;
+}
   .container-fluid.ContactUS.RetagPage .ContactInfoleft {
     padding: 24px;
   }
@@ -453,9 +533,28 @@
 }
 
 @media only screen and (max-width: 768px) {
+  .DesktopLatestNews {
+        padding: 60px 20px;
+    }
+    .DesktopLatestNews .sidebar.RightsidebarBlog .card {
+        width: 100%;
+        margin: 0;
+    }
+        .DesktopLatestNews .nav-pills .nav-link {
+        font-size: 12px;
+    }
+    .DesktopLatestNews .HedBlog h2.fw-bold {
+    font-size: 26px;
+    line-height: 26px;
+    padding-right: 30px;
+}
+ .DesktopLatestNews .HedBlog .text-muted {
+    font-size: 14px;
+}
   /* .rakeback_chart_wallet_balance__nV-NK {
     font-size: 33px;
   } */
+
   .KYCDB .accordion-body {
       flex-direction: column;
       align-items: baseline;
