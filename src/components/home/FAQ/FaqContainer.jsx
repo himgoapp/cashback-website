@@ -369,7 +369,7 @@ const FaqContainer = () => {
           </div>
 
           <div className="row  justify-content-center GetINtouchHed">
-            <div className="col-lg-8 text-left">
+            <div className="col-lg-9 text-left">
               <div className={styles.hero_section}>
                 <div className={styles.hero_content}>
                   <h1 className={styles.GetINtouchHedhero_title}>Get in touch</h1>
