@@ -107,9 +107,8 @@ const WelcomePage = () => {
                       setUserName(e.target.value);
                       if (errorName) setErrorName("");
                     }}
-                    className={`${styles.email_label} ${
-                      errorName ? styles.invalidInput : ""
-                    }`}
+                    className={`${styles.email_label} ${errorName ? styles.invalidInput : ""
+                      }`}
                     required
                   />
                   {errorName && (
@@ -146,9 +145,8 @@ const WelcomePage = () => {
                       setEmail(e.target.value);
                       if (error) setError("");
                     }}
-                    className={`${styles.email_label} ${
-                      error ? styles.invalidInput : ""
-                    }`}
+                    className={`${styles.email_label} ${error ? styles.invalidInput : ""
+                      }`}
                     required
                   />
 
