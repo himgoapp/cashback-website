@@ -25,10 +25,10 @@ import CoinPokerPokerCard from "../assets/PokerID/CoinPoker.png";
 import PokerBazziPokerCard from "../assets/PokerID/PokerIDBaazi.png"
 import SpartanPokerCard from "../assets/PokerID/SpartanPokerID.png"
 import ACRPokerCard from "../assets/PokerID/ACRPokerID.png"
-import BigCashPokerCard from "../assets/PokerID/BigCashPokerID.png"
+import BigCashPokerCard from "../assets/PokerID/BigcashPokerID.png"
 import WPTPokerCard from "../assets/PokerID/WPTPokerID.png"
 import JungleePokerCard from "../assets/PokerID/JungleePoker.png"
-import PokerDangalCard from "../assets/PokerID/PokerDangal.png"
+import PokerDangalCard from "../assets/PokerID/PokerDangal.png";
 
 export const colorBkg = (name) => {
   return name === "Poker Baazi"

@@ -176,6 +176,7 @@ display: flex ;
   color: #1f2937;
   font-size: 16px;
   font-weight: 600;
+  text-decoration: unset;
 }
 
 .badgeYellow {
@@ -771,6 +772,11 @@ display: flex ;
 }
 
 /* Responsive (Mobile) */
+@media only screen and (max-width: 991px) {
+  .column {
+    flex-direction: column;
+  }
+}
 @media only screen and (max-width: 768px) {
   .container {
     padding: 20px;
