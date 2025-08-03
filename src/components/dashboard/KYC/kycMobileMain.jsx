@@ -20,6 +20,9 @@ const KycMobileMain = () => {
   const [panName, setPanName] = useState("");
   const [panNumber, setPanNumber] = useState("");
   const [panError, setPanError] = useState("");
+  const [panExtended, setPanExtended] = useState(false);
+  const [aadhaarExtended, setaadhaarExtended] = useState(false);
+  const [bankExtended, setbankExtended] = useState(false)
 
   // Aadhaar inputs
   const [aadhaarNumber, setAadhaarNumber] = useState(["", "", ""]);
@@ -174,9 +177,9 @@ const KycMobileMain = () => {
       <div className="accordion" id="kycAccordion">
 
         {/* Step 1: PAN  */}
-        <div className="accordion-item">
+        <div className={userKyc && userKyc.pan && userKyc.pan.verified && !panExtended ? "accordion-item accordion-grey" : "accordion-item"}>
           <h2 className="accordion-header">
-            <button className="accordion-button d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePan" aria-expanded={step === 1} >
+            <button className="accordion-button d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePan" aria-expanded={step === 1} onClick={() => setPanExtended(!panExtended)}>
               <div className="step-header">
                 <div className="step-info">
                   <div className="step-number">1</div>
@@ -238,9 +241,9 @@ const KycMobileMain = () => {
         </div>
 
         {/* Step 2: AADHAAR */}
-        <div className="accordion-item">
+        <div className={userKyc && userKyc.aadhaar && userKyc.aadhaar.verified && !aadhaarExtended ? "accordion-item accordion-grey" : "accordion-item"}>
           <h2 className="accordion-header">
-            <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAadhaar" aria-expanded={step === 2}  >
+            <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAadhaar" aria-expanded={step === 2} onClick={() => setaadhaarExtended(!aadhaarExtended)} >
               <div className="step-header">
                 <div className="step-info">
                   <div className="step-number">2</div>
@@ -356,9 +359,9 @@ const KycMobileMain = () => {
         </div>
 
         {/*  Step 3: Bank Details  */}
-        <div className="accordion-item">
+        <div className={userKyc && userKyc.bank && userKyc.bank.verified && !bankExtended ? "accordion-item accordion-grey" : "accordion-item"}>
           <h2 className="accordion-header">
-            <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBank" aria-expanded={step === "bank"} >
+            <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBank" aria-expanded={step === 3} onClick={() => setbankExtended(!bankExtended)} >
               <div className="step-header">
                 <div className="step-info">
                   <div className="step-number">3</div>
@@ -374,7 +377,7 @@ const KycMobileMain = () => {
               </div>
             </button>
           </h2>
-          <div id="collapseBank" className={`accordion-collapse collapse ${step === "bank" ? "show" : ""}`}>
+          <div id="collapseBank" className={`accordion-collapse collapse ${step === 3 ? "show" : ""}`}>
 
             <div className="accordion-body">
               <div className="FormIconMObile">

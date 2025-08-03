@@ -3482,3 +3482,7 @@ button.Pokerbazzi25 {
     padding-top: 2px;
 }
 
+.KYCDB .accordion-item.accordion-grey, .KYCDB .accordion-item.accordion-grey button.accordion-button
+ {
+    background: #F9F9F9;
+}

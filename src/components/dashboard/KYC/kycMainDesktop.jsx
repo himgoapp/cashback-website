@@ -24,6 +24,9 @@ const KycMain = () => {
   const [panName, setPanName] = useState("");
   const [panNumber, setPanNumber] = useState("");
   const [panError, setPanError] = useState("");
+  const [panExtended, setPanExtended] = useState(false);
+  const [aadhaarExtended, setaadhaarExtended] = useState(false);
+  const [bankExtended, setbankExtended] = useState(false)
 
   // Aadhaar inputs
   const [aadhaarNumber, setAadhaarNumber] = useState(["", "", ""]);
@@ -180,19 +183,19 @@ const KycMain = () => {
           <div className="accordion" id="kycAccordion">
 
             {/* Step 1: PAN  */}
-            <div className="accordion-item">
+            <div className={userKyc && userKyc.pan && userKyc.pan.verified && !panExtended ? "accordion-item accordion-grey" : "accordion-item"}>
               <h2 className="accordion-header">
-                <button className="accordion-button d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePan" aria-expanded={step === 1} >
+                <button className="accordion-button d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePan" aria-expanded={step === 1} onClick={() => setPanExtended(!panExtended)} >
                   <div className="step-header">
                     <div className="step-info">
                       <div className="step-number">1</div>
                       <div className="step-Hed">PAN</div>
-                      {userKyc && userKyc.pan && userKyc.pan.verified && <div className="verifyIcon">
+                      {/* {userKyc && userKyc.pan && userKyc.pan.verified && <div className="verifyIcon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect width="24" height="24" rx="12" fill="#28A745" />
                           <path d="M18 7.5L9.75 15.75L6 12" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                      </div>}
+                      </div>} */}
                       <i className="bi bi-check-circle-fill check-icon"></i>
                     </div>
                     <i className="bi bi-chevron-down ms-auto"></i>
@@ -239,19 +242,19 @@ const KycMain = () => {
             </div>
 
             {/* Step 2: AADHAAR */}
-            <div className="accordion-item">
+            <div className={userKyc && userKyc.aadhaar && userKyc.aadhaar.verified && !aadhaarExtended ? "accordion-item accordion-grey" : "accordion-item"}>
               <h2 className="accordion-header">
-                <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAadhaar" aria-expanded={step === 2} disabled={step < 2} >
+                <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAadhaar" aria-expanded={step === 2} disabled={step < 2} onClick={() => { setaadhaarExtended(!aadhaarExtended) }}>
                   <div className="step-header">
                     <div className="step-info">
                       <div className="step-number">2</div>
                       <div className="step-Hed">AADHAAR</div>
-                      {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified && <div className="verifyIcon">
+                      {/* {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified && <div className="verifyIcon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect width="24" height="24" rx="12" fill="#28A745" />
                           <path d="M18 7.5L9.75 15.75L6 12" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                      </div>}
+                      </div>} */}
                     </div>
                     <i className="bi bi-chevron-down ms-auto"></i>
                   </div>
@@ -377,19 +380,19 @@ const KycMain = () => {
             </div>
 
             {/*  Step 3: Bank Details  */}
-            <div className="accordion-item">
+            <div className={userKyc && userKyc.bank && userKyc.bank.verified && !bankExtended ? "accordion-item accordion-grey" : "accordion-item"}>
               <h2 className="accordion-header">
-                <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBank" aria-expanded={step === 3} disabled={step < 3}>
+                <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBank" aria-expanded={step === 3} disabled={step < 3} onClick={() => setbankExtended(!bankExtended)}>
                   <div className="step-header">
                     <div className="step-info">
                       <div className="step-number">3</div>
                       <div className="step-Hed">Bank details</div>
-                      {userKyc && userKyc.bank && userKyc.bank.verified && <div className="verifyIcon">
+                      {/* {userKyc && userKyc.bank && userKyc.bank.verified && <div className="verifyIcon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <rect width="24" height="24" rx="12" fill="#28A745" />
                           <path d="M18 7.5L9.75 15.75L6 12" stroke="white" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
-                      </div>}
+                      </div>} */}
                     </div>
 
                   </div>
