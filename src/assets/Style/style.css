@@ -2544,8 +2544,11 @@ a.small.seeMOre {
     min-width: 48px;
     height: 48px;
 }
-.KYCDB .form-control.KYCAdhar {
+.KYCDB .form-control.KYCAdhar
+ {
     background: #F9F9F9;
+    border-radius: 6px;
+    height: 48px;
 }
 .card_number {
     font-size: 16px;
@@ -2556,7 +2559,7 @@ a.small.seeMOre {
 .KYCDB .AddhaarNumberField .form-control {
     border-radius: 6px;
     font-size: 15px;
-    height: 60px;
+    height: 48px;
     border-color: #CECECE;
     background: #fff;
     padding: 0 15px;
@@ -2568,7 +2571,11 @@ a.small.seeMOre {
     margin-top: unset;
 }
 
-
+.formButton.KYCSendOTP:focus
+ {
+    background: #ff4053;
+    color: #fff;
+}
 .KYCSuccessMsg {
     width: 100%;
     display: flex;
