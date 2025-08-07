@@ -275,20 +275,24 @@ const KycMain = () => {
                           <div className="form-group">
                             <label className="card_number">Enter AADHAAR number</label>
                             <div className="AddhaarNumberField">
-                              {aadhaarNumber.map((num, index) => (
-                                <input
-                                  key={index}
-                                  type="text"
-                                  inputMode="numeric"
-                                  maxLength="4"
-                                  placeholder="_ _ _ _"
-                                  className="form-control"
-                                  value={num}
-                                  onChange={(e) => handleInputChange(e, index, "aadhaar")}
-                                  onKeyDown={(e) => handleKeyDown(e, index, "aadhaar")}
-                                  ref={(el) => (aadhaarRefs.current[index] = el)}
-                                />
-                              ))}
+                              {aadhaarNumber.map((num, index) => {
+                                const display = (num + "____").slice(0, 4).split("").join(" ");
+                                return (
+                                  <div key={index} className="aadhaar-wrapper">
+                                    <div className="aadhaar-display">{display}</div>
+                                    <input
+                                      type="text"
+                                      inputMode="numeric"
+                                      maxLength="4"
+                                      className="aadhaar-input"
+                                      value={num}
+                                      onChange={(e) => handleInputChange(e, index, "aadhaar")}
+                                      onKeyDown={(e) => handleKeyDown(e, index, "aadhaar")}
+                                      ref={(el) => (aadhaarRefs.current[index] = el)}
+                                    />
+                                  </div>
+                                );
+                              })}
                               <button
                                 className="formButton KYCSendOTP"
                                 onClick={handleSendAadhaarOtp}
