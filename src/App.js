@@ -40,6 +40,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 import "../src/assets/Style/responsive.css";
 import MobileView from "./components/dashboard/mobileSidebar/Mobilepageview";
+import DictionaryPage from "./components/dictionary/dictionary";
 
 export const UserContext = createContext();
 
@@ -131,6 +132,15 @@ function App() {
               element={
                 <NotProtectedRoute>
                   <OfferAndDealsContainer />
+                </NotProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/dictionary"
+              element={
+                <NotProtectedRoute>
+                  <DictionaryPage />
                 </NotProtectedRoute>
               }
             />
