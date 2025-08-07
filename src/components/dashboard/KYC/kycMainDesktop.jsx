@@ -94,7 +94,7 @@ const KycMain = () => {
       if (res.status === false) {
         setPanError(res.message);
       } else {
-        setUserKyc(prev => ({ ...prev, pan: { verified: true, ...res } }));
+        setUserKyc(res.kyc);
         setStep(2);
       }
     } catch (err) {
@@ -133,7 +133,7 @@ const KycMain = () => {
       if (res.status === false) {
         setAadhaarError(res.message);
       } else {
-        setUserKyc(prev => ({ ...prev, aadhaar: { verified: true } }));
+        setUserKyc(res.kyc);
         setStep(3);
       }
     } catch (err) {
