@@ -318,12 +318,9 @@ button.Pokerbazzi25 {
     overflow-x: scroll;
   }
   .RakebackFeaturedBlog .tabsWrapper div {
-    border: none;
-    background: none;
     border-radius: 0;
     font-size: 16px;
     flex: 1;
-    border-bottom: 1px solid #848484;
   }
   .RakebackFeaturedBlog .sidePost {
     width: 97%;
@@ -1213,21 +1210,30 @@ button.Pokerbazzi25 {
     margin-top: 16px;
   }
     .RakebackFeaturedBlog .tabsWrapper div {
-        font-size: 12px;
-        padding: 0 2px 7px;
-        color: #606060;
-       font-weight: 400;
-       border-bottom: 1px solid #D8D8D8;
+        font-size: 10px;
+        padding: 6px 2px 6px;
+        flex: unset;
+                width: auto;
+        min-width: auto;
     }
-  .RakebackFeaturedBlog .tabsWrapper .activeTab {
-    color: #ff4053;
-    border: none;
-    background-color: transparent;
-    font-weight: 800;
-    border-bottom: 3px solid #ff4053;
-  }
+    .RakebackFeaturedBlog .tabsWrapper .activeTab:before
+ {
+    max-width: 100%;
+    width: 100%;
+        height: 2px;
+}
+    .RakebackFeaturedBlog .tabsWrapper {
+        overflow-x: scroll;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        scrollbar-width: thin;
+        justify-content: flex-start;
+        gap: 44px;
+        padding: 5px 20px 5px;
+    }
   .RakebackFAQ .actionButton {
-    font-size: 12px;
+    font-size: 10px;
   }
   .RakebackFeaturedBlog .exploreButton {
     width: 100%;
@@ -1485,9 +1491,10 @@ button.Pokerbazzi25 {
   .RakebackFeaturedBlog .GetStartedhead {
     margin-bottom: 20px;
   }
-  .RakebackFeaturedBlog .tabsContainer {
-    margin-bottom: 24px;
-  }
+    .RakebackFeaturedBlog .tabsContainer {
+        margin-bottom: 24px;
+        background: #F6F6F6;
+    }
 .HottestDealsDashboard .HottestDealschild {
     padding: 0;
     background: transparent;
