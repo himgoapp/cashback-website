@@ -44,8 +44,8 @@ const NewFooter = () => {
                     <h3 className="sectionTitle">About us</h3>
                     <ul className="sectionLinks">
                       <li><a href="/dictionary" className="footerLink">Dictionary</a></li>
-                      <li><a href="#" className="footerLink">Our team</a></li>
-                      <li><a href="#" className="footerLink">Awards</a></li>
+                      <li><a href="/contact-us" className="footerLink">Contact Us</a></li>
+                      <li><a href="/retag" className="footerLink">Retag</a></li>
                       <li><a href="#" className="footerLink">Testimonials</a></li>
                       <li><a href="#" className="footerLink">Privacy policy</a></li>
                     </ul>

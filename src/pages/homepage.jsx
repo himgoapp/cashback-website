@@ -44,7 +44,6 @@ const Homepage = () => {
         description="Top Poker Rakeback and Cashback Site in India | Play Online Poker Games in India with Your Choice of Poker Website and Win Real Money 2025."
         link="https://rakebackk.com"
       />
-      <Navbar page="home" />
       <MainContainer>
         <Banner />
         <TopRakeBackOffers></TopRakeBackOffers>
@@ -55,7 +54,6 @@ const Homepage = () => {
         <ClientTestimonial />
         <FaqSection />
         <NewsletterSubscription />
-        <NewFooter />
       </MainContainer>
     </div>
   );

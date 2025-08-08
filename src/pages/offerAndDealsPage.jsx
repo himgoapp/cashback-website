@@ -20,8 +20,6 @@ const OfferAndDealsContainer = () => {
         description="Looking For the Online Poker Rakeback Deals and Poker Cashback Deals? Check Rakebackk For Best Poker Deals & Offer. Ultimate Poker Experience"
         link="https://rakebackk.com/offer_and-deals"
       />
-      {/* <MainContainer> */}
-      <Navbar page="offer" />
       <Reveal>
         <div
           style={{ position: "relative" }}
@@ -92,8 +90,6 @@ const OfferAndDealsContainer = () => {
           </div> */}
       </Reveal>
       <NewsletterSubscription></NewsletterSubscription>
-      <NewFooter></NewFooter>
-      {/* </MainContainer> */}
     </div>
   );
 };

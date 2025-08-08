@@ -18,12 +18,9 @@ const BlogMain = () => {
 
     return (
         <>
-            <Navbar page="home" />
             {
                 isMobile ? <BlogMobilePage /> : <BlogWebPage />
             }
-            <NewFooter />
-
         </>
     );
 };

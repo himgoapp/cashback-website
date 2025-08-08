@@ -67,7 +67,7 @@ div#root {
      .RakebackHeader button.signin_button {
        width: auto;
         height: 40px;
-        font-size: 12px;
+        font-size: 15px;
         padding: 8px 12px;
         color: #fff;
         border-radius: 6px;
@@ -717,6 +717,7 @@ p.GetProfitdes {
     flex: 1 1;
     position: relative;
     text-transform: uppercase;
+    cursor:pointer
 }
 
 .RakebackFeaturedBlog .tabsWrapper .activeTab {
@@ -929,6 +930,8 @@ transform: translate(-50%);
         text-transform: uppercase;
         font-family: Sora;
 }
+
+
 .RakebackFeaturedBlog .sideTitle {
   font-size: 12px;
   font-weight: 600;

@@ -37,7 +37,7 @@ const Navbar = ({ page }) => {
       <header className="RakebackHeader">
         <nav class="container-fluid navbar navbar-expand-lg ">
           <div class="container">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="/">
               <svg
                 width="221"
                 height="56"

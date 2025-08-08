@@ -15,9 +15,7 @@ const DictionaryPage = () => {
     }, []);
     return (
         <div className="MobileHomepage">
-            <Navbar page="home" />
             <DictionaryComponent />
-            <NewFooter />
         </div>
     );
 };

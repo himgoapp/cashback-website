@@ -270,8 +270,6 @@ const FaqContainer = () => {
         link={`https://www.rakebackk.com`}
       />
 
-      <Navbar page="home" />
-
       <div className="container-fluid faqcontainer">
         <div className="container">
           <div className="row justify-content-center">
@@ -408,7 +406,6 @@ const FaqContainer = () => {
         </div>
       </div>
       <NewsletterSubscription></NewsletterSubscription>
-      <NewFooter></NewFooter>
       {/* <div
         className="flex_center"
         style={{ width: "100%", backgroundColor: "#0052cc" }}

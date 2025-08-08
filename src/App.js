@@ -41,6 +41,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "../src/assets/Style/responsive.css";
 import MobileView from "./components/dashboard/mobileSidebar/Mobilepageview";
 import DictionaryPage from "./components/dictionary/dictionary";
+import PublicLayout from "./helperFxns/PubliclayOut";
 
 export const UserContext = createContext();
 
@@ -111,14 +112,23 @@ function App() {
       >
         <Router>
           <Routes>
-            <Route
-              path="/"
-              element={
-                <NotProtectedRoute>
-                  <HomePage />
-                </NotProtectedRoute>
-              }
-            />
+
+            {/* Public Routes */}
+            <Route element={<NotProtectedRoute><PublicLayout /></NotProtectedRoute>}>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/offer-and-deals" element={<OfferAndDealsContainer />} />
+              <Route path="/dictionary" element={<DictionaryPage />} />
+              <Route path="/contact-us" element={<ContactUSPage />} />
+              <Route path="/retag" element={<RetagPage />} />
+              <Route path="/latest-news" element={<LatestNewsMain />} />
+              <Route path="/news/:blogId" element={<BlogDetail />} />
+              <Route path="/blog/:blogId" element={<BlogMain />} />
+              <Route path="/faq/:category?" element={<FaqContainer />} />
+              <Route path="/login" element={<FullPageSignin />} />
+              {/* <Route path="/terms-and-conditions" element={<TermsConditions />} /> */}
+              <Route path="*" element={<h1 className="text-center text-danger pt-5">Not Found</h1>} />
+            </Route>
+
             <Route
               path="/welcome"
               element={
@@ -127,40 +137,7 @@ function App() {
                 </ProtectedRoute>
               }
             />
-            <Route
-              path="/offer-and-deals"
-              element={
-                <NotProtectedRoute>
-                  <OfferAndDealsContainer />
-                </NotProtectedRoute>
-              }
-            />
 
-            <Route
-              path="/dictionary"
-              element={
-                <NotProtectedRoute>
-                  <DictionaryPage />
-                </NotProtectedRoute>
-              }
-            />
-
-            <Route
-              path="/contact-us"
-              element={
-                <NotProtectedRoute>
-                  <ContactUSPage />
-                </NotProtectedRoute>
-              }
-            />
-            <Route
-              path="/retag"
-              element={
-                <NotProtectedRoute>
-                  <RetagPage />
-                </NotProtectedRoute>
-              }
-            />
 
             <Route
               path="/description/:roomId"
@@ -242,64 +219,8 @@ function App() {
               }
             />
 
-            <Route
-              path="/latest-news"
-              element={
-                <NotProtectedRoute>
-                  <LatestNewsMain />
-                </NotProtectedRoute>
-              }
-            />
-            <Route
-              Route
-              path="/news/:blogId"
-              element={
-                <NotProtectedRoute>
-                  <BlogDetail />
-                </NotProtectedRoute>
-              }
-            />
 
-            <Route
-              Route
-              path="/blog/:blogId"
-              element={
-                <NotProtectedRoute>
-                  <BlogMain />
-                </NotProtectedRoute>
-              }
-            />
 
-            <Route
-              path="/faq/:category?"
-              element={
-                <NotProtectedRoute>
-                  <FaqContainer />
-                </NotProtectedRoute>
-              }
-            />
-            <Route
-              path="/login"
-              element={
-                <NotProtectedRoute>
-                  <FullPageSignin />
-                </NotProtectedRoute>
-              }
-            />
-            <Route
-              path="*"
-              element={
-                <h1 className="text-center text-danger pt-5">Not Found</h1>
-              }
-            />
-            <Route
-              path="/terms-and-conditions"
-              element={
-                <NotProtectedRoute>
-                  <TermsConditions />
-                </NotProtectedRoute>
-              }
-            />
           </Routes>
         </Router>
       </UserContext.Provider>

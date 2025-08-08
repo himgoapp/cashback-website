@@ -198,7 +198,6 @@ const FullPageSignin = () => {
   };
   return (
     <div className="MobileViewLogin">
-      <Navbar page="login" />
       <div className={styles.fullPageContainer}>
         <div className={styles.authCard}>
           {!showOtpPart ? (
@@ -211,11 +210,6 @@ const FullPageSignin = () => {
                     alt="chip right"
                     className="chipBannerRight"
                   />
-                  {/* <img
-                      src={pokerCardheroBanner}
-                      alt="star right"
-                      className="pokerCardheroBanner"
-                    /> */}
                   <img
                     src={starTopHeroBanner}
                     alt="star right"
@@ -253,10 +247,6 @@ const FullPageSignin = () => {
                     className={`${styles.number_label} ${error ? styles.invalidInput : ""
                       }`}
                   />
-                  {/* <label style={{ fontFamily: '"Roboto", sans-serif' }}
-                    className={`${styles.number_label} ${error ? styles.invalidInputLabel : ""}`}>
-                    Enter mobile number
-                  </label> */}
                   {error && (
                     <p
                       style={{
@@ -373,12 +363,6 @@ const FullPageSignin = () => {
           )}
         </div>
       </div>
-      {/* <div
-        style={{ width: "100%", backgroundColor: "#0052cc" }}
-        className="flex_center"
-      >
-        <Footer />
-      </div> */}
     </div>
   );
 };
