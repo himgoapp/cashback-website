@@ -8,7 +8,7 @@ import SimpleSlider from "./slider";
 import OfferSignup from "../../offerAndDeal/signup/signup";
 import OfferSlider from "./Slidernew.jsx";
 import SwiperMain from "../demo-vite/main.js";
-// import CenterSlider from './slider.jsx'
+import CenterSlider from './slider.jsx'
 // import CarouselSlider from "../deals/CarouselSlider.jsx";
 
 const topRakeBackOffers = () => {
@@ -27,11 +27,7 @@ const topRakeBackOffers = () => {
               </p>
             </div>
             <div className="col-lg-12">
-              {/* <CenterSlider></CenterSlider> */}
-              <SwiperMain />
-              {/* <CarouselSlider /> */}
-              {/* <OfferSlider></OfferSlider> */}
-              {/* <SimpleSlider /> */}
+              <CenterSlider />
             </div>
           </div>
         </div>
