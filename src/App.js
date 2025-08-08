@@ -59,7 +59,7 @@ function App() {
   const [userKyc, setUserKyc] = useState(null);
 
   const [loginTab, setLoginTab] = useState(false);
-  const [mobile, setMobile] = useState(true);
+  const [mobile, setMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
