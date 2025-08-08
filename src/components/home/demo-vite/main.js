@@ -14,6 +14,7 @@ import "./effect-carousel.css";
 import "./main.css";
 import Slide from "./slider";
 import { getProducts } from "../../../servicefile/productservice";
+import CenterSlider from "../offers/slider";
 
 
 const Carousel = () => {
@@ -66,7 +67,8 @@ const Carousel = () => {
             <div className="swiper-slide" key={index}>
               <div className="swiper-carousel-animate-opacity">
                 {/* <div className="SliderBox"> */}
-                <Slide slideData={slide} name={slide.name} />
+                {/* <Slide slideData={slide} name={slide.name} /> */}
+                <CenterSlider></CenterSlider>
                 {/* </div> */}
               </div>
             </div>

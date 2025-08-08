@@ -90,3 +90,8 @@
     display: none !important;
   }
 }
+@media (max-width: 575px) {
+.swiper-carousel .swiper-slide {
+    height: 452px;
+}
+}

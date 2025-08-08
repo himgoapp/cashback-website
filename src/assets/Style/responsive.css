@@ -1232,18 +1232,91 @@ button.Pokerbazzi25 {
         gap: 44px;
         padding: 5px 20px 5px;
     }
+    .Dictionaryrow {
+    padding: 0;
+    border: 0;
+    border-radius: 0;
+}
+.DesktopLatestNews.dictionaryPage {
+        padding: 40px 28px;
+    }
+    .NewsChildpAge .breadcrumb a {
+    font-size: 12px;
+}
+.NewsChildpAge .breadcrumb li.breadcrumb-item
+ {
+    font-size: 12px;
+}
+    .NewsChildpAge .breadcrumb {
+        margin-bottom: 0;
+        overflow: scroll;
+        flex-direction: row;
+        min-width: 450px;
+        flex-wrap: nowrap;
+        padding-bottom: 10px;
+    }
+.NewsChildpAge nav[aria-label="breadcrumb"] {
+        overflow-x: scroll;
+        margin-bottom: 30px;
+    }
+.dictionaryPage .blogHedEXtra
+ {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
   .RakebackFAQ .actionButton {
     font-size: 10px;
   }
-  .RakebackFeaturedBlog .exploreButton {
-    width: 100%;
-    font-size: 16px;
-  }
+  .dictionaryPage p {
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+    .DictionaryData h2 {
+        width: 100%;
+        padding: 0 24px;
+        background: #F9F9F9;
+        font-weight: bold;
+    }
+.dictionaryPage .tag-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 16px;
+    }
+    .DesktopHide{
+      display: block;
+    }
+    .MobileHide {
+    display: none;
+}
+    .RakebackFeaturedBlog .exploreButton {
+        width: 100%;
+        font-size: 16px;
+        border: 1px solid #FF4053;
+        background: #fff;
+        color: #FF4053;
+        text-transform: uppercase;
+    }
   .RakebackNewsletter .inputContainer {
     width: 100%;
     margin-top: 20px;
   }
-
+.article-content .DictionaryData ul {
+    font-size: 12px;
+}
+.article-content .DictionaryData ul li {
+    margin-bottom: 15px;
+}
+.dictionaryPage .sidebar.RightsidebarBlog {
+    display: none;
+}
+.article-content .nav {
+    gap: 12px;
+    justify-content: center;
+    max-width: 310px;
+    margin: 30px auto 20px;
+    row-gap: 12px;
+}
   .GetStartedCard .stepTitle {
     font-size: 20px;
   }
@@ -1477,9 +1550,32 @@ button.Pokerbazzi25 {
     width: 100%;
     overflow: scroll;
   }
-  .RakebackFeaturedBlog .sidePost {
-    gap: 10px;
-  }
+    .RakebackFeaturedBlog .sidePost
+ {
+        gap: 10px;
+        border: 1px solid #ECECEC;
+        padding: 0;
+        border-radius: 9px;
+        overflow: hidden;
+        box-shadow: 0px 4px 10px #e5e5e5;
+    }
+     
+    .RakebackFeaturedBlog .sideCategory {
+    background: transparent;
+    color: #FF4053;
+    font-size: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Sora;
+}
+
+.RakebackFeaturedBlog .sideDescription {
+    font-size: 14px;
+    color: #292929;
+    line-height: 140%;
+    font-family: "Sora", sans-serif;
+    font-weight: 700;
+}
   .sideImageContainer {
     width: 130px;
     height: 130px;
