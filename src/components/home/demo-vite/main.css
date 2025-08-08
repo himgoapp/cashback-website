@@ -8,16 +8,18 @@
 .swiper-carousel {
       padding-top: 32px;
   padding-bottom: 62px;
-  max-width: 1200px;
+  max-width: 620px;
+  min-width: 620px;
+  overflow: visible;
 }
 
 .swiper-carousel .swiper-slide {
-  width: 294px;
+  /* width: 294px; */
   height: 436px;
   border-radius: 16px;
   background: #fff;
   /* border-radius: 8px; */
-  max-width: calc(100% - 48px);
+  /* max-width: calc(100% - 48px); */
   overflow: hidden;
 }
 .swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active{
@@ -83,15 +85,89 @@
   overflow: hidden;
 }
 
+
+@media (max-width: 768px) {
+    .swiper.swiper-carousel.swiper-initialized.swiper-horizontal.swiper-watch-progress {
+        max-width: calc(100% - 16%);
+        min-width: calc(100% - 16%);
+        overflow: hidden;
+        width: calc(100% - 16%);
+        padding-left: 70px;
+        padding-right: 70px;
+        margin: 0 8%;
+    }
+}
 @media (max-width: 640px) {
 
   .swiper-carousel .swiper-button-next,
   .swiper-carousel .swiper-button-prev {
     display: none !important;
   }
+
 }
 @media (max-width: 575px) {
-.swiper-carousel .swiper-slide {
-    height: 452px;
+.swiper.swiper-carousel.swiper-initialized.swiper-horizontal.swiper-watch-progress {
+        max-width: calc(100% - 4%);
+        min-width: calc(100% - 4%);
+        overflow: hidden;
+        width: calc(100% - 4%);
+        padding-left: 90px;
+        padding-right: 90px;
+        margin: 0 2%;
+    }
 }
+@media (max-width: 520px) {
+.swiper.swiper-carousel.swiper-initialized.swiper-horizontal.swiper-watch-progress {
+    padding-left: 60px;
+    padding-right: 60px;
+}
+}
+@media (max-width: 460px) {
+    .swiper.swiper-carousel.swiper-initialized.swiper-horizontal.swiper-watch-progress {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    .SliderBanner {
+    height: 113px;
+}
+.SliderBanner span {
+    width: 76px;
+    height: 24px;
+    font-size: 9px;
+}
+    .SliderContent {
+        padding: 20px;
+    }
+    .swiper-carousel .swiper-slide {
+    height: 412px;
+}
+.OfferSlider h3 {
+    font-size: 10px;
+}
+.OfferSlider span {
+    font-size: 10px;
+}
+.OfferSlider span svg{
+  width: 12px;
+  height: 12px;
+}
+}
+
+@media (max-width: 400px) {
+
+    .swiper.swiper-carousel.swiper-initialized.swiper-horizontal.swiper-watch-progress {
+        max-width: 100%;
+        min-width: 100%;
+        overflow: hidden;
+        width: 100%;
+        padding-left: 40px;
+        padding-right: 40px;
+        margin: 0;
+    }
+}
+@media (max-width: 385px) {
+
+  .swiper-carousel .swiper-slide {
+        height: 427px;
+    }
 }

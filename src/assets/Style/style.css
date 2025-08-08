@@ -55,7 +55,7 @@ div#root {
     margin-right: 20px;
     margin-top: 4px;
 }
-.RakebackHeader button.signin_button {
+/* .RakebackHeader button.signin_button {
     width: 163px;
     height: 40px;
     border-radius: 6px;
@@ -63,7 +63,22 @@ div#root {
     color: #fff;
     font-size: 14px;
     font-weight: 700;
+} */
+     .RakebackHeader button.signin_button {
+       width: auto;
+        height: 40px;
+        font-size: 12px;
+        padding: 8px 12px;
+        color: #fff;
+        border-radius: 6px;
+        background: #FF4053;
+        font-weight: 700;
+    }
+.RakebackHeader button.signin_button:first-child {
+    background: transparent;
+    color: #ff4053;
 }
+
 .RakebackHeader button.signin_button svg.bi.bi-arrow-right {
     margin-left: 5px;
 }

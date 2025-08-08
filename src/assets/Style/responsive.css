@@ -1079,9 +1079,7 @@ button.Pokerbazzi25 {
     padding-top: 24px;
     padding-bottom: 62px;
 }
-  .MobileHomepage .SliderContent {
-    padding: 27px;
-}
+
  .MobileHomepage .SliderFooter button {
     width: 46%;
     height: 32px;
@@ -1758,9 +1756,7 @@ button.Pokerbazzi25 {
 }
 
 @media only screen and (max-width: 420px) {
-.SliderContent {
-    padding: 25px 20px;
-}
+
 .SliderFooter button {
     width: 48%;
 }
