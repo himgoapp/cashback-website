@@ -2774,19 +2774,27 @@ a.small.seeMOre {
 }
 .DesktopLatestNews ul#blogTabs {
     width: 100%;
-    display: flex;
+    display: flex
+;
     flex-direction: row;
     row-gap: 16px;
     background: #F5F5F5;
-    border: 1px solid #E4E4E4;
-    border-radius: 6px;
-    padding: 4px;
+    border: 0px solid #EDEDED;
+    border-radius: 12px;
+    padding: 0;
     margin-bottom: 48px !important;
 }
 .DesktopLatestNews ul#blogTabs li.nav-item {
     flex: 1;
 }
-   .DesktopLatestNews .nav-pills .nav-link.active { background-color: #ff4d4d; }
+
+.DesktopLatestNews .nav-pills .nav-link.active
+ {
+    background-color: transparent;
+    color: #FF4053;
+    border-bottom: 3px solid #FF4053;
+    border-radius: 0px;
+}
    .DesktopLatestNews  .blog-card img { border-radius: 8px; }
     .DesktopLatestNews .section-title { font-weight: bold; margin-bottom: 5px; }
    .DesktopLatestNews .sub-title
@@ -2852,15 +2860,16 @@ a.small.seeMOre {
    .DesktopLatestNews  .pagination .page-link { color: #000; }
    .DesktopLatestNews  .sidebar .card-header { font-weight: bold; }
    .DesktopLatestNews  .social-icons img { margin: 0 8px; }
- .DesktopLatestNews .nav-pills .nav-link {    
+.DesktopLatestNews .nav-pills .nav-link {
     background: none;
     border: 0;
     border-radius: 0.25rem;
-    height: 39px;
+    height: 55px;
     width: 100% !important;
     color: #000;
-    font-size: 20px;
-    padding: 0 15px;
+    font-size: 18px;
+    padding: 0 7px;
+    font-weight: bold;
 }
  .DesktopLatestNews .tab-content h4.section-title {
     font-size: 31px;
