@@ -68,11 +68,6 @@ code {
   background: #ffffff9e !important;
 }
 
-.container {
-  max-width: 1200px !important;
-  margin-inline: auto;
-}
-
 input:disabled {
   cursor: not-allowed;
   opacity: 0.5;

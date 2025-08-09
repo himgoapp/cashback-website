@@ -1,3 +1,10 @@
+@media (min-width: 1340px) {
+    .DesktopLatestNews .container, .RakebackHeader .container, .customFooter  .container , .faqcontainer  .container {
+        max-width: 1280px;
+        padding: 0;
+    }
+}
+
 @media only screen and (max-width: 1199px) {
   .RakebackNewsletter .inputContainer {
     width: 100%;
@@ -216,6 +223,22 @@ button.Pokerbazzi25 {
 }
 
 @media only screen and (max-width: 991px) {
+  .single-post-row {
+        flex-flow: column;
+        gap: 24px;
+        margin-bottom: 0px;
+    }
+    .single-post-left, .single-post-right {
+        flex: 1;
+        width: 100%;
+    }
+       .DesktopLatestNews  .container{
+        max-width: 1280px;
+        padding: 0 31px;
+    }
+    .DesktopLatestNews {
+        padding: 40px 0px;
+    }
  .DesktopLatestNews .card.blog-card.BlogCardFullHeifht img {
     height: 280px;
 }
@@ -530,6 +553,12 @@ button.Pokerbazzi25 {
 }
 
 @media only screen and (max-width: 768px) {
+  .BlogBottomNewSectionRow .sidePost .sideImageContainer {
+    height: 150px;
+}
+.BLogPAgesFooterIcon .SliderFooter {
+    margin-top: 0;
+}
   .DesktopLatestNews {
         padding: 60px 20px;
     }
@@ -681,6 +710,9 @@ button.Pokerbazzi25 {
 }
 
 @media only screen and (max-width: 575px) {
+.DesktopLatestNews ul#blogTabs li.nav-item {
+    min-width: 110px;
+}
 
 /*-- BLog Dashboard --*/
 .BlogDashboard.container-fluid {

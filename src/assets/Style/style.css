@@ -668,19 +668,17 @@ p.GetProfitdes {
 .RakebackFeaturedBlog .tabsContainer {
     margin-bottom: 44px;
 }
-.RakebackFeaturedBlog .tabsWrapper {
+.RakebackFeaturedBlog .tabsWrapper
+ {
     display: flex;
     gap: 0;
     overflow-x: auto;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
     width: 100%;
     border: none;
-    justify-content: flex-end;
+    justify-content: flex-start;
     position: relative;
     border-radius: 12px;
 }
- 
 .RakebackFeaturedBlog .tabsWrapper::-webkit-scrollbar {
   display: none;
 }
@@ -717,7 +715,8 @@ p.GetProfitdes {
     flex: 1 1;
     position: relative;
     text-transform: uppercase;
-    cursor:pointer
+    cursor:pointer;
+        min-width: 150px;
 }
 
 .RakebackFeaturedBlog .tabsWrapper .activeTab {
@@ -1263,6 +1262,8 @@ transform: translate(-50%);
 }
 .RakebackFAQ .toggleButton img.toggleIcon {
     filter: grayscale(1);
+    width: 10px;
+    height: 10px;
 }
 .RakebackFAQ .faqItemActive .faqQuestion .toggleButton img.toggleIcon {
     filter: unset;
@@ -1272,6 +1273,10 @@ transform: translate(-50%);
     display: flex;
     align-items: center;
     margin-right: 24px;
+}
+.RakebackFAQ .faqItemActive button.toggleButton
+ {
+    border-color: #ff4053;
 }
 .RakebackFAQ .faqList {
   margin-bottom: 24px;
@@ -1305,21 +1310,28 @@ transform: translate(-50%);
   flex: 1;
   text-align: left;
 }
-.RakebackFAQ .faqItemActive .toggleButton{ 
+/* .RakebackFAQ .faqItemActive .toggleButton{ 
 right: 8px
-}
+} */
 .RakebackFAQ .toggleButton {
-  position: absolute;
-  top: 24px;
-  right: 12px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
+    position: absolute;
+    top: 24px;
+    right: 12px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    width: 22px;
+    height: 22px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
 }
 .RakebackFAQ  .faqItem {
   width: 100% !important;
@@ -1991,13 +2003,27 @@ a.small.seeMOre {
         margin-right: 5px;
 }
 .LatestNewsDsgTxt p.small {
-    font-size: 16px;
+    font-size: 12px;
     margin: 0;
 }
 .LastTransactionTable .table > :not(:last-child) > :last-child > *
  {
     border-bottom-color: #E6EFF5;
     background: transparent;
+}
+.LatestNewsDsgTxt .SliderFooter {
+    gap: 8px;
+}
+.BlogBottomNewSectionRow .sidePost
+ {
+    margin-bottom: 26px;
+}
+.BlogBottomNewSectionRow .sidePost .sideContent
+ {
+    padding: 20px 0;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .LatestNewsDsgTxt .SliderFooter button {
+    width: 49%;
 }
 .LastTransactionTable .table thead tr {
     background-color: transparent;
@@ -2771,7 +2797,7 @@ a.small.seeMOre {
 
 
 .DesktopLatestNews {
-    padding: 80px 0;
+    padding: 40px 0;
     background: #fff;
 }
 .HedBlog h2.fw-bold {
@@ -2801,11 +2827,13 @@ a.small.seeMOre {
     border-radius: 12px;
     padding: 0;
     margin-bottom: 48px !important;
+    overflow: auto;
+    flex-wrap: nowrap;
 }
-.DesktopLatestNews ul#blogTabs li.nav-item {
-    flex: 1;
+.DesktopLatestNews ul#blogTabs li.nav-item
+ {
+    min-width: 140px;
 }
-
 .DesktopLatestNews .nav-pills .nav-link.active
  {
     background-color: transparent;
@@ -2883,16 +2911,17 @@ a.small.seeMOre {
     border: 0;
     border-radius: 0.25rem;
     height: 55px;
-    width: 100% !important;
+    width: auto;
     color: #000;
     font-size: 18px;
     padding: 0 7px;
     font-weight: bold;
+    margin: 0 auto;
 }
- .DesktopLatestNews .tab-content h4.section-title {
+.DesktopLatestNews .tab-content h4.section-title {
     font-size: 31px;
     font-weight: 500;
-    color: #000;
+    color: #ff4053;
     margin-bottom: 22px;
 }
 .DesktopLatestNews .card.blog-card.BlogCardFullHeifht img {
@@ -2921,25 +2950,32 @@ a.small.seeMOre {
     margin: 20px 0;
     width: 100%;
 }
-.DesktopLatestNews .sidebar.RightsidebarBlog .card {
+.DesktopLatestNews .sidebar.RightsidebarBlog .card
+ {
     border-radius: 8px;
     background: #fff;
     padding: 0;
     border: none;
     box-shadow: 0px 0px 10px #eeebeb;
+    border: 3px solid #EFEFEF;
+    margin-bottom: 36px !important;
 }
 .DesktopLatestNews .sidebar.RightsidebarBlog .card .card-header {
     border-radius: 4px;
     border-bottom-left-radius: 0px;
     border-bottom-right-radius: 0px;
-    color: #fff;
+    color: #000;
     font-size: 20px;
-    display: flex;
+    display: flex
+;
+    border-bottom: none;
     justify-content: center;
     align-items: center;
     gap: 8px;
-        background: #ff4053;
+    background: #F1F1F1;
+    text-transform: uppercase;
 }
+
 .DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost {
     display: flex
 ;
@@ -3067,6 +3103,7 @@ a.small.seeMOre {
 }
 .DesktopLatestNews .sidebar.RightsidebarBlog .card.Offerscard  .sidePost:last-child {
     border: 0.6px solid #CDCDCD;
+    margin-bottom: 16px;
 }
 
 .SpacedicAdd.SpacedicAddsBAckground {
@@ -3303,15 +3340,24 @@ a.small.seeMOre {
     font-weight: 600;
     margin: 0;
 }
-.BlogBottomNewSectionRow .sidePost .sideImageContainer {
+.BlogBottomNewSectionRow .sidePost .sideImageContainer
+ {
     width: 100%;
     height: 200px;
+    border-radius: 8px;
 }
 .BlogBottomNewSectionRow {
     margin-top: 46px;
 }
-
-
+.BlogBottomNewSectionRow .sidePost .sideContent p.sideDescription {
+    font-size: 18px;
+    font-weight: bold;
+    color: #141A28;
+    margin-bottom: 20px;
+}
+.BlogBottomNewSectionRow .sidePost .sideContent .AutherINfo h3 {
+    display: block;
+}
 
 .PokerIDdropdown .dropdown-item img {
     width: 24px;
@@ -3606,8 +3652,22 @@ button.Pokerbazzi25 {
     text-decoration: none;
     font-weight: bold;
 }
-.article-content .nav {
+
+.poker-glossary-navigation
+ {
+    align-items: flex-start;
+    background-color: #fff;
+    background: #fff;
+    display: flex;
+    flex-wrap: wrap;
     gap: 12px;
+    margin-top: -20px;
+    padding: 20px 0;
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    width: 100%;
+    z-index: 11;
 }
 .dictionaryPage .blogHedEXtra {
     margin-bottom: 24px;
@@ -3622,6 +3682,19 @@ button.Pokerbazzi25 {
     gap: 24px;
     margin-top: 24px;
     margin-bottom: 24px;
+}
+.SidepostUL {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+}
+.SidepostUL li a
+ {
+    font-size: 14px;
+    font-weight: 600;
+    color: #000;
+    line-height: 130%;
+    text-decoration: none;
 }
 .DictionaryData h2 {
     font-size: 24px;
@@ -3643,12 +3716,24 @@ button.Pokerbazzi25 {
 .DesktopHide{
     display: none;
 }
-.Dictionaryrow{
-padding: 48px 36px;
-    border: 1px solid #D8D8D8;
-    border-radius: 12px;
-}
 
+
+.single-post-row {
+    display: flex;
+    gap: 80px;
+    margin-bottom: 56px;
+    padding-top: 0px;
+    width: 100%;
+}
+.single-post-left {
+    flex: 0 0 calc(100% - 440px);
+    width: calc(100% - 440px);
+}
+.single-post-right
+ {
+    flex: 0 0 360px;
+    width: 360px;
+}
 .dictionaryPage .ShareIconBottom {
     margin: 0;
     margin-bottom: 24px;

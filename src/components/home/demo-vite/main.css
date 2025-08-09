@@ -44,9 +44,9 @@
 }
 
 .swiper-carousel .swiper-pagination-bullets {
-  bottom: 0;
+    bottom: 0;
+    display: none;
 }
-
 .swiper-carousel img {
   width: 100%;
   height: 100%;
