@@ -38,6 +38,8 @@ const KycMain = () => {
   const [accountNumber, setAccountNumber] = useState("");
   const [ifscCode, setIfscCode] = useState("");
   const [bankError, setBankError] = useState("");
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [cursorPos, setCursorPos] = useState(0);
 
   useEffect(() => {
     if (userKyc?.pan?.verified) {
@@ -276,17 +278,37 @@ const KycMain = () => {
                             <label className="card_number">Enter AADHAAR number</label>
                             <div className="AddhaarNumberField">
                               {aadhaarNumber.map((num, index) => {
-                                const display = (num + "____").slice(0, 4).split("").join(" ");
+                                // Create the masked Aadhaar block
+                                let maskedChars = (num + "____").slice(0, 4).split("");
+
+                                // Insert cursor only in the active block
+                                if (index === activeIndex) {
+                                  maskedChars.splice(cursorPos, 0, <span key="cursor" className="cursor"></span>);
+                                }
+
                                 return (
-                                  <div key={index} className="aadhaar-wrapper">
-                                    <div className="aadhaar-display">{display}</div>
+                                  <div key={index} className="aadhaar-wrapper" onClick={() => aadhaarRefs.current[index]?.focus()}>
+                                    <div className="aadhaar-display">
+                                      {maskedChars.map((ch, i) => (
+                                        <span key={i} className="aadhaar-char">{ch}</span>
+                                      ))}
+                                    </div>
                                     <input
                                       type="text"
                                       inputMode="numeric"
                                       maxLength="4"
-                                      className="aadhaar-input"
+                                      className="aadhaar-input-hidden"
                                       value={num}
-                                      onChange={(e) => handleInputChange(e, index, "aadhaar")}
+                                      onFocus={(e) => {
+                                        setActiveIndex(index);
+                                        setCursorPos(e.target.selectionStart || 0);
+                                      }}
+                                      onClick={(e) => setCursorPos(e.target.selectionStart || 0)}
+                                      onKeyUp={(e) => setCursorPos(e.target.selectionStart || 0)}
+                                      onChange={(e) => {
+                                        handleInputChange(e, index, "aadhaar");
+                                        setCursorPos(e.target.selectionStart || 0);
+                                      }}
                                       onKeyDown={(e) => handleKeyDown(e, index, "aadhaar")}
                                       ref={(el) => (aadhaarRefs.current[index] = el)}
                                     />
@@ -322,6 +344,7 @@ const KycMain = () => {
                             </div>
                           </div>
                         </>
+
                       )}
                     </div>
                     {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified && userKyc.aadhaar.documentName && <div className="VerifiedPan">

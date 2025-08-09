@@ -98,6 +98,8 @@ const KycMobileMain = () => {
     }
   };
 
+  const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+
   const handleSendAadhaarOtp = async () => {
     setAadhaarError("");
     try {
@@ -224,7 +226,9 @@ const KycMobileMain = () => {
 
               </div>
               {step === 1 && panError.length === 0 && <div className="KYCBTNForm">
-                <button className="formButton" onClick={handlePanVerify}>Verify</button>
+                <button className="formButton"
+                  disabled={!panName.trim() || !panRegex.test(panNumber.trim())}
+                  onClick={handlePanVerify}>Verify</button>
               </div>}
               {userKyc && userKyc.pan && userKyc.pan.verified && <div className="KYCBTNForm Verified">
                 <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -243,7 +247,7 @@ const KycMobileMain = () => {
         {/* Step 2: AADHAAR */}
         <div className={userKyc && userKyc.aadhaar && userKyc.aadhaar.verified && !aadhaarExtended ? "accordion-item accordion-grey" : "accordion-item"}>
           <h2 className="accordion-header">
-            <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAadhaar" aria-expanded={step === 2} onClick={() => setaadhaarExtended(!aadhaarExtended)} >
+            <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAadhaar" aria-expanded={step === 2} disabled={step < 2} onClick={() => setaadhaarExtended(!aadhaarExtended)} >
               <div className="step-header">
                 <div className="step-info">
                   <div className="step-number">2</div>
@@ -361,7 +365,7 @@ const KycMobileMain = () => {
         {/*  Step 3: Bank Details  */}
         <div className={userKyc && userKyc.bank && userKyc.bank.verified && !bankExtended ? "accordion-item accordion-grey" : "accordion-item"}>
           <h2 className="accordion-header">
-            <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBank" aria-expanded={step === 3} onClick={() => setbankExtended(!bankExtended)} >
+            <button className="accordion-button collapsed d-flex" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBank" aria-expanded={step === 3} disabled={step < 3} onClick={() => setbankExtended(!bankExtended)} >
               <div className="step-header">
                 <div className="step-info">
                   <div className="step-number">3</div>
