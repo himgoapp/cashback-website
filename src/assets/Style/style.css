@@ -3653,16 +3653,11 @@ button.Pokerbazzi25 {
     font-weight: bold;
 }
 
-.poker-glossary-navigation
- {
+.poker-glossary-navigation {
     align-items: flex-start;
-    background-color: #fff;
     background: #fff;
-    display: flex;
-    flex-wrap: wrap;
     gap: 12px;
-    margin-top: -20px;
-    padding: 20px 0;
+    padding: 20px 20px !important;
     position: sticky;
     position: -webkit-sticky;
     top: 0;
@@ -3703,13 +3698,27 @@ button.Pokerbazzi25 {
     align-items: center;
     border-radius: 8px;
     margin-bottom: 24px;
+    padding-left: 15px;
+    position: relative;
 }
-.article-content .DictionaryData  ul {
+.nav.poker-glossary-navigation a.active {
+    color: #FF4053;
+    border-bottom: 2px solid #FF4053;
+}
+.DictionaryData h2.active
+ {
+    background: #FFE8EA;
+    margin: 0px 0 0;
+    color: #FF4053;
+}
+.article-content .DictionaryData ul {
     font-size: 14px;
     line-height: 160%;
     margin: 0;
     list-style: square;
+    padding-left: 50px;
 }
+
 .article-content .DictionaryData ul li {
     margin-bottom: 24px;
 }

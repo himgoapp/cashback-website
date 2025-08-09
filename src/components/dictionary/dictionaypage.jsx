@@ -51,8 +51,18 @@ const DictionaryComponent = () => {
                                 ))}
                             </div>
                             <div className="DictionaryData">
-                                <div id="hash" className={activeAlpha === "#" ? "active" : ""}>
-                                    <h2>#</h2>
+                                <h2 id="hash" className={activeAlpha === "#" ? "active" : ""}>#</h2>
+                                <div>
+                                    
+                                    <ul>
+                                        <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
+                                        <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
+                                        <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
+                                    </ul>
+                                </div>
+                                
+                                <h2 id="A" className={activeAlpha === "A" ? "active" : ""}>A</h2>
+                                <div>
                                     <ul>
                                         <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
                                         <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
@@ -60,136 +70,230 @@ const DictionaryComponent = () => {
                                     </ul>
                                 </div>
 
-                                <div id="A" className={activeAlpha === "A" ? "active" : ""}><h2>A</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="B" className={activeAlpha === "B" ? "active" : ""}><h2>B</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="C" className={activeAlpha === "C" ? "active" : ""}><h2>C</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="D" className={activeAlpha === "D" ? "active" : ""}><h2>D</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="E"><h2>E</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="F"><h2>F</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="G"><h2>G</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="H"><h2>H</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="I"><h2>I</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="J"><h2>J</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="K"><h2>K</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="L"><h2>L</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="M"><h2>M</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="N"><h2>N</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="O"><h2>O</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="P"><h2>P</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="Q"><h2>Q</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="R"><h2>R</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="S"><h2>S</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="T"><h2>T</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="U"><h2>U</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="V"><h2>V</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="W"><h2>W</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="X"><h2>X</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="Y"><h2>Y</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
-                                <div id="Z"><h2>Z</h2><ul>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                    <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
-                                </ul></div>
+                                <h2  id="B" className={activeAlpha === "B" ? "active" : ""}>B</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
+                                        <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
+                                        <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
+                                    </ul>
+                                </div>
+                                <h2 id="C" className={activeAlpha === "C" ? "active" : ""}>C</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Columns</strong> – Columns take up most of the real estate in a grid...</li>
+                                        <li><strong>Columns</strong> – Columns take up most of the real estate in a grid...</li>
+                                        <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="D" className={activeAlpha === "D" ? "active" : ""}>D</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Data</strong> – Data is the raw information collected...</li>
+                                        <li><strong>Debug</strong> – The process of finding and fixing errors...</li>
+                                        <li><strong>Design</strong> – Planning the structure and look...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="E" className={activeAlpha === "E" ? "active" : ""}>E</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Element</strong> – An HTML building block...</li>
+                                        <li><strong>Event</strong> – User interactions such as clicks...</li>
+                                        <li><strong>Expression</strong> – A combination of variables, constants...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="F" className={activeAlpha === "F" ? "active" : ""}>F</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Function</strong> – A reusable block of code...</li>
+                                        <li><strong>Framework</strong> – A set of tools and libraries...</li>
+                                        <li><strong>Form</strong> – HTML structure for user input...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="G" className={activeAlpha === "G" ? "active" : ""}>G</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Grid</strong> – Layout system for aligning elements...</li>
+                                        <li><strong>Git</strong> – Version control system...</li>
+                                        <li><strong>GraphQL</strong> – Query language for APIs...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="H" className={activeAlpha === "H" ? "active" : ""}>H</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>HTML</strong> – Standard markup language...</li>
+                                        <li><strong>Hook</strong> – React feature for state and lifecycle...</li>
+                                        <li><strong>Hosting</strong> – Service to make websites accessible...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="I" className={activeAlpha === "I" ? "active" : ""}>I</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Icon</strong> – Small graphical representation...</li>
+                                        <li><strong>IDE</strong> – Software for coding and debugging...</li>
+                                        <li><strong>Index</strong> – Organizing data for quick access...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="J" className={activeAlpha === "J" ? "active" : ""}>J</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>JavaScript</strong> – Programming language for the web...</li>
+                                        <li><strong>JSON</strong> – Lightweight data-interchange format...</li>
+                                        <li><strong>Jest</strong> – JavaScript testing framework...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="K" className={activeAlpha === "K" ? "active" : ""}>K</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Keyframe</strong> – Animation stage in CSS...</li>
+                                        <li><strong>Keyword</strong> – Reserved word in programming...</li>
+                                        <li><strong>Kubernetes</strong> – Container orchestration tool...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="L" className={activeAlpha === "L" ? "active" : ""}>L</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Layout</strong> – Arrangement of elements...</li>
+                                        <li><strong>Library</strong> – Collection of reusable code...</li>
+                                        <li><strong>Linting</strong> – Code quality checking...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="M" className={activeAlpha === "M" ? "active" : ""}>M</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Module</strong> – Self-contained unit of code...</li>
+                                        <li><strong>Middleware</strong> – Software between OS and apps...</li>
+                                        <li><strong>Markup</strong> – Syntax for structuring text...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="N" className={activeAlpha === "N" ? "active" : ""}>N</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Node.js</strong> – JavaScript runtime on the server...</li>
+                                        <li><strong>Namespace</strong> – Container for identifiers...</li>
+                                        <li><strong>Navigation</strong> – Process of moving between pages...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="O" className={activeAlpha === "O" ? "active" : ""}>O</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Object</strong> – Data structure with properties...</li>
+                                        <li><strong>Operator</strong> – Symbol that performs an action...</li>
+                                        <li><strong>Optimization</strong> – Improving performance...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="P" className={activeAlpha === "P" ? "active" : ""}>P</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Parameter</strong> – Variable in a function definition...</li>
+                                        <li><strong>Promise</strong> – JavaScript object for async operations...</li>
+                                        <li><strong>Protocol</strong> – Rules for data exchange...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="Q" className={activeAlpha === "Q" ? "active" : ""}>Q</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Query</strong> – Request for information...</li>
+                                        <li><strong>Queue</strong> – Data structure for ordered tasks...</li>
+                                        <li><strong>QuickSort</strong> – Efficient sorting algorithm...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="R" className={activeAlpha === "R" ? "active" : ""}>R</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>React</strong> – JavaScript UI library...</li>
+                                        <li><strong>Redux</strong> – State management tool...</li>
+                                        <li><strong>Routing</strong> – Navigation handling...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="S" className={activeAlpha === "S" ? "active" : ""}>S</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>State</strong> – Data representation in apps...</li>
+                                        <li><strong>Selector</strong> – Pattern matching in CSS...</li>
+                                        <li><strong>Schema</strong> – Structure definition for data...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="T" className={activeAlpha === "T" ? "active" : ""}>T</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Template</strong> – Predefined structure...</li>
+                                        <li><strong>Token</strong> – Unit of meaning in programming...</li>
+                                        <li><strong>TypeScript</strong> – Superset of JavaScript...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="U" className={activeAlpha === "U" ? "active" : ""}>U</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>UI</strong> – User interface...</li>
+                                        <li><strong>URL</strong> – Uniform Resource Locator...</li>
+                                        <li><strong>Unicode</strong> – Character encoding standard...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="V" className={activeAlpha === "V" ? "active" : ""}>V</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Variable</strong> – Storage for data...</li>
+                                        <li><strong>Version Control</strong> – Tracking code changes...</li>
+                                        <li><strong>Viewport</strong> – Visible area of a webpage...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="W" className={activeAlpha === "W" ? "active" : ""}>W</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>WebSocket</strong> – Protocol for two-way communication...</li>
+                                        <li><strong>Widget</strong> – UI component...</li>
+                                        <li><strong>Workflow</strong> – Sequence of tasks...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="X" className={activeAlpha === "X" ? "active" : ""}>X</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>XML</strong> – Markup language for data storage...</li>
+                                        <li><strong>XSS</strong> – Cross-Site Scripting vulnerability...</li>
+                                        <li><strong>XPath</strong> – Language for navigating XML...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="Y" className={activeAlpha === "Y" ? "active" : ""}>Y</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>YAML</strong> – Human-readable data format...</li>
+                                        <li><strong>Yield</strong> – Pauses a generator function...</li>
+                                        <li><strong>Yarn</strong> – Package manager for JavaScript...</li>
+                                    </ul>
+                                </div>
+
+                                <h2 id="Z" className={activeAlpha === "Z" ? "active" : ""}>Z</h2>
+                                <div>
+                                    <ul>
+                                        <li><strong>Zip</strong> – File compression format...</li>
+                                        <li><strong>Zero-day</strong> – Newly discovered vulnerability...</li>
+                                        <li><strong>Z-index</strong> – CSS property for stacking order...</li>
+                                    </ul>
+                                </div>
+
                             </div>
 
                         </div>

@@ -710,6 +710,9 @@ button.Pokerbazzi25 {
 }
 
 @media only screen and (max-width: 575px) {
+  .DesktopLatestNews .container {
+        padding: 0 0px;
+    }
 .DesktopLatestNews ul#blogTabs li.nav-item {
     min-width: 110px;
 }
@@ -1340,13 +1343,14 @@ button.Pokerbazzi25 {
 .dictionaryPage .sidebar.RightsidebarBlog {
     display: none;
 }
-.article-content .nav {
-    gap: 12px;
-    justify-content: center;
-    max-width: 310px;
-    margin: 30px auto 20px;
-    row-gap: 12px;
-}
+    .article-content .nav {
+        gap: 12px;
+        justify-content: center;
+        max-width: 100%;
+        margin: 30px auto 20px;
+        row-gap: 12px;
+        padding: 10px 0 !important;
+    }
   .GetStartedCard .stepTitle {
     font-size: 20px;
   }
