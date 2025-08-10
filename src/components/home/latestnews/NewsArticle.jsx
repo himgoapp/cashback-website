@@ -234,8 +234,8 @@ const NewArticle = () => {
               </nav>
             </div>
           </div>
-          <div className="row">
-            <div className="col-lg-8">
+          <div className=" single-post-row">
+            <div className="single-post-left">
               <h1 className="blogHedEXtra">
                 The Impact of Technology on the Workplace: how technology is changing
               </h1>
@@ -344,17 +344,17 @@ const NewArticle = () => {
 
             </div>
 
-            <div class="col-lg-4 sidebar RightsidebarBlog">
+            <div class="single-post-right sidebar RightsidebarBlog">
               {/* <div className="SpacedicAdd"></div> */}
               <div class="card mb-3 ">
-                <div class="card-header  text-white">
+                <div class="card-header">
                   <svg xmlns="http://www.w3.org/2000/svg" width="17" height="23" viewBox="0 0 17 23" fill="none">
-                    <path d="M16.3611 12.3306C14.6175 7.81725 8.13687 7.76501 10.5946 0.441406C5.89954 2.54133 2.18127 7.94262 5.85754 15.0782C0.658248 12.9052 2.93754 7.46205 2.93754 7.46205C2.93754 7.46205 0.101562 9.19631 0.101562 14.4409C0.500698 20.2914 5.4689 22.0883 7.25451 22.3182C9.80685 22.6421 12.5693 22.1719 14.5545 20.3646C16.7393 18.3482 17.5375 15.1304 16.3611 12.3306ZM6.61384 17.5855C8.12627 17.2199 8.90355 16.1333 9.11371 15.1723C9.46021 13.6782 8.10534 12.2157 9.0191 9.85447C9.36574 11.8081 12.4538 13.0305 12.4538 15.1618C12.5378 17.805 9.6599 20.0721 6.61384 17.5855Z" fill="white" />
+                    <path d="M16.3611 12.3306C14.6175 7.81725 8.13687 7.76501 10.5946 0.441406C5.89954 2.54133 2.18127 7.94262 5.85754 15.0782C0.658248 12.9052 2.93754 7.46205 2.93754 7.46205C2.93754 7.46205 0.101562 9.19631 0.101562 14.4409C0.500698 20.2914 5.4689 22.0883 7.25451 22.3182C9.80685 22.6421 12.5693 22.1719 14.5545 20.3646C16.7393 18.3482 17.5375 15.1304 16.3611 12.3306ZM6.61384 17.5855C8.12627 17.2199 8.90355 16.1333 9.11371 15.1723C9.46021 13.6782 8.10534 12.2157 9.0191 9.85447C9.36574 11.8081 12.4538 13.0305 12.4538 15.1618C12.5378 17.805 9.6599 20.0721 6.61384 17.5855Z" fill="#000" />
                   </svg>
                   Trending
                 </div>
 
-                <div class="sidePost col-lg-12">
+                {/* <div class="sidePost col-lg-12">
                   <div class="sideImageContainer">
                     <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
                   </div>
@@ -366,54 +366,15 @@ const NewArticle = () => {
                       <p>Mar. 28, 2020</p>
                     </div>
                   </div>
-                </div>
-
+                </div> */}
                 <div class="sidePost col-lg-12">
-                  <div class="sideImageContainer">
-                    <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                  </div>
-                  <div class="sideContent">
-                    <p class="sideDescription">POKER HANDS </p>
-                    <div class="AutherINfo">
-                      <h3>NEWS</h3>
-                      <span>.</span>
-                      <p>Mar. 28, 2020</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="sidePost col-lg-12">
-                  <div class="sideImageContainer">
-                    <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                  </div>
-                  <div class="sideContent">
-                    <p class="sideDescription">POKER HANDS </p>
-                    <div class="AutherINfo">
-                      <h3>NEWS</h3>
-                      <span>.</span>
-                      <p>Mar. 28, 2020</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="sidePost col-lg-12">
-                  <div class="sideImageContainer">
-                    <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                  </div>
-                  <div class="sideContent">
-                    <p class="sideDescription">POKER HANDS </p>
-                    <div class="AutherINfo">
-                      <h3>NEWS</h3>
-                      <span>.</span>
-                      <p>Mar. 28, 2020</p>
-                    </div>
-                  </div>
-                </div>
+                  <ul class="SidepostUL"><li><a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a></li><li><a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional </a></li><li><a href="#">Experience the Serenity of Japan's Traditional</a></li><li><a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a></li></ul>
+                 </div>
               </div>
 
 
               <div class="card Offerscard mb-3 ">
-                <div class="card-header bg-dark text-white">
+                <div class="card-header ">
                   Offer for you
                 </div>
 
@@ -490,7 +451,7 @@ const NewArticle = () => {
               <div className="SpacedicAdd SpacedicAddsBAckground"></div>
 
               <div class="card  mb-3 ">
-                <div class="card-header bg-dark text-white">
+                <div class="card-header">
                   Guides
                 </div>
 
