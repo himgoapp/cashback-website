@@ -51,16 +51,16 @@ const DictionaryComponent = () => {
                                 ))}
                             </div>
                             <div className="DictionaryData">
-                                <h2 id="hash" className={activeAlpha === "#" ? "active" : ""}>#</h2>
+                                <h2 id="#" className={activeAlpha === "#" ? "active" : ""}>#</h2>
                                 <div>
-                                    
+
                                     <ul>
                                         <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
                                         <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
                                         <li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>
                                     </ul>
                                 </div>
-                                
+
                                 <h2 id="A" className={activeAlpha === "A" ? "active" : ""}>A</h2>
                                 <div>
                                     <ul>
@@ -70,7 +70,7 @@ const DictionaryComponent = () => {
                                     </ul>
                                 </div>
 
-                                <h2  id="B" className={activeAlpha === "B" ? "active" : ""}>B</h2>
+                                <h2 id="B" className={activeAlpha === "B" ? "active" : ""}>B</h2>
                                 <div>
                                     <ul>
                                         <li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li>

@@ -3807,6 +3807,20 @@ button.Pokerbazzi25 {
     width: 128px;
 }
 
+ .seeMoreOffers {
+    background: #fff;
+    border: 1px solid #FF4053;
+    border-radius: 8px;
+    padding: 0px 0px;
+    height: 45px;
+    width: 160px;
+    margin-top: 0;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #FF4053;
+    text-transform: uppercase;
+}
 /* .cursor {
   display: inline-block;
   width: 0px;
