@@ -3884,3 +3884,300 @@ button.Pokerbazzi25 {
   caret-color: transparent; /* Hide native caret */
 }
 
+
+
+.ReviewHeader {
+    background: url(../Review/BigCashReview.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    gap: 91px;
+    padding: 40px 62px;
+    overflow: hidden;
+}
+ .ReviewHeader  .left {
+    flex: 1;
+  }
+.ReviewHeader   .logo {
+    font-size: 28px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+.ReviewHeader .offer
+ {
+    margin-top: 35px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex
+;
+    align-items: center;
+    gap: 6px;
+}
+.ReviewHeader   .offer span {
+    font-size: 24px;
+    font-weight: bold;
+  }
+.ReviewHeader .join-btn {
+    background-color: #FF4053;
+    color: white;
+    padding: 12px 19px;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    margin-top: 19px;
+    cursor: pointer;
+    font-weight: bolder;
+}
+  .ReviewHeader .middle {
+    flex: 1;
+  }
+.ReviewHeader .middle h3
+ {
+    margin-bottom: 26px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.ReviewHeader .rating strong
+ {
+    font-size: 20px;
+    font-weight: bold;
+}
+.ReviewHeader   .checklist {
+    list-style: none;
+    padding: 0;
+  }
+.ReviewHeader .checklist li {
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+  .ReviewHeader .right {
+    flex: 1;
+  }
+.ReviewHeader .rating
+ {
+    display: flex
+;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 26px;
+    justify-content: space-between;
+}
+  .ReviewHeader .stars {
+    color: gold;
+  }
+  .ReviewHeader .rating-bars {
+    margin-top: 0;
+  }
+.ReviewHeader .rating-item
+ {
+    margin-bottom: 14px;
+    display: flex
+;
+    flex-direction: column;
+    gap: 4px;
+}
+  .RatingLabel {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: bold;
+}
+.ReviewHeader .rating-item:last-child {
+    margin: 0;
+}
+.RatingLabel span
+ {
+    font-weight: 500;
+}
+  /* Slider style */
+  .ReviewHeader input[type="range"] {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 8px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+  }
+  .ReviewHeader input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+  .ReviewHeader input[type="range"]::-webkit-slider-runnable-track {
+    height: 8px;
+    border-radius: 4px;
+    background: linear-gradient(to right, #28A745 var(--fill, 90%), transparent 0%);
+  }
+
+  .ReviewTaggingTab {
+    padding: 60px 24px 24px;
+}
+.ReviewTaggingTab ul.nav.TabUI {
+    display: flex
+;
+    gap: 8px;
+    border: none;
+}
+.ReviewTaggingTab ul.nav.TabUI li.nav-item button.nav-link {
+    background: #EFEFEF;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000000;
+    border-radius: 4px;
+    width: 140px;
+    height: 44px;
+    border: none;
+}
+.ReviewTaggingTab ul.nav.TabUI li.nav-item button.nav-link.active {
+    background: #FF4053;
+    color: #fff;
+}
+.ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link
+ {
+    background: transparent;
+}
+.ReviewTaggingTab ul.nav.ReviewUITab {
+    display: flex;
+    gap: 50px;
+    flex-wrap: nowrap;
+    overflow: auto;
+    padding: 0 24px !important;
+    border-top: 1px solid #84848445;
+    border-bottom: 1px solid #84848445;
+    margin-bottom: 60px;
+}
+.ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link {
+    width: auto;
+    padding: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #848484;
+    border-radius: 0px;
+}
+.ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link.active {
+    color: #FF4053;
+    border-bottom: 2px solid #FF4053;
+}
+.ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link.active svg path {
+    stroke: #FF4053;
+}
+.ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link svg {
+    margin-bottom: 3px;
+    margin-right: 2px;
+}
+.ReviewTaggingTab .single-post-left {
+    flex-basis: calc(100% - 396px);
+    width: calc(100% - 396px);
+}
+.ReviewTaggingTab .single-post-row
+ {
+    gap: 36px;
+}
+.ProsCons .card {
+    border-radius: 8px;
+    padding: 0;
+}
+.ProsCons .pros-title, .ProsCons .cons-title {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+    background: #EFEFEF;
+    height: 40px;
+    line-height: 40px;
+    color: #000;
+}
+.ProsCons .list-item i {
+    font-size: 1.2rem;
+}
+.ProConData {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px 16px;
+    font-size: 14px;
+    min-height: 262px;
+}
+.ProsCons .list-item {
+    display: flex
+;
+    gap: 12px;
+    flex-direction: row;
+}
+.ProsCons .list-item svg {
+    width: 16px;
+    height: 16px;
+    min-width: 16px;
+    margin-top: 2px;
+}
+.ReviewTaggingTab .article-content ul li {
+    margin-bottom: 15px;
+}
+.ReviewTaggingTab h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.dictionaryPage .ReviewTaggingTab p {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.ReviewTaggingTab h4 {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.ProsCons {
+    margin-bottom: 15px;
+}
+.custom-table {
+    border-radius: 0px;
+    overflow: hidden;
+}
+.custom-table th
+ {
+    background-color: #EFEFEF;
+    font-weight: bold;
+    height: 64px;
+    
+    color: #000;
+}
+
+.custom-table th, .custom-table td {
+    vertical-align: middle;
+    height: 64px;
+    border-bottom: 1px solid #d7d5d5;
+    padding: 0 16px;
+    font-size: 14px;
+    color: #333;
+}
+.table.custom-table > :not(:last-child) > :last-child > * {
+    border-bottom-color: #d7d5d5;
+}
+.customTableResponsive {
+    border: 3px solid #efefef;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+.ReviewTaggingTab .single-post-row {
+    margin-bottom: 0;
+}
+.ReviewPAge .BlogBottomNewSectionRow{
+        margin-top: 0;
+}
+.single-post-row.Dictionaryrow.taggingTab
+ {
+    margin-top: 50px;
+}
