@@ -2836,10 +2836,17 @@ a.small.seeMOre {
     margin-bottom: 48px !important;
     overflow: auto;
     flex-wrap: nowrap;
+    gap: 40px;
+    justify-content: space-between;
+    padding: 0 40px;
 }
-.DesktopLatestNews ul#blogTabs li.nav-item
- {
-    min-width: 140px;
+.DesktopLatestNews ul#blogTabs li.nav-item {
+    min-width: unset;
+    display: flex
+;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
 }
 .DesktopLatestNews .nav-pills .nav-link.active
  {

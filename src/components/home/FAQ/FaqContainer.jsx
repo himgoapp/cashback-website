@@ -30,6 +30,9 @@ import WithdrawalsRED from "../../../assets/FAQ/WITHDRAWAL_FAQRed.svg"
 import IDTaggingRED from "../../../assets/FAQ/IDTAG_FAQRed.svg"
 import ContactUsRED from "../../../assets/FAQ/ContactUs_FAQRed.svg"
 
+import Customer from "../../../assets/FAQ/customer.png"
+
+
 const faqData = {
   kyc: [
     {
@@ -231,7 +234,7 @@ const tabs = [
   { id: "TDS", title: "TDS", icon: TDS, activeIcon: TDSRED },
   { id: "withdrawals", title: "Withdrawals", icon: Withdrawals, activeIcon: WithdrawalsRED },
   { id: "idTagging", title: "ID Tagging", icon: IDTagging, activeIcon: IDTaggingRED },
-  { id: "contactus", title: "Contact Us", icon: ContactUs, activeIcon: ContactUsRED },
+  // { id: "contactus", title: "Contact Us", icon: ContactUs, activeIcon: ContactUsRED },
 ];
 
 const FaqContainer = () => {
@@ -270,10 +273,10 @@ const FaqContainer = () => {
         link={`https://www.rakebackk.com`}
       />
 
-      <div className="container-fluid faqcontainer">
+      <div className="container-fluid faqcontainer ">
         <div className="container">
           <div className="row justify-content-center">
-            <div className="col-lg-9 col-md-12">
+            <div className="col-lg-12 col-md-12">
               <div className={styles.hero_section}>
                 <div className={styles.hero_content}>
                   <h1 className={styles.hero_title}>Frequently Asked Questions</h1>
@@ -290,6 +293,33 @@ const FaqContainer = () => {
               </div>
 
               <div className={styles.main_container}>
+                <div className={styles.MobileShow }>
+                  <div className={styles.ReachUs}>
+                        <h3>Reach Us</h3>
+                        <a href="#">
+                          <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_6604_28001)">
+                            <circle cx="14.5" cy="14.3242" r="11" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 0.783203C10.0522 0.783203 6.74558 2.15284 4.30761 4.59082C1.86964 7.02879 0.5 10.3354 0.5 13.7832C0.5 17.231 1.86964 20.5376 4.30761 22.9756C6.74558 25.4136 10.0522 26.7832 13.5 26.7832C16.9478 26.7832 20.2544 25.4136 22.6924 22.9756C25.1304 20.5376 26.5 17.231 26.5 13.7832C26.5 10.3354 25.1304 7.02879 22.6924 4.59082C20.2544 2.15284 16.9478 0.783203 13.5 0.783203ZM7.393 9.7912H19.617L13.507 14.6382L7.393 9.7912ZM6.516 10.3732L13.201 15.6702C13.2893 15.74 13.3985 15.7779 13.511 15.7779C13.6235 15.7779 13.7327 15.74 13.821 15.6702L20.486 10.3772V18.7752H6.516V10.3732Z" fill="#EBEBEB"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_6604_28001">
+                            <rect width="26" height="26" fill="white" transform="translate(0.5 0.783203)"/>
+                            </clipPath>
+                            </defs>
+                          </svg>
+                          support@rakebackk.com
+                        </a>
+                        <div className={styles.ReachUsBtn}>
+                            <button> <img src={Customer} /></button>
+                            <button> 
+                              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="29" viewBox="0 0 28 29" fill="none">
+                                <path d="M0.613281 28.2603L2.53748 21.2307C1.35011 19.1731 0.726201 16.8405 0.727342 14.4487C0.730764 6.97088 6.8159 0.885742 14.2926 0.885742C17.9208 0.886883 21.3267 2.30009 23.8885 4.86418C26.4492 7.42826 27.8589 10.8364 27.8578 14.4612C27.8544 21.9402 21.7692 28.0253 14.2926 28.0253C12.0228 28.0242 9.78604 27.455 7.8048 26.3737L0.613281 28.2603ZM8.13786 23.918C10.0495 25.0529 11.8745 25.7327 14.288 25.7338C20.502 25.7338 25.564 20.6764 25.5675 14.459C25.5697 8.22896 20.5317 3.17836 14.2971 3.17608C8.07855 3.17608 3.01996 8.23353 3.01768 14.4498C3.01654 16.9877 3.76021 18.8879 5.00918 20.876L3.86971 25.0369L8.13786 23.918ZM21.1259 17.6857C21.0415 17.5443 20.8157 17.4599 20.4758 17.2899C20.137 17.12 18.4706 16.2999 18.1592 16.187C17.849 16.0741 17.6231 16.017 17.3962 16.3569C17.1703 16.6957 16.5202 17.4599 16.3228 17.6857C16.1255 17.9116 15.9271 17.9401 15.5883 17.7701C15.2495 17.6002 14.1568 17.2432 12.8623 16.0877C11.8551 15.1889 11.1742 14.0791 10.9768 13.7392C10.7795 13.4005 10.9563 13.2168 11.1251 13.048C11.2779 12.8963 11.4639 12.6522 11.6338 12.4538C11.806 12.2576 11.8619 12.1162 11.976 11.8892C12.0889 11.6633 12.033 11.4649 11.9475 11.2949C11.8619 11.1261 11.1844 9.4574 10.9027 8.77874C10.6267 8.11833 10.3472 8.20729 10.1396 8.19703L9.48948 8.18562C9.26364 8.18562 8.89636 8.27003 8.58612 8.60993C8.27587 8.94983 7.39989 9.76878 7.39989 11.4375C7.39989 13.1062 8.61463 14.7179 8.78344 14.9437C8.95339 15.1696 11.173 18.5937 14.5732 20.0616C15.3818 20.4106 16.0137 20.6194 16.5053 20.7756C17.3175 21.0334 18.0566 20.9969 18.6406 20.9102C19.2918 20.8133 20.6457 20.0901 20.9286 19.2985C21.2115 18.5058 21.2115 17.8272 21.1259 17.6857Z" fill="#FF4053"/>
+                              </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
                 <div className={styles.faq_container}>
                   <div className={`${styles.tabs_container} ${animateTab ? styles.fade : ''}`}>
                     <div className={styles.tabs}>
@@ -324,6 +354,32 @@ const FaqContainer = () => {
                           </div>
                         </div>
                       ))}
+                    </div>
+
+                    <div className={styles.ReachUs}>
+                        <h3>Reach Us</h3>
+                        <a href="#">
+                          <svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_6604_28001)">
+                            <circle cx="14.5" cy="14.3242" r="11" fill="black"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 0.783203C10.0522 0.783203 6.74558 2.15284 4.30761 4.59082C1.86964 7.02879 0.5 10.3354 0.5 13.7832C0.5 17.231 1.86964 20.5376 4.30761 22.9756C6.74558 25.4136 10.0522 26.7832 13.5 26.7832C16.9478 26.7832 20.2544 25.4136 22.6924 22.9756C25.1304 20.5376 26.5 17.231 26.5 13.7832C26.5 10.3354 25.1304 7.02879 22.6924 4.59082C20.2544 2.15284 16.9478 0.783203 13.5 0.783203ZM7.393 9.7912H19.617L13.507 14.6382L7.393 9.7912ZM6.516 10.3732L13.201 15.6702C13.2893 15.74 13.3985 15.7779 13.511 15.7779C13.6235 15.7779 13.7327 15.74 13.821 15.6702L20.486 10.3772V18.7752H6.516V10.3732Z" fill="#EBEBEB"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_6604_28001">
+                            <rect width="26" height="26" fill="white" transform="translate(0.5 0.783203)"/>
+                            </clipPath>
+                            </defs>
+                          </svg>
+                          support@rakebackk.com
+                        </a>
+                        <div className={styles.ReachUsBtn}>
+                            <button> <img src={Customer} /></button>
+                            <button> 
+                              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="29" viewBox="0 0 28 29" fill="none">
+                                <path d="M0.613281 28.2603L2.53748 21.2307C1.35011 19.1731 0.726201 16.8405 0.727342 14.4487C0.730764 6.97088 6.8159 0.885742 14.2926 0.885742C17.9208 0.886883 21.3267 2.30009 23.8885 4.86418C26.4492 7.42826 27.8589 10.8364 27.8578 14.4612C27.8544 21.9402 21.7692 28.0253 14.2926 28.0253C12.0228 28.0242 9.78604 27.455 7.8048 26.3737L0.613281 28.2603ZM8.13786 23.918C10.0495 25.0529 11.8745 25.7327 14.288 25.7338C20.502 25.7338 25.564 20.6764 25.5675 14.459C25.5697 8.22896 20.5317 3.17836 14.2971 3.17608C8.07855 3.17608 3.01996 8.23353 3.01768 14.4498C3.01654 16.9877 3.76021 18.8879 5.00918 20.876L3.86971 25.0369L8.13786 23.918ZM21.1259 17.6857C21.0415 17.5443 20.8157 17.4599 20.4758 17.2899C20.137 17.12 18.4706 16.2999 18.1592 16.187C17.849 16.0741 17.6231 16.017 17.3962 16.3569C17.1703 16.6957 16.5202 17.4599 16.3228 17.6857C16.1255 17.9116 15.9271 17.9401 15.5883 17.7701C15.2495 17.6002 14.1568 17.2432 12.8623 16.0877C11.8551 15.1889 11.1742 14.0791 10.9768 13.7392C10.7795 13.4005 10.9563 13.2168 11.1251 13.048C11.2779 12.8963 11.4639 12.6522 11.6338 12.4538C11.806 12.2576 11.8619 12.1162 11.976 11.8892C12.0889 11.6633 12.033 11.4649 11.9475 11.2949C11.8619 11.1261 11.1844 9.4574 10.9027 8.77874C10.6267 8.11833 10.3472 8.20729 10.1396 8.19703L9.48948 8.18562C9.26364 8.18562 8.89636 8.27003 8.58612 8.60993C8.27587 8.94983 7.39989 9.76878 7.39989 11.4375C7.39989 13.1062 8.61463 14.7179 8.78344 14.9437C8.95339 15.1696 11.173 18.5937 14.5732 20.0616C15.3818 20.4106 16.0137 20.6194 16.5053 20.7756C17.3175 21.0334 18.0566 20.9969 18.6406 20.9102C19.2918 20.8133 20.6457 20.0901 20.9286 19.2985C21.2115 18.5058 21.2115 17.8272 21.1259 17.6857Z" fill="#FF4053"/>
+                              </svg>
+                            </button>
+                        </div>
                     </div>
                   </div>
 
@@ -366,14 +422,12 @@ const FaqContainer = () => {
             </div>
           </div>
 
-          <div className="row  justify-content-center GetINtouchHed">
-            <div className="col-lg-9 text-left">
+          {/* <div className="row  justify-content-center GetINtouchHed">
+            <div className="col-lg-12 text-left">
               <div className={styles.hero_section}>
                 <div className={styles.hero_content}>
                   <h1 className={styles.GetINtouchHedhero_title}>Get in touch</h1>
-                  {/* <div className={styles.hero_subtitle}>
-                            Find answers to your most important questions about our platform
-                          </div> */}
+                  
                 </div>
               </div>
               <div className="col-lg-12 ">
@@ -402,7 +456,7 @@ const FaqContainer = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
       <NewsletterSubscription></NewsletterSubscription>
