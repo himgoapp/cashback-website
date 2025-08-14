@@ -1690,8 +1690,11 @@ padding-left: 46px;
  {
     display: none !important;
 }
+.iosdevice .MobileViewLogin .videoContainerhide img.LogoIcon {
+  margin: 120px auto 16px !important;
+}
 .MobileViewLogin .videoContainerhide img.LogoIcon {
-  margin: 90px auto 16px !important;
+  margin: 0px auto 16px !important;
 }
 .videoContainermain img.LogoIcon {
     margin: -41px auto 0;

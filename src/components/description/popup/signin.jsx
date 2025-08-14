@@ -39,6 +39,16 @@ const FullPageSignin = () => {
   }
 
   useEffect(() => {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
+    if (isIOS) {
+      document.body.classList.add("iosdevice");
+    } else {
+      document.body.classList.remove("iosdevice");
+    }
+  }, []);
+
+  useEffect(() => {
     if (showOtpPart && otpInputRefs.current[0]) {
       otpInputRefs.current[0].current.focus();
     }
