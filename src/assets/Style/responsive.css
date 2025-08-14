@@ -761,8 +761,10 @@ padding-left: 46px;
 .BlogDashboard ul.nav.nav-pills {
     display: flex;
     flex-wrap: nowrap;
-    overflow: scroll;
+    overflow-x: scroll;
+    flex-direction: row;
     gap: 8px;
+     scrollbar-width: none;
 }
 .HottestDealsDesc .card-subtitle {
     font-size: 8px;
@@ -1288,7 +1290,7 @@ padding-left: 46px;
         display: flex;
         flex-wrap: nowrap;
         flex-direction: row;
-        scrollbar-width: thin;
+        /* scrollbar-width: thin; */
         justify-content: flex-start;
         gap: 44px;
         padding: 5px 20px 5px;
