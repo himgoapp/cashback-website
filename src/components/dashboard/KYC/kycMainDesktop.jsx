@@ -9,6 +9,7 @@ import { addPanCard, sendAadhaarCardOtp, verifyAadhaarCardOtp, addBankDetails } 
 import KYCPan from "../../../assets/KYC/KYCPan.svg"
 import KYCAadhaar from "../../../assets/KYC/KYCAadhaar.svg"
 import KYCBank from "../../../assets/KYC/KYCBank.svg"
+import Loading from "../../common/Loading/Loading";
 
 const KycMain = () => {
   const {
@@ -26,12 +27,14 @@ const KycMain = () => {
   const [panError, setPanError] = useState("");
   const [panExtended, setPanExtended] = useState(false);
   const [aadhaarExtended, setaadhaarExtended] = useState(false);
-  const [bankExtended, setbankExtended] = useState(false)
+  const [bankExtended, setbankExtended] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   // Aadhaar inputs
   const [aadhaarNumber, setAadhaarNumber] = useState(["", "", ""]);
   const [aadhaarOtp, setAadhaarOtp] = useState(["", "", "", "", "", ""]);
   const [aadhaarRequestId, setAadhaarRequestId] = useState(null);
+  const [aadhaarOtpSend, setAadhaarOtpSend] = useState(false);
   const [aadhaarError, setAadhaarError] = useState("");
 
   // Bank inputs
@@ -85,6 +88,7 @@ const KycMain = () => {
 
   const handlePanVerify = async () => {
     setPanError("");
+    setLoading(true);
     try {
       const payload = {
         userId: userData._id,
@@ -102,13 +106,12 @@ const KycMain = () => {
     } catch (err) {
       setPanError("PAN verification failed. Please check your details.");
     }
+    setLoading(false);
   };
 
   const handleSendAadhaarOtp = async () => {
     setAadhaarError("");
     try {
-
-
       const payload = {
         userId: userData._id,
         aadhaarNumber: aadhaarNumber.join(""),
@@ -117,6 +120,7 @@ const KycMain = () => {
       if (res.status === false) {
         setAadhaarError(res.message);
       } else {
+        setAadhaarOtpSend(true);
         setAadhaarRequestId(res.requestId);
       }
     } catch (err) {
@@ -125,12 +129,14 @@ const KycMain = () => {
   };
 
   const handleVerifyAadhaarOtp = async () => {
+    setLoading(true);
     try {
       const payload = {
         userId: userData._id,
         requestId: aadhaarRequestId,
         otp: aadhaarOtp.join(""),
       };
+
       let res = await verifyAadhaarCardOtp(payload);
       if (res.status === false) {
         setAadhaarError(res.message);
@@ -141,10 +147,12 @@ const KycMain = () => {
     } catch (err) {
       setAadhaarError("Invalid OTP. Please try again.");
     }
+    setLoading(false);
   };
 
   const handleBankVerify = async () => {
     setBankError("");
+    setLoading(true);
     try {
       const payload = {
         userId: userData._id,
@@ -162,6 +170,7 @@ const KycMain = () => {
     } catch (err) {
       setBankError("Bank verification failed. Please check your details.");
     }
+    setLoading(false);
   };
 
   const formatAadhaar = (str) => {
@@ -209,36 +218,42 @@ const KycMain = () => {
                   <div className="FormIcon">
                     <img src={KYCPan} />
                   </div>
-                  <div className={userKyc && userKyc.pan && userKyc.pan.verified ? "form-row VerifiedPanMAindiv" : "form-row"}>
-                    {step === 1 && panError.length === 0 && <div className="form-row">
-                      <input type="text" className="form-control" placeholder="Name as per PAN" value={panName} onChange={e => setPanName(e.target.value)} />
-                      <input type="text" className="form-control" placeholder="PAN" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
+                  {step === 1 && loading && <Loading size="md" />}
+                  {!loading && <>
+                    <div className={userKyc && userKyc.pan && userKyc.pan.verified ? "form-row VerifiedPanMAindiv" : "form-row"}>
+                      {step === 1 && panError.length === 0 && <div className="form-row">
+                        <input type="text" className="form-control" placeholder="Name as per PAN" value={panName} onChange={e => setPanName(e.target.value)} />
+                        <input type="text" className="form-control" placeholder="PAN" value={panNumber} onChange={e => setPanNumber(e.target.value)} />
+                      </div>}
+                      {userKyc && userKyc.pan && userKyc.pan.verified && userKyc.pan.documentName && <div className="VerifiedPan">
+                        {userKyc.pan.documentName}
+                      </div>}
+                      {panError && panError.length > 0 && <div className="NotMatchPan">
+                        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28Z" fill="#DC3545" />
+                          <path d="M8.98438 8.98633L19.3547 19.3567" stroke="white" stroke-width="2.83951" stroke-linecap="round" />
+                          <path d="M19.3672 8.98633L8.99682 19.3567" stroke="white" stroke-width="2.83951" stroke-linecap="round" />
+                        </svg>
+                        PAN details did not match
+                      </div>}
+                    </div>
+
+
+                    {step === 1 && panError.length === 0 && <div className="KYCBTNForm">
+                      <button className="formButton" onClick={handlePanVerify} disabled={!panName.trim() || !panNumber.trim()} >Verify</button>
                     </div>}
-                    {userKyc && userKyc.pan && userKyc.pan.verified && userKyc.pan.documentName && <div className="VerifiedPan">
-                      {userKyc.pan.documentName}
-                    </div>}
-                    {panError && panError.length > 0 && <div className="NotMatchPan">
-                      <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M14 28C21.732 28 28 21.732 28 14C28 6.26801 21.732 0 14 0C6.26801 0 0 6.26801 0 14C0 21.732 6.26801 28 14 28Z" fill="#DC3545" />
-                        <path d="M8.98438 8.98633L19.3547 19.3567" stroke="white" stroke-width="2.83951" stroke-linecap="round" />
-                        <path d="M19.3672 8.98633L8.99682 19.3567" stroke="white" stroke-width="2.83951" stroke-linecap="round" />
+                    {userKyc && userKyc.pan && userKyc.pan.verified && <div className="KYCBTNForm Verified">
+                      <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.4062 1.98145C24.7006 1.98145 31.4248 8.70569 31.4248 17C31.4248 25.2943 24.7006 32.0186 16.4062 32.0186C8.11194 32.0186 1.3877 25.2943 1.3877 17C1.3877 8.70569 8.11194 1.98145 16.4062 1.98145Z" fill="#28A745" stroke="white" stroke-width="2.03636" />
+                        <path d="M12.9508 22.9997L8.95151 19.0244C8.51983 18.5973 8.51983 17.8778 8.92992 17.4282C9.34001 16.9786 10.0307 16.9786 10.4624 17.4057L10.4839 17.4282L13.7278 20.6166L21.8703 12.2385C22.2804 11.7889 22.9711 11.7889 23.4028 12.216C23.8345 12.6432 23.8345 13.3626 23.4244 13.8123L23.4028 13.8348L14.5048 22.9997C14.0515 23.4493 13.3825 23.4493 12.9508 22.9997Z" fill="white" />
                       </svg>
-                      PAN details did not match
+                      Verified
                     </div>}
-                  </div>
-                  {step === 1 && panError.length === 0 && <div className="KYCBTNForm">
-                    <button className="formButton" onClick={handlePanVerify}>Verify</button>
-                  </div>}
-                  {userKyc && userKyc.pan && userKyc.pan.verified && <div className="KYCBTNForm Verified">
-                    <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M16.4062 1.98145C24.7006 1.98145 31.4248 8.70569 31.4248 17C31.4248 25.2943 24.7006 32.0186 16.4062 32.0186C8.11194 32.0186 1.3877 25.2943 1.3877 17C1.3877 8.70569 8.11194 1.98145 16.4062 1.98145Z" fill="#28A745" stroke="white" stroke-width="2.03636" />
-                      <path d="M12.9508 22.9997L8.95151 19.0244C8.51983 18.5973 8.51983 17.8778 8.92992 17.4282C9.34001 16.9786 10.0307 16.9786 10.4624 17.4057L10.4839 17.4282L13.7278 20.6166L21.8703 12.2385C22.2804 11.7889 22.9711 11.7889 23.4028 12.216C23.8345 12.6432 23.8345 13.3626 23.4244 13.8123L23.4028 13.8348L14.5048 22.9997C14.0515 23.4493 13.3825 23.4493 12.9508 22.9997Z" fill="white" />
-                    </svg>
-                    Verified
-                  </div>}
-                  {panError && panError.length > 0 && <div className="KYCBTNForm Reverify">
-                    <button className="formButton" onClick={() => setPanError("")}>Re-Verify</button>
-                  </div>}
+                    {panError && panError.length > 0 && <div className="KYCBTNForm Reverify">
+                      <button className="formButton" onClick={() => setPanError("")}>Re-Verify</button>
+                    </div>}
+                  </>
+                  }
                 </div>
               </div>
             </div>
@@ -272,12 +287,13 @@ const KycMain = () => {
                       {step === 2 && aadhaarError.length === 0 && <div className="form-row">
                         <input type="text" className="form-control  KYCAdhar" value={userKyc?.userName} disabled={true} />
                       </div>}
-                      {step === 2 && aadhaarError.length === 0 && (
+                      {step === 2 && loading && <Loading size="md" />}
+                      {step === 2 && aadhaarError.length === 0 && !loading && (
                         <>
                           <div className="form-group">
                             <label className="card_number">Enter AADHAAR number</label>
                             <div className="AddhaarNumberField">
-                              {aadhaarNumber.map((num, index) => {
+                              {/* {aadhaarNumber.map((num, index) => {
                                 // Create the masked Aadhaar block
                                 let maskedChars = (num + "____").slice(0, 4).split("");
 
@@ -314,7 +330,21 @@ const KycMain = () => {
                                     />
                                   </div>
                                 );
-                              })}
+                              })} */}
+                              {aadhaarNumber.map((num, index) => (
+                                <input
+                                  key={index}
+                                  type="text"
+                                  inputMode="numeric"
+                                  maxLength="4"
+                                  placeholder="_ _ _ _"
+                                  className="form-control"
+                                  value={num}
+                                  onChange={(e) => handleInputChange(e, index, "aadhaar")}
+                                  onKeyDown={(e) => handleKeyDown(e, index, "aadhaar")}
+                                  ref={(el) => (aadhaarRefs.current[index] = el)}
+                                />
+                              ))}
                               <button
                                 className="formButton KYCSendOTP"
                                 onClick={handleSendAadhaarOtp}
@@ -339,6 +369,7 @@ const KycMain = () => {
                                   onChange={(e) => handleInputChange(e, index, "otp")}
                                   onKeyDown={(e) => handleKeyDown(e, index, "otp")}
                                   ref={(el) => (otpRefs.current[index] = el)}
+                                  disabled={!aadhaarOtpSend}
                                 />
                               ))}
                             </div>
@@ -361,8 +392,8 @@ const KycMain = () => {
                       Aadhar verification failed
                     </div>}
                   </div>
-                  {step === 2 && aadhaarError.length === 0 && <div className="KYCBTNForm">
-                    <button className="formButton" onClick={handleVerifyAadhaarOtp}>Verify</button>
+                  {step === 2 && aadhaarError.length === 0 && !loading && <div className="KYCBTNForm">
+                    <button className="formButton" onClick={handleVerifyAadhaarOtp} >Verify</button>
 
                   </div>}
                   {userKyc && userKyc.aadhaar && userKyc.aadhaar.verified && <div className="KYCBTNForm Verified">
@@ -435,7 +466,8 @@ const KycMain = () => {
                     {step === 3 && bankError.length === 0 && <div className="form-row">
                       <input type="text" className="form-control  KYCAdhar" value={userKyc?.userName} disabled={true} />
                     </div>}
-                    {step === 3 && bankError.length === 0 && <div className="form-row">
+                    {step === 3 && loading && <Loading size="md" />}
+                    {step === 3 && bankError.length === 0 && !loading && <div className="form-row">
                       <input type="text" className="form-control" placeholder="Account Number" value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
                       <input type="text" className="form-control" placeholder="IFSC Code" value={ifscCode} onChange={e => setIfscCode(e.target.value)} />
                     </div>}
@@ -451,8 +483,8 @@ const KycMain = () => {
                       Bank details did not match
                     </div>}
                   </div>
-                  {step === 3 && bankError.length === 0 && <div className="KYCBTNForm">
-                    <button className="formButton" onClick={handleBankVerify}>Verify</button>
+                  {step === 3 && bankError.length === 0 && !loading && <div className="KYCBTNForm">
+                    <button className="formButton" onClick={handleBankVerify} disabled={!ifscCode.trim() || !accountNumber.trim()}>Verify</button>
                   </div>}
                   {userKyc && userKyc.bank && userKyc.bank.verified && <div className="KYCBTNForm Verified">
                     <svg width="33" height="34" viewBox="0 0 33 34" fill="none" xmlns="http://www.w3.org/2000/svg">

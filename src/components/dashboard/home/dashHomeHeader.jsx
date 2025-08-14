@@ -48,7 +48,7 @@ const DashboardHomeHeader = () => {
       return (amount / 100000).toFixed(2).replace(/\.00$/, "") + " L";
     } else if (amount >= 1000) {
       // Format with commas for thousands
-      return amount.toLocaleString("en-IN");
+      return (amount / 1000).toFixed(2).replace(/\.00$/, "") + " K";
     } else {
       return amount.toString();
     }
