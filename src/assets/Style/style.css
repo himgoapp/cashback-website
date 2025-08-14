@@ -1327,7 +1327,7 @@ right: 8px
     z-index: 2;
     width: 22px;
     height: 22px;
-    border: 1px solid;
+    border: 1px solid #000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2002,9 +2002,10 @@ a.small.seeMOre {
     font-weight: bold;
         margin-right: 5px;
 }
-.LatestNewsDsgTxt p.small {
+.LatestNewsDsgTxt p.small
+ {
     font-size: 12px;
-    margin: 0;
+    margin: 0 0 8px;
 }
 .LastTransactionTable .table > :not(:last-child) > :last-child > *
  {
@@ -3290,6 +3291,34 @@ a.small.seeMOre {
     border-radius: 8px;
     padding: 18px 20px;
 }
+.NewsChildpAge.DesktopLatestNews .tag-container {
+    background-color: #fff;
+    border: 3px solid #CDCDCD;
+    border-radius: 8px;
+    padding: 18px 20px;
+    display: flex
+;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+}
+.NewsChildpAge.DesktopLatestNews .tag-container strong.d-block
+ {
+    margin: 0;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .LatestNewsDsgTxt .SliderFooter button.Pokerbazzi25 {
+    border: 1px dashed #9898988c;
+    color: #000;
+    font-weight: 600;
+    font-size: 10.23px;
+    background: #F0F0F0;
+}
+
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .LatestNewsDsgTxt .SliderFooter button.Pokerbazzi25 span {
+    font-size: 6px;
+    font-weight: bold;
+    color: #606060;
+}
 .tagBtn .badge-custom {
     background-color: #fff;
     color: #FF4053;
@@ -3726,17 +3755,20 @@ button.Pokerbazzi25 {
     display: none;
 }
 
-
-.single-post-row {
-    display: flex;
-    gap: 80px;
+.single-post-row
+ {
+    display: flex
+;
+    gap: 36px;
     margin-bottom: 56px;
     padding-top: 0px;
     width: 100%;
 }
 .single-post-left {
-    flex: 0 0 calc(100% - 440px);
-    width: calc(100% - 440px);
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: calc(100% - 396px);
+    width: calc(100% - 396px);
 }
 .single-post-right
  {
@@ -3922,6 +3954,7 @@ button.Pokerbazzi25 {
 .ReviewHeader   .offer span {
     font-size: 24px;
     font-weight: bold;
+    color: #fff;
   }
 .ReviewHeader .join-btn {
     background-color: #FF4053;
@@ -3996,9 +4029,9 @@ button.Pokerbazzi25 {
 .ReviewHeader .rating-item:last-child {
     margin: 0;
 }
-.RatingLabel span
- {
+.RatingLabel span {
     font-weight: 500;
+    color: #fff;
 }
   /* Slider style */
   .ReviewHeader input[type="range"] {
@@ -4108,7 +4141,7 @@ button.Pokerbazzi25 {
     gap: 14px;
     padding: 24px 16px;
     font-size: 14px;
-    min-height: 262px;
+    min-height: 192px;
 }
 .ProsCons .list-item {
     display: flex
@@ -4180,4 +4213,54 @@ button.Pokerbazzi25 {
 .single-post-row.Dictionaryrow.taggingTab
  {
     margin-top: 50px;
+}
+.single-post-right.sidebar.RightsidebarBlog.RetagRightsideba .card-header {
+    background: transparent;
+    font-size: 18px;
+    color: #FF4053;
+    padding: 11px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog.RetagRightsideba .card {
+    box-shadow: unset;
+    border: 3px solid #EBEBEB;
+    border-radius: 12px;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostGI
+ {
+    flex-wrap: wrap;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostGI div {
+    flex: 1;
+    flex-basis: 48%;
+    background: #F9F9F9;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 9px;
+    padding: 10px;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostGI div ul.SidepostUL
+ {
+    gap: 9px;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+.RetagRightsideba .card .sidePost.sidePostGI div span {
+    font-size: 12px;
+    color: #606060;
+      margin: 0;
+}
+.RetagRightsideba .card .sidePost.sidePostGI div p {
+    font-size: 14px;
+    color: #000000;
+    font-weight: bold;
+      margin: 0;
 }

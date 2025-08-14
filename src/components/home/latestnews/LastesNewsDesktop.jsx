@@ -311,7 +311,11 @@ const LatestNewsDesktop = ({ userData }) => {
                                     </div>
 
                                     <div class="custom-pagination">
-                                        <button class="page-btn prev">&lt;</button>
+                                        <button class="page-btn prev">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                                                <path d="M8.07812 0.710938L1.07812 7.71094L8.07812 14.7109" stroke="black" stroke-width="1.5" stroke-linejoin="round"/>
+                                            </svg>
+                                        </button>
                                         <a href="#" class="page-number active">1</a>
                                         <a href="#" class="page-number">2</a>
                                         <a href="#" class="page-number">3</a>
@@ -319,7 +323,11 @@ const LatestNewsDesktop = ({ userData }) => {
                                         <a href="#" class="page-number">11</a>
                                         <a href="#" class="page-number">12</a>
                                         <a href="#" class="page-number">13</a>
-                                        <button class="page-btn next">&gt;</button>
+                                        <button class="page-btn next">
+                                            <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M1.07812 0.710938L8.07812 7.71094L1.07812 14.7109" stroke="black" stroke-width="1.5" stroke-linejoin="round"/>
+                                            </svg>
+                                        </button>
                                     </div>
                                 </div>
 

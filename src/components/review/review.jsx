@@ -5,9 +5,13 @@ import FeaturedCardImage from "../../assets/Logos_and_illustration/FeaturedCardI
 import Promotion from "../../assets/Promotion.jpg"
 import BigCashLogo from "../../assets/Review/BigCashWhite.png"
 
-
+import FaqSectionHeart from "../../assets/Logos_and_illustration/FaqSectionHeart.svg"
+import Plus from "../../assets/Logos_and_illustration/Plus.svg"
+import Minus from "../../assets/Logos_and_illustration/Minus.svg"
 
 const Review = () => {
+     const [searchTerm, setSearchTerm] = useState('');
+        const [expandedItem, setExpandedItem] = useState(1);
     
     // const [showModal, setShowModal] = useState(false);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
@@ -59,6 +63,36 @@ const Review = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeSection]);
 
+  const faqData = [
+        {
+            id: 1,
+            question: "How to create a account?",
+            answer: "Open the Tradebase app to get started and follow the steps. Tradebase doesn't charge a fee to create or maintain your Tradebase account."
+        },
+        {
+            id: 2,
+            question: "How to create a account?",
+            answer: "Open the Tradebase app to get started and follow the steps. Tradebase doesn't charge a fee to create or maintain your Tradebase account."
+        },
+        {
+            id: 3,
+            question: "How to add a payment method by this app?",
+            answer: "You can add payment methods through the app settings. Navigate to Payment Methods and follow the secure setup process."
+        },
+        {
+            id: 4,
+            question: "How to add a payment method by this app?",
+            answer: "You can add payment methods through the app settings. Navigate to Payment Methods and follow the secure setup process."
+        }
+    ];
+const toggleExpanded = (id) => {
+        setExpandedItem(prev => (prev === id ? null : id));
+    };
+
+ const filteredFAQs = faqData.filter(faq =>
+        faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+    );
 
     return (
         <div className="NewsChildpAge DesktopLatestNews dictionaryPage ReviewPAge">
@@ -392,10 +426,33 @@ const Review = () => {
                             <div><ul><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li></ul></div>
                         
                         </div>
-                        <div id="History" className="">
-                            <h4>History</h4>
-                            <div><ul><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li></ul></div>
-                        
+                        <div id="History" className="RakebackFAQ ">
+                            <h2>FAQ</h2>
+                             <div className="faqList">
+                                {filteredFAQs.map((faq) => (
+                                    <div
+                                        key={faq.id}
+                                        className={expandedItem === faq.id ? "faqItemActive" : 'faqItem'}
+                                    >
+                                        <div className="faqQuestion" onClick={() => toggleExpanded(faq.id)}>
+                                            <span className="questionText">{faq.question}</span>
+                                            <button className="toggleButton">
+                                                <img
+                                                    src={expandedItem === faq.id ? Minus : Plus}
+                                                    className="toggleIcon"
+                                                />
+                                            </button>
+                                        </div>
+
+
+                                        {expandedItem === faq.id && (
+                                            <div className="faqAnswer">
+                                                <p className="answerText">{faq.answer}</p>
+                                            </div>
+                                        )}
+                                    </div>
+                                ))}
+                            </div>    
                         </div>                       
 
                     </div>
@@ -429,121 +486,71 @@ const Review = () => {
 
                 </div>
 
-                <div class="single-post-right sidebar RightsidebarBlog">
+                <div class="single-post-right sidebar RightsidebarBlog RetagRightsideba">
                     {/* <div className="SpacedicAdd"></div> */}
                     <div class="card mb-3 ">
                         <div class="card-header ">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="23" viewBox="0 0 17 23" fill="none">
-                                <path d="M16.3611 12.3306C14.6175 7.81725 8.13687 7.76501 10.5946 0.441406C5.89954 2.54133 2.18127 7.94262 5.85754 15.0782C0.658248 12.9052 2.93754 7.46205 2.93754 7.46205C2.93754 7.46205 0.101562 9.19631 0.101562 14.4409C0.500698 20.2914 5.4689 22.0883 7.25451 22.3182C9.80685 22.6421 12.5693 22.1719 14.5545 20.3646C16.7393 18.3482 17.5375 15.1304 16.3611 12.3306ZM6.61384 17.5855C8.12627 17.2199 8.90355 16.1333 9.11371 15.1723C9.46021 13.6782 8.10534 12.2157 9.0191 9.85447C9.36574 11.8081 12.4538 13.0305 12.4538 15.1618C12.5378 17.805 9.6599 20.0721 6.61384 17.5855Z" fill="#000" />
-                            </svg>
-                            Trending
+                            General Information
                         </div>
 
-                        <div class="sidePost col-lg-12">
-                            <ul className="SidepostUL">
-                                <li>
-                                    <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a>
-                                </li>
-                                <li>
-                                    <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional </a>
-                                </li>
-                                <li>
-                                    <a href="#">Experience the Serenity of Japan's Traditional</a>
-                                </li>
-                                <li>
-                                    <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a>
-                                </li>
-                            </ul>
+                        <div class="sidePost sidePostGI col-lg-12">
+                            <div>
+                                <span>Founded in</span>
+                                <p>2026</p>
+                            </div>
+                            <div>
+                                <span>Certification</span>
+                                <ul className="SidepostUL">
+                                    <li>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect><path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </li>
+                                    <li>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect><path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </li>
+                                    <li>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect><path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </li>
+                                    <li>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect><path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span>Compatibility</span>
+                                <p>Bomb Pot</p>
+                            </div>
+                            <div>
+                                <span>Wallet</span>
+                                <ul className="SidepostUL">
+                                    <li>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect><path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </li>
+                                    <li>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect><path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div>
+                                <span>Responsible gaming</span>
+                                <p>Bomb Pot</p>
+                            </div>
+                            
                         </div>
 
-                        {/* <div class="sidePost col-lg-12">
-                                    <div class="sideImageContainer">
-                                        <img  src={FeaturedCardImage}  alt="POKER HANDS " class="sideImage" />
-                                    </div>
-                                    <div class="sideContent">
-                                        <p class="sideDescription">POKER HANDS </p>
-                                        <div class="AutherINfo">
-                                            <h3>NEWS</h3>
-                                            <span>.</span>
-                                            <p>Mar. 28, 2020</p>
-                                        </div>
-                                    </div>
-                                </div> */}
                     </div>
 
 
-                    <div class="card Offerscard mb-3 ">
+                    <div class="card  ">
                         <div class="card-header ">
-                            Offer for you
+                           Deposits / Withdrawal
                         </div>
 
                         <div class="sidePost col-lg-12">
-                            <div class=" OffersForUchd LatestNewsDsg">
-                                <div class="LatestNewsDsgIMg">
-                                    <img src={FeaturedCardImage} class="" />
-                                </div>
-                                <div class="LatestNewsDsgTxt">
-                                    <p class="small">Experience the Serenity of Japan's Traditional</p>
-                                    <div class="SliderFooter">
-                                        <button class="ClaimNow">Claim Now</button>
-                                        <button class="Pokerbazzi25">Pokerbazzi25
-                                            <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidePost col-lg-12">
-                            <div class=" OffersForUchd LatestNewsDsg">
-                                <div class="LatestNewsDsgIMg">
-                                    <img src={FeaturedCardImage} class="" />
-                                </div>
-                                <div class="LatestNewsDsgTxt">
-                                    <p class="small">Experience the Serenity of Japan's Traditional</p>
-                                    <div class="SliderFooter">
-                                        <button class="ClaimNow">Claim Now</button>
-                                        <button class="Pokerbazzi25">Pokerbazzi25
-                                            <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidePost col-lg-12">
-                            <div class=" OffersForUchd LatestNewsDsg">
-                                <div class="LatestNewsDsgIMg">
-                                    <img src={FeaturedCardImage} class="" />
-                                </div>
-                                <div class="LatestNewsDsgTxt">
-                                    <p class="small">Experience the Serenity of Japan's Traditional</p>
-                                    <div class="SliderFooter">
-                                        <button class="ClaimNow">Claim Now</button>
-                                        <button class="Pokerbazzi25">Pokerbazzi25
-                                            <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sidePost col-lg-12">
-                            <div class=" OffersForUchd LatestNewsDsg">
-                                <div class="LatestNewsDsgIMg">
-                                    <img src={FeaturedCardImage} class="" />
-                                </div>
-                                <div class="LatestNewsDsgTxt">
-                                    <p class="small">Experience the Serenity of Japan's Traditional</p>
-                                    <div class="SliderFooter">
-                                        <button class="ClaimNow">Claim Now</button>
-                                        <button class="Pokerbazzi25">Pokerbazzi25
-                                            <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
+                            <ul>
+                                <li>Min. deposit: $10/€10/500RUR</li>
+                                <li>Mix. withdrawal: $10/€10/500RUR</li>
+                                <li>Instant withdrawal</li>
+                            </ul>
                         </div>
                     </div>
 
@@ -551,7 +558,7 @@ const Review = () => {
 
                     <div class="card  mb-3 ">
                         <div class="card-header ">
-                            Guides
+                            Games offered
                         </div>
 
                         <div class="sidePost col-lg-12">
@@ -588,6 +595,83 @@ const Review = () => {
                         </div>
                     </div>
 
+                    <div class="card  mb-3 ">
+                        <div class="card-header ">
+                           Support
+                        </div>
+
+                        <div class="sidePost col-lg-12">
+                            <div class="sideImageContainer">
+                                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            </div>
+                            <div class="sideContent">
+                                <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
+                            </div>
+                        </div>
+                        <div class="sidePost col-lg-12">
+                            <div class="sideImageContainer">
+                                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            </div>
+                            <div class="sideContent">
+                                <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
+                            </div>
+                        </div>
+                        <div class="sidePost col-lg-12">
+                            <div class="sideImageContainer">
+                                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            </div>
+                            <div class="sideContent">
+                                <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
+                            </div>
+                        </div>
+                        <div class="sidePost col-lg-12">
+                            <div class="sideImageContainer">
+                                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            </div>
+                            <div class="sideContent">
+                                <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card  mb-3 ">
+                        <div class="card-header ">
+                           Tagging
+                        </div>
+
+                        <div class="sidePost col-lg-12">
+                            <div class="sideImageContainer">
+                                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            </div>
+                            <div class="sideContent">
+                                <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
+                            </div>
+                        </div>
+                        <div class="sidePost col-lg-12">
+                            <div class="sideImageContainer">
+                                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            </div>
+                            <div class="sideContent">
+                                <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
+                            </div>
+                        </div>
+                        <div class="sidePost col-lg-12">
+                            <div class="sideImageContainer">
+                                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            </div>
+                            <div class="sideContent">
+                                <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
+                            </div>
+                        </div>
+                        <div class="sidePost col-lg-12">
+                            <div class="sideImageContainer">
+                                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            </div>
+                            <div class="sideContent">
+                                <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="newsletter text-center mb-3">
                         <h5>Join our Newsletter</h5>

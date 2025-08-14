@@ -721,11 +721,3 @@ tbody tr:last-child td {
 	transition: color 0.3s ease;
 }
 
-tbody tr {
-	transform: translateX(0);
-	transition: transform 0.3s ease;
-}
-
-tbody tr:hover {
-	transform: translateX(4px);
-}

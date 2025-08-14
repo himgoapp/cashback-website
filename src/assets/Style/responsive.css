@@ -710,6 +710,34 @@ button.Pokerbazzi25 {
 }
 
 @media only screen and (max-width: 575px) {
+.container-fluid.RakeBackTopOffers, .container-fluid.RakeBackTopOffers .container {
+    padding: 0 !important;
+    overflow: hidden;
+}
+.RakeBackTopOffers .title {
+    padding-left: 46px;
+    padding-right: 46px;
+    padding-top: 60px;
+}
+.RakeBackTopOffers .subtitle{
+padding-left: 46px;
+    padding-right: 46px;
+}
+.swiper.swiper-carousel.swiper-initialized.swiper-horizontal.swiper-watch-progress {
+    padding: 0 140px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+}
+.RakeBackTopOffers button.seeMoreOffers {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+
+
+
   .DesktopLatestNews .container {
         padding: 0 0px;
     }
@@ -1343,6 +1371,16 @@ button.Pokerbazzi25 {
 .dictionaryPage .sidebar.RightsidebarBlog {
     display: none;
 }
+.RakebackFeaturedBlog
+ {
+    background: #fff;
+}
+.mainPost .mainContent span.category {
+    margin-bottom: 0;
+}
+.AutherINfo h3, .AutherINfo p {
+    color: #7E7F81;
+}
     .article-content .nav {
         gap: 12px;
         justify-content: center;
@@ -1653,7 +1691,7 @@ button.Pokerbazzi25 {
     display: none !important;
 }
 .MobileViewLogin .videoContainerhide img.LogoIcon {
-  margin: 0 auto 16px !important;
+  margin: 90px auto 16px !important;
 }
 .videoContainermain img.LogoIcon {
     margin: -41px auto 0;
@@ -1714,7 +1752,33 @@ button.Pokerbazzi25 {
 
 }
 
+@media only screen and (max-width: 530px) {
+  .swiper.swiper-carousel.swiper-initialized.swiper-horizontal.swiper-watch-progress {
+        padding: 0 134px !important;
+    }
+}  
+@media only screen and (max-width: 518px) {
+  .swiper.swiper-carousel.swiper-initialized.swiper-horizontal.swiper-watch-progress {
+        padding: 0 132px !important;
+    }
+    .SliderContent {
+    padding: 20px 14px 18px;
+    gap: 14px;
+}
+} 
+@media only screen and (max-width: 486px) {
+    .swiper.swiper-carousel.swiper-initialized.swiper-horizontal.swiper-watch-progress {
+        padding: 0 125px !important;
+    }
+    .swiper-carousel .swiper-slide {
+    height: 100%;
+} 
+   
+}
 @media only screen and (max-width: 480px) {
+   .swiper.swiper-carousel.swiper-initialized.swiper-horizontal.swiper-watch-progress {
+        padding: 0 65px !important;
+    }
   .dropdown-menu.NavbarDropdown.show {
     max-width: 250px;
     min-width: 250px;
