@@ -2652,6 +2652,12 @@ a.small.seeMOre {
     background: #ff4053;
     color: #fff;
 }
+
+.formButton.KYCSendOTP:hover
+ {
+    background: #ff4053;
+    color: #fff;
+}
 .KYCSuccessMsg {
     width: 100%;
     display: flex;
