@@ -223,6 +223,33 @@ button.Pokerbazzi25 {
 }
 
 @media only screen and (max-width: 991px) {
+  .ReviewTaggingTab .single-post-left {
+    flex-basis: 100%;
+    width: 100%;
+}
+.ReviewHeader {
+    gap: 31px;
+    padding: 30px 22px;
+}
+.ReviewHeader .logo img {
+    width: 140px;
+}
+.ReviewHeader .offer span {
+    font-size: 14px;
+}
+.ReviewHeader .join-btn {
+    font-size: 14px;
+}
+.ReviewTaggingTab ul.nav.ReviewUITab li.nav-item {
+    min-width: 120px;
+}
+.ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link {
+    font-size: 14px;
+}
+.DesktopLatestNews.ReviewPAge .sidebar.RightsidebarBlog .card {
+    width: 100%;
+    margin: 11px 0% 0px;
+}
   .single-post-row {
         flex-flow: column;
         gap: 24px;
@@ -1866,7 +1893,15 @@ padding-left: 46px;
     width: 48%;
 }
 }
-
+@media only screen and (max-width: 394p) {
+.DesktopLatestNews .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostGI div {
+    flex-basis: 47%;
+}
+.sidePostGamesoffered .DWCards button {
+    width: 82px;
+    font-size: 9px;
+}
+}
 @media only screen and (max-width: 340px) {
     .navbar-brand svg {
         width: 80%;

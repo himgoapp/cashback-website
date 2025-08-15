@@ -4490,3 +4490,252 @@ button.Pokerbazzi25 {
     font-weight: bold;
       margin: 0;
 }
+
+
+.MobileReviewPAge .ReviewHeader {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0;
+    background: transparent;
+}
+.MobileReviewPAge .ReviewHeader .left{
+    background: url(../Review/BigCashReview.png);
+        background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    border-radius: 12px;
+    display: flex
+;
+    justify-content: center;
+    width: 100%;
+    padding: 27px 62px;
+    overflow: hidden;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    flex: unset;
+}
+.MobileReviewPAge .ReviewHeader .logo img {
+    width: 100%;
+}
+.MobileReviewPAge  .ReviewHeader .offer
+ {
+    margin-top: 14px;
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+        gap: 6px;
+    align-items: center;
+ }
+.MobileReviewPAge   .ReviewHeader .join-btn {
+        font-size: 16px;
+        width: 100%;
+    }
+.MobileReviewPAge .ReviewHeader .middle, .MobileReviewPAge .ReviewHeader .right
+ {
+    flex: unset;
+    text-align: center;
+    border: 2px solid #EBEBEB;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px #e9e8e8;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    padding-bottom: 28px;
+    padding: 0 24px 28px;
+}
+.MobileReviewPAge .ReviewHeader .middle h3 {
+    color: #ff4053;
+    margin: 0;
+    width: 100%;
+    padding: 14px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+.MobileReviewPAge .ReviewHeader .middle ul.checklist
+ {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+        margin: 0;
+}
+.MobileReviewPAge .ReviewHeader .checklist li {
+    margin-bottom: 14px;
+    display: flex
+;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #353535;
+    margin: 0;
+}
+.MobileReviewPAge .ReviewHeader .rating {
+    display: flex
+;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 16px;
+    flex-direction: column;
+    width: 100%;
+}
+.MobileReviewPAge .ReviewHeader .rating strong {
+    font-size: 16px;
+    font-weight: bold;
+    padding: 14px 0;
+    color: #ff4053;
+}
+.MobileReviewPAge .ReviewHeader .rating div {
+    color: #000;
+    font-size: 16px;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+}
+.MobileReviewPAge .ReviewHeader .rating-bars {
+    margin-top: 0;
+    width: 100%;
+    color: #000;
+}
+.MobileReviewPAge  .RatingLabel span {
+    font-weight: 500;
+    color: #000;
+}
+.MobileReviewPAge   .ReviewTaggingTab
+ {
+    padding: 28px 0 28px;
+    display: flex
+;
+    flex-direction: column;
+}
+    .DesktopLatestNews.ReviewPAge.MobileReviewPAge .sidebar.RightsidebarBlog .card {
+        width: 100%;
+        margin: 0 !important;
+    }
+.MobileReviewPAge    .single-post-right.sidebar.RightsidebarBlog.RetagRightsideba
+ {
+    display: flex
+;
+    flex-direction: column;
+    gap: 36px;
+}
+.DesktopLatestNews.MobileReviewPAge   .sidebar.RightsidebarBlog .card .sidePost {
+    display: flex
+;
+    flex-direction: row;
+    gap: 12px;
+    border-bottom: 0.6px solid #CDCDCD;
+    width: calc(100% - 22px);
+    margin: 0px auto 0;
+    padding-bottom: 16px;
+}
+.DesktopLatestNews.MobileReviewPAge  .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostDW {
+    flex-direction: column;
+    margin-top: 16px;
+}
+.DesktopLatestNews.MobileReviewPAge .sidebar.RightsidebarBlog .card .sidePost.Support {
+    margin-top: 16px;
+}
+.DesktopLatestNews.MobileReviewPAge .sidebar.RightsidebarBlog .card .sidePost.sidePostTAg {
+    width: calc(100% - 32px);
+    margin: 16px auto 0;
+    flex-direction: column;
+}
+.DesktopLatestNews.MobileReviewPAge  .newsletter {
+    background: #ff4053;
+    color: #fff;
+    padding: 28px 28px;
+    border-radius: 8px;
+    display: flex
+;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    margin-bottom: 28px !important;
+}
+.dictionaryPage.MobileReviewPAge .ReviewTaggingTab .GotAQues p {
+    font-size: 18px;
+    margin-bottom: 0;
+    font-weight: bold;
+    color: #fff;
+}
+.MobileReviewPAge  .GotAQuesBtn {
+    flex-direction: row;
+}
+.DesktopLatestNews.MobileReviewPAge  .newsletter.GotAQues .GotAQuesBtn button {
+    width: 50%;
+    height: 48px;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 13px;
+    font-weight: bolder;
+    display: flex
+;
+    color: #ff4d4d !important;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.MobileReviewPAge .RakebackFAQ {
+    background-color: #fff;
+    margin-bottom: 20px;
+    border-top: 0.6px solid #CDCDCD;
+    padding-top: 28px;
+}
+.MobileReviewPAge .ReviewTaggingTab ul.nav.ReviewUITab {
+    margin-bottom: 0;
+    gap: 20px;
+        padding: 0 14px !important;
+}
+.MobileReviewPAge .ReviewTaggingTab h2 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    margin-top: 36px;
+}
+.MobileReviewPAge .ReviewTaggingTab h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.MobileReviewPAge .ProsCons .pros-title, .MobileReviewPAge .ProsCons .cons-title
+ {
+    font-size: 14px;
+    color: #000;
+}
+.MobileReviewPAge .ProConData {
+    display: flex
+;
+    flex-direction: column;
+    gap: 14px;
+    padding: 24px 16px;
+    font-size: 14px;
+    min-height: 100%;
+}
+.MobileReviewPAge .ProsCard{
+    margin-bottom: 20px;
+}
+.MobileReviewPAge .customTableResponsive thead tr th, .MobileReviewPAge .customTableResponsive tbody tr td {
+    width: 180px;
+    min-width: 180px;
+    font-size: 14px !important;
+    padding: 0 20px !important;
+}
+.MobileReviewPAge .customTableResponsive thead tr th{
+background: #EFEFEF;
+}
+.DesktopLatestNews.MobileReviewPAge .newsletter.GotAQues .GotAQuesBtn button img,
+ .DesktopLatestNews.MobileReviewPAge .newsletter.GotAQues .GotAQuesBtn button svg {
+    min-width: 20px;
+    width: 20px;
+}
