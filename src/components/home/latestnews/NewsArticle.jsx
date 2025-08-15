@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getBlogById, getBlogs } from "../../../servicefile/blogservice";
+import { getBlogById, getBlogs, getSidebarBlogs } from "../../../servicefile/blogservice";
 import styles from "./blogDetail.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
@@ -20,6 +20,11 @@ const NewArticle = () => {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [tocVisible, setTocVisible] = useState(!isMobile);
   const [currentArticles, setCurrentArticles] = useState([]);
+  const [trendingList, setTrendingList] = useState([]);
+  const [offersList, setOffersList] = useState([]);
+  const [guidesList, setGuidesList] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [editorsList, setEditorsList] = useState([]);
   const headingsRef = useRef([]);
   const sectionRefs = useRef({});
   const tocRef = useRef(null);
@@ -40,8 +45,20 @@ const NewArticle = () => {
     }
   };
 
+  const getSideArticlesData = async () => {
+    const response = await getSidebarBlogs();
+    if (response && response.trendingList && response.guidesList && response.VendorsList) {
+      setTrendingList(response.trendingList);
+      setOffersList(response.VendorsList);
+      setGuidesList(response.guidesList);
+      setLoading(false);
+      setEditorsList(response.editorChoiceList || []);
+    }
+  };
+
   useEffect(() => {
     fetchBlog();
+    getSideArticlesData();
   }, [blogId]);
 
   const fetchRelatedArticles = async () => {
@@ -159,6 +176,7 @@ const NewArticle = () => {
     }
   };
 
+
   useEffect(() => {
     const checkScreenSize = () => {
       const newIsMobile = window.innerWidth < 768;
@@ -176,15 +194,25 @@ const NewArticle = () => {
   if (!blog || !blog.content) return <p></p>;
 
   headingsRef.current = [];
-  const contentWithIds = blog.content.replace(
-    /<h2>(.*?)<\/h2>/g,
-    (match, p1, index) => {
+
+  const contentWithIds = blog.content
+    // Replace h2 → h5 with ID & class
+    .replace(/<h2>(.*?)<\/h2>/g, (match, p1, index) => {
       const cleanTitle = p1.replace(/<[^>]+>/g, "");
       const sectionId = `section-${index}`;
       headingsRef.current.push({ id: sectionId, title: cleanTitle });
-      return `<h2 id="${sectionId}" class="${styles.sectionHeading}">${cleanTitle}</h2>`;
-    }
-  );
+      return `<h5 id="${sectionId}" class="contentChildHEd">${cleanTitle}</h5>`;
+    })
+
+    // Replace <p><img></p> or <img> directly → custom image wrapper
+    .replace(/<p[^>]*>\s*<img\s+[^>]*src="([^"]+)"[^>]*>\s*<\/p>|<img\s+[^>]*src="([^"]+)"[^>]*>/g, (match, p1, p2) => {
+      const src = p1 || p2; // first capture if in <p>, else second
+      return `
+      <div class="BlogContentImg">
+        <img src="${src}" alt="Blog Image" class="articleimageblog" />
+      </div>
+    `;
+    });
 
   const toggleToc = () => {
     const newTocVisible = !tocVisible;
@@ -194,6 +222,16 @@ const NewArticle = () => {
       setTimeout(updateProgressLine, 100);
     }
   };
+
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+
+    return date.toLocaleDateString("en-US", {
+      month: "short",  // "Mar"
+      day: "numeric",  // "28"
+      year: "numeric"  // "2020"
+    }).replace(/^(\w+)/, "$1."); // add period after month
+  }
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
@@ -226,9 +264,9 @@ const NewArticle = () => {
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                   <li class="breadcrumb-item"><a href="/">Home</a></li>
-                  <li class="breadcrumb-item"><a href="/latest-news">News</a></li>
+                  <li class="breadcrumb-item"><a href="/latest-news">{blog.type}</a></li>
                   <li class="breadcrumb-item active text-danger" aria-current="page">
-                    The Impact of Technology on the Workplace: how technology is changing
+                    {blog.title}
                   </li>
                 </ol>
               </nav>
@@ -237,12 +275,12 @@ const NewArticle = () => {
           <div className=" single-post-row">
             <div className="single-post-left">
               <h1 className="blogHedEXtra">
-                The Impact of Technology on the Workplace: how technology is changing
+                {blog.title}
               </h1>
 
               <div className="d-flex justify-content-between align-items-center mb-4">
                 <div className="meta-info">
-                  <span>August 20, 2022</span>  <span> <img src={PofileIcon} /> Tracey Wilson</span>
+                  <span>{formatDate(blog.createdAt)}</span>  <span> <img src={PofileIcon} /> {blog.author}</span>
                 </div>
                 <div className="social-icons">
                   <span className="">Share this</span>
@@ -264,14 +302,23 @@ const NewArticle = () => {
                 </div>
               </div>
 
-              <img src={FeaturedCardImage} alt="Spartan Poker" className="articleimageblog" />
+              <img src={blog.imageUrl} alt="Spartan Poker" className="articleimageblog" />
 
               <div className="article-content">
                 <p>
-                  A grid system is a design tool used to arrange content on a webpage. It is a series of vertical and horizontal lines that create a matrix of intersecting points, which can be used to align and organize page elements. Grid systems are used to create a consistent look and feel across a website, and can help to make the layout more visually appealing and easier to navigate.
+                  {blog.subheading}
                 </p>
 
-                <h5 className="contentChildHEd">Breaking Down the Grid</h5>
+              </div>
+
+              {/* start content from here */}
+
+              <div
+                className="article-content"
+                dangerouslySetInnerHTML={{ __html: contentWithIds }}
+              >
+
+                {/* <h5 className="contentChildHEd">Breaking Down the Grid</h5>
                 <p>
                   Regardless of the type of grid you are using, the grid is made up of three elements: columns, gutters, and margins.
                 </p>
@@ -312,7 +359,7 @@ const NewArticle = () => {
                 <h5 className="contentChildHEd">Conclusion</h5>
                 <p>
                   Grids not only provide designers a structure on which to base layouts, but they also improve readability and scannability for end users. Use a good grid system that easily adapts to various screen sizes.
-                </p>
+                </p> */}
               </div>
 
 
@@ -333,17 +380,23 @@ const NewArticle = () => {
 
               <div className="tag-container">
                 <strong className="d-block ">Tags</strong>
+
                 <div className="tagBtn">
-                  <span className="badge-custom">Design</span>
-                  <span className="badge-custom">Interface</span>
-                  <span className="badge-custom">Interface</span>
+
+                  {blog.tagTypes && blog.tagTypes.length > 0 && blog.tagTypes.map((item, index) => {
+                    return <span className="badge-custom" key={index}>{item}</span>
+                  })}
                 </div>
 
               </div>
 
-
             </div>
 
+            {/* end content design here */}
+
+
+
+            {/* sidebar and footer part */}
             <div class="single-post-right sidebar RightsidebarBlog">
               {/* <div className="SpacedicAdd"></div> */}
               <div class="card mb-3 ">
@@ -354,21 +407,14 @@ const NewArticle = () => {
                   Trending
                 </div>
 
-                {/* <div class="sidePost col-lg-12">
-                  <div class="sideImageContainer">
-                    <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                  </div>
-                  <div class="sideContent">
-                    <p class="sideDescription">POKER HANDS </p>
-                    <div class="AutherINfo">
-                      <h3>NEWS</h3>
-                      <span>.</span>
-                      <p>Mar. 28, 2020</p>
-                    </div>
-                  </div>
-                </div> */}
                 <div class="sidePost col-lg-12">
-                  <ul class="SidepostUL"><li><a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a></li><li><a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional </a></li><li><a href="#">Experience the Serenity of Japan's Traditional</a></li><li><a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a></li></ul>
+                  <ul class="SidepostUL">
+                    {trendingList && trendingList.length > 0 && trendingList.map((item, index) => (
+                      <li key={index}>
+                        <a href={`/news/${item.title.replace(/[\s?]/g, "-")}-${item._id}`}>{item.title} </a>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
 
@@ -378,74 +424,25 @@ const NewArticle = () => {
                   Offer for you
                 </div>
 
-                <div class="sidePost col-lg-12">
-                  <div class=" OffersForUchd LatestNewsDsg">
-                    <div class="LatestNewsDsgIMg">
-                      <img src={FeaturedCardImage} class="" />
-                    </div>
-                    <div class="LatestNewsDsgTxt">
-                      <p class="small">Experience the Serenity of Japan's Traditional</p>
-                      <div class="SliderFooter">
-                        <button class="ClaimNow">Claim Now</button>
-                        <button class="Pokerbazzi25">Pokerbazzi25
-                          <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                          </span>
-                        </button>
+                {offersList && offersList.length > 0 && offersList.map((offer, index) => (
+                  <div class="sidePost col-lg-12" key={offer._id} >
+                    <div class=" OffersForUchd LatestNewsDsg">
+                      <div class="LatestNewsDsgIMg">
+                        <img src={FeaturedCardImage} class="" />
+                      </div>
+                      <div class="LatestNewsDsgTxt">
+                        <p class="small">{offer.tagline}</p>
+                        <div class="SliderFooter">
+                          <button class="ClaimNow" onClick={() => navigate("/offer-and-deals")}>Claim Now</button>
+                          <button class="Pokerbazzi25">{offer.couponCode}
+                            <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
+                            </span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-                <div class="sidePost col-lg-12">
-                  <div class=" OffersForUchd LatestNewsDsg">
-                    <div class="LatestNewsDsgIMg">
-                      <img src={FeaturedCardImage} class="" />
-                    </div>
-                    <div class="LatestNewsDsgTxt">
-                      <p class="small">Experience the Serenity of Japan's Traditional</p>
-                      <div class="SliderFooter">
-                        <button class="ClaimNow">Claim Now</button>
-                        <button class="Pokerbazzi25">Pokerbazzi25
-                          <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sidePost col-lg-12">
-                  <div class=" OffersForUchd LatestNewsDsg">
-                    <div class="LatestNewsDsgIMg">
-                      <img src={FeaturedCardImage} class="" />
-                    </div>
-                    <div class="LatestNewsDsgTxt">
-                      <p class="small">Experience the Serenity of Japan's Traditional</p>
-                      <div class="SliderFooter">
-                        <button class="ClaimNow">Claim Now</button>
-                        <button class="Pokerbazzi25">Pokerbazzi25
-                          <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="sidePost col-lg-12">
-                  <div class=" OffersForUchd LatestNewsDsg">
-                    <div class="LatestNewsDsgIMg">
-                      <img src={FeaturedCardImage} class="" />
-                    </div>
-                    <div class="LatestNewsDsgTxt">
-                      <p class="small">Experience the Serenity of Japan's Traditional</p>
-                      <div class="SliderFooter">
-                        <button class="ClaimNow">Claim Now</button>
-                        <button class="Pokerbazzi25">Pokerbazzi25
-                          <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                          </span>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                ))}
               </div>
 
               <div className="SpacedicAdd SpacedicAddsBAckground"></div>
@@ -455,38 +452,17 @@ const NewArticle = () => {
                   Guides
                 </div>
 
-                <div class="sidePost col-lg-12">
-                  <div class="sideImageContainer">
-                    <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                {guidesList && guidesList.length > 0 && guidesList.map((guide, index) => (
+                  <div class="sidePost col-lg-12" key={guide._id} onClick={() => { navigate(`/news/${guide.title.replace(/[\s?]/g, "-")}-${guide._id}`) }}>
+                    <div class="sideImageContainer">
+                      <img src={guide.imageUrl} alt="POKER HANDS " class="sideImage" />
+                    </div>
+                    <div class="sideContent">
+                      <p class="sideDescription">{guide.title}</p>
+                    </div>
                   </div>
-                  <div class="sideContent">
-                    <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
-                  </div>
-                </div>
-                <div class="sidePost col-lg-12">
-                  <div class="sideImageContainer">
-                    <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                  </div>
-                  <div class="sideContent">
-                    <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
-                  </div>
-                </div>
-                <div class="sidePost col-lg-12">
-                  <div class="sideImageContainer">
-                    <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                  </div>
-                  <div class="sideContent">
-                    <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
-                  </div>
-                </div>
-                <div class="sidePost col-lg-12">
-                  <div class="sideImageContainer">
-                    <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                  </div>
-                  <div class="sideContent">
-                    <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
-                  </div>
-                </div>
+
+                ))}
               </div>
 
 
@@ -534,64 +510,27 @@ const NewArticle = () => {
             <div className="col-lg-12 BlogBottomNewSection">
               <h3>Editors Choice</h3>
             </div>
-            <div class="sidePost col-lg-3">
-              <div class="sideImageContainer">
-                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-              </div>
-              <div class="sideContent">
-                <p class="sideDescription">POKER HANDS </p>
-                <div class="AutherINfo">
-                  <h3>NEWS</h3>
-                  <span>.</span>
-                  <p>Mar. 28, 2020</p>
+
+            {editorsList && editorsList.length > 0 && editorsList.map((editor, index) => (
+              <div class="sidePost col-lg-3">
+                <div class="sideImageContainer">
+                  <img src={editor.imageUrl} alt="POKER HANDS " class="sideImage" />
+                </div>
+                <div class="sideContent">
+                  <p class="sideDescription">{editor.title?.length > 40
+                    ? editor.title.slice(0, 40) + "..."
+                    : editor.title}</p>
+                  <div class="AutherINfo">
+                    <h3>{editor.type}</h3>
+                    <span>.</span>
+                    <p>{formatDate(editor.createdAt)}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="sidePost col-lg-3">
-              <div class="sideImageContainer">
-                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-              </div>
-              <div class="sideContent">
-                <p class="sideDescription">POKER HANDS </p>
-                <div class="AutherINfo">
-                  <h3>NEWS</h3>
-                  <span>.</span>
-                  <p>Mar. 28, 2020</p>
-                </div>
-              </div>
-            </div>
-            <div class="sidePost col-lg-3">
-              <div class="sideImageContainer">
-                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-              </div>
-              <div class="sideContent">
-                <p class="sideDescription">POKER HANDS </p>
-                <div class="AutherINfo">
-                  <h3>NEWS</h3>
-                  <span>.</span>
-                  <p>Mar. 28, 2020</p>
-                </div>
-              </div>
-            </div>
-            <div class="sidePost col-lg-3">
-              <div class="sideImageContainer">
-                <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-              </div>
-              <div class="sideContent">
-                <p class="sideDescription">POKER HANDS </p>
-                <div class="AutherINfo">
-                  <h3>NEWS</h3>
-                  <span>.</span>
-                  <p>Mar. 28, 2020</p>
-                </div>
-              </div>
-            </div>
+
+            ))}
           </div>
-
-
-
         </div>
-
       </div>
       {/* <Reveal>
         <div className={styles.blogDetail}>

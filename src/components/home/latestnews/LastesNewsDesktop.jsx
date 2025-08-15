@@ -7,6 +7,7 @@ import { Tab, Tabs, TabList } from "react-tabs";
 import { getBlogs, getSidebarBlogs } from "../../../servicefile/blogservice";
 import Meta from "../../../Meta";
 import FeaturedCardImage from '../../../assets/Logos_and_illustration/FeaturedCardImage.svg'
+import Loading from "../../common/Loading/Loading";
 
 const CustomPagination = ({
     rowsPerPage,
@@ -126,6 +127,7 @@ const LatestNewsDesktop = ({ userData }) => {
 
     const tabs = ["Latest", "Promotions", "Strategies", "News", "Blog"];
     useEffect(() => {
+
         getSideArticlesData();
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 575);
@@ -160,6 +162,7 @@ const LatestNewsDesktop = ({ userData }) => {
             setTrendingList(response.trendingList);
             setOffersList(response.VendorsList);
             setGuidesList(response.guidesList);
+            setLoading(false);
         }
     };
 
@@ -189,7 +192,7 @@ const LatestNewsDesktop = ({ userData }) => {
                 link="https://www.rakebackk.com/latest-news"
             />
 
-            <div className="DesktopLatestNews">
+            {loading ? <Loading size={"md"} /> : <div className="DesktopLatestNews">
                 <div class="container">
                     <div class=" single-post-row">
                         <div class="single-post-left">
@@ -238,7 +241,7 @@ const LatestNewsDesktop = ({ userData }) => {
                                         {currentArticles && currentArticles.length > 0 && currentArticles.map((article, index) => (
                                             <React.Fragment key={index}>
                                                 <div className="col-md-4">
-                                                    <div className="card blog-card">
+                                                    <div className="card blog-card" onClick={() => { navigate(`/news/${article.title.replace(/[\s?]/g, "-")}-${article._id}`) }}>
                                                         <img src={article.imageUrl} className="card-img-top" />
                                                         <div className="card-body">
                                                             <h5 className="card-title">{article.title?.length > 40
@@ -381,7 +384,7 @@ const LatestNewsDesktop = ({ userData }) => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>}
         </>
     );
 };
