@@ -42,7 +42,7 @@ import "../src/assets/Style/responsive.css";
 import MobileView from "./components/dashboard/mobileSidebar/Mobilepageview";
 import DictionaryPage from "./components/dictionary/dictionary";
 import PublicLayout from "./helperFxns/PubliclayOut";
-import Review from "./components/review/review";
+// import Review from "./components/review/review";
 import ReviewMain from "./components/review/reviewmain";
 
 export const UserContext = createContext();
