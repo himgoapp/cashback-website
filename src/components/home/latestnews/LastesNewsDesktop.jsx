@@ -4,7 +4,7 @@ import styles from "./latest_news.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
 import { Tab, Tabs, TabList } from "react-tabs";
-import { getBlogs } from "../../../servicefile/blogservice";
+import { getBlogs, getSidebarBlogs } from "../../../servicefile/blogservice";
 import Meta from "../../../Meta";
 import FeaturedCardImage from '../../../assets/Logos_and_illustration/FeaturedCardImage.svg'
 
@@ -120,20 +120,19 @@ const LatestNewsDesktop = ({ userData }) => {
     const [totalRows, setTotalRows] = useState(0);
     const [topArticles, setTopArticles] = useState([]);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
+    const [trendingList, setTrendingList] = useState([]);
+    const [offersList, setOffersList] = useState([]);
+    const [guidesList, setGuidesList] = useState([]);
 
     const tabs = ["Latest", "Promotions", "Strategies", "News", "Blog"];
     useEffect(() => {
+        getSideArticlesData();
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 575);
         };
         window.addEventListener("resize", handleResize);
         return () => window.removeEventListener("resize", handleResize);
     }, []);
-
-    // const handleTabs = (type) => {
-    //     setActiveTab(type);
-    //     setPage(1);
-    // };
 
     const handlePageChange = (page) => {
         setPage(page);
@@ -153,6 +152,14 @@ const LatestNewsDesktop = ({ userData }) => {
             setTotalPage(length);
             setLoading(false);
             setTotalRows(response.length);
+        }
+    };
+    const getSideArticlesData = async () => {
+        const response = await getSidebarBlogs();
+        if (response && response.trendingList && response.guidesList && response.VendorsList) {
+            setTrendingList(response.trendingList);
+            setOffersList(response.VendorsList);
+            setGuidesList(response.guidesList);
         }
     };
 
@@ -258,33 +265,7 @@ const LatestNewsDesktop = ({ userData }) => {
                                         onChangePage={handlePageChange}
                                         currentPage={page}
                                     />
-
-                                    {/* <div class="custom-pagination">
-                                        <button class="page-btn prev">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
-                                                <path d="M8.07812 0.710938L1.07812 7.71094L8.07812 14.7109" stroke="black" stroke-width="1.5" stroke-linejoin="round" />
-                                            </svg>
-                                        </button>
-                                        <a href="#" class="page-number active">1</a>
-                                        <a href="#" class="page-number">2</a>
-                                        <a href="#" class="page-number">3</a>
-                                        <span class="dots">...</span>
-                                        <a href="#" class="page-number">11</a>
-                                        <a href="#" class="page-number">12</a>
-                                        <a href="#" class="page-number">13</a>
-                                        <button class="page-btn next">
-                                            <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1.07812 0.710938L8.07812 7.71094L1.07812 14.7109" stroke="black" stroke-width="1.5" stroke-linejoin="round" />
-                                            </svg>
-                                        </button>
-                                    </div> */}
                                 </div>
-
-                                {/* <div class="tab-pane fade" id="latest"><p>Latest blogs content here...</p></div>
-                                <div class="tab-pane fade" id="news"><p>News blogs content here...</p></div>
-                                <div class="tab-pane fade" id="promotions"><p>Promotions content here...</p></div>
-                                <div class="tab-pane fade" id="strategies"><p>Strategies content here...</p></div>
-                                <div class="tab-pane fade" id="blogs"><p>Blogs content here...</p></div> */}
                             </div>
                         </div>
 
@@ -302,18 +283,12 @@ const LatestNewsDesktop = ({ userData }) => {
 
                                 <div class="sidePost col-lg-12">
                                     <ul className="SidepostUL">
-                                        <li>
-                                            <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Experience the Serenity of Japan's Traditional</a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a>
-                                        </li>
+
+                                        {trendingList && trendingList.length > 0 && trendingList.map((item, index) => (
+                                            <li key={index}>
+                                                <a href={`/news/${item.title.replace(/[\s?]/g, "-")}-${item._id}`}>{item.title} </a>
+                                            </li>
+                                        ))}
                                     </ul>
                                 </div>
                             </div>
@@ -324,74 +299,25 @@ const LatestNewsDesktop = ({ userData }) => {
                                     Offer for you
                                 </div>
 
-                                <div class="sidePost col-lg-12">
-                                    <div class=" OffersForUchd LatestNewsDsg">
-                                        <div class="LatestNewsDsgIMg">
-                                            <img src={FeaturedCardImage} class="" />
-                                        </div>
-                                        <div class="LatestNewsDsgTxt">
-                                            <p class="small">Experience the Serenity of Japan's Traditional</p>
-                                            <div class="SliderFooter">
-                                                <button class="ClaimNow">Claim Now</button>
-                                                <button class="Pokerbazzi25">Pokerbazzi25
-                                                    <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                                                    </span>
-                                                </button>
+                                {offersList && offersList.length > 0 && offersList.map((offer, index) => (
+                                    <div class="sidePost col-lg-12" key={offer._id} >
+                                        <div class=" OffersForUchd LatestNewsDsg">
+                                            <div class="LatestNewsDsgIMg">
+                                                <img src={FeaturedCardImage} class="" />
+                                            </div>
+                                            <div class="LatestNewsDsgTxt">
+                                                <p class="small">{offer.tagline}</p>
+                                                <div class="SliderFooter">
+                                                    <button class="ClaimNow" onClick={() => navigate("/offer-and-deals")}>Claim Now</button>
+                                                    <button class="Pokerbazzi25">{offer.couponCode}
+                                                        <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
+                                                        </span>
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="sidePost col-lg-12">
-                                    <div class=" OffersForUchd LatestNewsDsg">
-                                        <div class="LatestNewsDsgIMg">
-                                            <img src={FeaturedCardImage} class="" />
-                                        </div>
-                                        <div class="LatestNewsDsgTxt">
-                                            <p class="small">Experience the Serenity of Japan's Traditional</p>
-                                            <div class="SliderFooter">
-                                                <button class="ClaimNow">Claim Now</button>
-                                                <button class="Pokerbazzi25">Pokerbazzi25
-                                                    <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="sidePost col-lg-12">
-                                    <div class=" OffersForUchd LatestNewsDsg">
-                                        <div class="LatestNewsDsgIMg">
-                                            <img src={FeaturedCardImage} class="" />
-                                        </div>
-                                        <div class="LatestNewsDsgTxt">
-                                            <p class="small">Experience the Serenity of Japan's Traditional</p>
-                                            <div class="SliderFooter">
-                                                <button class="ClaimNow">Claim Now</button>
-                                                <button class="Pokerbazzi25">Pokerbazzi25
-                                                    <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="sidePost col-lg-12">
-                                    <div class=" OffersForUchd LatestNewsDsg">
-                                        <div class="LatestNewsDsgIMg">
-                                            <img src={FeaturedCardImage} class="" />
-                                        </div>
-                                        <div class="LatestNewsDsgTxt">
-                                            <p class="small">Experience the Serenity of Japan's Traditional</p>
-                                            <div class="SliderFooter">
-                                                <button class="ClaimNow">Claim Now</button>
-                                                <button class="Pokerbazzi25">Pokerbazzi25
-                                                    <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
-                                                    </span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                ))}
                             </div>
 
                             <div className="SpacedicAdd SpacedicAddsBAckground"></div>
@@ -401,38 +327,17 @@ const LatestNewsDesktop = ({ userData }) => {
                                     Guides
                                 </div>
 
-                                <div class="sidePost col-lg-12">
-                                    <div class="sideImageContainer">
-                                        <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                                {guidesList && guidesList.length > 0 && guidesList.map((guide, index) => (
+                                    <div class="sidePost col-lg-12" key={guide._id} onClick={() => { navigate(`/news/${guide.title.replace(/[\s?]/g, "-")}-${guide._id}`) }}>
+                                        <div class="sideImageContainer">
+                                            <img src={guide.imageUrl} alt="POKER HANDS " class="sideImage" />
+                                        </div>
+                                        <div class="sideContent">
+                                            <p class="sideDescription">{guide.title}</p>
+                                        </div>
                                     </div>
-                                    <div class="sideContent">
-                                        <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
-                                    </div>
-                                </div>
-                                <div class="sidePost col-lg-12">
-                                    <div class="sideImageContainer">
-                                        <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                                    </div>
-                                    <div class="sideContent">
-                                        <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
-                                    </div>
-                                </div>
-                                <div class="sidePost col-lg-12">
-                                    <div class="sideImageContainer">
-                                        <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                                    </div>
-                                    <div class="sideContent">
-                                        <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
-                                    </div>
-                                </div>
-                                <div class="sidePost col-lg-12">
-                                    <div class="sideImageContainer">
-                                        <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                                    </div>
-                                    <div class="sideContent">
-                                        <p class="sideDescription">Experience the Serenity of Japan's Traditional</p>
-                                    </div>
-                                </div>
+
+                                ))}
                             </div>
 
 
