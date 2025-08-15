@@ -4104,6 +4104,215 @@ button.Pokerbazzi25 {
     border-top: 1px solid #84848445;
     border-bottom: 1px solid #84848445;
     margin-bottom: 60px;
+        margin-top: 20px;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostDW {
+    flex-direction: column;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostDW ul li:last-child
+
+ {
+    font-weight: bold;
+    color: #000;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostDW ul
+ {
+    list-style: square;
+    font-size: 12px;
+    color: #606060;
+    line-height: 160%;
+    margin: 0;
+}
+.DWCards {
+    width: 100%;
+    max-width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 16px auto;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.DWCards button {
+    width: 70px;
+    height: 48px;
+    border: 1px solid #D9D9D9;
+    border-radius: 6px;
+    background: #fff;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+}
+.dictionaryPage .ReviewTaggingTab .sidePostDW p {
+    font-size: 12px;
+    margin-bottom: 0;
+    color: #606060;
+}
+.sidePostGamesoffered .DWCards {
+    width: 100%;
+    max-width: 320px;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    margin: 16px auto;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.sidePostGamesoffered .DWCards button {
+    width: 97px;
+    height: 70px;
+    border: 0px solid #D9D9D9;
+    border-radius: 8px;
+    background: #F9F9F9;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-size: 10px;
+}
+.sidePostGamesoffered .DWCards button svg {
+    margin-bottom: 10px;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost.Support ul {
+    list-style: none;
+    padding: 0;
+    display: flex
+;
+    flex-direction: column;
+    gap: 16px;
+    font-size: 14px;
+        width: 100%;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost.Support ul li
+
+ {
+    display: flex
+;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost.Support ul li svg {
+    margin-right: 12px;
+}
+
+.TagginginputField{
+        position: relative;
+    width: 100%;
+}
+.QuestionTag {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+    width: 33px;
+    height: 33px;
+    background: #fff;
+    font-size: 16px;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #EBEBEB;
+    border-radius: 50%;
+    font-weight: bold;
+    color: #000;
+}
+.TagginginputField input {
+    padding: 16px 62px 16px 16px;
+    font-size: 12px;
+    border: solid 1px #EBEBEB;
+    letter-spacing: 0.5px;
+    width: 100%;
+    height: 52px;
+    transition: all 0.3s ease;
+    background-color: #fff;
+    border-radius: 8px;
+}
+.SidePostTagBtn{
+    width: 100%;
+    height: 52px;
+    background: #FF4053;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #fff;
+}
+.DesktopLatestNews .newsletter.GotAQues:after {
+    display: none;
+}
+.DesktopLatestNews .newsletter.GotAQues:before {
+    background: url(http://localhost:3000/static/media/PokerGreen.f221adc….svg);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    opacity: 0.09;
+    z-index: -1;
+}
+.DesktopLatestNews .newsletter.GotAQues h5 {
+    font-size: 28px;
+    font-weight: bold;
+    margin: 0 auto;
+    max-width: 100%;
+}
+.DesktopLatestNews .newsletter.GotAQues  {
+    gap: 34px;
+}
+.dictionaryPage .ReviewTaggingTab .GotAQues p {
+    font-size: 18px;
+    margin-bottom: 0;
+    font-weight: bold;
+}
+.dictionaryPage .ReviewTaggingTab .GotAQues p img {
+    filter: brightness(70.5);
+}
+.GotAQuesBtn
+ {
+    display: flex
+;
+    gap: 12px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.DesktopLatestNews .newsletter.GotAQues .GotAQuesBtn button {
+    width: 199px;
+    height: 48px;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 18px;
+    font-weight: bolder;
+    display: flex;
+    color: #ff4d4d !important;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.DesktopLatestNews .newsletter.GotAQues .GotAQuesBtn button.GreenBtn{
+    color: #28A745 !important;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost.sidePostTAg
+
+ {
+    flex-direction: column;
+    gap: 16px;
+}
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost.sidePostTAg h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+}
+.dictionaryPage .ReviewTaggingTab .sidePostTAg p {
+    font-size: 12px;
+    margin-bottom: 0;
+    color: #606060;
 }
 .ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link {
     width: auto;
