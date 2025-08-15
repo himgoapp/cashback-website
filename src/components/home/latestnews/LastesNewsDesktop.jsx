@@ -14,13 +14,16 @@ import FeaturedCardImage from '../../../assets/Logos_and_illustration/FeaturedCa
 
 const LatestNewsDesktop = ({ userData }) => {
     const navigate = useNavigate();
-    const [activeTab, setActiveTab] = useState("Latest News");
+    const [activeTab, setActiveTab] = useState("Latest");
     const [allArticles, setAllArticles] = useState([]);
     const [currentArticles, setCurrentArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState(1);
+    const [topArticles, setTopArticles] = useState([]);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
+
+    const tabs = ["Latest", "Promotions", "Strategies", "News", "Blog"];
     useEffect(() => {
         const handleResize = () => {
             setIsMobile(window.innerWidth <= 575);
@@ -35,11 +38,12 @@ const LatestNewsDesktop = ({ userData }) => {
     };
 
     const filterArticles = async () => {
-        let type = activeTab === "Latest News" ? undefined : activeTab;
+        let type = activeTab === "Latest" ? undefined : activeTab;
         const response = await getBlogs(type, page);
         if (response && response.blogsList) {
-            let length = response.length < 10 ? 1 : Math.ceil(response.length / 9);
-            setCurrentArticles(response.blogsList);
+            let length = response.length < 20 ? 1 : Math.ceil(response.length / 20);
+            setTopArticles(response.blogsList.slice(0, 2));
+            setCurrentArticles(response.blogsList.slice(2));
             setTotalPage(length);
             setLoading(false);
         }
@@ -59,13 +63,8 @@ const LatestNewsDesktop = ({ userData }) => {
         "Latest News": "#e6a919",
     };
 
-    const formatDate = (dateString) => {
-        const options = {
-            month: "short",
-            day: "numeric",
-            year: "numeric",
-        };
-        return new Date(dateString).toLocaleDateString("en-US", options);
+    const formatDate = (date) => {
+        return new Date(date).toLocaleDateString("en-US");
     };
 
     return (
@@ -86,234 +85,70 @@ const LatestNewsDesktop = ({ userData }) => {
                             </div>
 
                             <ul class="nav nav-pills mb-4" id="blogTabs" role="tablist">
-                                <li class="nav-item"><button class="nav-link active" data-bs-toggle="pill" data-bs-target="#all">All</button></li>
-                                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#latest">Latest</button></li>
-                                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#news">News</button></li>
-                                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#promotions">Promotions</button></li>
-                                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#strategies">Strategies</button></li>
-                                <li class="nav-item"><button class="nav-link" data-bs-toggle="pill" data-bs-target="#blogs">Blogs</button></li>
+                                {tabs.map((tab) => (
+                                    <li key={tab} className="nav-item">
+                                        <button
+                                            className={`nav-link ${activeTab === tab ? "active" : ""}`}
+                                            onClick={() => {
+                                                setActiveTab(tab);
+                                                setPage(1);
+                                            }}
+                                        >
+                                            {tab}
+                                        </button>
+                                    </li>
+                                ))}
                             </ul>
 
                             <div class="tab-content">
                                 <div class="tab-pane fade show active" id="all">
-                                    <h4 class="section-title">News</h4>
+                                    <h4 class="section-title">{activeTab}</h4>
                                     <p class="sub-title">Best news for all poker players for getting ahead in the game</p>
 
                                     <div class="row g-3">
-                                        <div class="col-md-6">
-                                            <div class="card blog-card  BlogCardFullHeifht" onClick={() => { navigate("/blog/wererewr") }}>
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
+                                        {topArticles && topArticles.length > 0 && topArticles.map((article, index) => (
+                                            <div class="col-md-6" key={index} onClick={() => { navigate(`/news/${article.title.replace(/[\s?]/g, "-")}-${article._id}`) }}>
+                                                <div class="card blog-card  BlogCardFullHeifht">
+                                                    <img src={article.imageUrl} class="card-img-top" />
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">{article.title?.length > 40
+                                                            ? article.title.slice(0, 40) + "..."
+                                                            : article.title}</h5>
+                                                        <h6><span>{article.type}</span> • {formatDate(article.date)}</h6>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <div class="card blog-card BlogCardFullHeifht" onClick={() => { navigate("/blog/wererewr") }}>
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
+                                            </div>))}
 
                                         <div className="BorderBlog"></div>
 
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
+                                        {currentArticles && currentArticles.length > 0 && currentArticles.map((article, index) => (
+                                            <React.Fragment key={index}>
+                                                <div className="col-md-4">
+                                                    <div className="card blog-card">
+                                                        <img src={article.imageUrl} className="card-img-top" />
+                                                        <div className="card-body">
+                                                            <h5 className="card-title">{article.title?.length > 40
+                                                                ? article.title.slice(0, 40) + "..."
+                                                                : article.title}</h5>
+                                                            <h6>
+                                                                <span>{article.type}</span> • {new Date(article.createdAt).toLocaleDateString("en-US")}
+                                                            </h6>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </div>
 
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
+                                                {/* Add border after every 3 cards */}
+                                                {(index + 1) % 3 === 0 && <div className="BorderBlog"></div>}
+                                            </React.Fragment>
+                                        ))}
 
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="BorderBlog"></div>
 
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="BorderBlog"></div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="BorderBlog"></div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="BorderBlog"></div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div className="BorderBlog"></div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-md-4">
-                                            <div class="card blog-card">
-                                                <img src={FeaturedCardImage} class="card-img-top" />
-                                                <div class="card-body">
-                                                    <h5 class="card-title">Talk it out with audioTalk it out with audio</h5>
-                                                    <h6><span>STRATEGY</span> • 6/23/2025</h6>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
 
                                     <div class="custom-pagination">
                                         <button class="page-btn prev">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
-                                                <path d="M8.07812 0.710938L1.07812 7.71094L8.07812 14.7109" stroke="black" stroke-width="1.5" stroke-linejoin="round"/>
+                                                <path d="M8.07812 0.710938L1.07812 7.71094L8.07812 14.7109" stroke="black" stroke-width="1.5" stroke-linejoin="round" />
                                             </svg>
                                         </button>
                                         <a href="#" class="page-number active">1</a>
@@ -325,17 +160,17 @@ const LatestNewsDesktop = ({ userData }) => {
                                         <a href="#" class="page-number">13</a>
                                         <button class="page-btn next">
                                             <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M1.07812 0.710938L8.07812 7.71094L1.07812 14.7109" stroke="black" stroke-width="1.5" stroke-linejoin="round"/>
+                                                <path d="M1.07812 0.710938L8.07812 7.71094L1.07812 14.7109" stroke="black" stroke-width="1.5" stroke-linejoin="round" />
                                             </svg>
                                         </button>
                                     </div>
                                 </div>
 
-                                <div class="tab-pane fade" id="latest"><p>Latest blogs content here...</p></div>
+                                {/* <div class="tab-pane fade" id="latest"><p>Latest blogs content here...</p></div>
                                 <div class="tab-pane fade" id="news"><p>News blogs content here...</p></div>
                                 <div class="tab-pane fade" id="promotions"><p>Promotions content here...</p></div>
                                 <div class="tab-pane fade" id="strategies"><p>Strategies content here...</p></div>
-                                <div class="tab-pane fade" id="blogs"><p>Blogs content here...</p></div>
+                                <div class="tab-pane fade" id="blogs"><p>Blogs content here...</p></div> */}
                             </div>
                         </div>
 
@@ -349,37 +184,22 @@ const LatestNewsDesktop = ({ userData }) => {
                                     Trending
                                 </div>
 
-                                 <div class="sidePost col-lg-12">
-                                        <ul className="SidepostUL">
-                                            <li>
-                                                <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional </a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Experience the Serenity of Japan's Traditional</a>
-                                            </li>
-                                            <li>
-                                                <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    
-                                {/* <div class="sidePost col-lg-12">
-                                    <div class="sideImageContainer">
-                                        <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
-                                    </div>
-                                    <div class="sideContent">
-                                        <p class="sideDescription">POKER HANDS </p>
-                                        <div class="AutherINfo">
-                                            <h3>NEWS</h3>
-                                            <span>.</span>
-                                            <p>Mar. 28, 2020</p>
-                                        </div>
-                                    </div>
-                                </div> */}
-
+                                <div class="sidePost col-lg-12">
+                                    <ul className="SidepostUL">
+                                        <li>
+                                            <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Experience the Serenity of Japan's Traditional</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
 
 

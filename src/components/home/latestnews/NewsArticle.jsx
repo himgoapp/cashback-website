@@ -225,8 +225,8 @@ const NewArticle = () => {
             <div className="col-lg-12">
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item"><a href="#">News</a></li>
+                  <li class="breadcrumb-item"><a href="/">Home</a></li>
+                  <li class="breadcrumb-item"><a href="/latest-news">News</a></li>
                   <li class="breadcrumb-item active text-danger" aria-current="page">
                     The Impact of Technology on the Workplace: how technology is changing
                   </li>
@@ -369,7 +369,7 @@ const NewArticle = () => {
                 </div> */}
                 <div class="sidePost col-lg-12">
                   <ul class="SidepostUL"><li><a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a></li><li><a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional </a></li><li><a href="#">Experience the Serenity of Japan's Traditional</a></li><li><a href="#">Experience the Serenity of Japan's Traditional Countryside Traditional CountrysideTraditional Countryside</a></li></ul>
-                 </div>
+                </div>
               </div>
 
 

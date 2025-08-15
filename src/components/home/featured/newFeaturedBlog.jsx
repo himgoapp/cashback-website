@@ -18,7 +18,7 @@ const FeaturedBlogs = () => {
         'Latest',
         'News',
         'Promotions',
-        'Strategy',        
+        'Strategy',
         'Blog'
     ];
 
@@ -71,12 +71,12 @@ const FeaturedBlogs = () => {
                 <div className="container">
                     <div className='row'>
                         <div className="col-lg-12 text-center GetStartedhead">
-                                <h1 className="title">
-                                     Featured <span className="highlight">Blogs</span>
-                                </h1>
-                                <p className="subtitle">
-                                   Stay updated with poker insights, platform breakdowns, and earning strategies.
-                                </p>    
+                            <h1 className="title">
+                                Featured <span className="highlight">Blogs</span>
+                            </h1>
+                            <p className="subtitle">
+                                Stay updated with poker insights, platform breakdowns, and earning strategies.
+                            </p>
                         </div>
                     </div>
                     <div className='row'>
@@ -87,7 +87,7 @@ const FeaturedBlogs = () => {
                                         <div
                                             key={index}
                                             // className={`$"tab} ${activeTab === tab ? styles.activeTab : ''}`}
-                                            className= {activeTab === tab ? "activeTab" : ''}
+                                            className={activeTab === tab ? "activeTab" : ''}
                                             onClick={() => handleTabClick(tab)}
                                         >
                                             {tab}
@@ -125,38 +125,38 @@ const FeaturedBlogs = () => {
                                             <div className="col-lg-12 blogGrid">
                                                 <div className="row">
                                                     <div className='col-lg-6 '>
-                                                        <div className="mainPost" onClick={() => handleBlogClick(blogs[0])}>                                        
+                                                        <div className="mainPost" onClick={() => handleBlogClick(blogs[0])}>
                                                             <div className="imageContainer">
                                                                 <img
                                                                     // src={blogs[0].imageUrl || featuredBlogMain}
-                                                                    src={FeaturedCardImage}
+                                                                    src={blogs[0].imageUrl || sideImage}
                                                                     alt={blogs[0].title}
                                                                     className="mainImage"
                                                                 />
-                                                                
+
                                                             </div>
                                                             <div className="mainContent">
                                                                 <span className="category">{blogs[0].type || 'Blog'}</span>
                                                                 <h3 className="mainTitle">
-                                                                    {blogs[0]?.title?.length > 20
-                                                                        ? blogs[0].title.slice(0, 20) + "..."
+                                                                    {blogs[0]?.title?.length > 120
+                                                                        ? blogs[0].title.slice(0, 120) + "..."
                                                                         : blogs[0]?.title}
 
                                                                 </h3>
-                                                                <p className="description">
+                                                                {/* <p className="description">
                                                                     {blogs[0]?.subheading?.length > 90
                                                                         ? blogs[0].subheading.slice(0, 90) + "..."
                                                                         : blogs[0]?.subheading}
-                                                                </p>
+                                                                </p> */}
                                                                 <div className='AutherINfo'>
-                                                                    <div className='AutherImg'>
+                                                                    {/* <div className='AutherImg'>
                                                                         <img
                                                                             src={Men}
                                                                             alt={blogs[0].title}
                                                                             className="mainImage"
                                                                         />
                                                                     </div>
-                                                                    <h3>By Gabie Sheber</h3>
+                                                                    <h3>By Gabie Sheber</h3> */}
                                                                     <span>.</span>
                                                                     <p>Mar. 28, 2020</p>
                                                                 </div>
@@ -178,13 +178,13 @@ const FeaturedBlogs = () => {
                                                                             alt={blog.title}
                                                                             className="sideImage"
                                                                         />
-                                                                    </div>                                                                    
+                                                                    </div>
                                                                     <div className="sideContent">
                                                                         <span className="sideCategory">{blog.type || 'Blog'}</span>
                                                                         <p className="sideDescription">
                                                                             {blog.title?.length > 50
-                                                                        ? blog.title.slice(0, 50) + "..."
-                                                                        : blog.title}
+                                                                                ? blog.title.slice(0, 50) + "..."
+                                                                                : blog.title}
                                                                         </p>
                                                                         <div className='AutherINfo'>
                                                                             {/* <div className='AutherImg'>
@@ -194,7 +194,7 @@ const FeaturedBlogs = () => {
                                                                                     className="mainImage"
                                                                                 />
                                                                             </div> */}
-                                                                            <h3>By Gabie Sheber</h3>
+                                                                            {/* <h3>By Gabie Sheber</h3> */}
                                                                             <span>.</span>
                                                                             <p>Mar. 28, 2020</p>
                                                                         </div>
@@ -202,19 +202,19 @@ const FeaturedBlogs = () => {
                                                                     </div>
                                                                 </div>
                                                             ))}
-                                                        </div>              
+                                                        </div>
                                                     </div>
-                                                </div>   
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                               
-                               
+
+
                             ) : (
                                 <div className="blogGrid">
                                     <div className="mainPost">
-                                    
+
                                         <div className="mainContent" >
                                             <span className="category">No Content</span>
                                             <h3 className="mainTitle">No blogs available</h3>
@@ -348,7 +348,7 @@ const FeaturedBlogs = () => {
                     </button>
                 </div>
             </div> */}
-   </>
+        </>
     );
 };
 
