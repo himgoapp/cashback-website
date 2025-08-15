@@ -8,7 +8,104 @@ import { getBlogs } from "../../../servicefile/blogservice";
 import Meta from "../../../Meta";
 import FeaturedCardImage from '../../../assets/Logos_and_illustration/FeaturedCardImage.svg'
 
+const CustomPagination = ({
+    rowsPerPage,
+    rowCount,
+    onChangePage,
+    currentPage,
+}) => {
+    const totalPages = Math.ceil(rowCount / rowsPerPage);
+    const disabledLesser = currentPage === 1;
+    const disabledGreater = currentPage === totalPages || totalPages === 0;
 
+    const pageNumbers = [];
+    const maxPagesToShow = 5;
+    let startPage = Math.max(1, currentPage - Math.floor(maxPagesToShow / 2));
+    let endPage = Math.min(totalPages, startPage + maxPagesToShow - 1);
+
+    if (endPage - startPage + 1 < maxPagesToShow) {
+        startPage = Math.max(1, endPage - maxPagesToShow + 1);
+    }
+
+    for (let i = startPage; i <= endPage; i++) {
+        pageNumbers.push(
+            <a
+                href="#"
+                key={i}
+                className={`page-number ${currentPage === i ? "active" : ""}`}
+                onClick={(e) => {
+                    e.preventDefault();
+                    onChangePage(i);
+                }}
+            >
+                {i}
+            </a>
+        );
+    }
+
+    return (
+        <div className="custom-pagination">
+            {/* Prev Button */}
+            <button
+                className="page-btn prev"
+                onClick={() => onChangePage(currentPage - 1)}
+                disabled={disabledLesser}
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
+                    <path d="M8.07812 0.710938L1.07812 7.71094L8.07812 14.7109" stroke="black" strokeWidth="1.5" strokeLinejoin="round" />
+                </svg>
+            </button>
+
+            {/* First page and dots if needed */}
+            {startPage > 1 && (
+                <>
+                    <a
+                        href="#"
+                        className={`page-number ${currentPage === 1 ? "active" : ""}`}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            onChangePage(1);
+                        }}
+                    >
+                        1
+                    </a>
+                    {startPage > 2 && <span className="dots">...</span>}
+                </>
+            )}
+
+            {/* Middle page numbers */}
+            {pageNumbers}
+
+            {/* Last page and dots if needed */}
+            {endPage < totalPages && (
+                <>
+                    {endPage < totalPages - 1 && <span className="dots">...</span>}
+                    <a
+                        href="#"
+                        className={`page-number ${currentPage === totalPages ? "active" : ""}`}
+                        onClick={(e) => {
+                            e.preventDefault();
+                            onChangePage(totalPages);
+                        }}
+                    >
+                        {totalPages}
+                    </a>
+                </>
+            )}
+
+            {/* Next Button */}
+            <button
+                className="page-btn next"
+                onClick={() => onChangePage(currentPage + 1)}
+                disabled={disabledGreater}
+            >
+                <svg width="9" height="16" viewBox="0 0 9 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.07812 0.710938L8.07812 7.71094L1.07812 14.7109" stroke="black" strokeWidth="1.5" strokeLinejoin="round" />
+                </svg>
+            </button>
+        </div>
+    );
+};
 
 
 
@@ -20,6 +117,7 @@ const LatestNewsDesktop = ({ userData }) => {
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState(1);
+    const [totalRows, setTotalRows] = useState(0);
     const [topArticles, setTopArticles] = useState([]);
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
 
@@ -32,9 +130,17 @@ const LatestNewsDesktop = ({ userData }) => {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const handleTabs = (type) => {
-        setActiveTab(type);
-        setPage(1);
+    // const handleTabs = (type) => {
+    //     setActiveTab(type);
+    //     setPage(1);
+    // };
+
+    const handlePageChange = (page) => {
+        setPage(page);
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
     };
 
     const filterArticles = async () => {
@@ -46,6 +152,7 @@ const LatestNewsDesktop = ({ userData }) => {
             setCurrentArticles(response.blogsList.slice(2));
             setTotalPage(length);
             setLoading(false);
+            setTotalRows(response.length);
         }
     };
 
@@ -145,7 +252,14 @@ const LatestNewsDesktop = ({ userData }) => {
 
                                     </div>
 
-                                    <div class="custom-pagination">
+                                    <CustomPagination
+                                        rowsPerPage={20}
+                                        rowCount={totalRows}
+                                        onChangePage={handlePageChange}
+                                        currentPage={page}
+                                    />
+
+                                    {/* <div class="custom-pagination">
                                         <button class="page-btn prev">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="9" height="16" viewBox="0 0 9 16" fill="none">
                                                 <path d="M8.07812 0.710938L1.07812 7.71094L8.07812 14.7109" stroke="black" stroke-width="1.5" stroke-linejoin="round" />
@@ -163,7 +277,7 @@ const LatestNewsDesktop = ({ userData }) => {
                                                 <path d="M1.07812 0.710938L8.07812 7.71094L1.07812 14.7109" stroke="black" stroke-width="1.5" stroke-linejoin="round" />
                                             </svg>
                                         </button>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 {/* <div class="tab-pane fade" id="latest"><p>Latest blogs content here...</p></div>
@@ -173,6 +287,8 @@ const LatestNewsDesktop = ({ userData }) => {
                                 <div class="tab-pane fade" id="blogs"><p>Blogs content here...</p></div> */}
                             </div>
                         </div>
+
+
 
                         <div class="single-post-right sidebar RightsidebarBlog">
                             <div className="SpacedicAdd"></div>
