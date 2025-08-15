@@ -11,6 +11,7 @@ import FeaturedCardImage from '../../../assets/Logos_and_illustration/FeaturedCa
 
 
 import PofileIcon from '../../../assets/Logos_and_illustration/ProfileIconGrey.svg'
+import Loading from "../../common/Loading/Loading";
 
 const NewArticle = () => {
   const { blogId } = useParams();
@@ -58,8 +59,12 @@ const NewArticle = () => {
 
   useEffect(() => {
     fetchBlog();
-    getSideArticlesData();
+
   }, [blogId]);
+
+  useEffect(() => {
+    getSideArticlesData();
+  }, []);
 
   const fetchRelatedArticles = async () => {
     if (!blog || !blog.type) return;
@@ -214,15 +219,6 @@ const NewArticle = () => {
     `;
     });
 
-  const toggleToc = () => {
-    const newTocVisible = !tocVisible;
-    setTocVisible(newTocVisible);
-
-    if (newTocVisible) {
-      setTimeout(updateProgressLine, 100);
-    }
-  };
-
   const formatDate = (dateString) => {
     const date = new Date(dateString);
 
@@ -257,7 +253,7 @@ const NewArticle = () => {
         link={`https://www.rakebackk.com/news/${blogId}`}
       />
 
-      <div className="NewsChildpAge DesktopLatestNews">
+      {loading ? <Loading size={"md"} /> : <div className="NewsChildpAge DesktopLatestNews">
         <div class="container">
           <div className="row">
             <div className="col-lg-12">
@@ -531,7 +527,7 @@ const NewArticle = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div>}
     </div>
   );
 };

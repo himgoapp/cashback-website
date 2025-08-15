@@ -4,7 +4,7 @@ import styles from "./latest_news.module.css";
 import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
 import { Tab, Tabs, TabList } from "react-tabs";
-import { getBlogs } from "../../../servicefile/blogservice";
+import { getBlogs, getSidebarBlogs } from "../../../servicefile/blogservice";
 import Meta from "../../../Meta";
 import RightSidebar from "./RightSidebar";
 import Reveal from "../../common/reveal/Reveal";
@@ -21,33 +21,42 @@ import DashboardHomeHeader from "../../dashboard/home/dashHomeHeader";
 
 const LatestNews = ({ userData }) => {
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState("Latest News");
+  const [activeTab, setActiveTab] = useState("Latest");
   const [allArticles, setAllArticles] = useState([]);
   const [currentArticles, setCurrentArticles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [page, setPage] = useState(1);
   const [totalPage, setTotalPage] = useState(1);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
+  const [totalRows, setTotalRows] = useState(0);
+  const [topArticles, setTopArticles] = useState([]);
+  const [trendingList, setTrendingList] = useState([]);
+  const [offersList, setOffersList] = useState([]);
+  const [guidesList, setGuidesList] = useState([]);
+  const [page, setPage] = useState(1);
+
+  const tabs = ["Latest", "Promotions", "Strategies", "News", "Blog"];
+
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 575);
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    getSideArticlesData();
   }, []);
 
-  const handleTabs = (type) => {
-    setActiveTab(type);
-    setPage(1);
-  };
-
   const filterArticles = async () => {
-    let type = activeTab === "Latest News" ? undefined : activeTab;
+    let type = activeTab === "Latest" ? undefined : activeTab;
     const response = await getBlogs(type, page);
     if (response && response.blogsList) {
-      let length = response.length < 10 ? 1 : Math.ceil(response.length / 9);
-      setCurrentArticles(response.blogsList);
+      let length = response.length < 20 ? 1 : Math.ceil(response.length / 20);
+      setTopArticles(response.blogsList.slice(0, 2));
+      setCurrentArticles(response.blogsList.slice(2));
       setTotalPage(length);
+      setLoading(false);
+      setTotalRows(response.length);
+    }
+  };
+  const getSideArticlesData = async () => {
+    const response = await getSidebarBlogs();
+    if (response && response.trendingList && response.guidesList && response.VendorsList) {
+      setTrendingList(response.trendingList);
+      setOffersList(response.VendorsList);
+      setGuidesList(response.guidesList);
       setLoading(false);
     }
   };
@@ -56,23 +65,9 @@ const LatestNews = ({ userData }) => {
     filterArticles();
   }, [activeTab, page]);
 
-  const typeColors = {
-    Blog: "#3a63e3",
-    Promotions: "#00c6bb",
-    Guides: "#ff6b6b",
-    Interviews: "#7c5cf5",
-    "MTT Series": "#38b47e",
-    "Live Poker": "#5271ff",
-    "Latest News": "#e6a919",
-  };
 
-  const formatDate = (dateString) => {
-    const options = {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    };
-    return new Date(dateString).toLocaleDateString("en-US", options);
+  const formatDate = (date) => {
+    return new Date(date).toLocaleDateString("en-US");
   };
 
   return (
@@ -82,7 +77,6 @@ const LatestNews = ({ userData }) => {
         description="Check Today's Latest Poker News in India at Rakebackk."
         link="https://www.rakebackk.com/latest-news"
       />
-      <DashboardHomeHeader />
 
       {/* Mobile Dashboard design */}
 
@@ -90,26 +84,25 @@ const LatestNews = ({ userData }) => {
 
 
         <ul className="nav nav-pills sticky-top  z-3 py-2">
-          <li className="nav-item">
-            <a className="nav-link active" href="#latest">Latest</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#news">News</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#promotions">Promotions</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#strategies">Strategies</a>
-          </li>
-          <li className="nav-item">
-            <a className="nav-link" href="#blogs">Blogs</a>
-          </li>
+
+          {tabs.map((tab) => (
+            <li key={tab} className="nav-item">
+              <button
+                className={`nav-link ${activeTab === tab ? "active" : ""}`}
+                onClick={() => {
+                  setActiveTab(tab);
+                  setPage(1);
+                }}
+              >
+                {tab}
+              </button>
+            </li>
+          ))}
         </ul>
 
 
         <section id="latest" className="latestBLog">
-          <h6>Latest</h6>
+          <h6>{activeTab}</h6>
           <small>Discover ideas, news and many more</small>
         </section>
 
@@ -330,7 +323,7 @@ const LatestNews = ({ userData }) => {
 
         </div>
 
-        {isMobile && <DashboardFooter active={3} />}
+        <DashboardFooter active={3} />
 
       </div>
     </>

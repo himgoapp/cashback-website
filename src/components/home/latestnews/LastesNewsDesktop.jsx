@@ -120,20 +120,13 @@ const LatestNewsDesktop = ({ userData }) => {
     const [totalPage, setTotalPage] = useState(1);
     const [totalRows, setTotalRows] = useState(0);
     const [topArticles, setTopArticles] = useState([]);
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
     const [trendingList, setTrendingList] = useState([]);
     const [offersList, setOffersList] = useState([]);
     const [guidesList, setGuidesList] = useState([]);
 
     const tabs = ["Latest", "Promotions", "Strategies", "News", "Blog"];
     useEffect(() => {
-
         getSideArticlesData();
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 575);
-        };
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
     }, []);
 
     const handlePageChange = (page) => {
@@ -170,15 +163,6 @@ const LatestNewsDesktop = ({ userData }) => {
         filterArticles();
     }, [activeTab, page]);
 
-    const typeColors = {
-        Blog: "#3a63e3",
-        Promotions: "#00c6bb",
-        Guides: "#ff6b6b",
-        Interviews: "#7c5cf5",
-        "MTT Series": "#38b47e",
-        "Live Poker": "#5271ff",
-        "Latest News": "#e6a919",
-    };
 
     const formatDate = (date) => {
         return new Date(date).toLocaleDateString("en-US");
