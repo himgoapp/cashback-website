@@ -56,14 +56,16 @@ const FeaturedBlogs = () => {
         navigate(`/news/${blogId}`);
     };
 
+
     const formatDate = (dateString) => {
-        const options = {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric'
-        };
-        return new Date(dateString).toLocaleDateString('en-US', options);
-    };
+        const date = new Date(dateString);
+
+        return date.toLocaleDateString("en-US", {
+            month: "short",  // "Mar"
+            day: "numeric",  // "28"
+            year: "numeric"  // "2020"
+        }).replace(/^(\w+)/, "$1."); // add period after month
+    }
 
     return (
         <>
@@ -158,7 +160,7 @@ const FeaturedBlogs = () => {
                                                                     </div>
                                                                     <h3>By Gabie Sheber</h3> */}
                                                                     <span>.</span>
-                                                                    <p>Mar. 28, 2020</p>
+                                                                    <p>  <p>{formatDate(blogs[0].createdAt)}</p></p>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -196,7 +198,7 @@ const FeaturedBlogs = () => {
                                                                             </div> */}
                                                                             {/* <h3>By Gabie Sheber</h3> */}
                                                                             <span>.</span>
-                                                                            <p>Mar. 28, 2020</p>
+                                                                            <p>{formatDate(blog.createdAt)}</p>
                                                                         </div>
 
                                                                     </div>
