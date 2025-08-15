@@ -43,6 +43,7 @@ import MobileView from "./components/dashboard/mobileSidebar/Mobilepageview";
 import DictionaryPage from "./components/dictionary/dictionary";
 import PublicLayout from "./helperFxns/PubliclayOut";
 import Review from "./components/review/review";
+import ReviewMain from "./components/review/reviewmain";
 
 export const UserContext = createContext();
 
@@ -119,7 +120,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/offer-and-deals" element={<OfferAndDealsContainer />} />
               <Route path="/dictionary" element={<DictionaryPage />} />
-              <Route path="/review" element={<Review></Review>} />
+              <Route path="/review" element={<ReviewMain />} />
               <Route path="/contact-us" element={<ContactUSPage />} />
               <Route path="/retag" element={<RetagPage />} />
               <Route path="/latest-news" element={<LatestNewsMain />} />
