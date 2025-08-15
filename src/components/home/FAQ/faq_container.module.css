@@ -192,13 +192,14 @@ font-size: 20px;
     content: '';
     position: absolute;
     top: -10px;
-    left: 10px;
+    left: 50%;
     width: 323px;
     height: 323px;
     background: url(../../../assets/FAQ/ReachUSBG.svg);
     background-repeat: no-repeat;
     background-size: cover;
     z-index: 1;
+        transform: translate(-50%);
 }
 .ReachUs h3{
 font-size: 28px;
@@ -216,6 +217,11 @@ color: #000000;
     gap: 10px;
     z-index: 2;
    
+}
+.ReachUs a svg{
+       width: 27px;
+    height: 27px;
+    min-width: 27px;
 }
 .ReachUsBtn{
       display: flex
@@ -542,9 +548,11 @@ width: 100%;
   
 }
 @media only screen and (max-width: 575px) {
+  .MobileFAWhed .hero_subtitle {
+    display: block;
+}
 .ReachUs:before {
     top: -60px;
-    left: 30px;
     width: 353px;
     height: 353px;
 }
