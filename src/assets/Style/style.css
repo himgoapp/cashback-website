@@ -39,21 +39,29 @@ div#root {
 /*Header Css start*/
 .RakebackHeader {
     background: #FBFBFB;
-    border-bottom: 1px solid #0000001A;
-    padding: 11px 0;
+    border-bottom: 0px solid #0000001A;
+    padding: 0px 0;
 }
-.RakebackHeader ul.navbar-nav li.nav-item a.nav-link {
+.RakebackHeader ul.navbar-nav li.nav-item a.nav-link
+ {
     color: #000;
-    font-size: 15px;
+    font-size: 18px;
     font-weight: 500;
+    height: 50px;
+    padding: 0;
+    align-items: center;
+    line-height: 50px;
+    position: relative;
 }
 .RakebackHeader ul.navbar-nav li.nav-item a.nav-link.active {
     color: #FF4053;
 }
 .RakebackHeader ul.navbar-nav li.nav-item {
-    text-align: left;
-    margin-right: 20px;
-    margin-top: 4px;
+    text-align: center;
+    margin-right: 0;
+    margin-top: 0;
+    flex: 1;
+    position: relative;
 }
 /* .RakebackHeader button.signin_button {
     width: 163px;
@@ -67,7 +75,7 @@ div#root {
      .RakebackHeader button.signin_button {
        width: auto;
         height: 40px;
-        font-size: 15px;
+        font-size: 16px;
         padding: 8px 12px;
         color: #fff;
         border-radius: 6px;
@@ -75,7 +83,7 @@ div#root {
         font-weight: 700;
     }
 .RakebackHeader button.signin_button:first-child {
-    background: transparent;
+    background: #EFEFF2;
     color: #ff4053;
 }
 
@@ -4738,4 +4746,83 @@ background: #EFEFEF;
  .DesktopLatestNews.MobileReviewPAge .newsletter.GotAQues .GotAQuesBtn button svg {
     min-width: 20px;
     width: 20px;
+}
+
+
+
+.RakebackHeader .search-bar {
+    margin: 0;
+    display: none;
+        position: relative;
+}
+.RakebackHeader .search-bar.show {
+  display: flex;
+}
+.RakebackHeader .search-bar input {
+    border: 1px solid #D6D8DE;
+    border-radius: 6px;
+    padding: 5px 40px 5px 10px;
+    transition: all 0.3s ease-in-out;
+    max-width: 376px;
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+    min-width: 376px;
+    outline: none;
+}
+.RakebackHeader .search-bar button {
+    border: none;
+    background: none;
+    position: absolute;
+    right: 10px;
+    top: 7px;
+}
+.RakebackHeader .search-bar input:focus
+
+ {
+    border-color: #ff4053;
+}
+.RakebackHeader .navbar-nav .nav-link.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: #ff4d4d;
+    margin: auto;
+    width: 100%;
+}
+.RakebackHeader .LoginBtn
+ {
+    gap: 16px;
+    flex-direction: row;
+}
+.RakebackHeader     .navbar-expand-lg .navbar-collapse
+ {
+        flex-basis: 100%;
+        width: 100%;
+    }
+    .RakebackHeader .navbar-expand-lg .navbar-collapse ul.navbar-nav
+
+ {
+    width: 80%;
+    gap: 20px;
+}
+button#searchToggleDesktop:focus {
+    box-shadow: none !important;
+    outline: none !important;
+}
+.SearchBtn {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+    width: 100%;
+    justify-content: end;
+}
+@media (max-width: 992px) {
+  #desktopSearchBar { display: none !important; }
+}
+@media (min-width: 992px) {
+  #searchBarMobile { display: none !important; }
 }

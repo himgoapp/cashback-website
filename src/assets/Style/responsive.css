@@ -6,6 +6,9 @@
 }
 
 @media only screen and (max-width: 1199px) {
+  .RakebackHeader ul.navbar-nav li.nav-item a.nav-link {
+    font-size: 14px;
+}
   .RakebackNewsletter .inputContainer {
     width: 100%;
   }
@@ -223,10 +226,58 @@ button.Pokerbazzi25 {
 }
 
 @media only screen and (max-width: 991px) {
+  .RakebackHeader .container.py-3.d-flex.align-items-center.justify-content-between {
+    max-width: 100%;
+}
+    .RakebackHeader ul.navbar-nav li.nav-item a.nav-link {
+    font-size: 18px;
+}
+  .RakebackHeader .navbar-expand-lg .navbar-collapse
+
+ {
+    flex-direction: column-reverse;
+}
+    .RakebackHeader .search-bar {
+        display: block;
+        margin: 0 0 20px !important;
+        width: 100%;
+    }
   .ReviewTaggingTab .single-post-left {
     flex-basis: 100%;
     width: 100%;
 }
+.RakebackHeader .search-bar input {
+    border: 0px solid #D6D8DE;
+    border-radius: 4px;
+    padding: 9px 40px 9px 10px;
+    transition: all 0.3s ease-in-out;
+    max-width: 100%;
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+    min-width: 100%;
+    outline: none;
+    background: #F4F4F4;
+}
+.RakebackHeader .search-bar button svg {
+    width: 18px;
+    height: 18px;
+}
+.RakebackHeader ul.navbar-nav li.nav-item {
+    text-align: left;
+}
+
+    .RakebackHeader ul.navbar-nav li.nav-item a:before {
+        content: '';
+        background: url(../NavbarIcon.svg);
+        position: absolute;
+        top: 18px;
+        right: 0;
+        width: 22px;
+        height: 16px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
 .ReviewHeader {
     gap: 31px;
     padding: 30px 22px;
@@ -329,8 +380,17 @@ button.Pokerbazzi25 {
     background-position: center;
     position: absolute;
     left: 6px;
-    top: 20px;
+    top: 26px;
   }
+  .RakebackHeader .navbar-expand-lg .navbar-collapse ul.navbar-nav
+ {
+    width: 100%;
+    gap: 20px;
+}
+    .RakebackHeader .navbar-expand-lg .navbar-collapse.show {
+        flex-direction: column-reverse;
+        display: flex;
+    }
   .navbar-brand {
     position: relative;
     left: 50px;
@@ -572,7 +632,7 @@ button.Pokerbazzi25 {
     display: none;
 }
 .RakebackHeader button.signin_button:first-child {
-    background: transparent;
+    
     color: #ff4053;
 }
 
@@ -666,11 +726,12 @@ button.Pokerbazzi25 {
     gap: 20px;
   }
   .RakebackHeader {
-    padding: 15px 0;
+    padding: 0 0;
   }
-  button.navbar-toggler {
-    top: 14px;
-  }
+button.navbar-toggler {
+        top: 26px;
+        left: 0;
+    }
   .navbar-brand {
     width: 153px;
     left: 43px;
@@ -1085,11 +1146,15 @@ padding-left: 46px;
   .RakebackTrustedPoker .titleAccent {
     display: flex;
   }
-  button.navbar-toggler {
-    top: 14px;
-    padding-left: 0;
-    padding-right: 0;
-  }
+button.navbar-toggler {
+        top: 23px;
+        padding-left: 0;
+        padding-right: 0;
+        left: 10px;
+    }
+    header.RakebackHeader.sticky-top.bg-white .container.py-3.d-flex.align-items-center{
+    padding: 0 !important;
+}
   .pokerCard_FooterContent__2U0hu {
     padding: 0.875rem 0px 0rem;
   }
@@ -1747,8 +1812,12 @@ padding-left: 46px;
     width: 100%;
 }
 
-.RakebackHeader {
-    padding: 3px 0;
+    .RakebackHeader {
+        padding: 3px 15px 3px 25px;
+    }
+   .RakebackHeader  .navbar-toggler-icon {
+    width: 1em;
+    height: 1em;
 }
 .RakeBackBannerMobile {
     padding: 20px 48px 17px;
