@@ -3,7 +3,7 @@ import Review from "./review";
 import ReviewMobile from "./reviewMobile";
 
 const ReviewMain = () => {
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 575);
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
     useEffect(() => {
         const handleResize = () => {

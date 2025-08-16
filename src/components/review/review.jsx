@@ -511,6 +511,28 @@ const Review = () => {
                                             <div><ul><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li></ul></div>
 
                                         </div>
+
+                                        <div className="BorderLIne"></div> 
+
+                                        <div  id="Gotaquestion"  class="newsletter GotAQues GotAQuesReviewmain text-center mb-3">
+                                            <div className="GotAQuesHed">
+                                                <h5>Got a question?</h5>
+                                                <p>We are online <img src={Online} /></p>    
+                                            </div>
+                                            
+                                            <div className="GotAQuesBtn">
+                                                <button class="btn subcrb "> <img src={CustomerCare} /> Live Chat</button>
+                                                <button class="btn subcrb GreenBtn">
+                                                    <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M0.507812 24.1612L2.19955 17.9809C1.15563 16.1718 0.607091 14.1211 0.608094 12.0182C0.611102 5.44375 5.9611 0.09375 12.5345 0.09375C15.7245 0.0947528 18.7189 1.33724 20.9712 3.59155C23.2225 5.84587 24.462 8.84227 24.461 12.0292C24.4579 18.6046 19.108 23.9546 12.5345 23.9546C10.5389 23.9536 8.57242 23.4532 6.83054 22.5026L0.507812 24.1612ZM7.12336 20.3435C8.80407 21.3413 10.4086 21.939 12.5305 21.94C17.9938 21.94 22.4443 17.4935 22.4473 12.0272C22.4493 6.54985 18.0199 2.1094 12.5385 2.10739C7.07121 2.10739 2.62374 6.55386 2.62174 12.0192C2.62074 14.2504 3.27457 15.9211 4.37265 17.669L3.37084 21.3273L7.12336 20.3435ZM18.5424 14.8642C18.4682 14.7398 18.2696 14.6656 17.9708 14.5162C17.6729 14.3668 16.2078 13.6457 15.9341 13.5465C15.6613 13.4472 15.4627 13.397 15.2632 13.6959C15.0646 13.9937 14.493 14.6656 14.3195 14.8642C14.146 15.0627 13.9716 15.0878 13.6737 14.9384C13.3759 14.7889 12.4152 14.4751 11.277 13.4592C10.3915 12.669 9.79284 11.6933 9.61935 11.3944C9.44587 11.0966 9.6013 10.9351 9.74972 10.7867C9.88409 10.6534 10.0476 10.4387 10.197 10.2643C10.3484 10.0918 10.3975 9.96743 10.4978 9.76787C10.5971 9.56931 10.548 9.39482 10.4727 9.2454C10.3975 9.09699 9.80186 7.62988 9.55417 7.0332C9.31149 6.45258 9.0658 6.53079 8.88329 6.52177L8.31169 6.51174C8.11313 6.51174 7.79023 6.58595 7.51746 6.88479C7.2447 7.18362 6.47454 7.90364 6.47454 9.37076C6.47454 10.8379 7.54253 12.2548 7.69095 12.4534C7.84037 12.652 9.79184 15.6624 12.7812 16.953C13.4922 17.2599 14.0478 17.4434 14.48 17.5808C15.194 17.8074 15.8438 17.7753 16.3572 17.6991C16.9298 17.6139 18.1202 16.9781 18.3689 16.2821C18.6176 15.5852 18.6176 14.9885 18.5424 14.8642Z" fill="#28A745" />
+                                                    </svg>
+                                                    Whatsapp
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div className="BorderLIne"></div> 
+
                                         <div id="History" className="RakebackFAQ ">
                                             <h2>FAQ</h2>
                                             <div className="faqList">
@@ -962,7 +984,7 @@ const Review = () => {
                                             <p>After registration, link your account to aour website to receive bonuses from rakebackk</p>
                                             <div class="TagginginputField">
                                                 <span class="QuestionTag">?</span>
-                                                <input type="text" placeholder="Select Poker Room" value="" />
+                                                <input type="text" placeholder="Username" value="" />
                                             </div>
                                             <button className="SidePostTagBtn">Submit</button>
                                         </div>
@@ -1448,7 +1470,7 @@ const Review = () => {
                                         <p>After registration, link your account to aour website to receive bonuses from rakebackk</p>
                                         <div class="TagginginputField">
                                             <span class="QuestionTag">?</span>
-                                            <input type="text" placeholder="Select Poker Room" value="" />
+                                            <input type="text" placeholder="Username" value="" />
                                         </div>
                                         <button className="SidePostTagBtn">Submit</button>
                                     </div>

@@ -508,7 +508,7 @@ const NewArticle = () => {
             </div>
 
             {editorsList && editorsList.length > 0 && editorsList.map((editor, index) => (
-              <div class="sidePost col-lg-3">
+              <div class="sidePost col-lg-3"  key={editor._id} onClick={() => { navigate(`/news/${editor.title.replace(/[\s?]/g, "-")}-${editor._id}`) }}>
                 <div class="sideImageContainer">
                   <img src={editor.imageUrl} alt="POKER HANDS " class="sideImage" />
                 </div>

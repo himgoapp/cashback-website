@@ -13,10 +13,10 @@ export default function PublicLayout() {
     const hideNavbar = mobile && (location.pathname === "/login");
     const hideFooter = location.pathname === "/login" || (mobile && location.pathname === "/latest-news");
     return (
-        <>
+        <div>
             {!hideNavbar && <Navbar />}
             <Outlet />
             {!hideFooter && <NewFooter />}
-        </>
+        </div>
     );
 }

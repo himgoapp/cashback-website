@@ -226,6 +226,41 @@ button.Pokerbazzi25 {
 }
 
 @media only screen and (max-width: 991px) {
+  .mega-menu .dropdown-menu.show {
+    position: absolute !important;
+    top: 50px;
+    left: 0;
+}
+.PokerRight {
+    display: none;
+}
+.PokerLeft .list-unstyled {
+    max-width: 100%;
+}
+ .navbar .dropdown-toggle::after {
+      display: block;
+    }
+.navbar .dropdown-toggle[aria-expanded="true"]::before {
+      content: "";
+      display:block;
+       background: url(../NavbarIcon.svg);
+        position: absolute;
+        top: 18px;
+        right: 0;
+        width: 22px;
+        height: 16px;
+        background-size: contain;
+        background-repeat: no-repeat;   
+
+    }
+    /* Custom arrow */
+    .navbar .dropdown-toggle::before {
+      content: "▼";
+      font-size: 0.7rem;
+      margin-left: 6px;
+      transition: transform 0.2s ease;
+        display:block;
+    }
   .RakebackHeader .container.py-3.d-flex.align-items-center.justify-content-between {
     max-width: 100%;
 }
@@ -266,7 +301,18 @@ button.Pokerbazzi25 {
 .RakebackHeader ul.navbar-nav li.nav-item {
     text-align: left;
 }
-
+.RakebackHeader ul.navbar-nav li.nav-item a {
+        text-align: left;
+        border-bottom: 1px solid #EEEEEE;
+    }
+    
+.RakebackHeader ul.navbar-nav li.nav-item a.nav-link.active {
+    color: #FF4053;
+    border-color: #FF4053;
+}
+.RakebackHeader .navbar-nav .nav-link.active::after {
+    display: none;
+}
     .RakebackHeader ul.navbar-nav li.nav-item a:before {
         content: '';
         background: url(../NavbarIcon.svg);
@@ -278,6 +324,28 @@ button.Pokerbazzi25 {
         background-size: contain;
         background-repeat: no-repeat;
     }
+    .RakebackHeader ul.navbar-nav li.nav-item  .nav-link.dropdown-toggle:before {
+      display: block !important;
+        content: '';
+        background: url(../NavbarIcon.svg);
+        position: absolute;
+        top: 18px;
+        right: 0;
+        width: 22px;
+        height: 16px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+ .RakebackHeader ul.navbar-nav li.nav-item  .nav-link.dropdown-toggle.show:before {
+transform: rotate(90deg);
+right: 7px;
+    }
+    .PokerLeft .list-unstyled li.d-flex.align-items-center
+
+ {
+    flex-basis: 100%;
+    gap: 18px;
+}
 .ReviewHeader {
     gap: 31px;
     padding: 30px 22px;
@@ -640,6 +708,10 @@ button.Pokerbazzi25 {
 }
 
 @media only screen and (max-width: 768px) {
+  .ReviewTaggingTab .sticky-top.bg-white
+ {
+    top: 68px !important;
+}
   .BlogBottomNewSectionRow .sidePost .sideImageContainer {
     height: 150px;
 }
@@ -798,6 +870,16 @@ button.navbar-toggler {
 }
 
 @media only screen and (max-width: 575px) {
+      .PokerLeft .list-unstyled {
+                row-gap: 16px;
+    }
+    .PokerSiteHed {
+    padding: 0;
+}
+.mega-menu .dropdown-menu.show {
+
+    padding: 10px !important;
+}
 .container-fluid.RakeBackTopOffers, .container-fluid.RakeBackTopOffers .container {
     padding: 0 !important;
     overflow: hidden;

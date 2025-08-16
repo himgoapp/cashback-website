@@ -8,6 +8,13 @@ import { UserContext } from "../../../App";
 import { CrossIcon } from "../../../assets/vectors";
 import Reveal from "../reveal/Reveal";
 
+import BigCash from "../../../assets/WebsiteIcon/BigCash.svg";
+import jungleeIcon from "../../../assets/WebsiteIcon/jungleeIcon.svg";
+import pokerbazzi from "../../../assets/WebsiteIcon/pokerbazzi.svg";
+import pokerdangal from "../../../assets/WebsiteIcon/pokerdangal.svg";
+import spartan from "../../../assets/WebsiteIcon/spartan.svg";
+import ACRPoker from "../../../assets/ACRPoker.png";
+
 const Navbar = ({ page }) => {
   const { userData } = useContext(UserContext);
   const navigate = useNavigate();
@@ -51,12 +58,284 @@ const Navbar = ({ page }) => {
 
   return (
     <>
+<header className="RakebackHeader sticky-top bg-white ">
+  {/* Top header row */}
+  <div className="container py-3 d-flex align-items-center justify-content-between">
+    <div className="d-flex align-items-center">
+      {/* Navbar toggler (mobile) */}
+      <button
+        className="navbar-toggler me-2 d-lg-none"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+      >
+        <span className="navbar-toggler-icon"></span>
+      </button>
 
-      <header className="RakebackHeader sticky-top bg-white ">
-        {/* Top header row */}
+      {/* Logo */}
+      <a href="/" className="navbar-brand fw-bold text-danger">
+        <svg width="221" height="56" viewBox="0 0 221 56" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.2705 0.603516C32.6671 0.603739 41.919 9.86953 41.919 21.2529C41.9275 24.31 41.2491 27.3302 39.9336 30.0898C41.3624 31.9389 42.2436 34.1515 42.4776 36.4766C42.7115 38.8017 42.2887 41.1464 41.2569 43.2432C40.225 45.3398 38.6256 47.1048 36.6406 48.3379C34.6556 49.571 32.3643 50.2228 30.0274 50.2188C27.9771 50.2187 25.1685 49.538 23.4571 48.6592C23.5047 48.8139 23.5665 48.9834 23.626 49.1514C23.6579 49.2105 23.6841 49.2728 23.7041 49.3369C23.9846 50.0343 24.326 50.7059 24.7237 51.3438C24.7686 51.4363 24.8308 51.5274 24.8916 51.6357C26.0607 53.5489 27.541 55.2542 29.2715 56.6797H13.2637C15.0016 55.2618 16.4831 53.5551 17.6436 51.6357C17.7044 51.5274 17.7666 51.4363 17.8115 51.3438C18.2092 50.7059 18.5506 50.0343 18.8311 49.3369C18.8634 49.2781 18.8887 49.2156 18.9082 49.1514C18.9678 48.9833 19.0305 48.814 19.0781 48.6592C17.3812 49.5381 14.5751 50.2187 12.5235 50.2188C9.20428 50.2191 6.02015 48.9014 3.6719 46.5557C1.32388 44.21 0.00329363 41.0279 2.24803e-05 37.709C-0.00523696 34.955 0.912508 32.2779 2.60647 30.1064C1.2857 27.342 0.602126 24.3167 0.605491 21.2529C0.605491 9.86939 9.87376 0.603516 21.2705 0.603516ZM21.2705 8.7959C21.2617 8.8194 17.6947 18.2846 8.08498 25.5703C7.61209 24.1697 7.37286 22.7009 7.376 21.2227V21.1152L1.31448 21.0527V21.25C1.31448 30.4983 7.65197 38.3082 16.2119 40.5586C16.2514 40.5773 16.2924 40.5934 16.334 40.6064C16.6437 40.6832 16.9364 40.7435 17.2461 40.8057C17.2573 40.8077 17.2678 40.8129 17.2764 40.8203C17.8456 40.9328 18.4335 41.0227 19.0186 41.085C19.1112 41.1008 19.2184 41.1007 19.3281 41.1152C19.6091 41.1524 19.8925 41.1734 20.1758 41.1777C20.2827 41.1909 20.3904 41.196 20.4981 41.1934C20.7602 41.2079 21.0084 41.2256 21.2705 41.2256C21.5325 41.2256 21.7945 41.2079 22.0723 41.1934C22.1701 41.196 22.2683 41.1909 22.3653 41.1777C22.6542 41.1733 22.943 41.1522 23.2295 41.1152C23.3113 41.1031 23.394 41.099 23.4766 41.1016C33.3909 39.991 41.1502 31.5864 41.2256 21.3994L35.1651 21.3389C35.1516 22.7791 34.9117 24.2082 34.4551 25.5742C24.8655 18.3038 21.2942 8.85874 21.2705 8.7959ZM173.227 18.915C174.325 18.915 175.386 19.1069 176.411 19.4912C177.454 19.8572 178.388 20.3967 179.211 21.1104C180.034 21.8239 180.665 22.6932 181.105 23.7178L176.96 26.0244C176.576 25.329 176.09 24.7705 175.505 24.3496C174.919 23.9288 174.086 23.7178 173.007 23.7178C172.348 23.7178 171.753 23.8374 171.223 24.0752C170.692 24.3131 170.235 24.6518 169.851 25.0908C169.466 25.5117 169.174 26.0241 168.973 26.6279C168.771 27.2135 168.67 27.8635 168.67 28.5771C168.67 29.2906 168.771 29.949 168.973 30.5527C169.174 31.1382 169.457 31.6507 169.823 32.0898C170.207 32.5106 170.665 32.8402 171.195 33.0781C171.744 33.316 172.348 33.4355 173.007 33.4355C174.086 33.4355 174.928 33.2245 175.532 32.8037C176.136 32.3646 176.612 31.8068 176.96 31.1299L181.105 33.4355C180.665 34.4418 180.034 35.3111 179.211 36.043C178.388 36.7566 177.454 37.3052 176.411 37.6895C175.386 38.0554 174.325 38.2393 173.227 38.2393C171.836 38.2392 170.546 37.9921 169.356 37.498C168.185 37.004 167.152 36.3177 166.255 35.4395C165.377 34.5611 164.69 33.5354 164.196 32.3643C163.702 31.1933 163.455 29.931 163.455 28.5771C163.455 27.2231 163.702 25.9602 164.196 24.7891C164.69 23.618 165.377 22.5932 166.255 21.7148C167.152 20.8365 168.185 20.1494 169.356 19.6553C170.546 19.1612 171.836 18.9151 173.227 18.915ZM59.7549 19.2988C61.2187 19.2988 62.536 19.528 63.7071 19.9854C64.8782 20.4428 65.8024 21.129 66.4795 22.0439C67.1566 22.9406 67.4951 24.0749 67.4951 25.4473C67.4951 26.4719 67.267 27.3963 66.8096 28.2197C66.3704 29.0249 65.7476 29.6658 64.9424 30.1416C64.6341 30.328 64.3025 30.4755 63.9492 30.5889C64.3291 30.8332 64.6608 31.1493 64.9424 31.541C65.3633 32.1266 65.8214 32.9232 66.3155 33.9297L68.209 37.8271H62.6914L60.9629 34.3408C60.7616 33.92 60.5326 33.5814 60.2764 33.3252C60.0202 33.0691 59.7087 32.8862 59.3428 32.7764C58.9769 32.6666 58.5195 32.6113 57.9707 32.6113H57.0303L57.0098 37.8271H51.9864V19.2988H59.7549ZM78.7481 18.8867C79.7179 18.8867 80.6241 19.162 81.4658 19.7109C82.3258 20.2599 82.9297 21.1018 83.2774 22.2363L88.0537 37.8271H82.8662L82.0078 34.6982H75.501L74.6309 37.8271H69.4434L74.2197 22.2363C74.5674 21.1018 75.1712 20.2599 76.0313 19.7109C76.8912 19.1621 77.7966 18.8868 78.7481 18.8867ZM95.4649 26.2715H97.5674C97.7992 25.7376 98.1134 25.1972 98.5117 24.6514L102.409 19.2988H108.119L103.315 25.9688C102.931 26.4994 102.638 26.9485 102.437 27.3145C102.254 27.6803 102.162 28.0372 102.162 28.3848C102.162 28.7323 102.254 29.0892 102.437 29.4551C102.638 29.821 102.931 30.2783 103.315 30.8271L108.283 37.8271H102.107L98.5117 32.502C98.158 31.9642 97.8653 31.4424 97.6319 30.9375H95.4649V37.8271H90.3867V19.2988H95.4649V26.2715ZM124.1 23.8281H115.288V26.2988H123.468V30.8271H115.288V33.2979H124.237V37.8271H114.603C113.047 37.8271 111.921 37.4424 111.226 36.6738C110.549 35.9053 110.21 34.8713 110.21 33.5723V23.5537C110.21 22.2547 110.549 21.2207 111.226 20.4521C111.921 19.6836 113.047 19.2988 114.603 19.2988H124.1V23.8281ZM135.295 19.2988C137.637 19.2988 139.468 19.775 140.785 20.7266C142.103 21.6781 142.762 22.9501 142.762 24.542C142.762 25.5483 142.515 26.3994 142.021 27.0947C141.545 27.7635 140.908 28.2775 140.111 28.6416C140.933 28.8864 141.597 29.3116 142.103 29.9219C142.633 30.544 142.898 31.4313 142.898 32.584C142.898 33.4439 142.716 34.2036 142.35 34.8623C141.984 35.5211 141.462 36.0706 140.785 36.5098C140.126 36.949 139.33 37.2785 138.396 37.498C137.463 37.7176 136.429 37.8271 135.295 37.8271H127.527V19.2988H135.295ZM153.726 18.8867C154.695 18.8868 155.602 19.162 156.443 19.7109C157.303 20.2599 157.907 21.102 158.255 22.2363L163.03 37.8271H157.843L156.984 34.6982H150.479L149.608 37.8271H144.42L149.196 22.2363C149.544 21.1019 150.148 20.2599 151.008 19.7109C151.868 19.162 152.774 18.8867 153.726 18.8867ZM188.235 26.2715H190.338C190.57 25.7376 190.884 25.1971 191.282 24.6514L195.18 19.2988H200.889L196.085 25.9688C195.701 26.4994 195.408 26.9485 195.207 27.3145C195.024 27.6803 194.933 28.0372 194.933 28.3848C194.933 28.7324 195.024 29.0892 195.207 29.4551C195.408 29.821 195.701 30.2784 196.085 30.8271L201.054 37.8271H194.878L191.282 32.502C190.928 31.9641 190.635 31.4425 190.401 30.9375H188.235V37.8271H183.157V19.2988H188.235V26.2715ZM208.333 26.2715H210.436C210.667 25.7376 210.982 25.1971 211.38 24.6514L215.277 19.2988H220.986L216.184 25.9688C215.799 26.4994 215.506 26.9485 215.305 27.3145C215.122 27.6803 215.03 28.0372 215.03 28.3848C215.03 28.7324 215.122 29.0892 215.305 29.4551C215.506 29.8211 215.799 30.2782 216.184 30.8271L221.151 37.8271H214.976L211.38 32.502C211.026 31.9642 210.733 31.4424 210.5 30.9375H208.333V37.8271H203.255V19.2988H208.333V26.2715ZM132.605 33.71H135.569C135.935 33.71 136.256 33.6819 136.53 33.627C136.805 33.5721 137.034 33.4897 137.217 33.3799C137.418 33.2519 137.564 33.0967 137.655 32.9141C137.765 32.7311 137.82 32.502 137.82 32.2275C137.82 31.642 137.619 31.2482 137.217 31.0469C136.833 30.8456 136.283 30.7451 135.569 30.7451H132.605V33.71ZM78.7754 23.4434C78.6842 23.4436 78.6115 23.5354 78.5567 23.7178L76.7617 30.1689H80.7647L78.9951 23.7178C78.9403 23.5351 78.8668 23.4434 78.7754 23.4434ZM153.753 23.4434C153.662 23.4434 153.588 23.535 153.533 23.7178L151.738 30.1689H155.742L153.973 23.7178C153.918 23.535 153.844 23.4434 153.753 23.4434ZM57.0479 28.1104H59.7549C60.2489 28.1103 60.6881 28.0279 61.0723 27.8633C61.4566 27.6803 61.7499 27.4332 61.9512 27.1221C62.1707 26.7927 62.2803 26.4079 62.2803 25.9688C62.2802 25.4933 62.1706 25.1091 61.9512 24.8164C61.7499 24.5236 61.4566 24.3127 61.0723 24.1846C60.7063 24.0382 60.2853 23.9648 59.8096 23.9648H57.0645L57.0479 28.1104ZM132.605 26.6279H135.569C136.283 26.6279 136.813 26.4812 137.161 26.1885C137.509 25.8957 137.684 25.4838 137.684 24.9531C137.684 24.4775 137.509 24.1026 137.161 23.8281C136.832 23.5538 136.301 23.416 135.569 23.416H132.605V26.6279ZM25.669 8.05176C28.4527 8.98107 30.8711 10.7683 32.5772 13.1562L37.4824 9.6416C35.0338 6.22256 31.5684 3.66312 27.5801 2.3291L25.669 8.05176ZM15.2696 2.22266C11.259 3.49364 7.7516 5.99718 5.24612 9.37695L10.0889 12.9707C10.0889 12.9707 14.1304 8.91441 17.0742 7.97461L15.2696 2.22266Z" fill="#FF4053"></path></svg>
+      </a>
+    </div>
+
+    <div className="SearchBtn d-flex align-items-center">
+      {/* Desktop Search Bar */}
+      {showSearchBar && (
+        <form
+          className={`search-bar ${showSearchBar ? "show" : ""}`}
+          id="desktopSearchBar"
+        >
+          <input type="search" placeholder="Search news, guides and reviews" />
+          <button type="submit">
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 19C15.9183 19 19.5 15.4183 19.5 11C19.5 6.58172 15.9183 3 11.5 3C7.08172 3 3.5 6.58172 3.5 11C3.5 15.4183 7.08172 19 11.5 19Z" stroke="black" stroke-opacity="0.9" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.5023 21.0004L17.1523 16.6504" stroke="black" stroke-opacity="0.9" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
+        </form>
+      )}
+
+      {/* Search icon (desktop) */}
+      {!showSearchBar && (
+        <button
+          id="searchToggleDesktop"
+          className="btn btn-link p-0 d-none d-lg-block"
+          onClick={() => {
+            setShowSearchBar(true);
+          }}
+        >
+            <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.5 19C15.9183 19 19.5 15.4183 19.5 11C19.5 6.58172 15.9183 3 11.5 3C7.08172 3 3.5 6.58172 3.5 11C3.5 15.4183 7.08172 19 11.5 19Z" stroke="black" stroke-opacity="0.9" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path><path d="M21.5023 21.0004L17.1523 16.6504" stroke="black" stroke-opacity="0.9" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          
+        </button>
+      )}
+
+      {/* Login / Signup buttons */}
+      <div className="d-flex LoginBtn">
+        {userData ? (
+          <button className="btn signin_button " onClick={handleDashboardClick}>
+            Dashboard
+          </button>
+        ) : (
+          <>
+            <button className="btn signin_button " onClick={handleSignInClick}>
+              Login
+            </button>
+            <button className="btn signin_button" onClick={handleSignInClick}>
+              Sign Up
+            </button>
+          </>
+        )}
+      </div>
+    </div>
+  </div>
+
+  {/* Navbar row */}
+  <nav className="navbar navbar-expand-lg navbar-light p-0 ">
+    <div className="container">
+      <div
+        className="collapse navbar-collapse justify-content-center"
+        id="navbarNav"
+      >
+        <ul className="navbar-nav">
+          <li className="nav-item">
+            <a className="nav-link active" href="/offer-and-deals">
+              Hot Deals
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/latest-news">
+              News
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/poker-guides">
+              Poker Guides
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="nav-link" href="/strategies">
+              Strategies
+            </a>
+          </li>
+
+          {/* Mega Menu Poker Sites */}
+          <li className="nav-item dropdown mega-menu">
+            <a
+              className="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Poker Sites
+            </a>
+
+            <div
+              className="dropdown-menu mega-dropdown border-0 rounded-0 shadow p-4"
+              aria-labelledby="navbarDropdown"
+            >
+              <div className="container">
+                <div className="row">
+                  <div className="col-lg-12">
+                      <h6 className="PokerSiteHed">All Poker Sites</h6>
+                  </div>
+                  {/* Left column: Poker Sites list */}
+                  <div className="MegamenuData">
+                  <div className="PokerLeft">
+                    
+                    <ul className="list-unstyled">
+                      <li className="d-flex align-items-center">
+                        <img
+                          src={BigCash}
+                        />
+                        Bigcash
+                      </li>
+                      <li className="d-flex align-items-center">
+                        <img
+                          src={spartan}
+                        />
+                        Spartan
+                      </li>
+                      <li className="d-flex align-items-center">
+                        <img
+                          src={pokerdangal}
+                        />
+                        Pokerdangal
+                      </li>
+                      <li className="d-flex align-items-center">
+                        <img
+                          src={pokerbazzi}
+                        />
+                        Pokerbazzi
+                      </li>
+                      <li className="d-flex align-items-center">
+                        <img
+                          src={jungleeIcon}
+                        />
+                        Junglee poker
+                      </li>
+                      <li className="d-flex align-items-center">
+                        <img
+                          src={pokerbazzi}
+                        />
+                        Pokerbazzi
+                      </li>
+                      <li className="d-flex align-items-center">
+                        <img
+                          src={spartan}
+                        />
+                        Spartan
+                      </li>
+                      <li className="d-flex align-items-center">
+                        <img
+                          src={jungleeIcon}
+                        />
+                        Junglee poker
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Right column: Promo cards */}
+
+                  <div className="PokerRight">
+                    <div className="HottestDealschild">
+                        <div className="deal-card ">
+                          <div className="deal-image">
+                            <img src={ACRPoker} />
+                          </div>
+                          <div className="HottestDealsDesc">
+                            <div className="card-subtitle">Pokerbazzi</div>
+                            <div className="card-title">
+                              Experience the Serenity of Ja...
+                            </div>
+                            <button className="deal-button mt-2 w-100">
+                              Claim Now!
+                            </button>
+                          </div>
+                        </div>
+                        <div className="deal-card ">
+                          <div className="deal-image">
+                            <img src={ACRPoker} />
+                          </div>
+                          <div className="HottestDealsDesc">
+                            <div className="card-subtitle">Pokerbazzi</div>
+                            <div className="card-title">
+                              Experience the Serenity of Ja...
+                            </div>
+                            <button className="deal-button mt-2 w-100">
+                              Claim Now!
+                            </button>
+                          </div>
+                        </div>
+                        <div className="deal-card ">
+                          <div className="deal-image">
+                            <img src={ACRPoker} />
+                          </div>
+                          <div className="HottestDealsDesc">
+                            <div className="card-subtitle">Pokerbazzi</div>
+                            <div className="card-title">
+                              Experience the Serenity of Ja...
+                            </div>
+                            <button className="deal-button mt-2 w-100">
+                              Claim Now!
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li className="nav-item">
+            <a className="nav-link" href="/faq">
+              FAQs
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <style jsx>{`
+    .mega-menu .dropdown-menu {
+      position: fixed !important;
+      top: 148px; /* just below navbar */
+      left: 0;
+      right: 0;
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      margin-top: 0;
+      z-index: 1050;
+    }
+
+    /* Hide bootstrap arrow */
+    .navbar .dropdown-toggle::after {
+      display: none;
+    }
+
+    /* Custom arrow */
+    .navbar .dropdown-toggle::before {
+      content: "▼";
+      font-size: 0.7rem;
+      margin-left: 6px;
+      transition: transform 0.2s ease;
+        display:none;
+    }
+
+    .navbar .dropdown-toggle[aria-expanded="true"]::before {
+      content: "▲";
+      display:none;
+    }
+  `}</style>
+</header>
+
+
+
+      {/* <header className="RakebackHeader sticky-top bg-white ">
         <div className="container py-3 d-flex align-items-center justify-content-between">
           <div className="d-flex align-items-center">
-            {/* Navbar toggler (mobile) */}
             <button
               className="navbar-toggler me-2 d-lg-none"
               type="button"
@@ -66,7 +345,6 @@ const Navbar = ({ page }) => {
               <span className="navbar-toggler-icon"></span>
             </button>
 
-            {/* Logo */}
             <a href="/" class="navbar-brand">
               <svg
                 width="221"
@@ -83,7 +361,6 @@ const Navbar = ({ page }) => {
             </a>
           </div>
           <div className="SearchBtn">
-            {/* Desktop Search Bar */}
             {showSearchBar && <form className={`search-bar ${showSearchBar ? "show" : ""}`} id="desktopSearchBar">
               <input type="search" placeholder="Search news, guides and reviews" />
               <button type="submit">
@@ -96,7 +373,6 @@ const Navbar = ({ page }) => {
               </button>
             </form>}
 
-            {/* Search icon (desktop) */}
             {!showSearchBar && <button id="searchToggleDesktop" className="btn btn-link p-0 d-none d-lg-block" onClick={() => { setShowSearchBar(true) }}>
 
               <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -106,7 +382,6 @@ const Navbar = ({ page }) => {
 
             </button>}
 
-            {/* Login / Signup buttons */}
             <div className="d-flex LoginBtn">
               {userData ? (
                 <button className="btn signin_button " onClick={handleDashboardClick}>
@@ -127,7 +402,6 @@ const Navbar = ({ page }) => {
 
         </div>
 
-        {/* Navbar row */}
         <nav className="navbar navbar-expand-lg navbar-light p-0">
           <div className="container">
             <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
@@ -147,28 +421,11 @@ const Navbar = ({ page }) => {
                 <li className="nav-item">
                   <a className="nav-link" href="/latest-news">Poker Sites</a>
                 </li>
-                {/* <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="/#"
-              id="navbarDropdownMenuLink"
-              role="button"
-              data-bs-toggle="dropdown"
-            >
-              Promotions
-            </a>
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a className="dropdown-item" href="#">Promotion 1</a></li>
-              <li><a className="dropdown-item" href="#">Promotion 2</a></li>
-              <li><a className="dropdown-item" href="#">Promotion 3</a></li>
-            </ul>
-          </li> */}
                 <li className="nav-item">
                   <a className="nav-link" href="/faq">FAQs</a>
                 </li>
               </ul>
 
-              {/* Mobile search inside collapse */}
               <form className="search-bar mt-3 mx-auto" id="searchBarMobile">
                 <input type="search" placeholder="Search news, guides and reviews" />
                 <button type="submit">
@@ -181,7 +438,7 @@ const Navbar = ({ page }) => {
             </div>
           </div>
         </nav>
-      </header>
+      </header> */}
 
       {/* <header className="RakebackHeader">
         <nav class="container-fluid navbar navbar-expand-lg ">
