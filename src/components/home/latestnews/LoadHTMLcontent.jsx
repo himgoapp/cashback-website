@@ -48,6 +48,17 @@ export default function NewsArticleHTMLData({ article }) {
             }
         );
 
+        // Wrap <table> inside div and replace classes
+        html = html.replace(/<table[^>]*>([\s\S]*?)<\/table>/gi, (match, inner) => {
+            return `
+        <div class="table-responsive customTableResponsive">
+          <table class="table custom-table">
+            ${inner}
+          </table>
+        </div>
+      `;
+        });
+
         // Handle Twitter embeds
         html = html.replace(
             /<pre[^>]*class="[^"]*\bql-syntax\b[^"]*"[^>]*>([\s\S]*?twitter-tweet[\s\S]*?)<\/pre>/gi,
