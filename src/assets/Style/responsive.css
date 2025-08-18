@@ -270,7 +270,7 @@ button.Pokerbazzi25 {
   .RakebackHeader .navbar-expand-lg .navbar-collapse
 
  {
-    flex-direction: column-reverse;
+    flex-direction: column;
 }
     .RakebackHeader .search-bar {
         display: block;
@@ -456,7 +456,7 @@ right: 7px;
     gap: 20px;
 }
     .RakebackHeader .navbar-expand-lg .navbar-collapse.show {
-        flex-direction: column-reverse;
+        /* flex-direction: column-reverse; */
         display: flex;
     }
   .navbar-brand {

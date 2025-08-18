@@ -512,14 +512,14 @@ const Review = () => {
 
                                         </div>
 
-                                        <div className="BorderLIne"></div> 
+                                        <div className="BorderLIne"></div>
 
-                                        <div  id="Gotaquestion"  class="newsletter GotAQues GotAQuesReviewmain text-center mb-3">
+                                        <div id="Gotaquestion" class="newsletter GotAQues GotAQuesReviewmain text-center mb-3">
                                             <div className="GotAQuesHed">
                                                 <h5>Got a question?</h5>
-                                                <p>We are online <img src={Online} /></p>    
+                                                <p>We are online <img src={Online} /></p>
                                             </div>
-                                            
+
                                             <div className="GotAQuesBtn">
                                                 <button class="btn subcrb "> <img src={CustomerCare} /> Live Chat</button>
                                                 <button class="btn subcrb GreenBtn">
@@ -531,7 +531,7 @@ const Review = () => {
                                             </div>
                                         </div>
 
-                                        <div className="BorderLIne"></div> 
+                                        <div className="BorderLIne"></div>
 
                                         <div id="History" className="RakebackFAQ ">
                                             <h2>FAQ</h2>

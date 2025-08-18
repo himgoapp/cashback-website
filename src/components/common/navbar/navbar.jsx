@@ -56,12 +56,17 @@ const Navbar = ({ page }) => {
           <div className="d-flex align-items-center">
             {/* Navbar toggler (mobile) */}
             <button
-              className="navbar-toggler me-2 d-lg-none"
+              className={showMenu ? "navbar-toggler me-2 d-lg-none activetoggle" : "navbar-toggler me-2 d-lg-none"}
               type="button"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNav"
+              onClick={() => setShowMenu(!showMenu)}
             >
               <span className="navbar-toggler-icon"></span>
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1 1L15 15" stroke="black" stroke-width="2" stroke-linecap="round" />
+                <path d="M15 1L1 15" stroke="black" stroke-width="2" stroke-linecap="round" />
+              </svg>
             </button>
 
             {/* Logo */}
@@ -125,6 +130,16 @@ const Navbar = ({ page }) => {
               className="collapse navbar-collapse justify-content-center"
               id="navbarNav"
             >
+
+              {isMobile && <form className="search-bar mt-3 mx-auto" id="searchBarMobile">
+                <input type="search" placeholder="Search news, guides and reviews" />
+                <button type="submit">
+                  <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.5 19C15.9183 19 19.5 15.4183 19.5 11C19.5 6.58172 15.9183 3 11.5 3C7.08172 3 3.5 6.58172 3.5 11C3.5 15.4183 7.08172 19 11.5 19Z" stroke="black" stroke-opacity="0.9" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M21.5023 21.0004L17.1523 16.6504" stroke="black" stroke-opacity="0.9" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </form>}
               <ul className="navbar-nav">
                 {navItems.map((item, index) => (
                   <li key={index} className="nav-item">
