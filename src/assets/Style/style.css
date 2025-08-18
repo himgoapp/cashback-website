@@ -4959,3 +4959,13 @@ button#searchToggleDesktop:focus {
     border-radius: 6px;
     font-size: 16px;
 }
+
+.BlogEmbed {
+  margin: 2rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+.BlogTwitter, .BlogFacebook, .BlogInstagram {
+  max-width: 100%;
+}

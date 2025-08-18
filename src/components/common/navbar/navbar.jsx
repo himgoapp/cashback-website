@@ -138,26 +138,7 @@ const Navbar = ({ page }) => {
                     </NavLink>
                   </li>
                 ))}
-                {/* <li className="nav-item">
-                  <a className="nav-link" href="/offer-and-deals">
-                    Hot Deals
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/latest-news">
-                    News
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/poker-guides">
-                    Poker Guides
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <a className="nav-link" href="/strategies">
-                    Strategies
-                  </a>
-                </li> */}
+
 
                 {/* Mega Menu Poker Sites */}
                 <li className="nav-item dropdown mega-menu">

@@ -12,6 +12,7 @@ import FeaturedCardImage from '../../../assets/Logos_and_illustration/FeaturedCa
 
 import PofileIcon from '../../../assets/Logos_and_illustration/ProfileIconGrey.svg'
 import Loading from "../../common/Loading/Loading";
+import NewsArticleHTMLData from "./LoadHTMLcontent";
 
 const NewArticle = () => {
   const { blogId } = useParams();
@@ -59,169 +60,227 @@ const NewArticle = () => {
 
   useEffect(() => {
     fetchBlog();
-
   }, [blogId]);
 
   useEffect(() => {
     getSideArticlesData();
   }, []);
 
-  const fetchRelatedArticles = async () => {
-    if (!blog || !blog.type) return;
+  // const fetchRelatedArticles = async () => {
+  //   if (!blog || !blog.type) return;
 
-    try {
-      const response = await getBlogs(blog.type, 1);
-      if (response && response.blogsList) {
-        const relatedPosts = response.blogsList
-          .filter((post) => post._id !== blog._id)
-          .slice(0, 5);
-        setCurrentArticles(relatedPosts);
-      }
-    } catch (error) {
-      console.error("Error fetching related articles:", error);
-    }
-  };
+  //   try {
+  //     const response = await getBlogs(blog.type, 1);
+  //     if (response && response.blogsList) {
+  //       const relatedPosts = response.blogsList
+  //         .filter((post) => post._id !== blog._id)
+  //         .slice(0, 5);
+  //       setCurrentArticles(relatedPosts);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error fetching related articles:", error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchRelatedArticles();
-  }, [blog]);
+  // useEffect(() => {
+  //   fetchRelatedArticles();
+  // }, [blog]);
 
-  useEffect(() => {
-    if (blog && headingsRef.current.length > 0) {
-      const refs = {};
-      headingsRef.current.forEach((section) => {
-        const element = document.getElementById(section.id);
-        if (element) {
-          refs[section.id] = element;
-        }
-      });
-      sectionRefs.current = refs;
+  // useEffect(() => {
+  //   if (blog && headingsRef.current.length > 0) {
+  //     const refs = {};
+  //     headingsRef.current.forEach((section) => {
+  //       const element = document.getElementById(section.id);
+  //       if (element) {
+  //         refs[section.id] = element;
+  //       }
+  //     });
+  //     sectionRefs.current = refs;
 
-      if (headingsRef.current.length > 0 && !activeSection) {
-        setActiveSection(headingsRef.current[0].id);
-      }
-    }
-  }, [blog, headingsRef.current.length]);
+  //     if (headingsRef.current.length > 0 && !activeSection) {
+  //       setActiveSection(headingsRef.current[0].id);
+  //     }
+  //   }
+  // }, [blog, headingsRef.current.length]);
 
-  useEffect(() => {
-    if (!blog || headingsRef.current.length === 0) return;
+  // useEffect(() => {
+  //   if (!blog || headingsRef.current.length === 0) return;
 
-    const observerOptions = {
-      root: null,
-      rootMargin: "-100px 0px -70% 0px",
-      threshold: 0,
-    };
+  //   const observerOptions = {
+  //     root: null,
+  //     rootMargin: "-100px 0px -70% 0px",
+  //     threshold: 0,
+  //   };
 
-    const observerCallback = (entries) => {
-      const visibleSections = entries
-        .filter((entry) => entry.isIntersecting)
-        .map((entry) => entry.target.id);
+  //   const observerCallback = (entries) => {
+  //     const visibleSections = entries
+  //       .filter((entry) => entry.isIntersecting)
+  //       .map((entry) => entry.target.id);
 
-      if (visibleSections.length > 0) {
-        setActiveSection(visibleSections[0]);
-      } else if (entries.length > 0) {
-        const scrollPosition = window.scrollY;
-        let closestSection = null;
-        let closestDistance = Infinity;
+  //     if (visibleSections.length > 0) {
+  //       setActiveSection(visibleSections[0]);
+  //     } else if (entries.length > 0) {
+  //       const scrollPosition = window.scrollY;
+  //       let closestSection = null;
+  //       let closestDistance = Infinity;
 
-        headingsRef.current.forEach((section) => {
-          const element = document.getElementById(section.id);
-          if (element) {
-            const distance = Math.abs(element.offsetTop - scrollPosition);
-            if (distance < closestDistance) {
-              closestDistance = distance;
-              closestSection = section.id;
-            }
-          }
-        });
+  //       headingsRef.current.forEach((section) => {
+  //         const element = document.getElementById(section.id);
+  //         if (element) {
+  //           const distance = Math.abs(element.offsetTop - scrollPosition);
+  //           if (distance < closestDistance) {
+  //             closestDistance = distance;
+  //             closestSection = section.id;
+  //           }
+  //         }
+  //       });
 
-        if (closestSection) {
-          setActiveSection(closestSection);
-        }
-      }
-    };
+  //       if (closestSection) {
+  //         setActiveSection(closestSection);
+  //       }
+  //     }
+  //   };
 
-    const observer = new IntersectionObserver(
-      observerCallback,
-      observerOptions
-    );
+  //   const observer = new IntersectionObserver(
+  //     observerCallback,
+  //     observerOptions
+  //   );
 
-    headingsRef.current.forEach((section) => {
-      const element = document.getElementById(section.id);
-      if (element) {
-        observer.observe(element);
-      }
-    });
+  //   headingsRef.current.forEach((section) => {
+  //     const element = document.getElementById(section.id);
+  //     if (element) {
+  //       observer.observe(element);
+  //     }
+  //   });
 
-    return () => {
-      observer.disconnect();
-    };
-  }, [blog, headingsRef.current.length]);
+  //   return () => {
+  //     observer.disconnect();
+  //   };
+  // }, [blog, headingsRef.current.length]);
 
-  useEffect(() => {
-    updateProgressLine();
-  }, [activeSection, tocVisible]);
+  // useEffect(() => {
+  //   updateProgressLine();
+  // }, [activeSection, tocVisible]);
 
-  const updateProgressLine = () => {
-    if (!activeSection || !tocVisible || !tocRef.current) return;
+  // const updateProgressLine = () => {
+  //   if (!activeSection || !tocVisible || !tocRef.current) return;
 
-    const activeItem = tocRef.current.querySelector(`.${styles.active}`);
-    if (!activeItem) return;
+  //   const activeItem = tocRef.current.querySelector(`.${styles.active}`);
+  //   if (!activeItem) return;
 
-    const activeIndex = headingsRef.current.findIndex(
-      (item) => item.id === activeSection
-    );
-    if (activeIndex === -1) return;
+  //   const activeIndex = headingsRef.current.findIndex(
+  //     (item) => item.id === activeSection
+  //   );
+  //   if (activeIndex === -1) return;
 
-    const position = activeItem.offsetTop + activeItem.offsetHeight / 2;
+  //   const position = activeItem.offsetTop + activeItem.offsetHeight / 2;
 
-    const tocList = tocRef.current.querySelector("ul");
-    if (tocList) {
-      tocList.style.setProperty("--active-section-bottom", `${position}px`);
-    }
-  };
+  //   const tocList = tocRef.current.querySelector("ul");
+  //   if (tocList) {
+  //     tocList.style.setProperty("--active-section-bottom", `${position}px`);
+  //   }
+  // };
 
 
-  useEffect(() => {
-    const checkScreenSize = () => {
-      const newIsMobile = window.innerWidth < 768;
-      setIsMobile(newIsMobile);
-      if (!newIsMobile) {
-        setTocVisible(true);
-        setTimeout(updateProgressLine, 100);
-      }
-    };
+  // useEffect(() => {
+  //   const checkScreenSize = () => {
+  //     const newIsMobile = window.innerWidth < 768;
+  //     setIsMobile(newIsMobile);
+  //     if (!newIsMobile) {
+  //       setTocVisible(true);
+  //       setTimeout(updateProgressLine, 100);
+  //     }
+  //   };
 
-    window.addEventListener("resize", checkScreenSize);
-    return () => window.removeEventListener("resize", checkScreenSize);
-  }, [tocVisible]);
+  //   window.addEventListener("resize", checkScreenSize);
+  //   return () => window.removeEventListener("resize", checkScreenSize);
+  // }, [tocVisible]);
+
+
+  // useEffect(() => {
+  //   // Reload Twitter embeds
+  //   if (window.twttr && window.twttr.widgets) {
+  //     window.twttr.widgets.load();
+  //   }
+
+  //   // Reload Instagram embeds
+  //   if (window.instgrm) {
+  //     window.instgrm.Embeds.process();
+  //   }
+
+  //   // Facebook embeds auto-render if FB SDK is loaded
+  //   if (window.FB) {
+  //     window.FB.XFBML.parse();
+  //   }
+  // }, [blog?.content]);
 
   if (!blog || !blog.content) return <p></p>;
-
   headingsRef.current = [];
 
-  const contentWithIds = blog.content
-    // Replace h2 → h5 with ID & class
-    .replace(/<h2>(.*?)<\/h2>/g, (match, p1, index) => {
-      const cleanTitle = p1.replace(/<[^>]+>/g, "");
-      const sectionId = `section-${index}`;
-      headingsRef.current.push({ id: sectionId, title: cleanTitle });
-      return `<h5 id="${sectionId}" class="contentChildHEd">${cleanTitle}</h5>`;
-    })
+  // const contentWithIds = blog.content
+  //   // Replace h2 → h5 with IDs
+  //   .replace(/<h2>(.*?)<\/h2>/g, (match, p1, index) => {
+  //     const cleanTitle = p1.replace(/<[^>]+>/g, "");
+  //     const sectionId = `section-${index}`;
+  //     headingsRef.current.push({ id: sectionId, title: cleanTitle });
+  //     return `<h5 id="${sectionId}" class="contentChildHEd">${cleanTitle}</h5>`;
+  //   })
 
-    // Replace <p><img></p> or <img> directly → custom image wrapper
-    .replace(/<p[^>]*>\s*<img\s+[^>]*src="([^"]+)"[^>]*>\s*<\/p>|<img\s+[^>]*src="([^"]+)"[^>]*>/g, (match, p1, p2) => {
-      const src = p1 || p2; // first capture if in <p>, else second
-      return `
-      <div class="BlogContentImg">
-        <img src="${src}" alt="Blog Image" class="articleimageblog" />
-      </div>
-    `;
-    });
+  //   // Replace <p><img> with wrapper
+  //   .replace(/<p[^>]*>\s*<img\s+[^>]*src="([^"]+)"[^>]*>\s*<\/p>|<img\s+[^>]*src="([^"]+)"[^>]*>/g,
+  //     (match, p1, p2) => {
+  //       const src = p1 || p2;
+  //       return `
+  //       <div class="BlogContentImg">
+  //         <img src="${src}" alt="Blog Image" class="articleimageblog" />
+  //       </div>
+  //     `;
+  //     })
+
+  //   // ✅ Decode Twitter embeds
+  //   .replace(/<pre class="ql-syntax"[^>]*>([\s\S]*?twitter-tweet[\s\S]*?)<\/pre>/g, (match, code) => {
+  //     const decoded = code
+  //       .replace(/&lt;/g, "<")
+  //       .replace(/&gt;/g, ">")
+  //       .replace(/&amp;/g, "&");
+
+  //     return `
+  //     <div class="BlogEmbed BlogTwitter">
+  //       ${decoded}
+  //     </div>
+  //   `;
+  //   })
+
+  //   // ✅ Decode Facebook embeds
+  //   .replace(/<pre class="ql-syntax"[^>]*>([\s\S]*?facebook[\s\S]*?)<\/pre>/g, (match, code) => {
+  //     const decoded = code
+  //       .replace(/&lt;/g, "<")
+  //       .replace(/&gt;/g, ">")
+  //       .replace(/&amp;/g, "&");
+
+  //     return `
+  //     <div class="BlogEmbed BlogFacebook">
+  //       ${decoded}
+  //     </div>
+  //   `;
+  //   })
+
+  //   // ✅ Decode Instagram embeds
+  //   .replace(/<pre class="ql-syntax"[^>]*>([\s\S]*?instagram[\s\S]*?)<\/pre>/g, (match, code) => {
+  //     const decoded = code
+  //       .replace(/&lt;/g, "<")
+  //       .replace(/&gt;/g, ">")
+  //       .replace(/&amp;/g, "&");
+
+  //     return `
+  //     <div class="BlogEmbed BlogInstagram">
+  //       ${decoded}
+  //     </div>
+  //   `;
+  //   });
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
-
     return date.toLocaleDateString("en-US", {
       month: "short",  // "Mar"
       day: "numeric",  // "28"
@@ -229,21 +288,7 @@ const NewArticle = () => {
     }).replace(/^(\w+)/, "$1."); // add period after month
   }
 
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const offsetTop = element.offsetTop - 100;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: "smooth",
-      });
-      setActiveSection(sectionId);
 
-      if (isMobile) {
-        setTocVisible(false);
-      }
-    }
-  };
 
   return (
     <div style={{ width: "100%" }}>
@@ -252,8 +297,7 @@ const NewArticle = () => {
         description={blog.subheading}
         link={`https://www.rakebackk.com/news/${blogId}`}
       />
-
-      {loading ? <Loading size={"md"} /> : <div className="NewsChildpAge DesktopLatestNews">
+      <div className="NewsChildpAge DesktopLatestNews">
         <div class="container">
           <div className="row">
             <div className="col-lg-12">
@@ -308,13 +352,14 @@ const NewArticle = () => {
               </div>
 
               {/* start content from here */}
+              {blog && blog.content && <NewsArticleHTMLData article={blog} />}
 
-              <div
+              {/* <div
                 className="article-content"
                 dangerouslySetInnerHTML={{ __html: contentWithIds }}
-              >
+              > */}
 
-                {/* <h5 className="contentChildHEd">Breaking Down the Grid</h5>
+              {/* <h5 className="contentChildHEd">Breaking Down the Grid</h5>
                 <p>
                   Regardless of the type of grid you are using, the grid is made up of three elements: columns, gutters, and margins.
                 </p>
@@ -356,7 +401,7 @@ const NewArticle = () => {
                 <p>
                   Grids not only provide designers a structure on which to base layouts, but they also improve readability and scannability for end users. Use a good grid system that easily adapts to various screen sizes.
                 </p> */}
-              </div>
+              {/* </div> */}
 
 
               <div className="ShareIconBottom">
@@ -508,7 +553,7 @@ const NewArticle = () => {
             </div>
 
             {editorsList && editorsList.length > 0 && editorsList.map((editor, index) => (
-              <div class="sidePost col-lg-3"  key={editor._id} onClick={() => { navigate(`/news/${editor.title.replace(/[\s?]/g, "-")}-${editor._id}`) }}>
+              <div class="sidePost col-lg-3" key={editor._id} onClick={() => { navigate(`/news/${editor.title.replace(/[\s?]/g, "-")}-${editor._id}`) }}>
                 <div class="sideImageContainer">
                   <img src={editor.imageUrl} alt="POKER HANDS " class="sideImage" />
                 </div>
@@ -527,7 +572,7 @@ const NewArticle = () => {
             ))}
           </div>
         </div>
-      </div>}
+      </div>
     </div>
   );
 };
