@@ -5,7 +5,7 @@ import withdrawal from "../assets/withdrawal.svg";
 import mpllogo from "../assets/mpllogo.svg";
 import A23POKER from "../assets/A23POKER.svg";
 import Adda52 from "../assets/Adda52.svg";
-import CoinPoker from "../assets/coinpoker.svg";
+import CoinPoker from "../assets/CoinPoker.png";
 import pocket52 from "../assets/pocket52.svg";
 import POKERDANGAL from "../assets/POKERDANGAL.svg";
 import wptglobal from "../assets/wptglobal.svg";
@@ -29,6 +29,10 @@ import BigCashPokerCard from "../assets/PokerID/BigCashPokerID.png"
 import WPTPokerCard from "../assets/PokerID/WPTPokerID.png"
 import JungleePokerCard from "../assets/PokerID/JungleePoker.png"
 import PokerDangalCard from "../assets/PokerID/PokerDangal.png";
+import ACRPokerHome from "../assets/ACRPokerHome.png";
+import JungleePokerHome from "../assets/JungleePokerHome.png";
+import PokerBaaziHome from "../assets/PokerBaaziHome.png";
+import WPTGlobalHome from "../assets/WPTGLOBALHome.png";
 
 export const colorBkg = (name) => {
   return name === "Poker Baazi"
@@ -278,11 +282,9 @@ export const getTableIconStyle = (type) => {
 export const getPokerSiteImage = (siteName) => {
   switch (siteName) {
     case "Junglee Poker":
-      return JUNGLEEPOKER;
-    case "MPL":
-      return mpllogo;
+      return JungleePokerHome;
     case "Poker Baazi":
-      return pokerbaazi;
+      return PokerBaaziHome;
     case "A23poker":
       return A23POKER;
     case "PokerCircle":
@@ -295,14 +297,12 @@ export const getPokerSiteImage = (siteName) => {
       return pocket52;
     case "Adda52":
       return Adda52;
-    case "ACRpoker":
-      return ACRPOKER;
+    case "ACR Poker":
+      return ACRPokerHome;
     case "CoinPoker":
       return CoinPoker;
-    case "WPTglobal":
-      return wptglobal;
-    default:
-      return pokerbaazi;
+    case "WPT Global":
+      return WPTGlobalHome;
   }
 };
 
