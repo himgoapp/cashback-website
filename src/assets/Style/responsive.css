@@ -708,6 +708,39 @@ right: 7px;
 }
 
 @media only screen and (max-width: 768px) {
+  .RakebackHeader nav.navbar.navbar-expand-lg.navbar-light.p-0
+
+ {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    margin: 0;
+    padding: 0 16px !important;
+}
+  button.navbar-toggler.me-2.d-lg-none.activetoggle svg
+
+ {
+    display: block;
+}
+ button.navbar-toggler.me-2.d-lg-none.activetoggle 
+
+ {
+    background: none;
+}
+button.navbar-toggler.me-2.d-lg-none.activetoggle span.navbar-toggler-icon {
+    display: none;
+}
+button.navbar-toggler.me-2.d-lg-none.activetoggle {
+    top: 34px;
+    left: 7px;
+}
+.RakebackHeader nav.navbar .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 28px;
+}
   .ReviewTaggingTab .sticky-top.bg-white
  {
     top: 68px !important;
@@ -870,6 +903,15 @@ button.navbar-toggler {
 }
 
 @media only screen and (max-width: 575px) {
+  .RakebackHeader nav.navbar .container {
+        width: 100%;
+        max-width: 100%;
+        padding: 16px 16px 16px 8px;
+    }
+    button.navbar-toggler.me-2.d-lg-none.activetoggle {
+        top: 24px;
+        left: 11px;
+    }
       .PokerLeft .list-unstyled {
                 row-gap: 16px;
     }

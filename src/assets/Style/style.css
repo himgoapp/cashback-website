@@ -4885,7 +4885,7 @@ button#searchToggleDesktop:focus {
 
 
 .ReviewTaggingTab .sticky-top.bg-white {
-    top: 148px !important;
+    top: 132px !important;
 }
 .PokerSiteHed {
     font-size: 18px;
@@ -4952,6 +4952,123 @@ button#searchToggleDesktop:focus {
     height: 100%;
     object-fit: cover;
 }
+button.navbar-toggler svg
+ {
+    display: none;
+}
+
+.dropdown.NavBarProfileIcon .btn {
+    width: 38px;
+    height: 38px;
+    background: #FF4053;
+    position: relative;
+    display: flex
+;
+    justify-content: center;
+    align-items: center;
+}
+.dropdown.NavBarProfileIcon .btn:focus {
+    box-shadow: none !important;
+}
+.dropdown.NavBarProfileIcon ul.dropdown-menu.dropdown-menu-end.show
+
+ {
+    border: 2px solid #EFEFEF;
+    border-radius: 4px;
+    box-shadow: none;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    gap: 32px;
+    font-size: 18px;
+    right: 0 !important;
+}
+.howToTAg {
+    display: flex
+;
+    flex-direction: column;
+    list-style: none;
+    padding: 0;
+    gap: 15px;
+}
+.howToTAg li {
+    margin: 0 !important;
+    display: flex
+;
+    flex-direction: row;
+    gap: 15px;
+}
+.howToTAg li span {
+    width: 26px;
+    height: 26px;
+    background: #FF4053;
+    display: flex
+;
+    justify-content: center;
+    font-size: 14px;
+    min-width: 26px;
+    border-radius: 50%;
+    color: #fff;
+    padding: 0;
+    font-weight: bolder;
+    align-items: center;
+}
+.howToTAg li div {
+    text-align: center;
+}
+.howToTAg li h5 {
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+    margin: 0;
+    line-height: 24px;
+    text-align: left;
+}
+ul.howToTAg.DealsDetails li span {
+    background: transparent;
+    justify-content: left;
+    width: 17px;
+    min-width: 17px;
+    height: 27px;
+}
+ul.DealsDetailsChild {
+    padding: 0;
+}
+ul.howToTAg.DealsDetails ul.DealsDetailsChild li span {
+    width: 4px;
+    min-width: 4px;
+    height: 4px;
+    background: #000;
+    border-radius: 0px;
+    display: unset;
+    position: absolute;
+    top: 10px;
+    left: 2px;
+}
+ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
+    align-items: flex-start;
+    position: relative;
+    padding-left: 20px;
+}
+.howToTAg.DealsDetails li h5 {
+    color: #FF4053;
+}
+.howToTAg li p {
+    text-align: left;
+}
+
+.taggingTab h1 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.dropdown.NavBarProfileIcon ul.dropdown-menu.dropdown-menu-end.show a.dropdown-item {
+    padding: 0;
+    width: 100%;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+}
 .PokerRight  .HottestDealsDesc button.deal-button.mt-2.w-100 {
     background: #ff4053;
     color: #fff;
@@ -4968,4 +5085,55 @@ button#searchToggleDesktop:focus {
 
 .BlogTwitter, .BlogFacebook, .BlogInstagram {
   max-width: 100%;
+}
+.howToTAg .card {
+    box-shadow: unset;
+    border: 3px solid #EBEBEB;
+    border-radius: 12px;
+    background: #fff;
+    padding: 0;
+    margin-bottom: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 360px;
+    word-wrap: break-word;
+    width: 360px;
+    margin: 0 auto;
+}
+.howToTAg  .card .card-header {
+    background: transparent;
+    font-size: 18px;
+    color: #FF4053;
+    padding: 11px;
+    font-weight: bold;
+    text-transform: capitalize;
+    border-radius: 4px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    display: flex;
+    border-bottom: none;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+.howToTAg .card .sidePost {
+    display: flex;
+    border-bottom: 0px solid #CDCDCD;
+    width: calc(100% - 32px);
+    margin: 16px auto 0;
+    padding-bottom: 16px;
+    flex-direction: column;
+    gap: 16px;
+}
+.howToTAg .card .sidePost h3 {
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    margin: 0;
+}
+.howToTAg .card .sidePost p {
+    font-size: 12px;
+    margin-bottom: 0;
+    color: #606060;
 }
