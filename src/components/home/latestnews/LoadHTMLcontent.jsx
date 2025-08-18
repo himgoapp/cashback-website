@@ -59,6 +59,18 @@ export default function NewsArticleHTMLData({ article }) {
       `;
         });
 
+        // Wrap <iframe> (videos) inside custom div, similar to images
+        html = html.replace(
+            /<iframe[^>]*class="[^"]*ql-video[^"]*"[^>]*src="([^"]+)"[^>]*><\/iframe>/gi,
+            (match, src) => {
+                return `
+      <div class="BlogContentVideo">
+        <iframe src="${src}" frameborder="0" allowfullscreen class="articlevideoblog"></iframe>
+      </div>
+    `;
+            }
+        );
+
         // Handle Twitter embeds
         html = html.replace(
             /<pre[^>]*class="[^"]*\bql-syntax\b[^"]*"[^>]*>([\s\S]*?twitter-tweet[\s\S]*?)<\/pre>/gi,
