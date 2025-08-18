@@ -217,67 +217,11 @@ const NewArticle = () => {
   if (!blog || !blog.content) return <p></p>;
   headingsRef.current = [];
 
-  // const contentWithIds = blog.content
-  //   // Replace h2 → h5 with IDs
-  //   .replace(/<h2>(.*?)<\/h2>/g, (match, p1, index) => {
-  //     const cleanTitle = p1.replace(/<[^>]+>/g, "");
-  //     const sectionId = `section-${index}`;
-  //     headingsRef.current.push({ id: sectionId, title: cleanTitle });
-  //     return `<h5 id="${sectionId}" class="contentChildHEd">${cleanTitle}</h5>`;
-  //   })
 
-  //   // Replace <p><img> with wrapper
-  //   .replace(/<p[^>]*>\s*<img\s+[^>]*src="([^"]+)"[^>]*>\s*<\/p>|<img\s+[^>]*src="([^"]+)"[^>]*>/g,
-  //     (match, p1, p2) => {
-  //       const src = p1 || p2;
-  //       return `
-  //       <div class="BlogContentImg">
-  //         <img src="${src}" alt="Blog Image" class="articleimageblog" />
-  //       </div>
-  //     `;
-  //     })
 
-  //   // ✅ Decode Twitter embeds
-  //   .replace(/<pre class="ql-syntax"[^>]*>([\s\S]*?twitter-tweet[\s\S]*?)<\/pre>/g, (match, code) => {
-  //     const decoded = code
-  //       .replace(/&lt;/g, "<")
-  //       .replace(/&gt;/g, ">")
-  //       .replace(/&amp;/g, "&");
 
-  //     return `
-  //     <div class="BlogEmbed BlogTwitter">
-  //       ${decoded}
-  //     </div>
-  //   `;
-  //   })
 
-  //   // ✅ Decode Facebook embeds
-  //   .replace(/<pre class="ql-syntax"[^>]*>([\s\S]*?facebook[\s\S]*?)<\/pre>/g, (match, code) => {
-  //     const decoded = code
-  //       .replace(/&lt;/g, "<")
-  //       .replace(/&gt;/g, ">")
-  //       .replace(/&amp;/g, "&");
 
-  //     return `
-  //     <div class="BlogEmbed BlogFacebook">
-  //       ${decoded}
-  //     </div>
-  //   `;
-  //   })
-
-  //   // ✅ Decode Instagram embeds
-  //   .replace(/<pre class="ql-syntax"[^>]*>([\s\S]*?instagram[\s\S]*?)<\/pre>/g, (match, code) => {
-  //     const decoded = code
-  //       .replace(/&lt;/g, "<")
-  //       .replace(/&gt;/g, ">")
-  //       .replace(/&amp;/g, "&");
-
-  //     return `
-  //     <div class="BlogEmbed BlogInstagram">
-  //       ${decoded}
-  //     </div>
-  //   `;
-  //   });
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
