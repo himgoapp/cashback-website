@@ -500,8 +500,16 @@ p.GetProfitdes {
   border-radius: 10px;
 }
 .RakebackTrustedPoker .partnerIcon {
-    width: 52px;
-    height: 52px;
+    width: 145px;
+    height: 80px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.RakebackTrustedPoker .partnerIconJunglee {
+    width: 160px;
+    height: 100px;
     border-radius: 12px;
     display: flex;
     align-items: center;
