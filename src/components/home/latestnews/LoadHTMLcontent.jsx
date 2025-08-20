@@ -51,13 +51,23 @@ export default function NewsArticleHTMLData({ article }) {
         // Wrap <table> inside div and replace classes
         html = html.replace(/<table[^>]*>([\s\S]*?)<\/table>/gi, (match, inner) => {
             return `
-        <div class="table-responsive customTableResponsive">
           <table class="table custom-table">
             ${inner}
           </table>
-        </div>
       `;
         });
+
+        // Wrap <iframe> (videos) inside custom div, similar to images
+        html = html.replace(
+            /<iframe[^>]*class="[^"]*ql-video[^"]*"[^>]*src="([^"]+)"[^>]*><\/iframe>/gi,
+            (match, src) => {
+                return `
+      <div class="BlogContentVideo">
+        <iframe src="${src}" frameborder="0" allowfullscreen class="articlevideoblog"></iframe>
+      </div>
+    `;
+            }
+        );
 
         // Handle Twitter embeds
         html = html.replace(

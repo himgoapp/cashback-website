@@ -1006,7 +1006,7 @@ const Review = () => {
                                                 <div>
                                                     <h5>Submit for tagging</h5>
                                                     <p>Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</p>
-                                                    <img src={ Tagging} />
+                                                    {/* <img src={ Tagging} /> */}
                                                     <div class="card "><div class="card-header ">Tagging</div><div class="sidePost sidePostTAg col-lg-12"><h3>Linking a new account </h3><p>After registration, link your account to aour website to receive bonuses from rakebackk</p><div class="TagginginputField"><span class="QuestionTag">?</span><input type="text" placeholder="Username" value="" /></div><button class="SidePostTagBtn">Submit</button></div></div>
                                                 </div>
                                             </li>
