@@ -9,6 +9,7 @@ import Meta from "../../../Meta";
 import FeaturedCardImage from '../../../assets/Logos_and_illustration/FeaturedCardImage.svg'
 import Loading from "../../common/Loading/Loading";
 
+
 const CustomPagination = ({
     rowsPerPage,
     rowCount,
@@ -295,7 +296,7 @@ const LatestNewsDesktop = ({ userData }) => {
                                             <div class="LatestNewsDsgTxt">
                                                 <p class="small">{offer.tagline}</p>
                                                 <div class="SliderFooter">
-                                                    <button class="ClaimNow" onClick={() => navigate("/offer-and-deals")}>Claim Now</button>
+                                                    <button class="ClaimNow" onClick={() => navigate(`/review/${offer._id}`)}>Claim Now</button>
                                                     <button class="Pokerbazzi25">{offer.couponCode}
                                                         <span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg>
                                                         </span>

@@ -63,12 +63,12 @@ export const submitAccountId = async (
 	}
 };
 export const getProductById = async (product_id) => {
-   
-    try {
-        const response = await API.get(`/products/productbyid/${product_id}`)
-        return response.data;
-    } catch (error) {
-        console.error("Error fetching room by ID:", error);
-        throw new Error("Failed to fetch room.");
-    }
+
+	try {
+		const response = await API.get(`/vendors/vendorbyid/${product_id}`)
+		return response.data;
+	} catch (error) {
+		console.error("Error fetching room by ID:", error);
+		throw new Error("Failed to fetch room.");
+	}
 };

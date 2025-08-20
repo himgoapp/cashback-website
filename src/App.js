@@ -120,7 +120,7 @@ function App() {
               <Route path="/" element={<HomePage />} />
               <Route path="/offer-and-deals" element={<OfferAndDealsContainer />} />
               <Route path="/dictionary" element={<DictionaryPage />} />
-              <Route path="/review" element={<ReviewMain />} />
+              <Route path="/review/:roomId" element={<ReviewMain />} />
               <Route path="/contact-us" element={<ContactUSPage />} />
               <Route path="/retag" element={<RetagPage />} />
               <Route path="/latest-news" element={<LatestNewsMain />} />
