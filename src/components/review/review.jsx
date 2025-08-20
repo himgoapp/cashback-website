@@ -17,6 +17,8 @@ import Mastercard from "../../assets/Review/Mastercard.svg"
 import visalogo from "../../assets/Review/visalogo.svg"
 import CustomerCare from "../../assets/Review/CustomerCareRed.png"
 import Online from "../../assets/Review/24.svg"
+import Tagging from "../../assets/Review/Tagging.png"
+import TaggingReview from "../../assets/Review/TaggingReview.png"
 
 
 const Review = () => {
@@ -38,6 +40,9 @@ const Review = () => {
     const [activeTab, setActiveTab] = useState("review");
     const [activeSection, setActiveSection] = useState("Inthisoffer");
 
+    // const [activeTab, setActiveTab] = useState("tagging");
+    // const [activeSection, setActiveSection] = useState("HowtoTag");
+
     const handleScrollTo = (id) => {
         document.getElementById(id)?.scrollIntoView({
             behavior: "smooth",
@@ -56,6 +61,13 @@ const Review = () => {
             "Registration",
             "History",
         ];
+
+        //  const sections = [
+        //     "Inthisoffer",
+        //     "Welcome",
+        //     "OfferDetails",
+            
+        // ];
 
         const handleScroll = () => {
             const scrollPos = window.scrollY + 100;
@@ -292,85 +304,37 @@ const Review = () => {
                                 </button>
                             </li>
                         </ul>}
+
+                        {activeTab === "tagging" && <ul className="nav nav-pills  sticky-top bg-white pt-2 pb-2 ReviewUITab">
+                            <li className="nav-item">
+                                <button
+                                    className={`nav-link ${activeSection === "HowtoTag" ? "active" : ""}`}
+                                    onClick={() => handleScrollTo("HowtoTag")}
+                                >
+                                    How to Tag
+                                </button>
+                            </li>
+                            <li className="nav-item">
+                                <button
+                                    className={`nav-link ${activeSection === "DealDetails" ? "active" : ""}`}
+                                    onClick={() => handleScrollTo("DealDetails")}
+                                >
+                                    Deal Details
+                                </button>
+                            </li>
+                            <li className="nav-item">
+                                <button
+                                    className={`nav-link ${activeSection === "TaggingFAQ" ? "active" : ""}`}
+                                    onClick={() => handleScrollTo("TaggingFAQ")}
+                                >
+                                    FAQs
+                                </button>
+                            </li>
+                        </ul>}
                     </div>
-
-
-
 
                     {activeTab === "review" && (
                         <div className="mt-3">
-                            {/* Sub Navigation */}
-                            {/* <ul className="nav nav-pills  sticky-top bg-white pt-2 pb-2 ReviewUITab">
-                        <li className="nav-item">
-                        <button
-                            className={`nav-link ${activeSection === "Inthisoffer" ? "active" : ""}`}
-                            onClick={() => handleScrollTo("Inthisoffer")}
-                        >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21" fill="none">
-                            <path d="M12.5186 8.3457L12.7432 9.03613H18.3848L14.4082 11.9248L13.8203 12.3516L14.0449 13.043L15.5625 17.7158L11.5879 14.8281L11 14.4014L10.4121 14.8281L6.43652 17.7158L7.95508 13.043L8.17969 12.3516L7.5918 11.9248L3.61523 9.03613H9.25684L9.48145 8.3457L11 3.6709L12.5186 8.3457Z" stroke="#848484" stroke-width="2"/>
-                            </svg> In this offer
-                        </button>
-                        </li>
-                        <li className="nav-item">
-                        <button
-                            className={`nav-link ${activeSection === "Welcome" ? "active" : ""}`}
-                            onClick={() => handleScrollTo("Welcome")}
-                        >
-                            Welcome
-                        </button>
-                        </li>
-                        <li className="nav-item">
-                        <button
-                            className={`nav-link ${activeSection === "OfferDetails" ? "active" : ""}`}
-                            onClick={() => handleScrollTo("OfferDetails")}
-                        >
-                            Offer Details
-                        </button>
-                        </li>
-                        <li className="nav-item">
-                        <button
-                            className={`nav-link ${activeSection === "KeyFeatures" ? "active" : ""}`}
-                            onClick={() => handleScrollTo("KeyFeatures")}
-                        >
-                            Key Features
-                        </button>
-                        </li>
-                        <li className="nav-item">
-                        <button
-                            className={`nav-link ${activeSection === "AlternativeOffers" ? "active" : ""}`}
-                            onClick={() => handleScrollTo("AlternativeOffers")}
-                        >
-                            Alternative Offers
-                        </button>
-                        </li>
-                        <li className="nav-item">
-                        <button
-                            className={`nav-link ${activeSection === "MorePromos" ? "active" : ""}`}
-                            onClick={() => handleScrollTo("MorePromos")}
-                        >
-                            More Promos
-                        </button>
-                        </li>
-                        <li className="nav-item">
-                        <button
-                            className={`nav-link ${activeSection === "Registration" ? "active" : ""}`}
-                            onClick={() => handleScrollTo("Registration")}
-                        >
-                            Registration
-                        </button>
-                        </li>
-                        <li className="nav-item">
-                        <button
-                            className={`nav-link ${activeSection === "History" ? "active" : ""}`}
-                            onClick={() => handleScrollTo("History")}
-                        >
-                            History
-                        </button>
-                        </li>
-                    </ul> */}
-
-                            {/* Sections */}
-
                             <div className="single-post-row Dictionaryrow">
                                 <div className="single-post-left">
                                     <div className="article-content">
@@ -1017,36 +981,118 @@ const Review = () => {
                         <div className="single-post-row Dictionaryrow taggingTab">
                             <div className="single-post-left">
                                 <div className="article-content">
-                                    <div className=" " >
-                                        <h2>About Big Cash</h2>
+                                    <div id="HowtoTag" className=" " >
+                                        <h1>How to tag</h1>
                                         <p>A grid system is a design tool used to arrange content on a webpage. It is a series of vertical and horizontal lines that create a matrix of intersecting points, which can be used to align and organize page elements. Grid systems are used to create a consistent look and feel across a website, and can help to make the layout more visually appealing and easier to navigate.</p>
                                         <p>Regardless of the type of grid you are using, the grid is made up of three elements: columns, gutters, and margins.</p>
+                                        <ul className="howToTAg ">
+                                            <li>
+                                                <span>1</span>
+                                                <div>
+                                                        <h5>Sign through our link</h5>
+                                                        <p>Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</p>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span>2</span>
+                                                <div>
+                                                    <h5>Use our code RBACKK</h5>
+                                                    <p>Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</p>
+                                                    <img src={TaggingReview} />
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <span>3</span>
+                                                <div>
+                                                    <h5>Submit for tagging</h5>
+                                                    <p>Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</p>
+                                                    {/* <img src={ Tagging} /> */}
+                                                    <div class="card "><div class="card-header ">Tagging</div><div class="sidePost sidePostTAg col-lg-12"><h3>Linking a new account </h3><p>After registration, link your account to aour website to receive bonuses from rakebackk</p><div class="TagginginputField"><span class="QuestionTag">?</span><input type="text" placeholder="Username" value="" /></div><button class="SidePostTagBtn">Submit</button></div></div>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
-                                    <div className="">
-                                        <h2>About Big Cash</h2>
-                                        <p>A grid system is a design tool used to arrange content on a webpage. It is a series of vertical and horizontal lines that create a matrix of intersecting points, which can be used to align and organize page elements. Grid systems are used to create a consistent look and feel across a website, and can help to make the layout more visually appealing and easier to navigate.</p>
-                                        <p>Regardless of the type of grid you are using, the grid is made up of three elements: columns, gutters, and margins.</p>
-                                    </div>
-                                    <div className="">
-                                        <h2>The Best WPT Global Bonuses, Promo Codes, and Rewards</h2>
-                                        <div><ul><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li></ul></div>
+                                    <div class="BorderLIne"></div>
+                                    <div  id="DealDetails" className="">
+                                        <h1>Deal Details</h1>
+                                        <p><b>Gutters:</b> The gutter is the space between columns that separates elements and content from different columns. Gutter widths are fixed values but can change based on different breakpoints. For example, wider gutters are appropriate for larger screens, whereas smaller gutters are appropriate for smaller screens like mobile.</p>
+                                        <ul className="howToTAg DealsDetails">
+                                            <li>
+                                                <span>
+                                                    <svg width="7" height="9" viewBox="0 0 7 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1.56445 1.30859C1.82624 1.1777 2.13987 1.20622 2.37402 1.38184L5.46484 3.7002C5.65931 3.84613 5.77344 4.07521 5.77344 4.31836C5.77338 4.56151 5.65936 4.79063 5.46484 4.93652L2.37402 7.25488C2.13987 7.43049 1.82624 7.45804 1.56445 7.32715C1.30292 7.19626 1.13783 6.92917 1.1377 6.63672V2C1.1377 1.70731 1.30267 1.43949 1.56445 1.30859Z" fill="#FF4053" stroke="#FF4053" stroke-width="1.54545" stroke-linecap="square" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </span>
+                                                <div>
+                                                    <h5>% RB offered by us</h5>
+                                                    <p>e gutter is the space between columns that separates elements and content from different columns. Gutter widths are fixed values but can change based on different breakpoints. For example, wider gutters are appropriate for larger screens, whereas smaller gutters are appropriate for smaller screens like mobile.</p>
+                                                </div>
+                                            </li>
+                                            <div class="table-responsive customTableResponsive"><table class="table custom-table"><thead><tr><th>Name</th><th>Amount In</th><th>Amount Out</th><th>Payment Type</th></tr></thead><tbody><tr><td>Savannah Nguyen</td><td>$2575.00</td><td>$120.00</td><td>Card Payment</td></tr><tr><td>Devon Lane</td><td>$2459.00</td><td>$375.00</td><td>Card Payment</td></tr><tr><td>Annette Black</td><td>$3127.00</td><td>$250.00</td><td>Card Payment</td></tr><tr><td>Ralph Edwards</td><td>$675.00</td><td>$795.00</td><td>Card Payment</td></tr></tbody></table></div>
+                                            <li>
+                                                <span>
+                                                    <svg width="7" height="9" viewBox="0 0 7 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1.56445 1.30859C1.82624 1.1777 2.13987 1.20622 2.37402 1.38184L5.46484 3.7002C5.65931 3.84613 5.77344 4.07521 5.77344 4.31836C5.77338 4.56151 5.65936 4.79063 5.46484 4.93652L2.37402 7.25488C2.13987 7.43049 1.82624 7.45804 1.56445 7.32715C1.30292 7.19626 1.13783 6.92917 1.1377 6.63672V2C1.1377 1.70731 1.30267 1.43949 1.56445 1.30859Z" fill="#FF4053" stroke="#FF4053" stroke-width="1.54545" stroke-linecap="square" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </span>
+                                                <div>
+                                                    <h5>RB calculation method for individua sit</h5>
+                                                    <p>e gutter is the space between columns that separates elements and content from different columns. Gutter widths are fixed values but can change based on different breakpoints. For example, wider gutters are appropriate for larger screens, whereas smaller gutters are appropriate for smaller screens like mobile.</p>
+                                                </div>
+                                            </li>
+
+                                            <ul className="DealsDetailsChild">
+                                                <p>Using a grid benefits both end users and the designers alike:</p>
+                                                <li><span></span> Designers can quickly put together well-aligned interfaces.</li>
+                                                <li><span></span> Users can easily scan predictable grid-based interfaces.</li>
+                                                <li><span></span>  A good grid is easy to adapt to various screen sizes and orientations. In fact, grid layouts are an essential component of responsive web design. Responsive design uses breakpoints to determine the screen size threshold at which the layout should change. For example, a desktop screen may have 12 grid columns, which may be stacked on mobile so that the resulting layout has only 4 columns.</li>
+                                            </ul>
+
+                                            <li>
+                                                <span>
+                                                    <svg width="7" height="9" viewBox="0 0 7 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1.56445 1.30859C1.82624 1.1777 2.13987 1.20622 2.37402 1.38184L5.46484 3.7002C5.65931 3.84613 5.77344 4.07521 5.77344 4.31836C5.77338 4.56151 5.65936 4.79063 5.46484 4.93652L2.37402 7.25488C2.13987 7.43049 1.82624 7.45804 1.56445 7.32715C1.30292 7.19626 1.13783 6.92917 1.1377 6.63672V2C1.1377 1.70731 1.30267 1.43949 1.56445 1.30859Z" fill="#FF4053" stroke="#FF4053" stroke-width="1.54545" stroke-linecap="square" stroke-linejoin="round"/>
+                                                    </svg>
+                                                </span>
+                                                <div>
+                                                    <h5>Payment frequency (monthly /weekly)</h5>
+                                                    <p>e gutter is the space between columns that separates elements and content from different columns. Gutter widths are fixed values but can change based on different breakpoints. For example, wider gutters are appropriate for larger screens, whereas smaller gutters are appropriate for smaller screens like mobile.</p>
+                                                </div>
+                                            </li>
+                                        </ul>
                                     </div>
 
-                                    <div className="">
-                                        <h4>More Promos</h4>
-                                        <div><ul><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li></ul></div>
+                                    <div class="BorderLIne"></div>
 
-                                    </div>
-                                    <div className="">
-                                        <h4>Registration</h4>
-                                        <div><ul><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li></ul></div>
+                                    <div id="TaggingFAQ" className="RakebackFAQ ">
+                                            <h1>Frequently Asked Questions ?</h1>
+                                            <div className="faqList">
+                                                {filteredFAQs.map((faq) => (
+                                                    <div
+                                                        key={faq.id}
+                                                        className={expandedItem === faq.id ? "faqItemActive" : 'faqItem'}
+                                                    >
+                                                        <div className="faqQuestion" onClick={() => toggleExpanded(faq.id)}>
+                                                            <span className="questionText">{faq.question}</span>
+                                                            <button className="toggleButton">
+                                                                <img
+                                                                    src={expandedItem === faq.id ? Minus : Plus}
+                                                                    className="toggleIcon"
+                                                                />
+                                                            </button>
+                                                        </div>
 
-                                    </div>
-                                    <div className="">
-                                        <h4>History</h4>
-                                        <div><ul><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Columns</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li><li><strong>Alley-oop</strong> – Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</li></ul></div>
 
-                                    </div>
+                                                        {expandedItem === faq.id && (
+                                                            <div className="faqAnswer">
+                                                                <p className="answerText">{faq.answer}</p>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        </div>
+
 
                                 </div>
                                 <div className="ShareIconBottom">
@@ -1063,7 +1109,7 @@ const Review = () => {
                                         </svg></button>
                                     </div>
                                 </div>
-
+{/* 
                                 <div className="tag-container">
                                     <strong className="d-block ">Tags</strong>
                                     <div className="tagBtn">
@@ -1072,7 +1118,7 @@ const Review = () => {
                                         <span className="badge-custom">Interface</span>
                                     </div>
 
-                                </div>
+                                </div> */}
 
 
 
