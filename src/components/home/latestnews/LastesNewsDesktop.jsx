@@ -290,7 +290,7 @@ const LatestNewsDesktop = ({ userData }) => {
                                     <div class="sidePost col-lg-12" key={offer._id} >
                                         <div class=" OffersForUchd LatestNewsDsg">
                                             <div class="LatestNewsDsgIMg">
-                                                <img src={FeaturedCardImage} class="" />
+                                                <img src={`data:image/png;base64,${offer.logo}`} class="" />
                                             </div>
                                             <div class="LatestNewsDsgTxt">
                                                 <p class="small">{offer.tagline}</p>
