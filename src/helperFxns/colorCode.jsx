@@ -29,10 +29,11 @@ import BigCashPokerCard from "../assets/PokerID/BigCashPokerID.png"
 import WPTPokerCard from "../assets/PokerID/WPTPokerID.png"
 import JungleePokerCard from "../assets/PokerID/JungleePoker.png"
 import PokerDangalCard from "../assets/PokerID/PokerDangal.png";
-import ACRPokerHome from "../assets/ACRPokerHome.png";
-import JungleePokerHome from "../assets/JungleePokerHome.png";
-import PokerBaaziHome from "../assets/PokerBaaziHome.png";
-import WPTGlobalHome from "../assets/WPTGLOBALHome.png";
+import ACRPokerHome from "../assets/HomeIcon/ACR Poker.png";
+import JungleePokerHome from "../assets/HomeIcon/JungleePoker.png";
+import PokerBaaziHome from "../assets/HomeIcon/PokerBaazi.png";
+import WPTGlobalHome from "../assets/HomeIcon/WPT global.png";
+import CoinPokerHome from "../assets/HomeIcon/CoinPoker.png";
 
 export const colorBkg = (name) => {
   return name === "Poker Baazi"
@@ -299,8 +300,8 @@ export const getPokerSiteImage = (siteName) => {
       return Adda52;
     case "ACR Poker":
       return ACRPokerHome;
-    case "CoinPoker":
-      return CoinPoker;
+    case "Coin Poker":
+      return CoinPokerHome;
     case "WPT Global":
       return WPTGlobalHome;
   }

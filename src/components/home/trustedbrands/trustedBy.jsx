@@ -5,25 +5,28 @@ import { getPokerSiteImage } from "../../../helperFxns/colorCode";
 import trustedRightIcon from '../../../assets/Logos_and_illustration/trustedRightIcon.svg';
 import TrustedupperIcon from '../../../assets/Logos_and_illustration/TrustedupperIcon.svg';
 import TrusteddownIcon from '../../../assets/Logos_and_illustration/TrusteddownIcon.svg';
+import homePageContent from '../../contentData/homePageContent.json';
 const TrustSection = () => {
   const users = [
-    { name: "Junglee Poker" },
-    { name: "MPL" },
     { name: "Poker Baazi" },
-    { name: "A23poker" },
-    { name: "PokerCircle" },
-    { name: "PokerDangal" },
-    { name: "Natural8" },
-    { name: "Pocket52" },
-    { name: "Adda52" },
-    { name: "ACRpoker" },
-    { name: "CoinPoker" },
-    { name: "WPTglobal" }
+    { name: "Junglee Poker" },
+    { name: "WPT Global" },
+    { name: "Coin Poker" },
+    { name: "ACR Poker" },
+    { name: "Poker Baazi" },
+    { name: "Junglee Poker" },
+    { name: "WPT Global" },
+    { name: "Coin Poker" },
+    { name: "ACR Poker" },
+    { name: "Poker Baazi" },
+    { name: "Junglee Poker" },
+    { name: "WPT Global" },
+    { name: "Coin Poker" },
+    { name: "ACR Poker" },
   ];
 
   const pokerSites = {
     "Junglee Poker": "https://www.jungleepoker.com/",
-    "MPL": "https://www.mpl.live/",
     "Poker Baazi": "https://www.pokerbaazi.com/",
     "A23poker": "https://www.a23.com/",
     "PokerCircle": "https://www.pokercircle.com/",
@@ -31,7 +34,7 @@ const TrustSection = () => {
     "Natural8": "https://www.natural8.com/",
     "Pocket52": "https://www.pocket52.com/",
     "Adda52": "https://www.adda52.com/",
-    "ACRpoker": "https://www.americascardroom.eu/",
+    "ACR Poker": "https://www.americascardroom.eu/",
     "CoinPoker": "https://www.coinpoker.com/",
     "WPTglobal": "https://www.wptglobal.com/"
   };
@@ -43,9 +46,11 @@ const TrustSection = () => {
           <div className="row">
             <div className="col-lg-12 text-center">
               <h1 className="title">
-                Trusted by <span className="titleAccent">Thousands of Poker Players Across India</span>
+                <span className="titleAccent">Our
+                  {/* {homePageContent.trustedBySubtitle} */}
+                </span>  Trusted Partners
               </h1>
-              <p className="description"> our partnership with renowned poker platform ensure you always get the best rakeback offers securly and reliably</p>
+              <p className="description"> {homePageContent.trustedBySubtitle2}</p>
             </div>
           </div>
           <div classsName="row">
@@ -61,34 +66,17 @@ const TrustSection = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <div className="partnerIcon">
+                      <div className={user.name === "Junglee Poker" ? "partnerIconJunglee" : "partnerIcon"}>
                         <img
                           src={getPokerSiteImage(user.name)}
                           alt={user.name}
                           className="partnerLogoImg"
                         />
                       </div>
-                      <span className="partnerName">{user.name}</span>
+                      {/* <span className="partnerName">{user.name}</span> */}
                     </a>
                   ))}
-                  {users.map((user, index) => (
-                    <a
-                      key={`second-${index}`}
-                      className={styles.partnerCard}
-                      href={pokerSites[user.name]}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <div className={styles.partnerIcon}>
-                        <img
-                          src={getPokerSiteImage(user.name)}
-                          alt={user.name}
-                          className={styles.partnerLogoImg}
-                        />
-                      </div>
-                      <span className={styles.partnerName}>{user.name}</span>
-                    </a>
-                  ))}
+
                 </div>
               </div>
               <img src={TrusteddownIcon} className="TrusteddownIcon" />
