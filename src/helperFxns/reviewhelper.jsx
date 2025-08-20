@@ -1,3 +1,70 @@
+
+import BigCashLogo from "../assets/Review/BigCashWhite.png"
+import PokerBaaziHome from "../assets/Review/pokerBazziIcon.png"
+import JungleePokerHome from "../assets/Review/JUngleePokerIcon.png"
+import WPTGlobalHome from "../assets/Review/WPTIcon.png"
+import ACRPokerHome from "../assets/Review/ACRPokerIcon.png"
+import CoinPokerHome from "../assets/Review/CoinPokerIcon.png"
+import POKERDANGAL from "../assets/Review/PokerDangalIcon.png"
+import SpartanPokerHome from "../assets/Review/SpartanPokerIcon.png"
+
+
+export function extractHeadingsFromHTML(html) {
+    if (!html) return [];
+
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, "text/html");
+
+    // Get h1, h2, h3
+    const headings = Array.from(doc.querySelectorAll("h1, h2, h3"))
+        .map(h => h.textContent.trim()) // get text
+        .filter(Boolean); // remove empty
+
+    return headings;
+}
+
+export const getPokerSiteImage = (siteName) => {
+    switch (siteName) {
+        case "Junglee Poker":
+            return JungleePokerHome;
+        case "Big Cash":
+            return BigCashLogo;
+        case "Poker Baazi":
+            return PokerBaaziHome;
+        case "PokerDangal":
+            return POKERDANGAL;
+        case "ACR Poker":
+            return ACRPokerHome;
+        case "Coin Poker":
+            return CoinPokerHome;
+        case "WPT Global":
+            return WPTGlobalHome;
+        case "Spartan Poker":
+            return SpartanPokerHome;
+    }
+};
+
+export const backgroundClassHelper = (siteName) => {
+    switch (siteName) {
+        case "Junglee Poker":
+            return "ReviewHeader JungleePoker";
+        case "Big Cash":
+            return "ReviewHeader BigCash";
+        case "Poker Bazzi":
+            return "ReviewHeader PokerBaazi";
+        case "Poker Dangal":
+            return "ReviewHeader PokerDangal";
+        case "ACR Poker":
+            return "ReviewHeader ACRPoker";
+        case "Coin Poker":
+            return "ReviewHeader CoinPoker";
+        case "WPT Global":
+            return "ReviewHeader WPTGlobal";
+        case "Spartan Poker":
+            return "ReviewHeader SpartanPoker";
+    }
+
+}
 const ratingLabels = {
     reliability: "Reliability",
     gameSelection: "Game Selection",

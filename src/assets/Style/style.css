@@ -3985,7 +3985,7 @@ button.Pokerbazzi25 {
 
 
 .ReviewHeader {
-    background: url(../Review/BigCashReview.png);
+   
     background-repeat: no-repeat;
     background-size: cover;
     color: white;
@@ -3996,6 +3996,37 @@ button.Pokerbazzi25 {
     gap: 91px;
     padding: 40px 62px;
     overflow: hidden;
+}
+
+.ReviewHeader.BigCash{
+ background: url(../Review/BigCashReview.png);
+
+}
+
+.ReviewHeader.WPTGlobal {
+ background: url(../Review/WptPokerHB.png);
+
+}
+.ReviewHeader.JungleePoker {
+ background: url(../Review/JungleePokerHB.png);
+}
+
+.ReviewHeader.PokerDangal {
+ background: url(../Review/PokerDangalHB.png);
+
+}
+
+.ReviewHeader.SpartanPoker {
+ background: url(../Review/SpartanPokerHB.png);
+}
+.ReviewHeader.CoinPoker {
+ background: url(../Review/CoinPokerHB.png);
+}
+.ReviewHeader.PokerBaazi {
+ background: url(../Review/PokerBazziHB.png);
+}
+.ReviewHeader.ACRPoker {
+ background: url(../Review/ACRPokerHB.png);
 }
 
 
