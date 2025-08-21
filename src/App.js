@@ -62,6 +62,7 @@ function App() {
 
   const [loginTab, setLoginTab] = useState(false);
   const [mobile, setMobile] = useState(false);
+  const [hideNav, setHideNav] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -110,6 +111,8 @@ function App() {
           userKyc,
           setUserKyc,
           updateWalletBalance,
+          hideNav,
+          setHideNav
         }}
       >
         <Router>
@@ -117,10 +120,10 @@ function App() {
 
             {/* Public Routes */}
             <Route element={<NotProtectedRoute><PublicLayout /></NotProtectedRoute>}>
+              <Route path="/review/:roomId" element={<ReviewMain />} />
               <Route path="/" element={<HomePage />} />
               <Route path="/offer-and-deals" element={<OfferAndDealsContainer />} />
               <Route path="/dictionary" element={<DictionaryPage />} />
-              <Route path="/review/:roomId" element={<ReviewMain />} />
               <Route path="/contact-us" element={<ContactUSPage />} />
               <Route path="/retag" element={<RetagPage />} />
               <Route path="/latest-news" element={<LatestNewsMain />} />

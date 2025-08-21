@@ -15,7 +15,7 @@ import pokerdangal from "../../../assets/WebsiteIcon/pokerdangal.svg";
 import spartan from "../../../assets/WebsiteIcon/spartan.svg";
 import ACRPoker from "../../../assets/ACRPoker.png";
 
-const Navbar = ({ page }) => {
+const Navbar = ({ hide }) => {
   const { userData } = useContext(UserContext);
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
@@ -28,6 +28,11 @@ const Navbar = ({ page }) => {
 
   const handleDashboardClick = () => {
     navigate("/dashboard");
+  };
+
+  const onLogout = () => {
+    localStorage.clear();
+    window.location.reload();
   };
 
   const navItems = [
@@ -49,11 +54,11 @@ const Navbar = ({ page }) => {
   }, []);
 
 
-  
+
 
   return (
     <>
-      <header className="RakebackHeader sticky-top bg-white ">
+      <header className={` RakebackHeader ${hide ? "" : "sticky-top"} bg-white`} >
         {/* Top header row */}
         <div className="container py-2 d-flex align-items-center justify-content-between">
           <div className="d-flex align-items-center">
@@ -114,17 +119,22 @@ const Navbar = ({ page }) => {
                 // </button>
                 <div class="dropdown NavBarProfileIcon">
                   <button class="btn btn-light rounded-circle p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
-                    
+
                     <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M1.875 17.9173C5.56686 14.0505 12.3934 13.8684 16.125 17.9173M12.9506 6.04232C12.9506 8.22843 11.1758 10.0007 8.98654 10.0007C6.79743 10.0007 5.02262 8.22843 5.02262 6.04232C5.02262 3.85619 6.79743 2.08398 8.98654 2.08398C11.1758 2.08398 12.9506 3.85619 12.9506 6.04232Z" stroke="white" stroke-width="2.375" stroke-linecap="round"/>
+                      <path d="M1.875 17.9173C5.56686 14.0505 12.3934 13.8684 16.125 17.9173M12.9506 6.04232C12.9506 8.22843 11.1758 10.0007 8.98654 10.0007C6.79743 10.0007 5.02262 8.22843 5.02262 6.04232C5.02262 3.85619 6.79743 2.08398 8.98654 2.08398C11.1758 2.08398 12.9506 3.85619 12.9506 6.04232Z" stroke="white" stroke-width="2.375" stroke-linecap="round" />
                     </svg>
 
                   </button>
 
                   <ul class="dropdown-menu dropdown-menu-end">
-                    <li><a class="dropdown-item" href="#">Profile</a></li>
-                    <li><a class="dropdown-item" href="#">Dashboard</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href="/dashboard/profile">Profile</a></li>
+                    <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+                    <li> <button
+                      className="dropdown-item"
+                      onClick={onLogout}
+                    >
+                      Logout
+                    </button></li>
                   </ul>
                 </div>
 

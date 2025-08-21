@@ -5109,6 +5109,13 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     color: #000;
     font-weight: bold;
 }
+.dropdown.NavBarProfileIcon ul.dropdown-menu.dropdown-menu-end.show button.dropdown-item {
+    padding: 0;
+    width: 100%;
+    font-size: 18px;
+    color: #000;
+    font-weight: bold;
+}
 .PokerRight  .HottestDealsDesc button.deal-button.mt-2.w-100 {
     background: #ff4053;
     color: #fff;

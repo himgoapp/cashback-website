@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { UserContext } from "../../App";
 import Navbar from "../common/navbar/navbar";
 import NewFooter from "../common/footer/newFooter";
 import FeaturedCardImage from "../../assets/Logos_and_illustration/FeaturedCardImage.svg"
@@ -28,6 +29,7 @@ const reviewNavItems = ["In this offer", "Offer Details"];
 
 const Review = () => {
     const [searchTerm, setSearchTerm] = useState('');
+    const { setHideNav } = useContext(UserContext);
     const [expandedItem, setExpandedItem] = useState(1);
     const { roomId } = useParams();
     const [currentItem, setCurrentItem] = useState([]);
@@ -65,6 +67,16 @@ const Review = () => {
             console.error("Error fetching room:", error);
         }
     };
+
+    useEffect(() => {
+        const handleScroll = () => {
+            setHideNav(window.scrollY > 350);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     useEffect(() => {
         fetchProduct();
     }, [roomId]);

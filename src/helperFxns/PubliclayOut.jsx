@@ -7,14 +7,15 @@ import { UserContext } from "../App";
 
 export default function PublicLayout() {
     const location = useLocation();
-    const { mobile } = useContext(UserContext); // you already have mobile detection
+    const { mobile, hideNav } = useContext(UserContext); // you already have mobile detection
 
     // Hide navbar if on /latest-news and mobile view
-    const hideNavbar = mobile && (location.pathname === "/login");
+    const hideNavbar = (mobile && (location.pathname === "/login"))
+
     const hideFooter = location.pathname === "/login" || (mobile && location.pathname === "/latest-news");
     return (
         <div>
-            {!hideNavbar && <Navbar />}
+            {!hideNavbar && <Navbar hide={hideNav} />}
             <Outlet />
             {!hideFooter && <NewFooter />}
         </div>
