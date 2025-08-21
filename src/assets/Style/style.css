@@ -4538,6 +4538,7 @@ button.Pokerbazzi25 {
 .DesktopLatestNews .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostGI
  {
     flex-wrap: wrap;
+        border: none;
 }
 .DesktopLatestNews .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostGI div {
     flex: 1;
@@ -4719,17 +4720,20 @@ button.Pokerbazzi25 {
     margin: 0px auto 0;
     padding-bottom: 16px;
 }
-.DesktopLatestNews.MobileReviewPAge  .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostDW {
+.DesktopLatestNews.MobileReviewPAge .sidebar.RightsidebarBlog.RetagRightsideba .card .sidePost.sidePostDW {
     flex-direction: column;
     margin-top: 16px;
+    border: none;
 }
 .DesktopLatestNews.MobileReviewPAge .sidebar.RightsidebarBlog .card .sidePost.Support {
     margin-top: 16px;
+    border: none;
 }
 .DesktopLatestNews.MobileReviewPAge .sidebar.RightsidebarBlog .card .sidePost.sidePostTAg {
     width: calc(100% - 32px);
     margin: 16px auto 0;
     flex-direction: column;
+     border: none;
 }
 .DesktopLatestNews.MobileReviewPAge  .newsletter {
     background: #ff4053;
@@ -4925,7 +4929,7 @@ button#searchToggleDesktop:focus {
 
 
 .ReviewTaggingTab .sticky-top.bg-white {
-    top: 132px !important;
+    top: 0px !important;
 }
 .PokerSiteHed {
     font-size: 18px;

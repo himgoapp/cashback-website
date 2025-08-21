@@ -70,7 +70,7 @@ const Review = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            setHideNav(window.scrollY > 350);
+            setHideNav(window.scrollY > 585);
         };
 
         window.addEventListener("scroll", handleScroll);

@@ -741,10 +741,7 @@ button.navbar-toggler.me-2.d-lg-none.activetoggle {
     max-width: 100%;
     padding: 0 28px;
 }
-  .ReviewTaggingTab .sticky-top.bg-white
- {
-    top: 68px !important;
-}
+
   .BlogBottomNewSectionRow .sidePost .sideImageContainer {
     height: 150px;
 }
