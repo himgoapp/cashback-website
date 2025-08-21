@@ -423,21 +423,21 @@ const Review = () => {
                                                 <div className="faqList">
                                                     {currentItem && currentItem.faqs && currentItem.faqs.length > 0 && currentItem.faqs.map((faq) => (
                                                         <div
-                                                            key={faq.id}
-                                                            className={expandedItem === faq.id ? "faqItemActive" : 'faqItem'}
+                                                            key={faq._id}
+                                                            className={expandedItem === faq._id ? "faqItemActive" : 'faqItem'}
                                                         >
-                                                            <div className="faqQuestion" onClick={() => toggleExpanded(faq.id)}>
+                                                            <div className="faqQuestion" onClick={() => toggleExpanded(faq._id)}>
                                                                 <span className="questionText">{faq.question}</span>
                                                                 <button className="toggleButton">
                                                                     <img
-                                                                        src={expandedItem === faq.id ? Minus : Plus}
+                                                                        src={expandedItem === faq._id ? Minus : Plus}
                                                                         className="toggleIcon"
                                                                     />
                                                                 </button>
                                                             </div>
 
 
-                                                            {expandedItem === faq.id && (
+                                                            {expandedItem === faq._id && (
                                                                 <div className="faqAnswer">
                                                                     <p className="answerText">{faq.answer}</p>
                                                                 </div>
@@ -491,7 +491,8 @@ const Review = () => {
                                                     <ul className="SidepostUL">
                                                         {currentItem?.generalInformation?.certification?.map((cert, index) =>
                                                             <li key={index}>
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect><path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>{cert}
+                                                                {/* <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect><path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg> */}
+                                                                {cert}
                                                             </li>)}
                                                     </ul>
                                                 </div>
@@ -505,10 +506,10 @@ const Review = () => {
 
                                                         {getWalletArray(currentItem?.generalInformation?.wallet).map((wallet, index) => (
                                                             <li key={index}>
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                                                {/* <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                                                                     <rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect>
                                                                     <path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                                                                </svg>
+                                                                </svg> */}
                                                                 {wallet}
                                                             </li>
                                                         ))}
@@ -860,7 +861,8 @@ const Review = () => {
                                                 <ul className="SidepostUL">
                                                     {currentItem?.generalInformation?.certification?.map((cert, index) =>
                                                         <li key={index}>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect><path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>{cert}
+                                                            {/* <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none"><rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect><path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg> */}
+                                                            {cert}
                                                         </li>)}
                                                 </ul>
                                             </div>
@@ -874,10 +876,10 @@ const Review = () => {
 
                                                     {getWalletArray(currentItem?.generalInformation?.wallet).map((wallet, index) => (
                                                         <li key={index}>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
+                                                            {/* <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 17 17" fill="none">
                                                                 <rect x="0.75" y="0.935547" width="16" height="16" rx="8" fill="#28A745"></rect>
                                                                 <path d="M12.75 5.93555L7.25 11.4355L4.75 8.93555" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"></path>
-                                                            </svg>
+                                                            </svg> */}
                                                             {wallet}
                                                         </li>
                                                     ))}

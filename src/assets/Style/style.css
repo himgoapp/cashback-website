@@ -5248,3 +5248,149 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
  {
  display: none;
 }
+
+
+
+
+.dealPage {
+    width: 100%;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    border: 2px solid #ECECEC;
+    position: relative;
+    padding: 21px 0 10px;
+        margin-bottom: 24px;
+}
+
+    /* Top Ribbon */
+.dealPage .deal-ribbon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ff4d6d;
+    color: #fff;
+    font-size: 8px;
+    font-weight: bold;
+    padding: 0 21px;
+    position: absolute;
+    height: 18px;
+    gap: 10px;
+    align-items: center;
+    border-bottom-right-radius: 7px;
+    top: 0;
+    left: 0;
+}
+
+
+    /* Main Content */
+.dealPage .deal-content
+ {
+    display: flex
+;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+    /* Logo & Title */
+.dealPage .logo-section {
+    display: flex
+;
+    align-items: center;
+    gap: 10px;
+    min-width: 206px;
+    padding: 0 22px;
+}
+
+    /* Features */
+.dealPage .features
+ {
+    flex: 1 1;
+    min-width: 296px;
+    max-width: 296px;
+    padding: 0 14px;
+}
+.dealPage .features ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.dealPage .features li {
+    font-size: 10px;
+    color: #606060;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+}
+
+    /* Payment Icons */
+.dealPage     .payments {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+       padding: 0 22px;
+    }
+
+   
+    /* Right Section */
+.dealPage .right-section {
+    display: flex
+;
+    flex-direction: row;
+    align-items: center;
+    gap: 28px;
+    min-width: 130px;
+}
+.dealPage .right-section span {
+    font-size: 12px;
+    color: #000000;
+}
+.DealsBtnpage {
+    display: flex
+;
+    flex-direction: column;
+    gap: 10px;
+}
+.dealPage .coupon-btn {
+    border: 1px Dashed #989898;
+    padding: 0;
+    border-radius: 4.26px;
+    font-size: 12px;
+    cursor: pointer;
+    background: #F0F0F0;
+    color: #000000;
+    height: 31px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+     min-width: 115px;
+}
+    .dealPage .coupon-btn:hover {
+      background: #f5f5f5;
+    }
+
+    .dealPage .claim-btn {
+      background: #ff4d6d;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      height: 31px;
+       font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    min-width: 115px;
+    border-bottom: 1px Dashed #989898;
+    }
+
+    .dealPage .claim-btn:hover {
+      background: #e63858;
+    }

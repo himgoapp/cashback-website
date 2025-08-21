@@ -6,8 +6,8 @@ const OfferHeader = ({ setSearchTerm, searchTerm }) => {
 	return (
 		<div className={styles.header_container}>
 			<SectionHeader
-				head='What our clients have to say'
-				subhead="With Rakebackk, it's not just about playing,  it's about earning more every time you do.  "
+				head='Hottest Deals'
+				subhead="With Rakebackk, it's not just about playing,  it's about earning more every time you do.   "
 				offerHead={true}
 			/>
 			{/* <div className={styles.email_input_container}>
