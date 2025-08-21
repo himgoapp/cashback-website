@@ -8,6 +8,7 @@ import { getBlogs, getSidebarBlogs } from "../../../servicefile/blogservice";
 import Meta from "../../../Meta";
 import FeaturedCardImage from '../../../assets/Logos_and_illustration/FeaturedCardImage.svg'
 import Loading from "../../common/Loading/Loading";
+import { getPokerSiteImage } from "../../../helperFxns/colorCode";
 
 
 const CustomPagination = ({
@@ -291,7 +292,7 @@ const LatestNewsDesktop = ({ userData }) => {
                                     <div class="sidePost col-lg-12" key={offer._id} >
                                         <div class=" OffersForUchd LatestNewsDsg">
                                             <div class="LatestNewsDsgIMg">
-                                                <img src={`data:image/png;base64,${offer.logo}`} class="" />
+                                                <img src={getPokerSiteImage(offer.name)} class="" />
                                             </div>
                                             <div class="LatestNewsDsgTxt">
                                                 <p class="small">{offer.tagline}</p>

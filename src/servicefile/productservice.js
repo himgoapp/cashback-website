@@ -18,9 +18,9 @@ export const getProducts = async () => {
 
 export const getProductsSimple = async () => {
 	try {
-		let data = await API.get(`/products/productsimple`).then((res) => res.data);
+		let data = await API.get(`/vendors/vendorsimple`).then((res) => res.data);
 
-		return data.products;
+		return data.VendorsList;
 	} catch (error) {
 		const { response } = error;
 		if (response) {

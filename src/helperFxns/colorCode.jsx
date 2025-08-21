@@ -307,6 +307,27 @@ export const getPokerSiteImage = (siteName) => {
   }
 };
 
+export const getPokerClass = (siteName) => {
+  switch (siteName) {
+    case "Junglee Poker":
+      return "JungleePokerSlider";
+    case "Poker Baazi":
+      return "PokerBazziSlider";
+    case "Big Cash":
+      return "BigCashSlider";
+    case "Poker Dangal":
+      return "PokerDangalSLider";
+    case "Spartan Poker":
+      return "SpartanPokerSlider";
+    case "ACR Poker":
+      return "ACRSlider";
+    case "Coin Poker":
+      return "CoinPokerSlider";
+    case "WPT Global":
+      return "WPTGlobalSlider";
+  }
+};
+
 export const imagePicker = (productName) => {
   return productName === "Poker Baazi"
     ? PokerBazziPokerCard

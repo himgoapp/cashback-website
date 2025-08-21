@@ -127,7 +127,7 @@ function App() {
               <Route path="/retag" element={<RetagPage />} />
               <Route path="/latest-news" element={<LatestNewsMain />} />
               <Route path="/news/:blogId" element={<BlogDetail />} />
-              <Route path="/blog/:blogId" element={<BlogMain />} />
+              {/* <Route path="/blog/:blogId" element={<BlogMain />} /> */}
               <Route path="/faq?" element={<FaqContainer />} />
               <Route path="/login" element={<FullPageSignin />} />
               {/* <Route path="/terms-and-conditions" element={<TermsConditions />} /> */}

@@ -46,7 +46,7 @@ const Homepage = () => {
       />
       <MainContainer>
         <Banner />
-        <TopRakeBackOffers></TopRakeBackOffers>
+        <TopRakeBackOffers />
         <TrustSection />
         <HowGetStarted />
         <FeaturedBlogs />
