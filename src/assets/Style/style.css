@@ -5305,6 +5305,19 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     min-width: 206px;
     padding: 0 22px;
 }
+.DealsOfferHed .title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #1a1a1a;
+}
+.DealsOfferHed .titleAccent {
+    color: #ff4053;
+}
+.DealsOfferHed .subtitle {
+    font-size: 20px;
+    color: #000000;
+    font-weight: 400;
+}
 
     /* Features */
 .dealPage .features
