@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import {  useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { getUserInfo } from "../servicefile/authservice";
 import { UserContext } from "../App";
 import Loading from "../components/common/Loading/Loading";
@@ -12,7 +12,7 @@ const NotProtectedRoute = ({ children }) => {
 	const [loading, setLoading] = useState(false);
 	const { setUserData, setWalletData, setUserKyc } = useContext(UserContext);
 
-	const setDefaultContext =()=>{
+	const setDefaultContext = () => {
 		setUserData(null);
 		setWalletData(null);
 		setUserKyc(null);
@@ -67,19 +67,19 @@ const ProtectedRoute = ({ children }) => {
 		const res = await getUserInfo();
 
 		if (res.success) {
-            let userData = res.userInfo.user ;
+			let userData = res.userInfo.user;
 
-			if(userData && userData.email && userData.userName){
+			if (userData && userData.email && userData.userName) {
 				setUserData(res.userInfo.user);
 				setWalletData(res.userInfo.userWallet);
 				setUserKyc(res.userInfo.userKyc);
 				setLoading(false);
-			}else{
-                navigate("/welcome")
+			} else {
+				navigate("/welcome")
 			}
 		} else {
 			localStorage.clear();
-			navigate("/", { replace: true });
+			navigate("/login", { replace: true });
 		}
 		setLoading(false);
 	};
@@ -105,4 +105,4 @@ const ProtectedRoute = ({ children }) => {
 	return children;
 };
 
-export  {ProtectedRoute , NotProtectedRoute};
+export { ProtectedRoute, NotProtectedRoute };

@@ -120,7 +120,6 @@ function App() {
 
             {/* Public Routes */}
             <Route element={<NotProtectedRoute><PublicLayout /></NotProtectedRoute>}>
-              <Route path="/review/:roomId" element={<ReviewMain />} />
               <Route path="/" element={<HomePage />} />
               <Route path="/offer-and-deals" element={<OfferAndDealsContainer />} />
               <Route path="/dictionary" element={<DictionaryPage />} />
@@ -134,6 +133,12 @@ function App() {
               {/* <Route path="/terms-and-conditions" element={<TermsConditions />} /> */}
               <Route path="*" element={<h1 className="text-center text-danger pt-5">Not Found</h1>} />
             </Route>
+
+
+            <Route element={<ProtectedRoute><PublicLayout /></ProtectedRoute>}>
+              <Route path="/review/:roomId" element={<ReviewMain />} />
+            </Route>
+
 
             <Route
               path="/welcome"
