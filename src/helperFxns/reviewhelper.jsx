@@ -16,12 +16,14 @@ export function extractHeadingsFromHTML(html) {
     const doc = parser.parseFromString(html, "text/html");
 
     // Get h1, h2, h3
-    const headings = Array.from(doc.querySelectorAll("h1, h2, h3"))
+    const headings = Array.from(doc.querySelectorAll("h1, h2"))
         .map(h => h.textContent.trim()) // get text
         .filter(Boolean); // remove empty
 
     return headings;
 }
+
+export const notRequired = ["_id", "editorRating",]
 
 export const getPokerSiteImage = (siteName) => {
     switch (siteName) {
@@ -71,7 +73,6 @@ const ratingLabels = {
     bonusesAndPromotions: "Bonus and Promotions",
     casualPlayers: "Casual Players",
     depositsAndWithdrawals: "Deposits and Withdrawals",
-    editorRating: "Editor Rating"
 };
 
 export function getLabel(key) {

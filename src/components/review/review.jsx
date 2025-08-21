@@ -19,7 +19,7 @@ import Online from "../../assets/Review/24.svg"
 import TaggingReview from "../../assets/Review/TaggingReview.png"
 import { useParams, useNavigate } from "react-router-dom";
 import { getProductById } from "../../servicefile/productservice";
-import { getLabel, getWalletArray, getGameIcon, getPokerSiteImage, backgroundClassHelper, extractHeadingsFromHTML } from "../../helperFxns/reviewhelper";
+import { getLabel, getWalletArray, getGameIcon, getPokerSiteImage, backgroundClassHelper, extractHeadingsFromHTML, notRequired } from "../../helperFxns/reviewhelper";
 import Loading from "../common/Loading/Loading";
 import ReviewArticleData from "./reviewArticleData";
 
@@ -180,6 +180,8 @@ const Review = () => {
     ];
 
 
+    console.log(reviewNavHeaders, "reviewNavHeaders")
+
 
     const toggleExpanded = (id) => {
         setExpandedItem(prev => (prev === id ? null : id));
@@ -256,7 +258,7 @@ const Review = () => {
                             </div>
                             <div className="rating-bars">
                                 {currentItem && currentItem.rating && Object.entries(currentItem.rating)
-                                    .filter(([key]) => key !== "_id") // remove _id
+                                    .filter(([key]) => !notRequired.includes(key)) // remove _id
                                     .map(([key, value]) => (
                                         <div className="rating-item" key={key}>
                                             <div className="RatingLabel">

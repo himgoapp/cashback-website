@@ -30,9 +30,16 @@ export default function ReviewArticleData({ article }) {
         headingsRef.current = [];
 
         // Handle h1, h2, h3 → convert into h5 with IDs
-        html = html.replace(/<h([1-3])>(.*?)<\/h\1>/gi, (match, level, p1, index) => {
+        html = html.replace(/<h([1-2])>(.*?)<\/h\1>/gi, (match, level, p1) => {
             const cleanTitle = p1.replace(/<[^>]+>/g, "").trim();
-            const id = cleanTitle.replace(/\s+/g, "")
+            // remove spaces & non-alphanumeric characters
+            const id = cleanTitle
+                .replace(/\s+/g, "")
+                .replace(/[^a-zA-Z0-9]/g, "");
+
+            console.log(cleanTitle, id, "cleanTitle, id")
+
+            // return string with <h2>
             return `<h2 id="${id}" class="contentChildHEd">${cleanTitle}</h2>`;
         });
 
