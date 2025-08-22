@@ -304,6 +304,8 @@ export const getPokerSiteImage = (siteName) => {
       return CoinPokerHome;
     case "WPT Global":
       return WPTGlobalHome;
+    case "Big Cash":
+      return WPTGlobalHome;
   }
 };
 
