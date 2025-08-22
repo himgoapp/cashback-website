@@ -156,7 +156,7 @@ const Navbar = ({ hide }) => {
         </div>
 
         {/* Navbar row */}
-        {!isMobile && <nav className="navbar navbar-expand-lg navbar-light p-0 ">
+        <nav className="navbar navbar-expand-lg navbar-light p-0 ">
           <div className="container">
             <div
               className="collapse navbar-collapse justify-content-center"
@@ -321,7 +321,7 @@ const Navbar = ({ hide }) => {
               </ul>
             </div>
           </div>
-        </nav>}
+        </nav>
 
         <style jsx>{`
     .mega-menu .dropdown-menu {
