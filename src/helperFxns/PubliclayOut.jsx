@@ -10,7 +10,7 @@ export default function PublicLayout() {
     const { mobile, hideNav } = useContext(UserContext); // you already have mobile detection
 
     // Hide navbar if on /latest-news and mobile view
-    const hideNavbar = (mobile && (location.pathname === "/login"))
+    const hideNavbar = (mobile && (location.pathname === "/login" || location.pathname === "/latest-news"))
 
     const hideFooter = location.pathname === "/login" || (mobile && location.pathname === "/latest-news");
     return (
