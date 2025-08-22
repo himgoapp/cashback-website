@@ -900,21 +900,18 @@ button.navbar-toggler {
 }
 
 @media only screen and (max-width: 575px) {
-  .swiper-slide{
-    opacity: 0 !important;
-}
-.swiper-slide.swiper-slide-next {
-    left: -110px;
-    opacity: 0.5 !important;
-}
-.swiper-slide.swiper-slide-prev {
-    right: -110px;
-    opacity: 0.5 !important;
-}
-.swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active{
-    display: block;
+
+/* .swiper-slide.swiper-slide-next {
+    left: -90px;
     opacity: 1 !important;
 }
+.swiper-slide.swiper-slide-prev {
+    right: -90px;
+    opacity: 1 !important;
+}
+.swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active{
+    opacity: 1 !important;
+} */
 
   .RakebackHeader nav.navbar .container {
         width: 100%;
@@ -2091,21 +2088,18 @@ button.navbar-toggler {
 .NavbarDropdown .dropdown-item span {
     font-size: 10px;
 }
-  .swiper-slide{
-    opacity: 0 !important;
-}
-.swiper-slide.swiper-slide-next {
+
+/* .swiper-slide.swiper-slide-next {
     left: -130px;
-    opacity: 0.5 !important;
+    opacity: 1 !important;
 }
 .swiper-slide.swiper-slide-prev {
     right: -130px;
-    opacity: 0.5 !important;
-}
-.swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active{
-    display: block;
     opacity: 1 !important;
 }
+.swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active{
+    opacity: 1 !important;
+} */
 
 
 }
@@ -2115,22 +2109,19 @@ button.navbar-toggler {
 .SliderFooter button {
     width: 48%;
 }
-  .swiper-slide{
-    opacity: 0 !important;
-}
-.swiper-slide.swiper-slide-next {
+
+/* .swiper-slide.swiper-slide-next {
     left: -110px;
-    opacity: 0.5 !important;
+    opacity: 1 !important;
 }
 .swiper-slide.swiper-slide-prev {
     right: -110px;
-    opacity: 0.5 !important;
-}
-.swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active{
-    display: block;
     opacity: 1 !important;
 }
-
+.swiper-slide.swiper-slide-visible.swiper-slide-fully-visible.swiper-slide-active{
+    opacity: 1 !important;
+}
+ */
 
 }
 @media only screen and (max-width: 394px) {
