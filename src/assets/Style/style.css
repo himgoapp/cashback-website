@@ -5314,7 +5314,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
 ;
     align-items: center;
     gap: 10px;
-    min-width: 206px;
+    max-width: 206px;
     padding: 0 22px;
 }
 .DealsOfferHed .title {
@@ -5374,6 +5374,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
 .dealPage .right-section span {
     font-size: 12px;
     color: #000000;
+    cursor: pointer;
 }
 .DealsBtnpage {
     display: flex
