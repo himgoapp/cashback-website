@@ -49,7 +49,7 @@ const Homepage = () => {
         <TopRakeBackOffers />
         <TrustSection />
         <HowGetStarted />
-        <FeaturedBlogs />
+        <FeaturedBlogs isMobile={isMobile} />
         <WhyChooseUs />
         <ClientTestimonial />
         <FaqSection />

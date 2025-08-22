@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../../../App';
 import { useNavigate } from 'react-router-dom';
 import styles from './newFeatredBlog.module.css';
 import featuredBlogMain from "../../../assets/Logos_and_illustration/featuredBlogMain.webp"
@@ -8,11 +9,12 @@ import FeaturedCardImage from "../../../assets/Logos_and_illustration/FeaturedCa
 
 import { getBlogs } from "../../../servicefile/blogservice";
 
-const FeaturedBlogs = () => {
+const FeaturedBlogs = ({ isMobile }) => {
     const [activeTab, setActiveTab] = useState('Latest');
     const [blogs, setBlogs] = useState([]);
     const [loading, setLoading] = useState(true);
     const navigate = useNavigate();
+    const { mobile } = useContext(UserContext);
 
     const tabs = [
         'Latest',
@@ -28,7 +30,8 @@ const FeaturedBlogs = () => {
             let type = activeTab === 'Latest' ? undefined : activeTab;
             const response = await getBlogs(type, 1);
             if (response && response.blogsList) {
-                const limitedBlogs = response.blogsList.slice(0, 5);
+                let sliceCount = isMobile ? 4 : 5;
+                const limitedBlogs = response.blogsList.slice(0, sliceCount);
                 setBlogs(limitedBlogs);
 
             } else {
@@ -145,20 +148,7 @@ const FeaturedBlogs = () => {
                                                                         : blogs[0]?.title}
 
                                                                 </h3>
-                                                                {/* <p className="description">
-                                                                    {blogs[0]?.subheading?.length > 90
-                                                                        ? blogs[0].subheading.slice(0, 90) + "..."
-                                                                        : blogs[0]?.subheading}
-                                                                </p> */}
                                                                 <div className='AutherINfo'>
-                                                                    {/* <div className='AutherImg'>
-                                                                        <img
-                                                                            src={Men}
-                                                                            alt={blogs[0].title}
-                                                                            className="mainImage"
-                                                                        />
-                                                                    </div>
-                                                                    <h3>By Gabie Sheber</h3> */}
                                                                     <span>.</span>
                                                                     <p>  <p>{formatDate(blogs[0].createdAt)}</p></p>
                                                                 </div>
@@ -189,14 +179,6 @@ const FeaturedBlogs = () => {
                                                                                 : blog.title}
                                                                         </p>
                                                                         <div className='AutherINfo'>
-                                                                            {/* <div className='AutherImg'>
-                                                                                <img
-                                                                                    src={Men}
-                                                                                    alt={blogs[0].title}
-                                                                                    className="mainImage"
-                                                                                />
-                                                                            </div> */}
-                                                                            {/* <h3>By Gabie Sheber</h3> */}
                                                                             <span>.</span>
                                                                             <p>{formatDate(blog.createdAt)}</p>
                                                                         </div>
