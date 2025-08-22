@@ -35,9 +35,9 @@ const CenterSlider = () => {
             spaceBetween={30}
             centeredSlides={true}
             slidesPerView={1}
-            loop={false}
+            loop={true}
             autoplay={{
-                delay: 9000,
+                delay: 2000,
                 disableOnInteraction: false,
             }}
             pagination={{
