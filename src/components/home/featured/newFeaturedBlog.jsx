@@ -61,7 +61,7 @@ const FeaturedBlogs = ({ isMobile }) => {
 
 
     const formatDate = (dateString) => {
-        const date = new Date(dateString);
+        const date = new Date(dateString);  
 
         return date.toLocaleDateString("en-US", {
             month: "short",  // "Mar"
@@ -72,7 +72,7 @@ const FeaturedBlogs = ({ isMobile }) => {
 
     return (
         <>
-            <div className='container-fluid  RakebackFeaturedBlog'>
+            <div className='container-fluid  RakebackFeaturedBlog RakebackFeaturedBlogHP'>
                 <div className="container">
                     <div className='row'>
                         <div className="col-lg-12 text-center GetStartedhead">
@@ -174,8 +174,8 @@ const FeaturedBlogs = ({ isMobile }) => {
                                                                     <div className="sideContent">
                                                                         <span className="sideCategory">{blog.type || 'Blog'}</span>
                                                                         <p className="sideDescription">
-                                                                            {blog.title?.length > 50
-                                                                                ? blog.title.slice(0, 50) + "..."
+                                                                            {blog.title?.length > 30
+                                                                                ? blog.title.slice(0, 30) + "..."
                                                                                 : blog.title}
                                                                         </p>
                                                                         <div className='AutherINfo'>

@@ -44,17 +44,20 @@ div#root {
 }
 .RakebackHeader ul.navbar-nav li.nav-item a.nav-link
  {
-    color: #000;
-    font-size: 18px;
+    color: #808080;
+    font-size: 16px;
     font-weight: 500;
-    height: 50px;
+    height: 40px;
     padding: 0;
     align-items: center;
-    line-height: 50px;
+    line-height: 40px;
     position: relative;
 }
 .RakebackHeader ul.navbar-nav li.nav-item a.nav-link.active {
     color: #FF4053;
+}
+nav.navbar.navbar-expand-lg.navbar-light.p-0 {
+    border-bottom: 2px solid #F5F5F5;
 }
 .RakebackHeader ul.navbar-nav li.nav-item {
     text-align: center;
@@ -72,19 +75,19 @@ div#root {
     font-size: 14px;
     font-weight: 700;
 } */
-     .RakebackHeader button.signin_button {
-       width: auto;
-        height: 40px;
-        font-size: 16px;
-        padding: 8px 12px;
-        color: #fff;
-        border-radius: 6px;
-        background: #FF4053;
-        font-weight: 700;
-    }
+.RakebackHeader button.signin_button {
+    width: auto;
+    height: 36px;
+    font-size: 16px;
+    padding: 0px 12px;
+    color: #fff;
+    border-radius: 6px;
+    background: #FF4053;
+    font-weight: 700;
+}
 .RakebackHeader button.signin_button:first-child {
     background: #EFEFF2;
-    color: #ff4053;
+    color: #ff4053 !important;
 }
 
 .RakebackHeader button.signin_button svg.bi.bi-arrow-right {
@@ -256,6 +259,7 @@ div#root {
     margin: 20px 0;
     background-size: cover;
     background-repeat: no-repeat;
+    overflow: hidden;
 }
 .RakeBackTopOffers .title {
     font-size: 36px;
@@ -811,7 +815,7 @@ transform: translate(-50%);
  {
     position: relative;
     width: 100%;
-    height: 352px;
+    height: 295px;
     overflow: hidden;
 }
 .RakebackFeaturedBlog .mainImage {
@@ -1021,15 +1025,16 @@ transform: translate(-50%);
     flex-direction: row;
     background-color: #F5F5F5;
     margin-bottom: 36px;
+        border: none !important;
 }
-.container-cards.featuresList .card.focused {
+/* .container-cards.featuresList .card.focused {
     background-color: #FFEBEF;
     color: white;
     border-color: #ff4053;
 }
 .container-cards.featuresList .card.focused .featureTitle {
     color: #FF4053;
-}
+} */
 
 .container-cards.featuresList .featuresList {
   display: flex;
@@ -4896,7 +4901,7 @@ background: #EFEFEF;
 }
 .RakebackHeader .LoginBtn
  {
-    gap: 16px;
+    gap: 12px;
     flex-direction: row;
 }
 .RakebackHeader     .navbar-expand-lg .navbar-collapse
@@ -5110,14 +5115,14 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
 .dropdown.NavBarProfileIcon ul.dropdown-menu.dropdown-menu-end.show a.dropdown-item {
     padding: 0;
     width: 100%;
-    font-size: 18px;
+    font-size: 14px;
     color: #000;
     font-weight: bold;
 }
 .dropdown.NavBarProfileIcon ul.dropdown-menu.dropdown-menu-end.show button.dropdown-item {
     padding: 0;
     width: 100%;
-    font-size: 18px;
+    font-size: 14px;
     color: #000;
     font-weight: bold;
 }
@@ -5420,3 +5425,39 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     .dealPage .claim-btn:hover {
       background: #e63858;
     }
+.RakebackFeaturedBlog.RakebackFeaturedBlogHP .mainPost
+ {
+    border-radius: 12px !important;
+        border: 1px solid #ECECEC;
+}
+.RakebackFeaturedBlog.RakebackFeaturedBlogHP .sideImageContainer {
+    width: 152px;
+    height: 132px;
+    border-radius: 12px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.RakebackFeaturedBlog.RakebackFeaturedBlogHP  .sideContent {
+    gap: 20px;
+}
+.RakebackFeaturedBlog.RakebackFeaturedBlogHP .sidePost:last-child {
+    margin-bottom: 0px;
+}
+.RakebackFeaturedBlogHP  .blogGrid .row {
+    display: flex;
+    gap: 37px;
+    justify-content: space-between;
+}
+.RakebackFeaturedBlogHP .blogGrid .row .col-lg-6 {
+    flex: 1;
+}
+.RakebackFeaturedBlog.RakebackFeaturedBlogHP .sidePost {
+    margin: 0;
+}
+.RakebackFeaturedBlogHP .blogGrid .row .col-lg-6 .row {
+    gap: 19px;
+    margin: 0 0px;
+}
+.RakebackFeaturedBlogHP .mainPost .mainContent h3.mainTitle {
+    font-weight: bold;
+}

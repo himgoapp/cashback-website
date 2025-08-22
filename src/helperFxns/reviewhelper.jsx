@@ -52,7 +52,7 @@ export const backgroundClassHelper = (siteName) => {
             return "ReviewHeader JungleePoker";
         case "Big Cash":
             return "ReviewHeader BigCash";
-        case "Poker Bazzi":
+        case "Poker Baazi":
             return "ReviewHeader PokerBaazi";
         case "Poker Dangal":
             return "ReviewHeader PokerDangal";

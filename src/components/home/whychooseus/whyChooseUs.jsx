@@ -22,7 +22,8 @@ const WhyChooseUs = () => {
         "We ensure your cash back reaches you on time-consistent, accurate, & right on schedule every single week.",
       icon: (
         <img
-          src={BTimelyPayouts}
+          // src={BTimelyPayouts}
+          src={RedTimelyPayoutIcon}
           alt="Sign up icon"
           style={{ width: "68.29px", height: "65.67px" }}
         />
@@ -42,7 +43,8 @@ const WhyChooseUs = () => {
         "Our support team is available via chat & email to resolve your concerns and help you get the most from your offers.",
       icon: (
         <img
-          src={BeliableCustomerServiceicon}
+          // src={BeliableCustomerServiceicon}
+          src={RedReliableCustomerServiceicon}
           alt="Sign up icon"
           style={{ width: "60.78px", height: "57.04px" }}
         />
@@ -62,7 +64,8 @@ const WhyChooseUs = () => {
         "No fine print. No confusion. Just clear, honest, published terms that ensure you know exactly what you're getting.",
       icon: (
         <img
-          src={BFairandTransparentDeals}
+          // src={BFairandTransparentDeals}
+          src={RedFairandransparentDeals}
           alt="Sign up icon"
           style={{ width: "62.57px", height: "62.57px" }}
         />
@@ -169,6 +172,51 @@ const WhyChooseUs = () => {
               </p>
             </div>
             <div className="col-lg-7">
+              {/* <div class="container-cards featuresList">
+                {features.map((feature, idx) => {
+                  const isActive = activeCard === feature.id;
+                  const iconToUse = isActive
+                    ? feature.activeIcon
+                    : feature.icon;
+                  return (
+                    <div
+                      key={feature.id}
+                      ref={(el) => (cardRefs.current[idx] = el)}
+                      className="card"
+                    >
+                      <div className="iconContainer">
+                        <div className="icon">{iconToUse}</div>
+                      </div>
+                      <div className="featureContent">
+                        <h3 className="featureTitle">
+                          {(() => {
+                            const words = feature.title.split(" ");
+                            if (words.length <= 2) {
+                              return (
+                                <>
+                                  {words[0]} {words[1]}
+                                </>
+                              );
+                            }
+                            return (
+                              <>
+                                {words.slice(0, 2).join(" ")}
+                                <br />
+                                {words.slice(2).join(" ")}
+                              </>
+                            );
+                          })()}
+                        </h3>
+
+                        <p className="featureDescription">
+                          {feature.description}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div> */}
+
               <div class="container-cards featuresList">
                 {features.map((feature, idx) => {
                   const isActive = activeCard === feature.id;

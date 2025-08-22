@@ -24,7 +24,7 @@ const Banner = () => {
                     <div className="row mobilerow">
                         <div className="col-lg-1 m">
                         </div>
-                        <div className="col-lg-5 col-md-12 d-flex align-items-center">
+                        <div className="col-lg-5 p-0 col-md-12 d-flex align-items-center">
                             <div className="content">
                                 <h1 className="title">
                                     <span className="highlight">{homePageContent.highlight}</span><br />
@@ -35,7 +35,7 @@ const Banner = () => {
                                     <span className="highlightPercentage">{homePageContent.highlightPercentage1}</span> {homePageContent.highlightPercentage2}
                                 </p>
                                 <p className="description">
-                                    {/* No hidden terms. No delays. Just pure rewards. */}
+                                    No hidden terms. No delays. Just pure rewards.
                                 </p>
 
                                 <div className="buttonContainer">
