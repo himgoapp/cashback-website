@@ -179,10 +179,6 @@ const Review = () => {
         }
     ];
 
-
-    console.log(reviewNavHeaders, "reviewNavHeaders")
-
-
     const toggleExpanded = (id) => {
         setExpandedItem(prev => (prev === id ? null : id));
     };
@@ -327,30 +323,6 @@ const Review = () => {
                                         </button>
                                     </li>
                                 ))}
-                                {/* <li className="nav-item">
-                                    <button
-                                        className={`nav-link ${activeSection === "HowtoTag" ? "active" : ""}`}
-                                        onClick={() => handleScrollTo("HowtoTag")}
-                                    >
-                                        How to Tag
-                                    </button>
-                                </li>
-                                <li className="nav-item">
-                                    <button
-                                        className={`nav-link ${activeSection === "DealDetails" ? "active" : ""}`}
-                                        onClick={() => handleScrollTo("DealDetails")}
-                                    >
-                                        Deal Details
-                                    </button>
-                                </li>
-                                <li className="nav-item">
-                                    <button
-                                        className={`nav-link ${activeSection === "TaggingFAQ" ? "active" : ""}`}
-                                        onClick={() => handleScrollTo("TaggingFAQ")}
-                                    >
-                                        FAQs
-                                    </button>
-                                </li> */}
                             </ul>}
                         </div>
 

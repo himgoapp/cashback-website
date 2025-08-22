@@ -3069,6 +3069,7 @@ div#Gotaquestion
     font-size: 16px;
     color: #231F20;
     margin: 0 0 6px;
+    cursor: pointer;
 }
 .DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .sideImageContainer img.sideImage {
     width: 100%;
