@@ -214,7 +214,7 @@ const Navbar = ({ hide }) => {
                           <div className="PokerLeft">
 
                             <ul className="list-unstyled">
-                              <li className="d-flex align-items-center">
+                              {/* <li className="d-flex align-items-center">
                                 <img
                                   src={BigCash}
                                 />
@@ -225,8 +225,8 @@ const Navbar = ({ hide }) => {
                                   src={spartan}
                                 />
                                 Spartan
-                              </li>
-                              <li className="d-flex align-items-center">
+                              </li> */}
+                              {/* <li className="d-flex align-items-center">
                                 <img
                                   src={pokerdangal}
                                 />
@@ -237,8 +237,8 @@ const Navbar = ({ hide }) => {
                                   src={pokerbazzi}
                                 />
                                 Pokerbazzi
-                              </li>
-                              <li className="d-flex align-items-center">
+                              </li> */}
+                              {/* <li className="d-flex align-items-center">
                                 <img
                                   src={jungleeIcon}
                                 />
@@ -261,7 +261,7 @@ const Navbar = ({ hide }) => {
                                   src={jungleeIcon}
                                 />
                                 Junglee poker
-                              </li>
+                              </li>*/}
                             </ul>
                           </div>
 

@@ -8,32 +8,27 @@ import TrusteddownIcon from '../../../assets/Logos_and_illustration/TrusteddownI
 import homePageContent from '../../contentData/homePageContent.json';
 const TrustSection = () => {
   const users = [
-    { name: "Poker Baazi" },
-    { name: "Junglee Poker" },
     { name: "WPT Global" },
     { name: "Coin Poker" },
     { name: "ACR Poker" },
-    { name: "Poker Baazi" },
-    { name: "Junglee Poker" },
     { name: "WPT Global" },
     { name: "Coin Poker" },
     { name: "ACR Poker" },
-    { name: "Poker Baazi" },
-    { name: "Junglee Poker" },
+    { name: "WPT Global" },
+    { name: "Coin Poker" },
+    { name: "ACR Poker" },
+    { name: "WPT Global" },
+    { name: "Coin Poker" },
+    { name: "ACR Poker" },
+    { name: "WPT Global" },
+    { name: "Coin Poker" },
+    { name: "ACR Poker" },
     { name: "WPT Global" },
     { name: "Coin Poker" },
     { name: "ACR Poker" },
   ];
 
   const pokerSites = {
-    "Junglee Poker": "https://www.jungleepoker.com/",
-    "Poker Baazi": "https://www.pokerbaazi.com/",
-    "A23poker": "https://www.a23.com/",
-    "PokerCircle": "https://www.pokercircle.com/",
-    "PokerDangal": "https://www.pokerdangal.com/",
-    "Natural8": "https://www.natural8.com/",
-    "Pocket52": "https://www.pocket52.com/",
-    "Adda52": "https://www.adda52.com/",
     "ACR Poker": "https://www.americascardroom.eu/",
     "CoinPoker": "https://www.coinpoker.com/",
     "WPTglobal": "https://www.wptglobal.com/"
@@ -47,7 +42,6 @@ const TrustSection = () => {
             <div className="col-lg-12 text-center">
               <h1 className="title">
                 <span className="titleAccent">Our
-                  {/* {homePageContent.trustedBySubtitle} */}
                 </span>  Trusted Partners
               </h1>
               <p className="description"> {homePageContent.trustedBySubtitle2}</p>
@@ -73,7 +67,6 @@ const TrustSection = () => {
                           className="partnerLogoImg"
                         />
                       </div>
-                      {/* <span className="partnerName">{user.name}</span> */}
                     </a>
                   ))}
 
@@ -84,71 +77,6 @@ const TrustSection = () => {
           </div>
         </div>
       </div>
-
-
-
-      {/* <div className={styles.container}>
-    <img
-          src={trustedRightIcon}
-          alt="Poker Chip"
-          className={styles.trustedRightIcon}
-          draggable={false}
-        />
-      <div className={styles.content}>
-        <div className={styles.headerSection}>
-          <h1 className={styles.trustLabel}>Trusted by</h1>
-          <h1 className={styles.mainTitle}>
-            Thousands of Poker
-            <br />
-            Players Across India
-          </h1>
-        </div>
-
-        <p className={styles.description}>
-          Our partnerships with renowned poker platforms ensure you always get the best rakeback offers securely and reliably.
-        </p>
-        <div className={styles.carouselContainer}>
-          <div className={styles.carouselTrack}>
-            {users.map((user, index) => (
-              <a
-                key={`first-${index}`}
-                className={styles.partnerCard}
-                href={pokerSites[user.name]}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className={styles.partnerIcon}>
-                  <img
-                    src={getPokerSiteImage(user.name)}
-                    alt={user.name}
-                    className={styles.partnerLogoImg}
-                  />
-                </div>
-                <span className={styles.partnerName}>{user.name}</span>
-              </a>
-            ))}
-            {users.map((user, index) => (
-              <a
-                key={`second-${index}`}
-                className={styles.partnerCard}
-                href={pokerSites[user.name]}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <div className={styles.partnerIcon}>
-                  <img
-                    src={getPokerSiteImage(user.name)}
-                    alt={user.name}
-                    className={styles.partnerLogoImg}
-                  />
-                </div>
-                <span className={styles.partnerName}>{user.name}</span>
-              </a>
-            ))}
-          </div>
-        </div>
-      </div>
-    </div> */}
     </>
   );
 };

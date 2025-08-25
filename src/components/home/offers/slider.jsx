@@ -21,7 +21,7 @@ const CenterSlider = () => {
     const getProductsInfo = async () => {
         const res = await getProductsSimple();
         setLoading(false);
-        setAllProductIds([...res, ...res]);
+        setAllProductIds([...res, ...res, ...res, ...res, ...res, ...res]);
     };
 
     useEffect(() => {
