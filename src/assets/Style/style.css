@@ -19,13 +19,13 @@ html, body, #root {
    flex-grow: 1;
 }
 body {
-    background-color: #F6F6F6 !important;
+    background-color: #F7F9FC !important;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 body{
-    background: #F6F6F6;
+    background: #F7F9FC;
 }
 div#root {
     background: #f6f6f6;
@@ -54,7 +54,7 @@ div#root {
     position: relative;
 }
 .RakebackHeader ul.navbar-nav li.nav-item a.nav-link.active {
-    color: #FF4053;
+    color: #0052CC;
 }
 nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     border-bottom: 2px solid #F5F5F5;
@@ -82,12 +82,12 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     padding: 0px 12px;
     color: #fff;
     border-radius: 6px;
-    background: #FF4053;
+    background: #0052CC;
     font-weight: 700;
 }
 .RakebackHeader button.signin_button:first-child {
-    background: #EFEFF2;
-    color: #ff4053 !important;
+    background: #E5EDFF;
+    color: #0052CC !important;
 }
 
 .RakebackHeader button.signin_button svg.bi.bi-arrow-right {
@@ -115,7 +115,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     display: block;
 }
 .RakeBackBanner .highlight {
-    color: #FF4053;
+    color: #0052CC;
 }
 .RakeBackBanner .highlightPercentage {
     font-weight: 700;
@@ -140,7 +140,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
 .KYCDB .form-control:focus {
     color: #212529;
     background-color: #fff;
-    border-color: #ff4053;
+    border-color: #0052CC;
     outline: 0;
     box-shadow: 0 0 14px 1.25rem rgb(255 64 83 / 1%);
 }
@@ -151,7 +151,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
 }
 .RakeBackBanner .primaryButton
  {
-    background-color: #FF4053;
+    background-color: #0052CC;
     color: white;
     border: none;
     border-radius: 8px;
@@ -177,8 +177,8 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     background: #ffffff !important;
 }
 .RakeBackBanner .secondaryButton:hover {
-    border: 0.6px solid #FF4053;
-    color: #FF4053;
+    border: 0.6px solid #FF7A1A;
+    color: #FF7A1A;
 }
 .RakeBackBanner .chipIcon {
     position: absolute;

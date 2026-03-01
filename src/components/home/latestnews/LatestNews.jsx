@@ -10,6 +10,7 @@ import Reveal from "../../common/reveal/Reveal";
 import featuredBlogMain from "../../../assets/Logos_and_illustration/featuredBlogMain.webp"
 import Promotion from "../../../assets/Promotion.jpg"
 import OfferPokerIcon from "../../../assets/OfferPokerIcon.svg"
+import { ShoppingBag } from "lucide-react";
 import DashboardFooter from "../../dashboard/Foooter/footer";
 import { getBlogs, getSidebarBlogs } from "../../../servicefile/blogservice";
 import { getPokerSiteImage } from "../../../helperFxns/colorCode";
@@ -355,7 +356,7 @@ const LatestNews = ({ userData }) => {
           <div className="mt-4 mb-5">
             <div className="d-grid gap-2 OfferListCard">
               <button className="btn btn-dark text-start">
-                <img src={OfferPokerIcon} />
+                <ShoppingBag size={18} className="me-2" />
                 <div className="Descptofr">
                   <p>Bet $4 Get $45 in Free Betsdcvdcddcdcdc</p>
                   <span>T&Cs Apply</span>
@@ -365,7 +366,7 @@ const LatestNews = ({ userData }) => {
                 </svg>
               </button>
               <button className="btn btn-dark text-start">
-                <img src={OfferPokerIcon} />
+                <ShoppingBag size={18} className="me-2" />
                 <div className="Descptofr">
                   <p>Bet $4 Get $45 in Free Betsdcvdcddcdcdc</p>
                   <span>T&Cs Apply</span>
@@ -375,7 +376,7 @@ const LatestNews = ({ userData }) => {
                 </svg>
               </button>
               <button className="btn btn-dark text-start">
-                <img src={OfferPokerIcon} />
+                <ShoppingBag size={18} className="me-2" />
                 <div className="Descptofr">
                   <p>Bet $4 Get $45 in Free Betsdcvdcddcdcdc</p>
                   <span>T&Cs Apply</span>
@@ -385,7 +386,7 @@ const LatestNews = ({ userData }) => {
                 </svg>
               </button>
               <button className="btn  btn-primary text-start">
-                <img src={OfferPokerIcon} />
+                <ShoppingBag size={18} className="me-2" />
                 <div className="Descptofr">
                   <p>Bet $4 Get $45 in Free Betsdcvdcddcdcdc</p>
                   <span>T&Cs Apply</span>
@@ -395,7 +396,7 @@ const LatestNews = ({ userData }) => {
                 </svg>
               </button>
               <button className="btn btn-danger text-start">
-                <img src={OfferPokerIcon} />
+                <ShoppingBag size={18} className="me-2" />
                 <div className="Descptofr">
                   <p>Bet $4 Get $45 in Free Betsdcvdcddcdcdc</p>
                   <span>T&Cs Apply</span>

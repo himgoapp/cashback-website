@@ -9,7 +9,7 @@ import RakebackTable from "./RackbackTableAndTransaction";
 import { useNavigate } from "react-router-dom";
 import events from "../../../assets/events.jpg";
 import Hotdeal from "../../../assets/HotDealICon.svg";
-import ACRPoker from "../../../assets/ACRPoker.png";
+import { mockStores } from "../../../data/mockStores";
 import {
   BarChart,
   Bar,
@@ -581,66 +581,26 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
 
             <div className="HottestDeals">
               <div className={styles.wallet_balance_head}>
-                Hottest Deals
+                Top Cashback Stores
                 <img src={Hotdeal} style={{ marginLeft: 9 }} />
               </div>
               <div className="HottestDealschild">
-                <div className="deal-card ">
-                  <div className="deal-image">
-                    <img src={ACRPoker} />
-                  </div>
-                  <div className="HottestDealsDesc">
-                    <div className="card-subtitle">Pokerbazzi</div>
-                    <div className="card-title">
-                      Experience the Serenity of Ja...
+                {mockStores.slice(0, 4).map((store) => (
+                  <div className="deal-card" key={store.id}>
+                    <div className="deal-image">
+                      <img src={store.logoUrl} alt={store.name} />
                     </div>
-                    <button className="deal-button mt-2 w-100">
-                      Claim Now!
-                    </button>
-                  </div>
-                </div>
-                <div className="deal-card ">
-                  <div className="deal-image">
-                    <img src={ACRPoker} />
-                  </div>
-                  <div className="HottestDealsDesc">
-                    <div className="card-subtitle">Pokerbazzi</div>
-                    <div className="card-title">
-                      Experience the Serenity of Ja...
+                    <div className="HottestDealsDesc">
+                      <div className="card-subtitle">{store.name}</div>
+                      <div className="card-title">
+                        {store.cashbackAmount} on {store.category}
+                      </div>
+                      <button className="deal-button mt-2 w-100">
+                        Claim Now!
+                      </button>
                     </div>
-                    <button className="deal-button mt-2 w-100">
-                      Claim Now!
-                    </button>
                   </div>
-                </div>
-                <div className="deal-card ">
-                  <div className="deal-image">
-                    <img src={ACRPoker} />
-                  </div>
-                  <div className="HottestDealsDesc">
-                    <div className="card-subtitle">Pokerbazzi</div>
-                    <div className="card-title">
-                      Experience the Serenity of Ja...
-                    </div>
-                    <button className="deal-button mt-2 w-100">
-                      Claim Now!
-                    </button>
-                  </div>
-                </div>
-                <div className="deal-card ">
-                  <div className="deal-image">
-                    <img src={ACRPoker} />
-                  </div>
-                  <div className="HottestDealsDesc">
-                    <div className="card-subtitle">Pokerbazzi</div>
-                    <div className="card-title">
-                      Experience the Serenity of Ja...
-                    </div>
-                    <button className="deal-button mt-2 w-100">
-                      Claim Now!
-                    </button>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
             <div className="LastTransactionsContainer">

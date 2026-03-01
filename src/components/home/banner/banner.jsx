@@ -1,14 +1,8 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
 import heroSectionBanner from '../../../assets/Logos_and_illustration/heroSectionBanner.svg';
-import Layer1 from '../../../assets/Logos_and_illustration/Layer_1.svg';
-import Layer2 from '../../../assets/Logos_and_illustration/Layer_02.svg';
-import chipBannerRight from '../../../assets/Logos_and_illustration/chipHeroBannerRight.svg';
-import chipBannerLeft from '../../../assets/Logos_and_illustration/coinrightbanner.svg';
-import starRightHeroBanner from '../../../assets/Logos_and_illustration/StarRightHeroBanner.svg';
-import pokerCardheroBanner from '../../../assets/Logos_and_illustration/pokerCardheroBanner.svg';
-import starTopHeroBanner from '../../../assets/Logos_and_illustration/starTopHeroBanner.svg';
 import homePageContent from '../../contentData/homePageContent.json';
+import { ShoppingBag, Tag, Percent } from "lucide-react";
 
 const Banner = () => {
     const navigate = useNavigate();
@@ -28,11 +22,11 @@ const Banner = () => {
                             <div className="content">
                                 <h1 className="title">
                                     <span className="highlight">{homePageContent.highlight}</span><br />
-                                    <span className="lineBreak">{homePageContent.highlight2}</span>
+                                    <span className="lineBreak">India's best cashback & coupons hub</span>
                                 </h1>
 
                                 <p className="subtitle">
-                                    <span className="highlightPercentage">{homePageContent.highlightPercentage1}</span> {homePageContent.highlightPercentage2}
+                                    Shop your favourite brands and earn automatic cashback on every purchase.
                                 </p>
                                 <p className="description">
                                     No hidden terms. No delays. Just pure rewards.
@@ -40,9 +34,12 @@ const Banner = () => {
 
                                 <div className="buttonContainer">
                                     <button className="primaryButton"
-                                    // onClick={()=>handleDealsClick()}
-                                    >Get Rakeback Now! {rightArrowIcon}</button>
-                                    <button className="secondaryButton">How it works
+                                      onClick={handleDealsClick}
+                                    >
+                                        Get Cashback Now! <ShoppingBag size={18} style={{ marginLeft: 8 }} />
+                                    </button>
+                                    <button className="secondaryButton">
+                                        How it works
                                     </button>
                                 </div>
                             </div>
@@ -51,26 +48,11 @@ const Banner = () => {
                         </div>
                         <div className="col-lg-5 col-md-12">
                             <div className="videoContainer">
-                                <img
-                                    src={chipBannerLeft}
-                                    alt="chip"
-                                    className="chipIcon"
-                                />
-                                <img
-                                    src={chipBannerRight}
-                                    alt="chip right"
-                                    className="chipBannerRight"
-                                />
-                                <img
-                                    src={pokerCardheroBanner}
-                                    alt="star right"
-                                    className="pokerCardheroBanner"
-                                />
-                                <img
-                                    src={starTopHeroBanner}
-                                    alt="star right"
-                                    className="starTopHeroBanner"
-                                />
+                                <div style={{ position: "absolute", top: 24, right: 24, display: "flex", gap: 8 }}>
+                                    <Tag size={20} color="#0052CC" />
+                                    <Percent size={20} color="#FF7A1A" />
+                                    <ShoppingBag size={20} color="#0F172A" />
+                                </div>
                                 <img src={heroSectionBanner} className="BannerIcon" alt="hero banner" />
                             </div>
                         </div>

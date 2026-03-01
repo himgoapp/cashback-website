@@ -1,0 +1,73 @@
+export const mockStores = [
+  {
+    id: "amazon",
+    name: "Amazon India",
+    logoUrl: "https://logo.clearbit.com/amazon.in",
+    cashbackAmount: "10% Rewards",
+    category: "E-commerce",
+  },
+  {
+    id: "flipkart",
+    name: "Flipkart",
+    logoUrl: "https://logo.clearbit.com/flipkart.com",
+    cashbackAmount: "8% Rewards",
+    category: "E-commerce",
+  },
+  {
+    id: "myntra",
+    name: "Myntra",
+    logoUrl: "https://logo.clearbit.com/myntra.com",
+    cashbackAmount: "12% Rewards",
+    category: "Fashion & Lifestyle",
+  },
+  {
+    id: "nykaa",
+    name: "Nykaa",
+    logoUrl: "https://logo.clearbit.com/nykaa.com",
+    cashbackAmount: "10% Rewards",
+    category: "Beauty & Personal Care",
+  },
+  {
+    id: "ajio",
+    name: "Ajio",
+    logoUrl: "https://logo.clearbit.com/ajio.com",
+    cashbackAmount: "9% Rewards",
+    category: "Fashion & Lifestyle",
+  },
+  {
+    id: "tatacliq",
+    name: "Tata CLiQ",
+    logoUrl: "https://logo.clearbit.com/tatacliq.com",
+    cashbackAmount: "7% Rewards",
+    category: "E-commerce",
+  },
+  {
+    id: "paytmall",
+    name: "Paytm Mall",
+    logoUrl: "https://logo.clearbit.com/paytmmall.com",
+    cashbackAmount: "5% Rewards",
+    category: "Online Shopping",
+  },
+  {
+    id: "swiggy",
+    name: "Swiggy",
+    logoUrl: "https://logo.clearbit.com/swiggy.com",
+    cashbackAmount: "6% Rewards",
+    category: "Food Delivery",
+  },
+  {
+    id: "zomato",
+    name: "Zomato",
+    logoUrl: "https://logo.clearbit.com/zomato.com",
+    cashbackAmount: "6% Rewards",
+    category: "Food Delivery",
+  },
+  {
+    id: "bigbasket",
+    name: "BigBasket",
+    logoUrl: "https://logo.clearbit.com/bigbasket.com",
+    cashbackAmount: "8% Rewards",
+    category: "Groceries & Essentials",
+  },
+];
+

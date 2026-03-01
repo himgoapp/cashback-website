@@ -158,7 +158,7 @@ const OfferCardContainer = ({ searchTerm }) => {
 											</defs>
 										</svg>
 									</button>
-									<button className="claim-btn" onClick={() => navigate(`/dashboard/pokerid`)}>Claim Now!</button>
+									<button className="claim-btn" onClick={() => navigate(`/dashboard/pokerid`)}>Grab Deal</button>
 								</div>
 
 							</div>
