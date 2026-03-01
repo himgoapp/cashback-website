@@ -65,30 +65,48 @@ function App() {
   const [showWalletWithdraw, setShowWalletWithdraw] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   
-  // Initialize with mock data from localStorage or use defaults
-  const [userData, setUserData] = useState(() => 
-    getStoredOrMockData('mockUserData', mockUserData)
-  );
-  const [transactionInfo, setTransactionInfo] = useState(() => 
-    getStoredOrMockData('mockTransactionInfo', mockTransactionInfo)
-  );
-  const [walletData, setWalletData] = useState(() => 
-    getStoredOrMockData('mockWalletData', mockWalletData)
-  );
-  const [userKyc, setUserKyc] = useState(() => 
-    getStoredOrMockData('mockUserKyc', mockUserKyc)
-  );
+  // Initialize with mock data from localStorage only if isAuth is true
+  // Otherwise return null (user is logged out)
+  const [userData, setUserData] = useState(() => {
+    const isAuth = localStorage.getItem('isAuth');
+    if (isAuth === 'true') {
+      return getStoredOrMockData('mockUserData', mockUserData);
+    }
+    return null;
+  });
+  
+  const [transactionInfo, setTransactionInfo] = useState(() => {
+    const isAuth = localStorage.getItem('isAuth');
+    if (isAuth === 'true') {
+      return getStoredOrMockData('mockTransactionInfo', mockTransactionInfo);
+    }
+    return null;
+  });
+  
+  const [walletData, setWalletData] = useState(() => {
+    const isAuth = localStorage.getItem('isAuth');
+    if (isAuth === 'true') {
+      return getStoredOrMockData('mockWalletData', mockWalletData);
+    }
+    return null;
+  });
+  
+  const [userKyc, setUserKyc] = useState(() => {
+    const isAuth = localStorage.getItem('isAuth');
+    if (isAuth === 'true') {
+      return getStoredOrMockData('mockUserKyc', mockUserKyc);
+    }
+    return null;
+  });
 
   const [loginTab, setLoginTab] = useState(false);
   const [mobile, setMobile] = useState(false);
   const [hideNav, setHideNav] = useState(false);
 
-  // Initialize mock data on first load
+  // Initialize mock data on first load - only if not already initialized
   useEffect(() => {
-    // Set isAuth to true for static app
-    localStorage.setItem('isAuth', 'true');
-    
     // Initialize mock data if not already in localStorage
+    // Don't set isAuth here - it should only be set when user logs in
     if (!localStorage.getItem('mockUserData')) {
       initializeMockData();
     }

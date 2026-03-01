@@ -6,6 +6,7 @@ export const userData = {
   _id: "demo-user-123",
   name: "Demo User",
   email: "user@example.com",
+  mobile: "9876543210",
   memberSince: "2024",
   userName: "demo_user",
   address: "India"
@@ -103,9 +104,9 @@ export const getMockUserData = () => {
   };
 };
 
-// Helper to initialize user data in localStorage
+// Helper to initialize user data in localStorage (without auto-login)
 export const initializeMockData = () => {
-  localStorage.setItem('isAuth', 'true');
+  // Don't set isAuth here - user must login explicitly
   localStorage.setItem('mockUserData', JSON.stringify(userData));
   localStorage.setItem('mockWalletData', JSON.stringify(walletData));
   localStorage.setItem('mockTransactionInfo', JSON.stringify(transactionInfo));

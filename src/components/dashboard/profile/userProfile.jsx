@@ -204,24 +204,12 @@ const UserProfile = () => {
                 <div className={styles.formGroup}>
 
                   <div className={styles.formField}>
-                    <label className={styles.fieldLabel}>Name</label>
-                    <div className={styles.fieldBox}>
-                      <span className={styles.fieldText}>
-                        {userKyc?.userName || userData?.userName || "User"}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className={styles.formField}>
                     <label className={styles.fieldLabel}>Email</label>
                     <div className={styles.fieldBox}>
                       <div className={styles.fieldContent}>
                         <span className={styles.fieldText}>
                           {userData?.email || "N/A"}
                         </span>
-                        {/* <div className="ProfilePAgeformrow" >
-                          <input type="email" className="form-control" placeholder="Enter email"  />
-                        </div> */}
                         {userData?.emailVerifystatus ? (
                           <svg
                             width="21"
@@ -265,7 +253,6 @@ const UserProfile = () => {
                       </div>
                     </div>
                   </div>
-
 
 
                   <div className={styles.formField}>

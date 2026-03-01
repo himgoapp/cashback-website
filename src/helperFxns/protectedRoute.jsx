@@ -6,8 +6,8 @@ import { getStoredOrMockData, userData, walletData, userKyc } from "../data/mock
 
 const NotProtectedRoute = ({ children }) => {
 	const navigate = useNavigate();
-	// Check localStorage for isAuth flag or use hardcoded true for static app
-	const isAuth = localStorage.getItem("isAuth") === "true" || true;
+	// Check localStorage for isAuth flag
+	const isAuth = localStorage.getItem("isAuth") === "true";
 	const [loading, setLoading] = useState(false);
 	const { setUserData, setWalletData, setUserKyc } = useContext(UserContext);
 
@@ -26,7 +26,7 @@ const NotProtectedRoute = ({ children }) => {
 	let location = useLocation();
 
 	useEffect(() => {
-		// For static app, always set mock context
+		// Set mock context if authenticated
 		if (isAuth) {
 			setMockContext();
 		} else {
@@ -48,8 +48,8 @@ const NotProtectedRoute = ({ children }) => {
 
 const ProtectedRoute = ({ children }) => {
 	const navigate = useNavigate();
-	// Check localStorage for isAuth flag or use hardcoded true for static app
-	const isAuth = localStorage.getItem("isAuth") === "true" || true;
+	// Check localStorage for isAuth flag
+	const isAuth = localStorage.getItem("isAuth") === "true";
 	const [loading, setLoading] = useState(false);
 	const { setUserData, setWalletData, setUserKyc } = useContext(UserContext);
 
@@ -68,12 +68,12 @@ const ProtectedRoute = ({ children }) => {
 	let location = useLocation();
 
 	useEffect(() => {
-		// For static app, always set mock context and allow access
+		// Check authentication and set context or redirect
 		if (isAuth) {
 			setMockContext();
 		} else {
-			// Not authenticated - redirect to home
-			navigate("/", { replace: true });
+			// Not authenticated - redirect to login
+			navigate("/login", { replace: true });
 		}
 	}, [isAuth, navigate]);
 

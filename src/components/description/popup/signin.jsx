@@ -125,26 +125,15 @@ const FullPageSignin = () => {
   const sendOtp = async () => {
     if (phoneNumber && phoneNumber.length === 10) {
       setLoading(true);
-      try {
-        let data = await loginOtp(phoneNumber);
-
-        if (
-          data &&
-          data.message === "Otp Sent!" &&
-          data.data &&
-          data.data.type === "success"
-        ) {
-          setShowOtpPart(true);
-          setResendTimer(30);
-        } else {
-          // Handle error case
-          console.error("Failed to send OTP");
-        }
-      } catch (error) {
-        console.error("Error sending OTP:", error);
-      } finally {
+      
+      // For static app, simulate OTP sent without API call
+      // Accept any 10-digit number for static login
+      setTimeout(() => {
+        setShowOtpPart(true);
+        setResendTimer(30);
         setLoading(false);
-      }
+      }, 1000);
+      
     } else {
       // Validation error handling could be added here
       console.warn("Please enter a valid 10-digit phone number");
@@ -155,26 +144,30 @@ const FullPageSignin = () => {
     const otpString = otp.join("");
     if (otpString && otpString.length === 6) {
       setLoading(true);
-      try {
-        let data = await loginVerify(phoneNumber, otpString);
-        if (data && data.message === "Otp verified!" && data.user) {
-          localStorage.setItem("token", data.token);
-          setUserData(data.user);
-          if (data.user && data.user.email) {
-            navigate("/dashboard");
-          } else {
-            setShowWelcomePopup(true);
-            navigate("/welcome");
-          }
-        } else {
-          // Handle verification error
-          console.error("OTP verification failed");
-        }
-      } catch (error) {
-        console.error("Error verifying OTP:", error);
-      } finally {
+      
+      // For static app, accept any 6-digit OTP
+      // Create user data with the entered mobile number
+      const staticUserData = {
+        _id: "demo-user-" + phoneNumber,
+        name: "Demo User",
+        email: "user@" + phoneNumber + ".com",
+        mobile: phoneNumber,
+        memberSince: "2024",
+        userName: "user" + phoneNumber,
+        address: "India"
+      };
+      
+      setTimeout(() => {
+        localStorage.setItem("token", "static-token-" + Date.now());
+        localStorage.setItem("isAuth", "true");
+        localStorage.setItem("mockUserData", JSON.stringify(staticUserData));
+        setUserData(staticUserData);
+        setShowOtpPart(false);
+        setOtp(["", "", "", "", "", ""]);
         setLoading(false);
-      }
+        navigate("/dashboard");
+      }, 1000);
+      
     } else {
       // Validation error handling
       console.warn("Please enter a valid 6-digit OTP");

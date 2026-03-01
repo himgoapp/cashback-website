@@ -22,7 +22,7 @@ import {
 
 const MobileSideBar = ({ active }) => {
   const navigate = useNavigate();
-  const { userData } = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
 
   // const [data, setData] = useState({});
   const [showPop, setShowPop] = useState(false);
@@ -37,7 +37,8 @@ const MobileSideBar = ({ active }) => {
   const onLogout = () => {
     setShowPop(false);
     localStorage.clear();
-    window.location.reload();
+    setUserData(null);
+    window.location.href = "/";
   };
 
   return (

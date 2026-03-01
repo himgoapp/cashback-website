@@ -11,7 +11,7 @@ import Reveal from "../reveal/Reveal";
 import ACRPoker from "../../../assets/ACRPoker.png";
 
 const Navbar = ({ hide }) => {
-  const { userData } = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
   const navigate = useNavigate();
   const [showMenu, setShowMenu] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -27,15 +27,15 @@ const Navbar = ({ hide }) => {
 
   const onLogout = () => {
     localStorage.clear();
-    window.location.reload();
+    setUserData(null);
+    window.location.href = "/";
   };
 
   const navItems = [
-    { to: "/offer-and-deals", label: "Hot Deals" },
-    { to: "/latest-news", label: "News" },
+    { to: "/offer-and-deals", label: "Coupons" },
+    { to: "/latest-news", label: "Deals" },
     { to: "/shopping-guides", label: "Shopping Guides" },
-    { to: "/strategies", label: "Strategies" },
-    { to: "/faq", label: "FAQs" },
+    { to: "/faq", label: "Earn Cashback" },
   ];
 
   useEffect(() => {

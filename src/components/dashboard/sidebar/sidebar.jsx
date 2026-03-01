@@ -16,12 +16,12 @@ import {
 import logout from "../../../assets/logout.svg";
 
 const Sidebar = ({ active }) => {
-  const { showSidebar, setShowSidebar, userData } = useContext(UserContext);
+  const { showSidebar, setShowSidebar, userData, setUserData } = useContext(UserContext);
   const [data, setData] = useState({});
   const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
 
   useEffect(() => {
-    setData(userData && userData.phoneNumber ? userData : {});
+    setData(userData && (userData.phoneNumber || userData.mobile) ? userData : {});
 
     if (window.innerWidth < 1024) {
       setShowSidebar(false);
@@ -44,7 +44,8 @@ const Sidebar = ({ active }) => {
 
   const onLogout = () => {
     localStorage.clear();
-    window.location.reload();
+    setUserData(null);
+    window.location.href = "/";
   };
 
   return (
