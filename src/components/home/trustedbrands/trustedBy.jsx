@@ -1,35 +1,32 @@
 import React from 'react';
-import { Plus, Users, Shield, Star, Zap, Award, Target, Trophy } from 'lucide-react';
 import styles from './trustedBy.module.css';
 import { getPokerSiteImage } from "../../../helperFxns/colorCode";
-import trustedRightIcon from '../../../assets/Logos_and_illustration/trustedRightIcon.svg';
-import TrustedupperIcon from '../../../assets/Logos_and_illustration/TrustedupperIcon.svg';
 import TrusteddownIcon from '../../../assets/Logos_and_illustration/TrusteddownIcon.svg';
 import homePageContent from '../../contentData/homePageContent.json';
 const TrustSection = () => {
   const users = [
     { name: "WPT Global" },
-    { name: "Coin Poker" },
-    { name: "ACR Poker" },
+    { name: "Coin Shopping" },
+    { name: "ACR Shopping" },
     { name: "WPT Global" },
-    { name: "Coin Poker" },
-    { name: "ACR Poker" },
+    { name: "Coin Shopping" },
+    { name: "ACR Shopping" },
     { name: "WPT Global" },
-    { name: "Coin Poker" },
-    { name: "ACR Poker" },
+    { name: "Coin Shopping" },
+    { name: "ACR Shopping" },
     { name: "WPT Global" },
-    { name: "Coin Poker" },
-    { name: "ACR Poker" },
+    { name: "Coin Shopping" },
+    { name: "ACR Shopping" },
     { name: "WPT Global" },
-    { name: "Coin Poker" },
-    { name: "ACR Poker" },
+    { name: "Coin Shopping" },
+    { name: "ACR Shopping" },
     { name: "WPT Global" },
-    { name: "Coin Poker" },
-    { name: "ACR Poker" },
+    { name: "Coin Shopping" },
+    { name: "ACR Shopping" },
   ];
 
   const pokerSites = {
-    "ACR Poker": "https://www.americascardroom.eu/",
+    "ACR Shopping": "https://www.americascardroom.eu/",
     "CoinPoker": "https://www.coinpoker.com/",
     "WPTglobal": "https://www.wptglobal.com/"
   };
@@ -60,7 +57,7 @@ const TrustSection = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <div className={user.name === "Junglee Poker" ? "partnerIconJunglee" : "partnerIcon"}>
+                      <div className={user.name === "Junglee Shopping" ? "partnerIconJunglee" : "partnerIcon"}>
                         <img
                           src={getPokerSiteImage(user.name)}
                           alt={user.name}

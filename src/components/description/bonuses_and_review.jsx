@@ -53,7 +53,7 @@ const BonusesAndReview = () => {
         }}
       >
         <div>
-		<font  className={styles.description_text_line}>Poker room promotions</font>
+		<font  className={styles.description_text_line}>Shopping room promotions</font>
 		<br></br>
 		<font className={styles.description_text_line_1}>Bonuses and promotions Pokerdom</font>
         </div>
@@ -66,7 +66,7 @@ const BonusesAndReview = () => {
         <div>
           <font className={styles.description_text_line}>Bonuses from PekarStas</font>
 		  <br></br>
-		  <font className={styles.description_text_line_1}> Rakeback and bonuses</font>
+		  <font className={styles.description_text_line_1}> Cashback and bonuses</font>
         </div>
       </div>
 
@@ -115,7 +115,7 @@ const BonusesAndReview = () => {
     </div>
   </div>
 
-  {/* Poker Room and Red Star Container */}
+  {/* Shopping Room and Red Star Container */}
   <div className={styles.bonus_and_review_container}>
   {/* Content */}
   {content_1 === 0 && (
@@ -163,10 +163,10 @@ const BonusesAndReview = () => {
               </font>
             </div>
             <p className={styles.description_text_line_para}>
-			In this section you will find a detailed description of all bonuses and promotions from the poker room, which may be of interest to all players and allow you to receive additional rewards from playing at Pokerdom.
+			In this section you will find a detailed description of all bonuses and promotions from the shopping room, which may be of interest to all players and allow you to receive additional rewards from playing at Pokerdom.
 			<br></br>
 <br></br>
-All listed bonuses and promotions are provided by the poker room and may have additional conditions for receiving them, for example, requiring activation.
+All listed bonuses and promotions are provided by the shopping room and may have additional conditions for receiving them, for example, requiring activation.
 <br></br>
 <br></br>
 Click on the item of interest in the table of contents to learn more.
@@ -180,9 +180,9 @@ Click on the item of interest in the table of contents to learn more.
               Advantages of the game from PekarStas
             </font>
             <p className={styles.description_text_line_para}>
-			Below we have collected all the bonuses and benefits of registering and playing in the poker room that players receive from us.
+			Below we have collected all the bonuses and benefits of registering and playing in the shopping room that players receive from us.
 			<br></br><br></br>
-The so-called "Plugs" include access to closed sections of the site containing exclusive training materials in Russian, as well as PSP points, which can now be spent not only on poker software and training, but also on real goods from marketplaces, and of course access to private freerolls for our players.
+The so-called "Plugs" include access to closed sections of the site containing exclusive training materials in Russian, as well as PSP points, which can now be spent not only on shopping software and training, but also on real goods from marketplaces, and of course access to private freerolls for our players.
             </p>
           </div>
         ) : content_1 === 2 ? (
@@ -191,7 +191,7 @@ The so-called "Plugs" include access to closed sections of the site containing e
               How to download Pokerdom to your computer
             </font>
             <p className={styles.description_text_line_para}>
-			Pokerdom room offers everyone to play in the room via a PC client, which is absolutely not inferior to the software of other modern poker rooms. Moreover, there is both a version for Windows and a separate client for MacOS.
+			Pokerdom room offers everyone to play in the room via a PC client, which is absolutely not inferior to the software of other modern shopping rooms. Moreover, there is both a version for Windows and a separate client for MacOS.
 			<br></br><br></br>
 All you need to do is download Pokerdom from the official website, register an account if you don't have one yet, and you can start playing for real money. The client is available entirely in Russian.
 
@@ -204,9 +204,9 @@ All you need to do is download Pokerdom from the official website, register an a
               Detailed review of Pokerdom
             </font>
             <p className={styles.description_text_line_para}>
-			Poker room Pokerdom is the largest and most famous Russian room. It has been operating since 2014 and has won numerous supporters, both among amateur players and regulars.
+			Shopping room Pokerdom is the largest and most famous Russian room. It has been operating since 2014 and has won numerous supporters, both among amateur players and regulars.
 			<br></br><br></br>
-There is a rather weak field of opponents here, since amateurs prefer to play without the support of third-party software, and the room provides them with such an opportunity strictly adhering to the concept of "green poker".
+There is a rather weak field of opponents here, since amateurs prefer to play without the support of third-party software, and the room provides them with such an opportunity strictly adhering to the concept of "green shopping".
 <br></br><br></br>
 In addition, they are attracted by the opportunity to bet on sports and play in the casino, all on one platform. The room will be relevant for both players from Russia and residents of other CIS countries. 
 
@@ -215,14 +215,14 @@ In addition, they are attracted by the opportunity to bet on sports and play in 
         ) : (
           <div >
             <font className={styles.description_text}>
-              Reviews of Pokerdom poker room
+              Reviews of Pokerdom shopping room
             </font>
             <p className={styles.description_text_line_para}>
-			Most players planning to register in a poker room, in addition to a detailed description of the room, would like to see reviews and opinions about the game in the room from other poker players.
+			Most players planning to register in a shopping room, in addition to a detailed description of the room, would like to see reviews and opinions about the game in the room from other shopping players.
 			<br></br><br></br>
-On this page you can read real reviews of players about the Pokerdom poker room, their impressions of the software, the playing field or the problems they encountered. In addition, you can also share your detailed opinion if you have already managed to get acquainted with the game on Pokerdom. Current reviews about the game on Pokerdom in 2025 will be useful to many beginners and players who are just planning to register in this room.
+On this page you can read real reviews of players about the Pokerdom shopping room, their impressions of the software, the playing field or the problems they encountered. In addition, you can also share your detailed opinion if you have already managed to get acquainted with the game on Pokerdom. Current reviews about the game on Pokerdom in 2025 will be useful to many beginners and players who are just planning to register in this room.
 <br></br><br></br>
-You can rate the poker room from 1 to 5 stars, and also write a text review, both a short one in the style of: "good poker room", and a detailed description of all the nuances and specifics of the game at Pokerdom. Try to be as honest and objective as possible, because a well-founded opinion will be much more valuable for other players reading your review.
+You can rate the shopping room from 1 to 5 stars, and also write a text review, both a short one in the style of: "good shopping room", and a detailed description of all the nuances and specifics of the game at Pokerdom. Try to be as honest and objective as possible, because a well-founded opinion will be much more valuable for other players reading your review.
             </p>
           </div>
         )}
@@ -304,7 +304,7 @@ You can rate the poker room from 1 to 5 stars, and also write a text review, bot
 
   {currentItem && currentItem.welcomeBonus
                         ? currentItem.welcomeBonus
-                        : "   Bonus 300% up to ₹2,000 + 20% rakeback surcharge from us" }
+                        : "   Bonus 300% up to ₹2,000 + 20% cashback surcharge from us" }
   <span className={styles.fire}>🔥</span>
 </div>
 
@@ -315,9 +315,9 @@ You can rate the poker room from 1 to 5 stars, and also write a text review, bot
         <div>Referral code</div>
         <div>
           <b>
-            {currentItem?.name || "Junglee Poker"}
+            {currentItem?.name || "Junglee Shopping"}
             <button
-    onClick={() => handleCopy(currentItem?.name || "Junglee Poker")}
+    onClick={() => handleCopy(currentItem?.name || "Junglee Shopping")}
     className={styles.copy_btn}
     title="Copy code"
   >

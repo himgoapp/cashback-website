@@ -1,3 +1,4 @@
+// Static React Application - All imports
 import "./App.css";
 import "../src/assets/Style/style.css";
 
@@ -16,7 +17,6 @@ import Trsnsactions from "./components/dashboard/myTransaction/myTransaction";
 import { ProtectedRoute, NotProtectedRoute } from "./helperFxns/protectedRoute";
 import LatestNewsMain from "./components/home/latestnews/LatestNewsMain";
 import BlogMain from "./components/home/latestnews/articlesstructure/blogMain";
-// import LatestNews from "./components/home/latestnews/LatestNews";
 import BlogDetail from "./components/home/latestnews/NewsArticle";
 import FaqContainer from "./components/home/FAQ/FaqContainer";
 import WelcomePage from "./components/dashboard/popup/welcome";
@@ -42,8 +42,17 @@ import "../src/assets/Style/responsive.css";
 import MobileView from "./components/dashboard/mobileSidebar/Mobilepageview";
 import DictionaryPage from "./components/dictionary/dictionary";
 import PublicLayout from "./helperFxns/PubliclayOut";
-// import Review from "./components/review/review";
 import ReviewMain from "./components/review/reviewmain";
+
+// Import mock data for static React application
+import { 
+  userData as mockUserData, 
+  walletData as mockWalletData, 
+  transactionInfo as mockTransactionInfo,
+  userKyc as mockUserKyc,
+  getStoredOrMockData,
+  initializeMockData
+} from "./data/mockUserData";
 
 export const UserContext = createContext();
 
@@ -55,14 +64,35 @@ function App() {
   const [showCheckEmailPopup, setShowCheckEmailPopup] = useState(true);
   const [showWalletWithdraw, setShowWalletWithdraw] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
-  const [userData, setUserData] = useState(null);
-  const [transactionInfo, setTransactionInfo] = useState(null);
-  const [walletData, setWalletData] = useState(null);
-  const [userKyc, setUserKyc] = useState(null);
+  
+  // Initialize with mock data from localStorage or use defaults
+  const [userData, setUserData] = useState(() => 
+    getStoredOrMockData('mockUserData', mockUserData)
+  );
+  const [transactionInfo, setTransactionInfo] = useState(() => 
+    getStoredOrMockData('mockTransactionInfo', mockTransactionInfo)
+  );
+  const [walletData, setWalletData] = useState(() => 
+    getStoredOrMockData('mockWalletData', mockWalletData)
+  );
+  const [userKyc, setUserKyc] = useState(() => 
+    getStoredOrMockData('mockUserKyc', mockUserKyc)
+  );
 
   const [loginTab, setLoginTab] = useState(false);
   const [mobile, setMobile] = useState(false);
   const [hideNav, setHideNav] = useState(false);
+
+  // Initialize mock data on first load
+  useEffect(() => {
+    // Set isAuth to true for static app
+    localStorage.setItem('isAuth', 'true');
+    
+    // Initialize mock data if not already in localStorage
+    if (!localStorage.getItem('mockUserData')) {
+      initializeMockData();
+    }
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -73,11 +103,14 @@ function App() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  // Updated to save to localStorage
   const updateWalletBalance = (newBalance) => {
-    setWalletData((prev) => ({
-      ...prev,
+    const updatedWallet = {
+      ...walletData,
       wallet_balance: newBalance,
-    }));
+    };
+    setWalletData(updatedWallet);
+    localStorage.setItem('mockWalletData', JSON.stringify(updatedWallet));
   };
 
   return (

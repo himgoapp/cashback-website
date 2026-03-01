@@ -13,7 +13,7 @@ const NewFooter = () => {
                   <img src={RakeBackLogoWhite} width={197} height={57} />
 
                 </div>
-                <p className="brandTagline">Make Poker More Profitable</p>
+                <p className="brandTagline">Make Shopping More Profitable</p>
 
                 <div className="socialIcons">
                   <a href="#" className="socialLink">
@@ -96,10 +96,10 @@ const NewFooter = () => {
           </div>
           <div className='row'>
             <div className='col-lg-12 copyrightText'>
-              <p>Copyright © 2025 rakebackk | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+              <p>Copyright © 2025 cashback | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
             </div>
             <div className='col-lg-12 copyrightText copyrightTexMobile'>
-              <p>Copyright © 2025 rakebackk <br /><br /> | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
+              <p>Copyright © 2025 cashback <br /><br /> | All Rights Reserved | <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a></p>
             </div>
           </div>
         </div>
@@ -112,7 +112,7 @@ const NewFooter = () => {
             <img src={RakeBackLogoWhite} width={196} height={46} />
 
           </div>
-          <p className={styles.brandTagline}>Make Poker More Profitable</p>
+          <p className={styles.brandTagline}>Make Shopping More Profitable</p>
 
           <div className={styles.socialIcons}>
             <a href="#" className={styles.socialLink}>
@@ -187,7 +187,7 @@ const NewFooter = () => {
 
       <div className={styles.footerBottom}>
         <div className={styles.copyrightText}>
-          <p>Copyright © 2025 rakebackk</p>
+          <p>Copyright © 2025 cashback</p>
           <p>
             All Rights Reserved |
             <span className={styles.underline}> Terms and Conditions</span> |

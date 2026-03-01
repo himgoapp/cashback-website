@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import Navbar from "../components/common/navbar/navbar";
 import MainContainer from "../layout/mainContainer";
 import NewsletterSubscription from "../components/home/subscribe/newsLetterSubscription";
@@ -10,9 +10,9 @@ const ContactUSPage = () => {
   return (
     <div>
       <Meta
-        title="Best Poker Rakeback Site India | Win Real Money "
-        description="Top Poker Rakeback and Cashback Site in India | Play Online Poker Games in India with Your Choice of Poker Website and Win Real Money 2025."
-        link="https://rakebackk.com"
+        title="Contact Us — Cashback & Coupons Hub"
+        description="Get in touch with Cashback & Coupons Hub for queries about coupons, cashback offers and partner stores."
+        link="https://cashbackhub.example.com/contact"
       />
 
       {/*---Latest Code--*/}

@@ -174,7 +174,7 @@ const KycMobileMain = () => {
           <rect x="0.5" width="73" height="73" rx="36.5" fill="#28A745" />
           <path d="M55.25 22.8125L30.1562 47.9062L18.75 36.5" stroke="white" stroke-width="6.84375" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
-        Your Rakebackk account is KYC verified. Here are your details:
+        Your Cashbackk account is KYC verified. Here are your details:
       </div>}
       <div className="accordion" id="kycAccordion">
 

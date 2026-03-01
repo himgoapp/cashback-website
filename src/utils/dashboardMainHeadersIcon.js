@@ -1,3 +1,5 @@
+import { ShoppingBag } from "lucide-react";
+
 export const TransactionsIcon = (
 	<svg
 		xmlns='http://www.w3.org/2000/svg'
@@ -34,8 +36,6 @@ export const HomeIcon = (
 		/>
 	</svg>
 );
-
-import { ShoppingBag } from "lucide-react";
 
 export const PokerIcon = (
 	<ShoppingBag size={24} color="#0F172A" />

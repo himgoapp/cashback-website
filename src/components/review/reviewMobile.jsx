@@ -1,26 +1,21 @@
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../App";
-import Navbar from "../common/navbar/navbar";
-import NewFooter from "../common/footer/newFooter";
-import FeaturedCardImage from "../../assets/Logos_and_illustration/FeaturedCardImage.svg"
-import Promotion from "../../assets/Promotion.jpg"
-import BigCashLogo from "../../assets/Review/BigCashWhite.png"
+import FeaturedCardImage from "../../assets/Logos_and_illustration/FeaturedCardImage.svg";
+import Promotion from "../../assets/Promotion.jpg";
 
-import FaqSectionHeart from "../../assets/Logos_and_illustration/FaqSectionHeart.svg"
-import Plus from "../../assets/Logos_and_illustration/Plus.svg"
-import Minus from "../../assets/Logos_and_illustration/Minus.svg"
+import Plus from "../../assets/Logos_and_illustration/Plus.svg";
+import Minus from "../../assets/Logos_and_illustration/Minus.svg";
 
-import Bitcoin from "../../assets/Review/Bitcoin.svg"
-import Etherium from "../../assets/Review/Etherium.svg"
-import GooglePay from "../../assets/Review/GooglePay.svg"
-import Lightcoin from "../../assets/Review/Lightcoin.svg"
-import Mastercard from "../../assets/Review/Mastercard.svg"
-import visalogo from "../../assets/Review/visalogo.svg"
-import CustomerCare from "../../assets/Review/CustomerCareRed.png"
-import Online from "../../assets/Review/24.svg"
-import Tagging from "../../assets/Review/Tagging.png"
-import TaggingReview from "../../assets/Review/TaggingReview.png"
-import { useParams, useNavigate } from "react-router-dom";
+import Bitcoin from "../../assets/Review/Bitcoin.svg";
+import Etherium from "../../assets/Review/Etherium.svg";
+import GooglePay from "../../assets/Review/GooglePay.svg";
+import Lightcoin from "../../assets/Review/Lightcoin.svg";
+import Mastercard from "../../assets/Review/Mastercard.svg";
+import visalogo from "../../assets/Review/visalogo.svg";
+import CustomerCare from "../../assets/Review/CustomerCareRed.png";
+import Online from "../../assets/Review/24.svg";
+import TaggingReview from "../../assets/Review/TaggingReview.png";
+import { useParams } from "react-router-dom";
 import { getProductById } from "../../servicefile/productservice";
 import { getLabel, getWalletArray, getGameIcon, getPokerSiteImage, backgroundClassHelper, extractHeadingsFromHTML, notRequired } from "../../helperFxns/reviewhelper";
 import Loading from "../common/Loading/Loading";
@@ -77,7 +72,7 @@ const ReviewMobile = () => {
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    }, [setHideNav]);
 
     useEffect(() => {
         fetchProduct();
@@ -135,7 +130,7 @@ const ReviewMobile = () => {
         return () => window.removeEventListener("scroll", handleScroll);
 
 
-    }, [activeSection]);
+    }, [reviewNavHeaders, activeSection]);
 
     useEffect(() => {
         const sections = taggingNavHeaders.map(header => header.replace(/\s+/g, ""));
@@ -156,7 +151,7 @@ const ReviewMobile = () => {
         return () => window.removeEventListener("scroll", handleScroll);
 
 
-    }, [taggingActiveSection]);
+    }, [taggingNavHeaders, taggingActiveSection]);
 
     const faqData = [
         {
@@ -209,7 +204,7 @@ const ReviewMobile = () => {
 
                     <div className="left">
                         <div className="logo">
-                            <img src={getPokerSiteImage(currentItem?.name)} />
+                            <img src={getPokerSiteImage(currentItem?.name)} alt={currentItem?.name || 'store logo'} />
                         </div>
                         <div className="offer">
                             <svg xmlns="http://www.w3.org/2000/svg" width="21" height="22" viewBox="0 0 21 22" fill="none">
@@ -384,22 +379,22 @@ const ReviewMobile = () => {
                                 </ul>
                                 <div className="DWCards">
                                     <button>
-                                        <img src={Bitcoin} />
+                                                        <img src={Bitcoin} alt="Bitcoin" />
                                     </button>
                                     <button>
-                                        <img src={Etherium} />
+                                        <img src={Etherium} alt="Etherium" />
                                     </button>
                                     <button>
-                                        <img src={GooglePay} />
+                                        <img src={GooglePay} alt="Google Pay" />
                                     </button>
                                     <button>
-                                        <img src={Lightcoin} />
+                                        <img src={Lightcoin} alt="Litecoin" />
                                     </button>
                                     <button>
-                                        <img src={Mastercard} />
+                                        <img src={Mastercard} alt="Mastercard" />
                                     </button>
                                     <button>
-                                        <img src={visalogo} />
+                                        <img src={visalogo} alt="Visa" />
                                     </button>
                                 </div>
                                 <p>The list of available payment systems depends on your country and region of residence and may differ from the one listed on this page.</p>
@@ -509,7 +504,7 @@ const ReviewMobile = () => {
 
                             <div class="sidePost sidePostTAg col-lg-12">
                                 <h3>Linking a new account </h3>
-                                <p>After registration, link your account to aour website to receive bonuses from rakebackk</p>
+                                <p>After registration, link your account to aour website to receive bonuses from cashback</p>
                                 <div class="TagginginputField">
                                     <span class="QuestionTag">?</span>
                                     <input type="text" placeholder="Username" value="" />
@@ -520,10 +515,10 @@ const ReviewMobile = () => {
 
                         <div class="newsletter GotAQues text-center mb-3">
                             <h5>Got a question?</h5>
-                            <p>We are online <img src={Online} /></p>
+                            <p>We are online <img src={Online} alt="Online" /></p>
 
                             <div className="GotAQuesBtn">
-                                <button class="btn subcrb "> <img src={CustomerCare} /> Live Chat</button>
+                                <button class="btn subcrb "> <img src={CustomerCare} alt="Customer care" /> Live Chat</button>
                                 <button class="btn subcrb GreenBtn">
                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M0.507812 24.1612L2.19955 17.9809C1.15563 16.1718 0.607091 14.1211 0.608094 12.0182C0.611102 5.44375 5.9611 0.09375 12.5345 0.09375C15.7245 0.0947528 18.7189 1.33724 20.9712 3.59155C23.2225 5.84587 24.462 8.84227 24.461 12.0292C24.4579 18.6046 19.108 23.9546 12.5345 23.9546C10.5389 23.9536 8.57242 23.4532 6.83054 22.5026L0.507812 24.1612ZM7.12336 20.3435C8.80407 21.3413 10.4086 21.939 12.5305 21.94C17.9938 21.94 22.4443 17.4935 22.4473 12.0272C22.4493 6.54985 18.0199 2.1094 12.5385 2.10739C7.07121 2.10739 2.62374 6.55386 2.62174 12.0192C2.62074 14.2504 3.27457 15.9211 4.37265 17.669L3.37084 21.3273L7.12336 20.3435ZM18.5424 14.8642C18.4682 14.7398 18.2696 14.6656 17.9708 14.5162C17.6729 14.3668 16.2078 13.6457 15.9341 13.5465C15.6613 13.4472 15.4627 13.397 15.2632 13.6959C15.0646 13.9937 14.493 14.6656 14.3195 14.8642C14.146 15.0627 13.9716 15.0878 13.6737 14.9384C13.3759 14.7889 12.4152 14.4751 11.277 13.4592C10.3915 12.669 9.79284 11.6933 9.61935 11.3944C9.44587 11.0966 9.6013 10.9351 9.74972 10.7867C9.88409 10.6534 10.0476 10.4387 10.197 10.2643C10.3484 10.0918 10.3975 9.96743 10.4978 9.76787C10.5971 9.56931 10.548 9.39482 10.4727 9.2454C10.3975 9.09699 9.80186 7.62988 9.55417 7.0332C9.31149 6.45258 9.0658 6.53079 8.88329 6.52177L8.31169 6.51174C8.11313 6.51174 7.79023 6.58595 7.51746 6.88479C7.2447 7.18362 6.47454 7.90364 6.47454 9.37076C6.47454 10.8379 7.54253 12.2548 7.69095 12.4534C7.84037 12.652 9.79184 15.6624 12.7812 16.953C13.4922 17.2599 14.0478 17.4434 14.48 17.5808C15.194 17.8074 15.8438 17.7753 16.3572 17.6991C16.9298 17.6139 18.1202 16.9781 18.3689 16.2821C18.6176 15.5852 18.6176 14.9885 18.5424 14.8642Z" fill="#28A745" />
@@ -642,10 +637,10 @@ const ReviewMobile = () => {
 
                                         <div class="newsletter GotAQues text-center mb-3">
                                             <h5>Got a question?</h5>
-                                            <p>We are online <img src={Online} /></p>
+                                            <p>We are online <img src={Online} alt="Online" /></p>
 
                                             <div className="GotAQuesBtn">
-                                                <button class="btn subcrb "> <img src={CustomerCare} /> Live Chat</button>
+                                                <button class="btn subcrb "> <img src={CustomerCare} alt="Customer care" /> Live Chat</button>
                                                 <button class="btn subcrb GreenBtn">
                                                     <svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M0.507812 24.1612L2.19955 17.9809C1.15563 16.1718 0.607091 14.1211 0.608094 12.0182C0.611102 5.44375 5.9611 0.09375 12.5345 0.09375C15.7245 0.0947528 18.7189 1.33724 20.9712 3.59155C23.2225 5.84587 24.462 8.84227 24.461 12.0292C24.4579 18.6046 19.108 23.9546 12.5345 23.9546C10.5389 23.9536 8.57242 23.4532 6.83054 22.5026L0.507812 24.1612ZM7.12336 20.3435C8.80407 21.3413 10.4086 21.939 12.5305 21.94C17.9938 21.94 22.4443 17.4935 22.4473 12.0272C22.4493 6.54985 18.0199 2.1094 12.5385 2.10739C7.07121 2.10739 2.62374 6.55386 2.62174 12.0192C2.62074 14.2504 3.27457 15.9211 4.37265 17.669L3.37084 21.3273L7.12336 20.3435ZM18.5424 14.8642C18.4682 14.7398 18.2696 14.6656 17.9708 14.5162C17.6729 14.3668 16.2078 13.6457 15.9341 13.5465C15.6613 13.4472 15.4627 13.397 15.2632 13.6959C15.0646 13.9937 14.493 14.6656 14.3195 14.8642C14.146 15.0627 13.9716 15.0878 13.6737 14.9384C13.3759 14.7889 12.4152 14.4751 11.277 13.4592C10.3915 12.669 9.79284 11.6933 9.61935 11.3944C9.44587 11.0966 9.6013 10.9351 9.74972 10.7867C9.88409 10.6534 10.0476 10.4387 10.197 10.2643C10.3484 10.0918 10.3975 9.96743 10.4978 9.76787C10.5971 9.56931 10.548 9.39482 10.4727 9.2454C10.3975 9.09699 9.80186 7.62988 9.55417 7.0332C9.31149 6.45258 9.0658 6.53079 8.88329 6.52177L8.31169 6.51174C8.11313 6.51174 7.79023 6.58595 7.51746 6.88479C7.2447 7.18362 6.47454 7.90364 6.47454 9.37076C6.47454 10.8379 7.54253 12.2548 7.69095 12.4534C7.84037 12.652 9.79184 15.6624 12.7812 16.953C13.4922 17.2599 14.0478 17.4434 14.48 17.5808C15.194 17.8074 15.8438 17.7753 16.3572 17.6991C16.9298 17.6139 18.1202 16.9781 18.3689 16.2821C18.6176 15.5852 18.6176 14.9885 18.5424 14.8642Z" fill="#28A745" />
@@ -668,6 +663,7 @@ const ReviewMobile = () => {
                                                             <button className="toggleButton">
                                                                 <img
                                                                     src={expandedItem === faq._id ? Minus : Plus}
+                                                                    alt=""
                                                                     className="toggleIcon"
                                                                 />
                                                             </button>
@@ -714,7 +710,7 @@ const ReviewMobile = () => {
                                                 <div>
                                                     <h5>Use our code RBACKK</h5>
                                                     <p>Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</p>
-                                                    <img src={TaggingReview} />
+                                                    <img src={TaggingReview} alt="Tagging review" />
                                                 </div>
                                             </li>
                                             <li>
@@ -723,7 +719,7 @@ const ReviewMobile = () => {
                                                     <h5>Submit for tagging</h5>
                                                     <p>Columns take up most of the real estate in a grid. Elements and content are placed in columns. To adapt to any screen size, column widths are generally defined with percentages rather than fixed values and the number of columns will vary. For example, a grid on a mobile device might have 4 columns and a grid on a desktop might have 12 columns.</p>
                                                     {/* <img src={ Tagging} /> */}
-                                                    <div class="card "><div class="card-header ">Tagging</div><div class="sidePost sidePostTAg col-lg-12"><h3>Linking a new account </h3><p>After registration, link your account to aour website to receive bonuses from rakebackk</p><div class="TagginginputField"><span class="QuestionTag">?</span><input type="text" placeholder="Username" value="" /></div><button class="SidePostTagBtn">Submit</button></div></div>
+                                                    <div class="card "><div class="card-header ">Tagging</div><div class="sidePost sidePostTAg col-lg-12"><h3>Linking a new account </h3><p>After registration, link your account to aour website to receive bonuses from cashback</p><div class="TagginginputField"><span class="QuestionTag">?</span><input type="text" placeholder="Username" value="" /></div><button class="SidePostTagBtn">Submit</button></div></div>
                                                 </div>
                                             </li>
                                         </ul>
@@ -746,6 +742,7 @@ const ReviewMobile = () => {
                                                         <button className="toggleButton">
                                                             <img
                                                                 src={expandedItem === faq.id ? Minus : Plus}
+                                                                alt=""
                                                                 className="toggleIcon"
                                                             />
                                                         </button>
@@ -768,13 +765,13 @@ const ReviewMobile = () => {
                                     <strong>Share:</strong>
                                     <div className="share-btns d-inline-flex ms-2">
                                         <button className="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 8.32787C0 12.3052 2.88867 15.6125 6.66667 16.2832V10.5052H4.66667V8.2832H6.66667V6.5052C6.66667 4.5052 7.95533 3.39454 9.778 3.39454C10.3553 3.39454 10.978 3.4832 11.5553 3.57187V5.61654H10.5333C9.55533 5.61654 9.33333 6.1052 9.33333 6.72787V8.2832H11.4667L11.1113 10.5052H9.33333V16.2832C13.1113 15.6125 16 12.3059 16 8.32787C16 3.9032 12.4 0.283203 8 0.283203C3.6 0.283203 0 3.9032 0 8.32787Z" fill="#FF4053" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 8.32787C0 12.3052 2.88867 15.6125 6.66667 16.2832V10.5052H4.66667V8.2832H6.66667V6.5052C6.66667 4.5052 7.95533 3.39454 9.778 3.39454C10.3553 3.39454 10.978 3.4832 11.5553 3.57187V5.61654H10.5333C9.55533 5.61654 9.33333 6.1052 9.33333 6.72787V8.2832H11.4667L11.1113 10.5052H9.33333V16.2832C13.1113 15.6125 16 12.3059 16 8.32787C16 3.9032 12.4 0.283203 8 0.283203C3.6 0.283203 0 3.9032 0 8.32787Z" fill="#FF7A1A" />
                                         </svg></button>
                                         <button className="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="17" viewBox="0 0 16 17" fill="none">
-                                            <path d="M7.99915 0.431641C3.60981 0.431641 0.0507812 3.99067 0.0507812 8.38001C0.0507812 12.7694 3.60981 16.3284 7.99915 16.3284C12.3885 16.3284 15.9475 12.7694 15.9475 8.38001C15.9475 3.99067 12.3885 0.431641 7.99915 0.431641ZM11.819 6.42308C11.8243 6.50647 11.8243 6.5934 11.8243 6.67856C11.8243 9.28307 9.84076 12.2832 6.21609 12.2832C5.09835 12.2832 4.06222 11.9586 3.18932 11.3997C3.349 11.4174 3.50158 11.4245 3.66481 11.4245C4.58738 11.4245 5.43545 11.1123 6.11141 10.5836C5.24561 10.5658 4.51819 9.99807 4.2698 9.21743C4.57319 9.26178 4.84642 9.26178 5.15867 9.18194C4.71287 9.09137 4.31216 8.84925 4.02464 8.49672C3.73712 8.14419 3.58051 7.70299 3.58142 7.24808V7.22324C3.84222 7.3705 4.14916 7.46098 4.47029 7.4734C4.20033 7.29349 3.97894 7.04974 3.82574 6.76378C3.67255 6.47781 3.59228 6.15846 3.59206 5.83405C3.59206 5.46679 3.68787 5.13147 3.85997 4.8405C4.35479 5.44965 4.97226 5.94785 5.67224 6.30273C6.37222 6.65761 7.13904 6.86122 7.92286 6.90034C7.64431 5.56082 8.64496 4.47679 9.84786 4.47679C10.4156 4.47679 10.9266 4.71453 11.2867 5.09776C11.732 5.01437 12.1579 4.8476 12.5375 4.62405C12.3903 5.08002 12.0816 5.46502 11.6717 5.70808C12.0691 5.6655 12.4524 5.5555 12.8072 5.40115C12.5393 5.79502 12.204 6.14453 11.819 6.42308Z" fill="#FF4053" />
+                                            <path d="M7.99915 0.431641C3.60981 0.431641 0.0507812 3.99067 0.0507812 8.38001C0.0507812 12.7694 3.60981 16.3284 7.99915 16.3284C12.3885 16.3284 15.9475 12.7694 15.9475 8.38001C15.9475 3.99067 12.3885 0.431641 7.99915 0.431641ZM11.819 6.42308C11.8243 6.50647 11.8243 6.5934 11.8243 6.67856C11.8243 9.28307 9.84076 12.2832 6.21609 12.2832C5.09835 12.2832 4.06222 11.9586 3.18932 11.3997C3.349 11.4174 3.50158 11.4245 3.66481 11.4245C4.58738 11.4245 5.43545 11.1123 6.11141 10.5836C5.24561 10.5658 4.51819 9.99807 4.2698 9.21743C4.57319 9.26178 4.84642 9.26178 5.15867 9.18194C4.71287 9.09137 4.31216 8.84925 4.02464 8.49672C3.73712 8.14419 3.58051 7.70299 3.58142 7.24808V7.22324C3.84222 7.3705 4.14916 7.46098 4.47029 7.4734C4.20033 7.29349 3.97894 7.04974 3.82574 6.76378C3.67255 6.47781 3.59228 6.15846 3.59206 5.83405C3.59206 5.46679 3.68787 5.13147 3.85997 4.8405C4.35479 5.44965 4.97226 5.94785 5.67224 6.30273C6.37222 6.65761 7.13904 6.86122 7.92286 6.90034C7.64431 5.56082 8.64496 4.47679 9.84786 4.47679C10.4156 4.47679 10.9266 4.71453 11.2867 5.09776C11.732 5.01437 12.1579 4.8476 12.5375 4.62405C12.3903 5.08002 12.0816 5.46502 11.6717 5.70808C12.0691 5.6655 12.4524 5.5555 12.8072 5.40115C12.5393 5.79502 12.204 6.14453 11.819 6.42308Z" fill="#FF7A1A" />
                                         </svg></button>
                                         <button className="btn btn-light"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.94781 0.776832C5.7371 0.740496 5.98875 0.732422 7.99931 0.732422C10.0099 0.732422 10.2615 0.741169 11.0501 0.776832C11.8388 0.812494 12.3771 0.938322 12.8481 1.12067C13.3413 1.30706 13.7888 1.59842 14.1588 1.97523C14.5356 2.34464 14.8263 2.79143 15.012 3.28532C15.1951 3.75633 15.3202 4.29464 15.3566 5.0819C15.3929 5.87254 15.401 6.12419 15.401 8.13408C15.401 10.1446 15.3922 10.3963 15.3566 11.1856C15.3209 11.9728 15.1951 12.5111 15.012 12.9822C14.8263 13.4761 14.5352 13.9237 14.1588 14.2936C13.7888 14.6704 13.3413 14.9611 12.8481 15.1468C12.3771 15.3298 11.8388 15.455 11.0515 15.4913C10.2615 15.5277 10.0099 15.5357 7.99931 15.5357C5.98875 15.5357 5.7371 15.527 4.94781 15.4913C4.16054 15.4557 3.62224 15.3298 3.15123 15.1468C2.65728 14.9611 2.20975 14.6699 1.83979 14.2936C1.46323 13.924 1.17183 13.4767 0.985907 12.9828C0.803557 12.5118 0.678402 11.9735 0.642066 11.1863C0.605731 10.3956 0.597656 10.144 0.597656 8.13408C0.597656 6.12352 0.606404 5.87186 0.642066 5.08325C0.677729 4.29464 0.803557 3.75633 0.985907 3.28532C1.17211 2.79148 1.46373 2.34417 1.84046 1.97455C2.2099 1.59808 2.65698 1.30668 3.15055 1.12067C3.62157 0.938322 4.15987 0.813167 4.94714 0.776832H4.94781ZM10.9903 2.10913C10.2097 2.07347 9.97555 2.06607 7.99931 2.06607C6.02307 2.06607 5.78891 2.07347 5.00837 2.10913C4.28637 2.1421 3.89476 2.26255 3.63368 2.36415C3.28849 2.49873 3.04155 2.6582 2.78249 2.91726C2.53692 3.15616 2.34793 3.447 2.22938 3.76845C2.12778 4.02952 2.00734 4.42114 1.97436 5.14314C1.9387 5.92367 1.9313 6.15784 1.9313 8.13408C1.9313 10.1103 1.9387 10.3445 1.97436 11.125C2.00734 11.847 2.12778 12.2386 2.22938 12.4997C2.34781 12.8207 2.53689 13.112 2.78249 13.3509C3.02136 13.5965 3.31272 13.7856 3.63368 13.904C3.89476 14.0056 4.28637 14.1261 5.00837 14.159C5.78891 14.1947 6.0224 14.2021 7.99931 14.2021C9.97623 14.2021 10.2097 14.1947 10.9903 14.159C11.7123 14.1261 12.1039 14.0056 12.3649 13.904C12.7101 13.7694 12.9571 13.61 13.2161 13.3509C13.4617 13.112 13.6508 12.8207 13.7692 12.4997C13.8708 12.2386 13.9913 11.847 14.0243 11.125C14.0599 10.3445 14.0673 10.1103 14.0673 8.13408C14.0673 6.15784 14.0599 5.92367 14.0243 5.14314C13.9913 4.42114 13.8708 4.02952 13.7692 3.76845C13.6347 3.42326 13.4752 3.17631 13.2161 2.91726C12.9772 2.6717 12.6864 2.48272 12.3649 2.36415C12.1039 2.26255 11.7123 2.1421 10.9903 2.10913ZM7.05392 10.4158C7.5819 10.6356 8.1698 10.6653 8.71723 10.4997C9.26464 10.3342 9.73762 9.98376 10.0554 9.50826C10.3731 9.03275 10.5159 8.46168 10.4594 7.89258C10.4029 7.32349 10.1505 6.79167 9.74543 6.38796C9.4872 6.1299 9.17497 5.93229 8.83121 5.80938C8.48745 5.68647 8.12072 5.64131 7.75741 5.67714C7.3941 5.71298 7.04326 5.82892 6.73013 6.01662C6.41701 6.20432 6.1494 6.45911 5.94657 6.76265C5.74373 7.06619 5.61072 7.41093 5.55711 7.77204C5.5035 8.13316 5.53063 8.50167 5.63653 8.85104C5.74243 9.20041 5.92448 9.52196 6.16957 9.79253C6.41466 10.0631 6.71669 10.276 7.05392 10.4158ZM5.30915 5.44391C5.66242 5.09063 6.08183 4.8104 6.54341 4.61921C7.00498 4.42801 7.4997 4.32961 7.99931 4.32961C8.49892 4.32961 8.99364 4.42801 9.45522 4.61921C9.9168 4.8104 10.3362 5.09063 10.6895 5.44391C11.0428 5.79719 11.323 6.21659 11.5142 6.67817C11.7054 7.13975 11.8038 7.63447 11.8038 8.13408C11.8038 8.63369 11.7054 9.12841 11.5142 9.58998C11.323 10.0516 11.0428 10.471 10.6895 10.8242C9.976 11.5377 9.00832 11.9385 7.99931 11.9385C6.9903 11.9385 6.02262 11.5377 5.30915 10.8242C4.59567 10.1108 4.19484 9.14309 4.19484 8.13408C4.19484 7.12507 4.59567 6.15739 5.30915 5.44391ZM12.6476 4.89619C12.7351 4.81361 12.8052 4.7143 12.8537 4.60414C12.9021 4.49399 12.928 4.37523 12.9298 4.25489C12.9315 4.13455 12.9091 4.01509 12.8639 3.90357C12.8186 3.79205 12.7515 3.69074 12.6664 3.60564C12.5813 3.52054 12.48 3.45338 12.3684 3.40813C12.2569 3.36289 12.1374 3.34048 12.0171 3.34223C11.8968 3.34399 11.778 3.36987 11.6679 3.41835C11.5577 3.46682 11.4584 3.53691 11.3758 3.62445C11.2152 3.79471 11.1273 4.02086 11.1307 4.25489C11.1341 4.48892 11.2286 4.71241 11.3941 4.87792C11.5596 5.04342 11.7831 5.13791 12.0171 5.14132C12.2511 5.14473 12.4773 5.0568 12.6476 4.89619Z" fill="#FF4053" />
+                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M4.94781 0.776832C5.7371 0.740496 5.98875 0.732422 7.99931 0.732422C10.0099 0.732422 10.2615 0.741169 11.0501 0.776832C11.8388 0.812494 12.3771 0.938322 12.8481 1.12067C13.3413 1.30706 13.7888 1.59842 14.1588 1.97523C14.5356 2.34464 14.8263 2.79143 15.012 3.28532C15.1951 3.75633 15.3202 4.29464 15.3566 5.0819C15.3929 5.87254 15.401 6.12419 15.401 8.13408C15.401 10.1446 15.3922 10.3963 15.3566 11.1856C15.3209 11.9728 15.1951 12.5111 15.012 12.9822C14.8263 13.4761 14.5352 13.9237 14.1588 14.2936C13.7888 14.6704 13.3413 14.9611 12.8481 15.1468C12.3771 15.3298 11.8388 15.455 11.0515 15.4913C10.2615 15.5277 10.0099 15.5357 7.99931 15.5357C5.98875 15.5357 5.7371 15.527 4.94781 15.4913C4.16054 15.4557 3.62224 15.3298 3.15123 15.1468C2.65728 14.9611 2.20975 14.6699 1.83979 14.2936C1.46323 13.924 1.17183 13.4767 0.985907 12.9828C0.803557 12.5118 0.678402 11.9735 0.642066 11.1863C0.605731 10.3956 0.597656 10.144 0.597656 8.13408C0.597656 6.12352 0.606404 5.87186 0.642066 5.08325C0.677729 4.29464 0.803557 3.75633 0.985907 3.28532C1.17211 2.79148 1.46373 2.34417 1.84046 1.97455C2.2099 1.59808 2.65698 1.30668 3.15055 1.12067C3.62157 0.938322 4.15987 0.813167 4.94714 0.776832H4.94781ZM10.9903 2.10913C10.2097 2.07347 9.97555 2.06607 7.99931 2.06607C6.02307 2.06607 5.78891 2.07347 5.00837 2.10913C4.28637 2.1421 3.89476 2.26255 3.63368 2.36415C3.28849 2.49873 3.04155 2.6582 2.78249 2.91726C2.53692 3.15616 2.34793 3.447 2.22938 3.76845C2.12778 4.02952 2.00734 4.42114 1.97436 5.14314C1.9387 5.92367 1.9313 6.15784 1.9313 8.13408C1.9313 10.1103 1.9387 10.3445 1.97436 11.125C2.00734 11.847 2.12778 12.2386 2.22938 12.4997C2.34781 12.8207 2.53689 13.112 2.78249 13.3509C3.02136 13.5965 3.31272 13.7856 3.63368 13.904C3.89476 14.0056 4.28637 14.1261 5.00837 14.159C5.78891 14.1947 6.0224 14.2021 7.99931 14.2021C9.97623 14.2021 10.2097 14.1947 10.9903 14.159C11.7123 14.1261 12.1039 14.0056 12.3649 13.904C12.7101 13.7694 12.9571 13.61 13.2161 13.3509C13.4617 13.112 13.6508 12.8207 13.7692 12.4997C13.8708 12.2386 13.9913 11.847 14.0243 11.125C14.0599 10.3445 14.0673 10.1103 14.0673 8.13408C14.0673 6.15784 14.0599 5.92367 14.0243 5.14314C13.9913 4.42114 13.8708 4.02952 13.7692 3.76845C13.6347 3.42326 13.4752 3.17631 13.2161 2.91726C12.9772 2.6717 12.6864 2.48272 12.3649 2.36415C12.1039 2.26255 11.7123 2.1421 10.9903 2.10913ZM7.05392 10.4158C7.5819 10.6356 8.1698 10.6653 8.71723 10.4997C9.26464 10.3342 9.73762 9.98376 10.0554 9.50826C10.3731 9.03275 10.5159 8.46168 10.4594 7.89258C10.4029 7.32349 10.1505 6.79167 9.74543 6.38796C9.4872 6.1299 9.17497 5.93229 8.83121 5.80938C8.48745 5.68647 8.12072 5.64131 7.75741 5.67714C7.3941 5.71298 7.04326 5.82892 6.73013 6.01662C6.41701 6.20432 6.1494 6.45911 5.94657 6.76265C5.74373 7.06619 5.61072 7.41093 5.55711 7.77204C5.5035 8.13316 5.53063 8.50167 5.63653 8.85104C5.74243 9.20041 5.92448 9.52196 6.16957 9.79253C6.41466 10.0631 6.71669 10.276 7.05392 10.4158ZM5.30915 5.44391C5.66242 5.09063 6.08183 4.8104 6.54341 4.61921C7.00498 4.42801 7.4997 4.32961 7.99931 4.32961C8.49892 4.32961 8.99364 4.42801 9.45522 4.61921C9.9168 4.8104 10.3362 5.09063 10.6895 5.44391C11.0428 5.79719 11.323 6.21659 11.5142 6.67817C11.7054 7.13975 11.8038 7.63447 11.8038 8.13408C11.8038 8.63369 11.7054 9.12841 11.5142 9.58998C11.323 10.0516 11.0428 10.471 10.6895 10.8242C9.976 11.5377 9.00832 11.9385 7.99931 11.9385C6.9903 11.9385 6.02262 11.5377 5.30915 10.8242C4.59567 10.1108 4.19484 9.14309 4.19484 8.13408C4.19484 7.12507 4.59567 6.15739 5.30915 5.44391ZM12.6476 4.89619C12.7351 4.81361 12.8052 4.7143 12.8537 4.60414C12.9021 4.49399 12.928 4.37523 12.9298 4.25489C12.9315 4.13455 12.9091 4.01509 12.8639 3.90357C12.8186 3.79205 12.7515 3.69074 12.6664 3.60564C12.5813 3.52054 12.48 3.45338 12.3684 3.40813C12.2569 3.36289 12.1374 3.34048 12.0171 3.34223C11.8968 3.34399 11.778 3.36987 11.6679 3.41835C11.5577 3.46682 11.4584 3.53691 11.3758 3.62445C11.2152 3.79471 11.1273 4.02086 11.1307 4.25489C11.1341 4.48892 11.2286 4.71241 11.3941 4.87792C11.5596 5.04342 11.7831 5.13791 12.0171 5.14132C12.2511 5.14473 12.4773 5.0568 12.6476 4.89619Z" fill="#FF7A1A" />
                                         </svg></button>
                                     </div>
                                 </div>
@@ -805,10 +802,10 @@ const ReviewMobile = () => {
                     </div>
                     <div class="sidePost col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="sideImageContainer">
-                            <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            <img src={FeaturedCardImage} alt="Shopping hands" class="sideImage" />
                         </div>
                         <div class="sideContent">
-                            <p class="sideDescription">POKER HANDS </p>
+                            <p class="sideDescription">SHOPPING HANDS </p>
                             <div class="AutherINfo">
                                 <h3>NEWS</h3>
                                 <span>.</span>
@@ -818,10 +815,10 @@ const ReviewMobile = () => {
                     </div>
                     <div class="sidePost col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="sideImageContainer">
-                            <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            <img src={FeaturedCardImage} alt="Shopping hands" class="sideImage" />
                         </div>
                         <div class="sideContent">
-                            <p class="sideDescription">POKER HANDS </p>
+                            <p class="sideDescription">SHOPPING HANDS </p>
                             <div class="AutherINfo">
                                 <h3>NEWS</h3>
                                 <span>.</span>
@@ -831,10 +828,10 @@ const ReviewMobile = () => {
                     </div>
                     <div class="sidePost col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="sideImageContainer">
-                            <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            <img src={FeaturedCardImage} alt="Shopping hands" class="sideImage" />
                         </div>
                         <div class="sideContent">
-                            <p class="sideDescription">POKER HANDS </p>
+                            <p class="sideDescription">SHOPPING HANDS </p>
                             <div class="AutherINfo">
                                 <h3>NEWS</h3>
                                 <span>.</span>
@@ -844,10 +841,10 @@ const ReviewMobile = () => {
                     </div>
                     <div class="sidePost col-lg-3 col-md-6 col-sm-6 col-xs-12">
                         <div class="sideImageContainer">
-                            <img src={FeaturedCardImage} alt="POKER HANDS " class="sideImage" />
+                            <img src={FeaturedCardImage} alt="Shopping hands" class="sideImage" />
                         </div>
                         <div class="sideContent">
-                            <p class="sideDescription">POKER HANDS </p>
+                            <p class="sideDescription">SHOPPING HANDS </p>
                             <div class="AutherINfo">
                                 <h3>NEWS</h3>
                                 <span>.</span>
@@ -869,7 +866,7 @@ const ReviewMobile = () => {
                     <div className="OffersForUsecnddiv">
                         <div className=" OffersForUsecnddivCard">
                             <div className="LatestNewsDsgIMg">
-                                <img src={Promotion} className="" />
+                                <img src={Promotion} alt="Promotion" className="" />
                             </div>
                             <div className="cardOfferSecond">
                                 <p className="small">The Pros and Cons of Remote Work</p>
@@ -878,7 +875,7 @@ const ReviewMobile = () => {
                         </div>
                         <div className=" OffersForUsecnddivCard">
                             <div className="LatestNewsDsgIMg">
-                                <img src={Promotion} className="" />
+                                <img src={Promotion} alt="Promotion" className="" />
                             </div>
                             <div className="cardOfferSecond">
                                 <p className="small">The Pros and Cons of Remote Work</p>

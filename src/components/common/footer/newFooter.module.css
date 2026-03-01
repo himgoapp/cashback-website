@@ -1,6 +1,6 @@
 .customFooter {
-  background-color: #252525;
-  color: #ffffff;
+  background-color: #F4F7FE;
+  color: #1a1a1a;
   width: 430px;
   padding: 36px 28px 30px;
   height: 920px;
@@ -71,7 +71,7 @@
 }
 
 .sectionTitle {
-  color: #FF4053;
+  color: #FF7A1A;
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 32px;

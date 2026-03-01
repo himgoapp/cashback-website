@@ -9,6 +9,7 @@ import { HelmetProvider } from "react-helmet-async";
 
 import "../src/assets/Style/responsive.css";
 import "../src/assets/Style/footerdb.css";
+import "../src/assets/Style/theme.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

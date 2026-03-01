@@ -50,7 +50,7 @@
 }
 .logo_font{
   font-family: "HP Simplified H", Arial, sans-serif;
-  color: #FF4053;
+  color: #FF7A1A;
 }
 .Navigation {
     width: 100%;
@@ -81,19 +81,19 @@ display: flex;
     left: 0;
     width: 6px;
     height: 60px;
-    background: #FF4053;
+    background: #FF7A1A;
     z-index: 999;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
 }
 .NavItemBase.active .Text , .NavItemBase:hover .Text {
-  color: #FF4053;
+  color: #FF7A1A;
 }
 .NavItemBase.active .BarChart01 svg , .NavItemBase:hover .BarChart01 svg{
-  fill: #FF4053;
+  fill: #FF7A1A;
 }
 .NavItemBase.active .BarChart01 svg path, .NavItemBase:hover  .BarChart01 svg path{
-  fill: #FF4053;
+  fill: #FF7A1A;
 }
 .ItemContent {
   display: flex;

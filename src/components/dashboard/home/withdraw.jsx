@@ -11,13 +11,15 @@ const Withdraw = ({ data, userKyc }) => {
   const [showWithdraw, setShowWithdraw] = useState(false);
 
   const withdrawHit = () => {
-    if (userKyc && userKyc.status === true && userKyc.level === "4") {
-      if (data.wallet_balance < 1000) {
+    // For static app, show success message directly without API call
+    if (userKyc && (userKyc.status === true || userKyc.kycVerified === true)) {
+      if (data.wallet_balance < 250) {
         toast.error(
-          " Sorry! your Wallet balance is lower than withdraw limit!"
+          " Sorry! your Wallet balance is lower than redeem limit! Minimum amount is ₹250"
         );
       } else {
-        setShowWithdraw(true);
+        // Show success message - static app doesn't make API calls
+        toast.success("Request Submitted! Money will be credited to your linked account.");
       }
     } else {
       setKycPop(true);
@@ -96,7 +98,7 @@ const Withdraw = ({ data, userKyc }) => {
                 }}
               >
                 <Navbtn
-                  text="Withdraw"
+                  text="Redeem to Bank/Gift Card"
                   variant={"outlined_primary"}
                   size={"small"}
                   showIcon={false}

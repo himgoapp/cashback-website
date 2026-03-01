@@ -21,10 +21,10 @@ const TopRakeBackOffers = () => {
           <div className="row">
             <div className="col-lg-12 text-center">
               <h1 className="title">
-                Top Rakeback <span className="titleAccent">Offers</span>
+                Top Cashback <span className="titleAccent">Offers</span>
               </h1>
               <p className="subtitle">
-                Get unbeatable rakeback deals from India's most trusted poker
+                Get unbeatable cashback deals from India's most trusted shopping
                 sites.
               </p>
             </div>

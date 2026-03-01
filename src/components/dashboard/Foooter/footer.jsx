@@ -68,7 +68,7 @@ const DashboardFooter = ({ active }) => {
                   </clipPath>
                 </defs>
               </svg>{" "}
-              Poker IDs
+              Shopping IDs
             </a>
           </li>
           <li className={active === 2 ? "footerActive" : ""}>
@@ -156,12 +156,12 @@ const DashboardFooter = ({ active }) => {
       {/* <div class="floating-mobile-menu__bonuses">
         <div class="container">
           <div class="floating-mobile-menu__bonuses-sub-menu">
-            <p> 1WIN POKER ROOM ACTIVE BONUSES:</p>
+            <p> 1WIN SHOPPING ROOM ACTIVE BONUSES:</p>
             <div class="floating-mobile-menu__bonuses-button">
               <ul class="floating-mobile-menu__list-bonuses">
                 <li class="floating-mobile-menu__bonuses-item">
                   <span class="floating-mobile-menu__bonuses-icon">
-                    <span class="icon-font icon-rakeback"></span>
+                    <span class="icon-font icon-cashback"></span>
                   </span>
                   <span class="floating-mobile-menu__bonus-name">
                     Up to 50%
@@ -172,7 +172,7 @@ const DashboardFooter = ({ active }) => {
                     <span class="icon-font icon-welcome"></span>
                   </span>
                   <span class="floating-mobile-menu__bonus-name">
-                    50% Rakeback{" "}
+                    50% Cashback{" "}
                   </span>
                 </li>
               </ul>

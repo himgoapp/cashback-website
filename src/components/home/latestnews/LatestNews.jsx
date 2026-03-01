@@ -178,9 +178,9 @@ const LatestNews = ({ userData }) => {
   return (
     <>
       <Meta
-        title="Latest Online Poker News India | Rakebackk"
-        description="Check Today's Latest Poker News in India at Rakebackk."
-        link="https://www.rakebackk.com/latest-news"
+        title="Latest Online Shopping News India | Cashbackk"
+        description="Check Today's Latest Shopping News in India at Cashbackk."
+        link="https://www.cashback.com/latest-news"
       />
 
       {/* Mobile Dashboard design */}

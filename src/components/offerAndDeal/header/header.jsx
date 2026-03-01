@@ -13,7 +13,7 @@ const OfferHeader = ({ setSearchTerm, searchTerm }) => {
 			<div className="DealsOfferHed">
 				<div class="col-lg-12 text-center">
 					<h1 class="title">Hottest  <span class="titleAccent">Deals</span></h1>
-					<p class="subtitle">With Rakebackk, it's not just about playing,  it's about earning more every time you do.</p>
+					<p class="subtitle">With Cashbackk, it's not just about playing,  it's about earning more every time you do.</p>
 				</div>				
 			</div>
 			{/* <div className={styles.email_input_container}>

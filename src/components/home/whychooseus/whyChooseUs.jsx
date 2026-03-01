@@ -1,15 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import styles from "./whyChooseUs.module.css";
-import ChooseUsFirst from "../../../assets/Logos_and_illustration/ChooseUsFirst.svg";
-import BeliableCustomerServiceicon from "../../../assets/BeliableCustomerServiceicon.svg";
 import RedReliableCustomerServiceicon from "../../../assets/RedReliableCustomerServiceicon.svg";
-import BFairandTransparentDeals from "../../../assets/BFairandTransparentDeals.svg";
 import RedFairandransparentDeals from "../../../assets/RedFairandransparentDeals.svg";
-import ChooseUsThird from "../../../assets/Logos_and_illustration/ChooseUsThird.svg";
-import BTimelyPayouts from "../../../assets/Logos_and_illustration/BTimelyPayouts.svg";
 import RedTimelyPayoutIcon from "../../../assets/RedTimelyPayoutIcon.svg";
-import ChooseThird from "../../../assets/Logos_and_illustration/ChooseThird.svg";
-import ChooseUsRightLayer from "../../../assets/Logos_and_illustration/ChooseUsRightLayer.svg";
 const WhyChooseUs = () => {
   const [activeCard, setActiveCard] = useState(1);
   const cardRefs = useRef([]);
@@ -167,7 +160,7 @@ const WhyChooseUs = () => {
                 Why <span className="highlight">Choose</span> Us
               </h1>
               <p className="subtitle">
-                With Rakebackk, it's not just about playing, it's about earning
+                With Cashbackk, it's not just about playing, it's about earning
                 more every time you do.
               </p>
             </div>
@@ -276,7 +269,7 @@ const WhyChooseUs = () => {
                 Why <span className={styles.highlight}>Choose</span> Us
               </h2>
               <p className={styles.subtitle}>
-                With Rakeback, it's not just about<br /> playing, it's about earning more every<br /> time you do.
+                With Cashback, it's not just about<br /> playing, it's about earning more every<br /> time you do.
               </p>
             </div>
             <div className={styles.featuresList}>

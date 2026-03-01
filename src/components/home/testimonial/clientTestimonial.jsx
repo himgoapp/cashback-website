@@ -88,7 +88,7 @@ const ClientTestimonial = () => {
                          What our clients have to <span className="highlight">say</span>
                     </h1>
                     <p className="subtitle">
-                       With Rakebackk, it's not just about playing,  it's about earning more every time you do. 
+                       With Cashbackk, it's not just about playing,  it's about earning more every time you do. 
                     </p>    
               </div>
           </div>

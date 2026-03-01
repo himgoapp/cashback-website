@@ -214,7 +214,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
           style={{
             width: "100%",
             padding: "10px",
-            backgroundColor: "#ff4053",
+            backgroundColor: "#FF7A1A",
             color: "white",
             border: "none",
             borderRadius: "5px",
@@ -570,7 +570,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                   <CartesianGrid strokeDasharray="0" />
                   <Bar
                     dataKey="Total"
-                    fill="#ff4053"
+                    fill="#FF7A1A"
                     background={{ fill: "#F2F2F2" }}
                     radius={[10, 10, 10, 10]}
                   />

@@ -4,34 +4,29 @@ import Withdraw from "./withdraw";
 import DashboardMain from "../../../layout/dashboardMain";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardDealCards from "./dashboardDealCards";
-import { getDashboardInfo } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
 import RakebackChart from "./RakebackChart";
 import RackbackTableAndTransaction from "./RackbackTableAndTransaction";
 import { HomeIcon } from "../../../utils/dashboardMainHeadersIcon";
+import { graphData as mockGraphData } from "../../../data/mockUserData";
 
 const HomeMain = ({ data }) => {
-  const { userData, userKyc } = useContext(UserContext);
-  const [dashboardInfo, setDashboardInfo] = useState({});
-  const [graphData, setGraphData] = useState(null); // New state for graphData
+  const { userData, userKyc, walletData } = useContext(UserContext);
+  const [dashboardInfo, setDashboardInfo] = useState(null);
+  const [graphData, setGraphData] = useState(null);
 
-  const getdata = async () => {
-    try {
-      const data = await getDashboardInfo(userData._id);
-      if (data && data.userInfo) {
-        setDashboardInfo(data.userInfo);
-      }
-      if (data && data.graphData) {
-        setGraphData(data.graphData);
-      }
-    } catch (error) {}
-  };
-
+  // Use mock data from context instead of API calls
   useEffect(() => {
-    if (userData && userData._id) {
-      getdata();
+    // Set dashboard info from context data
+    if (userData && walletData) {
+      setDashboardInfo({
+        user: userData,
+        userWallet: walletData
+      });
+      // Use mock graph data
+      setGraphData(mockGraphData);
     }
-  }, []);
+  }, [userData, walletData]);
 
   return (
     <DashboardMainTopBottom>
@@ -42,7 +37,7 @@ const HomeMain = ({ data }) => {
           <RakebackChart
             dashboardInfo={dashboardInfo}
             userKyc={userKyc}
-            graphData={graphData} // ✅ Passing graphData
+            graphData={graphData}
           />
         )}
       </DashboardMain>

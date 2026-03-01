@@ -1,5 +1,6 @@
 {
-	"name": "errnera",
+	"name": "cashback-hub",
+	"description": "Cashback & Coupons Hub — find best cashback offers, coupons and deals across top Indian stores.",
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {

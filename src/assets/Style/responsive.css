@@ -307,8 +307,8 @@ button.Pokerbazzi25 {
     }
     
 .RakebackHeader ul.navbar-nav li.nav-item a.nav-link.active {
-    color: #FF4053;
-    border-color: #FF4053;
+    color: #FF7A1A;
+    border-color: #FF7A1A;
 }
 .RakebackHeader .navbar-nav .nav-link.active::after {
     display: none;
@@ -701,7 +701,7 @@ right: 7px;
 }
 .RakebackHeader button.signin_button:first-child {
     
-    color: #ff4053;
+    color: #FF7A1A;
 }
 
 
@@ -1019,7 +1019,7 @@ padding-left: 46px;
 .latestBLog{
   background: url(../Logos_and_illustration/LatestblogDashboard.svg);
   background-repeat: no-repeat;
-  background-color: #FF4053;
+  background-color: #FF7A1A;
   padding: 36px 26px;
   margin: 32px 0;
   border-radius: 8px;
@@ -1102,7 +1102,7 @@ padding-left: 46px;
     .profile-icon {
         width: 50px !important;
         height: 50px !important;
-        background-color: #FF4053;
+        background-color: #FF7A1A;
         color: #fff;
         border-radius: 100%;
         display: flex;
@@ -1137,7 +1137,7 @@ padding-left: 46px;
     margin-left: 20px;
 }
 .text-danger{
-  color: #FF4053 !important;
+  color: #FF7A1A !important;
 }
 .NAvbarText .fw-semibold {
     font-size: 16px;
@@ -1581,9 +1581,9 @@ button.navbar-toggler {
     .RakebackFeaturedBlog .exploreButton {
         width: 100%;
         font-size: 16px;
-        border: 1px solid #FF4053;
+        border: 1px solid #FF7A1A;
         background: #fff;
-        color: #FF4053;
+        color: #FF7A1A;
         text-transform: uppercase;
     }
   .RakebackNewsletter .inputContainer {
@@ -1632,7 +1632,7 @@ button.navbar-toggler {
   }
 .RakebackFeaturedBlog .category {
         font-size: 10px;
-        color: #FF4053;
+        color: #FF7A1A;
         font-weight: bold;
         font-family: 'Sora';
     }
@@ -1862,7 +1862,7 @@ button.navbar-toggler {
      
     .RakebackFeaturedBlog .sideCategory {
     background: transparent;
-    color: #FF4053;
+    color: #FF7A1A;
     font-size: 8px;
     font-weight: bold;
     text-transform: uppercase;

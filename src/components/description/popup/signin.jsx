@@ -236,7 +236,7 @@ const FullPageSignin = () => {
                 <h1 className={styles.title}>Login or signup</h1>
                 <p className={styles.subtitle}>We will send an OTP to verify</p>
                 <p className={styles.MobileSubtitle}>
-                  Make Poker More Profitable
+                  Make Shopping More Rewards
                 </p>
               </div>
               <form onSubmit={handlePhoneSubmit} className={styles.form}>
@@ -275,7 +275,7 @@ const FullPageSignin = () => {
                       >
                         <path
                           d="M7.64258 0.283691C11.863 0.283955 15.2842 3.70582 15.2842 7.92627C15.2842 12.1467 11.863 15.5686 7.64258 15.5688C3.42197 15.5688 0 12.1469 0 7.92627C0 3.70566 3.42197 0.283691 7.64258 0.283691ZM6.72559 10.6167V12.2671H8.43652V10.6167H6.72559ZM6.84766 3.34131V9.479H8.31445V3.34131H6.84766Z"
-                          fill="#FF4053"
+                          fill="#FF7A1A"
                         />
                       </svg>{" "}
                       {error}

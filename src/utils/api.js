@@ -1,35 +1,45 @@
-import axios from "axios";
-import { baseUrlconfig } from "../config";
+// Static React Application - No API calls
+// All data is served from local mock data
 
-let formdataurls = ["/auth/imageupload" , "/auth/updateprofileimage"]
+let formdataurls = ["/auth/imageupload", "/auth/updateprofileimage"];
 
 export function getToken() {
-	const Token = localStorage.getItem("token");
-	return Token;
+  const Token = localStorage.getItem("token");
+  return Token;
 }
 
-export const API = axios.create({
-	baseURL: baseUrlconfig.baseUrl,
-	headers: {
-		"Content-Type": "application/json",
-	},
-});
-
-API.interceptors.request.use(
-	(config) => {
-		const token = getToken();
-		if (token) {
-			config.headers.Authorization = `Bearer ${token}`;
-		}
-
-		// Dynamically set Content-Type based on request type
-		if (formdataurls.includes(config.url)) {
-			config.headers["Content-Type"] = "multipart/form-data";
-		}
-
-		return config;
-	},
-	(error) => {
-		return Promise.reject(error);
-	}
-);
+// Mock API object that returns empty promises to prevent errors
+// All actual data comes from localStorage and mockUserData.js
+export const API = {
+  get: async (url, config = {}) => {
+    console.log(`[Mock API GET] ${url}`, config);
+    return Promise.resolve({ data: {} });
+  },
+  post: async (url, data = {}, config = {}) => {
+    console.log(`[Mock API POST] ${url}`, data, config);
+    return Promise.resolve({ data: {} });
+  },
+  put: async (url, data = {}, config = {}) => {
+    console.log(`[Mock API PUT] ${url}`, data, config);
+    return Promise.resolve({ data: {} });
+  },
+  delete: async (url, config = {}) => {
+    console.log(`[Mock API DELETE] ${url}`, config);
+    return Promise.resolve({ data: {} });
+  },
+  create: (config = {}) => {
+    return API;
+  },
+  interceptors: {
+    request: {
+      use: () => {
+        return { eject: () => {} };
+      }
+    },
+    response: {
+      use: () => {
+        return { eject: () => {} };
+      }
+    }
+  }
+};

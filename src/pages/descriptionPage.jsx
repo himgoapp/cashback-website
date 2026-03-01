@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import MainContainer from "../layout/mainContainer";
 import Navbar from "../components/common/navbar/navbar";
 import Footer from "../components/common/footer/footer";
@@ -16,7 +16,7 @@ import RakeBackStructure from "../components/description/RakeBackStructure";
 import { getProductById } from "../servicefile/productservice";
 import Meta from "../Meta";
 const DescriptionPage = () => {
-  const { showSigninPopup } = useContext(UserContext);
+  useContext(UserContext);
   const { roomId } = useParams();
   const [currentItem, setCurrentItem] = useState([]);
   // let currentItem = localStorage.getItem("currentProductValue")
@@ -27,18 +27,10 @@ const DescriptionPage = () => {
     try {
       let id = roomId.substring(roomId.lastIndexOf("-") + 1);
       console.log("Fetching Room ID:", id);
-
-      const roomData = await getProductById(id);
-      console.log("API Response:", roomData);
-
-      const fetchedProduct =
-        roomData?.data?.product?.[0] || roomData?.product?.[0];
-
-      if (fetchedProduct) {
-        setCurrentItem(fetchedProduct);
-      } else {
-        console.warn("No room found in response.");
-      }
+      const res = await getProductById(id);
+      const fetched = res && (res.data?.product?.[0] || res.product?.[0] || res.product || res);
+      if (fetched) setCurrentItem(fetched);
+      else console.warn("No product found for id", id);
     } catch (error) {
       console.error("Error fetching room:", error);
     }
@@ -50,7 +42,7 @@ const DescriptionPage = () => {
     <>    <Meta
     title={currentItem.name}
     description={currentItem.smallDescription}
-    link={`https://www.rakebackk.com/news/${roomId}`}
+    link={`https://www.cashback.com/news/${roomId}`}
     />
       <div style={{ position: "relative", overflow: "hidden" }}>
         {/* <MainContainer> */}

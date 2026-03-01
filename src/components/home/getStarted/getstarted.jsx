@@ -8,12 +8,12 @@ const steps = [
 	{
 		title: "Sign Up",
 		content:
-			"Sign up with your details. We don't need your poker face; just be yourself.",
+			"Sign up with your details. We don't need your shopping face; just be yourself.",
 	},
 	{
 		title: "Link your Account",
 		content:
-			"Securely link your poker accounts. We take security seriously, just like your high-stakes poker game.",
+			"Securely link your shopping accounts. We take security seriously, just like your high-stakes shopping game.",
 	},
 	{
 		title: "Get Rewards/Cashbacks",

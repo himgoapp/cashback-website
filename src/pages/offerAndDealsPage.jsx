@@ -1,24 +1,24 @@
 import React from "react";
 import Navbar from "../components/common/navbar/navbar";
 import OfferAndDeal from "../components/offerAndDeal/offerAndDeal";
-import FAQ from "../components/home/FAQ/faq";
-import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
-import Footer from "../components/common/footer/footer";
+// import FAQ from "../components/home/FAQ/faq";
+// import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
+// import Footer from "../components/common/footer/footer";
 // import offerbg from "../assets/offerbannerbg.png";
 import MainContainer from "../layout/mainContainer";
 import Meta from "../Meta";
 import Reveal from "../components/common/reveal/Reveal";
 import SimpleSlider from "../components/home/offers/slider";
-import NewFooter from "../components/common/footer/newFooter";
+// import NewFooter from "../components/common/footer/newFooter";
 import NewsletterSubscription from "../components/home/subscribe/newsLetterSubscription";
 
 const OfferAndDealsContainer = () => {
   return (
     <div style={{ overflow: "hidden" }}>
       <Meta
-        title="2025 Online Poker Rakeback Deals"
-        description="Looking For the Online Poker Rakeback Deals and Poker Cashback Deals? Check Rakebackk For Best Poker Deals & Offer. Ultimate Poker Experience"
-        link="https://rakebackk.com/offer_and-deals"
+        title="Top Shopping Cashback & Coupon Deals 2026"
+        description="Find the best cashback and coupon deals across Amazon, Flipkart, Myntra and other top Indian stores."
+        link="https://cashbackhub.example.com/offer_and-deals"
       />
       <Reveal>
         <div
@@ -29,11 +29,10 @@ const OfferAndDealsContainer = () => {
             <div className="row">
               <div className="col-lg-12 text-center">
                 <h1 className="title">
-                  Top Rakeback <span className="titleAccent">Offers</span>
+                  Top Cashback <span className="titleAccent">Offers</span>
                 </h1>
                 <p className="subtitle">
-                  Get unbeatable rakeback deals from India's most trusted poker
-                  sites.
+                  Get unbeatable cashback deals from India's most trusted online stores.
                 </p>
               </div>
               <div className="col-lg-12">

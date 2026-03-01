@@ -1,53 +1,21 @@
-import pokerbaazi from "../assets/pokerbaazi.png";
-import JUNGLEEPOKER from "../assets/jungleepokerlogo.svg";
+import React from "react";
+import { mockStores } from "../data/mockStores";
 import depositt from "../assets/depositt.svg";
 import withdrawal from "../assets/withdrawal.svg";
-import mpllogo from "../assets/mpllogo.svg";
-import A23POKER from "../assets/A23POKER.svg";
-import Adda52 from "../assets/Adda52.svg";
-import CoinPoker from "../assets/CoinPoker.png";
-import pocket52 from "../assets/pocket52.svg";
-import POKERDANGAL from "../assets/POKERDANGAL.svg";
-import wptglobal from "../assets/wptglobal.svg";
-import NATURAL8 from "../assets/NATURAL8.svg";
-import ACRPOKER from "../assets/ACRPOKER.svg";
-import POKERCIRCLE from "../assets/pokercircle (2).svg";
-// import CoinPokerPokerCard from "../assets/PokerID/CoinPokerPokerID.png";
-// import PokerBazziPokerCard from "../assets/PokerID/PokerBazziPokerID.png"
-// import SpartanPokerCard from "../assets/PokerID/SpartanPokerID.png"
-// import ACRPokerCard from "../assets/PokerID/ACRPokerID.png"
-// import BigCashPokerCard from "../assets/PokerID/BigCashPokerID.png"
-// import WPTPokerCard from "../assets/PokerID/WPTPokerID.png"
-// import JungleePokerCard from "../assets/PokerID/JungleePokerIDcard.png"
-// import PokerDangalCard from "../assets/PokerID/PokerDangalIDcard.png"
-
-import CoinPokerPokerCard from "../assets/PokerID/CoinPoker.png";
-import PokerBazziPokerCard from "../assets/PokerID/PokerIDBaazi.png"
-import SpartanPokerCard from "../assets/PokerID/SpartanPokerID.png"
-import ACRPokerCard from "../assets/PokerID/ACRPokerID.png"
-import BigCashPokerCard from "../assets/PokerID/BigCashPokerID.png"
-import WPTPokerCard from "../assets/PokerID/WPTPokerID.png"
-import JungleePokerCard from "../assets/PokerID/JungleePoker.png"
-import PokerDangalCard from "../assets/PokerID/PokerDangal.png";
-import ACRPokerHome from "../assets/HomeIcon/ACR Poker.png";
-import JungleePokerHome from "../assets/HomeIcon/JungleePoker.png";
-import PokerBaaziHome from "../assets/HomeIcon/PokerBaazi.png";
-import WPTGlobalHome from "../assets/HomeIcon/WPT global.png";
-import CoinPokerHome from "../assets/HomeIcon/CoinPoker.png";
 
 export const colorBkg = (name) => {
-  return name === "Poker Baazi"
-    ? { backgroundColor: "#330099" }
-    : name === "MPL"
-      ? { backgroundColor: "#d60f19" }
-      : { backgroundColor: "" };
+  const store = mockStores.find(
+    (s) => s.name.toLowerCase() === (name || "").toLowerCase() || s.id === (name || "").toLowerCase()
+  );
+  if (store) return { backgroundColor: "#0052CC" };
+  return { backgroundColor: "" };
 };
 export const colorBkgOut = (name) => {
-  return name === "Poker Baazi"
-    ? { backgroundColor: "#3c2e8e" }
-    : name === "MPL"
-      ? { backgroundColor: "#d62027" }
-      : { backgroundColor: "white" };
+  const store = mockStores.find(
+    (s) => s.name.toLowerCase() === (name || "").toLowerCase() || s.id === (name || "").toLowerCase()
+  );
+  if (store) return { backgroundColor: "#E9F2FF" };
+  return { backgroundColor: "white" };
 };
 
 export const statusBaseColor = (status) => {
@@ -57,7 +25,6 @@ export const statusBaseColor = (status) => {
       background: "#E4FFF1",
       fontWeight: "bold",
       borderRadius: "20px",
-      borderColor: "#027a48",
       padding: "2px 5px",
       fontSize: "13px",
       borderColor: "#28A745",
@@ -225,127 +192,43 @@ export const getTransactionArrowAndStyle = (type) => {
 };
 
 export const getTableIconStyle = (type) => {
-  if (type === "Junglee Poker") {
-    return (
-      <img
-        src={JUNGLEEPOKER}
-        alt="Status Icon"
-        style={{
-          width: "26px",
-          height: "26px",
-          borderRadius: "50%",
-          marginRight: "10px",
-        }}
-      />
-    );
-  } else if (type === "Poker Baazi") {
-    return (
-      <img
-        src={pokerbaazi}
-        alt="Status Icon"
-        style={{
-          width: "26px",
-          height: "26px",
-          borderRadius: "50%",
-          marginRight: "10px",
-        }}
-      />
-    );
-  } else if (type === "MPL") {
-    return (
-      <img
-        src={mpllogo}
-        alt="Status Icon"
-        style={{
-          width: "26px",
-          height: "26px",
-          borderRadius: "50%",
-          marginRight: "10px",
-        }}
-      />
-    );
-  } else {
-    return (
-      <img
-        src={mpllogo}
-        alt="Status Icon"
-        style={{
-          width: "26px",
-          height: "26px",
-          borderRadius: "50%",
-          marginRight: "10px",
-        }}
-      />
-    );
-  }
+  if (!type) return null;
+  const store = mockStores.find(
+    (s) => s.name.toLowerCase() === (type || "").toLowerCase() || s.id === (type || "").toLowerCase()
+  );
+  const src = store ? store.logoUrl : process.env.PUBLIC_URL + "/logo192.png";
+  return (
+    <img
+      src={src}
+      alt={type + " logo"}
+      style={{
+        width: "26px",
+        height: "26px",
+        borderRadius: "6px",
+        marginRight: "10px",
+      }}
+    />
+  );
 };
 
 export const getPokerSiteImage = (siteName) => {
-  switch (siteName) {
-    case "Junglee Poker":
-      return JungleePokerHome;
-    case "Poker Baazi":
-      return PokerBaaziHome;
-    case "A23poker":
-      return A23POKER;
-    case "PokerCircle":
-      return POKERCIRCLE;
-    case "PokerDangal":
-      return POKERDANGAL;
-    case "Natural8":
-      return NATURAL8;
-    case "Pocket52":
-      return pocket52;
-    case "Adda52":
-      return Adda52;
-    case "ACR Poker":
-      return ACRPokerHome;
-    case "Coin Poker":
-      return CoinPokerHome;
-    case "WPT Global":
-      return WPTGlobalHome;
-    case "Big Cash":
-      return WPTGlobalHome;
-  }
+  if (!siteName) return process.env.PUBLIC_URL + "/logo192.png";
+  const store = mockStores.find(
+    (s) => s.name.toLowerCase() === (siteName || "").toLowerCase() || s.id === (siteName || "").toLowerCase()
+  );
+  return store ? store.logoUrl : process.env.PUBLIC_URL + "/logo192.png";
 };
 
 export const getPokerClass = (siteName) => {
-  switch (siteName) {
-    case "Junglee Poker":
-      return "JungleePokerSlider";
-    case "Poker Baazi":
-      return "PokerBazziSlider";
-    case "Big Cash":
-      return "BigCashSlider";
-    case "Poker Dangal":
-      return "PokerDangalSLider";
-    case "Spartan Poker":
-      return "SpartanPokerSlider";
-    case "ACR Poker":
-      return "ACRSlider";
-    case "Coin Poker":
-      return "CoinPokerSlider";
-    case "WPT Global":
-      return "WPTGlobalSlider";
-  }
+  return "";
 };
 
 export const imagePicker = (productName) => {
-  return productName === "Poker Baazi"
-    ? PokerBazziPokerCard
-    : productName === "Junglee Poker"
-      ? JungleePokerCard
-      : productName === "PokerDangal"
-        ? PokerDangalCard
-        : productName === "ACRpoker"
-          ? ACRPokerCard
-          : productName === "CoinPoker"
-            ? CoinPokerPokerCard
-            : productName === "WPTglobal"
-              ? WPTPokerCard
-              : productName === "BigCash" ? BigCashPokerCard
-                : productName === "SpartanPoker" ? SpartanPokerCard
-                  : PokerBazziPokerCard;
+  if (!productName) return process.env.PUBLIC_URL + "/logo192.png";
+  const store = mockStores.find(
+    (s) => s.name.toLowerCase() === (productName || "").toLowerCase() || s.id === (productName || "").toLowerCase()
+  );
+  return store ? store.logoUrl : process.env.PUBLIC_URL + "/logo192.png";
 };
 export const getStatusIcon = (status) => {
   if (status === "Approved" || status === "Successful") {

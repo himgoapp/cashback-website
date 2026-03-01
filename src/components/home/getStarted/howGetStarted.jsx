@@ -11,7 +11,7 @@ function HowGetStarted() {
             number: '1',
             title: 'Sign Up',
             description: 'Get started with Flashbacks in just 3 simple steps. It\'s fast, safe, and totally transparent.',
-            details: 'Create your Rakebackk account using your email or Google login. No fees. No hidden',
+            details: 'Create your Cashbackk account using your email or Google login. No fees. No hidden',
             icon: <img src={getStartedFirst} alt="Sign up icon" style={{width:"70px",height:"70px"}} />,
         },
         {
@@ -19,7 +19,7 @@ function HowGetStarted() {
             number: '2',
             title: 'Link Your Account',
             description: 'Connect your payment method securely.',
-            details: 'Create your Rakebackk account using your email or Google login. No fees. No hidden',
+            details: 'Create your Cashbackk account using your email or Google login. No fees. No hidden',
             icon: <img src={getStartedSecond} alt="Link account icon" style={{width:"78.03",height:"67.51"}} />,
         },
         {
@@ -27,7 +27,7 @@ function HowGetStarted() {
             number: '3',
             title: 'Get Rewards/Cashback',
             description: 'Start earning on every purchase.',
-            details: 'Create your Rakebackk account using your email or Google login. No fees. No hidden',
+            details: 'Create your Cashbackk account using your email or Google login. No fees. No hidden',
             icon: <img src={getStartedThird} alt="Rewards icon" style={{width:"67.29",height:"70px"}} />,
         }
     ];

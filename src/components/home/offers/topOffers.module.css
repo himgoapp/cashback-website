@@ -28,7 +28,7 @@
 }
 
 .titleAccent {
-    color: #ff4053;
+    color: #FF7A1A;
 }
 
 .subtitle {
@@ -65,7 +65,7 @@
     flex-direction: column;
     overflow: hidden;
     cursor: pointer;
-    border: 0.6px solid #FF4053;
+    border: 0.6px solid #FF7A1A;
 }
 
 .cardPosition0 {
@@ -102,7 +102,7 @@
 .topRightBadge .badgeText {
     font-size: 10px;
     font-weight: 600;
-    color: #ff4053;
+    color: #FF7A1A;
 }
 
 
@@ -135,7 +135,7 @@
     font-size: 1.5rem;
     color: white;
     border-radius: 50%;
-    background: #ff4053;
+    background: #FF7A1A;
 }
 
 .brandName {
@@ -215,7 +215,7 @@
 
 .claimButton {
     width: 100%;
-    background: #ff4053;
+    background: #FF7A1A;
     border: none;
     border-radius: 12px;
     padding: 16px;
@@ -265,7 +265,7 @@
 }
 
 .indicatorActive {
-    background: #ff4053;
+    background: #FF7A1A;
     border: none;
     box-shadow: 0 2px 8px rgba(255, 71, 87, 0.4);
 }
@@ -386,7 +386,7 @@
 }
 
 .claimButtonSmall {
-    background: #ff4053;
+    background: #FF7A1A;
     border: none;
     border-radius: 8px;
     padding: 10px 30px;
@@ -485,7 +485,7 @@
 
 .specialOfferTimer {
     background: #F0F0F0;
-    color: #ff4053;
+    color: #FF7A1A;
     font-size: 7px;
     font-weight: 600;
     padding: 5px 5px;

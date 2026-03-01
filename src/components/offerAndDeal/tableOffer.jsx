@@ -29,7 +29,7 @@
 //       promoCode: "POKERBAAZI25",
 //     },
 //     {
-//       name: "ACR Poker",
+//       name: "ACR Shopping",
 //       logo: "/images/acrpoker.png",
 //       offer: "STRATEGY",
 //       date: "6/23/2025",
@@ -50,7 +50,7 @@
 //         What our clients have to <span>say</span>
 //       </h2>
 //       <p className={styles.tableSubHeading}>
-//         With Rakebackk, it's not just about playing, it's about earning more
+//         With Cashbackk, it's not just about playing, it's about earning more
 //         every time you do.
 //       </p>
 

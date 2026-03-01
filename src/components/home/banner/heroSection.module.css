@@ -20,7 +20,7 @@
 }
 
 .highlight {
-    color: #FF4053;
+    color: #FF7A1A;
 }
 
 .highlightPercentage {
@@ -55,7 +55,7 @@
 }
 
 .primaryButton {
-    background-color: #FF4053;
+    background-color: #FF7A1A;
     color: white;
     border: none;
     border-radius: 8px;
@@ -70,8 +70,8 @@
 }
 
 .secondaryButton {
-    color: #FF4053;
-    border: 0.6px solid #FF4053;
+    color: #FF7A1A;
+    border: 0.6px solid #FF7A1A;
     border-radius: 8px;
     padding: 14px 24px;
     font-size: 16px;
@@ -85,8 +85,8 @@
 }
 
 .secondaryButton:hover {
-    border: 0.6px solid #FF4053;
-    color: #FF4053;
+    border: 0.6px solid #FF7A1A;
+    color: #FF7A1A;
 }
 
 .chipIcon {

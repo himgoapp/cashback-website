@@ -1,0 +1,61 @@
+:root{
+  --bg: #ffffff;
+  --primary: #0052CC; /* professional blue */
+  --accent: #FF7A1A;  /* orange */
+  --muted: #6B7280;
+  --radius: 8px;
+}
+
+html,body,#root{
+  height:100%;
+}
+body{
+  background:var(--bg);
+  color: #0f1724;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* Buttons - map old class names to new shopping style */
+.Pokerbazzi25, .coupon-btn{
+  background: transparent;
+  color: var(--muted);
+  border: 1px dashed rgba(0,0,0,0.08);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-weight:600;
+}
+
+.ClaimNow, .claim-btn, .ClaimNowDNO{
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-weight: 700;
+}
+.ClaimNow:hover, .claim-btn:hover{ background:#0041a8 }
+
+.PromoReviewDNO{
+  background: transparent;
+  color: var(--primary);
+  border: 1px solid rgba(0,82,204,0.12);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+/* Slider CTA adjustments */
+.SliderFooter .Pokerbazzi25{ background:transparent; color:var(--primary); border:1px solid var(--primary); }
+.SliderFooter .ClaimNow{ background:var(--primary); }
+
+/* Offer badge */
+.offerBadge, .OfferSlider span{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  color:var(--primary);
+  font-weight:600;
+}
+
+/* General link / accent color */
+a{ color:var(--primary) }

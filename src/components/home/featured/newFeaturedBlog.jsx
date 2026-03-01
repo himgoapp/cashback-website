@@ -80,7 +80,7 @@ const FeaturedBlogs = ({ isMobile }) => {
                                 Featured <span className="highlight">Blogs</span>
                             </h1>
                             <p className="subtitle">
-                                Stay updated with poker insights, platform breakdowns, and earning strategies.
+                                Stay updated with shopping insights, platform breakdowns, and earning strategies.
                             </p>
                         </div>
                     </div>
@@ -224,7 +224,7 @@ const FeaturedBlogs = ({ isMobile }) => {
                 <div className={styles.header}>
                     <h2 className={styles.title}>Featured <span className={styles.highlight}>Blogs</span></h2>
                     <p className={styles.subtitle}>
-                        Stay updated with poker insights, platform breakdowns, and earning strategies.
+                        Stay updated with shopping insights, platform breakdowns, and earning strategies.
                     </p>
                 </div> 
     

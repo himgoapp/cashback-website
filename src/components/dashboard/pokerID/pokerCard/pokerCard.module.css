@@ -16,14 +16,14 @@
     overflow: hidden;
     cursor: pointer;
     padding: 32px 24px 32px 84px;
-    border: 1px solid #FF4053;
+    border: 1px solid #FF7A1A;
     box-shadow: 0px 0px 10px #cacaca;
 }
 .PokerCard.Approved {
     border: 1px solid #28A745  !important;
 }
 .PokerCard.Rejected  {
-    border: 1px solid #FF4053  !important;
+    border: 1px solid #FF7A1A  !important;
 }
 .PokerCard.Pending  {
     border: 1px solid #FDDB36  !important;
@@ -180,7 +180,7 @@
     background: #28A745  !important;
 }
 .PokerCard.Rejected .StatusContainer {
-    background: #FF4053  !important;
+    background: #FF7A1A  !important;
 }
 .PokerCard.Pending .StatusContainer {
     background: #FDDB36  !important;

@@ -5,6 +5,7 @@ import { UserContext } from "../../../App";
 import { getPokerSiteImage } from "../../../helperFxns/colorCode";
 import styles from "./card.module.css";
 import "../../../assets/Style/style.css"
+import { Tag } from "lucide-react";
 
 const OfferCard = ({ product, index }) => {
   const navigate = useNavigate();
@@ -104,9 +105,9 @@ const OfferCard = ({ product, index }) => {
             </div>
             <div className={styles.headerTitleSection}>
               <h3 className={styles.productTitle}>{product?.name}</h3>
-              {product?.offer && (
-                <div className={styles.offerBadge}>💰 {product.offer}</div>
-              )}
+							{product?.offer && (
+								<div className={styles.offerBadge}><Tag size={16} color="#FF7A1A" /> {product.offer}</div>
+							)}
             </div>
           </div>
           
@@ -138,7 +139,7 @@ const OfferCard = ({ product, index }) => {
 			<div className={styles.ClientSayDesc}>
 				<div className={styles.contentSection}>
 					{product?.offer && (
-					<div className={styles.offerBadge}>💰 {product.offer}</div>
+					<div className={styles.offerBadge}><Tag size={16} color="#FF7A1A" /> {product.offer}</div>
 					)}
 					{/* <h3 className={styles.productTitle}>{product?.name}</h3> */}
 					<h3 className={styles.productTitle}>Pietrangelo hopes he'll sign contract to remain with Blues</h3>
@@ -160,9 +161,9 @@ const OfferCard = ({ product, index }) => {
 					</p> */}
 				</div>
 				<div className={styles.buttonSectionClient}>
-					<button class="Pokerbazzi25 Pokerbazzi25DNO">Pokerbazzi25<span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg></span> </button>
-					<button class="ClaimNow ClaimNowDNO">Claim Now</button>
-					<button class="PromoReviewDNO">Promo Review</button>
+					<button class="GrabDealButton GrabDealCode">Pokerbazzi25<span>Promo Code <svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_4018_17694)"><path d="M2.45841 1.00293H6.11683C6.45371 1.00293 6.72656 1.27579 6.72656 1.61267V5.88081H6.11683V1.61267H2.45841V1.00293ZM1.54381 2.2224H4.89736C5.23423 2.2224 5.50709 2.49526 5.50709 2.83214V7.10029C5.50709 7.43716 5.23423 7.71002 4.89736 7.71002H1.54381C1.20693 7.71002 0.934073 7.43716 0.934073 7.10029V2.83214C0.934073 2.49526 1.20693 2.2224 1.54381 2.2224ZM1.54381 7.10029H4.89736V2.83214H1.54381V7.10029Z" fill="#606060"></path></g><defs><clipPath id="clip0_4018_17694"><rect width="7.31683" height="7.31683" fill="white" transform="matrix(-1 0 0 1 7.33594 0.698242)"></rect></clipPath></defs></svg></span> </button>
+					<button class="GrabDealButton GrabDealPrimary">Grab Deal</button>
+					<button class="GrabDealSecondary">View Details</button>
 				</div>
 			</div>
 

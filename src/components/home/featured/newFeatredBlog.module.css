@@ -20,7 +20,7 @@
 }
 
 .highlight {
-  color: #ff4053;
+  color: #FF7A1A;
 }
 
 .subtitle {
@@ -70,14 +70,14 @@
 }
 
 .tab:hover {
-  color: #ff4053;
+  color: #FF7A1A;
   font-weight: 700;
 }
 
 .activeTab {
-  color: #ff4053;
+  color: #FF7A1A;
   font-weight: 700;
-  border-bottom: 2px solid #ff4053;
+  border-bottom: 2px solid #FF7A1A;
 
 }
 
@@ -119,7 +119,7 @@ padding: 12px 20px
 
 .category {
   display: inline-block;
-  color: #ff4053;
+  color: #FF7A1A;
   font-size: 10px;
   font-weight: 600;
   text-transform: uppercase;
@@ -195,7 +195,7 @@ padding: 12px 20px
 .sideCategory {
   display: inline-block;
   background: #FFD9DD;
-  color: #ff4053;
+  color: #FF7A1A;
   font-size: 7px;
   font-weight: 500;
   padding: 2px 4px;
@@ -231,8 +231,8 @@ padding: 12px 20px
 
 .exploreButton {
   background: white;
-  color: #ff4053;
-  border: 0.6px solid #FF4053;
+  color: #FF7A1A;
+  border: 0.6px solid #FF7A1A;
   border-radius: 8px;
   padding: 12px 25px;
   height: 51px;

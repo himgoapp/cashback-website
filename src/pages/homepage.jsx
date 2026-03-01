@@ -40,9 +40,9 @@ const Homepage = () => {
   return (
     <div className="MobileHomepage">
       <Meta
-        title="Best Poker Rakeback Site India | Win Real Money "
-        description="Top Poker Rakeback and Cashback Site in India | Play Online Poker Games in India with Your Choice of Poker Website and Win Real Money 2025."
-        link="https://rakebackk.com"
+        title="Cashback & Coupons Hub — Best Deals & Rewards"
+        description="Discover top cashback offers, coupons and exclusive deals from Amazon, Flipkart, Myntra and more."
+        link="https://cashbackhub.example.com"
       />
       <MainContainer>
         <Banner />

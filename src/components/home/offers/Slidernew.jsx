@@ -15,7 +15,7 @@ const offers = [
     cashback: '10% Cashback',
     description: 'Bet $1+, Get 10 100% Profit Boost Tokens!',
     endsIn: '22hrs 9min 99sec',
-    rakeback: '$200 / Save 55%',
+    cashback: '$200 / Save 55%',
     features: ['Unlimited premium', 'Unlimited premium', 'Unlimited premium'],
     promoCode: 'POKERBAZZI25',
   },
@@ -25,7 +25,7 @@ const offers = [
     cashback: '10% Cashback',
     description: 'Bet $1+, Get 10 100% Profit Boost Tokens!',
     endsIn: '22hrs 9min 99sec',
-    rakeback: '$200 / Save 55%',
+    cashback: '$200 / Save 55%',
     features: ['Unlimited premium', 'Unlimited premium', 'Unlimited premium'],
     promoCode: 'POKERBAZZI25',
   },
@@ -35,7 +35,7 @@ const offers = [
     cashback: '10% Cashback',
     description: 'Bet $1+, Get 10 100% Profit Boost Tokens!',
     endsIn: '22hrs 9min 99sec',
-    rakeback: '$200 / Save 55%',
+    cashback: '$200 / Save 55%',
     features: ['Unlimited premium', 'Unlimited premium', 'Unlimited premium'],
     promoCode: 'POKERBAZZI25',
   },
@@ -45,7 +45,7 @@ const offers = [
     cashback: '10% Cashback',
     description: 'Bet $1+, Get 10 100% Profit Boost Tokens!',
     endsIn: '22hrs 9min 99sec',
-    rakeback: '$200 / Save 55%',
+    cashback: '$200 / Save 55%',
     features: ['Unlimited premium', 'Unlimited premium', 'Unlimited premium'],
     promoCode: 'POKERBAZZI25',
   },
@@ -55,7 +55,7 @@ const offers = [
     cashback: '10% Cashback',
     description: 'Bet $1+, Get 10 100% Profit Boost Tokens!',
     endsIn: '22hrs 9min 99sec',
-    rakeback: '$200 / Save 55%',
+    cashback: '$200 / Save 55%',
     features: ['Unlimited premium', 'Unlimited premium', 'Unlimited premium'],
     promoCode: 'POKERBAZZI25',
   },
@@ -65,7 +65,7 @@ const offers = [
     cashback: '10% Cashback',
     description: 'Bet $1+, Get 10 100% Profit Boost Tokens!',
     endsIn: '22hrs 9min 99sec',
-    rakeback: '$200 / Save 55%',
+    cashback: '$200 / Save 55%',
     features: ['Unlimited premium', 'Unlimited premium', 'Unlimited premium'],
     promoCode: 'POKERBAZZI25',
   },
@@ -75,7 +75,7 @@ const offers = [
     cashback: '10% Cashback',
     description: 'Bet $1+, Get 10 100% Profit Boost Tokens!',
     endsIn: '22hrs 9min 99sec',
-    rakeback: '$200 / Save 55%',
+    cashback: '$200 / Save 55%',
     features: ['Unlimited premium', 'Unlimited premium', 'Unlimited premium'],
     promoCode: 'POKERBAZZI25',
   },
@@ -85,7 +85,7 @@ const offers = [
     cashback: '10% Cashback',
     description: 'Bet $1+, Get 10 100% Profit Boost Tokens!',
     endsIn: '22hrs 9min 99sec',
-    rakeback: '$200 / Save 55%',
+    cashback: '$200 / Save 55%',
     features: ['Unlimited premium', 'Unlimited premium', 'Unlimited premium'],
     promoCode: 'POKERBAZZI25',
   },
@@ -120,7 +120,7 @@ export default function OfferSlider() {
             <div className="text-yellow-500 mb-1">★★★★☆ <span className="text-sm text-gray-600">{offer.rating}</span></div>
             <p className="text-sm text-gray-600">{offer.description}</p>
             <div className="text-red-500 mt-3">{offer.endsIn}</div>
-            <div className="text-black font-semibold">{offer.rakeback}</div>
+            <div className="text-black font-semibold">{offer.cashback}</div>
             <ul className="text-green-600 mt-3 space-y-1 text-sm">
               {offer.features.map((feature, idx) => (
                 <li key={idx}>✅ {feature}</li>

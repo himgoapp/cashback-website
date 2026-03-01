@@ -66,11 +66,11 @@ const Banner = () => {
                 <div className={styles.content}>
                     <h1 className={styles.title}>
                         <span className={styles.highlight} >India's #1 Trusted</span><br />
-                        <span className={styles.lineBreak}>Rakeback Platform</span>
+                        <span className={styles.lineBreak}>Cashback Platform</span>
                     </h1>
 
                     <p className={styles.subtitle}>
-                        <span className={styles.highlightPercentage}>Get up to 40% rakeback</span> when you play on India's top poker platforms.
+                        <span className={styles.highlightPercentage}>Get up to 40% cashback</span> when you play on India's top shopping platforms.
                     </p>
                     <p className={styles.description}>
                         No hidden terms. No delays. Just pure rewards.

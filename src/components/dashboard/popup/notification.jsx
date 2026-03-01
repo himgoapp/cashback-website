@@ -153,7 +153,7 @@ const notificationItems = [
     read: false,
     text: () => (
       <>
-        <span>Congratulations!</span>You've earned a $50 rakeback. It has been
+        <span>Congratulations!</span>You've earned a $50 cashback. It has been
         credited to your account
       </>
     ),
@@ -163,7 +163,7 @@ const notificationItems = [
     read: true,
     text: () => (
       <>
-        Your <span>rakeback of $20</span> is pending and will be credited to
+        Your <span>cashback of $20</span> is pending and will be credited to
         your account soon.
       </>
     ),
@@ -173,7 +173,7 @@ const notificationItems = [
     icon: coinIcon,
     text: () => (
       <>
-        Your <span>rakeback of $20</span> is pending and will be credited to
+        Your <span>cashback of $20</span> is pending and will be credited to
         your account soon.
       </>
     ),
@@ -183,7 +183,7 @@ const notificationItems = [
     icon: creditIcon,
     text: () => (
       <>
-        <span>New Rakeback Offer!</span> Earn up to 20% rakeback on your next
+        <span>New Cashback Offer!</span> Earn up to 20% cashback on your next
         game.
       </>
     ),
@@ -193,7 +193,7 @@ const notificationItems = [
     icon: notificationIcon,
     text: () => (
       <>
-        Your<span> earned $25 rakeback will expire in 3 days. </span>Make sure
+        Your<span> earned $25 cashback will expire in 3 days. </span>Make sure
         to claim it
       </>
     ),

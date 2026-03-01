@@ -19,7 +19,7 @@ const cardInfo = [
   {
     title: "Sign Up or Deposit Bonuses",
     description:
-      "Get extra value and more opportunities to boost your poker bankroll right from the start!",
+      "Get extra value and more opportunities to boost your shopping bankroll right from the start!",
     img: gift,
   },
   {
@@ -50,9 +50,9 @@ const Deals = () => {
     //   <div className={styles.content}>
     //     <Reveal>
     //       <div className={styles.head_container}>
-    //         <div className={styles.head}>Our Rakeback Deals</div>
+    //         <div className={styles.head}>Our Cashback Deals</div>
     //         <div className={styles.subhead}>
-    //           Beyond Monthly Boosts: Your Benefits with Rakeback.com
+    //           Beyond Monthly Boosts: Your Benefits with Cashback.com
     //         </div>
     //       </div>
     //     </Reveal>

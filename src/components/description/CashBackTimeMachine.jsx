@@ -4,9 +4,9 @@ import styles from "./cash_back_time_machine.module.css";
 const CashBackTimeMachine = () => {
 	const LoyalityProgram = [{
 		line1: "Minimum requirements for minimum rake have increased - now you need to earn at least 10,000 rubles  (previously 5,000 rubles)",
-line2: "You can get up to 70% rakeback maximum (was 67%)",
-line3:"Next month's rakeback bonuses have changed",
-line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending on levels)"
+line2: "You can get up to 70% cashback maximum (was 67%)",
+line3:"Next month's cashback bonuses have changed",
+line4:"On average, cashback has become either 1-2% more or 5-7% less (depending on levels)"
 	  }];
 	  
 	  const transformedProgram = LoyalityProgram.map(item => item.text);
@@ -31,7 +31,7 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
   </div>
 	<div >
 
-	<font className={styles.container_heading} >Loyalty program "Time Machine" on Pokerdom - rakeback up to 70%</font></div>
+	<font className={styles.container_heading} >Loyalty program "Time Machine" on Pokerdom - cashback up to 70%</font></div>
 	<div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
@@ -53,15 +53,15 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 							
 								<div className={styles.loyality__para}>
                                     <p>
-                                    You can read the new terms of the “Time Machine” loyalty program in the table below, where all payments at each level will be indicated (recall that rakeback under the loyalty program is credited to the player’s account on the 1st of each month):
+                                    You can read the new terms of the “Time Machine” loyalty program in the table below, where all payments at each level will be indicated (recall that cashback under the loyalty program is credited to the player’s account on the 1st of each month):
                                     </p>
                                 </div>
 									<div>
 									<table className={styles.table_container}>
   <tr>
     <th className={styles.table_head}>Rake amount per month</th>
-    <th className={styles.table_head}>Rakeback per month</th>
-    <th className={styles.table_head}>Additional rakeback</th>
+    <th className={styles.table_head}>Cashback per month</th>
+    <th className={styles.table_head}>Additional cashback</th>
 
   </tr>
   {data.map((item) => (
@@ -76,7 +76,7 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 </table>
 </div>
 <div className={styles.loyality__para}>
-    <span className={styles.example}>Example:</span><span > in November, a player generated 100,000 rubles in rake. On December 1, he will receive  a direct rakeback of 20,000 rubles  (equal to 20%) to his account , and this player's rakeback in November  (regardless of the final amount)  will be increased by 8%. Then, during December, this same player generated 80,000 rubles in rake. On December 1, he will receive  a direct rakeback of 16,000 rubles  (equal to 20%)  to his account and  an additional rakeback of 6,400 rubles  (equal to 8%) </span>
+    <span className={styles.example}>Example:</span><span > in November, a player generated 100,000 rubles in rake. On December 1, he will receive  a direct cashback of 20,000 rubles  (equal to 20%) to his account , and this player's cashback in November  (regardless of the final amount)  will be increased by 8%. Then, during December, this same player generated 80,000 rubles in rake. On December 1, he will receive  a direct cashback of 16,000 rubles  (equal to 20%)  to his account and  an additional cashback of 6,400 rubles  (equal to 8%) </span>
 </div>
 <div class={styles.divider}>
     <div class={styles.diamond}></div>

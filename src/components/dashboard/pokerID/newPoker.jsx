@@ -55,13 +55,13 @@ const NewPoker = ({ setGetInfos }) => {
       setReferralCode("");
       setLoading(false);
     } else {
-      // toast.warn("Poker Site and Account id is a required field!");
+      // toast.warn("Shopping Site and Account id is a required field!");
     }
   };
 
-  const onPokerIdChange = (poker) => {
-    setProductId(poker.value);
-    setProduct(poker);
+  const onPokerIdChange = (shopping) => {
+    setProductId(shopping.value);
+    setProduct(shopping);
     setShowPokerMenu(false);
   };
 
@@ -75,7 +75,7 @@ const NewPoker = ({ setGetInfos }) => {
       <div className={styles.NewPokerContent} style={{
         backgroundImage: `url(${backgroundImg})`
       }}>
-        <div className={styles.NewPokerHead}>Add New Poker ID</div>
+        <div className={styles.NewPokerHead}>Add New Shopping ID</div>
         <div className={styles.NewPokerCreate}>
           <div className={styles.NewPokerCreate}>
             <div className={styles.NewPokerSelect}>
@@ -113,7 +113,7 @@ const NewPoker = ({ setGetInfos }) => {
                     className={styles.SelectBtn}
                     onClick={() => setShowPokerMenu(!showPokerMenu)}
                   >
-                    <div className={styles.select_poker_site}>Select Poker Site</div>
+                    <div className={styles.select_poker_site}>Select Shopping Site</div>
                     <div>
                       <svg
                         width='24'

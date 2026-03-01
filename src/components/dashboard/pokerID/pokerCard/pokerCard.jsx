@@ -39,7 +39,7 @@ const PokerCard = ({ status, color, item }) => {
               <img
                 src={
                   item && item.productId && item.productId.name
-                    ? imagePicker(item.productId.name) : imagePicker("Poker Baazi")
+                    ? imagePicker(item.productId.name) : imagePicker("Shopping Baazi")
                 }
                 className={styles.ProductImage}
                 alt={item?.productId?.name || "Product"}

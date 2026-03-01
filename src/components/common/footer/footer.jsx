@@ -12,9 +12,9 @@ const Footer = () => {
 						</a>
             <div className={styles.menu_items}>
               <div className={styles.menu_column}>
-                <h4 className={styles.menu_title}>Online Poker </h4>
-                <a  className={styles.item}>Best poker sites</a>
-                <a href="/latest-news" className={styles.item}>Poker News</a>
+                <h4 className={styles.menu_title}>Online Shopping </h4>
+                <a  className={styles.item}>Best shopping sites</a>
+                <a href="/latest-news" className={styles.item}>Shopping News</a>
                 <a  className={styles.item}>Promotions</a>
 
               
@@ -51,7 +51,7 @@ const Footer = () => {
         <div className={styles.social_container}>
           <div className={styles.copyright}>
             <div className={styles.text}>
-              © {new Date().getFullYear()} Rakeback. All rights reserved.
+              © {new Date().getFullYear()} Cashback. All rights reserved.
             </div>
           </div>
 
@@ -72,7 +72,7 @@ const Footer = () => {
               <div className={styles.icon}>{facebook}</div>
             </a>
             <a
-              href="https://www.linkedin.com/company/rakeback"
+              href="https://www.linkedin.com/company/cashback"
               className={styles.link_icon}
               target="_blank"
               rel="noopener noreferrer"

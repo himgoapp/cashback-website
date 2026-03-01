@@ -5,9 +5,9 @@ import { getPokerSiteImage } from "../../../helperFxns/colorCode";
 const TrustedBrands = () => {
     const sliderRef = useRef(null);
     const users = [
-        { name: "Junglee Poker" },
+        { name: "Junglee Shopping" },
         { name: "MPL" },
-        { name: "Poker Baazi" },
+        { name: "Shopping Baazi" },
         { name: "A23poker" },
         { name: "PokerCircle" },
         { name: "PokerDangal" },
@@ -19,9 +19,9 @@ const TrustedBrands = () => {
         { name: "WPTglobal" }
     ];
     const pokerSites = {
-        "Junglee Poker": "https://www.jungleepoker.com/",
+        "Junglee Shopping": "https://www.jungleepoker.com/",
         "MPL": "https://www.mpl.live/",
-        "Poker Baazi": "https://www.pokerbaazi.com/",
+        "Shopping Baazi": "https://www.pokerbaazi.com/",
         "A23poker": "https://www.a23.com/",
         "PokerCircle": "https://www.pokercircle.com/",
         "PokerDangal": "https://www.pokerdangal.com/",

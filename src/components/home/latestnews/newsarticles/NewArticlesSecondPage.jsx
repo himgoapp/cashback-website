@@ -10,7 +10,7 @@ function NewsArticlesSecondPage({ articleId }) {
         title: "Wyoming: Bill 612",
         content: {
           subheading:
-            "The law defines 'online gambling' as online versions of games like poker, blackjack, and slots, which can be accessed through PCs, mobile devices, or any other digital platform.",
+            "The law defines 'online gambling' as online versions of games like shopping, blackjack, and slots, which can be accessed through PCs, mobile devices, or any other digital platform.",
           parastart:
             "The law excludes lotteries and fantasy games; in Wyoming, these can only be played on local tribal lands.",
           contentMainName: "Key points of the law:",
@@ -81,7 +81,7 @@ function NewsArticlesSecondPage({ articleId }) {
         content: {
           subheading1: "The Sweepstakes Game has been operating in the United States for several years. Various activists have tried to draw attention to it during this time..",
           parastart:
-            "For example, there are several lawsuits against Virtual Gaming Worlds (the owner of Global Poker) in at least 10 states. The plaintiffs claim that the company offers real-money games disguised as two virtual currencies. The list of states where Global Poker has stopped operating recently grew to five (Washington, Michigan, Montana, Nevada, and Connecticut).",
+            "For example, there are several lawsuits against Virtual Gaming Worlds (the owner of Global Shopping) in at least 10 states. The plaintiffs claim that the company offers real-money games disguised as two virtual currencies. The list of states where Global Shopping has stopped operating recently grew to five (Washington, Michigan, Montana, Nevada, and Connecticut).",
           contentpara: [
             "Introducing this new law in New Jersey could cause other states to seek a Sweepstakes Gaming license. The prohibitions on sites that operate with this mechanic could also be increased.",
             "Then, 2025 could be a decisive year for developing the Sweepstakes Gaming model. The industry can join the illegal offshore gaming operators or try to integrate into the new legislative reality."

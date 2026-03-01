@@ -18,7 +18,7 @@
 }
 
 .highlight {
-    color: #ff4053;
+    color: #FF7A1A;
 }
 
 .subtitle {
@@ -60,7 +60,7 @@
     width: 47.96px;
     height: 47.96px;
     border-radius: 50%;
-    background-color: #ff4053;
+    background-color: #FF7A1A;
     border: 1.49px solid #ffffff;
     outline: 4px solid #FFD9DD;
     display: flex;
@@ -127,7 +127,7 @@
 }
 
 .joinButton {
-    background: #ff4053;
+    background: #FF7A1A;
     color: white;
     border: none;
     border-radius: 8px;

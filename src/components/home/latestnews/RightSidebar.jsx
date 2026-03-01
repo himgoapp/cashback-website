@@ -20,7 +20,7 @@ const RightSidebar = () => {
           setProducts(data);
         }
       } catch (error) {
-        console.error("Error fetching poker rooms:", error);
+        console.error("Error fetching shopping rooms:", error);
       } finally {
         setIsLoading(false);
       }
@@ -63,7 +63,7 @@ const RightSidebar = () => {
       <div className={`${styles.sidebar} ${styles.loading}`}>
         <div className={styles.loadingContainer}>
           <div className={styles.loadingSpinner}></div>
-          <p className={styles.loadingText}>Loading top poker rooms...</p>
+          <p className={styles.loadingText}>Loading top shopping rooms...</p>
         </div>
       </div>
     );
@@ -73,7 +73,7 @@ const RightSidebar = () => {
     <div className={styles.sidebar} ref={sidebarRef}>
       <div className={styles.heading}>
         <h2 className={styles.sidebarTitle}>
-          <span className={styles.titleHighlight}>Top  Poker Rooms</span>
+          <span className={styles.titleHighlight}>Top  Shopping Rooms</span>
         </h2>
         <div className={styles.locationBadge}>
           <img src={IndiaFlag} 
@@ -131,7 +131,7 @@ const RightSidebar = () => {
           className={styles.allRoomsLink}
           onClick={() => navigate("/offer-and-deals")}
         >
-          View All Available Poker Rooms
+          View All Available Shopping Rooms
         </button>
       </div>
     </div>

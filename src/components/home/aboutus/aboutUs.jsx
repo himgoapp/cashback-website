@@ -8,7 +8,7 @@ const bulletLists = [
     text: "On average, you can get 30% to 50% of your monthly rake back, which can mean earnings ranging from $50 to $10,000+ in a single month.",
   },
   {
-    text: "If you're serious about boosting your poker profits, you need rakeback deals on all your poker sites. Start earning more today!",
+    text: "If you're serious about boosting your shopping profits, you need cashback deals on all your shopping sites. Start earning more today!",
   },
 ];
 
@@ -42,11 +42,11 @@ const AboutUs = () => {
             <div className={styles.head_info}>
               <div className={styles.head_cont}>
                 <div className={styles.head_text}>
-                  What is  <span style={{ color: "#ffbf00", fontWeight: "700", fontFamily: "Futura" }}>Rakeback</span> – Get Paid to Play
+                  What is  <span style={{ color: "#ffbf00", fontWeight: "700", fontFamily: "Futura" }}>Cashback</span> – Get Paid to Play
                 </div>
                 <div className={styles.subhead_text}>
-                  When you play online poker, a portion of your bets, known as
-                  the 'rake,' goes to the house. Rakeback puts some of that
+                  When you play online shopping, a portion of your bets, known as
+                  the 'rake,' goes to the house. Cashback puts some of that
                   money back in your pocket.
                 </div>
               </div>

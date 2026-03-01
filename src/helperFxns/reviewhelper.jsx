@@ -27,42 +27,42 @@ export const notRequired = ["_id", "editorRating",]
 
 export const getPokerSiteImage = (siteName) => {
     switch (siteName) {
-        case "Junglee Poker":
+        case "Junglee Shopping":
             return JungleePokerHome;
         case "Big Cash":
             return BigCashLogo;
-        case "Poker Baazi":
+        case "Shopping Baazi":
             return PokerBaaziHome;
         case "PokerDangal":
             return POKERDANGAL;
-        case "ACR Poker":
+        case "ACR Shopping":
             return ACRPokerHome;
-        case "Coin Poker":
+        case "Coin Shopping":
             return CoinPokerHome;
         case "WPT Global":
             return WPTGlobalHome;
-        case "Spartan Poker":
+        case "Spartan Shopping":
             return SpartanPokerHome;
     }
 };
 
 export const backgroundClassHelper = (siteName) => {
     switch (siteName) {
-        case "Junglee Poker":
+        case "Junglee Shopping":
             return "ReviewHeader JungleePoker";
         case "Big Cash":
             return "ReviewHeader BigCash";
-        case "Poker Baazi":
+        case "Shopping Baazi":
             return "ReviewHeader PokerBaazi";
-        case "Poker Dangal":
+        case "Shopping Dangal":
             return "ReviewHeader PokerDangal";
-        case "ACR Poker":
+        case "ACR Shopping":
             return "ReviewHeader ACRPoker";
-        case "Coin Poker":
+        case "Coin Shopping":
             return "ReviewHeader CoinPoker";
         case "WPT Global":
             return "ReviewHeader WPTGlobal";
-        case "Spartan Poker":
+        case "Spartan Shopping":
             return "ReviewHeader SpartanPoker";
     }
 

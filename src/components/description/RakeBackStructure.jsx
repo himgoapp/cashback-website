@@ -4,9 +4,9 @@ import styles from "./rakeback_structure.module.css";
 const RakeBackStructure = () => {
 	const LoyalityProgram = [{
 		line1: "Minimum requirements for minimum rake have increased - now you need to earn at least 10,000 rubles  (previously 5,000 rubles)",
-line2: "You can get up to 70% rakeback maximum (was 67%)",
-line3:"Next month's rakeback bonuses have changed",
-line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending on levels)"
+line2: "You can get up to 70% cashback maximum (was 67%)",
+line3:"Next month's cashback bonuses have changed",
+line4:"On average, cashback has become either 1-2% more or 5-7% less (depending on levels)"
 	  }];
 	  
 	  const transformedProgram = LoyalityProgram.map(item => item.text);
@@ -32,7 +32,7 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
 		{ limit: '750/1500 RUB', player2: '200 RUB', player3to4: '300 RUB' , player5plus:'400 RUB'},  
 		{ limit: '1000/2000 RUB', player2: '250 RUB', player3to4: '350 RUB' , player5plus:'500 RUB' ,},  
     {currency: 'Tables with currency tenge (KZT)', pokerCurrencyAmt:'1 000 KZT',},
-{pokerName:'Chinese Poker',pokerAmt:'1,500 RUB'},
+{pokerName:'Chinese Shopping',pokerAmt:'1,500 RUB'},
 
 	];
 
@@ -50,7 +50,7 @@ line4:"On average, rakeback has become either 1-2% more or 5-7% less (depending 
     Pokerdom takes $0.01 ruble rake for every 0.20 rubles in the pot, which actually means 5% rake. Depending on the limit and the number of players at the table, the rake cap will vary, which is detailed in the table below.
 </p>
 <p className={styles.loyality__para}>
-In Chinese poker, the rake is taken once, after a full round of hands has been dealt.
+In Chinese shopping, the rake is taken once, after a full round of hands has been dealt.
 </p>
     </div>
 									<div>
@@ -67,7 +67,7 @@ In Chinese poker, the rake is taken once, after a full round of hands has been d
 <tr>
     <td className={styles.table_data}>{item.limit} {item.currency}{item.pokerName}</td>
     <td className={styles.table_data_points}>{item.player2}</td>
-    <td className={styles.table_data}>{item.player3to4}{item.poker}{item.pokerCurrencyAmt}{item.pokerAmt}</td>
+    <td className={styles.table_data}>{item.player3to4}{item.shopping}{item.pokerCurrencyAmt}{item.pokerAmt}</td>
     <td className={styles.table_data}>{item.player5plus}
      
     </td>
@@ -91,22 +91,22 @@ In Chinese poker, the rake is taken once, after a full round of hands has been d
 </div>
 <div>
     <p className={styles.loyality__para}>
-    Let's consider all options for receiving additional rakeback in the room, in addition to participating in the loyalty program. 
+    Let's consider all options for receiving additional cashback in the room, in addition to participating in the loyalty program. 
     </p>
     <li className={styles.loyality__para}>
-    You can receive rakeback at Pokerdom in several ways:
+    You can receive cashback at Pokerdom in several ways:
     </li>
     <li className={styles.loyality__para}>
-    Advancing through the levels of the “Time Machine” loyalty program, depending on the rake you accumulate, will allow you to receive up to 70% rakeback. 
+    Advancing through the levels of the “Time Machine” loyalty program, depending on the rake you accumulate, will allow you to receive up to 70% cashback. 
     </li>
     <li className={styles.loyality__para}>
     Separately, there are promotions and rake races, which can also bring additional profit. 
     </li>
     <p className={styles.loyality__para}>
-    Please note that when choosing between the loyalty programs “100 Steps to a Million” and “Time Machine”, it is worth evaluating your game volume in order to choose the most profitable option. 
+    Please note that when choosing between the loyalty programs “100 Steps to a Million” and “Time Machine”, it is worth evaluating your game volume in order to choose the most rewards option. 
      </p>
      <p className={styles.loyality__para}>
-     For real grinders who are ready to play a lot and regularly, it is more profitable to choose "Time Machine", while for small volumes of playing it is better to give preference to the "100 steps to a million" program. 
+     For real grinders who are ready to play a lot and regularly, it is more rewards to choose "Time Machine", while for small volumes of playing it is better to give preference to the "100 steps to a million" program. 
       </p>
 </div>
 <div class={styles.divider}>

@@ -1,10 +1,5 @@
-import React, { useState,useEffect } from "react";
-import styles from "./offerAndRegistration.module.css"; // Replace with your actual CSS module path
-// import offercard from "../../assets/offercard.png";
-import proIcon from "../../assets/proIcon.png";
-import bonusgift from "../../assets/bonusgift.png";
-import walletIcon from "../../assets/walletIcon.png";
-// import Navbtn from "../common/button/navbtn/navbtn";
+import React, { useState, useEffect } from "react";
+import styles from "./offerAndRegistration.module.css";
 import MPL from "../../assets/MPL.svg";
 import jungleePoker2 from "../../assets/jungleePokerbanner.jpg";
 import pokerbaazi from "../../assets/PokerBaaziBanner.svg";
@@ -13,7 +8,7 @@ import { colorBkg } from "../../helperFxns/colorCode";
 import icon3 from "../../assets/icon3.svg";
 import icon2 from "../../assets/icon2.svg";
 import icon1 from "../../assets/icon1.svg";
-import events from "../../assets/events.jpg"
+import events from "../../assets/events.jpg";
 import { getProductById } from "../../servicefile/productservice";
 const OfferAndRegistration = ({currentItem}) => {
 
@@ -29,11 +24,11 @@ const OfferAndRegistration = ({currentItem}) => {
                   src={
                     currentItem &&
                     currentItem.name &&
-                    currentItem.name === "Poker Baazi"
+                    currentItem.name === "Shopping Baazi"
                       ? pokerbaazi
                       : currentItem &&
                         currentItem.name &&
-                        currentItem.name === "Junglee Poker"
+                        currentItem.name === "Junglee Shopping"
                       ? jungleePoker2
                       : MPL
                   }
@@ -54,7 +49,7 @@ const OfferAndRegistration = ({currentItem}) => {
                   <div className={styles.text}>
                     {currentItem && currentItem.name
                       ? currentItem.smallDescription
-                      : "Poker room CGPoker - a reliable poker room on the iPoker network, with rakeback up to 35%, rake race and reload bonuses for our players."}
+                      : "Shopping room CGPoker - a reliable shopping room on the iPoker network, with cashback up to 35%, rake race and reload bonuses for our players."}
                   </div>
                 </div>
                 <div className={styles.divider}></div>
@@ -129,7 +124,7 @@ const OfferAndRegistration = ({currentItem}) => {
               [
                 icon2,
                 "For all our players",
-                "Maximum 35% rakeback",
+                "Maximum 35% cashback",
                 "for anyrake amount",
               ],
             ].map((bonus) => {
@@ -147,7 +142,7 @@ const OfferAndRegistration = ({currentItem}) => {
                       <div className={styles.type}>{bonus[1]}</div>
                       {bonus.length === 4 ? (
                         <>
-                          <div className={styles.max}>Max 35% rakeback</div>
+                          <div className={styles.max}>Max 35% cashback</div>
                           <div className={styles.type}>{bonus[3]}</div>
                         </>
                       ) : (
@@ -258,7 +253,7 @@ const OfferAndRegistration = ({currentItem}) => {
                     <h4>Linking an old account</h4>
 
                     <div className={styles.para_description}>
-                      You can't link an old account to Pokerdom poker room. We
+                      You can't link an old account to Pokerdom shopping room. We
                       recommend other rooms.
                     </div>
                   </>

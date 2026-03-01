@@ -30,7 +30,7 @@ const NewNavbar = () => {
           <img src={Menu} 
             // onClick={toggleMenu}
             alt="menu icon" style={{ cursor: 'pointer' }}/>
-          <img src={logo} alt="Rakebackk Logo" className={styles.logo} />
+          <img src={logo} alt="Cashbackk Logo" className={styles.logo} />
         </div>
         <button className={styles.loginButton}  onClick={()=>handleSignInClick()}>Log In</button>
       </nav>
@@ -38,7 +38,7 @@ const NewNavbar = () => {
         <div className={styles.mobileMenu}>
           <div className={styles.mobileMenuHeader} >
             <span onClick={toggleMenu} className={styles.closeIcon}>&times;</span>
-            <img src={logo} alt="Rakebackk Logo" style={{marginRight:"60px"}} />
+            <img src={logo} alt="Cashbackk Logo" style={{marginRight:"60px"}} />
             <button className={styles.loginButton}>Log In</button>
           </div>
          <ul className={styles.menuItems}>

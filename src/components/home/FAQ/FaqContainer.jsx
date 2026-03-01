@@ -5,7 +5,7 @@ import Navbar from "../../common/navbar/navbar";
 import Footer from "../../common/footer/footer";
 import Reveal from "../../common/reveal/Reveal";
 import bank from "../../../assets/bank.svg";
-import rakeback from "../../../assets/rackback.svg";
+import cashback from "../../../assets/rackback.svg";
 import legal from "../../../assets/legal.svg";
 import myaccount from "../../../assets/myaccount.svg";
 import promotions from "../../../assets/promotions.svg";
@@ -36,7 +36,7 @@ import Customer from "../../../assets/FAQ/customer.png"
 const faqData = {
   kyc: [
     {
-      question: "What is KYC, and why is it needed on Rakebackk?",
+      question: "What is KYC, and why is it needed on Cashbackk?",
       answer:
         "KYC(Know Your Customer) is mandatory to verify your identity.It ensures legal compliance, enables withdrawals, and protects your account.",
     },
@@ -56,14 +56,14 @@ const faqData = {
         "If your KYC is rejected or pending, check for issues like unclear photo, mismatched details, or incomplete documents.If all seems fine, contact us via email",
     },
     {
-      question: "Why is PAN card required for KYC on Rakebackk?",
+      question: "Why is PAN card required for KYC on Cashbackk?",
       answer:
-        "A PAN card is required to complete your KYC on Rakebackk.",
+        "A PAN card is required to complete your KYC on Cashbackk.",
     },
     {
       question: "Why do you need to submit my Aadhaar card?",
       answer:
-        "An Aadhaar card is required to complete your KYC on Rakebackk.",
+        "An Aadhaar card is required to complete your KYC on Cashbackk.",
     },
     {
       question: "Is my personal information safe after KYC?",
@@ -81,9 +81,9 @@ const faqData = {
         "Yes, you need to complete KYC again if you update your bank account.",
     },
     {
-      question: "How long does KYC verification take on Rakebackk?",
+      question: "How long does KYC verification take on Cashbackk?",
       answer:
-        "KYC verification on Rakebackk usually takes 24 – 48 hours.",
+        "KYC verification on Cashbackk usually takes 24 – 48 hours.",
     },
     {
       question: "Will I get notified when my KYC is approved or rejected?",
@@ -93,41 +93,41 @@ const faqData = {
     {
       question: "What happens if I don’t complete KYC?",
       answer:
-        "Without KYC, you can’t receive rakeback payouts, TDS certificates, or make withdrawal.",
+        "Without KYC, you can’t receive cashback payouts, TDS certificates, or make withdrawal.",
     },
   ],
   TDS: [
     {
-      question: "How much TDS is deducted from my poker winnings while using Rakebackk services?",
+      question: "How much TDS is deducted from my shopping winnings while using Cashbackk services?",
       answer:
-        "A TDS of 2% is deducted on your rakeback earnings, as per Section 194H of the Income Tax Act, which applies to commission or brokerage.",
+        "A TDS of 2% is deducted on your cashback earnings, as per Section 194H of the Income Tax Act, which applies to commission or brokerage.",
     },
     {
-      question: "When will I receive my TDS certificate if I use Rakebackk?",
+      question: "When will I receive my TDS certificate if I use Cashbackk?",
       answer:
-        "Rakebackk provides TDS certificates on a quarterly basis.The certificate is shared directly with you by the team via email.",
+        "Cashbackk provides TDS certificates on a quarterly basis.The certificate is shared directly with you by the team via email.",
     },
     {
-      question: "How do I know if I'm eligible for rakeback?",
+      question: "How do I know if I'm eligible for cashback?",
       answer:
-        "Eligibility for rakeback depends on the specific site and the deal you're signed up for. Check the terms of the deal and your activity to see if you qualify.",
+        "Eligibility for cashback depends on the specific site and the deal you're signed up for. Check the terms of the deal and your activity to see if you qualify.",
     },
     {
-      question: "Can I earn rakeback on all poker games?",
+      question: "Can I earn cashback on all shopping games?",
       answer:
-        "Rakeback is usually earned from cash games and certain tournaments, depending on the poker site. Always verify the games eligible for rakeback.",
+        "Cashback is usually earned from cash games and certain tournaments, depending on the shopping site. Always verify the games eligible for cashback.",
     },
     {
-      question: "What is the difference between Rakeback and VIP rewards?",
+      question: "What is the difference between Cashback and VIP rewards?",
       answer:
-        "Rakeback is a direct percentage of the rake paid back to you, while VIP rewards are typically earned through a loyalty program based on points accumulated during gameplay.",
+        "Cashback is a direct percentage of the rake paid back to you, while VIP rewards are typically earned through a loyalty program based on points accumulated during gameplay.",
     },
   ],
   account: [
     {
-      question: "How do I create an account on Rakebackk?",
+      question: "How do I create an account on Cashbackk?",
       answer:
-        "To create an account on rakebackk.com, enter your mobile number, verify the OTP, and you're logged in instantly.",
+        "To create an account on cashback.com, enter your mobile number, verify the OTP, and you're logged in instantly.",
     },
     {
       question: "How do I verify my email address?",
@@ -137,7 +137,7 @@ const faqData = {
     {
       question: "How can I update my registered email or mobile number?",
       answer:
-        "Login to your Rakebackk account, go to “Profile Settings,” and choose the option to edit your contact information.Make the changes and save them.",
+        "Login to your Cashbackk account, go to “Profile Settings,” and choose the option to edit your contact information.Make the changes and save them.",
     },
 
   ],
@@ -158,7 +158,7 @@ const faqData = {
         "Wait 24–48 hours.If it’s still pending, contact support.",
     },
     {
-      question: "How can I check my withdrawal status on Rakebackk?",
+      question: "How can I check my withdrawal status on Cashbackk?",
       answer:
         "Bank transfers can take 1–3 business days.If delayed, check your bank details or contact support.",
     },
@@ -185,13 +185,13 @@ const faqData = {
   ],
   idTagging: [
     {
-      question: "What is ID Tagging on Rakebackk?",
+      question: "What is ID Tagging on Cashbackk?",
       answer:
-        "It links your poker account to Rakebackk to track gameplay and give cashback.",
+        "It links your shopping account to Cashbackk to track gameplay and give cashback.",
     },
     {
-      question: "How do I submit my Poker ID for tagging ?",
-      answer: "Log in, go to Poker IDs, choose the site, enter your ID, and click Submit.",
+      question: "How do I submit my Shopping ID for tagging ?",
+      answer: "Log in, go to Shopping IDs, choose the site, enter your ID, and click Submit.",
     },
     {
       question: "What does ‘Pending’ status mean?",
@@ -201,17 +201,17 @@ const faqData = {
   ],
   contactus: [
     {
-      question: "How can I reach Rakebackk support?",
+      question: "How can I reach Cashbackk support?",
       answer:
         "Fill out the form on our Contact Us page or email us at[email here]",
     },
     {
-      question: "Can I email Rakebackk directly?",
+      question: "Can I email Cashbackk directly?",
       answer:
         "Yes, use live chat or email us at [email here].Support is 24/7.",
     },
     {
-      question: "Can I contact Rakebackk via social media?",
+      question: "Can I contact Cashbackk via social media?",
       answer:
         "Yes, we’re on Telegram, Facebook, Instagram, LinkedIn, and Twitter(X).",
     },
@@ -259,9 +259,9 @@ const FaqContainer = () => {
   return (
     <div>
       <Meta
-        title="FAQ - Rakeback"
+        title="FAQ - Cashback"
         description="Find answers to commonly asked questions about legalities, gameplay, account settings, banking, and more."
-        link={`https://www.rakebackk.com`}
+        link={`https://www.cashback.com`}
       />
 
       <div className="container-fluid faqcontainer ">
@@ -296,13 +296,13 @@ const FaqContainer = () => {
                           </clipPath>
                         </defs>
                       </svg>
-                      support@rakebackk.com
+                      support@cashback.com
                     </a>
                     <div className={styles.ReachUsBtn}>
                       <button> <img src={Customer} /></button>
                       <button>
                         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="29" viewBox="0 0 28 29" fill="none">
-                          <path d="M0.613281 28.2603L2.53748 21.2307C1.35011 19.1731 0.726201 16.8405 0.727342 14.4487C0.730764 6.97088 6.8159 0.885742 14.2926 0.885742C17.9208 0.886883 21.3267 2.30009 23.8885 4.86418C26.4492 7.42826 27.8589 10.8364 27.8578 14.4612C27.8544 21.9402 21.7692 28.0253 14.2926 28.0253C12.0228 28.0242 9.78604 27.455 7.8048 26.3737L0.613281 28.2603ZM8.13786 23.918C10.0495 25.0529 11.8745 25.7327 14.288 25.7338C20.502 25.7338 25.564 20.6764 25.5675 14.459C25.5697 8.22896 20.5317 3.17836 14.2971 3.17608C8.07855 3.17608 3.01996 8.23353 3.01768 14.4498C3.01654 16.9877 3.76021 18.8879 5.00918 20.876L3.86971 25.0369L8.13786 23.918ZM21.1259 17.6857C21.0415 17.5443 20.8157 17.4599 20.4758 17.2899C20.137 17.12 18.4706 16.2999 18.1592 16.187C17.849 16.0741 17.6231 16.017 17.3962 16.3569C17.1703 16.6957 16.5202 17.4599 16.3228 17.6857C16.1255 17.9116 15.9271 17.9401 15.5883 17.7701C15.2495 17.6002 14.1568 17.2432 12.8623 16.0877C11.8551 15.1889 11.1742 14.0791 10.9768 13.7392C10.7795 13.4005 10.9563 13.2168 11.1251 13.048C11.2779 12.8963 11.4639 12.6522 11.6338 12.4538C11.806 12.2576 11.8619 12.1162 11.976 11.8892C12.0889 11.6633 12.033 11.4649 11.9475 11.2949C11.8619 11.1261 11.1844 9.4574 10.9027 8.77874C10.6267 8.11833 10.3472 8.20729 10.1396 8.19703L9.48948 8.18562C9.26364 8.18562 8.89636 8.27003 8.58612 8.60993C8.27587 8.94983 7.39989 9.76878 7.39989 11.4375C7.39989 13.1062 8.61463 14.7179 8.78344 14.9437C8.95339 15.1696 11.173 18.5937 14.5732 20.0616C15.3818 20.4106 16.0137 20.6194 16.5053 20.7756C17.3175 21.0334 18.0566 20.9969 18.6406 20.9102C19.2918 20.8133 20.6457 20.0901 20.9286 19.2985C21.2115 18.5058 21.2115 17.8272 21.1259 17.6857Z" fill="#FF4053" />
+                          <path d="M0.613281 28.2603L2.53748 21.2307C1.35011 19.1731 0.726201 16.8405 0.727342 14.4487C0.730764 6.97088 6.8159 0.885742 14.2926 0.885742C17.9208 0.886883 21.3267 2.30009 23.8885 4.86418C26.4492 7.42826 27.8589 10.8364 27.8578 14.4612C27.8544 21.9402 21.7692 28.0253 14.2926 28.0253C12.0228 28.0242 9.78604 27.455 7.8048 26.3737L0.613281 28.2603ZM8.13786 23.918C10.0495 25.0529 11.8745 25.7327 14.288 25.7338C20.502 25.7338 25.564 20.6764 25.5675 14.459C25.5697 8.22896 20.5317 3.17836 14.2971 3.17608C8.07855 3.17608 3.01996 8.23353 3.01768 14.4498C3.01654 16.9877 3.76021 18.8879 5.00918 20.876L3.86971 25.0369L8.13786 23.918ZM21.1259 17.6857C21.0415 17.5443 20.8157 17.4599 20.4758 17.2899C20.137 17.12 18.4706 16.2999 18.1592 16.187C17.849 16.0741 17.6231 16.017 17.3962 16.3569C17.1703 16.6957 16.5202 17.4599 16.3228 17.6857C16.1255 17.9116 15.9271 17.9401 15.5883 17.7701C15.2495 17.6002 14.1568 17.2432 12.8623 16.0877C11.8551 15.1889 11.1742 14.0791 10.9768 13.7392C10.7795 13.4005 10.9563 13.2168 11.1251 13.048C11.2779 12.8963 11.4639 12.6522 11.6338 12.4538C11.806 12.2576 11.8619 12.1162 11.976 11.8892C12.0889 11.6633 12.033 11.4649 11.9475 11.2949C11.8619 11.1261 11.1844 9.4574 10.9027 8.77874C10.6267 8.11833 10.3472 8.20729 10.1396 8.19703L9.48948 8.18562C9.26364 8.18562 8.89636 8.27003 8.58612 8.60993C8.27587 8.94983 7.39989 9.76878 7.39989 11.4375C7.39989 13.1062 8.61463 14.7179 8.78344 14.9437C8.95339 15.1696 11.173 18.5937 14.5732 20.0616C15.3818 20.4106 16.0137 20.6194 16.5053 20.7756C17.3175 21.0334 18.0566 20.9969 18.6406 20.9102C19.2918 20.8133 20.6457 20.0901 20.9286 19.2985C21.2115 18.5058 21.2115 17.8272 21.1259 17.6857Z" fill="#FF7A1A" />
                         </svg>
                       </button>
                     </div>
@@ -358,13 +358,13 @@ const FaqContainer = () => {
                             </clipPath>
                           </defs>
                         </svg>
-                        support@rakebackk.com
+                        support@cashback.com
                       </a>
                       <div className={styles.ReachUsBtn}>
                         <button> <img src={Customer} /></button>
                         <button>
                           <svg xmlns="http://www.w3.org/2000/svg" width="28" height="29" viewBox="0 0 28 29" fill="none">
-                            <path d="M0.613281 28.2603L2.53748 21.2307C1.35011 19.1731 0.726201 16.8405 0.727342 14.4487C0.730764 6.97088 6.8159 0.885742 14.2926 0.885742C17.9208 0.886883 21.3267 2.30009 23.8885 4.86418C26.4492 7.42826 27.8589 10.8364 27.8578 14.4612C27.8544 21.9402 21.7692 28.0253 14.2926 28.0253C12.0228 28.0242 9.78604 27.455 7.8048 26.3737L0.613281 28.2603ZM8.13786 23.918C10.0495 25.0529 11.8745 25.7327 14.288 25.7338C20.502 25.7338 25.564 20.6764 25.5675 14.459C25.5697 8.22896 20.5317 3.17836 14.2971 3.17608C8.07855 3.17608 3.01996 8.23353 3.01768 14.4498C3.01654 16.9877 3.76021 18.8879 5.00918 20.876L3.86971 25.0369L8.13786 23.918ZM21.1259 17.6857C21.0415 17.5443 20.8157 17.4599 20.4758 17.2899C20.137 17.12 18.4706 16.2999 18.1592 16.187C17.849 16.0741 17.6231 16.017 17.3962 16.3569C17.1703 16.6957 16.5202 17.4599 16.3228 17.6857C16.1255 17.9116 15.9271 17.9401 15.5883 17.7701C15.2495 17.6002 14.1568 17.2432 12.8623 16.0877C11.8551 15.1889 11.1742 14.0791 10.9768 13.7392C10.7795 13.4005 10.9563 13.2168 11.1251 13.048C11.2779 12.8963 11.4639 12.6522 11.6338 12.4538C11.806 12.2576 11.8619 12.1162 11.976 11.8892C12.0889 11.6633 12.033 11.4649 11.9475 11.2949C11.8619 11.1261 11.1844 9.4574 10.9027 8.77874C10.6267 8.11833 10.3472 8.20729 10.1396 8.19703L9.48948 8.18562C9.26364 8.18562 8.89636 8.27003 8.58612 8.60993C8.27587 8.94983 7.39989 9.76878 7.39989 11.4375C7.39989 13.1062 8.61463 14.7179 8.78344 14.9437C8.95339 15.1696 11.173 18.5937 14.5732 20.0616C15.3818 20.4106 16.0137 20.6194 16.5053 20.7756C17.3175 21.0334 18.0566 20.9969 18.6406 20.9102C19.2918 20.8133 20.6457 20.0901 20.9286 19.2985C21.2115 18.5058 21.2115 17.8272 21.1259 17.6857Z" fill="#FF4053" />
+                            <path d="M0.613281 28.2603L2.53748 21.2307C1.35011 19.1731 0.726201 16.8405 0.727342 14.4487C0.730764 6.97088 6.8159 0.885742 14.2926 0.885742C17.9208 0.886883 21.3267 2.30009 23.8885 4.86418C26.4492 7.42826 27.8589 10.8364 27.8578 14.4612C27.8544 21.9402 21.7692 28.0253 14.2926 28.0253C12.0228 28.0242 9.78604 27.455 7.8048 26.3737L0.613281 28.2603ZM8.13786 23.918C10.0495 25.0529 11.8745 25.7327 14.288 25.7338C20.502 25.7338 25.564 20.6764 25.5675 14.459C25.5697 8.22896 20.5317 3.17836 14.2971 3.17608C8.07855 3.17608 3.01996 8.23353 3.01768 14.4498C3.01654 16.9877 3.76021 18.8879 5.00918 20.876L3.86971 25.0369L8.13786 23.918ZM21.1259 17.6857C21.0415 17.5443 20.8157 17.4599 20.4758 17.2899C20.137 17.12 18.4706 16.2999 18.1592 16.187C17.849 16.0741 17.6231 16.017 17.3962 16.3569C17.1703 16.6957 16.5202 17.4599 16.3228 17.6857C16.1255 17.9116 15.9271 17.9401 15.5883 17.7701C15.2495 17.6002 14.1568 17.2432 12.8623 16.0877C11.8551 15.1889 11.1742 14.0791 10.9768 13.7392C10.7795 13.4005 10.9563 13.2168 11.1251 13.048C11.2779 12.8963 11.4639 12.6522 11.6338 12.4538C11.806 12.2576 11.8619 12.1162 11.976 11.8892C12.0889 11.6633 12.033 11.4649 11.9475 11.2949C11.8619 11.1261 11.1844 9.4574 10.9027 8.77874C10.6267 8.11833 10.3472 8.20729 10.1396 8.19703L9.48948 8.18562C9.26364 8.18562 8.89636 8.27003 8.58612 8.60993C8.27587 8.94983 7.39989 9.76878 7.39989 11.4375C7.39989 13.1062 8.61463 14.7179 8.78344 14.9437C8.95339 15.1696 11.173 18.5937 14.5732 20.0616C15.3818 20.4106 16.0137 20.6194 16.5053 20.7756C17.3175 21.0334 18.0566 20.9969 18.6406 20.9102C19.2918 20.8133 20.6457 20.0901 20.9286 19.2985C21.2115 18.5058 21.2115 17.8272 21.1259 17.6857Z" fill="#FF7A1A" />
                           </svg>
                         </button>
                       </div>

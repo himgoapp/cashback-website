@@ -32,7 +32,7 @@
 // 								</button>
 // 							</div>
 // 						</div>
-// 						{/* guide one : link poker */}
+// 						{/* guide one : link shopping */}
 // 						<div className={styles.Guid}>
 // 							<div className={styles.GuidContent}>
 // 								<div className={styles.Icons_container}>
@@ -43,7 +43,7 @@
 // 										<div className={styles.Approvalicon}>{approvedIcon}</div>
 // 									</div>
 // 									<div className={styles.TextContent}>
-// 										<div className={styles.Head}>Link your Poker ID</div>
+// 										<div className={styles.Head}>Link your Shopping ID</div>
 // 									</div>
 // 								</div>
 // 								<Link
@@ -51,7 +51,7 @@
 // 									style={{ color: "white", textDecoration: "none" }}
 // 									className='primary_button small'
 // 								>
-// 									Link Poker Id
+// 									Link Shopping Id
 // 									<ShowIcon />
 // 								</Link>
 // 							</div>

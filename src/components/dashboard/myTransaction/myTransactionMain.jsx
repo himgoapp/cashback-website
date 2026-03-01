@@ -21,7 +21,7 @@ const MyTransactionMain = () => {
 
   const activeTab = (type, transactionType) => {
     if (type === transactionType) {
-      return { borderBottom: "3px #FF4053 solid", color: "#FF4053" };
+      return { borderBottom: "3px #FF7A1A solid", color: "#FF7A1A" };
     } else {
       return {};
     }
@@ -103,10 +103,10 @@ const KycTDCstatus = () => {
       <div
         className={statusStyle.StatusContent}
         style={{
-          borderTop: `1px solid #FF4053`,
-          borderRight: `1px solid #FF4053`,
-          borderBottom: `1px solid #FF4053`,
-          borderLeft: `5px solid #FF4053`,
+          borderTop: `1px solid #FF7A1A`,
+          borderRight: `1px solid #FF7A1A`,
+          borderBottom: `1px solid #FF7A1A`,
+          borderLeft: `5px solid #FF7A1A`,
         }}
       >
         <div className={statusStyle.StatusHead}>
@@ -127,17 +127,17 @@ const DepositMessage = () => {
       <div
         className={statusStyle.StatusContent}
         style={{
-          borderTop: `1px solid #FF4053`,
-          borderRight: `1px solid #FF4053`,
-          borderBottom: `1px solid #FF4053`,
-          borderLeft: `5px solid #FF4053`,
+          borderTop: `1px solid #FF7A1A`,
+          borderRight: `1px solid #FF7A1A`,
+          borderBottom: `1px solid #FF7A1A`,
+          borderLeft: `5px solid #FF7A1A`,
         }}
       >
         <div className={statusStyle.StatusHead}>
           <div className={statusStyle.StatusIcon}>{percentIcon}</div>
           <div className={statusStyle.HeadText}>
             <div className={statusStyle.HeadLabel}>
-              Rakeback earning – keep playing, keep earning!
+              Cashback earning – keep playing, keep earning!
             </div>
           </div>
         </div>

@@ -1,10 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import styles from "./verifyInfoContainer.module.css";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
-import { sendEmailOtpAPI, loginVerify } from "../../../servicefile/authservice";
 import {RakebackLogo} from "../../common/logo/logo";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
@@ -15,40 +14,82 @@ function VerifyInfoContainer() {
     const [otp, setOtp] = useState("");
     const [username, setUsername] = useState(userData?.userName || "");
     const [address, setAddress] = useState(userData?.addressProofType || "");
-    const [editMode, setEditMode] = useState(false); // Edit mode state
+    const [editMode, setEditMode] = useState(false);
+    
+    // Store ID feature - local state for user accounts
+    const [storeId, setStoreId] = useState("");
+    const [storeEmail, setStoreEmail] = useState("");
+    const [userAccounts, setUserAccounts] = useState([]);
+
+    // Load user accounts from localStorage on mount
+    useEffect(() => {
+        const storedAccounts = localStorage.getItem('user_accounts');
+        if (storedAccounts) {
+            try {
+                setUserAccounts(JSON.parse(storedAccounts));
+            } catch (e) {
+                setUserAccounts([]);
+            }
+        }
+    }, []);
 
     const handleClose = () => {
         setVerifyModal(false);
         setOtp("");
     };
 
+    // Mock send email OTP - static app doesn't make API calls
     const sendEmailOtp = async (email) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (email && emailRegex.test(email)) {
-            let data = await sendEmailOtpAPI(email);
-            if (data?.message === "Otp Sent!" && data.data?.type === "success") {
-                // toast.success("Otp sent! Please check and enter it.");
-                setVerifyModal(true);
-            } else {
-                // toast.error(data.message);
-            }
+            // For static app, just show success message
+            toast.success("OTP sent! (Demo: Use any 6-digit code)");
+            setVerifyModal(true);
         } else {
-            // toast.warn("Please enter a valid email address!");
+            toast.warn("Please enter a valid email address!");
         }
     };
 
+    // Mock verify OTP - static app doesn't make API calls
     const verifyOtp = async () => {
         if (otp.length === 6) {
-            let data = await loginVerify(otp);
-            if (data?.message === "Otp verified!" && data.user) {
-                // toast.success("Email Verified!");
-                setUserData({ ...data.user, username, address });
-            } else {
-                // toast.error("OTP verification failed.");
-            }
+            // For static app, just show success message
+            toast.success("Email Verified! (Demo mode)");
+            setVerifyModal(false);
         } else {
-            // toast.warn("Please enter a valid 6-digit OTP!");
+            toast.warn("Please enter a valid 6-digit OTP!");
         }
+    };
+
+    // Add Store ID/Email to localStorage
+    const addStoreAccount = () => {
+        if (!storeId && !storeEmail) {
+            toast.warn("Please enter a Store ID or Email!");
+            return;
+        }
+
+        const newAccount = {
+            id: Date.now(),
+            storeId: storeId || storeEmail,
+            email: storeEmail || "N/A",
+            addedDate: new Date().toLocaleDateString()
+        };
+
+        const updatedAccounts = [...userAccounts, newAccount];
+        setUserAccounts(updatedAccounts);
+        localStorage.setItem('user_accounts', JSON.stringify(updatedAccounts));
+        
+        setStoreId("");
+        setStoreEmail("");
+        toast.success("Store account added successfully!");
+    };
+
+    // Remove store account
+    const removeStoreAccount = (id) => {
+        const updatedAccounts = userAccounts.filter(account => account.id !== id);
+        setUserAccounts(updatedAccounts);
+        localStorage.setItem('user_accounts', JSON.stringify(updatedAccounts));
+        toast.success("Store account removed!");
     };
 
     return (
@@ -86,8 +127,8 @@ function VerifyInfoContainer() {
                             value={userData?.email || ""}
                             disabled={!editMode}
                             style={{
-                                paddingRight: "120px", // Ensure space for the button
-                                height: "40px", // Adjust the input field height
+                                paddingRight: "120px",
+                                height: "40px",
                             }}
                         />
                         <Navbtn
@@ -96,7 +137,7 @@ function VerifyInfoContainer() {
                             size="small"
                             showIcon={false}  
                             iconColor="#3968EB"
-                            onClick={() => sendEmailOtp(userData.email)}
+                            onClick={() => sendEmailOtp(userData?.email)}
                             style={{
                                 position: "absolute",
                                 right: "10px",  
@@ -131,6 +172,72 @@ function VerifyInfoContainer() {
                 </Form>
             </div>
 
+            {/* Store ID Section - Add New Store Account */}
+            <div className={styles.FormContent} style={{ marginTop: "20px" }}>
+                <h5>Add Store ID / Email</h5>
+                <p style={{ fontSize: "14px", color: "#666" }}>
+                    Add your store accounts to track cashback
+                </p>
+                <Form>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Store ID / Username</Form.Label>
+                        <Form.Control
+                            type="text"
+                            placeholder="Enter store ID (e.g., Amazon ID)"
+                            value={storeId}
+                            onChange={(e) => setStoreId(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group className="mb-3">
+                        <Form.Label>Store Email (Optional)</Form.Label>
+                        <Form.Control
+                            type="email"
+                            placeholder="Enter store email"
+                            value={storeEmail}
+                            onChange={(e) => setStoreEmail(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Button variant="primary" onClick={addStoreAccount}>
+                        Add Store Account
+                    </Button>
+                </Form>
+
+                {/* Display User Accounts Table */}
+                {userAccounts.length > 0 && (
+                    <div style={{ marginTop: "20px" }}>
+                        <h6>Your Store Accounts</h6>
+                        <table className="table table-sm table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Store ID</th>
+                                    <th>Email</th>
+                                    <th>Added Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {userAccounts.map((account) => (
+                                    <tr key={account.id}>
+                                        <td>{account.storeId}</td>
+                                        <td>{account.email}</td>
+                                        <td>{account.addedDate}</td>
+                                        <td>
+                                            <Button 
+                                                variant="danger" 
+                                                size="sm"
+                                                onClick={() => removeStoreAccount(account.id)}
+                                            >
+                                                Remove
+                                            </Button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                )}
+            </div>
+
             {/* Modal for OTP Verification */}
             <Modal size="md" show={verifyModal} onHide={handleClose}>
                 <Modal.Header className="d-flex justify-content-center">
@@ -148,6 +255,9 @@ function VerifyInfoContainer() {
                                 onChange={(e) => setOtp(e.target.value)}
                                 autoFocus
                             />
+                            <Form.Text className="text-muted">
+                                Demo: Enter any 6-digit code
+                            </Form.Text>
                         </Form.Group>
                     </Form>
                 </Modal.Body>

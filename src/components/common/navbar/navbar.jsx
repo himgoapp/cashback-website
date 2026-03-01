@@ -8,11 +8,6 @@ import { UserContext } from "../../../App";
 import { CrossIcon } from "../../../assets/vectors";
 import Reveal from "../reveal/Reveal";
 
-import BigCash from "../../../assets/WebsiteIcon/BigCash.svg";
-import jungleeIcon from "../../../assets/WebsiteIcon/jungleeIcon.svg";
-import pokerbazzi from "../../../assets/WebsiteIcon/pokerbazzi.svg";
-import pokerdangal from "../../../assets/WebsiteIcon/pokerdangal.svg";
-import spartan from "../../../assets/WebsiteIcon/spartan.svg";
 import ACRPoker from "../../../assets/ACRPoker.png";
 
 const Navbar = ({ hide }) => {
@@ -38,7 +33,7 @@ const Navbar = ({ hide }) => {
   const navItems = [
     { to: "/offer-and-deals", label: "Hot Deals" },
     { to: "/latest-news", label: "News" },
-    { to: "/poker-guides", label: "Poker Guides" },
+    { to: "/shopping-guides", label: "Shopping Guides" },
     { to: "/strategies", label: "Strategies" },
     { to: "/faq", label: "FAQs" },
   ];
@@ -187,7 +182,7 @@ const Navbar = ({ hide }) => {
                 ))}
 
 
-                {/* Mega Menu Poker Sites */}
+                {/* Mega Menu Shopping Sites */}
                 <li className="nav-item dropdown mega-menu">
                   <a
                     className="nav-link dropdown-toggle"
@@ -197,7 +192,7 @@ const Navbar = ({ hide }) => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
-                    Poker Sites
+                    Shopping Sites
                   </a>
 
                   <div
@@ -207,9 +202,9 @@ const Navbar = ({ hide }) => {
                     <div className="container">
                       <div className="row">
                         <div className="col-lg-12">
-                          <h6 className="PokerSiteHed">All Poker Sites</h6>
+                          <h6 className="PokerSiteHed">All Shopping Sites</h6>
                         </div>
-                        {/* Left column: Poker Sites list */}
+                        {/* Left column: Shopping Sites list */}
                         <div className="MegamenuData">
                           <div className="PokerLeft">
 
@@ -242,7 +237,7 @@ const Navbar = ({ hide }) => {
                                 <img
                                   src={jungleeIcon}
                                 />
-                                Junglee poker
+                                Junglee shopping
                               </li>
                               <li className="d-flex align-items-center">
                                 <img
@@ -260,7 +255,7 @@ const Navbar = ({ hide }) => {
                                 <img
                                   src={jungleeIcon}
                                 />
-                                Junglee poker
+                                Junglee shopping
                               </li>*/}
                             </ul>
                           </div>

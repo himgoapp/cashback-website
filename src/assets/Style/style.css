@@ -5,6 +5,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap");
 @import url("https://fonts.cdnfonts.com/css/be-vietnam");
 @import url("https://fonts.cdnfonts.com/css/poppins"); */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
 div#flonnect-my-app {
     display: none;
 }
@@ -19,16 +21,15 @@ html, body, #root {
    flex-grow: 1;
 }
 body {
-    background-color: #F7F9FC !important;
+    background-color: #FFFFFF !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
 
 body{
-    background: #F7F9FC;
+    background: #FFFFFF;
 }
 div#root {
-    background: #f6f6f6;
+    background: #FFFFFF;
 }
 
 .RakebackSpace {
@@ -70,7 +71,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     width: 163px;
     height: 40px;
     border-radius: 6px;
-    background: #FF4053;
+    background: #FF7A1A;
     color: #fff;
     font-size: 14px;
     font-weight: 700;
@@ -252,7 +253,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
 }
 /*Banner Css End*/
 
-/*Top Rakeback Offers Css Start*/
+/*Top Cashback Offers Css Start*/
 .RakeBackTopOffers {
     padding: 90px 0;
     background: url(../topofferbg.svg);
@@ -268,7 +269,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
 }
 
 .RakeBackTopOffers .titleAccent {
-    color: #ff4053;
+    color: #0052CC;
 }
 
 .RakeBackTopOffers .subtitle {
@@ -295,7 +296,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
 .SliderBanner span {
     width: 71px;
     height: 18px;
-    background: #FFD9DD;
+    background: #E5EDFF;
     font-size: 8px;
     font-weight: 600;
     position: absolute;
@@ -304,7 +305,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #FF4053;
+    color: #0052CC;
     border-radius: 4px;
 }
 .SliderContent {
@@ -379,7 +380,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     padding: 10px 0;
 }
 .SliderDeadline p:first-child {
-    color: #FF4053;
+    color: #FF7A1A;
     border-right: 1px solid #D5D5D5;
 }
 ul.SliderList {
@@ -422,7 +423,7 @@ button.Pokerbazzi25 span {
     font-weight: bold;
 }
 button.ClaimNow {
-    background: #FF4053;
+    background: #FF7A1A;
     font-size: 12px;
     color: #fff;
     font-weight: 700;
@@ -432,9 +433,9 @@ p.GetProfitdes {
     font-size: 11px;
     margin: 10px 0 15px;
 }
-/*Top Rakeback Offers Css End*/
+/*Top Cashback Offers Css End*/
 
-/*Trusted by Thousands of Poker Players Css Start*/
+/*Trusted by Thousands of Shopping Players Css Start*/
 .RakebackTrustedPoker {
     padding-top: 72px;
     padding-bottom: 72px;
@@ -444,7 +445,7 @@ p.GetProfitdes {
 .RakebackTrustedPoker .title {
     font-size: 36px;
     font-weight: 800;
-    color: #ff4053;
+    color: #0052CC;
 }
 .RakebackTrustedPoker .titleAccent{
     color: #1a1a1a;
@@ -558,9 +559,9 @@ p.GetProfitdes {
     transform: translateX(-50%);
   }
 }
-/*Trusted by Thousands of Poker Players Css End*/
+/*Trusted by Thousands of Shopping Players Css End*/
 
-/*Get Started Rakeback  Css Start*/
+/*Get Started Cashback  Css Start*/
 .RakebackGetStarted {
     padding-top: 72px;
     padding-bottom: 72px;
@@ -577,7 +578,7 @@ p.GetProfitdes {
     margin-bottom: 48px;
 }
 .GetStartedhead .highlight {
-    color: #ff4053;
+    color: #FF7A1A;
 }
 .GetStartedhead .subtitle {
     font-size: 20px;
@@ -608,7 +609,7 @@ p.GetProfitdes {
     right: 30px;
     font-size: 110px;
     font-weight: 800;
-    color: #FF4053;
+    color: #FF7A1A;
 }
 .GetStartedCard  .card:hover {
     transform: translateY(-2px);
@@ -642,7 +643,7 @@ p.GetProfitdes {
     font-weight: 400;
 }
 .joinButton {
-    background: #ff4053;
+    background: #FF7A1A;
     color: white;
     border: none;
     border-radius: 8px;
@@ -660,9 +661,9 @@ p.GetProfitdes {
     margin-top: 48px;
 }
 
-/*Get Started Rakeback  Css Start*/
+/*Get Started Cashback  Css Start*/
 
-/*Rakeback Featured Blog  Css Start*/
+/*Cashback Featured Blog  Css Start*/
 .RakebackFeaturedBlog {
     padding-top: 80px;
     padding-bottom: 80px;
@@ -677,11 +678,11 @@ p.GetProfitdes {
 .formsection select.form-control {
     border: 1px solid #000;
     border-radius: 8px;
-    border-color: #FF4053;
+    border-color: #FF7A1A;
     height: 52px;
 }
 .ContactUS.RetagPage .formsection .form-control:focus {
-    border: 1px solid #ff4053;
+    border: 1px solid #FF7A1A;
     outline: none;
     box-shadow: none;
 }
@@ -740,7 +741,7 @@ p.GetProfitdes {
 }
 
 .RakebackFeaturedBlog .tabsWrapper .activeTab {
-  color: #FF4053;
+  color: #FF7A1A;
 }
 
 .RakebackFeaturedBlog .tabsWrapper .activeTab:before {
@@ -749,7 +750,7 @@ position: absolute;
 max-width:154px ;
     width: 154px;
 height: 4px;
-background-color: #FF4053;
+background-color: #FF7A1A;
 bottom: 0;
 left: 50%;
 transform: translate(-50%);
@@ -777,7 +778,7 @@ transform: translate(-50%);
     display: none;
 }
 .AutherINfo h3 {
-    color: #FF4053;
+    color: #FF7A1A;
     font-weight: 700;
     display: none;
 }
@@ -938,7 +939,7 @@ transform: translate(-50%);
 .RakebackFeaturedBlog .sideCategory {
     display: inline-block;
     background: transparent;
-    color: #FF4053;
+    color: #FF7A1A;
     font-size: 12px;
     padding: 0;
     border-radius: 2px;
@@ -975,7 +976,7 @@ transform: translate(-50%);
 }
 .RakebackFeaturedBlog .exploreButton {
     background: #fff;
-    border: 1px solid #FF4053;
+    border: 1px solid #FF7A1A;
     border-radius: 8px;
     padding: 12px 25px;
     height: 52px;
@@ -984,19 +985,19 @@ transform: translate(-50%);
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-        color: #FF4053;
+        color: #FF7A1A;
         text-transform: uppercase;
 }
 .RakebackFeaturedBlog .sidePost:hover p.sideDescription {
-    color: #FF4053;
+    color: #FF7A1A;
 }
 .RakebackFeaturedBlog .sidePost:hover span.sideCategory {
     color: #000;
     font-weight: 800;
 }
-/*Rakeback Featured Blog  Css ENd*/
+/*Cashback Featured Blog  Css ENd*/
 
-/*Rakeback Why Choose Us  Css Start*/
+/*Cashback Why Choose Us  Css Start*/
 .RakebackWhyChooseUS {
     background: #fff;
     margin-bottom: 20px;
@@ -1030,10 +1031,10 @@ transform: translate(-50%);
 /* .container-cards.featuresList .card.focused {
     background-color: #FFEBEF;
     color: white;
-    border-color: #ff4053;
+    border-color: #FF7A1A;
 }
 .container-cards.featuresList .card.focused .featureTitle {
-    color: #FF4053;
+    color: #FF7A1A;
 } */
 
 .container-cards.featuresList .featuresList {
@@ -1074,9 +1075,9 @@ transform: translate(-50%);
   width: 100%;
   line-height: 140%;
 }
-/*Rakeback Why Choose Us  Css End*/
+/*Cashback Why Choose Us  Css End*/
 
-/*Rakeback clients have to say  Css Start*/
+/*Cashback clients have to say  Css Start*/
 .RakebackClientTest.RakebackSpace {
     background: #fff;
     margin-bottom: 20px;
@@ -1223,8 +1224,8 @@ transform: translate(-50%);
     opacity: 1;
     width: 28px;
     border-radius: 22px;
-    background: #FF4053;
-    border-color: #FF4053;
+    background: #FF7A1A;
+    border-color: #FF7A1A;
 }
 .slider .slick-dots li.slick-active button {
     width: 28px;
@@ -1232,10 +1233,10 @@ transform: translate(-50%);
 .ClientSlider.slider .slick-dots {
     bottom: -38px;
 }
-/*Rakeback clients have to say  Css End*/
+/*Cashback clients have to say  Css End*/
 
 
-/*Rakeback FAQ  Css Start*/
+/*Cashback FAQ  Css Start*/
 .RakebackFAQ {
     background-color: #fff;
     margin-bottom: 20px;
@@ -1296,7 +1297,7 @@ transform: translate(-50%);
 }
 .RakebackFAQ .faqItemActive button.toggleButton
  {
-    border-color: #ff4053;
+    border-color: #FF7A1A;
 }
 .RakebackFAQ .faqList {
   margin-bottom: 24px;
@@ -1395,9 +1396,9 @@ right: 8px
   cursor: pointer;
   width: 100%;
 }
-/*Rakeback FAQ  Css End*/
+/*Cashback FAQ  Css End*/
 
-/*Rakeback newsletter  Css start*/
+/*Cashback newsletter  Css start*/
 .RakebackNewsletter{
     padding-top: 54px;
     padding-bottom: 54px;
@@ -1508,14 +1509,15 @@ right: 8px
   width: 200px;
   height: 200px;
 }
-/*Rakeback newsletter  Css end*/
+/*Cashback newsletter  Css end*/
 
-/*Rakeback footer  Css start*/
+/*Cashback footer  Css start*/
 .customFooter {
-    background-color: #252525;
-    color: #ffffff;
+    background-color: #FFFFFF;
+    color: #1a1a1a;
     padding-top: 72px;
     padding-bottom: 72px;
+    border-top: 1px solid #E0E0E0;
 }
 .customFooter .brandSection {
   text-align: left;
@@ -1546,7 +1548,7 @@ right: 8px
   margin-bottom: 15px;
 }
 .customFooter .sectionTitle {
-    color: #FF4053;
+    color: #FF7A1A;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 32px;
@@ -1599,7 +1601,7 @@ right: 8px
     top: 0;
 }
 
-/*Rakeback footer  Css end*/
+/*Cashback footer  Css end*/
 
 
 
@@ -1608,13 +1610,13 @@ right: 8px
     padding: 0.25rem 0.75rem;
     font-size: 1.25rem;
     line-height: 1;
-    background-color: #000;
-    border: 1px solid transparent;
+    background-color: #F4F7FE;
+    border: 1px solid #E0E0E0;
     border-radius: 0.25rem;
     transition: box-shadow 0.15s ease-in-out;
 }
 
-/*Rakeback Deals page Css Start*/
+/*Cashback Deals page Css Start*/
 
 .Dealsclientssay{
      background: #fff;
@@ -1623,10 +1625,10 @@ right: 8px
 
 
 
-/*Rakeback Deals page Css End*/
+/*Cashback Deals page Css End*/
 
 
-/*Rakeback faqcontainer page Css start*/
+/*Cashback faqcontainer page Css start*/
 .faqcontainer
  {
     padding-top: 80px;
@@ -1670,12 +1672,12 @@ span.ChatSmallDes {
     padding: 14px 20px 28px;
 }
 .faqcontainer .actionButton:hover {
-    border: 1px solid #FF4053;
+    border: 1px solid #FF7A1A;
     
 }
 .GetINtouchBtn {
     padding: 9px 16px;
-    background: #FF4053;
+    background: #FF7A1A;
     border-radius: 6px;
     color: #fff;
     font-size: 13px;
@@ -1696,12 +1698,12 @@ span.ChatSmallDes {
 .GetINtouchHed {
     margin-top: 40px;
 }
-/*Rakeback faqcontainer page Css End*/
+/*Cashback faqcontainer page Css End*/
 
 
-/* ----------------------------  Rakeback Dashboard  Css Start ----------------------------*/
+/* ----------------------------  Cashback Dashboard  Css Start ----------------------------*/
 
-/*Rakeback Home Css Start*/
+/*Cashback Home Css Start*/
 .dropdown .NotificationButton {
     width: 50px;
     height: 50px;
@@ -1783,7 +1785,7 @@ span.ChatSmallDes {
 }
 .deal-button {
     background: none;
-    color: #ff4053;
+    color: #FF7A1A;
     border: none;
     border-radius: 8px;
     padding: 8px 16px;
@@ -1815,7 +1817,7 @@ span.ChatSmallDes {
     font-size: 12px;
     font-weight: 600;
     text-decoration: underline;
-    color: #ff4053;
+    color: #FF7A1A;
 }
 .HeadingSec div {
     margin-bottom: 0;
@@ -1874,7 +1876,7 @@ button.Pokerbazzi25.Pokerbazzi25DNO {
     justify-content: space-between;
     margin-bottom: 8px;
     font-size: 14px;
-    color: #FF4053;
+    color: #FF7A1A;
     font-weight: bold;
 }
 .mainPost .mainContent span.category span{
@@ -1910,7 +1912,7 @@ section#promotions p.small {
     margin-bottom: 20px;
 }
 a.small.seeMOre {
-    color: #FF4053 !important;
+    color: #FF7A1A !important;
     text-decoration: none;
     font-weight: 600;
 }
@@ -1952,7 +1954,7 @@ a.small.seeMOre {
     font-weight: 500;
 }
 .cardOfferSecond span {
-    color: #ff4053;
+    color: #FF7A1A;
     font-weight: bold;
     font-size: 12px;
 }
@@ -1976,7 +1978,7 @@ a.small.seeMOre {
 .AddClass {
     width: 100%;
     height: 140px;
-    background: #FF4053;
+    background: #FF7A1A;
     border-radius: 25px;
 }
 .OfferDelfrU .OffersForUchd.LatestNewsDsg .LatestNewsDsgTxt p.small {
@@ -2022,7 +2024,7 @@ a.small.seeMOre {
 }
 .LatestNewsDsgTxtDec span {
     font-size: 12px;
-    color: #FF4053;
+    color: #FF7A1A;
     font-weight: bold;
         margin-right: 5px;
 }
@@ -2122,7 +2124,7 @@ div#Gotaquestion
     }
 
     .pagination .active {
-      background-color: #ff4053;
+      background-color: #FF7A1A;
       color: #fff;
       font-weight: bold;
     }
@@ -2207,7 +2209,7 @@ div#Gotaquestion
     font-weight: 500;
 }
 .PromotionsandOffers .card-subtitle strong {
-    color: #FF4053;
+    color: #FF7A1A;
 }
 .PokerIdDB.nav-tabs li.nav-item {
     margin-right: 37px;
@@ -2223,8 +2225,8 @@ div#Gotaquestion
     color: #000000;
 }
 .PokerIdDB.nav-tabs .nav-link.active, .PokerIdDB.nav-tabs .nav-item.show .nav-link {
-    color: #FF4053;
-    border-bottom: 3px solid #FF4053;
+    color: #FF7A1A;
+    border-bottom: 3px solid #FF7A1A;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     font-weight: 800;
@@ -2266,7 +2268,7 @@ div#Gotaquestion
 
 .PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"] {
     /* background: #FFF6F7; */
-    border: 1px solid #FF4053;
+    border: 1px solid #FF7A1A;
     position: relative;
     overflow: hidden;
 }
@@ -2287,7 +2289,7 @@ div#Gotaquestion
     /* background: #F1FFF4;
     border: 1px solid #28A745; */
     /* background: #FFF6F7; */
-    border: 1px solid #FF4053;
+    border: 1px solid #FF7A1A;
     position: relative;
     overflow: hidden;
 }
@@ -2339,7 +2341,7 @@ div#Gotaquestion
 }
 .formControl button {
     padding: 0px 40px;
-    background: #FF4053;
+    background: #FF7A1A;
     height: 52px;
     color: #fff;
     border-radius: 8px;
@@ -2363,7 +2365,7 @@ div#Gotaquestion
 .ContactUSHeading h1 {
     margin-bottom: 20px;
     font-size: 40px;
-    color: #FF4053;
+    color: #FF7A1A;
     font-weight: 800;
 }
 .ContactUSHeading p {
@@ -2381,7 +2383,7 @@ div#Gotaquestion
 }
 .ContactInfoleft {
     padding: 30px 20px;
-    background: #FF4053;
+    background: #FF7A1A;
     width: 40%;
     border-radius: 10px;
     color: #fff;
@@ -2435,7 +2437,7 @@ div#Gotaquestion
 }
 
 .formsection  .form-control:focus {
-    border-bottom: 2px solid #ff4053;
+    border-bottom: 2px solid #FF7A1A;
     outline: none;
     box-shadow: none;
 }
@@ -2444,15 +2446,15 @@ div#Gotaquestion
     margin: 0 0 10px;
 }
 .formsection .form-check-input:checked {
-    background-color: #ff4053;
-    border-color: #ff4053;
+    background-color: #FF7A1A;
+    border-color: #FF7A1A;
     box-shadow: none;
 }
 .formsection .form-check-label {
     font-size: 12px;
 }
 .formsection .btn-submit {
-    background-color: #ff4053;
+    background-color: #FF7A1A;
     color: white;
     padding: 10px 24px;
     border-radius: 8px;
@@ -2539,7 +2541,7 @@ div#Gotaquestion
     .KYCDB .step-number {
       width: 35px;
       height: 35px;
-      background-color: #ff4053;
+      background-color: #FF7A1A;
       color: white;
       font-weight: bold;
       border-radius: 50%;
@@ -2558,7 +2560,7 @@ div#Gotaquestion
     padding: 0 20px;
 }
 .KYCDB .btn-pink {
-    background-color: #FF4053;
+    background-color: #FF7A1A;
     color: white;
     border-radius: 15px;
     border: none;
@@ -2644,7 +2646,7 @@ div#Gotaquestion
     height: 45px;
     font-size: 18px;
     border-radius: 6px;
-    background: #FF4053;
+    background: #FF7A1A;
     color: #fff;
     font-weight: bold;
 }
@@ -2652,7 +2654,7 @@ div#Gotaquestion
     padding: 20px;
     background: #F4F4F4;
     font-size: 20px;
-    color: #FF4053;
+    color: #FF7A1A;
     font-weight: bold;
     text-align: center;
 }
@@ -2701,13 +2703,13 @@ div#Gotaquestion
 
 .formButton.KYCSendOTP:focus
  {
-    background: #ff4053;
+    background: #FF7A1A;
     color: #fff;
 }
 
 .formButton.KYCSendOTP:hover
  {
-    background: #ff4053;
+    background: #FF7A1A;
     color: #fff;
 }
 .KYCSuccessMsg {
@@ -2731,9 +2733,9 @@ div#Gotaquestion
     height: 27px;
     border-radius: 6px;
     background: transparent;
-    border: 1px solid #FF4053;
+    border: 1px solid #FF7A1A;
     font-size: 12px;
-    color: #FF4053;
+    color: #FF7A1A;
 }
 
  .dropdown-menu.NavbarDropdown {
@@ -2769,13 +2771,13 @@ div#Gotaquestion
 }
 .NavbarDropdown .dropdown-item h3 {
     font-size: 16px;
-    color: #ff4053;
+    color: #FF7A1A;
     margin: 0;
 }
 .NavbarDropdown .dropdown-item.active, .NavbarDropdown .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #ff4053;
+    background-color: #FF7A1A;
 }
 .NavbarDropdown .dropdown-item.active h3, .NavbarDropdown .dropdown-item:active h3,
 .NavbarDropdown .dropdown-item.active span, .NavbarDropdown .dropdown-item:active span
@@ -2903,8 +2905,8 @@ div#Gotaquestion
 .DesktopLatestNews .nav-pills .nav-link.active
  {
     background-color: transparent;
-    color: #FF4053;
-    border-bottom: 3px solid #FF4053;
+    color: #FF7A1A;
+    border-bottom: 3px solid #FF7A1A;
     border-radius: 0px;
 }
    .DesktopLatestNews  .blog-card img { border-radius: 8px; }
@@ -2926,7 +2928,7 @@ div#Gotaquestion
         font-size: 16px; font-weight: bold; text-transform: uppercase; color: #ff4d4d;
      }
 .DesktopLatestNews .newsletter {
-    background: #ff4053;
+    background: #FF7A1A;
     color: #fff;
     padding: 50px 30px;
     border-radius: 8px;
@@ -2987,7 +2989,7 @@ div#Gotaquestion
 .DesktopLatestNews .tab-content h4.section-title {
     font-size: 31px;
     font-weight: 500;
-    color: #ff4053;
+    color: #FF7A1A;
     margin-bottom: 22px;
 }
 .DesktopLatestNews .card.blog-card.BlogCardFullHeifht img {
@@ -3081,7 +3083,7 @@ div#Gotaquestion
     height: 100%;
 }
 .AutherINfo h3 {
-    color: #FF4053;
+    color: #FF7A1A;
     font-weight: 700;
 }
 .DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost  .SliderFooter button {
@@ -3180,7 +3182,7 @@ div#Gotaquestion
 }
 
 .SpacedicAdd.SpacedicAddsBAckground {
-    background: #ff4053;
+    background: #FF7A1A;
     height: 356px;
     border-radius: 4px;
     margin: 0 0 20px;
@@ -3250,8 +3252,8 @@ div#Gotaquestion
 }
 
 .DesktopLatestNews .page-number.active {
-    color: #FF4053;
-    border: 0.5px solid #FF4053;
+    color: #FF7A1A;
+    border: 0.5px solid #FF7A1A;
 }
 .DesktopLatestNews .dots {
   font-size: 18px;
@@ -3393,8 +3395,8 @@ div#Gotaquestion
 }
 .tagBtn .badge-custom {
     background-color: #fff;
-    color: #FF4053;
-    border: 1px solid #FF4053;
+    color: #FF7A1A;
+    border: 1px solid #FF7A1A;
     padding: 6px 12px;
     border-radius: 20px;
     margin-right: 0;
@@ -3491,7 +3493,7 @@ div#Gotaquestion
 .ProfilePAgeformrow .form-control:focus {
     color: #212529;
     background-color: #fff;
-    border-color: #ff4053;
+    border-color: #FF7A1A;
     outline: 0;
     box-shadow: none;
 }
@@ -3625,7 +3627,7 @@ div#Gotaquestion
 .SliderBanner span {
     width: 81px;
     height: 28px;
-    background: #FF4053;
+    background: #FF7A1A;
     font-size: 10px;
     font-weight: bold;
     position: absolute;
@@ -3649,7 +3651,7 @@ p.GetProfitdes {
     gap: 8px;
     padding: 8px 12px;
     border-radius: 4.26px;
-    border: 1px dashed #FF4053;
+    border: 1px dashed #FF7A1A;
     font-size: 10px;
     color: #000;
 }
@@ -3657,7 +3659,7 @@ p.GetProfitdes p {
     margin: 0;
     font-size: 14px;
     font-weight: bolder;
-    color: #FF4053;
+    color: #FF7A1A;
 }
 ul.SliderList {
     margin: 0;
@@ -3754,7 +3756,7 @@ button.Pokerbazzi25 {
     font-weight: bold;
 }
 
-.poker-glossary-navigation {
+.shopping-glossary-navigation {
     align-items: flex-start;
     background: #fff;
     gap: 12px;
@@ -3802,15 +3804,15 @@ button.Pokerbazzi25 {
     padding-left: 15px;
     position: relative;
 }
-.nav.poker-glossary-navigation a.active {
-    color: #FF4053;
-    border-bottom: 2px solid #FF4053;
+.nav.shopping-glossary-navigation a.active {
+    color: #FF7A1A;
+    border-bottom: 2px solid #FF7A1A;
 }
 .DictionaryData h2.active
  {
     background: #FFE8EA;
     margin: 0px 0 0;
-    color: #FF4053;
+    color: #FF7A1A;
 }
 .article-content .DictionaryData ul {
     font-size: 14px;
@@ -3868,8 +3870,8 @@ button.Pokerbazzi25 {
 .dictionaryPage .tagBtn .badge-custom
  {
     background-color: #fff;
-    color: #FF4053;
-    border: 1px solid #FF4053;
+    color: #FF7A1A;
+    border: 1px solid #FF7A1A;
     padding: 2px 12px;
     border-radius: 20px;
     margin-right: 0;
@@ -3902,7 +3904,7 @@ button.Pokerbazzi25 {
     margin-top: 44px;
 }
 .BLogPAgesFooterIcon .SliderFooter button.ClaimNow {
-    background: #FF4053;
+    background: #FF7A1A;
     font-size: 16px;
     color: #fff;
     font-weight: bold;
@@ -3913,7 +3915,7 @@ button.Pokerbazzi25 {
 
  .seeMoreOffers {
     background: #fff;
-    border: 1px solid #FF4053;
+    border: 1px solid #FF7A1A;
     border-radius: 8px;
     padding: 0px 0px;
     height: 45px;
@@ -3922,7 +3924,7 @@ button.Pokerbazzi25 {
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    color: #FF4053;
+    color: #FF7A1A;
     text-transform: uppercase;
 }
 /* .cursor {
@@ -4062,7 +4064,7 @@ button.Pokerbazzi25 {
     color: #fff;
   }
 .ReviewHeader .join-btn {
-    background-color: #FF4053;
+    background-color: #FF7A1A;
     color: white;
     padding: 12px 19px;
     border: none;
@@ -4180,7 +4182,7 @@ button.Pokerbazzi25 {
     border: none;
 }
 .ReviewTaggingTab ul.nav.TabUI li.nav-item button.nav-link.active {
-    background: #FF4053;
+    background: #FF7A1A;
     color: #fff;
 }
 .ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link
@@ -4326,7 +4328,7 @@ button.Pokerbazzi25 {
 .SidePostTagBtn{
     width: 100%;
     height: 52px;
-    background: #FF4053;
+    background: #FF7A1A;
     border-radius: 12px;
     font-size: 16px;
     font-weight: bolder;
@@ -4415,11 +4417,11 @@ button.Pokerbazzi25 {
     border-radius: 0px;
 }
 .ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link.active {
-    color: #FF4053;
-    border-bottom: 2px solid #FF4053;
+    color: #FF7A1A;
+    border-bottom: 2px solid #FF7A1A;
 }
 .ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link.active svg path {
-    stroke: #FF4053;
+    stroke: #FF7A1A;
 }
 .ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link svg {
     margin-bottom: 3px;
@@ -4531,7 +4533,7 @@ button.Pokerbazzi25 {
 .single-post-right.sidebar.RightsidebarBlog.RetagRightsideba .card-header {
     background: transparent;
     font-size: 18px;
-    color: #FF4053;
+    color: #FF7A1A;
     padding: 11px;
     font-weight: bold;
     text-transform: capitalize;
@@ -4637,7 +4639,7 @@ button.Pokerbazzi25 {
     padding: 0 24px 28px;
 }
 .MobileReviewPAge .ReviewHeader .middle h3 {
-    color: #ff4053;
+    color: #FF7A1A;
     margin: 0;
     width: 100%;
     padding: 14px 0;
@@ -4678,7 +4680,7 @@ button.Pokerbazzi25 {
     font-size: 16px;
     font-weight: bold;
     padding: 14px 0;
-    color: #ff4053;
+    color: #FF7A1A;
 }
 .MobileReviewPAge .ReviewHeader .rating div {
     color: #000;
@@ -4742,7 +4744,7 @@ button.Pokerbazzi25 {
      border: none;
 }
 .DesktopLatestNews.MobileReviewPAge  .newsletter {
-    background: #ff4053;
+    background: #FF7A1A;
     color: #fff;
     padding: 28px 28px;
     border-radius: 8px;
@@ -4886,7 +4888,7 @@ background: #EFEFEF;
 .RakebackHeader .search-bar input:focus
 
  {
-    border-color: #ff4053;
+    border-color: #FF7A1A;
 }
 .RakebackHeader .navbar-nav .nav-link.active::after {
     content: "";
@@ -5010,7 +5012,7 @@ button.navbar-toggler svg
 .dropdown.NavBarProfileIcon .btn {
     width: 38px;
     height: 38px;
-    background: #FF4053;
+    background: #FF7A1A;
     position: relative;
     display: flex
 ;
@@ -5051,7 +5053,7 @@ button.navbar-toggler svg
 .howToTAg li span {
     width: 26px;
     height: 26px;
-    background: #FF4053;
+    background: #FF7A1A;
     display: flex
 ;
     justify-content: center;
@@ -5101,7 +5103,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     padding-left: 20px;
 }
 .howToTAg.DealsDetails li h5 {
-    color: #FF4053;
+    color: #FF7A1A;
 }
 .howToTAg li p {
     text-align: left;
@@ -5127,7 +5129,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     font-weight: bold;
 }
 .PokerRight  .HottestDealsDesc button.deal-button.mt-2.w-100 {
-    background: #ff4053;
+    background: #FF7A1A;
     color: #fff;
     height: 43px;
     border-radius: 6px;
@@ -5161,7 +5163,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
 .howToTAg  .card .card-header {
     background: transparent;
     font-size: 18px;
-    color: #FF4053;
+    color: #FF7A1A;
     padding: 11px;
     font-weight: bold;
     text-transform: capitalize;
@@ -5254,7 +5256,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
  {
     width: 4px;
     height: 4px;
-    background: #ff4053;
+    background: #FF7A1A;
     min-width: 4px;
     border-radius: 0px;
     position: relative;
@@ -5328,7 +5330,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     color: #1a1a1a;
 }
 .DealsOfferHed .titleAccent {
-    color: #ff4053;
+    color: #FF7A1A;
 }
 .DealsOfferHed .subtitle {
     font-size: 20px;
@@ -5460,4 +5462,118 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
 }
 .RakebackFeaturedBlogHP .mainPost .mainContent h3.mainTitle {
     font-weight: bold;
+}
+
+/* Grab Deal Button Styles - E-commerce Transformation */
+.GrabDealButton {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.GrabDealCode {
+    background: #F0F0F0;
+    border: 1px dashed #989898;
+    color: #000000;
+    font-size: 12px;
+}
+
+.GrabDealCode:hover {
+    background: #E5E5E5;
+    border-color: #0052CC;
+}
+
+.GrabDealPrimary {
+    background: #0052CC;
+    color: #FFFFFF;
+    border: none;
+}
+
+.GrabDealPrimary:hover {
+    background: #0047B3;
+    box-shadow: 0 4px 12px rgba(0, 82, 204, 0.3);
+}
+
+.GrabDealSecondary {
+    background: transparent;
+    color: #0052CC;
+    border: 2px solid #0052CC;
+    font-size: 12px;
+    padding: 8px 16px;
+}
+
+.GrabDealSecondary:hover {
+    background: #0052CC;
+    color: #FFFFFF;
+}
+
+/* Card Container Styles - Clean E-commerce Look */
+.cardContainer {
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border: 1px solid #ECECEC;
+    background: #FFFFFF;
+    transition: all 0.3s ease;
+}
+
+.cardContainer:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+}
+
+/* Offer Badge - Orange Highlight */
+.offerBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #FFF5EB;
+    color: #FF7A1A;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Replace red accents with orange for offers */
+.RakeBackTopOffers .titleAccent,
+.RakebackTrustedPoker .title,
+.GetStartedhead .highlight,
+.joinButton,
+.RakebackFeaturedBlog .tabsWrapper .activeTab,
+.RakebackFeaturedBlog .tabsWrapper .activeTab:before,
+button.ClaimNow,
+button.ClaimNow.ClaimNowDNO,
+.SliderBanner span,
+.RakebackNewsletter .submitButton,
+.customFooter .sectionTitle,
+.DealsOfferHed .titleAccent {
+    color: #FF7A1A !important;
+}
+
+.RakebackFeaturedBlog .tabsWrapper .activeTab,
+.RakebackFeaturedBlog .tabsWrapper .activeTab:before,
+.SliderBanner span,
+.JoinNow,
+.DealCardButton {
+    background: #FF7A1A !important;
+}
+
+/* Update pagination active state */
+.pagination .active {
+    background-color: #0052CC !important;
+    border-color: #0052CC !important;
+}
+
+/* Update slider dots */
+.slider .slick-dots li.slick-active button:before {
+    background: #0052CC !important;
+    border-color: #0052CC !important;
 }

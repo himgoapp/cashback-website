@@ -35,7 +35,7 @@ const JoinRakeback = () => {
 						<div className={styles.join_container}>
 							<SectionHeader
 								head='Join the RakeBack community?'
-								subhead='Join thousands of global poker players with Poker-Cash and turn every hand into a win!'
+								subhead='Join thousands of global shopping players with Shopping-Cash and turn every hand into a win!'
 							/>
 							{!userData && (
 								<Navbtn

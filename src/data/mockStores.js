@@ -1,73 +1,94 @@
-export const mockStores = [
+export const stores = [
   {
-    id: "amazon",
-    name: "Amazon India",
-    logoUrl: "https://logo.clearbit.com/amazon.in",
-    cashbackAmount: "10% Rewards",
-    category: "E-commerce",
+    id: 1,
+    name: "Amazon",
+    logo: "https://logo.clearbit.com",
+    cashbackRate: "Up to 8% Rewards",
+    category: "Electronics & Fashion",
+    ctaText: "Grab Deal",
+    url: "https://amazon.in"
   },
   {
-    id: "flipkart",
+    id: 2,
     name: "Flipkart",
-    logoUrl: "https://logo.clearbit.com/flipkart.com",
-    cashbackAmount: "8% Rewards",
-    category: "E-commerce",
+    logo: "https://logo.clearbit.com",
+    cashbackRate: "Up to 10% Cashback",
+    category: "Mobiles & Electronics",
+    ctaText: "Grab Deal",
+    url: "https://flipkart.com"
   },
   {
-    id: "myntra",
+    id: 3,
     name: "Myntra",
-    logoUrl: "https://logo.clearbit.com/myntra.com",
-    cashbackAmount: "12% Rewards",
+    logo: "https://logo.clearbit.com",
+    cashbackRate: "Flat 6% Cashback",
     category: "Fashion & Lifestyle",
+    ctaText: "Grab Deal",
+    url: "https://myntra.com"
   },
   {
-    id: "nykaa",
-    name: "Nykaa",
-    logoUrl: "https://logo.clearbit.com/nykaa.com",
-    cashbackAmount: "10% Rewards",
-    category: "Beauty & Personal Care",
-  },
-  {
-    id: "ajio",
+    id: 4,
     name: "Ajio",
-    logoUrl: "https://logo.clearbit.com/ajio.com",
-    cashbackAmount: "9% Rewards",
-    category: "Fashion & Lifestyle",
+    logo: "https://logo.clearbit.com",
+    cashbackRate: "Up to 12% Cashback",
+    category: "Clothing",
+    ctaText: "Grab Deal",
+    url: "https://ajio.com"
   },
   {
-    id: "tatacliq",
-    name: "Tata CLiQ",
-    logoUrl: "https://logo.clearbit.com/tatacliq.com",
-    cashbackAmount: "7% Rewards",
-    category: "E-commerce",
+    id: 5,
+    name: "Nykaa",
+    logo: "https://logo.clearbit.com",
+    cashbackRate: "Up to 5% Rewards",
+    category: "Beauty & Cosmetics",
+    ctaText: "Grab Deal",
+    url: "https://nykaa.com"
   },
   {
-    id: "paytmall",
-    name: "Paytm Mall",
-    logoUrl: "https://logo.clearbit.com/paytmmall.com",
-    cashbackAmount: "5% Rewards",
-    category: "Online Shopping",
+    id: 6,
+    name: "Mamaearth",
+    logo: "https://logo.clearbit.com",
+    cashbackRate: "Flat 15% Cashback",
+    category: "Personal Care",
+    ctaText: "Grab Deal",
+    url: "https://mamaearth.in"
   },
   {
-    id: "swiggy",
-    name: "Swiggy",
-    logoUrl: "https://logo.clearbit.com/swiggy.com",
-    cashbackAmount: "6% Rewards",
-    category: "Food Delivery",
+    id: 7,
+    name: "TataCliq",
+    logo: "https://logo.clearbit.com",
+    cashbackRate: "Up to 8% Cashback",
+    category: "Electronics & Luxury",
+    ctaText: "Grab Deal",
+    url: "https://tatacliq.com"
   },
   {
-    id: "zomato",
-    name: "Zomato",
-    logoUrl: "https://logo.clearbit.com/zomato.com",
-    cashbackAmount: "6% Rewards",
-    category: "Food Delivery",
+    id: 8,
+    name: "boAt",
+    logo: "https://logo.clearbit.com",
+    cashbackRate: "Flat 10% Rewards",
+    category: "Audio & Wearables",
+    ctaText: "Grab Deal",
+    url: "https://boat-lifestyle.com"
   },
   {
-    id: "bigbasket",
-    name: "BigBasket",
-    logoUrl: "https://logo.clearbit.com/bigbasket.com",
-    cashbackAmount: "8% Rewards",
-    category: "Groceries & Essentials",
+    id: 9,
+    name: "Pepperfry",
+    logo: "https://logo.clearbit.com",
+    cashbackRate: "Up to 10% Cashback",
+    category: "Furniture & Decor",
+    ctaText: "Grab Deal",
+    url: "https://pepperfry.com"
   },
+  {
+    id: 10,
+    name: "Udemy",
+    logo: "https://logo.clearbit.com",
+    cashbackRate: "Flat 20% Cashback",
+    category: "Online Courses",
+    ctaText: "Grab Deal",
+    url: "https://udemy.com"
+  }
 ];
 
+export const mockStores = stores;

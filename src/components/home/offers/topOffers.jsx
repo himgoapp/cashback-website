@@ -53,10 +53,10 @@ const TopOffers = () => {
       <div className={styles.container}>
         <div className={styles.header}>
           <h1 className={styles.title}>
-            Top Rakeback <span className={styles.titleAccent}>Offers</span>
+            Top Cashback <span className={styles.titleAccent}>Offers</span>
           </h1>
           <p className={styles.subtitle}>
-            Get unbeatable rakeback deals from India's most trusted poker sites.
+            Get unbeatable cashback deals from India's most trusted shopping sites.
           </p>
           <img src={offerStar} alt="star" className={styles.offerStar} />
         </div>
@@ -80,10 +80,10 @@ const TopOffers = () => {
     <div className={styles.container}>
       <div className={styles.header}>
         <h1 className={styles.title}>
-          Top Rakeback <span className={styles.titleAccent}>Offers</span>
+          Top Cashback <span className={styles.titleAccent}>Offers</span>
         </h1>
         <p className={styles.subtitle}>
-          Get unbeatable rakeback deals from India's most trusted poker sites.
+          Get unbeatable cashback deals from India's most trusted shopping sites.
         </p>
         <img src={offerStar} alt="star" className={styles.offerStar} />
       </div>
@@ -116,14 +116,14 @@ const TopOffers = () => {
                       className={styles.logo}
                     />
 
-                    <h3 className={styles.brandName}>{site.name || 'Poker Site'}</h3>
+                    <h3 className={styles.brandName}>{site.name || 'Shopping Site'}</h3>
                   </div>
                 </div>
 
                 <div className={styles.cardBody}>
                   <div className={styles.ratingSection}>
                     <div className={styles.rating}>
-                      <span className={styles.introText}>{site.name || 'Poker Site'}</span>
+                      <span className={styles.introText}>{site.name || 'Shopping Site'}</span>
                       <div className={styles.stars}>
                         {renderStars(site.rating || 4.5)}
                         <span className={styles.ratingText}>{site.rating || 4.5}</span>
@@ -141,7 +141,7 @@ const TopOffers = () => {
                         Ends: 22hrs 9min 99sec
                       </div>
                       <div className={styles.specialOfferDeal}>
-                        Rakebackk $200 / Save 55%
+                        Cashbackk $200 / Save 55%
                       </div>
                     </div>
                   </div>

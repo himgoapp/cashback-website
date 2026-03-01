@@ -158,6 +158,6 @@ const FaqSection = () => {
 
 export default FaqSection;
 const rightArrowIcon = <svg width="10" height="10" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M6.36523 1.69421L11.3998 6.49996L6.36523 11.3057" stroke="#ff4053" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
-    <path d="M11.3995 6.5L1.59961 6.5" stroke="#ff4053" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M6.36523 1.69421L11.3998 6.49996L6.36523 11.3057" stroke="#FF7A1A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M11.3995 6.5L1.59961 6.5" stroke="#FF7A1A" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" />
 </svg>
