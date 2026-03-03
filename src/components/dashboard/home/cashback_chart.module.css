@@ -42,7 +42,7 @@
 }
 
 .withdrawal_button {
-  background: #FF7A1A;
+  background: #1A73E8;
   color: #fff;
   border-radius: 33px;
   font-size: 22px;
@@ -138,7 +138,7 @@
   gap: 8px;
 }
 
-.rakeback_chart_ChartHeaderButton__LEZkf button {
+.cashback_chart_ChartHeaderButton__LEZkf button {
     height: 30px;
     padding: 8px;
     border-radius: 12px;
@@ -158,11 +158,11 @@
   border-radius: 50%;
 }
 .ChartHeaderButton button.active {
-  border-color: #FF7A1A;
-  color: #FF7A1A;
+  border-color: #1A73E8;
+  color: #1A73E8;
 }
 .ChartHeaderButton button.active span {
-  background: #FF7A1A;
+  background: #1A73E8;
 }
 .dashboard_greeting {
   font-size: 14px;
@@ -211,7 +211,7 @@
   color: black;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  background: #FF7A1A;
+  background: #1A73E8;
   margin-top: 30px;
 }
 
@@ -219,7 +219,7 @@
   font-size: 34px;
   font-weight: bold;
   width: 100%;
-  color: #FF7A1A;
+  color: #1A73E8;
   text-align: center;
 }
 
@@ -238,7 +238,7 @@
   align-items: center;
   color: #fff;
   box-shadow: 0px 0px 6px 2px #ffa9bb;
-  border: 1px solid #FF7A1A;
+  border: 1px solid #1A73E8;
   gap: 42px;
 }
 
@@ -269,9 +269,9 @@
 }
 
 .filter_option_active {
-  background-color: #FF7A1A;
+  background-color: #1A73E8;
   color: white;
-  border-color: #FF7A1A;
+  border-color: #1A73E8;
 }
 
 .date_select_button {
@@ -358,7 +358,7 @@
 }
 
 .apply_button:hover {
-  background-color: #FF7A1A;
+  background-color: #1A73E8;
 }
 
 
@@ -560,7 +560,7 @@
 .date_popup_content button {
   width: 100%;
   padding: 10px 0;
-  background-color: #FF7A1A;
+  background-color: #1A73E8;
   color: black;
   border: none;
   border-radius: 6px;
@@ -570,7 +570,7 @@
 }
 
 .date_popup_content button:hover {
-  background-color: #FF7A1A;
+  background-color: #1A73E8;
 }
 
 @media (max-width: 575px) {
@@ -589,7 +589,7 @@
     width: 66px;
     height: 66px;
   }
-    .rakeback_chart .withdrawal button {
+    .cashback_chart .withdrawal button {
         font-size: 12px;
         height: 100%;
         padding: 11px 29px;
@@ -598,7 +598,7 @@
     width: 66px;
     height: 66px;
   }
-  .MobileView .rakeback_chart .withdrawal_container {
+  .MobileView .cashback_chart .withdrawal_container {
     gap: 30px;
     padding: 30px 20px;
   }

@@ -37,7 +37,7 @@ export const HomeIcon = (
 	</svg>
 );
 
-export const PokerIcon = (
+export const ShoppingIcon = (
 	<ShoppingBag size={24} color="#0F172A" />
 );
 

@@ -1,12 +1,12 @@
 
 import BigCashLogo from "../assets/Review/BigCashWhite.png"
-import PokerBaaziHome from "../assets/Review/pokerBazziIcon.png"
-import JungleePokerHome from "../assets/Review/JUngleePokerIcon.png"
+import ShoppingBaaziHome from "../assets/Review/PokerBazziHB.png"
+import JungleeShoppingHome from "../assets/Review/JUngleePokerIcon.png"
 import WPTGlobalHome from "../assets/Review/WPTIcon.png"
-import ACRPokerHome from "../assets/Review/ACRPokerIcon.png"
-import CoinPokerHome from "../assets/Review/CoinPokerIcon.png"
-import POKERDANGAL from "../assets/Review/PokerDangalIcon.png"
-import SpartanPokerHome from "../assets/Review/SpartanPokerIcon.png"
+import ACRShoppingHome from "../assets/Review/ACRPokerIcon.png"
+import CoinShoppingHome from "../assets/Review/CoinPokerIcon.png"
+import SHOPPINGDANGAL from "../assets/Review/PokerDangalIcon.png"
+import SpartanShoppingHome from "../assets/Review/SpartanPokerIcon.png"
 
 
 export function extractHeadingsFromHTML(html) {
@@ -25,45 +25,45 @@ export function extractHeadingsFromHTML(html) {
 
 export const notRequired = ["_id", "editorRating",]
 
-export const getPokerSiteImage = (siteName) => {
+export const getShoppingSiteImage = (siteName) => {
     switch (siteName) {
         case "Junglee Shopping":
-            return JungleePokerHome;
+            return JungleeShoppingHome;
         case "Big Cash":
             return BigCashLogo;
         case "Shopping Baazi":
-            return PokerBaaziHome;
-        case "PokerDangal":
-            return POKERDANGAL;
+            return ShoppingBaaziHome;
+        case "ShoppingDangal":
+            return SHOPPINGDANGAL;
         case "ACR Shopping":
-            return ACRPokerHome;
+            return ACRShoppingHome;
         case "Coin Shopping":
-            return CoinPokerHome;
+            return CoinShoppingHome;
         case "WPT Global":
             return WPTGlobalHome;
         case "Spartan Shopping":
-            return SpartanPokerHome;
+            return SpartanShoppingHome;
     }
 };
 
 export const backgroundClassHelper = (siteName) => {
     switch (siteName) {
         case "Junglee Shopping":
-            return "ReviewHeader JungleePoker";
+            return "ReviewHeader JungleeShopping";
         case "Big Cash":
             return "ReviewHeader BigCash";
         case "Shopping Baazi":
-            return "ReviewHeader PokerBaazi";
+            return "ReviewHeader ShoppingBaazi";
         case "Shopping Dangal":
-            return "ReviewHeader PokerDangal";
+            return "ReviewHeader ShoppingDangal";
         case "ACR Shopping":
-            return "ReviewHeader ACRPoker";
+            return "ReviewHeader ACRShopping";
         case "Coin Shopping":
-            return "ReviewHeader CoinPoker";
+            return "ReviewHeader CoinShopping";
         case "WPT Global":
             return "ReviewHeader WPTGlobal";
         case "Spartan Shopping":
-            return "ReviewHeader SpartanPoker";
+            return "ReviewHeader SpartanShopping";
     }
 
 }

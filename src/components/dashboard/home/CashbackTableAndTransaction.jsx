@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./rackback_table_and_transaction.module.css";
+import styles from "./cashback_table_and_transaction.module.css";
 
 import {
   getStatusLabel,
@@ -10,8 +10,8 @@ import {
 } from "../../../helperFxns/colorCode";
 
 // import { color } from "framer-motion";
-const RakebackTable = ({ labels, dashboardInfo }) => {
-  const [rakebackData, setRakebackData] = useState([]);
+const CashbackTable = ({ labels, dashboardInfo }) => {
+  const [cashbackData, setCashbackData] = useState([]);
   const [allTransactions, setAllTransactions] = useState([]);
 
   // useEffect(() => {
@@ -32,7 +32,7 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
   };
 
   return (
-    <div className={styles.rakeback_container}>
+    <div className={styles.cashback_container}>
       <div className={styles.transactions_container}>
         <font className={styles.transaction_heading}>My Earnings</font>
         {dashboardInfo?.transactionsInfo?.length > 0 && (
@@ -96,4 +96,4 @@ const RakebackTable = ({ labels, dashboardInfo }) => {
   );
 };
 
-export default RakebackTable;
+export default CashbackTable;

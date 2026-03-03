@@ -9,7 +9,7 @@
 .chatBtn {
   width: 55px;
   height: 55px;
-  background-color: #0052cc;
+  background-color: #1A73E8 !important;
   color: white;
   border: none;
   border-radius: 50%;
@@ -67,9 +67,8 @@
 
 /* Background changes when active */
 .chatBtnActive {
-  background-color: #ffbf00;
-  color: black;
-  
+  background-color: #0f62c9;
+  color: white;
 }
 
 /* Popup Card */
@@ -78,13 +77,13 @@
   bottom: 70px;
   right: 0;
   width: 280px;
-  background: white;
+  background: #fff6f0;
   border-radius: 16px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
   padding: 16px;
   animation: fadeInUp 0.4s ease;
   overflow: hidden;
-  border: 1px solid #666;
+  border: 1px solid #1A73E8 !important;
 }
 
 /* Contact Options */
@@ -102,7 +101,7 @@
 }
 
 .contactOptions a:hover {
-  background-color: #f1f1f1;
+  background-color: rgba(26, 115, 232, 0.08);
   transform: translateX(4px);
 }
 

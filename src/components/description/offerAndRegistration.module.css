@@ -57,7 +57,7 @@
   gap: 0.875rem;
   align-self: stretch;
 }
-/* cgpoker start */
+/* cgshopping start */
 .offer_details_content .available_content_wrap {
   display: flex;
   flex-direction: column;
@@ -107,7 +107,7 @@
   font-weight: 400;
   line-height: 1.25rem; /* 142.857% */
 }
-/* cgpoker end */
+/* cgshopping end */
 .offer_details_content .divider {
   display: flex;
   height: 0.0625rem;

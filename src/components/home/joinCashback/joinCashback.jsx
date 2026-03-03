@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import SectionHeader from "../../common/section_header/sectionHeader";
 import Navbtn from "../../common/button/navbtn/navbtn";
-import styles from "./joinRakeback.module.css";
+import styles from "./joinCashback.module.css";
 import { Link,useNavigate } from "react-router-dom";
 import { UserContext } from "../../../App";
 import PopupSignin from "../../description/popup/signin";
 import Reveal from "../../common/reveal/Reveal";
 
-const JoinRakeback = () => {
+const JoinCashback = () => {
 	  const navigate = useNavigate();
 	const { loginTab, setLoginTab, userData } = useContext(UserContext);
 	const handleSignInClick = () => {
@@ -28,13 +28,13 @@ const JoinRakeback = () => {
 			}}
 		>
 			<div
-				className={`${styles.join_rakeback_container_wrapper} container_max`}
+				className={`${styles.join_cashback_container_wrapper} container_max`}
 			>
-				<div className={`${styles.join_rakeback_container}`}>
+				<div className={`${styles.join_cashback_container}`}>
 					<div className={styles.join_wrapper}>
 						<div className={styles.join_container}>
 							<SectionHeader
-								head='Join the RakeBack community?'
+								head='Join the cashback community?'
 								subhead='Join thousands of global shopping players with Shopping-Cash and turn every hand into a win!'
 							/>
 							{!userData && (
@@ -67,7 +67,7 @@ const JoinRakeback = () => {
 	);
 };
 
-export default JoinRakeback;
+export default JoinCashback;
 
 const Icon1 = () => (
 	<svg

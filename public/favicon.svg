@@ -1,0 +1,25 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="favGrad" x1="0" y1="0" x2="64" y2="64">
+      <stop offset="0%" stop-color="#1A73E8"></stop>
+      <stop offset="100%" stop-color="#22C55E"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Tilted Background -->
+  <rect x="4" y="4" width="56" height="56" rx="14" fill="url(#favGrad)" transform="rotate(-8 32 32)"></rect>
+
+  <!-- Stylized E -->
+  <path d="M18 26 H46
+           M18 34 H38
+           M18 42 H46" stroke="white" stroke-width="4" stroke-linecap="round"></path>
+
+  <!-- Curved Arrow -->
+  <path d="M26 24
+           C40 24, 46 32, 46 32
+           L40 28
+           M46 32
+           L40 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+
+</svg>

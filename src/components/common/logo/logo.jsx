@@ -60,7 +60,7 @@ transform="scale(-1,1) translate(-92,0)"
     </div>
   );
 };
-const RakebackLogo = () => {
+const CashbackLogo = () => {
   return (
     <div className={styles.logo}>
       <svg
@@ -177,5 +177,5 @@ const LogoLight = () => {
 };
 
 export default Logo;
-export {RakebackLogo};
+export {CashbackLogo};
 export { LogoLight };

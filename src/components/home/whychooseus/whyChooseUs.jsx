@@ -152,7 +152,7 @@ const WhyChooseUs = () => {
 
   return (
     <>
-      <div className="container-fluid RakebackWhyChooseUS RakebackSpace">
+      <div className="container-fluid CashbackWhyChooseUS CashbackSpace">
         <div className="container">
           <div className="row">
             <div className="col-lg-5 text-left GetStartedhead">

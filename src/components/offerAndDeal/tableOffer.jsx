@@ -3,8 +3,8 @@
 // const ClientTable = () => {
 //   const clientData = [
 //     {
-//       name: "PokerBaazi",
-//       logo: "/images/pokerbaazi.png",
+//       name: "ShoppingBaazi",
+//       logo: "/images/shoppingbaazi.png",
 //       offer: "STRATEGY",
 //       date: "6/23/2025",
 //       description: "Pietrangelo hopes he'll sign contract to remain with Blues",
@@ -13,11 +13,11 @@
 //         "Pietrangelo hopes he'll sign contract",
 //         "Pietrangelo hopes he'll sign contract",
 //       ],
-//       promoCode: "POKERBAAZI25",
+//       promoCode: "SHOPPINGBAAZI25",
 //     },
 //     {
-//       name: "PokerDangal",
-//       logo: "/images/pokerdangal.png",
+//       name: "ShoppingDangal",
+//       logo: "/images/shoppingdangal.png",
 //       offer: "STRATEGY",
 //       date: "6/23/2025",
 //       description: "Pietrangelo hopes he'll sign contract to remain with Blues",
@@ -26,11 +26,11 @@
 //         "Pietrangelo hopes he'll sign contract",
 //         "Pietrangelo hopes he'll sign contract",
 //       ],
-//       promoCode: "POKERBAAZI25",
+//       promoCode: "SHOPPINGBAAZI25",
 //     },
 //     {
 //       name: "ACR Shopping",
-//       logo: "/images/acrpoker.png",
+//       logo: "/images/acrshopping.png",
 //       offer: "STRATEGY",
 //       date: "6/23/2025",
 //       description: "Pietrangelo hopes he'll sign contract to remain with Blues",
@@ -39,7 +39,7 @@
 //         "Pietrangelo hopes he'll sign contract",
 //         "Pietrangelo hopes he'll sign contract",
 //       ],
-//       promoCode: "POKERBAAZI25",
+//       promoCode: "SHOPPINGBAAZI25",
 //     },
 //     // Add more rows as needed
 //   ];

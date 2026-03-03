@@ -12,7 +12,7 @@ import { UserContext } from "../App";
 import ContentDeposit from "../components/description/ContentDeposit";
 import CaskBackStep from "../components/description/CashBackStep";
 import CashBackTimeMachine from "../components/description/CashBackTimeMachine";
-import RakeBackStructure from "../components/description/RakeBackStructure";
+import CashbackStructure from "../components/description/CashbackStructure";
 import { getProductById } from "../servicefile/productservice";
 import Meta from "../Meta";
 const DescriptionPage = () => {
@@ -57,7 +57,7 @@ const DescriptionPage = () => {
               <ContentDeposit />
               <CaskBackStep />
               <CashBackTimeMachine />
-              <RakeBackStructure />
+              <CashbackStructure />
             </DescriptionContentWrapper>
           </MainContainer>
           {/* banner background image */}

@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import SwiperMain from "./main.js";
 
-import ACRPoker from "../../../assets/ACRPoker.png"; // adjust path as per your structure
+import ACRShopping from "../../../assets/ACRPoker.png"; // adjust path as per your structure
 import "./main.scss"; // your SCSS or CSS file
 
 const slides = [
@@ -56,7 +56,7 @@ const Carousel = () => {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div className="swiper-carousel-animate-opacity">
-              <img src={ACRPoker} alt={slide.title} />
+              <img src={ACRShopping} alt={slide.title} />
               <div className="slide-content">
                 <h2>{slide.title}</h2>
                 <p>{slide.description}</p>

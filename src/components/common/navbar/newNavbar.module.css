@@ -25,11 +25,11 @@
 .brandName {
   font-size: 16px;
   font-weight: 700;
-  color: #FF7A1A;
+  color: #1A73E8;
 }
 
 .loginButton {
-  background-color: #FF7A1A;
+  background-color: #1A73E8;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -100,7 +100,7 @@
 .loginFooter {
   height: 51px;
   padding: 1rem;
-  background-color: #FF7A1A;
+  background-color: #1A73E8;
   color: white;
   border: none;
   border-radius: 8px;

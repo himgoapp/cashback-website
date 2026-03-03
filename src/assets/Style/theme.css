@@ -1,7 +1,7 @@
 :root{
   --bg: #ffffff;
   --primary: #0052CC; /* professional blue */
-  --accent: #FF7A1A;  /* orange */
+  --accent: #1A73E8;  /* orange */
   --muted: #6B7280;
   --radius: 8px;
 }
@@ -16,7 +16,7 @@ body{
 }
 
 /* Buttons - map old class names to new shopping style */
-.Pokerbazzi25, .coupon-btn{
+.Shoppingbazzi25, .coupon-btn{
   background: transparent;
   color: var(--muted);
   border: 1px dashed rgba(0,0,0,0.08);
@@ -45,7 +45,7 @@ body{
 }
 
 /* Slider CTA adjustments */
-.SliderFooter .Pokerbazzi25{ background:transparent; color:var(--primary); border:1px solid var(--primary); }
+.SliderFooter .Shoppingbazzi25{ background:transparent; color:var(--primary); border:1px solid var(--primary); }
 .SliderFooter .ClaimNow{ background:var(--primary); }
 
 /* Offer badge */

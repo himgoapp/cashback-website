@@ -23,7 +23,7 @@
 .trustLabel {
   font-size: 28px;
   font-weight: 700;
-  color: #FF7A1A;
+  color: #1A73E8;
   line-height: 120%;
   margin-bottom: -2px;
 text-align: left;
@@ -173,7 +173,7 @@ left: 350px;
     right: 8%;
   }
   
-  .pokerChip {
+  .shoppingChip {
     top: 15%;
     right: 3%;
     width: 40px;

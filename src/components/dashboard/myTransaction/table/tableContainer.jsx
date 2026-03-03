@@ -477,7 +477,7 @@ const TableContainer = ({ transactionType }) => {
       ? [
           {
             name: "TDS",
-            selector: (row) => row.rackbackcut,
+            selector: (row) => row.cashbackcut,
             sortable: false,
             right: true,
             cell: (row) =>
@@ -493,7 +493,7 @@ const TableContainer = ({ transactionType }) => {
                   className={styles.tdsAmount}
                   style={{ fontFamily: '"Roboto",sans-serif' }}
                 >
-                  {formatCurrency(row.rackbackcut)}
+                  {formatCurrency(row.cashbackcut)}
                 </span>
               ),
           },
@@ -503,7 +503,7 @@ const TableContainer = ({ transactionType }) => {
       ? [
           {
             name: "Site Name",
-            selector: (row) => row.rackbackcut,
+            selector: (row) => row.cashbackcut,
             sortable: false,
             right: true,
             cell: (row) =>
@@ -532,7 +532,7 @@ const TableContainer = ({ transactionType }) => {
       ? [
           {
             name: "Type",
-            selector: (row) => row.rackbackcut,
+            selector: (row) => row.cashbackcut,
             sortable: false,
             right: true,
             cell: (row) =>
@@ -725,7 +725,7 @@ const TableContainer = ({ transactionType }) => {
                     <div className={styles.receiptRow}>
                       <span className={styles.receiptLabel}>TDS Amount</span>
                       <span className={styles.receiptValue}>
-                        {formatCurrency(selectedTransaction.rackbackcut)}
+                        {formatCurrency(selectedTransaction.cashbackcut)}
                       </span>
                     </div>
                   )}

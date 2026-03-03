@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import EffectCarousel from "../demo-vite/effect-carousel.esm"
 import { getProductsSimple } from "../../../servicefile/productservice";
-import { getPokerClass } from "../../../helperFxns/colorCode";
+import { getShoppingClass } from "../../../helperFxns/colorCode";
 import { Percent, Tag, ShoppingBag } from "lucide-react";
 import Loading from "../../common/Loading/Loading";
 
@@ -66,7 +66,7 @@ const CenterSlider = () => {
                 {loading && <Loading size="md" />}
                 {/* Slides */}
                 {allProductIds && allProductIds.length > 0 && allProductIds.map((item, index) => (
-                    <SwiperSlide key={index}><div className={`slide-item ${getPokerClass(item.name)}`}>
+                    <SwiperSlide key={index}><div className={`slide-item ${getShoppingClass(item.name)}`}>
                         <div className="SliderBox ">
                             <div className="SliderBanner">
                                 <span>Exclusive</span>
@@ -99,7 +99,7 @@ const CenterSlider = () => {
                                 </div>
                                 <div className="OfferSlider">
                                     <span>
-                                                <Tag size={16} color="#FF7A1A" />
+                                                <Tag size={16} color="#1A73E8" />
                                             Bonus
                                     </span>
                                     <h3>
@@ -133,7 +133,7 @@ const CenterSlider = () => {
                                             <path d="M2 7L5 10L11 4" stroke="#28A745" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
 
-                                        20% off on rackbackk upto 1000$
+                                        20% off on cashback upto 1000$
                                     </li>
                                     <li>
                                         <svg width="13" height="14" viewBox="0 0 13 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -143,8 +143,8 @@ const CenterSlider = () => {
                                     </li>
                                 </ul>
                                 <div className="SliderFooter">
-                                    <button className="Pokerbazzi25" onClick={() => navigate(`/review/${item._id}`)}>View Details</button>
-                                    <button className="ClaimNow" onClick={() => navigate(`/dashboard/pokerid`)}>Grab Deal</button>
+                                    <button className="Shoppingbazzi25" onClick={() => navigate(`/review/${item._id}`)}>View Details</button>
+                                    <button className="ClaimNow" onClick={() => navigate(`/dashboard/shoppingid`)}>Grab Deal</button>
                                 </div>
                             </div>
                         </div>

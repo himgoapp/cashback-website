@@ -229,7 +229,7 @@ button {
 
 .loader {
   border: 12px solid #e8e6e6; /* Light grey */
-  border-top: 12px solid #FF7A1A; /* Blue */
+  border-top: 12px solid #1A73E8; /* Blue */
   border-radius: 50%;
   width: 100px;
   height: 100px;

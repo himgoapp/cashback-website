@@ -5,8 +5,7 @@ import DashboardMain from "../../../layout/dashboardMain";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardDealCards from "./dashboardDealCards";
 import { UserContext } from "../../../App";
-import RakebackChart from "./RakebackChart";
-import RackbackTableAndTransaction from "./RackbackTableAndTransaction";
+import CashbackChart from "./CashbackChart";
 import { HomeIcon } from "../../../utils/dashboardMainHeadersIcon";
 import { graphData as mockGraphData } from "../../../data/mockUserData";
 
@@ -34,7 +33,7 @@ const HomeMain = ({ data }) => {
       <DashboardMain>
         {/* Other components you may add later */}
         {dashboardInfo && dashboardInfo.user && (
-          <RakebackChart
+          <CashbackChart
             dashboardInfo={dashboardInfo}
             userKyc={userKyc}
             graphData={graphData}

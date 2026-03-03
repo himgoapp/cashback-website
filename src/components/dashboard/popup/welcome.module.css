@@ -125,7 +125,7 @@
 .primaryButton {
     width: 100%;
     height: 68px;
-    background: #FF7A1A;
+    background: #1A73E8;
     color: white;
     border-radius: 8px;
     font-size: 16px;
@@ -191,7 +191,7 @@
     text-align: center;
     font-size: 37.29px;
     font-weight: 600;
-    border: 1.04px solid #FF7A1A;
+    border: 1.04px solid #1A73E8;
     border-radius: 5.18px;
     outline: none;
     transition: all 0.3s ease;
@@ -206,13 +206,13 @@
 }
 .resendContainer p {
   margin:0px;
-  color: #FF7A1A;
+  color: #1A73E8;
 }
 
 .resendButton {
   background: none;
   border: none;
-  color: #FF7A1A;
+  color: #1A73E8;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.2s;
@@ -220,7 +220,7 @@
 }
 
 .resendButton:hover {
-  color: #FF7A1A;
+  color: #1A73E8;
 }
 
 .resendButton:after {
@@ -230,7 +230,7 @@
   height: 2px;
   bottom: 0;
   left: 50%;
-  background-color: #FF7A1A;
+  background-color: #1A73E8;
   transition: all 0.3s ease;
 }
 
@@ -246,7 +246,7 @@
   height: 2px;
   bottom: 0;
   left: 50%;
-  background-color: #FF7A1A;
+  background-color: #1A73E8;
   transition: all 0.3s ease;
 }
 
@@ -256,14 +256,14 @@
 }
 
 .timer {
-  color: #FF7A1A;
+  color: #1A73E8;
   font-weight: 600;
 }
 
 .editButton {
       background: none;
     border: none;
-    color: #FF7A1A;
+    color: #1A73E8;
     font-weight: 400;
     cursor: pointer;
     margin-left: 4px;
@@ -275,7 +275,7 @@
 }
 
 .editButton:hover {
-  color: #FF7A1A;
+  color: #1A73E8;
 }
 
 .editButton:after {
@@ -285,7 +285,7 @@
   height: 2px;
   bottom: 0;
   left: 50%;
-  background-color: #FF7A1A;
+  background-color: #1A73E8;
   transition: all 0.3s ease;
 }
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Check } from 'lucide-react';
+import { Star, Check, ShoppingBag } from 'lucide-react';
 import styles from './topOffers.module.css';
 import offerImage from "../../../assets/Logos_and_illustration/offerImage.png"
 import offerStar from "../../../assets/Logos_and_illustration/offerStar.svg"
@@ -174,7 +174,7 @@ const TopOffers = () => {
                       className={styles.claimButtonSmall}
                       onClick={() => window.open(site.siteLink || '#', '_blank')}
                     >
-                      <span className={styles.claimButtonText}>Claim Now</span>
+                      <span className={styles.claimButtonText}><ShoppingBag size={12} style={{marginRight: '4px'}}/> Grab Deal</span>
                     </button>
 
                   </div>

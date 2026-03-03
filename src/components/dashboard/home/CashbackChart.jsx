@@ -3,9 +3,9 @@ import { Line } from "react-chartjs-2";
 import WithdrawPopUp from "../popup/CreateWithdraw";
 import KycPopup from "../popup/kycpop";
 import { toast } from "react-toastify";
-import styles from "../home/rakeback_chart.module.css";
+import styles from "../home/cashback_chart.module.css";
 import backgroundImg from "../../../assets/DASHBOARDILLUSTRATIONN.png";
-import RakebackTable from "./RackbackTableAndTransaction";
+import CashbackTable from "./CashbackTableAndTransaction";
 import { useNavigate } from "react-router-dom";
 import events from "../../../assets/events.jpg";
 import Hotdeal from "../../../assets/HotDealICon.svg";
@@ -22,7 +22,7 @@ import {
 } from "recharts";
 import LastTransactions from "./lastTransaction";
 
-const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
+const CashbackChart = ({ dashboardInfo, userKyc, graphData }) => {
   const navigate = useNavigate();
   const [userWallet, setUserWallet] = useState(dashboardInfo.userWallet);
   const [showWithdraw, setShowWithdraw] = useState(false);
@@ -214,7 +214,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
           style={{
             width: "100%",
             padding: "10px",
-            backgroundColor: "#FF7A1A",
+            backgroundColor: "#1A73E8",
             color: "white",
             border: "none",
             borderRadius: "5px",
@@ -570,7 +570,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
                   <CartesianGrid strokeDasharray="0" />
                   <Bar
                     dataKey="Total"
-                    fill="#FF7A1A"
+                    fill="#1A73E8"
                     background={{ fill: "#F2F2F2" }}
                     radius={[10, 10, 10, 10]}
                   />
@@ -633,7 +633,7 @@ const RakebackChart = ({ dashboardInfo, userKyc, graphData }) => {
     </>
   );
 };
-export default RakebackChart;
+export default CashbackChart;
 
 const CalendarIcon = () => (
   <svg

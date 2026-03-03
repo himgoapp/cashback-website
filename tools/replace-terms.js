@@ -3,15 +3,15 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.resolve(__dirname, '..');
-const IGNORES = ['node_modules', 'build', '.git'];
+const IGNORES = ['node_modules', 'build', '.git', 'tools'];
 
 const replacements = [
-  // domains and exact names
-  { from: /cashback\.com/gi, to: 'cashbackk.com' },
-  { from: /cashback/gi, to: 'cashbackk' },
   { from: /rakeback\.com/gi, to: 'cashback.com' },
+  { from: /Rakeback/g, to: 'Cashback' },
   { from: /rakeback/gi, to: 'cashback' },
-  // Poker variations (match inside words too)
+  { from: /RAKEBACK/g, to: 'CASHBACK' },
+  // new regex to catch both "rackback" and the misspelled "rackbackk" so leftovers get converted
+  { from: /rackbackk?/gi, to: 'cashback' },
   { from: /POKER/g, to: 'SHOPPING' },
   { from: /Poker/g, to: 'Shopping' },
   { from: /poker/g, to: 'shopping' }

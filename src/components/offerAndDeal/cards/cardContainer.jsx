@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from "../../../App";
-import { getPokerSiteImage } from "../../../helperFxns/colorCode";
+import { getShoppingSiteImage } from "../../../helperFxns/colorCode";
 import { mockStores } from "../../../data/mockStores";
 import { toast } from "react-toastify";
 
@@ -73,7 +73,7 @@ const OfferCardContainer = ({ searchTerm }) => {
 
 						<div class="deal-content">
 							<div className="logo-section">
-								<img src={getPokerSiteImage(item.name)} alt={item.name} />
+								<img src={getShoppingSiteImage(item.name)} alt={item.name} />
 							</div>
 
 							<div className="features">
@@ -108,14 +108,14 @@ const OfferCardContainer = ({ searchTerm }) => {
 											</defs>
 										</svg>
 									</button>
-									{/* Grab Deal button - different logic for shopping stores vs poker sites */}
+									{/* Grab Deal button - different logic for shopping stores vs shopping sites */}
 									<button 
 										className="claim-btn" 
 										onClick={() => {
 											if (item.isShoppingStore) {
 												handleGrabDeal(item);
 											} else {
-												navigate(`/dashboard/pokerid`);
+												navigate(`/dashboard/shoppingid`);
 											}
 										}}
 									>

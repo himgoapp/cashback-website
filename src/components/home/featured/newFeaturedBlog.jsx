@@ -72,7 +72,7 @@ const FeaturedBlogs = ({ isMobile }) => {
 
     return (
         <>
-            <div className='container-fluid  RakebackFeaturedBlog RakebackFeaturedBlogHP'>
+            <div className='container-fluid  CashbackFeaturedBlog CashbackFeaturedBlogHP'>
                 <div className="container">
                     <div className='row'>
                         <div className="col-lg-12 text-center GetStartedhead">

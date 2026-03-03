@@ -1,4 +1,4 @@
-.rakeback_container {
+.cashback_container {
   font-family: 'Inter', 'Roboto', sans-serif;
 }
 
@@ -168,7 +168,7 @@
   min-width: 70px;
 }
 @media (max-width: 480px) {
-  .rakeback_container {
+  .cashback_container {
     margin-left: 5px;
   }
   

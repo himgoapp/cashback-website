@@ -31,12 +31,12 @@ line4:"On average, cashback has become either 1-2% more or 5-7% less (depending 
   </div>
 	<div >
 
-	<font className={styles.container_heading} >Loyalty program "Time Machine" on Pokerdom - cashback up to 70%</font></div>
+	<font className={styles.container_heading} >Loyalty program "Time Machine" on Shoppingdom - cashback up to 70%</font></div>
 	<div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
     <div className={styles.loyality__para}>
-    <p >From November 1, 2023, the Pokerdom room changed the terms of its loyalty program "Time Machine". The main thing that has changed:
+    <p >From November 1, 2023, the Shoppingdom room changed the terms of its loyalty program "Time Machine". The main thing that has changed:
 
 </p>
     </div>
@@ -82,7 +82,7 @@ line4:"On average, cashback has become either 1-2% more or 5-7% less (depending 
     <div class={styles.diamond}></div>
   </div>
 	
-<font className={styles.container_heading2}>Pokerdom Jackpot – How to Win It</font><div class={styles.divider}>
+<font className={styles.container_heading2}>Shoppingdom Jackpot – How to Win It</font><div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
 <div >
@@ -90,7 +90,7 @@ line4:"On average, cashback has become either 1-2% more or 5-7% less (depending 
 	The possibility of winning the jackpot can be considered as one of the additional bonuses. 
 	</p>
 	<p className={styles.loyality__para}>
-	There are only 2 ways to hit the jackpot at Pokerdom:
+	There are only 2 ways to hit the jackpot at Shoppingdom:
 	</p>
 	<li className={styles.loyality__para}>
 	Jackpot in Windfall tournaments
@@ -104,7 +104,7 @@ line4:"On average, cashback has become either 1-2% more or 5-7% less (depending 
 </div>
 <div className={styles.container_heading_list}>
 	<font className={styles.list_heading} >
-	Bad beat jackpot on Pokerdom – what is it
+	Bad beat jackpot on Shoppingdom – what is it
 
 	</font>
 </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './trustedBy.module.css';
-import { getPokerSiteImage } from "../../../helperFxns/colorCode";
+import { getShoppingSiteImage } from "../../../helperFxns/colorCode";
 import TrusteddownIcon from '../../../assets/Logos_and_illustration/TrusteddownIcon.svg';
 import homePageContent from '../../contentData/homePageContent.json';
 const TrustSection = () => {
@@ -25,15 +25,15 @@ const TrustSection = () => {
     { name: "ACR Shopping" },
   ];
 
-  const pokerSites = {
+  const shoppingSites = {
     "ACR Shopping": "https://www.americascardroom.eu/",
-    "CoinPoker": "https://www.coinpoker.com/",
+    "CoinShopping": "https://www.coinshopping.com/",
     "WPTglobal": "https://www.wptglobal.com/"
   };
 
   return (
     <>
-      <div className="container-fluid RakebackTrustedPoker">
+      <div className="container-fluid CashbackTrustedShopping">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
@@ -53,13 +53,13 @@ const TrustSection = () => {
                     <a
                       key={`first-${index}`}
                       className="partnerCard"
-                      href={pokerSites[user.name]}
+                      href={shoppingSites[user.name]}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <div className={user.name === "Junglee Shopping" ? "partnerIconJunglee" : "partnerIcon"}>
                         <img
-                          src={getPokerSiteImage(user.name)}
+                          src={getShoppingSiteImage(user.name)}
                           alt={user.name}
                           className="partnerLogoImg"
                         />

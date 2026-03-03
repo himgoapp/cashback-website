@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styles from "./offerAndRegistration.module.css";
 import MPL from "../../assets/MPL.svg";
-import jungleePoker2 from "../../assets/jungleePokerbanner.jpg";
-import pokerbaazi from "../../assets/PokerBaaziBanner.svg";
+import jungleeShopping2 from "../../assets/jungleePokerbanner.jpg";
+import shoppingbaazi from "../../assets/PokerBaaziBanner.svg";
 import Navbtn from "../common/button/navbtn/navbtn";
 import { colorBkg } from "../../helperFxns/colorCode";
 import icon3 from "../../assets/icon3.svg";
@@ -25,11 +25,11 @@ const OfferAndRegistration = ({currentItem}) => {
                     currentItem &&
                     currentItem.name &&
                     currentItem.name === "Shopping Baazi"
-                      ? pokerbaazi
+                      ? shoppingbaazi
                       : currentItem &&
                         currentItem.name &&
                         currentItem.name === "Junglee Shopping"
-                      ? jungleePoker2
+                      ? jungleeShopping2
                       : MPL
                   }
                   alt="Offer"
@@ -41,7 +41,7 @@ const OfferAndRegistration = ({currentItem}) => {
                     <div className={styles.heading}>
                       {currentItem && currentItem.name
                         ? currentItem.name
-                        : "CGPoker"}
+                        : "CGShopping"}
                     </div>
                     <div className={styles.tag1}>T&C</div>
                     <div className={styles.tag2}>A</div>
@@ -49,7 +49,7 @@ const OfferAndRegistration = ({currentItem}) => {
                   <div className={styles.text}>
                     {currentItem && currentItem.name
                       ? currentItem.smallDescription
-                      : "Shopping room CGPoker - a reliable shopping room on the iPoker network, with cashback up to 35%, rake race and reload bonuses for our players."}
+                      : "Shopping room CGShopping - a reliable shopping room on the iShopping network, with cashback up to 35%, rake race and reload bonuses for our players."}
                   </div>
                 </div>
                 <div className={styles.divider}></div>
@@ -253,7 +253,7 @@ const OfferAndRegistration = ({currentItem}) => {
                     <h4>Linking an old account</h4>
 
                     <div className={styles.para_description}>
-                      You can't link an old account to Pokerdom shopping room. We
+                      You can't link an old account to Shoppingdom shopping room. We
                       recommend other rooms.
                     </div>
                   </>

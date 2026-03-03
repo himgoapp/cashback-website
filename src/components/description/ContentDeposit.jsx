@@ -3,13 +3,13 @@ import styles from "./content_deposit.module.css";
 
 const ContentDeposit = () => {
     const DepositBonus=[{
-        text:"All new players who register in the Pokerdom shopping room from our site have the opportunity to receive 2 bonuses at once: an instant bonus of ₽1,000 in the form of tournament money, available for immediate use, as well as a 100% wagering bonus on the first deposit up to ₽50,000."
+        text:"All new players who register in the Shoppingdom shopping room from our site have the opportunity to receive 2 bonuses at once: an instant bonus of ₽1,000 in the form of tournament money, available for immediate use, as well as a 100% wagering bonus on the first deposit up to ₽50,000."
     }]
     const InstantBonus = [
       {  text: "The ₽1,000 instant bonus in tournament money is an exclusive offer from our site and is available to all our players who registered in the shopping room after October 1, 2023 and made a deposit of more than 1,000 rubles."
 }]
     const WageringBonus =[
- {       text:"Pokerdom offers all new players a 100% deposit bonus up to 50,000 rubles. The bonus will give players an additional 25% cashback for wagering. It is paid off in 4 equal parts over 100 days."
+ {       text:"Shoppingdom offers all new players a 100% deposit bonus up to 50,000 rubles. The bonus will give players an additional 25% cashback for wagering. It is paid off in 4 equal parts over 100 days."
   }  ]
 	return (
 		<div id="content-deposit">
@@ -71,15 +71,15 @@ const ContentDeposit = () => {
   </div>
                                 <div >
                                     
-                                    <font className={styles.choose_loyality_program}>Which loyalty program to choose at Pokerdom
+                                    <font className={styles.choose_loyality_program}>Which loyalty program to choose at Shoppingdom
                                     </font>
                                 </div>
                                 <div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
                                 <div className={styles.choose_loyality_program_desc}>
-                                    <p>By default, all Pokerdom players will be automatically connected to the loyalty program "100 steps to a million" . But if you generate a large amount of rake, then it will be more rewards for you to switch to the loyalty program "Time Machine". To do this, you need to:</p>
-                                <ol className={styles.choose_loyality_program_desc}><li>Login to Pokerdom client</li>
+                                    <p>By default, all Shoppingdom players will be automatically connected to the loyalty program "100 steps to a million" . But if you generate a large amount of rake, then it will be more rewards for you to switch to the loyalty program "Time Machine". To do this, you need to:</p>
+                                <ol className={styles.choose_loyality_program_desc}><li>Login to Shoppingdom client</li>
                                 <li>Go to the "Cashier" section</li>
                                 <li>Next, click the "Promo code" button</li>
                                 <li>In the window that opens, enter the code TIMEMACHINE</li>

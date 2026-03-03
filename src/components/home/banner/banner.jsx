@@ -1,8 +1,9 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-import heroSectionBanner from '../../../assets/Logos_and_illustration/heroSectionBanner.svg';
+import heroBannerSection from '../../../assets/Logos_and_illustration/heroBannerSection.png';
+import cashbackIcon from '../../../assets/cashback.svg';
 import homePageContent from '../../contentData/homePageContent.json';
-import { ShoppingBag, Tag, Percent } from "lucide-react";
+import { ShoppingBag, Tag, Percent, Wallet } from "lucide-react";
 
 const Banner = () => {
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Banner = () => {
 
     return (
         <>
-            <div className="container-fluid RakeBackBanner RakeBackBannerMobile">
+            <div className="container-fluid cashbackBanner cashbackBannerMobile">
                 <div className="container">
                     <div className="row mobilerow">
                         <div className="col-lg-1 m">
@@ -22,14 +23,14 @@ const Banner = () => {
                             <div className="content">
                                 <h1 className="title">
                                     <span className="highlight">{homePageContent.highlight}</span><br />
-                                    <span className="lineBreak">India's best cashback & coupons hub</span>
+                                    <span className="lineBreak">Shop Smart. Earn Real Cashback.</span>
                                 </h1>
 
                                 <p className="subtitle">
                                     Shop your favourite brands and earn automatic cashback on every purchase.
                                 </p>
                                 <p className="description">
-                                    No hidden terms. No delays. Just pure rewards.
+                                    No hidden terms. No delays. Just real rewards.
                                 </p>
 
                                 <div className="buttonContainer">
@@ -48,12 +49,8 @@ const Banner = () => {
                         </div>
                         <div className="col-lg-5 col-md-12">
                             <div className="videoContainer">
-                                <div style={{ position: "absolute", top: 24, right: 24, display: "flex", gap: 8 }}>
-                                    <Tag size={20} color="#0052CC" />
-                                    <Percent size={20} color="#FF7A1A" />
-                                    <ShoppingBag size={20} color="#0F172A" />
-                                </div>
-                                <img src={heroSectionBanner} className="BannerIcon" alt="hero banner" />
+                        
+                                <img src={heroBannerSection} className="BannerIcon" alt="Cashback Banner - India's best cashback and coupons hub" />
                             </div>
                         </div>
 

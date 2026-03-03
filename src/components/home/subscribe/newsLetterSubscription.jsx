@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Heart } from 'lucide-react';
 import styles from './newsLetterSubscription.module.css';
-import pokerchip from '../../../assets/Logos_and_illustration/Chip_red.svg';
+import shoppingchip from '../../../assets/Logos_and_illustration/Chip_red.svg';
 import subscriberBackgroundTop from "../../../assets/Logos_and_illustration/subscriberBackgroundTop.svg"
 import SuccessSubscribe from "../../../assets/Logos_and_illustration/SuccessSubscribe.svg"
 import { CreateSubscriber } from '../../../servicefile/subscriberservice';
@@ -35,7 +35,7 @@ const NewsletterSubscription = () => {
 
   return (
     <>
-      <div className="container-fluid RakebackNewsletter">
+      <div className="container-fluid CashbackNewsletter">
           <div className='container'>
               <div className='row'>
                   <div className="col-lg-8 text-left GetStartedhead">
@@ -91,7 +91,7 @@ const NewsletterSubscription = () => {
         <div className={styles.card}>
           <div className={styles.chipContainer}>
             <div className={styles.chip}>
-              <img src={pokerchip} />
+              <img src={shoppingchip} />
             </div>
           </div>
 

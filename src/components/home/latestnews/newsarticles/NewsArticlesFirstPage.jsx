@@ -5,7 +5,7 @@ import styles from "./NewArticlesFirstPage.module.css";
 const articleData = {
   "1": {
     title: "Wyoming and Indiana plan to introduce laws to legalize online gambling in 2025",
-    image: "https://cms.worldpokerdeals.com/assets/19cdbae1-455a-4e32-bd69-aa513ed20d44?width=600&height=355&format=webp&quality=75&fit=cover",
+    image: "https://cms.worldshoppingdeals.com/assets/19cdbae1-455a-4e32-bd69-aa513ed20d44?width=600&height=355&format=webp&quality=75&fit=cover",
     author: "Vargoso",
     date: "31-01-2025",
     category: "Online Gambling",
@@ -13,7 +13,7 @@ const articleData = {
   },
   "2": {
     title: "New Jersey Prepares Law to Regulate Sweepstakes Gaming",
-    image: "https://cms.worldpokerdeals.com/assets/05e86c50-4468-4600-8e2f-ba70a7799d7a?width=600&height=355&format=webp&quality=75&fit=cover",
+    image: "https://cms.worldshoppingdeals.com/assets/05e86c50-4468-4600-8e2f-ba70a7799d7a?width=600&height=355&format=webp&quality=75&fit=cover",
     author: "John Doe",
     date: "15-02-2025",
     category: "Sweepstakes Gaming",

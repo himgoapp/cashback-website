@@ -80,7 +80,7 @@ const ClientTestimonial = () => {
 
   return (
     <>
-      <div className="container-fluid RakebackClientTest RakebackSpace">
+      <div className="container-fluid CashbackClientTest CashbackSpace">
         <div className="container">
           <div className="row">
               <div className="col-lg-12 text-center GetStartedhead">

@@ -63,7 +63,7 @@ const Footer = () => {
               <div className={styles.icon}>{telegram}</div>
             </a>
             <a
-              href="https://www.facebook.com/RakebackCom"
+              href="https://www.facebook.com/CashbackCom"
               className={styles.link_icon}
               target="_blank"
               rel="noopener noreferrer"

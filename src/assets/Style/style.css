@@ -32,18 +32,18 @@ div#root {
     background: #FFFFFF;
 }
 
-.RakebackSpace {
+.CashbackSpace {
     padding-top: 72px;
     padding-bottom: 72px;
 }
 
 /*Header Css start*/
-.RakebackHeader {
+.CashbackHeader {
     background: #FBFBFB;
     border-bottom: 0px solid #0000001A;
     padding: 0px 0;
 }
-.RakebackHeader ul.navbar-nav li.nav-item a.nav-link
+.CashbackHeader ul.navbar-nav li.nav-item a.nav-link
  {
     color: #808080;
     font-size: 16px;
@@ -54,29 +54,29 @@ div#root {
     line-height: 40px;
     position: relative;
 }
-.RakebackHeader ul.navbar-nav li.nav-item a.nav-link.active {
+.CashbackHeader ul.navbar-nav li.nav-item a.nav-link.active {
     color: #0052CC;
 }
 nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     border-bottom: 2px solid #F5F5F5;
 }
-.RakebackHeader ul.navbar-nav li.nav-item {
+.CashbackHeader ul.navbar-nav li.nav-item {
     text-align: center;
     margin-right: 0;
     margin-top: 0;
     flex: 1;
     position: relative;
 }
-/* .RakebackHeader button.signin_button {
+/* .CashbackHeader button.signin_button {
     width: 163px;
     height: 40px;
     border-radius: 6px;
-    background: #FF7A1A;
+    background: #1A73E8;
     color: #fff;
     font-size: 14px;
     font-weight: 700;
 } */
-.RakebackHeader button.signin_button {
+.CashbackHeader button.signin_button {
     width: auto;
     height: 36px;
     font-size: 16px;
@@ -86,42 +86,42 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     background: #0052CC;
     font-weight: 700;
 }
-.RakebackHeader button.signin_button:first-child {
+.CashbackHeader button.signin_button:first-child {
     background: #E5EDFF;
     color: #0052CC !important;
 }
 
-.RakebackHeader button.signin_button svg.bi.bi-arrow-right {
+.CashbackHeader button.signin_button svg.bi.bi-arrow-right {
     margin-left: 5px;
 }
 /*Header Css End*/
 
 /*Banner Css start*/
-.RakeBackBanner {
+.cashbackBanner {
     padding: 90px 0;
     overflow: hidden;
     background: #fff;
 }
-.RakeBackBanner .content {
+.cashbackBanner .content {
     text-align: center;
 }
-.RakeBackBanner .title {
+.cashbackBanner .title {
     font-size: 48px;
     font-weight: 700;
     color: #000000;
     text-align: left;
     line-height: 130%;
 }
-.RakeBackBanner .lineBreak {
+.cashbackBanner .lineBreak {
     display: block;
 }
-.RakeBackBanner .highlight {
+.cashbackBanner .highlight {
     color: #0052CC;
 }
-.RakeBackBanner .highlightPercentage {
+.cashbackBanner .highlightPercentage {
     font-weight: 700;
 }
-.RakeBackBanner .subtitle {
+.cashbackBanner .subtitle {
     font-size: 20px;
     color: #606060;
     font-weight: 400;
@@ -131,7 +131,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     margin-bottom: 5px;
     letter-spacing: 0%;
 }
-.RakeBackBanner .description {
+.cashbackBanner .description {
     font-size: 20px;
     color: #606060;
     font-weight: 400;
@@ -145,12 +145,12 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     outline: 0;
     box-shadow: 0 0 14px 1.25rem rgb(255 64 83 / 1%);
 }
-.RakeBackBanner .buttonContainer {
+.cashbackBanner .buttonContainer {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
-.RakeBackBanner .primaryButton
+.cashbackBanner .primaryButton
  {
     background-color: #0052CC;
     color: white;
@@ -164,7 +164,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     cursor: pointer;
     width: 288px;
 }
-.RakeBackBanner .secondaryButton {
+.cashbackBanner .secondaryButton {
     color: #000;
     border: 0.6px solid #848484;
     border-radius: 8px;
@@ -177,11 +177,11 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     cursor: pointer;
     background: #ffffff !important;
 }
-.RakeBackBanner .secondaryButton:hover {
-    border: 0.6px solid #FF7A1A;
-    color: #FF7A1A;
+.cashbackBanner .secondaryButton:hover {
+    border: 0.6px solid #1A73E8;
+    color: #1A73E8;
 }
-.RakeBackBanner .chipIcon {
+.cashbackBanner .chipIcon {
     position: absolute;
     left: -70px;
     bottom: 40px;
@@ -189,7 +189,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     height: 182px;
     z-index: 2;
 }
-.RakeBackBanner .layer {
+.cashbackBanner .layer {
     position: absolute;
     left: -80px;
     top: 180px;
@@ -197,17 +197,17 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     height: 86px;
     z-index: 2;
 }
-.RakeBackBanner .videoContainer {
+.cashbackBanner .videoContainer {
     position: relative;
     width: 100%;
     height: 100%;
 }
-.RakeBackBanner .videoContainer img.BannerIcon
+.cashbackBanner .videoContainer img.BannerIcon
  {
     width: 408px;
     height: 422px;
 }
-.RakeBackBanner .chipBannerRight {
+.cashbackBanner .chipBannerRight {
     position: absolute;
     right: 0;
     width: 73px;
@@ -216,7 +216,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     bottom: -30px;
 }
 
-.RakeBackBanner .starRightHeroBanner {
+.cashbackBanner .starRightHeroBanner {
     position: absolute;
     right: -60px;
     top: 160px;
@@ -225,7 +225,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     z-index: 3;
 }
 
-.RakeBackBanner .starTopHeroBanner {
+.cashbackBanner .starTopHeroBanner {
     position: absolute;
     right: 110px;
     top: -10px;
@@ -234,16 +234,16 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     height: 14.6px;
 }
 
-.RakeBackBanner .videoText {
+.cashbackBanner .videoText {
     text-align: center;
 }
 
-.RakeBackBanner .bottomSpace {
+.cashbackBanner .bottomSpace {
     width: 100%;
     min-height: 25px;
     background: #F6F6F6;
 }
-.RakeBackBanner .pokerCardheroBanner {
+.cashbackBanner .shoppingCardheroBanner {
     position: absolute;
     right: -105px;
     top: 0px;
@@ -254,7 +254,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
 /*Banner Css End*/
 
 /*Top Cashback Offers Css Start*/
-.RakeBackTopOffers {
+.cashbackTopOffers {
     padding: 90px 0;
     background: url(../topofferbg.svg);
     margin: 20px 0;
@@ -262,17 +262,17 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     background-repeat: no-repeat;
     overflow: hidden;
 }
-.RakeBackTopOffers .title {
+.cashbackTopOffers .title {
     font-size: 36px;
     font-weight: 800;
     color: #1a1a1a;
 }
 
-.RakeBackTopOffers .titleAccent {
+.cashbackTopOffers .titleAccent {
     color: #0052CC;
 }
 
-.RakeBackTopOffers .subtitle {
+.cashbackTopOffers .subtitle {
     font-size: 20px;
     color: #6b7280;
     font-weight: 400;
@@ -380,7 +380,7 @@ nav.navbar.navbar-expand-lg.navbar-light.p-0 {
     padding: 10px 0;
 }
 .SliderDeadline p:first-child {
-    color: #FF7A1A;
+    color: #1A73E8;
     border-right: 1px solid #D5D5D5;
 }
 ul.SliderList {
@@ -406,7 +406,7 @@ ul.SliderList li svg {
     width:132px;
 height: 32px;
 }
-button.Pokerbazzi25
+button.Shoppingbazzi25
  {
     background: #F0F0F0;
     border-radius: 4.26px;
@@ -418,12 +418,12 @@ button.Pokerbazzi25
     align-items: center;
     font-weight: 700;
 }
-button.Pokerbazzi25 span {
+button.Shoppingbazzi25 span {
     font-size: 6px;
     font-weight: bold;
 }
 button.ClaimNow {
-    background: #FF7A1A;
+    background: #1A73E8;
     font-size: 12px;
     color: #fff;
     font-weight: 700;
@@ -436,21 +436,21 @@ p.GetProfitdes {
 /*Top Cashback Offers Css End*/
 
 /*Trusted by Thousands of Shopping Players Css Start*/
-.RakebackTrustedPoker {
+.CashbackTrustedShopping {
     padding-top: 72px;
     padding-bottom: 72px;
     background: #fff;
     margin-bottom: 20px;
 }
-.RakebackTrustedPoker .title {
+.CashbackTrustedShopping .title {
     font-size: 36px;
     font-weight: 800;
     color: #0052CC;
 }
-.RakebackTrustedPoker .titleAccent{
+.CashbackTrustedShopping .titleAccent{
     color: #1a1a1a;
 }
-.RakebackTrustedPoker .description {
+.CashbackTrustedShopping .description {
     font-size: 20px;
     color: #606060;
     line-height: 140%;
@@ -458,23 +458,23 @@ p.GetProfitdes {
     margin: 24px auto 0;
     max-width: 910px;
 }
-.RakebackTrustedPoker .carouselContainer {
+.CashbackTrustedShopping .carouselContainer {
     width: 100%;
     overflow: hidden;
     margin: 2rem 0;
     position: relative;
 }
-.RakebackTrustedPoker .carouselTrack {
+.CashbackTrustedShopping .carouselTrack {
     display: flex;
     gap: 1rem;
     animation: scroll 40s linear infinite;
     width: fit-content;
 }
-.RakebackTrustedPoker  .carouselTrack:hover {
+.CashbackTrustedShopping  .carouselTrack:hover {
   animation-play-state: paused;
 }
-.RakebackTrustedPoker  .carouselContainer::before,
-.RakebackTrustedPoker  .carouselContainer::after {
+.CashbackTrustedShopping  .carouselContainer::before,
+.CashbackTrustedShopping  .carouselContainer::after {
   content: "";
   position: absolute;
   top: 0;
@@ -483,16 +483,16 @@ p.GetProfitdes {
   z-index: 3;
   pointer-events: none;
 }
-.RakebackTrustedPoker .carouselContainer::before {
+.CashbackTrustedShopping .carouselContainer::before {
   left: 0;
   background: linear-gradient(to right, white 0%, transparent 100%);
 }
 
-.RakebackTrustedPoker .carouselContainer::after {
+.CashbackTrustedShopping .carouselContainer::after {
   right: 0;
   background: linear-gradient(to left, white 0%, transparent 100%);
 }
-.RakebackTrustedPoker .partnerCard {
+.CashbackTrustedShopping .partnerCard {
   background: white;
   display: flex;
   flex-direction: row;
@@ -504,7 +504,7 @@ p.GetProfitdes {
   text-decoration: none;
   border-radius: 10px;
 }
-.RakebackTrustedPoker .partnerIcon {
+.CashbackTrustedShopping .partnerIcon {
     width: 145px;
     height: 80px;
     border-radius: 12px;
@@ -512,7 +512,7 @@ p.GetProfitdes {
     align-items: center;
     justify-content: center;
 }
-.RakebackTrustedPoker .partnerIconJunglee {
+.CashbackTrustedShopping .partnerIconJunglee {
     width: 160px;
     height: 100px;
     border-radius: 12px;
@@ -520,7 +520,7 @@ p.GetProfitdes {
     align-items: center;
     justify-content: center;
 }
-.RakebackTrustedPoker .partnerName {
+.CashbackTrustedShopping .partnerName {
     font-size: 16px;
     font-weight: 600;
     color: #000000;
@@ -562,7 +562,7 @@ p.GetProfitdes {
 /*Trusted by Thousands of Shopping Players Css End*/
 
 /*Get Started Cashback  Css Start*/
-.RakebackGetStarted {
+.CashbackGetStarted {
     padding-top: 72px;
     padding-bottom: 72px;
         background: #fff;
@@ -578,7 +578,7 @@ p.GetProfitdes {
     margin-bottom: 48px;
 }
 .GetStartedhead .highlight {
-    color: #FF7A1A;
+    color: #1A73E8;
 }
 .GetStartedhead .subtitle {
     font-size: 20px;
@@ -609,7 +609,7 @@ p.GetProfitdes {
     right: 30px;
     font-size: 110px;
     font-weight: 800;
-    color: #FF7A1A;
+    color: #1A73E8;
 }
 .GetStartedCard  .card:hover {
     transform: translateY(-2px);
@@ -643,7 +643,7 @@ p.GetProfitdes {
     font-weight: 400;
 }
 .joinButton {
-    background: #FF7A1A;
+    background: #1A73E8;
     color: white;
     border: none;
     border-radius: 8px;
@@ -664,32 +664,32 @@ p.GetProfitdes {
 /*Get Started Cashback  Css Start*/
 
 /*Cashback Featured Blog  Css Start*/
-.RakebackFeaturedBlog {
+.CashbackFeaturedBlog {
     padding-top: 80px;
     padding-bottom: 80px;
     margin: 20px 0;
     background: url(../LoginBG.svg);
     background-size: cover;
 }
-.RakebackFeaturedBlog  .GetStartedhead .subtitle {
+.CashbackFeaturedBlog  .GetStartedhead .subtitle {
     color: #848484;
     max-width: 100%;
 }
 .formsection select.form-control {
     border: 1px solid #000;
     border-radius: 8px;
-    border-color: #FF7A1A;
+    border-color: #1A73E8;
     height: 52px;
 }
 .ContactUS.RetagPage .formsection .form-control:focus {
-    border: 1px solid #FF7A1A;
+    border: 1px solid #1A73E8;
     outline: none;
     box-shadow: none;
 }
-.RakebackFeaturedBlog .tabsContainer {
+.CashbackFeaturedBlog .tabsContainer {
     margin-bottom: 44px;
 }
-.RakebackFeaturedBlog .tabsWrapper
+.CashbackFeaturedBlog .tabsWrapper
  {
     display: flex;
     gap: 0;
@@ -700,11 +700,11 @@ p.GetProfitdes {
     position: relative;
     border-radius: 12px;
 }
-.RakebackFeaturedBlog .tabsWrapper::-webkit-scrollbar {
+.CashbackFeaturedBlog .tabsWrapper::-webkit-scrollbar {
   display: none;
 }
 
-.RakebackFeaturedBlog .tab {
+.CashbackFeaturedBlog .tab {
   background: transparent;
   border: none;
   border-radius: 0;
@@ -721,7 +721,7 @@ p.GetProfitdes {
   margin-bottom: -1px;
 
 }
-.RakebackFeaturedBlog .tabsWrapper div {
+.CashbackFeaturedBlog .tabsWrapper div {
     width: auto;
     border: 0px solid #848484;
     background: #F5F5F5;
@@ -740,23 +740,23 @@ p.GetProfitdes {
         min-width: 150px;
 }
 
-.RakebackFeaturedBlog .tabsWrapper .activeTab {
-  color: #FF7A1A;
+.CashbackFeaturedBlog .tabsWrapper .activeTab {
+  color: #1A73E8;
 }
 
-.RakebackFeaturedBlog .tabsWrapper .activeTab:before {
+.CashbackFeaturedBlog .tabsWrapper .activeTab:before {
 content: "";
 position: absolute;
 max-width:154px ;
     width: 154px;
 height: 4px;
-background-color: #FF7A1A;
+background-color: #1A73E8;
 bottom: 0;
 left: 50%;
 transform: translate(-50%);
 
 }
-.RakebackFeaturedBlog .mainPost {
+.CashbackFeaturedBlog .mainPost {
     background: white;
     overflow: hidden;
     box-shadow: 0px 2.72px 4.08px -1.36px rgba(10, 13, 18, 0.03), 0px 8.16px 10.88px -2.72px rgba(10, 13, 18, 0.08);
@@ -778,7 +778,7 @@ transform: translate(-50%);
     display: none;
 }
 .AutherINfo h3 {
-    color: #FF7A1A;
+    color: #1A73E8;
     font-weight: 700;
     display: none;
 }
@@ -787,7 +787,7 @@ transform: translate(-50%);
     object-fit: contain;
 }
 
-.RakebackFeaturedBlog .mainContent span.category, .RakebackFeaturedBlog .mainContent h3.mainTitle, .RakebackFeaturedBlog .mainContent .description{
+.CashbackFeaturedBlog .mainContent span.category, .CashbackFeaturedBlog .mainContent h3.mainTitle, .CashbackFeaturedBlog .mainContent .description{
     margin: 0;
 }
 
@@ -812,26 +812,26 @@ transform: translate(-50%);
     top: -6px;
     background-color: #828282;
 }
-.RakebackFeaturedBlog .imageContainer
+.CashbackFeaturedBlog .imageContainer
  {
     position: relative;
     width: 100%;
     height: 295px;
     overflow: hidden;
 }
-.RakebackFeaturedBlog .mainImage {
+.CashbackFeaturedBlog .mainImage {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 4px;
 }
-.RakebackFeaturedBlog .mainContent {
+.CashbackFeaturedBlog .mainContent {
     padding: 20px !important;
     display: flex;
     flex-direction: column;
     gap: 21px;
 }
-.RakebackFeaturedBlog .category {
+.CashbackFeaturedBlog .category {
     display: inline-block;
     color: #7E7F81;
     font-size: 10px;
@@ -843,14 +843,14 @@ transform: translate(-50%);
     width: 100%;
     font-family: "Open Sans", sans-serif;
 }
-.RakebackFeaturedBlog .mainTitle {
+.CashbackFeaturedBlog .mainTitle {
     font-size: 31px;
     font-weight: 500;
     line-height: 39px;
     color: #292929;
     font-family: "Montserrat", sans-serif;
 }
-.RakebackFeaturedBlog .description {
+.CashbackFeaturedBlog .description {
     font-size: 20px;
     color: #333333;
     line-height: 140%;
@@ -864,14 +864,14 @@ transform: translate(-50%);
     border-radius: 4px;
     overflow: hidden;
 }
-.RakebackFeaturedBlog .tags {
+.CashbackFeaturedBlog .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-bottom: 12px;
 }
 
-.RakebackFeaturedBlog .tag {
+.CashbackFeaturedBlog .tag {
   background: #f8f9fa;
   color: #495057;
   font-size: 10px;
@@ -880,12 +880,12 @@ transform: translate(-50%);
   border: 1px solid #e9ecef;
 }
 
-.RakebackFeaturedBlog .readTime {
+.CashbackFeaturedBlog .readTime {
   font-size: 11px;
   color: #999999;
   font-weight: 500;
 }
-.RakebackFeaturedBlog .sidePosts {
+.CashbackFeaturedBlog .sidePosts {
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -900,7 +900,7 @@ transform: translate(-50%);
     top: -121px;
     left: 10px;
 }
-.RakebackFeaturedBlog .sidePost
+.CashbackFeaturedBlog .sidePost
  {
     border: 1px solid #ECECEC;
     display: flex
@@ -915,12 +915,12 @@ transform: translate(-50%);
     overflow: hidden;
 }
 
-.RakebackFeaturedBlog .sideImage {
+.CashbackFeaturedBlog .sideImage {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.RakebackFeaturedBlog .sideContent {
+.CashbackFeaturedBlog .sideContent {
     flex: 1 1;
     min-width: 0;
     padding: 10px 15px 10px 0;
@@ -929,17 +929,17 @@ transform: translate(-50%);
     cursor: pointer;
     gap: 11px;
 }
-  .RakebackFeaturedBlog  .sideImageContainer {
+  .CashbackFeaturedBlog  .sideImageContainer {
         border-top-right-radius: 0px;
         border-bottom-right-radius: 0px;
     }
 .KYCDB .form-row.VerifiedPanMAindiv {
   width:auto
 }
-.RakebackFeaturedBlog .sideCategory {
+.CashbackFeaturedBlog .sideCategory {
     display: inline-block;
     background: transparent;
-    color: #FF7A1A;
+    color: #1A73E8;
     font-size: 12px;
     padding: 0;
     border-radius: 2px;
@@ -951,13 +951,13 @@ transform: translate(-50%);
 }
 
 
-.RakebackFeaturedBlog .sideTitle {
+.CashbackFeaturedBlog .sideTitle {
   font-size: 12px;
   font-weight: 600;
   color: #1a1a1a;
   margin: 0 0 4px 0;
 }
-.RakebackFeaturedBlog .sideDescription {
+.CashbackFeaturedBlog .sideDescription {
     font-size: 16px;
     color: #333333;
     line-height: 140%;
@@ -970,13 +970,13 @@ transform: translate(-50%);
     font-family: "Sora", sans-serif;
     font-weight: 800;
 }
-.RakebackFeaturedBlog .exploreContainer {
+.CashbackFeaturedBlog .exploreContainer {
     text-align: center;
     margin-top: 48px;
 }
-.RakebackFeaturedBlog .exploreButton {
+.CashbackFeaturedBlog .exploreButton {
     background: #fff;
-    border: 1px solid #FF7A1A;
+    border: 1px solid #1A73E8;
     border-radius: 8px;
     padding: 12px 25px;
     height: 52px;
@@ -985,28 +985,28 @@ transform: translate(-50%);
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-        color: #FF7A1A;
+        color: #1A73E8;
         text-transform: uppercase;
 }
-.RakebackFeaturedBlog .sidePost:hover p.sideDescription {
-    color: #FF7A1A;
+.CashbackFeaturedBlog .sidePost:hover p.sideDescription {
+    color: #1A73E8;
 }
-.RakebackFeaturedBlog .sidePost:hover span.sideCategory {
+.CashbackFeaturedBlog .sidePost:hover span.sideCategory {
     color: #000;
     font-weight: 800;
 }
 /*Cashback Featured Blog  Css ENd*/
 
 /*Cashback Why Choose Us  Css Start*/
-.RakebackWhyChooseUS {
+.CashbackWhyChooseUS {
     background: #fff;
     margin-bottom: 20px;
 }
-.RakebackWhyChooseUS .GetStartedhead .subtitle {
+.CashbackWhyChooseUS .GetStartedhead .subtitle {
     max-width: 340px;
     margin: 0 0 20px;
 }
-.RakebackWhyChooseUS .GetStartedhead {
+.CashbackWhyChooseUS .GetStartedhead {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1031,10 +1031,10 @@ transform: translate(-50%);
 /* .container-cards.featuresList .card.focused {
     background-color: #FFEBEF;
     color: white;
-    border-color: #FF7A1A;
+    border-color: #1A73E8;
 }
 .container-cards.featuresList .card.focused .featureTitle {
-    color: #FF7A1A;
+    color: #1A73E8;
 } */
 
 .container-cards.featuresList .featuresList {
@@ -1078,12 +1078,12 @@ transform: translate(-50%);
 /*Cashback Why Choose Us  Css End*/
 
 /*Cashback clients have to say  Css Start*/
-.RakebackClientTest.RakebackSpace {
+.CashbackClientTest.CashbackSpace {
     background: #fff;
     margin-bottom: 20px;
     padding-bottom: 92px;
 }
-.RakebackClientTest .GetStartedhead .subtitle {
+.CashbackClientTest .GetStartedhead .subtitle {
     max-width: 100%;
     margin: 0;
 }
@@ -1095,7 +1095,7 @@ transform: translate(-50%);
   margin: 0 auto;
   border-radius: 8px;
   padding: 40px;
-  border: 0.5px solid rgba(255, 64, 83, 0.5);
+  border: 0.5px solid #1A73E8;
   height: 357px;
   margin-bottom: 40px;
   width: 344px;
@@ -1119,7 +1119,7 @@ transform: translate(-50%);
 }
 
 .ClientSlider .avatarIconBg {
-  background: #ffe6ea;
+  background: #e7d8cc;
   border-radius: 50%;
   width: 48px;
   height: 48px;
@@ -1224,8 +1224,8 @@ transform: translate(-50%);
     opacity: 1;
     width: 28px;
     border-radius: 22px;
-    background: #FF7A1A;
-    border-color: #FF7A1A;
+    background: #1A73E8;
+    border-color: #1A73E8;
 }
 .slider .slick-dots li.slick-active button {
     width: 28px;
@@ -1237,23 +1237,23 @@ transform: translate(-50%);
 
 
 /*Cashback FAQ  Css Start*/
-.RakebackFAQ {
+.CashbackFAQ {
     background-color: #fff;
     margin-bottom: 20px;
 }
-.RakebackFAQ .GetStartedhead .title {
+.CashbackFAQ .GetStartedhead .title {
     line-height: 36px;
 }
-.RakebackFAQ .GetStartedhead {
+.CashbackFAQ .GetStartedhead {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-.RakebackFAQ .GetStartedhead .subtitle {
+.CashbackFAQ .GetStartedhead .subtitle {
     max-width: 100%;
     margin: 15px 0 0px;
 }
-.RakebackFAQ .moreQuestionsActions {
+.CashbackFAQ .moreQuestionsActions {
     display: flex
 ;
     gap: 20px;
@@ -1261,7 +1261,7 @@ transform: translate(-50%);
     margin: 48px 0 0;
     flex-direction: column;
 }
-.RakebackFAQ .actionButton {
+.CashbackFAQ .actionButton {
     display: flex;
     align-items: center;
     border: 0.5px solid #F6F6F6;
@@ -1281,28 +1281,28 @@ transform: translate(-50%);
     position: absolute;
     right: 20px;
 }
-.RakebackFAQ .toggleButton img.toggleIcon {
+.CashbackFAQ .toggleButton img.toggleIcon {
     filter: grayscale(1);
     width: 10px;
     height: 10px;
 }
-.RakebackFAQ .faqItemActive .faqQuestion .toggleButton img.toggleIcon {
+.CashbackFAQ .faqItemActive .faqQuestion .toggleButton img.toggleIcon {
     filter: unset;
 }
-.RakebackFAQ .actionIcon {
+.CashbackFAQ .actionIcon {
     font-size: 14px;
     display: flex;
     align-items: center;
     margin-right: 24px;
 }
-.RakebackFAQ .faqItemActive button.toggleButton
+.CashbackFAQ .faqItemActive button.toggleButton
  {
-    border-color: #FF7A1A;
+    border-color: #1A73E8;
 }
-.RakebackFAQ .faqList {
+.CashbackFAQ .faqList {
   margin-bottom: 24px;
 }
-.RakebackFAQ .faqQuestion {
+.CashbackFAQ .faqQuestion {
     position: relative;
     display: flex;
     justify-content: flex-start;
@@ -1314,27 +1314,27 @@ transform: translate(-50%);
     transition: background-color 0.2s ease;
 }
 
-.RakebackFAQ .faqItemActive {
+.CashbackFAQ .faqItemActive {
     border: 0.6px solid #FFAFB8;
     background: #FFF5F6;
     border-radius: 8px;
     margin-bottom: 24px;
 }
-.RakebackFAQ .faqItemActive .faqQuestion {
+.CashbackFAQ .faqItemActive .faqQuestion {
  padding-bottom: 12px;
  height: auto;
 }
-.RakebackFAQ .questionText {
+.CashbackFAQ .questionText {
   color: #000000;
   font-size: 16px;
   font-weight: 600;
   flex: 1;
   text-align: left;
 }
-/* .RakebackFAQ .faqItemActive .toggleButton{ 
+/* .CashbackFAQ .faqItemActive .toggleButton{ 
 right: 8px
 } */
-.RakebackFAQ .toggleButton {
+.CashbackFAQ .toggleButton {
     position: absolute;
     top: 24px;
     right: 12px;
@@ -1354,7 +1354,7 @@ right: 8px
     align-items: center;
     border-radius: 50%;
 }
-.RakebackFAQ  .faqItem {
+.CashbackFAQ  .faqItem {
   width: 100% !important;
   border: 1px solid #D9D9D9;
   border-radius: 8px;
@@ -1367,11 +1367,11 @@ right: 8px
   flex-direction: column;
 }
 
-.RakebackFAQ .faqAnswer {
+.CashbackFAQ .faqAnswer {
     padding: 0 44px 24px 20px;
     animation: slideDown 0.3s ease-out;
 }
-.RakebackFAQ .answerText {
+.CashbackFAQ .answerText {
     color: #000000;
     font-size: 12px;
     line-height: 140%;
@@ -1380,10 +1380,10 @@ right: 8px
     text-align: left;
     width: 100%;
 }
-.RakebackFAQ .moreQuestionsContainer {    
+.CashbackFAQ .moreQuestionsContainer {    
     width: 100%;    
 }
-.RakebackFAQ .moreQuestionsButton {
+.CashbackFAQ .moreQuestionsButton {
   background: #F6F6F6;
   text-align: center;
   height: 56px;
@@ -1399,36 +1399,36 @@ right: 8px
 /*Cashback FAQ  Css End*/
 
 /*Cashback newsletter  Css start*/
-.RakebackNewsletter{
+.CashbackNewsletter{
     padding-top: 54px;
     padding-bottom: 54px;
     background: url(../newsletterbg.svg);
     background-repeat: no-repeat;
     background-size: cover;
 }
-.RakebackNewsletter .GetStartedhead .title {
+.CashbackNewsletter .GetStartedhead .title {
     font-size: 36px;
     color: #fff;
     line-height: 36px;
 }
-.RakebackNewsletter .GetStartedhead .subtitle {
+.CashbackNewsletter .GetStartedhead .subtitle {
     color: #fff;
     max-width: 630px;
     margin: 9px 0 0px;
 }
-.RakebackNewsletter .GetStartedhead {
+.CashbackNewsletter .GetStartedhead {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin: 0;
 }
-.RakebackNewsletter .form {
+.CashbackNewsletter .form {
     display: flex;
     flex-direction: column;
     gap: 16px;
     width: 100%;
 }
-.RakebackNewsletter .inputContainer {
+.CashbackNewsletter .inputContainer {
     position: relative;
     display: flex;
     align-items: center;
@@ -1441,12 +1441,12 @@ right: 8px
     transition: all 0.3s ease;
     padding-right: 5px;
 }
-.RakebackNewsletter .inputContainer:focus-within {
+.CashbackNewsletter .inputContainer:focus-within {
   background: white;
   box-shadow: 0 0 0 3px rgba(255, 64, 83, 0.1);
 }
 
-.RakebackNewsletter .emailInput {
+.CashbackNewsletter .emailInput {
   flex: 1;
   padding: 8px 8px;
   border: none;
@@ -1456,12 +1456,12 @@ right: 8px
   color: #606060;
 }
 
-.RakebackNewsletter .emailInput::placeholder {
+.CashbackNewsletter .emailInput::placeholder {
   color: #999;
   font-size: 12px;
 }
 
-.RakebackNewsletter .submitButton {
+.CashbackNewsletter .submitButton {
   background: #606060;
   color: white;
   border: none;
@@ -1477,22 +1477,22 @@ right: 8px
   overflow: hidden;
 }
 
-.RakebackNewsletter .submitButton:hover:not(:disabled) {
+.CashbackNewsletter .submitButton:hover:not(:disabled) {
   background: #606060;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(255, 64, 83, 0.3);
 }
 
-.RakebackNewsletter .submitButton:active {
+.CashbackNewsletter .submitButton:active {
   transform: translateY(0);
 }
 
-.RakebackNewsletter .submitButton:disabled {
+.CashbackNewsletter .submitButton:disabled {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
-.RakebackNewsletter .submitButton::before {
+.CashbackNewsletter .submitButton::before {
   content: '';
   position: absolute;
   top: 50%;
@@ -1505,7 +1505,7 @@ right: 8px
   transition: width 0.6s, height 0.6s;
 }
 
-.RakebackNewsletter .submitButton:active::before {
+.CashbackNewsletter .submitButton:active::before {
   width: 200px;
   height: 200px;
 }
@@ -1548,7 +1548,7 @@ right: 8px
   margin-bottom: 15px;
 }
 .customFooter .sectionTitle {
-    color: #FF7A1A;
+    color: #1A73E8;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 32px;
@@ -1672,12 +1672,12 @@ span.ChatSmallDes {
     padding: 14px 20px 28px;
 }
 .faqcontainer .actionButton:hover {
-    border: 1px solid #FF7A1A;
+    border: 1px solid #1A73E8;
     
 }
 .GetINtouchBtn {
     padding: 9px 16px;
-    background: #FF7A1A;
+    background: #1A73E8;
     border-radius: 6px;
     color: #fff;
     font-size: 13px;
@@ -1785,7 +1785,7 @@ span.ChatSmallDes {
 }
 .deal-button {
     background: none;
-    color: #FF7A1A;
+    color: #1A73E8;
     border: none;
     border-radius: 8px;
     padding: 8px 16px;
@@ -1817,7 +1817,7 @@ span.ChatSmallDes {
     font-size: 12px;
     font-weight: 600;
     text-decoration: underline;
-    color: #FF7A1A;
+    color: #1A73E8;
 }
 .HeadingSec div {
     margin-bottom: 0;
@@ -1864,7 +1864,7 @@ button.PromoReviewDNO {
     color: #A8A8A8;
     text-decoration: underline;
 }
-button.Pokerbazzi25.Pokerbazzi25DNO {
+button.Shoppingbazzi25.Shoppingbazzi25DNO {
     height: 32px;
 }
 .mainPost .mainContent {
@@ -1876,7 +1876,7 @@ button.Pokerbazzi25.Pokerbazzi25DNO {
     justify-content: space-between;
     margin-bottom: 8px;
     font-size: 14px;
-    color: #FF7A1A;
+    color: #1A73E8;
     font-weight: bold;
 }
 .mainPost .mainContent span.category span{
@@ -1912,7 +1912,7 @@ section#promotions p.small {
     margin-bottom: 20px;
 }
 a.small.seeMOre {
-    color: #FF7A1A !important;
+    color: #1A73E8 !important;
     text-decoration: none;
     font-weight: 600;
 }
@@ -1954,7 +1954,7 @@ a.small.seeMOre {
     font-weight: 500;
 }
 .cardOfferSecond span {
-    color: #FF7A1A;
+    color: #1A73E8;
     font-weight: bold;
     font-size: 12px;
 }
@@ -1978,7 +1978,7 @@ a.small.seeMOre {
 .AddClass {
     width: 100%;
     height: 140px;
-    background: #FF7A1A;
+    background: #1A73E8;
     border-radius: 25px;
 }
 .OfferDelfrU .OffersForUchd.LatestNewsDsg .LatestNewsDsgTxt p.small {
@@ -2024,7 +2024,7 @@ a.small.seeMOre {
 }
 .LatestNewsDsgTxtDec span {
     font-size: 12px;
-    color: #FF7A1A;
+    color: #1A73E8;
     font-weight: bold;
         margin-right: 5px;
 }
@@ -2124,7 +2124,7 @@ div#Gotaquestion
     }
 
     .pagination .active {
-      background-color: #FF7A1A;
+      background-color: #1A73E8;
       color: #fff;
       font-weight: bold;
     }
@@ -2209,12 +2209,12 @@ div#Gotaquestion
     font-weight: 500;
 }
 .PromotionsandOffers .card-subtitle strong {
-    color: #FF7A1A;
+    color: #1A73E8;
 }
-.PokerIdDB.nav-tabs li.nav-item {
+.ShoppingIdDB.nav-tabs li.nav-item {
     margin-right: 37px;
 }
-.PokerIdDB.nav-tabs .nav-link {
+.ShoppingIdDB.nav-tabs .nav-link {
     margin-bottom: -1px;
     background: none;
     border: 0;
@@ -2224,29 +2224,29 @@ div#Gotaquestion
     font-size: 20px;
     color: #000000;
 }
-.PokerIdDB.nav-tabs .nav-link.active, .PokerIdDB.nav-tabs .nav-item.show .nav-link {
-    color: #FF7A1A;
-    border-bottom: 3px solid #FF7A1A;
+.ShoppingIdDB.nav-tabs .nav-link.active, .ShoppingIdDB.nav-tabs .nav-item.show .nav-link {
+    color: #1A73E8;
+    border-bottom: 3px solid #1A73E8;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     font-weight: 800;
 }
-.PokerIdDBDesc {
+.ShoppingIdDBDesc {
     width: 100%;
     margin-bottom: 40px;
 }
 
-.PokerIdDB {
+.ShoppingIdDB {
     border-bottom: 1px solid #EBEEF2 !important;
     width: 100%;
 }
 
-.PokerIdDBDesc .tab-pane {
+.ShoppingIdDBDesc .tab-pane {
     width: 100%;
     padding: 40px;
     background: #FFF6F7;
     border-radius: 16px;
-    /* background: url(../PokerIDbackDB.svg);
+    /* background: url(../ShoppingIDbackDB.svg);
     background-size: cover;
     background-repeat: no-repeat;
         background-size: 640% 180%;
@@ -2266,13 +2266,13 @@ div#Gotaquestion
 }
 
 
-.PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"] {
+.ShoppingIdDBDesc .tab-pane[aria-labelledby="add-tab"] {
     /* background: #FFF6F7; */
-    border: 1px solid #FF7A1A;
+    border: 1px solid #1A73E8;
     position: relative;
     overflow: hidden;
 }
-.PokerIdDBDesc .tab-pane[aria-labelledby="add-tab"]:before {
+.ShoppingIdDBDesc .tab-pane[aria-labelledby="add-tab"]:before {
     content: '';
     position: absolute;
     top: 18px;
@@ -2285,18 +2285,18 @@ div#Gotaquestion
         z-index: 1;
 
 }
-.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"] {
+.ShoppingIdDBDesc .tab-pane[aria-labelledby="retag-tab"] {
     /* background: #F1FFF4;
     border: 1px solid #28A745; */
     /* background: #FFF6F7; */
-    border: 1px solid #FF7A1A;
+    border: 1px solid #1A73E8;
     position: relative;
     overflow: hidden;
 }
-/* .PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"] .formControl button {
+/* .ShoppingIdDBDesc .tab-pane[aria-labelledby="retag-tab"] .formControl button {
     background: #28A745;
 } */
-.PokerIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:before {
+.ShoppingIdDBDesc .tab-pane[aria-labelledby="retag-tab"]:before {
     content: '';
     position: absolute;
     top: 18px;
@@ -2311,7 +2311,7 @@ div#Gotaquestion
 .MobileView{
     display: none;
 }
-.PokerIdDBDesc .form-container {
+.ShoppingIdDBDesc .form-container {
     flex-direction: column;
     width: 70%;
     gap: 20px;
@@ -2341,12 +2341,12 @@ div#Gotaquestion
 }
 .formControl button {
     padding: 0px 40px;
-    background: #FF7A1A;
+    background: #1A73E8;
     height: 52px;
     color: #fff;
     border-radius: 8px;
 }
-/* .PokerIdDB.nav-tabs .nav-link.active[data-bs-target="#retag"], .PokerIdDB.nav-tabs .nav-item.show .nav-link[data-bs-target="#retag"]{
+/* .ShoppingIdDB.nav-tabs .nav-link.active[data-bs-target="#retag"], .ShoppingIdDB.nav-tabs .nav-item.show .nav-link[data-bs-target="#retag"]{
      color: #28a745;
     border-bottom: 3px solid #28a745;
 } */
@@ -2365,7 +2365,7 @@ div#Gotaquestion
 .ContactUSHeading h1 {
     margin-bottom: 20px;
     font-size: 40px;
-    color: #FF7A1A;
+    color: #1A73E8;
     font-weight: 800;
 }
 .ContactUSHeading p {
@@ -2383,7 +2383,7 @@ div#Gotaquestion
 }
 .ContactInfoleft {
     padding: 30px 20px;
-    background: #FF7A1A;
+    background: #1A73E8;
     width: 40%;
     border-radius: 10px;
     color: #fff;
@@ -2437,7 +2437,7 @@ div#Gotaquestion
 }
 
 .formsection  .form-control:focus {
-    border-bottom: 2px solid #FF7A1A;
+    border-bottom: 2px solid #1A73E8;
     outline: none;
     box-shadow: none;
 }
@@ -2446,15 +2446,15 @@ div#Gotaquestion
     margin: 0 0 10px;
 }
 .formsection .form-check-input:checked {
-    background-color: #FF7A1A;
-    border-color: #FF7A1A;
+    background-color: #1A73E8;
+    border-color: #1A73E8;
     box-shadow: none;
 }
 .formsection .form-check-label {
     font-size: 12px;
 }
 .formsection .btn-submit {
-    background-color: #FF7A1A;
+    background-color: #1A73E8;
     color: white;
     padding: 10px 24px;
     border-radius: 8px;
@@ -2541,7 +2541,7 @@ div#Gotaquestion
     .KYCDB .step-number {
       width: 35px;
       height: 35px;
-      background-color: #FF7A1A;
+      background-color: #1A73E8;
       color: white;
       font-weight: bold;
       border-radius: 50%;
@@ -2560,7 +2560,7 @@ div#Gotaquestion
     padding: 0 20px;
 }
 .KYCDB .btn-pink {
-    background-color: #FF7A1A;
+    background-color: #1A73E8;
     color: white;
     border-radius: 15px;
     border: none;
@@ -2646,7 +2646,7 @@ div#Gotaquestion
     height: 45px;
     font-size: 18px;
     border-radius: 6px;
-    background: #FF7A1A;
+    background: #1A73E8;
     color: #fff;
     font-weight: bold;
 }
@@ -2654,7 +2654,7 @@ div#Gotaquestion
     padding: 20px;
     background: #F4F4F4;
     font-size: 20px;
-    color: #FF7A1A;
+    color: #1A73E8;
     font-weight: bold;
     text-align: center;
 }
@@ -2703,13 +2703,13 @@ div#Gotaquestion
 
 .formButton.KYCSendOTP:focus
  {
-    background: #FF7A1A;
+    background: #1A73E8;
     color: #fff;
 }
 
 .formButton.KYCSendOTP:hover
  {
-    background: #FF7A1A;
+    background: #1A73E8;
     color: #fff;
 }
 .KYCSuccessMsg {
@@ -2733,9 +2733,9 @@ div#Gotaquestion
     height: 27px;
     border-radius: 6px;
     background: transparent;
-    border: 1px solid #FF7A1A;
+    border: 1px solid #1A73E8;
     font-size: 12px;
-    color: #FF7A1A;
+    color: #1A73E8;
 }
 
  .dropdown-menu.NavbarDropdown {
@@ -2771,13 +2771,13 @@ div#Gotaquestion
 }
 .NavbarDropdown .dropdown-item h3 {
     font-size: 16px;
-    color: #FF7A1A;
+    color: #1A73E8;
     margin: 0;
 }
 .NavbarDropdown .dropdown-item.active, .NavbarDropdown .dropdown-item:active {
     color: #fff;
     text-decoration: none;
-    background-color: #FF7A1A;
+    background-color: #1A73E8;
 }
 .NavbarDropdown .dropdown-item.active h3, .NavbarDropdown .dropdown-item:active h3,
 .NavbarDropdown .dropdown-item.active span, .NavbarDropdown .dropdown-item:active span
@@ -2905,8 +2905,8 @@ div#Gotaquestion
 .DesktopLatestNews .nav-pills .nav-link.active
  {
     background-color: transparent;
-    color: #FF7A1A;
-    border-bottom: 3px solid #FF7A1A;
+    color: #1A73E8;
+    border-bottom: 3px solid #1A73E8;
     border-radius: 0px;
 }
    .DesktopLatestNews  .blog-card img { border-radius: 8px; }
@@ -2928,7 +2928,7 @@ div#Gotaquestion
         font-size: 16px; font-weight: bold; text-transform: uppercase; color: #ff4d4d;
      }
 .DesktopLatestNews .newsletter {
-    background: #FF7A1A;
+    background: #1A73E8;
     color: #fff;
     padding: 50px 30px;
     border-radius: 8px;
@@ -2989,7 +2989,7 @@ div#Gotaquestion
 .DesktopLatestNews .tab-content h4.section-title {
     font-size: 31px;
     font-weight: 500;
-    color: #FF7A1A;
+    color: #1A73E8;
     margin-bottom: 22px;
 }
 .DesktopLatestNews .card.blog-card.BlogCardFullHeifht img {
@@ -3083,7 +3083,7 @@ div#Gotaquestion
     height: 100%;
 }
 .AutherINfo h3 {
-    color: #FF7A1A;
+    color: #1A73E8;
     font-weight: 700;
 }
 .DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost  .SliderFooter button {
@@ -3182,7 +3182,7 @@ div#Gotaquestion
 }
 
 .SpacedicAdd.SpacedicAddsBAckground {
-    background: #FF7A1A;
+    background: #1A73E8;
     height: 356px;
     border-radius: 4px;
     margin: 0 0 20px;
@@ -3252,8 +3252,8 @@ div#Gotaquestion
 }
 
 .DesktopLatestNews .page-number.active {
-    color: #FF7A1A;
-    border: 0.5px solid #FF7A1A;
+    color: #1A73E8;
+    border: 0.5px solid #1A73E8;
 }
 .DesktopLatestNews .dots {
   font-size: 18px;
@@ -3380,7 +3380,7 @@ div#Gotaquestion
  {
     margin: 0;
 }
-.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .LatestNewsDsgTxt .SliderFooter button.Pokerbazzi25 {
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .LatestNewsDsgTxt .SliderFooter button.Shoppingbazzi25 {
     border: 1px dashed #9898988c;
     color: #000;
     font-weight: 600;
@@ -3388,15 +3388,15 @@ div#Gotaquestion
     background: #F0F0F0;
 }
 
-.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .LatestNewsDsgTxt .SliderFooter button.Pokerbazzi25 span {
+.DesktopLatestNews .sidebar.RightsidebarBlog .card .sidePost .LatestNewsDsgTxt .SliderFooter button.Shoppingbazzi25 span {
     font-size: 6px;
     font-weight: bold;
     color: #606060;
 }
 .tagBtn .badge-custom {
     background-color: #fff;
-    color: #FF7A1A;
-    border: 1px solid #FF7A1A;
+    color: #1A73E8;
+    border: 1px solid #1A73E8;
     padding: 6px 12px;
     border-radius: 20px;
     margin-right: 0;
@@ -3462,18 +3462,18 @@ div#Gotaquestion
     display: block;
 }
 
-.PokerIDdropdown .dropdown-item img {
+.ShoppingIDdropdown .dropdown-item img {
     width: 24px;
     height: 24px;
     margin-right: 10px;
     border-radius: 50%;
 }
-.PokerIDdropdown .dropdown-toggle {
+.ShoppingIDdropdown .dropdown-toggle {
     display: flex;
     align-items: center;
     gap: 10px;
 }
-.PokerIDdropdown .dropdown-toggle img {
+.ShoppingIDdropdown .dropdown-toggle img {
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -3493,7 +3493,7 @@ div#Gotaquestion
 .ProfilePAgeformrow .form-control:focus {
     color: #212529;
     background-color: #fff;
-    border-color: #FF7A1A;
+    border-color: #1A73E8;
     outline: 0;
     box-shadow: none;
 }
@@ -3534,54 +3534,54 @@ div#Gotaquestion
 
 
 
-.PokerBazziSlider {
+.ShoppingBazziSlider {
     border-color: #2041BD;
 }
 .BigCashSlider {
     border-color: #C42829;
 }
-.JungleePokerSlider {
+.JungleeShoppingSlider {
     border-color: #D00101;
 }
-.PokerDangalSLider {
+.ShoppingDangalSLider {
     border-color: #004F6D;
 }
-.SpartanPokerSlider {
+.SpartanShoppingSlider {
      border-color: #2B1E4B;
 }
 .WPTGlobalSlider {
      border-color: #2B48CD;
 }
-.CoinPokerSlider {
+.CoinShoppingSlider {
      border-color: #C42829;
 }
 .ACRSlider {
      border-color: #000000;
 }
 
-.PokerBazziSlider .SliderBanner{
-    background: url(../TopOfferSlider/PokerBazziSlider.svg);
+.ShoppingBazziSlider .SliderBanner{
+    background: url(../TopOfferSlider/ShoppingBazziSlider.svg);
 }
 .BigCashSlider .SliderBanner{
     background: url(../TopOfferSlider/BigCashSlider.svg);
 }
-.JungleePokerSlider .SliderBanner{
+.JungleeShoppingSlider .SliderBanner{
     background: url(../TopOfferSlider/JungleePokerSlider.svg);
 }
-.PokerDangalSLider .SliderBanner{
+.ShoppingDangalSLider .SliderBanner{
     background: url(../TopOfferSlider/PokerDangalSlider.svg);
 }
-.SpartanPokerSlider .SliderBanner{
+.SpartanShoppingSlider .SliderBanner{
     background: url(../TopOfferSlider/SpartanPokerSlider.svg);
 }
 .WPTGlobalSlider .SliderBanner{
     background: url(../TopOfferSlider/WPTSlider.svg);
 }
-.CoinPokerSlider .SliderBanner{
-    background: url(../TopOfferSlider/CoinPokerSlider.svg);
+.CoinShoppingSlider .SliderBanner{
+    background: url(../TopOfferSlider/CoinShoppingSlider.svg);
 }
 .ACRSlider .SliderBanner{
-    background: url(../TopOfferSlider/ACRPokerSlider.svg);
+    background: url(../TopOfferSlider/ACRShoppingSlider.svg);
 }
 .customslider .slick-slide.slick-active.slick-center.slick-current {
     box-shadow: none;
@@ -3627,7 +3627,7 @@ div#Gotaquestion
 .SliderBanner span {
     width: 81px;
     height: 28px;
-    background: #FF7A1A;
+    background: #1A73E8;
     font-size: 10px;
     font-weight: bold;
     position: absolute;
@@ -3651,7 +3651,7 @@ p.GetProfitdes {
     gap: 8px;
     padding: 8px 12px;
     border-radius: 4.26px;
-    border: 1px dashed #FF7A1A;
+    border: 1px dashed #1A73E8;
     font-size: 10px;
     color: #000;
 }
@@ -3659,7 +3659,7 @@ p.GetProfitdes p {
     margin: 0;
     font-size: 14px;
     font-weight: bolder;
-    color: #FF7A1A;
+    color: #1A73E8;
 }
 ul.SliderList {
     margin: 0;
@@ -3672,7 +3672,7 @@ ul.SliderList li {
 .SliderFooter {
     gap: 18px;
 }
-button.Pokerbazzi25 {
+button.Shoppingbazzi25 {
     background: #F7F7F7;
     border-radius: 6px;
     border: 0px solid #989898;
@@ -3805,14 +3805,14 @@ button.Pokerbazzi25 {
     position: relative;
 }
 .nav.shopping-glossary-navigation a.active {
-    color: #FF7A1A;
-    border-bottom: 2px solid #FF7A1A;
+    color: #1A73E8;
+    border-bottom: 2px solid #1A73E8;
 }
 .DictionaryData h2.active
  {
     background: #FFE8EA;
     margin: 0px 0 0;
-    color: #FF7A1A;
+    color: #1A73E8;
 }
 .article-content .DictionaryData ul {
     font-size: 14px;
@@ -3870,8 +3870,8 @@ button.Pokerbazzi25 {
 .dictionaryPage .tagBtn .badge-custom
  {
     background-color: #fff;
-    color: #FF7A1A;
-    border: 1px solid #FF7A1A;
+    color: #1A73E8;
+    border: 1px solid #1A73E8;
     padding: 2px 12px;
     border-radius: 20px;
     margin-right: 0;
@@ -3904,7 +3904,7 @@ button.Pokerbazzi25 {
     margin-top: 44px;
 }
 .BLogPAgesFooterIcon .SliderFooter button.ClaimNow {
-    background: #FF7A1A;
+    background: #1A73E8;
     font-size: 16px;
     color: #fff;
     font-weight: bold;
@@ -3915,7 +3915,7 @@ button.Pokerbazzi25 {
 
  .seeMoreOffers {
     background: #fff;
-    border: 1px solid #FF7A1A;
+    border: 1px solid #1A73E8;
     border-radius: 8px;
     padding: 0px 0px;
     height: 45px;
@@ -3924,7 +3924,7 @@ button.Pokerbazzi25 {
     font-size: 14px;
     font-weight: bold;
     cursor: pointer;
-    color: #FF7A1A;
+    color: #1A73E8;
     text-transform: uppercase;
 }
 /* .cursor {
@@ -4012,29 +4012,29 @@ button.Pokerbazzi25 {
 }
 
 .ReviewHeader.WPTGlobal {
- background: url(../Review/WptPokerHB.png);
+ background: url(../Review/WptShoppingHB.png);
 
 }
-.ReviewHeader.JungleePoker {
- background: url(../Review/JungleePokerHB.png);
+.ReviewHeader.JungleeShopping {
+ background: url(../Review/JungleeShoppingHB.png);
 }
 
-.ReviewHeader.PokerDangal {
- background: url(../Review/PokerDangalHB.png);
+.ReviewHeader.ShoppingDangal {
+ background: url(../Review/ShoppingDangalHB.png);
 
 }
 
-.ReviewHeader.SpartanPoker {
- background: url(../Review/SpartanPokerHB.png);
+.ReviewHeader.SpartanShopping {
+ background: url(../Review/SpartanShoppingHB.png);
 }
-.ReviewHeader.CoinPoker {
- background: url(../Review/CoinPokerHB.png);
+.ReviewHeader.CoinShopping {
+ background: url(../Review/CoinShoppingHB.png);
 }
-.ReviewHeader.PokerBaazi {
- background: url(../Review/PokerBazziHB.png);
+.ReviewHeader.ShoppingBaazi {
+ background: url(../Review/ShoppingBazziHB.png);
 }
-.ReviewHeader.ACRPoker {
- background: url(../Review/ACRPokerHB.png);
+.ReviewHeader.ACRShopping {
+ background: url(../Review/ACRShoppingHB.png);
 }
 
 
@@ -4064,7 +4064,7 @@ button.Pokerbazzi25 {
     color: #fff;
   }
 .ReviewHeader .join-btn {
-    background-color: #FF7A1A;
+    background-color: #1A73E8;
     color: white;
     padding: 12px 19px;
     border: none;
@@ -4182,7 +4182,7 @@ button.Pokerbazzi25 {
     border: none;
 }
 .ReviewTaggingTab ul.nav.TabUI li.nav-item button.nav-link.active {
-    background: #FF7A1A;
+    background: #1A73E8;
     color: #fff;
 }
 .ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link
@@ -4328,7 +4328,7 @@ button.Pokerbazzi25 {
 .SidePostTagBtn{
     width: 100%;
     height: 52px;
-    background: #FF7A1A;
+    background: #1A73E8;
     border-radius: 12px;
     font-size: 16px;
     font-weight: bolder;
@@ -4417,11 +4417,11 @@ button.Pokerbazzi25 {
     border-radius: 0px;
 }
 .ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link.active {
-    color: #FF7A1A;
-    border-bottom: 2px solid #FF7A1A;
+    color: #1A73E8;
+    border-bottom: 2px solid #1A73E8;
 }
 .ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link.active svg path {
-    stroke: #FF7A1A;
+    stroke: #1A73E8;
 }
 .ReviewTaggingTab ul.nav.ReviewUITab li.nav-item button.nav-link svg {
     margin-bottom: 3px;
@@ -4533,7 +4533,7 @@ button.Pokerbazzi25 {
 .single-post-right.sidebar.RightsidebarBlog.RetagRightsideba .card-header {
     background: transparent;
     font-size: 18px;
-    color: #FF7A1A;
+    color: #1A73E8;
     padding: 11px;
     font-weight: bold;
     text-transform: capitalize;
@@ -4639,7 +4639,7 @@ button.Pokerbazzi25 {
     padding: 0 24px 28px;
 }
 .MobileReviewPAge .ReviewHeader .middle h3 {
-    color: #FF7A1A;
+    color: #1A73E8;
     margin: 0;
     width: 100%;
     padding: 14px 0;
@@ -4680,7 +4680,7 @@ button.Pokerbazzi25 {
     font-size: 16px;
     font-weight: bold;
     padding: 14px 0;
-    color: #FF7A1A;
+    color: #1A73E8;
 }
 .MobileReviewPAge .ReviewHeader .rating div {
     color: #000;
@@ -4744,7 +4744,7 @@ button.Pokerbazzi25 {
      border: none;
 }
 .DesktopLatestNews.MobileReviewPAge  .newsletter {
-    background: #FF7A1A;
+    background: #1A73E8;
     color: #fff;
     padding: 28px 28px;
     border-radius: 8px;
@@ -4780,7 +4780,7 @@ button.Pokerbazzi25 {
     align-items: center;
     gap: 8px;
 }
-.MobileReviewPAge .RakebackFAQ {
+.MobileReviewPAge .CashbackFAQ {
     background-color: #fff;
     margin-bottom: 20px;
     border-top: 0.6px solid #CDCDCD;
@@ -4857,15 +4857,15 @@ background: #EFEFEF;
     border: 1px solid #CDCDCD;
     margin: 28px 0;
 }
-.RakebackHeader .search-bar {
+.CashbackHeader .search-bar {
     margin: 0;
     display: none;
         position: relative;
 }
-.RakebackHeader .search-bar.show {
+.CashbackHeader .search-bar.show {
   display: flex;
 }
-.RakebackHeader .search-bar input {
+.CashbackHeader .search-bar input {
     border: 1px solid #D6D8DE;
     border-radius: 6px;
     padding: 5px 40px 5px 10px;
@@ -4878,19 +4878,19 @@ background: #EFEFEF;
     outline: none;
     height: 40px;
 }
-.RakebackHeader .search-bar button {
+.CashbackHeader .search-bar button {
     border: none;
     background: none;
     position: absolute;
     right: 10px;
     top: 7px;
 }
-.RakebackHeader .search-bar input:focus
+.CashbackHeader .search-bar input:focus
 
  {
-    border-color: #FF7A1A;
+    border-color: #1A73E8;
 }
-.RakebackHeader .navbar-nav .nav-link.active::after {
+.CashbackHeader .navbar-nav .nav-link.active::after {
     content: "";
     position: absolute;
     left: 0;
@@ -4901,17 +4901,17 @@ background: #EFEFEF;
     margin: auto;
     width: 100%;
 }
-.RakebackHeader .LoginBtn
+.CashbackHeader .LoginBtn
  {
     gap: 12px;
     flex-direction: row;
 }
-.RakebackHeader     .navbar-expand-lg .navbar-collapse
+.CashbackHeader     .navbar-expand-lg .navbar-collapse
  {
         flex-basis: 100%;
         width: 100%;
     }
-    .RakebackHeader .navbar-expand-lg .navbar-collapse ul.navbar-nav
+    .CashbackHeader .navbar-expand-lg .navbar-collapse ul.navbar-nav
 
  {
     width: 80%;
@@ -4939,7 +4939,7 @@ button#searchToggleDesktop:focus {
 .ReviewTaggingTab .sticky-top.bg-white {
     top: 0px !important;
 }
-.PokerSiteHed {
+.ShoppingSiteHed {
     font-size: 18px;
     font-weight: bold;
     border-bottom: 1px solid #EEEEEE;
@@ -4948,7 +4948,7 @@ button#searchToggleDesktop:focus {
     margin-bottom: 27px;
     padding: 0 15px;
 }
-.PokerLeft
+.ShoppingLeft
  {
     width: 100%;
 }
@@ -4962,7 +4962,7 @@ button#searchToggleDesktop:focus {
     gap: 90px;
 }
 
-.PokerLeft .list-unstyled
+.ShoppingLeft .list-unstyled
  {
     padding-left: 0;
     list-style: none;
@@ -4974,19 +4974,19 @@ button#searchToggleDesktop:focus {
     justify-content: space-between;
     row-gap: 20px;
 }
-.PokerLeft .list-unstyled li.d-flex.align-items-center
+.ShoppingLeft .list-unstyled li.d-flex.align-items-center
  {
     flex-basis: 41%;
     gap: 18px;
 }
-.PokerRight .deal-card {
+.ShoppingRight .deal-card {
     border: 1px solid #EDEDED;
     border-radius: 11px;
     overflow: hidden;
     transition: transform 0.2s ease;
     width: 210px;
 }
-.PokerRight .HottestDealschild
+.ShoppingRight .HottestDealschild
  {
     padding: 0;
     border-radius: 0;
@@ -4998,7 +4998,7 @@ button#searchToggleDesktop:focus {
     justify-content: space-evenly;
     gap: 20px;
 }
-.PokerRight .deal-image img
+.ShoppingRight .deal-image img
  {
     width: 100%;
     height: 100%;
@@ -5012,7 +5012,7 @@ button.navbar-toggler svg
 .dropdown.NavBarProfileIcon .btn {
     width: 38px;
     height: 38px;
-    background: #FF7A1A;
+    background: #1A73E8;
     position: relative;
     display: flex
 ;
@@ -5053,7 +5053,7 @@ button.navbar-toggler svg
 .howToTAg li span {
     width: 26px;
     height: 26px;
-    background: #FF7A1A;
+    background: #1A73E8;
     display: flex
 ;
     justify-content: center;
@@ -5103,7 +5103,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     padding-left: 20px;
 }
 .howToTAg.DealsDetails li h5 {
-    color: #FF7A1A;
+    color: #1A73E8;
 }
 .howToTAg li p {
     text-align: left;
@@ -5128,8 +5128,8 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     color: #000;
     font-weight: bold;
 }
-.PokerRight  .HottestDealsDesc button.deal-button.mt-2.w-100 {
-    background: #FF7A1A;
+.ShoppingRight  .HottestDealsDesc button.deal-button.mt-2.w-100 {
+    background: #1A73E8;
     color: #fff;
     height: 43px;
     border-radius: 6px;
@@ -5163,7 +5163,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
 .howToTAg  .card .card-header {
     background: transparent;
     font-size: 18px;
-    color: #FF7A1A;
+    color: #1A73E8;
     padding: 11px;
     font-weight: bold;
     text-transform: capitalize;
@@ -5256,7 +5256,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
  {
     width: 4px;
     height: 4px;
-    background: #FF7A1A;
+    background: #1A73E8;
     min-width: 4px;
     border-radius: 0px;
     position: relative;
@@ -5288,7 +5288,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #ff4d6d;
+    background-color: #1A73E8;
     color: #fff;
     font-size: 8px;
     font-weight: bold;
@@ -5330,7 +5330,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     color: #1a1a1a;
 }
 .DealsOfferHed .titleAccent {
-    color: #FF7A1A;
+    color: #1A73E8;
 }
 .DealsOfferHed .subtitle {
     font-size: 20px;
@@ -5409,7 +5409,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     }
 
     .dealPage .claim-btn {
-      background: #ff4d6d;
+      background: #1A73E8;
       color: #fff;
       border: none;
       border-radius: 6px;
@@ -5427,40 +5427,40 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     .dealPage .claim-btn:hover {
       background: #e63858;
     }
-.RakebackFeaturedBlog.RakebackFeaturedBlogHP .mainPost
+.CashbackFeaturedBlog.CashbackFeaturedBlogHP .mainPost
  {
     border-radius: 12px !important;
         border: 1px solid #ECECEC;
 }
-.RakebackFeaturedBlog.RakebackFeaturedBlogHP .sideImageContainer {
+.CashbackFeaturedBlog.CashbackFeaturedBlogHP .sideImageContainer {
     width: 152px;
     height: 132px;
     border-radius: 12px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
 }
-.RakebackFeaturedBlog.RakebackFeaturedBlogHP  .sideContent {
+.CashbackFeaturedBlog.CashbackFeaturedBlogHP  .sideContent {
     gap: 20px;
 }
-.RakebackFeaturedBlog.RakebackFeaturedBlogHP .sidePost:last-child {
+.CashbackFeaturedBlog.CashbackFeaturedBlogHP .sidePost:last-child {
     margin-bottom: 0px;
 }
-.RakebackFeaturedBlogHP  .blogGrid .row {
+.CashbackFeaturedBlogHP  .blogGrid .row {
     display: flex;
     gap: 37px;
     justify-content: space-between;
 }
-.RakebackFeaturedBlogHP .blogGrid .row .col-lg-6 {
+.CashbackFeaturedBlogHP .blogGrid .row .col-lg-6 {
     flex: 1;
 }
-.RakebackFeaturedBlog.RakebackFeaturedBlogHP .sidePost {
+.CashbackFeaturedBlog.CashbackFeaturedBlogHP .sidePost {
     margin: 0;
 }
-.RakebackFeaturedBlogHP .blogGrid .row .col-lg-6 .row {
+.CashbackFeaturedBlogHP .blogGrid .row .col-lg-6 .row {
     gap: 19px;
     margin: 0 0px;
 }
-.RakebackFeaturedBlogHP .mainPost .mainContent h3.mainTitle {
+.CashbackFeaturedBlogHP .mainPost .mainContent h3.mainTitle {
     font-weight: bold;
 }
 
@@ -5535,7 +5535,7 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
     align-items: center;
     gap: 6px;
     background: #FFF5EB;
-    color: #FF7A1A;
+    color: #1A73E8;
     padding: 6px 12px;
     border-radius: 20px;
     font-size: 13px;
@@ -5543,27 +5543,27 @@ ul.howToTAg.DealsDetails ul.DealsDetailsChild li {
 }
 
 /* Replace red accents with orange for offers */
-.RakeBackTopOffers .titleAccent,
-.RakebackTrustedPoker .title,
+.cashbackTopOffers .titleAccent,
+.CashbackTrustedShopping .title,
 .GetStartedhead .highlight,
 .joinButton,
-.RakebackFeaturedBlog .tabsWrapper .activeTab,
-.RakebackFeaturedBlog .tabsWrapper .activeTab:before,
+.CashbackFeaturedBlog .tabsWrapper .activeTab,
+.CashbackFeaturedBlog .tabsWrapper .activeTab:before,
 button.ClaimNow,
 button.ClaimNow.ClaimNowDNO,
 .SliderBanner span,
-.RakebackNewsletter .submitButton,
+.CashbackNewsletter .submitButton,
 .customFooter .sectionTitle,
 .DealsOfferHed .titleAccent {
-    color: #FF7A1A !important;
+    color: #1A73E8 !important;
 }
 
-.RakebackFeaturedBlog .tabsWrapper .activeTab,
-.RakebackFeaturedBlog .tabsWrapper .activeTab:before,
+.CashbackFeaturedBlog .tabsWrapper .activeTab,
+.CashbackFeaturedBlog .tabsWrapper .activeTab:before,
 .SliderBanner span,
 .JoinNow,
 .DealCardButton {
-    background: #FF7A1A !important;
+    background: #1A73E8 !important;
 }
 
 /* Update pagination active state */

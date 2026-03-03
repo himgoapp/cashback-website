@@ -9,7 +9,7 @@ import { createContext, useEffect, useState } from "react";
 import OfferAndDealsContainer from "./pages/offerAndDealsPage";
 import DescriptionPage from "./pages/descriptionPage";
 import DashboardHome from "./components/dashboard/home/home";
-import PokerID from "./components/dashboard/pokerID/pokerID";
+// import ShoppingID from "./components/dashboard/shoppingID/shoppingID";
 import DealsContainer from "./components/dashboard/deals/dealspage";
 import VerifyAccount from "./components/dashboard/veryfyAccount/verifyAccount";
 import KYC from "./components/dashboard/KYC/kyc";
@@ -219,14 +219,14 @@ function App() {
               }
             />
 
-            <Route
-              path="/dashboard/pokerid"
+            {/* <Route
+              path="/dashboard/shoppingid"
               element={
                 <ProtectedRoute>
-                  <PokerID />
+                  <ShoppingID />
                 </ProtectedRoute>
               }
-            />
+            /> */}
 
             <Route
               path="/dashboard/deals"

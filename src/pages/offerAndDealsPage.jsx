@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/common/navbar/navbar";
 import OfferAndDeal from "../components/offerAndDeal/offerAndDeal";
 // import FAQ from "../components/home/FAQ/faq";
-// import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
+// import JoinCashback from "../components/home/joinCashback/joinCashback";
 // import Footer from "../components/common/footer/footer";
 // import offerbg from "../assets/offerbannerbg.png";
 import MainContainer from "../layout/mainContainer";
@@ -23,7 +23,7 @@ const OfferAndDealsContainer = () => {
       <Reveal>
         <div
           style={{ position: "relative" }}
-          className="container-fluid RakeBackTopOffers RakebackSpace"
+          className="container-fluid cashbackTopOffers CashbackSpace"
         >
           <div className="container">
             <div className="row">
@@ -43,7 +43,7 @@ const OfferAndDealsContainer = () => {
         </div>
         <div
           style={{ position: "relative" }}
-          className="container-fluid Dealsclientssay RakebackSpace"
+          className="container-fluid Dealsclientssay CashbackSpace"
         >
           <div className="container">
             <div className="row">
@@ -75,7 +75,7 @@ const OfferAndDealsContainer = () => {
               {/* <FAQ /> */}
               {/* </MainContainer> */}
               {/* <MainContainer>
-                <JoinRakeback />
+                <JoinCashback />
               </MainContainer> */}
             </div>
           </div>

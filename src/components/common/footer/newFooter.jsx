@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './newFooter.module.css';
-import RakeBackLogoWhite from "../../../assets/Logos_and_illustration/RakeBackLogoWhite.svg"
+import cashbackLogoWhite from "../../../assets/Logos_and_illustration/RakeBackLogoWhite.svg"
 const NewFooter = () => {
   return (
     <>
@@ -10,7 +10,46 @@ const NewFooter = () => {
             <div className='col-lg-4 col-md-12 col-sm-12'>
               <div className="brandSection">
                 <div className="brandLogo">
-                  <img src={RakeBackLogoWhite} width={197} height={57} />
+              <svg width="220" height="50" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+                <defs>
+                  <linearGradient id="earneraGrad" x1="0" y1="0" x2="60" y2="60">
+                    <stop offset="0%" stop-color="#1A73E8" />
+                    <stop offset="100%" stop-color="#22C55E" />
+                  </linearGradient>
+                </defs>
+
+                <rect x="5" y="5" width="60" height="60" rx="16"
+                  fill="url(#earneraGrad)"
+                  transform="rotate(-8 35 35)" />
+
+                <path d="M20 28 H42
+           M20 36 H35
+           M20 44 H42"
+                  stroke="white"
+                  stroke-width="4"
+                  stroke-linecap="round" />
+
+                <path d="M28 25
+           C40 25, 46 32, 46 32
+           L40 28
+           M46 32
+           L40 36"
+                  stroke="white"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none" />
+
+                <text x="80" y="45"
+                  font-family="Montserrat, sans-serif"
+                  font-size="30"
+                  font-weight="600"
+                  fill="#1F2937">
+                  Earn<tspan fill="#1A73E8">Era</tspan>
+                </text>
+
+              </svg>
 
                 </div>
                 <p className="brandTagline">Make Shopping More Profitable</p>
@@ -109,7 +148,7 @@ const NewFooter = () => {
       <div className={styles.footerContainer}>
         <div className={styles.brandSection}>
           <div className={styles.brandLogo}>
-            <img src={RakeBackLogoWhite} width={196} height={46} />
+            <img src={cashbackLogoWhite} width={196} height={46} />
 
           </div>
           <p className={styles.brandTagline}>Make Shopping More Profitable</p>

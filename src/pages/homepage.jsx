@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Navbar from "../components/common/navbar/navbar";
 import Banner from "../components/home/banner/banner";
-import TopRakeBackOffers from "../components/home/offers/topRakeBackOffers";
+import TopCashbackOffers from "../components/home/offers/topcashbackOffers";
 // import TopOffers from "../components/home/offers/topOffers";
 import TrustSection from "../components/home/trustedbrands/trustedBy";
 import HowGetStarted from "../components/home/getStarted/howGetStarted";
@@ -14,7 +14,7 @@ import FaqSection from "../components/home/FAQ/newFaqSection";
 // import Getstarted from "../components/home/getStarted/getstarted";
 // import Featured from "../components/home/featured/featured";
 // import FAQ from "../components/home/FAQ/faq";
-// import JoinRakeback from "../components/home/joinRakeback/joinRakeback";
+// import JoinCashback from "../components/home/joinCashback/joinCashback";
 // import Footer from "../components/common/footer/footer";
 import MainContainer from "../layout/mainContainer";
 // import ScrollToTopButton from "./ScrollToTopButton ";
@@ -46,7 +46,7 @@ const Homepage = () => {
       />
       <MainContainer>
         <Banner />
-        <TopRakeBackOffers />
+        <TopCashbackOffers />
         <TrustSection />
         <HowGetStarted />
         <FeaturedBlogs isMobile={isMobile} />

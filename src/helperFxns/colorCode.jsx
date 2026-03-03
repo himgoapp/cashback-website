@@ -211,7 +211,7 @@ export const getTableIconStyle = (type) => {
   );
 };
 
-export const getPokerSiteImage = (siteName) => {
+export const getShoppingSiteImage = (siteName) => {
   if (!siteName) return process.env.PUBLIC_URL + "/logo192.png";
   const store = mockStores.find(
     (s) => s.name.toLowerCase() === (siteName || "").toLowerCase() || s.id === (siteName || "").toLowerCase()
@@ -219,7 +219,7 @@ export const getPokerSiteImage = (siteName) => {
   return store ? store.logoUrl : process.env.PUBLIC_URL + "/logo192.png";
 };
 
-export const getPokerClass = (siteName) => {
+export const getShoppingClass = (siteName) => {
   return "";
 };
 

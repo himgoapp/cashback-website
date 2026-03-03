@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import styles from "./rightSidebar.module.css";
 import { getProducts } from "../../../servicefile/productservice";
-import { getPokerSiteImage } from "../../../helperFxns/colorCode";
+import { getShoppingSiteImage } from "../../../helperFxns/colorCode";
 import { useNavigate } from "react-router-dom";
 import IndiaFlag from "../../../assets/Flag_of_India.png";
 
@@ -98,7 +98,7 @@ const RightSidebar = () => {
                 <div className={styles.cardHeader}>
                   <div className={styles.logoWrapper}>
                     <img 
-                      src={getPokerSiteImage(room.name)} 
+                      src={getShoppingSiteImage(room.name)} 
                       alt={`${room.name}`} 
                       className={styles.logo} 
                     />

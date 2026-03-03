@@ -3,7 +3,7 @@ import styles from "./cashback_step.module.css";
 
 const CaskBackStep = () => {
 	const LoyalityProgram = [{
-		text: "The first loyalty program that will be launched on Pokerdom on October 5 is '100 Steps to a Million'. According to the terms of this program, every ruble of rake generated in any of the shopping disciplines (cash games, MTT, windfalls, and SnG) will bring 1 bonus point. When a certain number of points are collected, the player's level will increase, and along with the increase in level, the player will receive an instant random cash prize. To receive the prize, the player will be offered a choice of several cards 'face down', under each of which there will be a prize, which will fall out with a predetermined probability."
+		text: "The first loyalty program that will be launched on Shoppingdom on October 5 is '100 Steps to a Million'. According to the terms of this program, every ruble of rake generated in any of the shopping disciplines (cash games, MTT, windfalls, and SnG) will bring 1 bonus point. When a certain number of points are collected, the player's level will increase, and along with the increase in level, the player will receive an instant random cash prize. To receive the prize, the player will be offered a choice of several cards 'face down', under each of which there will be a prize, which will fall out with a predetermined probability."
 	  }];
 	  
 	  const transformedProgram = LoyalityProgram.map(item => item.text);

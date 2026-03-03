@@ -4,7 +4,7 @@ import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { toast } from "react-toastify";
-import {RakebackLogo} from "../../common/logo/logo";
+import {CashbackLogo} from "../../common/logo/logo";
 import { UserContext } from "../../../App";
 import Navbtn from "../../common/button/navbtn/navbtn";
 
@@ -242,7 +242,7 @@ function VerifyInfoContainer() {
             <Modal size="md" show={verifyModal} onHide={handleClose}>
                 <Modal.Header className="d-flex justify-content-center">
                     <Modal.Title>
-                        <RakebackLogo />
+                        <CashbackLogo />
                     </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>

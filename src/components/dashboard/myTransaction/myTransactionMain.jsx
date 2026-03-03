@@ -21,7 +21,7 @@ const MyTransactionMain = () => {
 
   const activeTab = (type, transactionType) => {
     if (type === transactionType) {
-      return { borderBottom: "3px #FF7A1A solid", color: "#FF7A1A" };
+      return { borderBottom: "3px #1A73E8 solid", color: "#1A73E8" };
     } else {
       return {};
     }
@@ -103,10 +103,10 @@ const KycTDCstatus = () => {
       <div
         className={statusStyle.StatusContent}
         style={{
-          borderTop: `1px solid #FF7A1A`,
-          borderRight: `1px solid #FF7A1A`,
-          borderBottom: `1px solid #FF7A1A`,
-          borderLeft: `5px solid #FF7A1A`,
+          borderTop: `1px solid #1A73E8`,
+          borderRight: `1px solid #1A73E8`,
+          borderBottom: `1px solid #1A73E8`,
+          borderLeft: `5px solid #1A73E8`,
         }}
       >
         <div className={statusStyle.StatusHead}>
@@ -127,10 +127,10 @@ const DepositMessage = () => {
       <div
         className={statusStyle.StatusContent}
         style={{
-          borderTop: `1px solid #FF7A1A`,
-          borderRight: `1px solid #FF7A1A`,
-          borderBottom: `1px solid #FF7A1A`,
-          borderLeft: `5px solid #FF7A1A`,
+          borderTop: `1px solid #1A73E8`,
+          borderRight: `1px solid #1A73E8`,
+          borderBottom: `1px solid #1A73E8`,
+          borderLeft: `5px solid #1A73E8`,
         }}
       >
         <div className={statusStyle.StatusHead}>

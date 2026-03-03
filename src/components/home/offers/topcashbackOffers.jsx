@@ -12,11 +12,11 @@ import CenterSlider from './slider.jsx'
 import { useNavigate } from 'react-router-dom';
 // import CarouselSlider from "../deals/CarouselSlider.jsx";
 
-const TopRakeBackOffers = () => {
+const TopCashbackOffers = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="container-fluid RakeBackTopOffers">
+      <div className="container-fluid cashbackTopOffers">
         <div className="container">
           <div className="row">
             <div className="col-lg-12 text-center">
@@ -44,4 +44,4 @@ const TopRakeBackOffers = () => {
   );
 };
 
-export default TopRakeBackOffers;
+export default TopCashbackOffers;

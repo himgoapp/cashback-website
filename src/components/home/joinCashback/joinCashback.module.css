@@ -1,15 +1,15 @@
-.join_rakeback_container_wrapper {
+.join_cashback_container_wrapper {
 	display: flex;
 	justify-content: center;
 	padding-block: 4rem;
 	margin-top: -100px;
 }
-.join_rakeback_container {
+.join_cashback_container {
 	width: 100%;
 	display: flex;
 	justify-content: center;
 }
-.join_rakeback_container .join_wrapper {
+.join_cashback_container .join_wrapper {
 	position: relative;
 	width: 100%;
 	display: flex;
@@ -63,11 +63,11 @@
 	flex-shrink: 0;
 }
 @media only screen and (max-width: 768px) {
-	.join_rakeback_container_wrapper {
+	.join_cashback_container_wrapper {
 		padding-top: 3rem;
 		padding-bottom: 3rem;
 	}
-	.join_rakeback_container .join_wrapper {
+	.join_cashback_container .join_wrapper {
 		padding: 4rem 0.625rem;
 	}
 
@@ -99,7 +99,7 @@
 	}
 }
 @media only screen and (max-width: 768px) {
-	.join_rakeback_container_wrapper {
+	.join_cashback_container_wrapper {
 	margin-top: -70px;
 	}
 }

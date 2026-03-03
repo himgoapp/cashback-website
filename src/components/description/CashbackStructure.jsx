@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "./rakeback_structure.module.css";
+import styles from "./cashback_structure.module.css";
 
-const RakeBackStructure = () => {
+const CashbackStructure = () => {
 	const LoyalityProgram = [{
 		line1: "Minimum requirements for minimum rake have increased - now you need to earn at least 10,000 rubles  (previously 5,000 rubles)",
 line2: "You can get up to 70% cashback maximum (was 67%)",
@@ -31,8 +31,8 @@ line4:"On average, cashback has become either 1-2% more or 5-7% less (depending 
 		{ limit: '500/1000 RUB', player2: '200 RUB', player3to4: '300 RUB' , player5plus:'400 RUB'},  
 		{ limit: '750/1500 RUB', player2: '200 RUB', player3to4: '300 RUB' , player5plus:'400 RUB'},  
 		{ limit: '1000/2000 RUB', player2: '250 RUB', player3to4: '350 RUB' , player5plus:'500 RUB' ,},  
-    {currency: 'Tables with currency tenge (KZT)', pokerCurrencyAmt:'1 000 KZT',},
-{pokerName:'Chinese Shopping',pokerAmt:'1,500 RUB'},
+    {currency: 'Tables with currency tenge (KZT)', shoppingCurrencyAmt:'1 000 KZT',},
+{shoppingName:'Chinese Shopping',shoppingAmt:'1,500 RUB'},
 
 	];
 
@@ -42,12 +42,12 @@ line4:"On average, cashback has become either 1-2% more or 5-7% less (depending 
     <div class={styles.diamond}></div>
   </div>
 	<div >
-	<font className={styles.container_heading}>Rake to Pokerdom</font></div><div class={styles.divider}>
+	<font className={styles.container_heading}>Rake to Shoppingdom</font></div><div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
     <div >
     <p className={styles.loyality__para} >
-    Pokerdom takes $0.01 ruble rake for every 0.20 rubles in the pot, which actually means 5% rake. Depending on the limit and the number of players at the table, the rake cap will vary, which is detailed in the table below.
+    Shoppingdom takes $0.01 ruble rake for every 0.20 rubles in the pot, which actually means 5% rake. Depending on the limit and the number of players at the table, the rake cap will vary, which is detailed in the table below.
 </p>
 <p className={styles.loyality__para}>
 In Chinese shopping, the rake is taken once, after a full round of hands has been dealt.
@@ -65,9 +65,9 @@ In Chinese shopping, the rake is taken once, after a full round of hands has bee
   </tr>
   {data.map((item) => (
 <tr>
-    <td className={styles.table_data}>{item.limit} {item.currency}{item.pokerName}</td>
+    <td className={styles.table_data}>{item.limit} {item.currency}{item.shoppingName}</td>
     <td className={styles.table_data_points}>{item.player2}</td>
-    <td className={styles.table_data}>{item.player3to4}{item.shopping}{item.pokerCurrencyAmt}{item.pokerAmt}</td>
+    <td className={styles.table_data}>{item.player3to4}{item.shopping}{item.shoppingCurrencyAmt}{item.shoppingAmt}</td>
     <td className={styles.table_data}>{item.player5plus}
      
     </td>
@@ -84,7 +84,7 @@ In Chinese shopping, the rake is taken once, after a full round of hands has bee
     <div class={styles.diamond}></div>
   </div>
 <div>
-<font  className={styles.container_heading2}>Rake on Pokerdom</font></div>
+<font  className={styles.container_heading2}>Rake on Shoppingdom</font></div>
 <div class={styles.divider}>
     <div class={styles.diamond}></div>
   </div>
@@ -94,7 +94,7 @@ In Chinese shopping, the rake is taken once, after a full round of hands has bee
     Let's consider all options for receiving additional cashback in the room, in addition to participating in the loyalty program. 
     </p>
     <li className={styles.loyality__para}>
-    You can receive cashback at Pokerdom in several ways:
+    You can receive cashback at Shoppingdom in several ways:
     </li>
     <li className={styles.loyality__para}>
     Advancing through the levels of the “Time Machine” loyalty program, depending on the rake you accumulate, will allow you to receive up to 70% cashback. 
@@ -114,7 +114,7 @@ In Chinese shopping, the rake is taken once, after a full round of hands has bee
   </div>
 <div>
     <font  className={styles.container_heading2}>
-    Conditions for receiving bonuses on Pokerdom
+    Conditions for receiving bonuses on Shoppingdom
     </font>
 </div>
 <div class={styles.divider}>
@@ -147,5 +147,5 @@ The money is credited to the bonus balance and will be converted into real money
 	);
 };
 
-export default RakeBackStructure;
+export default CashbackStructure;
 

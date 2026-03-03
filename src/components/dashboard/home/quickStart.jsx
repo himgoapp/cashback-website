@@ -47,7 +47,7 @@
 // 									</div>
 // 								</div>
 // 								<Link
-// 									to='/dashboard/pokerid'
+// 									to='/dashboard/shoppingid'
 // 									style={{ color: "white", textDecoration: "none" }}
 // 									className='primary_button small'
 // 								>

@@ -34,7 +34,7 @@ function HowGetStarted() {
 
     return (
          <>
-            <div className="container-fluid RakebackGetStarted">
+            <div className="container-fluid CashbackGetStarted">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12 text-center GetStartedhead">

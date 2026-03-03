@@ -140,7 +140,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount, onBalanceUpdate }) => {
                     <>
                       <p
                         style={{
-                          color: "#FF7A1A",
+                          color: "#1A73E8",
                           fontSize: "16px",
                           margin: "12px 0 0px 0",
                         }}
@@ -156,7 +156,7 @@ const WithdrawPopUp = ({ setShowWithdraw, maxAmount, onBalanceUpdate }) => {
                         >
                           <path
                             d="M7.64258 0.283691C11.863 0.283955 15.2842 3.70582 15.2842 7.92627C15.2842 12.1467 11.863 15.5686 7.64258 15.5688C3.42197 15.5688 0 12.1469 0 7.92627C0 3.70566 3.42197 0.283691 7.64258 0.283691ZM6.72559 10.6167V12.2671H8.43652V10.6167H6.72559ZM6.84766 3.34131V9.479H8.31445V3.34131H6.84766Z"
-                            fill="#FF7A1A"
+                            fill="#1A73E8"
                           />
                         </svg>
                         Amount exceed wallet balance

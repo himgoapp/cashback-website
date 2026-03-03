@@ -40,7 +40,7 @@ width: 360px;
 }
 
 .redText {
-  color: #FF7A1A;
+  color: #1A73E8;
 }
 
 .subtitle {
@@ -65,7 +65,7 @@ line-height: 24px;
   background-color: #ffffff;
   border-radius: 8px;
   padding: 0;
-   border: 0.6px solid #FF7A1A;
+   border: 0.6px solid #1A73E8;
   box-sizing: border-box;
 }
 
@@ -74,7 +74,7 @@ line-height: 24px;
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  color: #FF7A1A;
+  color: #1A73E8;
   margin-right: 5px;
 }
 
@@ -177,7 +177,7 @@ right: 8px
 
 .moreQuestionsContainer {
   text-align: center;
-  border: 0.5px solid #FF7A1A;
+  border: 0.5px solid #1A73E8;
   border-radius: 8px;
   width: 361px;
   height: 48px;
@@ -192,7 +192,7 @@ right: 8px
   font-size: 16px;
   font-weight: 700;
   margin-top: 12px;
-  color: #FF7A1A;
+  color: #1A73E8;
   line-height: 22px;
   cursor: pointer;
   width: 100%;
@@ -209,10 +209,10 @@ right: 8px
   display: flex;
   align-items: center;
   gap: 10px;
-  border: 0.5px solid #FF7A1A;
+  border: 0.5px solid #1A73E8;
   border-radius: 12px;
   background: #fff;
-  color: #FF7A1A;
+  color: #1A73E8;
   font-weight: 300;
   height: 52px;
   width: 171px;

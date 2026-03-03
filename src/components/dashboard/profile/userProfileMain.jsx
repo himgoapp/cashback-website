@@ -2,11 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import DashboardHomeHeader from "../home/dashHomeHeader";
 import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardMain from "../../../layout/dashboardMain";
-// import NewPoker from "./newPoker";
-// import PokerCardsContainer from "./pokerCard/PokerCardsContainer";
+// import NewShopping from "./newShopping";
+// import ShoppingCardsContainer from "./shoppingCard/ShoppingCardsContainer";
 import { userInfoFxn } from "../../../servicefile/dashboardservice";
 import { UserContext } from "../../../App";
-import { PokerIcon } from "../../../utils/dashboardMainHeadersIcon";
+import { ShoppingIcon } from "../../../utils/dashboardMainHeadersIcon";
 import UserProfile from "./userProfile";
 import { profileIcon } from "../../../utils/dashboardMainHeadersIcon";
 const UserProfileMain = () => {

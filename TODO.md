@@ -1,33 +1,37 @@
-# TODO - Static React Application Conversion
+# TODO: Transform Poker/Casino Platform to Clean E-commerce
 
-## Phase 1: Core Data & API Cleanup ✅
-- [x] 1. Create src/data/mockUserData.js with static JSON data
-- [x] 2. Update src/utils/api.js - Comment out Axios interceptors
+## Analysis Summary:
+- Current colors are already mostly aligned with requirements:
+  - Primary Blue: #0052CC ✓
+  - Highlight color now uses navbar blue #1A73E8 ✓
+  - Background: #FFFFFF ✓
+- Font: Sora/Inter already set ✓
+- Cards have clean design already ✓
 
-## Phase 2: Authentication & Routes ✅
-- [x] 3. Update src/helperFxns/protectedRoute.jsx - Use localStorage isAuth flag
+## Tasks:
 
-## Phase 3: App Context & State ✅
-- [x] 4. Update src/App.js - Initialize UserContext with mock data
+### 1. Update Slidernew.jsx - Replace Poker content with Shopping deals
+- [ ] Replace poker titles like "Pokebazzi" with generic shopping store names
+- [ ] Update descriptions from betting language to shopping language
+- [ ] Change "Bet $1+" to shopping offers
 
-## Phase 4: Dashboard Components ✅
-- [x] 5. Update src/components/dashboard/home/homemain.jsx - Use mock data
-- [x] 6. Update src/components/dashboard/pokerID/pokerCard/PokerCardsContainer.jsx - Uses context data
-- [x] 7. Update src/components/dashboard/home/withdraw.jsx - Show success message locally
+### 2. Update TopOffers Component Styling
+- [ ] Clean up card headers (already clean - uses gradient background)
+- [ ] Ensure border-radius is 8-12px (already done)
+- [ ] Update button styles to "Grab Deal"
 
-## Phase 5: Store ID Feature ✅
-- [x] 8. Update VerifyAccount component - Add localStorage user_accounts feature
+### 3. Update Deal Card Component
+- [ ] Ensure "Learn More" is used (already done)
 
-## Phase 6: Deal & Transaction Logic ✅
-- [x] 9. Implement Grab Deal button with toast and window.open
-- [x] 10. Verify all functionality works with local data
+### 4. Review and update any remaining poker references
+- [ ] Check for any "Play Now", "Join Table" buttons
+- [ ] Replace with "Grab Deal" or "Shop Now"
 
-## Completed:
-- [x] Created mockUserData.js with user, wallet, and transaction data
-- [x] Updated api.js to use mock API (no Axios calls)
-- [x] Updated protectedRoute.jsx to use isAuth flag
-- [x] Updated App.js to initialize context with mock data
-- [x] Updated homemain.jsx to use mock data
-- [x] Updated withdraw.jsx to show success message locally
-- [x] Updated verifyInfoContainer.jsx with Store ID feature
-- [x] Updated cardContainer.jsx with Grab Deal button logic
+### 5. Icon Updates
+- [ ] Verify shopping icons are used (Tag, ShoppingBag, etc.)
+
+## Files to Edit:
+1. src/components/home/offers/Slidernew.jsx
+2. src/components/home/offers/topOffers.module.css
+3. src/components/home/deals/deal_card.jsx
+4. src/components/offerAndDeal/cards/card.jsx (already has Grab Deal)

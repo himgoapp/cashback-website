@@ -43,7 +43,7 @@ const DashboardFooter = ({ active }) => {
                 alignItems: "center",
               }}
               aria-label="Rooms"
-              href="/dashboard/pokerid"
+              href="/dashboard/shoppingid"
             >
               <svg
                 width="24"

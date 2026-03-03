@@ -4,7 +4,7 @@ import styles from "./faq.module.css";
 import Reveal from "../../common/reveal/Reveal";
 import FaqContainer from "./FaqContainer";
 import bank from "../../../assets/bank.svg";
-import cashback from "../../../assets/rackback.svg";
+import cashback from "../../../assets/cashback.svg";
 import legal from "../../../assets/legal.svg";
 import myaccount from "../../../assets/myaccount.svg";
 import promotions from "../../../assets/promotions.svg";
@@ -13,7 +13,7 @@ import rewards from "../../../assets/reward.svg";
 import unfair from "../../../assets/unfair.svg";
 const tabs = [
   { id: 1, title: "LEGALITY, GAMEPLAY & TECHNICAL", icon: legal, path: "/faq/legal" },
-  { id: 2, title: "RAKEBACK.COM", icon: cashback, path: "/faq/cashback" },
+  { id: 2, title: "cashback.com", icon: cashback, path: "/faq/cashback" },
   { id: 3, title: "MY ACCOUNT", icon:myaccount, path: "/faq/account" },
   { id: 4, title: "BANKING", icon: bank, path: "/faq/banking" },
   { id: 5, title: "RESPONSIBLE GAMING", icon: responsible, path: "/faq/responsible" },

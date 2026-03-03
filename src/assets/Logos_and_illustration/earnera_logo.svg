@@ -1,0 +1,30 @@
+<svg width="240" height="70" viewBox="0 0 240 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <linearGradient id="earneraGrad" x1="0" y1="0" x2="60" y2="60">
+      <stop offset="0%" stop-color="#1A73E8"></stop>
+      <stop offset="100%" stop-color="#22C55E"></stop>
+    </linearGradient>
+  </defs>
+
+  <!-- Tilted Rounded Background -->
+  <rect x="5" y="5" width="60" height="60" rx="16" fill="url(#earneraGrad)" transform="rotate(-8 35 35)"></rect>
+
+  <!-- Stylized E -->
+  <path d="M20 28 H42
+           M20 36 H35
+           M20 44 H42" stroke="white" stroke-width="4" stroke-linecap="round"></path>
+
+  <!-- Curved Arrow -->
+  <path d="M28 25
+           C40 25, 46 32, 46 32
+           L40 28
+           M46 32
+           L40 36" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path>
+
+  <!-- Brand Text -->
+  <text x="80" y="45" font-family="Montserrat, sans-serif" font-size="30" font-weight="600" fill="#1F2937">
+    Earn<tspan fill="#1A73E8">Era</tspan>
+  </text>
+
+</svg>

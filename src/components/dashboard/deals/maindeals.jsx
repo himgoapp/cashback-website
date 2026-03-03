@@ -4,7 +4,7 @@ import DashboardMainTopBottom from "../../../layout/dashboardMainTopBottom";
 import DashboardMain from "../../../layout/dashboardMain";
 import { UserContext } from "../../../App";
 import { DealsIcon } from "../../../utils/sideBarIcon";
-import ACRPoker from "../../../assets/ACRPoker.png";
+import ACRShopping from "../../../assets/ACRPoker.png";
 
 const DealsMain = () => {
   //   const [getInfos, setGetInfos] = useState(false);
@@ -21,10 +21,10 @@ const DealsMain = () => {
           <div className="HottestDealschild">
             <div className="deal-card ">
               <div className="deal-image">
-                <img src={ACRPoker} />
+                <img src={ACRShopping} />
               </div>
               <div className="HottestDealsDesc">
-                <div className="card-subtitle">Pokerbazzi</div>
+                <div className="card-subtitle">Shoppingbazzi</div>
                 <div className="card-title">
                   Experience the Serenity of Ja...
                 </div>
@@ -35,10 +35,10 @@ const DealsMain = () => {
             </div>
             <div className="deal-card ">
               <div className="deal-image">
-                <img src={ACRPoker} />
+                <img src={ACRShopping} />
               </div>
               <div className="HottestDealsDesc">
-                <div className="card-subtitle">Pokerbazzi</div>
+                <div className="card-subtitle">Shoppingbazzi</div>
                 <div className="card-title">
                   Experience the Serenity of Ja...
                 </div>
@@ -49,10 +49,10 @@ const DealsMain = () => {
             </div>
             <div className="deal-card ">
               <div className="deal-image">
-                <img src={ACRPoker} />
+                <img src={ACRShopping} />
               </div>
               <div className="HottestDealsDesc">
-                <div className="card-subtitle">Pokerbazzi</div>
+                <div className="card-subtitle">Shoppingbazzi</div>
                 <div className="card-title">
                   Experience the Serenity of Ja...
                 </div>
@@ -63,10 +63,10 @@ const DealsMain = () => {
             </div>
             <div className="deal-card ">
               <div className="deal-image">
-                <img src={ACRPoker} />
+                <img src={ACRShopping} />
               </div>
               <div className="HottestDealsDesc">
-                <div className="card-subtitle">Pokerbazzi</div>
+                <div className="card-subtitle">Shoppingbazzi</div>
                 <div className="card-title">
                   Experience the Serenity of Ja...
                 </div>
@@ -77,10 +77,10 @@ const DealsMain = () => {
             </div>
             <div className="deal-card ">
               <div className="deal-image">
-                <img src={ACRPoker} />
+                <img src={ACRShopping} />
               </div>
               <div className="HottestDealsDesc">
-                <div className="card-subtitle">Pokerbazzi</div>
+                <div className="card-subtitle">Shoppingbazzi</div>
                 <div className="card-title">
                   Experience the Serenity of Ja...
                 </div>
@@ -91,10 +91,10 @@ const DealsMain = () => {
             </div>
             <div className="deal-card ">
               <div className="deal-image">
-                <img src={ACRPoker} />
+                <img src={ACRShopping} />
               </div>
               <div className="HottestDealsDesc">
-                <div className="card-subtitle">Pokerbazzi</div>
+                <div className="card-subtitle">Shoppingbazzi</div>
                 <div className="card-title">
                   Experience the Serenity of Ja...
                 </div>
@@ -105,10 +105,10 @@ const DealsMain = () => {
             </div>
             <div className="deal-card ">
               <div className="deal-image">
-                <img src={ACRPoker} />
+                <img src={ACRShopping} />
               </div>
               <div className="HottestDealsDesc">
-                <div className="card-subtitle">Pokerbazzi</div>
+                <div className="card-subtitle">Shoppingbazzi</div>
                 <div className="card-title">
                   Experience the Serenity of Ja...
                 </div>
@@ -119,10 +119,10 @@ const DealsMain = () => {
             </div>
             <div className="deal-card ">
               <div className="deal-image">
-                <img src={ACRPoker} />
+                <img src={ACRShopping} />
               </div>
               <div className="HottestDealsDesc">
-                <div className="card-subtitle">Pokerbazzi</div>
+                <div className="card-subtitle">Shoppingbazzi</div>
                 <div className="card-title">
                   Experience the Serenity of Ja...
                 </div>
@@ -141,7 +141,7 @@ const DealsMain = () => {
             </div>
             <div className="deal-card ">
               <div className="deal-image">
-                <img src={ACRPoker} />
+                <img src={ACRShopping} />
               </div>
               <div className="HottestDealsDesc">
                 <div className="card-title">
